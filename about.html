@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PG4ZJ7W444');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | EmpoweringEngineers.uk</title>
@@ -25,31 +23,54 @@
         body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
         .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
-        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
-        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
         
         .container { max-width: 800px; width: 100%; }
-        .content-card { background: var(--dark-card); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .content-card { background: var(--dark-card); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 20px; }
         
         h1 { color: var(--terminal-green); font-family: 'Courier Prime', monospace; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
         h2 { color: var(--burnt-orange); margin-top: 30px; font-size: 1.2rem; }
         p { line-height: 1.6; color: #d1d5db; margin-bottom: 15px; }
         
+        /* FOUNDER SECTION STYLES */
+        .founder-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--terminal-green);
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .founder-role { font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .founder-name { font-size: 1.2rem; font-weight: bold; color: var(--cloud-white); line-height: 1.4; display: block; margin-bottom: 10px; }
+        .linkedin-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #0077b5; /* LinkedIn Blue */
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .linkedin-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
         footer { margin-top: auto; color: var(--slate-grey); font-size: 0.8rem; text-align: center; padding-top: 40px; }
         footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
+        footer a:hover { color: var(--terminal-green); }
     </style>
 </head>
 <body>
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-	<nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
-		<a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-		<a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-		<a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-		<a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-		<a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-		<a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-		<a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-	</nav>
+    
+    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
+        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
+        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
+        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
+        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
+        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
+        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
+        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
+    </nav>
 
     <div class="container">
         <div class="content-card">
@@ -62,19 +83,24 @@
             <h2>Our Solution</h2>
             <p>We provide a suite of "terminal-grade" digital tools that structure your thinking. From the <strong>STAR Engine</strong> to the <strong>Ethics Compass</strong>, our tools break down the UK-SPEC requirements into manageable, data-driven steps.</p>
 
-            <h2>Transparency & Quality</h2>
-            <p>We are committed to high-quality, original content. Our tools function client-side to ensure privacy, and we adhere to strict editorial standards to ensure all advice aligns with standard engineering ethics and best practices.</p>
+            <div class="founder-box">
+                <span class="founder-role">>> LEAD DEVELOPER & FOUNDER</span>
+                <span class="founder-name">EUR ING Murat Islam CEng IntPE(UK) FIMechE</span>
+                <p style="margin-top:10px; font-size:0.95rem;">
+                    As a practicing engineer, I built these tools to solve the frustrations I faced during my own development journey. This platform is built <em>by</em> engineers, <em>for</em> engineers, ensuring strict adherence to industry standards and ethics.
+                </p>
+                <a href="https://www.linkedin.com/in/muratislam/" target="_blank" class="linkedin-btn">Connect on LinkedIn</a>
+            </div>
         </div>
     </div>
 
-	<footer>
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
-    <p>
-        <a href="about.html">About Us</a> | 
-        <a href="contact.html">Contact Us</a> | 
-        <a href="privacy.html">Privacy Policy</a>
-    </p>
-	</footer>
-	
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
 </body>
 </html>
