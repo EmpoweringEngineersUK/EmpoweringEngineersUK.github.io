@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR Reviewer | Empowering Engineers</title>
+    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #FF9F43; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6;
+            --dark-card: rgba(255, 255, 255, 0.05);
+            --border-color: #1F3A52;
+            --alert-red: #ff4757;
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; display: block; text-align: center; }
+        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .site-brand:hover { opacity: 0.8; }
+
+        .breadcrumb { width: 100%; max-width: 900px; margin-bottom: 20px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: var(--slate-grey); text-align: center; }
+        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; font-weight: bold; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        #ee-star-engine {
+            color: var(--cloud-white);
+            line-height: 1.6;
+            background-color: var(--dark-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        #ee-star-engine h2 { font-family: 'Lora', serif; color: var(--cloud-white); border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-size: 2rem; }
+        #ee-star-engine h3 { font-family: 'Lora', serif; color: var(--terminal-green); margin-top: 0; font-size: 1.1rem; }
+        #ee-star-engine p { font-size: 0.95rem; color: var(--slate-grey); }
+
+        .ee-guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); }
+        
+        .ee-example-box { background: rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid var(--terminal-green); font-size: 0.9rem; margin-bottom: 15px; }
+        .ee-example-label { font-weight: 700; color: var(--burnt-orange); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+
+        .ee-textarea { 
+            width: 100%; height: 250px; padding: 15px; 
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color); 
+            color: white;
+            font-family: 'Roboto', sans-serif; font-size: 1rem; border-radius: 4px; box-sizing: border-box; transition: 0.3s; 
+        }
+        .ee-textarea:focus { border-color: var(--terminal-green); outline: none; }
+
+        .ee-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; flex-wrap: wrap; gap: 10px; }
+        .ee-word-count { font-weight: 700; color: var(--slate-grey); background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid var(--border-color); }
+
+        .ee-action-btn { 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; padding: 12px 30px; 
+            font-weight: 700; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: 0.3s; 
+        }
+        .ee-action-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .ee-alert-box { background: rgba(255, 71, 87, 0.1); border-left: 5px solid var(--alert-red); padding: 15px; margin-bottom: 20px; display: none; border-radius: 4px; color: #ffcccb; }
+        
+        .ee-results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 25px; }
+        
+        .ee-comp-card { 
+            padding: 15px; 
+            border: 1px solid var(--border-color); border-left-width: 6px; 
+            background: rgba(0,0,0,0.3); 
+            border-radius: 4px; 
+        }
+        .comp-A { border-left-color: #28a197; } .comp-B { border-left-color: #1d70b8; } .comp-C { border-left-color: #4c2d92; } .comp-D { border-left-color: #f47738; } .comp-E { border-left-color: #d4351c; }
+
+        .ee-keyword-tag { display: inline-block; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; margin: 3px; border: 1px solid var(--slate-grey); color: var(--cloud-white); font-weight: 700; }
+        
+        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
+        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
+        footer a:hover { color: var(--terminal-green); }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+    <nav class="breadcrumb">
+        <a href="index.html">System Portal</a> &gt; <span>STAR Reviewer</span>
+    </nav>
+
+    <div id="ee-star-engine">
+        <h2>Professional STAR Reviewer</h2>
+        <p>Analyze your competency statements against UK-SPEC standards.</p>
+        
+        <div class="ee-guide-grid">
+            <div><h3>Writing for IEng/CEng</h3><p>Your evidence must demonstrate <strong>personal accountability</strong>. Avoid passive language.</p></div>
+            <div><div class="ee-example-box"><span class="ee-example-label">Strong Evidence Example</span><p>"I <strong>diagnosed</strong> the root cause... I <strong>negotiated</strong> the scope..."</p></div></div>
+        </div>
+        <p style="margin-bottom: 10px; font-weight: 500;">Paste your draft below to check for UK-SPEC Keywords & British English:</p>
+        <div id="spellingAlert" class="ee-alert-box"><strong>⚠️ British English & Weak Word Corrections:</strong><ul id="spellingList" style="margin-top: 5px; padding-left: 20px;"></ul></div>
+        <textarea id="starInput" class="ee-textarea" oninput="updateWordCount()" placeholder="Paste your full competency draft here to begin analysis..."></textarea>
+        <div class="ee-controls"><button class="ee-action-btn" onclick="processSTAR()">Analyse Statement</button><div class="ee-word-count">Words: <span id="wordCountText">0</span></div></div>
+        <div id="resultsArea" class="ee-results-grid"></div>
+    </div>
+    <footer>
+        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
+    </footer>
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        
+        // --- SMART LINK: CHECK FOR INCOMING DATA ---
+        window.onload = function() {
+            const incomingText = localStorage.getItem('starTransferData');
+            if (incomingText) {
+                document.getElementById('starInput').value = incomingText;
+                updateWordCount();
+                processSTAR(); // Auto-run analysis
+                localStorage.removeItem('starTransferData'); // Clean up memory
+            }
+        };
+
+        function updateWordCount() {
+            const text = document.getElementById('starInput').value.trim();
+            const count = text ? text.split(/\s+/).length : 0;
+            document.getElementById('wordCountText').innerText = count;
+        }
+        const usSuffixes = ['ize', 'ized', 'izing', 'izat', 'yze', 'yzed', 'yzing'];
+        const ukStems = { 'util': 'utilise', 'organ': 'organise', 'special': 'specialise', 'optim': 'optimise', 'priorit': 'prioritise', 'recogn': 'recognise', 'central': 'centralise', 'standard': 'standardise', 'anal': 'analyse', 'author': 'authorise', 'maxim': 'maximise', 'visual': 'visualise' };
+        const specificUSWords = { 'modeling': 'modelling', 'modeled': 'modelled', 'program': 'programme', 'center': 'centre', 'centered': 'centred', 'behavior': 'behaviour', 'defense': 'defence', 'judgment': 'judgement', 'labor': 'labour', 'aluminum': 'aluminium', 'check': 'verify/validate (Stronger)', 'helped': 'facilitated (Stronger)', 'worked on': 'engineered (Stronger)' };
+        const competencies = [
+            { id: 'A', name: 'A: Knowledge', desc: 'Tech & Theory', keys: { 'analys': 'Analysed', 'evaluat': 'Evaluated', 'calculat': 'Calculated', 'diagnos': 'Diagnosed', 'theory': 'Applied Theory', 'math': 'Mathematics', 'physics': 'Physics', 'simulat': 'Simulated', 'converge': 'Converged' } },
+            { id: 'B', name: 'B: Application', desc: 'Design & Build', keys: { 'design': 'Designed', 'specify': 'Specified', 'construct': 'Constructed', 'commission': 'Commissioned', 'test': 'Tested', 'solution': 'Engineered Solution', 'mesh': 'Meshed', 'validat': 'Validated', 'voc': 'Defined VOC' } },
+            { id: 'C', name: 'C: Leadership', desc: 'Mgmt & Quality', keys: { 'manag': 'Managed', 'lead': 'Led', 'plan': 'Planned', 'budget': 'Budgeted', 'procur': 'Procured', 'quality': 'QA/QC', 'qfd': 'QFD' } },
+            { id: 'D', name: 'D: Communication', desc: 'Interpersonal', keys: { 'present': 'Presented', 'report': 'Reported', 'negotiat': 'Negotiated', 'stakehold': 'Stakeholder Mgmt' } },
+            { id: 'E', name: 'E: Ethics/Safety', desc: 'Safety/Sustainability', keys: { 'safe': 'Safety (H&S)', 'risk': 'Risk Assessment', 'ethic': 'Ethical', 'sustain': 'Sustainability', 'carbon': 'Net Zero', 'factor': 'Safety Factor' } }
+        ];
+        function processSTAR() {
+            const text = document.getElementById('starInput').value;
+            const lowerText = text.toLowerCase();
+            const resultsArea = document.getElementById('resultsArea');
+            const spellAlert = document.getElementById('spellingAlert');
+            const spellList = document.getElementById('spellingList');
+            resultsArea.innerHTML = ''; spellList.innerHTML = ''; spellAlert.style.display = 'none';
+            let foundIssues = [];
+            for (const [stem, ukFull] of Object.entries(ukStems)) { usSuffixes.forEach(suffix => { const usWord = stem + suffix; if (new RegExp(`\\b${usWord}\\b`, 'gi').test(lowerText)) foundIssues.push(`🇬🇧 Change US "<strong>${usWord}</strong>" to British "<strong>${stem}is...</strong>"`); }); }
+            for (const [us, uk] of Object.entries(specificUSWords)) { if (new RegExp(`\\b${us}\\b`, 'gi').test(lowerText)) foundIssues.push(uk.includes('Stronger') ? `💪 Weak Word: "<strong>${us}</strong>" -> Try "<strong>${uk}</strong>"` : `🇬🇧 Change "<strong>${us}</strong>" to "<strong>${uk}</strong>"`); }
+            if (foundIssues.length > 0) { [...new Set(foundIssues)].forEach(msg => { const li = document.createElement('li'); li.innerHTML = msg; spellList.appendChild(li); }); spellAlert.style.display = 'block'; }
+            let matchCount = 0;
+            competencies.forEach(comp => {
+                const matchedLabels = [];
+                for (const [stem, label] of Object.entries(comp.keys)) { if (lowerText.includes(stem)) matchedLabels.push(label); }
+                if (matchedLabels.length > 0) {
+                    matchCount++;
+                    const card = document.createElement('div'); card.className = `ee-comp-card comp-${comp.id}`;
+                    const uniqueTags = [...new Set(matchedLabels)];
+                    const tags = uniqueTags.map(label => `<span class="ee-keyword-tag">${label}</span>`).join('');
+                    card.innerHTML = `<strong>${comp.name}</strong><p style="font-size: 0.8rem; margin: 5px 0; color: #555;">${comp.desc}</p><div>${tags}</div>`;
+                    resultsArea.appendChild(card);
+                }
+            });
+            if (matchCount === 0 && text.length > 10) resultsArea.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--slate-grey); padding: 20px; border: 1px dashed var(--slate-grey); border-radius: 4px;"><p><strong>No UK-SPEC keywords detected.</strong></p></div>`;
+        }
+    </script>
+</body>
+</html>

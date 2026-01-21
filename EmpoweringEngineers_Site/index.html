@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Portal | EmpoweringEngineers.uk</title>
+    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #E57200; --cloud-white: #FAFAFA; --slate-grey: #8899A6; }
+        body { background-color: var(--midnight-navy); color: var(--cloud-white); margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Roboto', sans-serif; }
+        .terminal-window { max-width: 650px; width: 90%; padding: 20px; }
+        h1 { font-family: 'Lora', serif; font-size: 3rem; margin-bottom: 5px; line-height: 1.1; color: var(--cloud-white); }
+        .highlight { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        p.console-line { color: var(--slate-grey); font-family: 'Courier Prime', monospace; font-size: 1.1rem; border-bottom: 1px solid #1F3A52; padding-bottom: 15px; margin-bottom: 30px; }
+        .nav-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; animation: fadeIn 2s ease-in forwards; opacity: 0; }
+        .nav-card { background: rgba(255, 255, 255, 0.05); border: 1px solid #1F3A52; padding: 20px; border-radius: 4px; text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-family: 'Courier Prime', monospace; }
+        .nav-card:hover { border-color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); transform: translateX(5px); }
+        .nav-title { color: var(--terminal-green); font-weight: bold; font-size: 1.1rem; }
+        .nav-desc { color: #8899A6; font-size: 0.85rem; margin-top: 5px; display: block; }
+        .nav-status { color: var(--burnt-orange); font-size: 0.8rem; }
+        @keyframes fadeIn { 100% { opacity: 1; } }
+        footer { margin-top: 50px; color: #4A5568; font-size: 0.75rem; font-family: sans-serif; text-align: center; }
+        footer a { color: #4A5568; text-decoration: underline; margin: 0 5px; }
+        footer a:hover { color: var(--terminal-green); }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-window">
+        <h1>Empowering<span class="highlight">Engineers</span>.uk</h1>
+        <p class="console-line">> System_Portal_Active...</p>
+
+        <div class="nav-grid">
+            <a href="report_tool.html" class="nav-card">
+                <div>
+                    <span class="nav-title">>> Technical Report Architect</span>
+                    <span class="nav-desc">Generate Professional Engineering report outlines.</span>
+                </div>
+                <span class="nav-status">[v9.3]</span>
+            </a>
+
+            <a href="STAR_engine.html" class="nav-card">
+                <div>
+                    <span class="nav-title">>> STAR Engine</span>
+                    <span class="nav-desc">Draft evidence using the STAR method.</span>
+                </div>
+                <span class="nav-status">[v2.3]</span>
+            </a>
+
+            <a href="STAR_reviewer.html" class="nav-card">
+                <div>
+                    <span class="nav-title">>> STAR Reviewer</span>
+                    <span class="nav-desc">Map evidence against UK-SPEC competencies.</span>
+                </div>
+                <span class="nav-status">[v2.3]</span>
+            </a>
+
+            <a href="interview_tool.html" class="nav-card">
+                <div>
+                    <span class="nav-title">>> Virtual Interviewer</span>
+                    <span class="nav-desc">Interactive CEng/IEng Mock Assessment.</span>
+                </div>
+                <span class="nav-status">[v1.1]</span>
+            </a>
+
+            <a href="feedback_tool.html" class="nav-card">
+                <div>
+                    <span class="nav-title">>> Feedback Studio</span>
+                    <span class="nav-desc">Structure coaching & performance conversations.</span>
+                </div>
+                <span class="nav-status">[v1.0]</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
