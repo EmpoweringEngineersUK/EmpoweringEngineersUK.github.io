@@ -119,10 +119,16 @@
         <div class="ee-controls"><button class="ee-action-btn" onclick="processSTAR()">Analyse Statement</button><div class="ee-word-count">Words: <span id="wordCountText">0</span></div></div>
         <div id="resultsArea" class="ee-results-grid"></div>
     </div>
-    <footer>
-        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
-    </footer>
+
+	<footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+    <p>
+        <a href="about.html">About Us</a> | 
+        <a href="contact.html">Contact Us</a> | 
+        <a href="privacy.html">Privacy Policy</a>
+    </p>
+	</footer>
+	
     <script>
         document.getElementById('year').innerText = new Date().getFullYear();
         

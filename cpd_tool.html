@@ -3,70 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPD Gap Analyzer | Empowering Engineers</title>
+    <title>CPD Gap Analyzer | EmpoweringEngineers.uk</title>
+    
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #FF9F43; --cloud-white: #FAFAFA; --slate-grey: #8899A6; --dark-card: rgba(255, 255, 255, 0.05); --border-color: #1F3A52; }
-        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
-        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
-        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #FF9F43; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6; 
+            --dark-card: rgba(255, 255, 255, 0.05); 
+            --border-color: #1F3A52; 
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .site-brand { 
+            text-decoration: none; 
+            font-family: 'Lora', serif; 
+            font-size: 2rem; 
+            color: var(--cloud-white); 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+        }
+        .site-brand span { 
+            color: var(--terminal-green); 
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+        }
+
+        .breadcrumb { 
+            margin-bottom: 30px; 
+            font-family: 'Courier Prime', monospace; 
+            color: var(--slate-grey); 
+            font-size: 0.9rem; 
+        }
         .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
 
         .container { max-width: 900px; width: 100%; }
-        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 20px; }
-        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
 
-        .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .slider-label { width: 40%; font-weight: bold; color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
-        .slider-input { width: 60%; accent-color: var(--terminal-green); cursor: pointer; }
+        /* PROFILE SECTION */
+        .card { 
+            background: var(--dark-card); 
+            padding: 30px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 20px; 
+        }
+
+        h2 { 
+            border-bottom: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            font-family: 'Courier Prime', monospace; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        label { display: block; margin-bottom: 5px; color: var(--burnt-orange); font-weight: bold; font-size: 0.9rem; }
         
-        .action-btn { background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 1rem; margin-top: 10px; transition: 0.3s; }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+        select:focus { outline: none; border-color: var(--terminal-green); }
+
+        /* SLIDERS */
+        .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .slider-label { width: 45%; font-family: 'Courier Prime', monospace; font-size: 0.95rem; }
+        .slider-input { width: 55%; accent-color: var(--terminal-green); cursor: pointer; }
+
+        .action-btn { 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; 
+            padding: 15px; 
+            width: 100%; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            font-size: 1rem; 
+            margin-top: 10px; 
+            transition: 0.3s; 
+        }
         .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        .results-box { display: none; margin-top: 20px; }
-        .plan-item { background: rgba(0,0,0,0.3); padding: 20px; border-left: 4px solid var(--terminal-green); margin-bottom: 15px; }
-        .plan-title { font-weight: bold; color: var(--cloud-white); font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .plan-70 { color: var(--terminal-green); display: block; margin-top: 10px; font-size: 0.9rem; }
-        .plan-20 { color: var(--burnt-orange); display: block; margin-top: 5px; font-size: 0.9rem; }
-        .plan-10 { color: var(--slate-grey); display: block; margin-top: 5px; font-size: 0.9rem; }
+        /* RESULTS */
+        .results-box { display: none; margin-top: 20px; animation: fadeIn 0.5s ease-in; }
+        
+        .plan-item { 
+            background: rgba(0,0,0,0.3); 
+            padding: 20px; 
+            border-left: 4px solid var(--terminal-green); 
+            margin-bottom: 15px; 
+        }
+        
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .plan-title { font-weight: bold; color: var(--cloud-white); font-size: 1.1rem; }
+        .plan-score { color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
+
+        .plan-70 { color: var(--terminal-green); display: block; margin-top: 10px; font-size: 0.95rem; }
+        .plan-20 { color: var(--burnt-orange); display: block; margin-top: 8px; font-size: 0.95rem; }
+        .plan-10 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; }
+        
+        .tag { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 10px; vertical-align: middle; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
+        
+        @media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
     <div class="breadcrumb"><a href="index.html">System Portal</a> &gt; CPD Gap Analyzer</div>
 
     <div class="container">
+        
         <div class="card">
-            <h2>Self-Assessment (0% - 100%)</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">Rate your current evidence level for each UK-SPEC category.</p>
+            <h2>1. Profile Configuration</h2>
+            <div class="profile-grid">
+                <div>
+                    <label>Registration Goal</label>
+                    <select id="regLevel">
+                        <option value="IEng">IEng (Incorporated Engineer)</option>
+                        <option value="CEng" selected>CEng (Chartered Engineer)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Current Role</label>
+                    <select id="jobRole">
+                        <option value="Junior">Junior / Graduate Engineer</option>
+                        <option value="Senior">Senior Engineer</option>
+                        <option value="Lead">Lead / Principal Engineer</option>
+                        <option value="Manager">Engineering Manager</option>
+                        <option value="TeamLead">Team Leader</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Industry</label>
+                    <select id="industry">
+                        <option value="General">General / Manufacturing</option>
+                        <option value="Aerospace">Aerospace & Defence</option>
+                        <option value="Automotive">Automotive</option>
+                        <option value="Marine">Marine / Naval</option>
+                        <option value="OilGas">Oil & Gas / Process</option>
+                        <option value="Civil">Civil / Construction</option>
+                        <option value="Rail">Rail / Transport</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Main Discipline</label>
+                    <select id="discipline">
+                        <option value="Mech">Mechanical</option>
+                        <option value="Elec">Electrical / Electronic</option>
+                        <option value="Civil">Civil / Structural</option>
+                        <option value="Software">Software / Systems</option>
+                        <option value="Materials">Materials / Chemical</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2>2. Self-Assessment</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">Rate your current evidence level (0% = No Evidence, 100% = Fully Competent).</p>
             
-            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" min="0" max="100" value="40"></div>
             <div class="slider-row"><span class="slider-label">B: Application to Practice</span><input type="range" id="valB" min="0" max="100" value="50"></div>
-            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" min="0" max="100" value="50"></div>
-            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" min="0" max="100" value="50"></div>
-            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" min="0" max="100" value="30"></div>
+            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" min="0" max="100" value="60"></div>
+            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" min="0" max="100" value="45"></div>
             
-            <button class="action-btn" onclick="generatePlan()">Generate Development Action Plan (DAP)</button>
+            <button class="action-btn" onclick="generatePlan()">Generate Tailored Action Plan</button>
         </div>
 
         <div id="results" class="results-box">
-            <h2>Your 70:20:10 Action Plan</h2>
+            <h2>Your 70:20:10 Development Plan</h2>
             <div id="planContainer"></div>
         </div>
+
     </div>
 
-    <footer>&copy; <span id="year"></span> Empowering Engineers UK</footer>
-
+	<footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+    <p>
+        <a href="about.html">About Us</a> | 
+        <a href="contact.html">Contact Us</a> | 
+        <a href="privacy.html">Privacy Policy</a>
+    </p>
+	</footer>
+	
     <script>
         document.getElementById('year').innerText = new Date().getFullYear();
 
+        // --- DATABASE OF ADVICE ---
+        const cpdData = {
+            // CATEGORY A: KNOWLEDGE
+            A: {
+                generic: {
+                    p70: "Lead a root-cause analysis using First Principles to solve a recurring technical failure.",
+                    p20: "Find a mentor within the institution who is a Subject Matter Expert in this theory.",
+                    p10: "Complete a technical module or read a seminal paper on this specific theory."
+                },
+                Software: {
+                    p70: "Refactor a legacy codebase to apply modern architectural patterns (e.g., Microservices).",
+                    p20: "Code review sessions with a Principal Architect.",
+                    p10: "Complete a certification in Cloud Architecture (AWS/Azure)."
+                },
+                Civil: {
+                    p70: "Undertake complex structural calculations for a non-standard load case.",
+                    p20: "Attend a specific Institution of Civil Engineers (ICE) lecture on geotechnics.",
+                    p10: "Study the Eurocodes specific to seismic or wind loading."
+                },
+                CEng: "Focus on developing NEW methodologies or expanding the limits of current technology.",
+                IEng: "Focus on applying EXISTING technology and standards to improve efficiency."
+            },
+
+            // CATEGORY B: APPLICATION
+            B: {
+                generic: {
+                    p70: "Manage a project from concept to commissioning, ensuring all validation steps are logged.",
+                    p20: "Shadow the commissioning/testing team to see how your designs perform in the field.",
+                    p10: "Study the specific ISO/BS standards relevant to your product lifecycle."
+                },
+                Aerospace: {
+                    p70: "Lead a specific verification activity for airworthiness compliance (EASA/FAA).",
+                    p20: "Discuss compliance matrices with the Chief Engineer.",
+                    p10: "Course on Systems Engineering (V-Model) specific to Aerospace."
+                },
+                OilGas: {
+                    p70: "Lead the technical input for a plant modification or brownfield upgrade.",
+                    p20: "Join a 'Lunch & Learn' on flow assurance or process safety.",
+                    p10: "Study API standards relevant to pressure vessel design."
+                }
+            },
+
+            // CATEGORY C: LEADERSHIP
+            C: {
+                Junior: {
+                    p70: "Volunteer to supervise a summer intern or apprentice for a 3-month project.",
+                    p20: "Request feedback from your manager specifically on your delegation style.",
+                    p10: "Read 'The 7 Habits of Highly Effective People' or similar foundational leadership books."
+                },
+                Manager: {
+                    p70: "Lead a strategic review of departmental resources and propose a budget for next year.",
+                    p20: "Engage a professional executive coach or mentor outside your direct reporting line.",
+                    p10: "Complete a 'Finance for Non-Financial Managers' qualification."
+                },
+                generic: {
+                    p70: "Take ownership of a small sub-project, managing schedule, budget, and risks.",
+                    p20: "Interview a Project Manager about how they handle scope creep.",
+                    p10: "Take a LinkedIn Learning course on Project Management Fundamentals (PMP/Prince2)."
+                }
+            },
+
+            // CATEGORY D: COMMUNICATION
+            D: {
+                generic: {
+                    p70: "Present your next project update to a purely non-technical audience (Sales/HR/Finance).",
+                    p20: "Ask a colleague from a different department to review your report for jargon.",
+                    p10: "Join a public speaking group (e.g., Toastmasters) or present at a local school."
+                },
+                Senior: {
+                    p70: "Lead a high-stakes negotiation with a client or supplier regarding a contract variation.",
+                    p20: "Peer review technical papers for a conference or journal.",
+                    p10: "Advanced course on Negotiation Skills or Conflict Resolution."
+                }
+            },
+
+            // CATEGORY E: ETHICS & SAFETY
+            E: {
+                OilGas: {
+                    p70: "Participate in (or scribe for) a HAZOP or LOPA study.",
+                    p20: "Discuss a recent process safety incident (e.g., Deepwater Horizon) with the H&S lead.",
+                    p10: "Study the ATEX directives or COMAH regulations."
+                },
+                Civil: {
+                    p70: "Review a Construction Phase Plan to ensure compliance with CDM 2015 regulations.",
+                    p20: "Site walk-around with the Safety Officer focusing on temporary works.",
+                    p10: "Formal training on CDM 2015 Principal Designer duties."
+                },
+                Automotive: {
+                    p70: "Conduct a Functional Safety audit compliant with ISO 26262.",
+                    p20: "Review FMEA (Failure Mode Effects Analysis) with the quality team.",
+                    p10: "Study the ethical implications of autonomous driving algorithms."
+                },
+                generic: {
+                    p70: "Conduct a formal Risk Assessment (RAMS) for an upcoming non-standard task.",
+                    p20: "Discuss a specific ethical dilemma (e.g., sustainability vs cost) with a senior mentor.",
+                    p10: "Read the Royal Academy of Engineering 'Statement of Ethical Principles'."
+                }
+            }
+        };
+
         function generatePlan() {
-            const vals = {
+            // 1. Get Inputs
+            const level = document.getElementById('regLevel').value; // IEng or CEng
+            const role = document.getElementById('jobRole').value; // Junior, Senior, Manager...
+            const industry = document.getElementById('industry').value; 
+            const discipline = document.getElementById('discipline').value;
+            
+            const scores = {
                 A: parseInt(document.getElementById('valA').value),
                 B: parseInt(document.getElementById('valB').value),
                 C: parseInt(document.getElementById('valC').value),
@@ -78,33 +351,69 @@
             container.innerHTML = "";
             document.getElementById('results').style.display = "block";
 
-            let count = 0;
+            // 2. Loop through Categories
+            const categories = [
+                { id: 'A', name: 'Knowledge & Understanding' },
+                { id: 'B', name: 'Design & Application' },
+                { id: 'C', name: 'Leadership & Management' },
+                { id: 'D', name: 'Communication & Interpersonal' },
+                { id: 'E', name: 'Professional Conduct (Safety/Ethics)' }
+            ];
 
-            const advice = {
-                A: { t: "Gap: A - Technical Knowledge", p70: "70% (Do): Ask to be assigned a task requiring First Principles analysis or FEA/CFD.", p20: "20% (Network): Find a mentor who is a Subject Matter Expert in this theory.", p10: "10% (Learn): Complete a specific university module or technical course." },
-                B: { t: "Gap: B - Application & Solution", p70: "70% (Do): Lead the implementation of a new design or process improvement on site.", p20: "20% (Network): Shadow the commissioning team to see how designs perform in reality.", p10: "10% (Learn): Study the relevant ISO/BS standards for your product." },
-                C: { t: "Gap: C - Leadership", p70: "70% (Do): Volunteer to manage a budget, a contractor, or a junior engineer.", p20: "20% (Network): Request feedback from your manager on your delegation style.", p10: "10% (Learn): Take a 'Finance for Non-Financial Managers' course." },
-                D: { t: "Gap: D - Communication", p70: "70% (Do): Present your next project update to a non-technical audience (e.g., Sales/HR).", p20: "20% (Network): Ask a colleague to review your next technical report for clarity.", p10: "10% (Learn): Join Toastmasters or a public speaking workshop." },
-                E: { t: "Gap: E - Ethics & Safety", p70: "70% (Do): Lead a Risk Assessment (RAMS) or conduct a Safety Audit.", p20: "20% (Network): Discuss a recent 'near miss' with the H&S Manager.", p10: "10% (Learn): Read the RAEng Statement of Ethical Principles." }
-            };
+            let gapFound = false;
 
-            for(let key in vals) {
-                if(vals[key] < 60) {
-                    count++;
-                    const item = advice[key];
-                    container.innerHTML += `
+            categories.forEach(cat => {
+                // Only show plan if score is below 80%
+                if(scores[cat.id] < 80) {
+                    gapFound = true;
+                    
+                    // --- LOGIC ENGINE ---
+                    let adviceSet = { p70: "", p20: "", p10: "" };
+                    const db = cpdData[cat.id];
+
+                    // Priority 1: Check if there is specific advice for this Discipline or Industry
+                    if (db[discipline]) {
+                        adviceSet = db[discipline];
+                    } else if (db[industry]) {
+                        adviceSet = db[industry];
+                    } else if (db[role] && cat.id === 'C') { 
+                        // For Leadership (C), Role is the most important filter
+                        adviceSet = db[role];
+                    } else if (role === 'Manager' && cat.id === 'C') {
+                        adviceSet = db['Manager'];
+                    } else if (role === 'Junior' && cat.id === 'C') {
+                        adviceSet = db['Junior'];
+                    } else if (role === 'Senior' && cat.id === 'D') {
+                        adviceSet = db['Senior'];
+                    } else {
+                        // Fallback to generic
+                        adviceSet = db['generic'];
+                    }
+
+                    // Modifier: CEng vs IEng text injection
+                    let levelNote = "";
+                    if(cat.id === 'A' && db[level]) {
+                        levelNote = ` <br><em style="color:#8899A6; font-size:0.85rem;">(Note for ${level}: ${db[level]})</em>`;
+                    }
+
+                    // --- RENDER CARD ---
+                    const html = `
                         <div class="plan-item">
-                            <span class="plan-title">${item.t} (Score: ${vals[key]}%)</span>
-                            <span class="plan-70">>> ${item.p70}</span>
-                            <span class="plan-20">>> ${item.p20}</span>
-                            <span class="plan-10">>> ${item.p10}</span>
+                            <div class="plan-header">
+                                <span class="plan-title">Gap ${cat.id}: ${cat.name} <span class="tag">${industry}</span></span>
+                                <span class="plan-score">Score: ${scores[cat.id]}%</span>
+                            </div>
+                            <span class="plan-70"><strong>70% (Experience):</strong> ${adviceSet.p70}${levelNote}</span>
+                            <span class="plan-20"><strong>20% (Social):</strong> ${adviceSet.p20}</span>
+                            <span class="plan-10"><strong>10% (Formal):</strong> ${adviceSet.p10}</span>
                         </div>
                     `;
+                    container.innerHTML += html;
                 }
-            }
+            });
 
-            if(count === 0) {
-                container.innerHTML = `<div class="plan-item" style="border-color:var(--terminal-green)"><span class="plan-title">Strong Profile!</span><p style="color:white;">Your self-assessment indicates strong competence across all areas. Focus on maintaining your CPD and mentoring others (Competence D).</p></div>`;
+            if(!gapFound) {
+                container.innerHTML = `<div class="plan-item" style="border-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Excellent Profile!</span></div><p style="color:white;">Your self-assessment indicates strong competence (>80%) across all areas. Focus on maintaining your CPD and mentoring others (Competence D).</p></div>`;
             }
         }
     </script>

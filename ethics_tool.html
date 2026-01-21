@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethics Compass | Empowering Engineers</title>
+    
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #FF9F43; --cloud-white: #FAFAFA; --slate-grey: #8899A6; --dark-card: rgba(255, 255, 255, 0.05); --border-color: #1F3A52; }
-        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #FF9F43; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6; 
+            --dark-card: rgba(255, 255, 255, 0.05); 
+            --border-color: #1F3A52; 
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+
         .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
         .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
         .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
@@ -17,20 +40,47 @@
         
         .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
-        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
         
-        textarea { width: 100%; height: 120px; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; border-radius: 6px; font-family: 'Roboto', sans-serif; resize: vertical; margin-bottom: 20px; font-size: 1rem; box-sizing: border-box; }
-        textarea:focus { border-color: var(--terminal-green); outline: none; }
-        
+        h2 { 
+            border-bottom: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            font-family: 'Courier Prime', monospace; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+
+        /* INPUTS */
+        label { display: block; margin-bottom: 5px; color: var(--burnt-orange); font-weight: bold; font-size: 0.85rem; }
+        select, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--border-color); 
+            color: white; 
+            border-radius: 4px; 
+            font-family: 'Roboto', sans-serif; 
+            margin-bottom: 15px; 
+            box-sizing: border-box;
+        }
+        select:focus, textarea:focus { outline: none; border-color: var(--terminal-green); }
+        textarea { height: 100px; resize: vertical; }
+
+        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+
+        /* BUTTONS */
         .principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .principle-btn { background: transparent; border: 1px solid var(--slate-grey); color: var(--slate-grey); padding: 15px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.3s; text-align: left; }
         .principle-btn:hover, .principle-btn.active { border-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); }
         .principle-btn strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
 
-        .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 300px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; }
-        .badge { display: inline-block; background: var(--burnt-orange); color: var(--midnight-navy); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 15px; }
+        /* OUTPUT */
+        .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 400px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; position: relative; }
+        .section-header { color: var(--burnt-orange); font-weight: bold; margin-top: 20px; display: block; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px; }
 
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
+        
         @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -40,16 +90,45 @@
 
     <div class="container">
         <div class="card">
-            <h2>1. Define The Dilemma</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:15px;">Describe the conflict (e.g., "The client wants to use a cheaper material that is technically compliant but has a lower lifespan than recommended.")</p>
-            <textarea id="dilemmaInput" placeholder="Type your ethical scenario here..."></textarea>
+            <h2>1. Context Setup</h2>
+            <div class="profile-grid">
+                <div>
+                    <label>Registration Level</label>
+                    <select id="regLevel">
+                        <option value="IEng">IEng (Incorporated)</option>
+                        <option value="CEng">CEng (Chartered)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Current Role</label>
+                    <select id="role">
+                        <option value="Junior">Junior / Graduate</option>
+                        <option value="Senior">Senior Engineer</option>
+                        <option value="Manager">Manager / Lead</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Industry</label>
+                    <select id="industry">
+                        <option value="General">General Engineering</option>
+                        <option value="Civil">Civil & Construction</option>
+                        <option value="Aerospace">Aerospace & Safety Critical</option>
+                        <option value="Software">Software & Data</option>
+                        <option value="OilGas">Energy & Process</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>The Dilemma</label>
+            <p style="color:var(--slate-grey); font-size:0.8rem; margin-top:0;">Describe the conflict (e.g., "Pressure to cut testing time due to budget").</p>
+            <textarea id="dilemmaInput" placeholder="Type your scenario here..."></textarea>
             
-            <h2>2. Apply RAEng Principle</h2>
+            <h2>2. Select RAEng Principle</h2>
             <div class="principle-grid">
-                <button class="principle-btn" onclick="analyze('integrity')"><strong>Honesty & Integrity</strong><span style="font-size:0.8rem">Rejecting bribery, declaring conflicts, truthfulness.</span></button>
-                <button class="principle-btn" onclick="analyze('respect')"><strong>Respect for Life/Public</strong><span style="font-size:0.8rem">Safety, environment, and public good.</span></button>
-                <button class="principle-btn" onclick="analyze('accuracy')"><strong>Accuracy & Rigour</strong><span style="font-size:0.8rem">Not misleading, staying within competence.</span></button>
-                <button class="principle-btn" onclick="analyze('leadership')"><strong>Leadership</strong><span style="font-size:0.8rem">Listening, influencing, and upholding standards.</span></button>
+                <button class="principle-btn" onclick="analyze('integrity')"><strong>1. Honesty & Integrity</strong><span style="font-size:0.8rem">Bribery, conflicts of interest, truthfulness.</span></button>
+                <button class="principle-btn" onclick="analyze('respect')"><strong>2. Respect for Life</strong><span style="font-size:0.8rem">Safety, environment, public good.</span></button>
+                <button class="principle-btn" onclick="analyze('accuracy')"><strong>3. Accuracy & Rigour</strong><span style="font-size:0.8rem">Competence, not misleading, validation.</span></button>
+                <button class="principle-btn" onclick="analyze('leadership')"><strong>4. Leadership</strong><span style="font-size:0.8rem">Listening, influencing, culture.</span></button>
             </div>
         </div>
 
@@ -59,29 +138,108 @@
         </div>
     </div>
 
-    <footer>&copy; <span id="year"></span> Empowering Engineers UK</footer>
+	<footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+    <p>
+        <a href="about.html">About Us</a> | 
+        <a href="contact.html">Contact Us</a> | 
+        <a href="privacy.html">Privacy Policy</a>
+    </p>
+	</footer>
 
     <script>
         document.getElementById('year').innerText = new Date().getFullYear();
 
-        function analyze(type) {
-            const input = document.getElementById('dilemmaInput').value;
-            const out = document.getElementById('outputArea');
-            let text = "";
+        // --- CONTEXT DATABASE ---
+        const contextDB = {
+            Civil: {
+                regs: "CDM 2015 Regulations, Building Safety Act, ISO 14001 (Environment)",
+                risk: "public safety, structural failure, and environmental damage",
+                body: "ICE / IStructE"
+            },
+            Aerospace: {
+                regs: "EASA/FAA Airworthiness Directives, ISO 9001/AS9100, Safety Management Systems (SMS)",
+                risk: "catastrophic failure and loss of life (Safety Critical)",
+                body: "RAeS"
+            },
+            Software: {
+                regs: "GDPR (Data Protection), ISO 27001 (InfoSec), WCAG (Accessibility)",
+                risk: "data privacy breaches, algorithmic bias, and system downtime",
+                body: "BCS / IET"
+            },
+            OilGas: {
+                regs: "COMAH Regulations, ATEX/DSEAR, API Standards",
+                risk: "process safety events, containment failure, and ecological disaster",
+                body: "IMechE / IChemE"
+            },
+            General: {
+                regs: "Health & Safety at Work Act 1974, ISO 9001, Product Safety Standards",
+                risk: "operator safety, product liability, and professional negligence",
+                body: "IMechE / IET"
+            }
+        };
 
+        const roleAdvice = {
+            Junior: "As a Junior Engineer, your duty is to **escalate** this concern formally to your line manager. Do not attempt to resolve a systemic ethical breach alone. Document your objection in writing.",
+            Senior: "As a Senior Engineer, you are expected to **challenge** the decision. You must provide technical evidence to support your stance and refuse to sign off on work that violates standards.",
+            Manager: "As a Manager/Lead, you have a legal and moral duty to **protect** your team. You must authorize the necessary resources (time/money) to fix this and protect any whistleblowers."
+        };
+
+        function analyze(principle) {
+            const input = document.getElementById('dilemmaInput').value;
+            const regLevel = document.getElementById('regLevel').value;
+            const role = document.getElementById('role').value;
+            const industry = document.getElementById('industry').value;
+            
+            const out = document.getElementById('outputArea');
+            
             if(!input) { alert("Please describe your dilemma first."); return; }
 
-            if(type === 'integrity') {
-                text = `[PRINCIPLE: HONESTY & INTEGRITY]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nAs a professional engineer, I must uphold the highest standards of integrity. This situation challenges that by creating pressure to compromise on truthfulness or professional independence.\n\n**Action Plan:**\n1. Declare any potential Conflict of Interest immediately.\n2. Refuse to sign off on any work that I believe is misleading or biased.\n3. Document the pressure or decision trail in writing to ensure transparency.\n\n**Statement for Interview:**\n"I recognized that proceeding would violate the principle of Integrity. Despite the commercial pressure, I paused the work and formally raised my concerns in writing, prioritizing my professional reputation over short-term gain."`;
-            } else if (type === 'respect') {
-                text = `[PRINCIPLE: RESPECT FOR LIFE, LAW & PUBLIC GOOD]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nMy primary obligation is the safety and well-being of the public and the environment. This takes precedence over cost or schedule.\n\n**Action Plan:**\n1. Conduct a formal Risk Assessment (ALARP principle) to quantify the danger.\n2. Review relevant legislation (e.g., HSAWA, Environmental Protection Act) to ensure compliance.\n3. If the risk is unacceptable, I have a duty to warn the relevant authority.\n\n**Statement for Interview:**\n"Although the client accepted the risk, I determined that it compromised public safety. I applied the 'Safety-II' mindset—focusing on resilience—and proposed an alternative that met the safety requirement without significant delay."`;
-            } else if (type === 'accuracy') {
-                text = `[PRINCIPLE: ACCURACY & RIGOUR]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nEngineers must not mislead or allow others to be misled. I must ensure I am acting only within my area of competence.\n\n**Action Plan:**\n1. Verify all calculations and assumptions using a secondary method or peer review.\n2. Admit if this problem is outside my specific expertise and seek a specialist.\n3. Ensure all reports clearly state the limitations and confidence levels of the data.\n\n**Statement for Interview:**\n"I realized that the data relied on outdated assumptions. To ensure rigour, I refused to issue the report until we had performed a new validation test, ensuring the client did not make an investment decision based on bad data."`;
-            } else if (type === 'leadership') {
-                text = `[PRINCIPLE: LEADERSHIP & COMMUNICATION]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nLeadership involves listening to concerns and promoting public awareness of engineering impact.\n\n**Action Plan:**\n1. Engage with stakeholders who might be negatively affected, ensuring their voices are heard.\n2. Challenge poor behaviour in others, even if they are senior.\n3. Promote a culture where safety concerns can be raised without fear of reprisal.\n\n**Statement for Interview:**\n"I championed a 'Just Culture' within the team. Rather than blaming the technician for the error, I led a review of the process to prevent recurrence, demonstrating leadership by improving the system rather than punishing the individual."`;
-            }
+            const ctx = contextDB[industry];
+            const roleText = roleAdvice[role];
             
-            out.innerText = text;
+            let analysis = "";
+            let action = "";
+            let script = "";
+
+            // --- LOGIC ENGINE ---
+            if(principle === 'integrity') {
+                analysis = `The RAEng/Engineering Council guidelines state that you must act with integrity. In the **${industry}** sector, this often relates to accurate reporting and declaring conflicts of interest.\n\nFailing to address this could violate specific standards such as **${ctx.regs}**.`;
+                action = `1. **Declare:** If there is a commercial conflict, declare it in writing immediately.\n2. **Verify:** Refuse to sign any document that misrepresents the testing/validation status.\n3. **Record:** Keep a personal log of instructions given to you that felt unethical.`;
+                script = `"I recognized that proceeding in this way would compromise professional integrity. Despite the pressure to [deliver quickly/cut costs], I prioritized our obligation to [Client/Public Trust]. I formally raised a concern regarding compliance with **${ctx.regs}**, ensuring we did not mislead the stakeholder."`;
+            
+            } else if (principle === 'respect') {
+                analysis = `Your primary obligation is to the public good and the environment. In **${industry}**, the risks regarding **${ctx.risk}** are significant. This is not just an internal policy issue; it is a potential legal breach of **${ctx.regs}**.`;
+                action = `1. **Risk Assessment:** Perform a formal risk review (e.g., HAZOP/FMEA) to quantify the danger.\n2. **Legislation:** specific check against **${ctx.regs}** to prove non-compliance.\n3. **Whistleblowing:** If the immediate risk to life is ignored by management, you have a duty to inform the regulator or specific authority.`;
+                script = `"Although the project plan suggested this shortcut, I identified a risk to **${ctx.risk}**. Consistent with the principle of Respect for Life & Law, and adhering to **${ctx.regs}**, I insisted on a full review. I presented the data showing that the 'cost of safety' was far lower than the 'cost of failure'."`;
+
+            } else if (principle === 'accuracy') {
+                analysis = `Engineers must not mislead. You must ensure you are working within your competence. As a **${regLevel}**, you are expected to acknowledge the limits of your knowledge.`;
+                action = `1. **Validation:** Demand peer review or third-party verification of the data.\n2. **Competence:** If this is outside your expertise, formally request a Subject Matter Expert (SME).\n3. **Transparency:** Ensure all reports clearly state the assumptions and confidence intervals.`;
+                script = `"I realized that the data relied on unverified assumptions. To ensure Rigour, I refused to issue the final approval until we had performed **${industry === 'Software' ? 'regression testing' : 'physical validation'}**. This prevented a decision being made on flawed data."`;
+
+            } else if (principle === 'leadership') {
+                analysis = `Leadership is not just for managers. It implies listening to concerns and upholding the reputation of the profession. \n\n${roleText}`;
+                action = `1. **Culture:** Promote a 'Just Culture' where mistakes can be reported without fear.\n2. **Stakeholders:** actively seek the views of those affected (e.g., end-users, public).\n3. **Mentoring:** Use this as a teaching moment for junior staff on professional standards.`;
+                script = `"I championed a culture of transparency. Rather than burying the error, I led a 'Lessons Learned' session. I demonstrated Leadership by focusing on process improvement—referencing **${ctx.body}** best practice—rather than assigning blame."`;
+            }
+
+            // --- BUILD OUTPUT ---
+            const finalHTML = `
+                <span class="section-header">>> THE DILEMMA</span>
+                ${input}
+
+                <span class="section-header">>> CONTEXTUAL ANALYSIS (${industry} / ${regLevel})</span>
+                ${analysis}
+
+                <span class="section-header">>> RECOMMENDED ACTION PLAN (${role})</span>
+                ${action}
+
+                <span class="section-header">>> INTERVIEW / REPORT SCRIPT (STAR Method)</span>
+                <em style="color:#00FF99">${script}</em>
+            `;
+
+            out.innerHTML = finalHTML.replace(/\n/g, "<br>");
         }
     </script>
 </body>
