@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Report Architect | Empowering Engineers</title>
+    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #E57200; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6;
+            --dark-card: rgba(255, 255, 255, 0.05);
+            --border-color: #1F3A52;
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        /* BRANDING HEADER */
+        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; display: block; text-align: center; }
+        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .site-brand:hover { opacity: 0.8; }
+
+        .breadcrumb { width: 100%; max-width: 1200px; margin-bottom: 20px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: var(--slate-grey); text-align: center; }
+        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; font-weight: bold; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        /* AD SPACE */
+        .ad-banner { width: 100%; max-width: 1200px; height: 90px; background: rgba(255,255,255,0.02); margin-bottom: 30px; display: flex; align-items: center; justify-content: center; color: var(--slate-grey); font-size: 0.8rem; border-radius: 4px; border: 1px dashed var(--border-color); }
+
+        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; }
+        
+        .header { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
+        h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
+        p.subtitle { color: var(--slate-grey); margin-top: 0; }
+
+        /* CARDS */
+        .card { 
+            background: var(--dark-card); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color);
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        h2.card-title { font-size: 1.1rem; border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin-bottom: 20px; color: var(--terminal-green); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* INPUTS */
+        .input-group { margin-bottom: 15px; }
+        .input-text { 
+            width: 100%; padding: 10px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--border-color); 
+            color: white;
+            border-radius: 4px; 
+            font-family: 'Roboto', sans-serif; 
+            box-sizing: border-box; 
+        }
+        .input-text:focus { outline: none; border-color: var(--terminal-green); }
+
+        .preset-select { 
+            width: 100%; padding: 12px; 
+            background-color: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; border-radius: 6px; 
+            font-weight: bold; cursor: pointer; margin-bottom: 20px; 
+        }
+
+        .module-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 6px; 
+            max-height: 600px; overflow-y: auto; padding-right: 10px; 
+            border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; 
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .module-category { font-size: 0.85rem; color: var(--slate-grey); font-weight: bold; margin-top: 15px; margin-bottom: 5px; border-bottom: 1px solid var(--border-color); }
+        
+        .checkbox-label { display: flex; align-items: center; cursor: pointer; padding: 6px 10px; border-radius: 4px; transition: 0.2s; font-size: 0.95rem; color: var(--cloud-white); }
+        .checkbox-label:hover { background: rgba(255,255,255,0.1); }
+        input[type="checkbox"] { accent-color: var(--terminal-green); width: 16px; height: 16px; margin-right: 10px; }
+
+        /* PREVIEW AREA */
+        .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; flex-wrap: wrap; gap: 15px; }
+        .format-toggle { display: flex; gap: 15px; font-size: 0.9rem; font-weight: bold; color: var(--slate-grey); }
+        .radio-label { display: flex; align-items: center; cursor: pointer; }
+        .radio-label input { margin-right: 6px; accent-color: var(--terminal-green); }
+
+        .preview-box { 
+            background: #09121d; 
+            color: #e2e8f0; 
+            padding: 40px; 
+            border-radius: 8px; 
+            font-family: 'Courier Prime', monospace; 
+            white-space: pre-wrap; 
+            min-height: 600px; 
+            overflow-y: auto; 
+            font-size: 0.9rem; 
+            line-height: 1.6; 
+            border: 1px solid var(--border-color); 
+        }
+        
+        /* Visual mode simulates paper, so keep white */
+        .preview-box.visual-mode { background: white; color: black; font-family: Calibri, 'Segoe UI', sans-serif; white-space: normal; }
+        .visual-mode h1 { font-size: 24pt; color: #2F5496; margin-bottom: 24px; font-weight: 300; }
+        .visual-mode h2 { font-size: 16pt; color: #2F5496; margin-top: 24px; margin-bottom: 12px; font-weight: 400; border-bottom: 1px solid #ddd; }
+        .visual-mode h3 { font-size: 13pt; color: #1F3763; margin-top: 18px; margin-bottom: 8px; font-weight: 700; }
+        .visual-mode p { font-size: 11pt; line-height: 1.2; margin-bottom: 12px; }
+        .visual-mode .guidance { color: #555; font-style: italic; background: #f4f4f4; padding: 8px 12px; border-left: 4px solid #00FF99; margin-bottom: 15px; display: block; font-size: 10.5pt; }
+
+        .btn-action { 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; padding: 15px; 
+            width: 100%; font-weight: bold; border-radius: 6px; 
+            cursor: pointer; font-size: 1rem; margin-top: 20px; 
+            transition: 0.2s; text-transform: uppercase; 
+        }
+        .btn-action:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+
+        .btn-copy { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); }
+        .btn-copy:hover { background: var(--terminal-green); color: var(--midnight-navy); }
+        .btn-copy-small { padding: 8px 15px; font-size: 0.8rem; margin-top: 0; width: auto; }
+
+        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
+        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
+        footer a:hover { color: var(--terminal-green); }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+    <nav class="breadcrumb">
+        <a href="index.html">System Portal</a> &gt; <span>Technical Report Architect</span>
+    </nav>
+
+    <div class="header">
+        <h1>Technical Report Architect v9.2</h1>
+        <p class="subtitle">Expert Documentation Generator (IET / FEA / QFD)</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title">1. Configuration</h2>
+            <div class="input-group"><input type="text" id="reportTitle" class="input-text" placeholder="Report Title (e.g. FEA Analysis of Pressure Vessel)"></div>
+            <div class="input-group"><input type="text" id="authorName" class="input-text" placeholder="Author / Engineer Name"></div>
+            <label style="font-size:0.9rem; font-weight:bold; display:block; margin-bottom:5px; color:var(--slate-grey);">Load Preset Template:</label>
+            <select class="preset-select" id="presetSelector" onchange="applyPreset()">
+                <option value="custom">-- Select Report Type --</option>
+                <option value="iet_standard">IET Standard (Professional)</option>
+                <option value="academic">Academic Lab Report</option>
+                <option value="fea">FEA Simulation Report (SimuMech)</option>
+                <option value="qfd">QFD / House of Quality</option>
+                <option value="failure">Failure Analysis (RCA)</option>
+                <option value="design">Design Report / FEED</option>
+                <option value="project">Project Initiation (PID)</option>
+            </select>
+            <div class="module-grid">
+                <div class="module-category">FRONT MATTER</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_exec"> Executive Summary / Abstract</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_ack"> Acknowledgements</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_intro" checked> Introduction & Scope</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_lit"> Literature & Standards Review</label>
+                
+                <div class="module-category">QFD / DESIGN</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_voc"> Voice of the Customer (VOC)</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_hoq"> House of Quality Matrix</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_tech_reqs"> Technical Requirements (The "Hows")</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_design"> Design Description</label>
+
+                <div class="module-category">FEA / SIMULATION</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_geometry"> Model Geometry & Mesh</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_assumptions"> Assumptions & Material Data</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_boundary"> Boundary Conditions & Loads</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_results_fea"> FEA Results (Stress/Deform)</label>
+
+                <div class="module-category">GENERAL ENGINEERING</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_method"> Methodology / Procedure</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_results"> General Results / Findings</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_calcs"> Calculations & Modeling</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_failure"> Failure Analysis (RCA)</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_qc"> Quality Control (QA/QC)</label>
+
+                <div class="module-category">PROJECT & BUSINESS</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_pid"> Project Initiation (PID)</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_stakeholder"> Stakeholder Management</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_risk"> Risk Assessment (HSE)</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_timeline"> Timeline & Gantt</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_finance"> Financial Analysis</label>
+
+                <div class="module-category">BACK MATTER</div>
+                <label class="checkbox-label"><input type="checkbox" id="mod_discussion" checked> Discussion</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_conclusion" checked> Conclusions & Recommendations</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_refs" checked> References / Bibliography</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_appendices" checked> Appendices</label>
+            </div>
+            <button class="btn-action" onclick="generateReport()">Update Preview</button>
+        </div>
+        <div class="card">
+            <div class="output-header">
+                <h2 class="card-title" style="margin:0; border:none;">2. Structure Output</h2>
+                <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-action btn-copy btn-copy-small copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+                    <div class="format-toggle">
+                        <label class="radio-label"><input type="radio" name="format" value="markdown" checked onclick="generateReport()"> Markdown</label>
+                        <label class="radio-label"><input type="radio" name="format" value="html_code" onclick="generateReport()"> HTML Code</label>
+                        <label class="radio-label"><input type="radio" name="format" value="visual" onclick="generateReport()"> Visual (Word)</label>
+                    </div>
+                </div>
+            </div>
+            <div id="outputArea" class="preview-box">> Select modules or a preset to begin...</div>
+            <button class="btn-action btn-copy copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
+    </footer>
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        let sectionCounter = 1;
+        function safeCheck(id, shouldCheck) { const el = document.getElementById(id); if (el) el.checked = shouldCheck; }
+        
+        function applyPreset() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+            const type = document.getElementById('presetSelector').value;
+            
+            if (type === 'iet_standard') { 
+                ['mod_exec', 'mod_ack', 'mod_intro', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs', 'mod_appendices'].forEach(id => safeCheck(id, true)); 
+            }
+            else if (type === 'fea') {
+                ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_results_fea', 'mod_conclusion', 'mod_refs', 'mod_appendices'].forEach(id => safeCheck(id, true));
+            }
+            else if (type === 'qfd') {
+                ['mod_exec', 'mod_intro', 'mod_voc', 'mod_tech_reqs', 'mod_hoq', 'mod_results', 'mod_conclusion', 'mod_appendices'].forEach(id => safeCheck(id, true));
+            }
+            else if (type === 'academic') { 
+                ['mod_exec', 'mod_intro', 'mod_design', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'].forEach(id => safeCheck(id, true)); 
+            }
+            else if (type === 'failure') { 
+                ['mod_exec', 'mod_intro', 'mod_method', 'mod_failure', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'].forEach(id => safeCheck(id, true)); 
+            }
+            else if (type === 'design') { 
+                ['mod_exec', 'mod_intro', 'mod_design', 'mod_risk', 'mod_qc', 'mod_finance', 'mod_conclusion'].forEach(id => safeCheck(id, true)); 
+            }
+            else if (type === 'project') { 
+                ['mod_pid', 'mod_intro', 'mod_stakeholder', 'mod_timeline', 'mod_risk', 'mod_finance', 'mod_conclusion'].forEach(id => safeCheck(id, true)); 
+            }
+            generateReport();
+        }
+
+        function generateReport() {
+            sectionCounter = 1; 
+            const title = document.getElementById('reportTitle').value || "[REPORT TITLE]";
+            const author = document.getElementById('authorName').value || "[AUTHOR NAME]";
+            const date = new Date().toLocaleDateString('en-GB');
+            const mode = document.querySelector('input[name="format"]:checked').value;
+            const box = document.getElementById('outputArea');
+            if (mode === 'visual') box.classList.add('visual-mode'); else box.classList.remove('visual-mode');
+            
+            let content = "";
+            if (mode === 'markdown') { content += `TITLE: ${title}\nAUTHOR: ${author}\nDATE: ${date}\nSTATUS: DRAFT\n========================================================\n\n`; }
+            else { content += `<h1>${title}</h1>\n<p><strong>AUTHOR:</strong> ${author}<br><strong>DATE:</strong> ${date}<br><strong>STATUS:</strong> DRAFT</p>\n<hr>\n\n`; }
+            
+            function addSection(id, titleText, guidanceText, subpoints) {
+                const el = document.getElementById(id);
+                if (el && el.checked) {
+                    if (mode === 'markdown') {
+                        content += `${sectionCounter}.0 ${titleText}\n`;
+                        if(guidanceText) content += `> GUIDE: ${guidanceText}\n`;
+                        if(subpoints) subpoints.forEach((pt, idx) => { content += `    ${sectionCounter}.${idx + 1} ${pt}\n`; });
+                        content += `\n`;
+                    } else {
+                        content += `<h2>${sectionCounter}.0 ${titleText}</h2>\n`;
+                        if(guidanceText) content += `<div class="guidance">${guidanceText}</div>\n`;
+                        if(subpoints) { subpoints.forEach((pt, idx) => { content += `<h3>${sectionCounter}.${idx + 1} ${pt}</h3>\n<p>[Insert text...]</p>\n`; }); }
+                        else { content += `<p>[Insert text...]</p>\n`; }
+                    }
+                    sectionCounter++;
+                }
+            }
+
+            // --- STANDARD MODULES ---
+            addSection('mod_exec', 'EXECUTIVE SUMMARY', 'Summarize objectives, investigation, results, and key recommendations. Limit to 250 words.', ['Context', 'Key Findings', 'Recommendations']);
+            addSection('mod_ack', 'ACKNOWLEDGEMENTS', 'Acknowledge technical assistance or funding.', null);
+            addSection('mod_intro', 'INTRODUCTION', 'State objectives (what), motivation (why), and scope (how).', ['Background', 'Problem Statement', 'Scope & Limitations']);
+            addSection('mod_lit', 'LITERATURE REVIEW', 'Reference standards (ISO/BS/Eurocodes) and previous studies.', null);
+            
+            // --- QFD MODULES ---
+            addSection('mod_voc', 'VOICE OF THE CUSTOMER (VOC)', 'Detail how data was gathered (surveys/interviews). List requirements and Importance Ratings (1-5).', ['Methodology', 'Customer Requirements', 'Importance Ratings']);
+            addSection('mod_tech_reqs', 'TECHNICAL REQUIREMENTS', 'Measurable engineering specs that address customer needs. Indicate direction of improvement (maximize/minimize).', ['Design Characteristics', 'Target Values']);
+            addSection('mod_hoq', 'HOUSE OF QUALITY (HOQ)', 'Map relationships between "Whats" and "Hows". Identify correlations in the "Roof".', ['Relationship Matrix', 'Correlation Matrix', 'Technical Benchmarking']);
+
+            // --- FEA MODULES ---
+            addSection('mod_geometry', 'MODEL GEOMETRY & MESH', 'Describe the 3D model. Detail mesh type (structured/unstructured), element types (tet/hex), and refinement areas.', ['CAD Model Simplifications', 'Mesh Quality Metrics', 'Element Types']);
+            addSection('mod_assumptions', 'ASSUMPTIONS', 'List simplifications: Linearity, Isotropy, Load idealizations, Environmental factors.', null);
+            addSection('mod_boundary', 'BOUNDARY CONDITIONS & LOADS', 'Describe constraints (Fixed/Pinned) and Loads (Force/Pressure/Thermal). Use diagrams.', ['Constraints', 'Load Cases', 'Contact Conditions']);
+            addSection('mod_results_fea', 'FEA RESULTS', 'Present stress contour plots (Von Mises) and deformation. Highlight stress concentrations.', ['Stress Distribution', 'Displacement/Deformation', 'Factor of Safety']);
+
+            // --- ENGINEERING CORE ---
+            addSection('mod_design', 'DESIGN DESCRIPTION', 'Detail the development of the design. Use schematics.', null);
+            addSection('mod_method', 'METHODOLOGY', 'Describe how work was performed so it can be replicated.', null);
+            addSection('mod_results', 'RESULTS', 'Present data (tables/graphs). Do not interpret yet.', null);
+            addSection('mod_calcs', 'CALCULATIONS', 'Mathematical models and error propagation.', null);
+            addSection('mod_failure', 'FAILURE ANALYSIS', 'Incident description, evidence, and root cause hypothesis.', null);
+            addSection('mod_qc', 'QUALITY CONTROL', 'Inspection & Test Plans (ITP), Compliance Matrix.', null);
+
+            // --- PROJECT & BIZ ---
+            addSection('mod_pid', 'PROJECT INITIATION', 'SMART goals, deliverables, and governance.', null);
+            addSection('mod_stakeholder', 'STAKEHOLDER MANAGEMENT', 'Power/Interest map and communication plan.', null);
+            addSection('mod_risk', 'RISK ASSESSMENT', 'HSE risks (ALARP) and Project risks (Cost/Time).', null);
+            addSection('mod_finance', 'FINANCIAL ANALYSIS', 'CAPEX/OPEX, ROI, NPV.', null);
+
+            // --- CLOSING ---
+            addSection('mod_discussion', 'DISCUSSION', 'Interpret results. Compare with theory/standards.', null);
+            addSection('mod_conclusion', 'CONCLUSIONS', 'Briefly sum up essential findings against objectives.', null);
+            addSection('mod_refs', 'REFERENCES', 'Cite all sources (Harvard/APA).', null);
+            addSection('mod_appendices', 'APPENDICES', 'Raw data, detailed drawings, material datasheets.', null);
+
+            if (mode === 'visual') box.innerHTML = content; else box.innerText = content;
+        }
+
+        async function copyToClipboard() {
+            const mode = document.querySelector('input[name="format"]:checked').value;
+            const box = document.getElementById('outputArea');
+            const btns = document.querySelectorAll('.copy-btn');
+            if (mode === 'visual') {
+                const cleanContent = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Report</title><style>body{font-family:Calibri,sans-serif;font-size:11pt}h1{font-size:24pt;color:#2F5496}h2{font-size:16pt;color:#2F5496;margin-top:24px}h3{font-size:13pt;color:#1F3763;font-weight:bold;margin-top:18px}.guidance{color:#666;font-style:italic;background:#f0f0f0;padding:5px;border-left:3px solid #00FF99;margin-bottom:10px}</style></head><body>${box.innerHTML}</body></html>`;
+                try { const data = [new ClipboardItem({ "text/html": new Blob([cleanContent], { type: "text/html" }), "text/plain": new Blob([box.innerText], { type: "text/plain" }) })]; await navigator.clipboard.write(data); showSuccess(btns); } catch (err) { alert("Browser blocked rich copy. Please select text manually."); }
+            } else { const text = box.innerText; navigator.clipboard.writeText(text).then(() => showSuccess(btns)); }
+        }
+        function showSuccess(btns) { btns.forEach(btn => { const original = btn.innerText; btn.innerText = "COPIED!"; btn.style.background = "#00FF99"; setTimeout(() => { btn.innerText = original; btn.style.background = "var(--dark-card)"; }, 2000); }); }
+        window.onload = generateReport;
+    </script>
+</body>
+</html>

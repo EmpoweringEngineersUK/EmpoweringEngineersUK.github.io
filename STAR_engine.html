@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR Engine | Empowering Engineers</title>
+    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #FF9F43; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6;
+            --dark-card: rgba(255, 255, 255, 0.05);
+            --border-color: #1F3A52;
+            --warning: #ff4757;
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; display: block; text-align: center; }
+        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .site-brand:hover { opacity: 0.8; }
+
+        .breadcrumb { width: 100%; max-width: 1100px; margin-bottom: 20px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: var(--slate-grey); text-align: center; }
+        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; font-weight: bold; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        .container { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
+        
+        .header { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
+        h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
+        .subtitle { font-family: 'Courier Prime', monospace; color: var(--slate-grey); }
+
+        .card { 
+            background: var(--dark-card); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color);
+            height: fit-content; 
+        }
+
+        h2 { font-size: 1rem; border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin: 0 0 20px 0; color: var(--terminal-green); text-transform: uppercase; letter-spacing: 1px; }
+
+        .comp-selector { 
+            width: 100%; padding: 12px; 
+            background-color: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; border-radius: 6px; 
+            font-weight: bold; cursor: pointer; margin-bottom: 20px; 
+            font-family: 'Roboto', sans-serif; 
+        }
+
+        .star-section { margin-bottom: 20px; position: relative; }
+        .section-label { font-weight: bold; display: block; margin-bottom: 5px; font-size: 0.9rem; color: var(--cloud-white); }
+        .hint-text { font-size: 0.8rem; color: var(--slate-grey); margin-bottom: 8px; display: block; font-style: italic; }
+        
+        textarea { 
+            width: 100%; height: 100px; padding: 12px; 
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color); 
+            color: white;
+            border-radius: 6px; font-family: 'Roboto', sans-serif; box-sizing: border-box; resize: vertical; font-size: 0.95rem; transition: 0.2s; 
+        }
+        textarea:focus { border-color: var(--terminal-green); outline: none; box-shadow: 0 0 5px rgba(0, 255, 153, 0.2); }
+
+        .preview-box { 
+            background: #09121d; 
+            padding: 30px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            min-height: 500px; 
+        }
+        .preview-text { white-space: pre-wrap; line-height: 1.6; font-size: 1rem; color: var(--cloud-white); }
+        
+        .highlight-warning { background-color: rgba(255, 71, 87, 0.2); color: #ff6b81; padding: 0 4px; border-radius: 3px; font-weight: bold; cursor: help; text-decoration: underline dotted; }
+
+        .stats-bar { display: flex; gap: 15px; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--slate-grey); font-family: 'Courier Prime', monospace; }
+        .stat-item { flex: 1; text-align: center; }
+        .stat-val { font-weight: bold; color: var(--terminal-green); font-size: 1.1rem; display: block; }
+
+        /* BUTTON GROUP */
+        .btn-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        
+        .btn-action { 
+            background: transparent; 
+            border: 1px solid var(--terminal-green); color: var(--terminal-green); 
+            padding: 8px 15px; width: auto; font-weight: bold; border-radius: 6px; 
+            cursor: pointer; font-size: 0.8rem; transition: 0.2s; text-transform: uppercase; 
+            flex: 1;
+        }
+        .btn-action:hover { background: var(--terminal-green); color: var(--midnight-navy); }
+        
+        /* Specific style for the transfer button */
+        .btn-transfer { border-color: var(--burnt-orange); color: var(--burnt-orange); }
+        .btn-transfer:hover { background: var(--burnt-orange); color: var(--midnight-navy); }
+
+        .bias-meter { height: 6px; width: 100%; background: rgba(0,0,0,0.3); border-radius: 3px; margin-top: 5px; overflow: hidden; }
+        .bias-fill { height: 100%; background: var(--terminal-green); width: 0%; transition: 0.5s; }
+
+        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
+        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
+        footer a:hover { color: var(--terminal-green); }
+
+        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+    <nav class="breadcrumb">
+        <a href="index.html">System Portal</a> &gt; <span>STAR Engine</span>
+    </nav>
+
+    <div class="header"><h1>STAR Engine</h1><div class="subtitle">UK-SPEC Competency Builder (CEng / IEng)</div></div>
+    
+    <div class="container">
+        <div class="card">
+            <h2>1. Evidence Builder</h2>
+            <select class="comp-selector" id="competencyType" onchange="updateHints()">
+                <option value="gen">-- Select Competency Goal --</option>
+                <option value="A">A: Knowledge & Understanding (Theory/FEA)</option>
+                <option value="B">B: Application to Practice (Design/QFD)</option>
+                <option value="C">C: Leadership & Management (Team/Budget)</option>
+                <option value="D">D: Interpersonal Skills (Communication)</option>
+                <option value="E">E: Ethics, Safety & Sustainability</option>
+            </select>
+            <div class="star-section"><span class="section-label">SITUATION (approx. 10%)</span><span class="hint-text" id="hint-s">Set the scene. What was the project complexity?</span><textarea id="inputS" oninput="updatePreview()" placeholder="Example: During the Front End Engineering Design for the Alpha Platform..."></textarea></div>
+            <div class="star-section"><span class="section-label">TASK (approx. 10%)</span><span class="hint-text" id="hint-t">What was the specific challenge or technical constraint?</span><textarea id="inputT" oninput="updatePreview()" placeholder="Example: The client required a 15% reduction in structural weight while maintaining Eurocode compliance..."></textarea></div>
+            <div class="star-section"><span class="section-label" style="color:var(--terminal-green)">ACTION (approx. 60% - Crucial)</span><span class="hint-text" id="hint-a">What did YOU do? (e.g. 'I simulated...', 'I analyzed...').</span><textarea id="inputA" style="height: 150px; border-left: 3px solid var(--terminal-green);" oninput="updatePreview()" placeholder="Example: I conducted a Finite Element Analysis using Ansys... I calculated the load paths... I proposed a truss modification..."></textarea></div>
+            <div class="star-section"><span class="section-label">RESULT (approx. 20%)</span><span class="hint-text" id="hint-r">What was the outcome? Quantify success (Safety Factor, Cost).</span><textarea id="inputR" oninput="updatePreview()" placeholder="Example: This reduced material costs by £12k and the design was approved by the Senior Engineer..."></textarea></div>
+        </div>
+        
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 style="margin:0; border:none;">2. Live Preview</h2>
+            </div>
+            
+            <div class="btn-row">
+                <button class="btn-action" onclick="copyToClipboard()">Copy Text</button>
+                <button class="btn-action btn-transfer" onclick="sendToReviewer()">Analyze in Reviewer >></button>
+            </div>
+
+            <div class="preview-box"><div id="previewText" class="preview-text">Start typing to generate your competency statement...</div></div>
+            
+            <div class="stats-bar">
+                <div class="stat-item"><span class="stat-val" id="wordCount">0</span>Total Words</div>
+                <div class="stat-item"><span class="stat-val" id="weCount" style="color:var(--warning)">0</span>"We" Detected</div>
+                <div class="stat-item" style="flex:2; text-align:left; padding-left:15px;">Action Bias<div class="bias-meter"><div class="bias-fill" id="biasBar"></div></div></div>
+            </div>
+            
+            <div style="font-size:0.75rem; color:var(--slate-grey); margin-top:10px; text-align:center;">*Target: 50-70% of words should be in the 'Action' section.</div>
+            
+            <div style="margin-top: 20px; text-align: center; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <a href="https://www.engineeringcouncil.org.uk/" target="_blank" style="color:var(--burnt-orange); font-size:0.85rem; text-decoration:none;"> Need an official template? Check the Engineering Council site.</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        const hints = {
+            gen: { s: "Set the scene briefly. What was the project?", t: "What was the specific challenge or constraint?", a: "What did YOU do? (Avoid 'We'). Use active verbs.", r: "What was the outcome? Quantify if possible." },
+            A: { s: "Describe the technical complexity or simulation requirement.", t: "What engineering problem required first-principles or FEA?", a: "I analyzed... I simulated... I validated... I derived... I converged the mesh...", r: "Model converged? Safety factor verified?" },
+            B: { s: "Describe the design environment or system integration.", t: "What practical constraint (mesh quality, manufacturing, VOC) applied?", a: "I designed... I specified... I meshed... I applied QFD... I prototyped...", r: "Design Validated? Specification met?" },
+            C: { s: "Describe the team structure or project scope.", t: "What resource issue (QFD requirement) needed management?", a: "I prioritized... I led... I captured VOC... I planned...", r: "Customer satisfied? Project delivered?" },
+            D: { s: "Who were the difficult stakeholders or audience?", t: "What complex info needed communicating?", a: "I presented... I persuaded... I authored... I chaired...", r: "Stakeholders engaged? Approval granted?" },
+            E: { s: "What was the safety hazard or ethical dilemma?", t: "What regulation or moral obligation applied?", a: "I assessed risks... I applied safety factors... I mitigated...", r: "Accident prevented? Sustainable solution found?" }
+        };
+        
+        function updateHints() {
+            const type = document.getElementById('competencyType').value;
+            const h = hints[type] || hints.gen;
+            document.getElementById('hint-s').innerText = h.s; document.getElementById('hint-t').innerText = h.t; document.getElementById('hint-a').innerText = h.a; document.getElementById('hint-r').innerText = h.r;
+        }
+        
+        function updatePreview() {
+            const s = document.getElementById('inputS').value.trim(); const t = document.getElementById('inputT').value.trim(); const a = document.getElementById('inputA').value.trim(); const r = document.getElementById('inputR').value.trim();
+            let fullText = "";
+            if(s) fullText += `<strong>SITUATION:</strong>\n${s}\n\n`; if(t) fullText += `<strong>TASK:</strong>\n${t}\n\n`; if(a) fullText += `<strong>ACTION:</strong>\n${a}\n\n`; if(r) fullText += `<strong>RESULT:</strong>\n${r}`;
+            if(!fullText) fullText = "Start typing to generate your competency statement...";
+            document.getElementById('previewText').innerHTML = fullText.replace(/\b(we|us|our|team)\b/gi, '<span class="highlight-warning" title="Avoid collective terms. Use \'I\' for chartership.">$1</span>');
+            
+            const wordsA = a ? a.split(/\s+/).length : 0;
+            const total = (s+t+a+r).split(/\s+/).length;
+            document.getElementById('wordCount').innerText = total;
+            const matches = (s+t+a+r).match(/\b(we|us|our)\b/gi);
+            document.getElementById('weCount').innerText = matches ? matches.length : 0;
+            if(total > 0) {
+                const actionPerc = (wordsA / total) * 100;
+                const bar = document.getElementById('biasBar');
+                bar.style.width = `${actionPerc}%`;
+                if(actionPerc < 40) bar.style.background = "#ff4757"; else if(actionPerc > 80) bar.style.background = "#ffa502"; else bar.style.background = "#00FF99";
+            }
+        }
+        
+        function copyToClipboard() {
+            const plainText = `SITUATION:\n${document.getElementById('inputS').value}\n\nTASK:\n${document.getElementById('inputT').value}\n\nACTION:\n${document.getElementById('inputA').value}\n\nRESULT:\n${document.getElementById('inputR').value}`;
+            navigator.clipboard.writeText(plainText).then(() => { alert("Copied to clipboard!"); });
+        }
+
+        // SMART LINK FUNCTION
+        function sendToReviewer() {
+            const s = document.getElementById('inputS').value.trim();
+            const t = document.getElementById('inputT').value.trim();
+            const a = document.getElementById('inputA').value.trim();
+            const r = document.getElementById('inputR').value.trim();
+
+            if (!s && !t && !a && !r) {
+                alert("Please type some text first.");
+                return;
+            }
+
+            // Combine without HTML tags for the reviewer
+            const rawText = `SITUATION:\n${s}\n\nTASK:\n${t}\n\nACTION:\n${a}\n\nRESULT:\n${r}`;
+            
+            // Save to browser memory
+            localStorage.setItem('starTransferData', rawText);
+            
+            // Redirect to Reviewer Page
+            window.location.href = 'STAR_reviewer.html';
+        }
+    </script>
+</body>
+</html>
