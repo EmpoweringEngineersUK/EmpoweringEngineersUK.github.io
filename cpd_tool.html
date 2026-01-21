@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPD Gap Analyzer | Empowering Engineers</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #FF9F43; --cloud-white: #FAFAFA; --slate-grey: #8899A6; --dark-card: rgba(255, 255, 255, 0.05); --border-color: #1F3A52; }
+        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
+        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
+        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+
+        .container { max-width: 900px; width: 100%; }
+        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 20px; }
+        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
+
+        .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .slider-label { width: 40%; font-weight: bold; color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
+        .slider-input { width: 60%; accent-color: var(--terminal-green); cursor: pointer; }
+        
+        .action-btn { background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 1rem; margin-top: 10px; transition: 0.3s; }
+        .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        .results-box { display: none; margin-top: 20px; }
+        .plan-item { background: rgba(0,0,0,0.3); padding: 20px; border-left: 4px solid var(--terminal-green); margin-bottom: 15px; }
+        .plan-title { font-weight: bold; color: var(--cloud-white); font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        .plan-70 { color: var(--terminal-green); display: block; margin-top: 10px; font-size: 0.9rem; }
+        .plan-20 { color: var(--burnt-orange); display: block; margin-top: 5px; font-size: 0.9rem; }
+        .plan-10 { color: var(--slate-grey); display: block; margin-top: 5px; font-size: 0.9rem; }
+
+        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+    <div class="breadcrumb"><a href="index.html">System Portal</a> &gt; CPD Gap Analyzer</div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Self-Assessment (0% - 100%)</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">Rate your current evidence level for each UK-SPEC category.</p>
+            
+            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">B: Application to Practice</span><input type="range" id="valB" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" min="0" max="100" value="50"></div>
+            
+            <button class="action-btn" onclick="generatePlan()">Generate Development Action Plan (DAP)</button>
+        </div>
+
+        <div id="results" class="results-box">
+            <h2>Your 70:20:10 Action Plan</h2>
+            <div id="planContainer"></div>
+        </div>
+    </div>
+
+    <footer>&copy; <span id="year"></span> Empowering Engineers UK</footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        function generatePlan() {
+            const vals = {
+                A: parseInt(document.getElementById('valA').value),
+                B: parseInt(document.getElementById('valB').value),
+                C: parseInt(document.getElementById('valC').value),
+                D: parseInt(document.getElementById('valD').value),
+                E: parseInt(document.getElementById('valE').value)
+            };
+
+            const container = document.getElementById('planContainer');
+            container.innerHTML = "";
+            document.getElementById('results').style.display = "block";
+
+            let count = 0;
+
+            const advice = {
+                A: { t: "Gap: A - Technical Knowledge", p70: "70% (Do): Ask to be assigned a task requiring First Principles analysis or FEA/CFD.", p20: "20% (Network): Find a mentor who is a Subject Matter Expert in this theory.", p10: "10% (Learn): Complete a specific university module or technical course." },
+                B: { t: "Gap: B - Application & Solution", p70: "70% (Do): Lead the implementation of a new design or process improvement on site.", p20: "20% (Network): Shadow the commissioning team to see how designs perform in reality.", p10: "10% (Learn): Study the relevant ISO/BS standards for your product." },
+                C: { t: "Gap: C - Leadership", p70: "70% (Do): Volunteer to manage a budget, a contractor, or a junior engineer.", p20: "20% (Network): Request feedback from your manager on your delegation style.", p10: "10% (Learn): Take a 'Finance for Non-Financial Managers' course." },
+                D: { t: "Gap: D - Communication", p70: "70% (Do): Present your next project update to a non-technical audience (e.g., Sales/HR).", p20: "20% (Network): Ask a colleague to review your next technical report for clarity.", p10: "10% (Learn): Join Toastmasters or a public speaking workshop." },
+                E: { t: "Gap: E - Ethics & Safety", p70: "70% (Do): Lead a Risk Assessment (RAMS) or conduct a Safety Audit.", p20: "20% (Network): Discuss a recent 'near miss' with the H&S Manager.", p10: "10% (Learn): Read the RAEng Statement of Ethical Principles." }
+            };
+
+            for(let key in vals) {
+                if(vals[key] < 60) {
+                    count++;
+                    const item = advice[key];
+                    container.innerHTML += `
+                        <div class="plan-item">
+                            <span class="plan-title">${item.t} (Score: ${vals[key]}%)</span>
+                            <span class="plan-70">>> ${item.p70}</span>
+                            <span class="plan-20">>> ${item.p20}</span>
+                            <span class="plan-10">>> ${item.p10}</span>
+                        </div>
+                    `;
+                }
+            }
+
+            if(count === 0) {
+                container.innerHTML = `<div class="plan-item" style="border-color:var(--terminal-green)"><span class="plan-title">Strong Profile!</span><p style="color:white;">Your self-assessment indicates strong competence across all areas. Focus on maintaining your CPD and mentoring others (Competence D).</p></div>`;
+            }
+        }
+    </script>
+</body>
+</html>

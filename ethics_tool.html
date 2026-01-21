@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics Compass | Empowering Engineers</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #FF9F43; --cloud-white: #FAFAFA; --slate-grey: #8899A6; --dark-card: rgba(255, 255, 255, 0.05); --border-color: #1F3A52; }
+        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
+        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
+        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+        
+        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
+        
+        textarea { width: 100%; height: 120px; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; border-radius: 6px; font-family: 'Roboto', sans-serif; resize: vertical; margin-bottom: 20px; font-size: 1rem; box-sizing: border-box; }
+        textarea:focus { border-color: var(--terminal-green); outline: none; }
+        
+        .principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .principle-btn { background: transparent; border: 1px solid var(--slate-grey); color: var(--slate-grey); padding: 15px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.3s; text-align: left; }
+        .principle-btn:hover, .principle-btn.active { border-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); }
+        .principle-btn strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+
+        .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 300px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; }
+        .badge { display: inline-block; background: var(--burnt-orange); color: var(--midnight-navy); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 15px; }
+
+        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
+        @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+    <div class="breadcrumb"><a href="index.html">System Portal</a> &gt; Ethics Compass</div>
+
+    <div class="container">
+        <div class="card">
+            <h2>1. Define The Dilemma</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:15px;">Describe the conflict (e.g., "The client wants to use a cheaper material that is technically compliant but has a lower lifespan than recommended.")</p>
+            <textarea id="dilemmaInput" placeholder="Type your ethical scenario here..."></textarea>
+            
+            <h2>2. Apply RAEng Principle</h2>
+            <div class="principle-grid">
+                <button class="principle-btn" onclick="analyze('integrity')"><strong>Honesty & Integrity</strong><span style="font-size:0.8rem">Rejecting bribery, declaring conflicts, truthfulness.</span></button>
+                <button class="principle-btn" onclick="analyze('respect')"><strong>Respect for Life/Public</strong><span style="font-size:0.8rem">Safety, environment, and public good.</span></button>
+                <button class="principle-btn" onclick="analyze('accuracy')"><strong>Accuracy & Rigour</strong><span style="font-size:0.8rem">Not misleading, staying within competence.</span></button>
+                <button class="principle-btn" onclick="analyze('leadership')"><strong>Leadership</strong><span style="font-size:0.8rem">Listening, influencing, and upholding standards.</span></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. Professional Analysis</h2>
+            <div id="outputArea" class="output-box">Select a principle to generate a structured analysis...</div>
+        </div>
+    </div>
+
+    <footer>&copy; <span id="year"></span> Empowering Engineers UK</footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        function analyze(type) {
+            const input = document.getElementById('dilemmaInput').value;
+            const out = document.getElementById('outputArea');
+            let text = "";
+
+            if(!input) { alert("Please describe your dilemma first."); return; }
+
+            if(type === 'integrity') {
+                text = `[PRINCIPLE: HONESTY & INTEGRITY]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nAs a professional engineer, I must uphold the highest standards of integrity. This situation challenges that by creating pressure to compromise on truthfulness or professional independence.\n\n**Action Plan:**\n1. Declare any potential Conflict of Interest immediately.\n2. Refuse to sign off on any work that I believe is misleading or biased.\n3. Document the pressure or decision trail in writing to ensure transparency.\n\n**Statement for Interview:**\n"I recognized that proceeding would violate the principle of Integrity. Despite the commercial pressure, I paused the work and formally raised my concerns in writing, prioritizing my professional reputation over short-term gain."`;
+            } else if (type === 'respect') {
+                text = `[PRINCIPLE: RESPECT FOR LIFE, LAW & PUBLIC GOOD]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nMy primary obligation is the safety and well-being of the public and the environment. This takes precedence over cost or schedule.\n\n**Action Plan:**\n1. Conduct a formal Risk Assessment (ALARP principle) to quantify the danger.\n2. Review relevant legislation (e.g., HSAWA, Environmental Protection Act) to ensure compliance.\n3. If the risk is unacceptable, I have a duty to warn the relevant authority.\n\n**Statement for Interview:**\n"Although the client accepted the risk, I determined that it compromised public safety. I applied the 'Safety-II' mindset—focusing on resilience—and proposed an alternative that met the safety requirement without significant delay."`;
+            } else if (type === 'accuracy') {
+                text = `[PRINCIPLE: ACCURACY & RIGOUR]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nEngineers must not mislead or allow others to be misled. I must ensure I am acting only within my area of competence.\n\n**Action Plan:**\n1. Verify all calculations and assumptions using a secondary method or peer review.\n2. Admit if this problem is outside my specific expertise and seek a specialist.\n3. Ensure all reports clearly state the limitations and confidence levels of the data.\n\n**Statement for Interview:**\n"I realized that the data relied on outdated assumptions. To ensure rigour, I refused to issue the report until we had performed a new validation test, ensuring the client did not make an investment decision based on bad data."`;
+            } else if (type === 'leadership') {
+                text = `[PRINCIPLE: LEADERSHIP & COMMUNICATION]\n\n**The Conflict:**\n${input}\n\n**Analysis:**\nLeadership involves listening to concerns and promoting public awareness of engineering impact.\n\n**Action Plan:**\n1. Engage with stakeholders who might be negatively affected, ensuring their voices are heard.\n2. Challenge poor behaviour in others, even if they are senior.\n3. Promote a culture where safety concerns can be raised without fear of reprisal.\n\n**Statement for Interview:**\n"I championed a 'Just Culture' within the team. Rather than blaming the technician for the error, I led a review of the process to prevent recurrence, demonstrating leadership by improving the system rather than punishing the individual."`;
+            }
+            
+            out.innerText = text;
+        }
+    </script>
+</body>
+</html>
