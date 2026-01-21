@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PG4ZJ7W444');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPD Gap Analyzer | EmpoweringEngineers.uk</title>
@@ -17,6 +8,14 @@
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
@@ -54,14 +53,6 @@
             color: var(--terminal-green); 
             text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
         }
-
-        .breadcrumb { 
-            margin-bottom: 30px; 
-            font-family: 'Courier Prime', monospace; 
-            color: var(--slate-grey); 
-            font-size: 0.9rem; 
-        }
-        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
 
         .container { max-width: 900px; width: 100%; }
 
@@ -155,24 +146,24 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
-        
+        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
+
         @media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-
-    <nav style="display:flex; gap:15px; overflow-x:auto; white-space:nowrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%;">
-		<a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-		<a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-		<a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-		<a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-		<a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-		<a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-		<a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-	</nav>
-	
+    
+    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
+        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
+        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
+        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
+        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
+        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
+        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
+        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
+    </nav>
 
     <div class="container">
         
@@ -223,13 +214,14 @@
             <h2>2. Self-Assessment</h2>
             <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">Rate your current evidence level (0% = No Evidence, 100% = Fully Competent).</p>
             
-            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" min="0" max="100" value="40"></div>
-            <div class="slider-row"><span class="slider-label">B: Application to Practice</span><input type="range" id="valB" min="0" max="100" value="50"></div>
-            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" min="0" max="100" value="30"></div>
-            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" min="0" max="100" value="60"></div>
-            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" min="0" max="100" value="45"></div>
+            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" class="slider-input" min="0" max="100" value="40"></div>
+            <div class="slider-row"><span class="slider-label">B: Application to Practice</span><input type="range" id="valB" class="slider-input" min="0" max="100" value="50"></div>
+            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" class="slider-input" min="0" max="100" value="30"></div>
+            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" class="slider-input" min="0" max="100" value="60"></div>
+            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" class="slider-input" min="0" max="100" value="45"></div>
             
             <button class="action-btn" onclick="generatePlan()">Generate Tailored Action Plan</button>
+            <button class="action-btn" onclick="clearCPD()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey);">Reset Profile</button>
         </div>
 
         <div id="results" class="results-box">
@@ -239,19 +231,42 @@
 
     </div>
 
-	<footer>
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
-    <p>
-        <a href="about.html">About Us</a> | 
-        <a href="contact.html">Contact Us</a> | 
-        <a href="privacy.html">Privacy Policy</a>
-    </p>
-	</footer>
-	
+    <footer>
+        <p>&copy; <span id="year"></span> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
     <script>
         document.getElementById('year').innerText = new Date().getFullYear();
 
-        // --- DATABASE OF ADVICE ---
+        // --- AUTO-SAVE SYSTEM ---
+        const cpdInputs = ['regLevel', 'jobRole', 'industry', 'discipline', 'valA', 'valB', 'valC', 'valD', 'valE'];
+
+        window.onload = function() {
+            cpdInputs.forEach(id => {
+                const saved = localStorage.getItem('cpd_' + id);
+                if(saved) document.getElementById(id).value = saved;
+            });
+        };
+
+        cpdInputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                localStorage.setItem('cpd_' + id, this.value);
+            });
+        });
+
+        function clearCPD() {
+            if(confirm("Reset all profile settings to default?")) {
+                cpdInputs.forEach(id => localStorage.removeItem('cpd_' + id));
+                location.reload(); // Quickest way to reset all sliders to HTML defaults
+            }
+        }
+
+        // --- DATABASE OF ADVICE (Identical to previous version) ---
         const cpdData = {
             // CATEGORY A: KNOWLEDGE
             A: {
@@ -353,8 +368,8 @@
 
         function generatePlan() {
             // 1. Get Inputs
-            const level = document.getElementById('regLevel').value; // IEng or CEng
-            const role = document.getElementById('jobRole').value; // Junior, Senior, Manager...
+            const level = document.getElementById('regLevel').value; 
+            const role = document.getElementById('jobRole').value; 
             const industry = document.getElementById('industry').value; 
             const discipline = document.getElementById('discipline').value;
             
@@ -390,13 +405,11 @@
                     let adviceSet = { p70: "", p20: "", p10: "" };
                     const db = cpdData[cat.id];
 
-                    // Priority 1: Check if there is specific advice for this Discipline or Industry
                     if (db[discipline]) {
                         adviceSet = db[discipline];
                     } else if (db[industry]) {
                         adviceSet = db[industry];
                     } else if (db[role] && cat.id === 'C') { 
-                        // For Leadership (C), Role is the most important filter
                         adviceSet = db[role];
                     } else if (role === 'Manager' && cat.id === 'C') {
                         adviceSet = db['Manager'];
@@ -405,17 +418,14 @@
                     } else if (role === 'Senior' && cat.id === 'D') {
                         adviceSet = db['Senior'];
                     } else {
-                        // Fallback to generic
                         adviceSet = db['generic'];
                     }
 
-                    // Modifier: CEng vs IEng text injection
                     let levelNote = "";
                     if(cat.id === 'A' && db[level]) {
                         levelNote = ` <br><em style="color:#8899A6; font-size:0.85rem;">(Note for ${level}: ${db[level]})</em>`;
                     }
 
-                    // --- RENDER CARD ---
                     const html = `
                         <div class="plan-item">
                             <div class="plan-header">

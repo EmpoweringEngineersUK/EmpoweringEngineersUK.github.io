@@ -1,148 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PG4ZJ7W444');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Studio | Empowering Engineers</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-	<meta name="google-adsense-account" content="ca-pub-7071036534151105">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         :root { 
             --midnight-navy: #0D1B2A; 
             --terminal-green: #00FF99; 
-            --burnt-orange: #FF9F43; /* Lighter, more readable orange */
+            --burnt-orange: #FF9F43; 
             --cloud-white: #FAFAFA; 
             --slate-grey: #8899A6;
             --dark-card: rgba(255, 255, 255, 0.05);
             --border-color: #1F3A52;
         }
-
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            background: var(--midnight-navy); 
-            color: var(--cloud-white); 
-            margin: 0; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-        
+        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; display: block; text-align: center; }
         .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
-        .site-brand:hover { opacity: 0.8; }
-
-        .breadcrumb { width: 100%; max-width: 1200px; margin-bottom: 20px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: var(--slate-grey); text-align: center; }
-        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; font-weight: bold; }
-        .breadcrumb a:hover { text-decoration: underline; }
-
         .header { text-align: center; margin-bottom: 30px; }
         h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
         .subtitle { font-family: 'Courier Prime', monospace; color: var(--slate-grey); }
-
         .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        
-        .card { 
-            background: var(--dark-card); 
-            padding: 25px; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color);
-            display: flex; 
-            flex-direction: column; 
-            margin-bottom: 20px;
-        }
-
+        .card { background: var(--dark-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; margin-bottom: 20px; }
         h2.card-title { font-size: 1.1rem; border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin-bottom: 20px; color: var(--terminal-green); text-transform: uppercase; letter-spacing: 1px; }
-
-        .model-select { 
-            width: 100%; padding: 12px; 
-            background-color: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            border: none; border-radius: 6px; 
-            font-weight: bold; cursor: pointer; margin-bottom: 20px; 
-            font-family: 'Roboto', sans-serif;
-        }
-
+        .model-select { width: 100%; padding: 12px; background-color: var(--terminal-green); color: var(--midnight-navy); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; font-family: 'Roboto', sans-serif; }
         .input-group { margin-bottom: 20px; }
-        
-        /* UPDATED LABEL STYLING FOR READABILITY */
-        .input-label { 
-            display: block; 
-            color: var(--burnt-orange); 
-            font-weight: 700; /* slightly reduced from 'bold' */
-            font-size: 0.95rem; 
-            margin-bottom: 5px; 
-            font-family: 'Courier Prime', monospace; 
-            letter-spacing: 0.5px; /* Adds breathing room */
-        }
-        
+        .input-label { display: block; color: var(--burnt-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; font-family: 'Courier Prime', monospace; letter-spacing: 0.5px; }
         .input-hint { display: block; color: var(--slate-grey); font-size: 0.8rem; margin-bottom: 8px; font-style: italic; }
-        
-        textarea { 
-            width: 100%; height: 80px; padding: 12px; 
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border-color); 
-            color: white;
-            border-radius: 6px; font-family: 'Roboto', sans-serif; box-sizing: border-box; resize: vertical; font-size: 0.95rem; transition: 0.2s; 
-        }
+        textarea { width: 100%; height: 80px; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; border-radius: 6px; font-family: 'Roboto', sans-serif; box-sizing: border-box; resize: vertical; font-size: 0.95rem; transition: 0.2s; }
         textarea:focus { border-color: var(--terminal-green); outline: none; box-shadow: 0 0 5px rgba(0, 255, 153, 0.2); }
-
-        .preview-box { 
-            background: #09121d; 
-            padding: 30px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            min-height: 400px; 
-            white-space: pre-wrap; 
-            line-height: 1.6; 
-            font-size: 1rem; 
-            color: var(--cloud-white); 
-        }
-
-        /* EXAMPLE BOX STYLING */
-        .example-box {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-left: 3px solid var(--burnt-orange);
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.85rem;
-            color: #d1d8e0;
-            white-space: pre-wrap;
-            line-height: 1.5;
-        }
-
-        .btn-action { 
-            background: transparent; 
-            border: 1px solid var(--terminal-green); color: var(--terminal-green); 
-            padding: 10px 20px; width: 100%; font-weight: bold; border-radius: 6px; 
-            cursor: pointer; font-size: 0.9rem; margin-top: 10px;
-            transition: 0.2s; text-transform: uppercase; 
-        }
+        .preview-box { background: #09121d; padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); min-height: 400px; white-space: pre-wrap; line-height: 1.6; font-size: 1rem; color: var(--cloud-white); }
+        .example-box { background: rgba(0, 0, 0, 0.2); padding: 20px; border-left: 3px solid var(--burnt-orange); font-family: 'Courier Prime', monospace; font-size: 0.85rem; color: #d1d8e0; white-space: pre-wrap; line-height: 1.5; }
+        .btn-action { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); padding: 10px 20px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-top: 10px; transition: 0.2s; text-transform: uppercase; }
         .btn-action:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
         footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
         footer a:hover { color: var(--terminal-green); }
-
         @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-    <nav class="breadcrumb">
-        <a href="index.html">System Portal</a> &gt; <span>Feedback Studio</span>
+    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
+        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
+        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
+        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
+        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
+        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
+        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
+        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
     </nav>
 
     <div class="header">
@@ -160,9 +76,8 @@
                     <option value="CEDAR">CEDAR Model (Performance Correction)</option>
                     <option value="SBIBI">SBIBI (Behavioral Feedback)</option>
                 </select>
-
-                <div id="dynamicInputs">
-                    </div>
+                <div id="dynamicInputs"></div>
+                <button class="btn-action" onclick="clearData()" style="border-color:var(--slate-grey); color:var(--slate-grey); margin-top:20px;">Reset Form</button>
             </div>
         </div>
 
@@ -174,137 +89,91 @@
                 </div>
                 <div id="previewArea" class="preview-box">Select a model to begin...</div>
             </div>
-
             <div class="card">
                 <h2 class="card-title" style="color:var(--burnt-orange); border-color:var(--burnt-orange);">3. Reference Example</h2>
-                <div id="exampleDisplay" class="example-box">
-                    </div>
+                <div id="exampleDisplay" class="example-box"></div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <span id="year"></span> Empowering Engineers UK. All rights reserved.</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:info@empoweringengineers.uk">Contact</a></p>
     </footer>
 
     <script>
-        document.getElementById('year').innerText = new Date().getFullYear();
-
         const models = {
             GROW: {
                 desc: "Best for: Coaching sessions, career development, and problem solving.",
-                example: `[GOAL]
-"I want to lead the Hydraulic Pump package design for the next project phase."
-
-[REALITY]
-"You currently handle component-level designs well. However, you haven't managed a supplier interface or budget tracking before."
-
-[OPTIONS]
-"1. You could shadow the Senior Engineer on the current pump package.
-2. We could assign you a smaller, lower-risk package to lead first.
-3. You could take the 'Project Management for Engineers' training module."
-
-[WILL / WAY FORWARD]
-"You will shadow the Senior Engineer for 2 weeks, then take lead on the auxiliary pump specification by next month."`,
+                example: `[GOAL]\n"I want to lead the Hydraulic Pump package design for the next project phase."\n\n[REALITY]\n"You currently handle component-level designs well. However, you haven't managed a supplier interface or budget tracking before."`,
                 fields: [
-                    { id: "G", label: "GOAL", hint: "What does the engineer want to achieve? (Specific & Measurable)" },
+                    { id: "G", label: "GOAL", hint: "What does the engineer want to achieve?" },
                     { id: "R", label: "REALITY", hint: "What is happening now? What are the barriers?" },
-                    { id: "O", label: "OPTIONS", hint: "What could they do? What are the pros/cons of each?" },
-                    { id: "W", label: "WILL / WAY FORWARD", hint: "What will they do? By when? How committed are they?" }
+                    { id: "O", label: "OPTIONS", hint: "What could they do?" },
+                    { id: "W", label: "WILL / WAY FORWARD", hint: "What will they do? By when?" }
                 ]
             },
             PENDLETON: {
                 desc: "Best for: Peer reviews, design reviews, and balanced feedback.",
-                example: `[WHAT WENT WELL?]
-"The logic behind your FEA analysis was robust. The mesh convergence study was particularly thorough, and the report layout was very easy to follow for the client."
-
-[WHAT COULD BE IMPROVED?]
-"The conclusion was a bit vague. It didn't explicitly state whether the Factor of Safety (FoS) met the specific client requirement of 2.5."
-
-[AGREED ACTION]
-"In future reports, add a 'Compliance Matrix' table in the Executive Summary that explicitly states Pass/Fail against key criteria."`,
+                example: `[WHAT WENT WELL?]\n"The logic behind your FEA analysis was robust."\n\n[WHAT COULD BE IMPROVED?]\n"The conclusion was a bit vague."`,
                 fields: [
-                    { id: "P1", label: "WHAT WENT WELL?", hint: "Highlight specific strengths and successes." },
-                    { id: "P2", label: "WHAT COULD BE IMPROVED?", hint: "Identify specific areas for growth or alternative approaches." },
-                    { id: "P3", label: "AGREED ACTION", hint: "What is the key takeaway or change for next time?" }
+                    { id: "P1", label: "WHAT WENT WELL?", hint: "Highlight specific strengths." },
+                    { id: "P2", label: "WHAT COULD BE IMPROVED?", hint: "Identify specific areas for growth." },
+                    { id: "P3", label: "AGREED ACTION", hint: "Key takeaway or change for next time?" }
                 ]
             },
             CEDAR: {
                 desc: "Best for: Correcting performance issues or addressing negative patterns.",
-                example: `[CONTEXT]
-"We need to discuss the site safety audit schedule. Compliance is critical for our ISO 45001 accreditation."
-
-[EXAMPLES]
-"You have missed submitting the weekly safety observation reports for the last two Fridays (dates: 12th and 19th)."
-
-[DIAGNOSIS]
-"Help me understand why this is happening. Is it a workload issue, or is the reporting software causing problems?"
-
-[ACTION]
-"To fix this, you will set a calendar reminder for Thursday afternoons to complete the draft, ensuring it is submitted by Friday 10am."
-
-[REVIEW]
-"We will meet in 2 weeks (on the 5th) to review the dashboard and ensure the last two reports were submitted on time."`,
+                example: `[CONTEXT]\n"We need to discuss the site safety audit schedule."\n\n[EXAMPLES]\n"You have missed submitting the weekly safety observation reports."`,
                 fields: [
-                    { id: "C", label: "CONTEXT", hint: "Set the scene. Explain the importance of the discussion." },
-                    { id: "E", label: "EXAMPLES", hint: "Provide specific evidence of the behavior/performance." },
-                    { id: "D", label: "DIAGNOSIS", hint: "Ask them: Why do you think this is happening? (Collaborative)" },
-                    { id: "A", label: "ACTION", hint: "What specific steps will be taken to fix this?" },
-                    { id: "R", label: "REVIEW", hint: "When will we check in again to monitor progress?" }
+                    { id: "C", label: "CONTEXT", hint: "Set the scene." },
+                    { id: "E", label: "EXAMPLES", hint: "Provide specific evidence." },
+                    { id: "D", label: "DIAGNOSIS", hint: "Why do you think this is happening?" },
+                    { id: "A", label: "ACTION", hint: "What specific steps will be taken?" },
+                    { id: "R", label: "REVIEW", hint: "When will we check in again?" }
                 ]
             },
             SBIBI: {
                 desc: "Best for: Behavioral feedback that requires a specific change.",
-                example: `[SITUATION]
-"During the client design review meeting yesterday morning..."
-
-[BEHAVIOR]
-"You interrupted the client's lead engineer three times while they were explaining their concerns about the cabling route."
-
-[IMPACT]
-"The client looked visibly frustrated and stopped sharing their feedback. It made us look defensive rather than collaborative."
-
-[BEHAVIOR DESIRED]
-"Next time, please write down your counter-points and wait until they have finished speaking completely before responding."
-
-[IMPACT DESIRED]
-"This will make the client feel heard, reduce tension, and help us gather all requirements accurately."`,
+                example: `[SITUATION]\n"During the client design review..."\n\n[BEHAVIOR]\n"You interrupted the client's lead engineer three times."`,
                 fields: [
                     { id: "S", label: "SITUATION", hint: "Where and when did it happen?" },
-                    { id: "B", label: "BEHAVIOR", hint: "What exactly did they do? (Observable facts only)" },
-                    { id: "I", label: "IMPACT", hint: "What was the result? (On team, project, or client)" },
-                    { id: "BD", label: "BEHAVIOR DESIRED", hint: "What should they do differently next time?" },
-                    { id: "ID", label: "IMPACT DESIRED", hint: "Why will this new behavior be better?" }
+                    { id: "B", label: "BEHAVIOR", hint: "What exactly did they do?" },
+                    { id: "I", label: "IMPACT", hint: "What was the result?" },
+                    { id: "BD", label: "BEHAVIOR DESIRED", hint: "What should they do differently?" },
+                    { id: "ID", label: "IMPACT DESIRED", hint: "Why will this be better?" }
                 ]
             }
         };
 
+        // --- AUTO-SAVE LOGIC ---
         function renderInputs() {
             const type = document.getElementById('modelSelector').value;
+            localStorage.setItem('fb_model', type); // Save selection
+
             const container = document.getElementById('dynamicInputs');
-            const exampleBox = document.getElementById('exampleDisplay');
             const data = models[type];
             
-            // Render Description
             let html = `<p style="color:#8899A6; margin-bottom:20px; border-left:3px solid var(--terminal-green); padding-left:10px; font-size:0.9rem;">${data.desc}</p>`;
-            
-            // Render Inputs
             data.fields.forEach(field => {
+                // Check for saved data
+                const savedVal = localStorage.getItem('fb_' + field.id) || "";
                 html += `
                     <div class="input-group">
                         <span class="input-label">${field.label}</span>
                         <span class="input-hint">${field.hint}</span>
-                        <textarea id="in_${field.id}" oninput="updatePreview('${type}')"></textarea>
-                    </div>
-                `;
+                        <textarea id="in_${field.id}" oninput="saveAndPreview('${type}', '${field.id}')">${savedVal}</textarea>
+                    </div>`;
             });
 
             container.innerHTML = html;
-            
-            // Render Example
-            exampleBox.innerText = data.example;
+            document.getElementById('exampleDisplay').innerText = data.example;
+            updatePreview(type);
+        }
 
+        function saveAndPreview(type, fieldId) {
+            const val = document.getElementById('in_' + fieldId).value;
+            localStorage.setItem('fb_' + fieldId, val); // Save content
             updatePreview(type);
         }
 
@@ -314,31 +183,38 @@
             let hasContent = false;
             
             data.fields.forEach(field => {
-                const val = document.getElementById(`in_${field.id}`).value;
-                if(val) {
-                    text += `[${field.label}]\n${val}\n\n`;
+                const el = document.getElementById(`in_${field.id}`);
+                if(el && el.value) {
+                    text += `[${field.label}]\n${el.value}\n\n`;
                     hasContent = true;
                 }
             });
 
-            if (!hasContent) {
-                text = "Start typing in the fields to generate your structured feedback script...";
-            }
-
+            if (!hasContent) text = "Start typing to generate your script...";
             document.getElementById('previewArea').innerText = text;
+        }
+
+        function clearData() {
+            if(confirm("Clear all data?")) {
+                localStorage.removeItem('fb_model');
+                // Clear all potential field keys
+                Object.keys(models).forEach(m => {
+                    models[m].fields.forEach(f => localStorage.removeItem('fb_' + f.id));
+                });
+                renderInputs();
+            }
         }
 
         function copyToClipboard() {
             const text = document.getElementById('previewArea').innerText;
-            if (text.includes("Start typing")) {
-                alert("Please enter some feedback first.");
-                return;
-            }
-            navigator.clipboard.writeText(text).then(() => { alert("Script copied to clipboard!"); });
+            navigator.clipboard.writeText(text).then(() => { alert("Script copied!"); });
         }
 
-        // Init
-        window.onload = renderInputs;
+        window.onload = function() {
+            const savedModel = localStorage.getItem('fb_model');
+            if(savedModel) document.getElementById('modelSelector').value = savedModel;
+            renderInputs();
+        };
     </script>
 </body>
 </html>

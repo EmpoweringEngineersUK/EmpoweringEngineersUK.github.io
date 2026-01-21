@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PG4ZJ7W444');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethics Compass | Empowering Engineers</title>
+    <title>Ethics Compass | EmpoweringEngineers.uk</title>
     
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
@@ -44,8 +43,6 @@
 
         .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
         .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
-        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
-        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
         
         .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
@@ -88,24 +85,27 @@
         .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 400px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; position: relative; }
         .section-header { color: var(--burnt-orange); font-weight: bold; margin-top: 20px; display: block; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px; }
 
+        .reset-link { color: var(--slate-grey); font-size: 0.8rem; text-decoration: underline; cursor: pointer; display: block; text-align: right; margin-top: 10px; }
+        .reset-link:hover { color: var(--burnt-orange); }
+
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
-        
+        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
+
         @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-
-    <nav style="display:flex; gap:15px; overflow-x:auto; white-space:nowrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%;">
-		<a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-		<a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-		<a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-		<a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-		<a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-		<a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-		<a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-	</nav>
-	
+    
+    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
+        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
+        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
+        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
+        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
+        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
+        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
+        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
+    </nav>
 
     <div class="container">
         <div class="card">
@@ -142,6 +142,8 @@
             <p style="color:var(--slate-grey); font-size:0.8rem; margin-top:0;">Describe the conflict (e.g., "Pressure to cut testing time due to budget").</p>
             <textarea id="dilemmaInput" placeholder="Type your scenario here..."></textarea>
             
+            <a onclick="clearEthics()" class="reset-link">Clear Form / Start New</a>
+
             <h2>2. Select RAEng Principle</h2>
             <div class="principle-grid">
                 <button class="principle-btn" onclick="analyze('integrity')"><strong>1. Honesty & Integrity</strong><span style="font-size:0.8rem">Bribery, conflicts of interest, truthfulness.</span></button>
@@ -157,19 +159,43 @@
         </div>
     </div>
 
-	<footer>
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
-    <p>
-        <a href="about.html">About Us</a> | 
-        <a href="contact.html">Contact Us</a> | 
-        <a href="privacy.html">Privacy Policy</a>
-    </p>
-	</footer>
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
 
     <script>
-        document.getElementById('year').innerText = new Date().getFullYear();
+        // --- AUTO-SAVE LOGIC ---
+        // We use different 'keys' (e.g., 'ethics_role') so we don't overwrite the STAR tool data.
+        
+        window.onload = function() {
+            if(localStorage.getItem('ethics_reg')) document.getElementById('regLevel').value = localStorage.getItem('ethics_reg');
+            if(localStorage.getItem('ethics_role')) document.getElementById('role').value = localStorage.getItem('ethics_role');
+            if(localStorage.getItem('ethics_industry')) document.getElementById('industry').value = localStorage.getItem('ethics_industry');
+            if(localStorage.getItem('ethics_dilemma')) document.getElementById('dilemmaInput').value = localStorage.getItem('ethics_dilemma');
+        };
 
-        // --- CONTEXT DATABASE ---
+        const inputs = ['regLevel', 'role', 'industry', 'dilemmaInput'];
+        
+        // Listen for changes
+        document.getElementById('regLevel').addEventListener('change', function(){ localStorage.setItem('ethics_reg', this.value) });
+        document.getElementById('role').addEventListener('change', function(){ localStorage.setItem('ethics_role', this.value) });
+        document.getElementById('industry').addEventListener('change', function(){ localStorage.setItem('ethics_industry', this.value) });
+        document.getElementById('dilemmaInput').addEventListener('input', function(){ localStorage.setItem('ethics_dilemma', this.value) });
+
+        function clearEthics() {
+            if(confirm("Clear your ethical scenario?")) {
+                document.getElementById('dilemmaInput').value = "";
+                localStorage.removeItem('ethics_dilemma');
+                document.getElementById('outputArea').innerHTML = "Select a principle to generate a structured analysis...";
+            }
+        }
+
+        // --- ANALYSIS LOGIC ---
         const contextDB = {
             Civil: {
                 regs: "CDM 2015 Regulations, Building Safety Act, ISO 14001 (Environment)",
@@ -221,7 +247,6 @@
             let action = "";
             let script = "";
 
-            // --- LOGIC ENGINE ---
             if(principle === 'integrity') {
                 analysis = `The RAEng/Engineering Council guidelines state that you must act with integrity. In the **${industry}** sector, this often relates to accurate reporting and declaring conflicts of interest.\n\nFailing to address this could violate specific standards such as **${ctx.regs}**.`;
                 action = `1. **Declare:** If there is a commercial conflict, declare it in writing immediately.\n2. **Verify:** Refuse to sign any document that misrepresents the testing/validation status.\n3. **Record:** Keep a personal log of instructions given to you that felt unethical.`;
@@ -243,7 +268,6 @@
                 script = `"I championed a culture of transparency. Rather than burying the error, I led a 'Lessons Learned' session. I demonstrated Leadership by focusing on process improvement—referencing **${ctx.body}** best practice—rather than assigning blame."`;
             }
 
-            // --- BUILD OUTPUT ---
             const finalHTML = `
                 <span class="section-header">>> THE DILEMMA</span>
                 ${input}
