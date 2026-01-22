@@ -112,6 +112,21 @@
         }
         .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
+        .ai-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px dashed var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .ai-btn:hover { background: rgba(0, 255, 153, 0.1); }
+
         /* OUTPUT BOX */
         .output-box { 
             background: #09121d; 
@@ -174,35 +189,32 @@
             <button class="action-btn" onclick="generate()">Compile Evidence</button>
             <button class="action-btn" onclick="clearData()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey); margin-top:10px;">Reset Form</button>
             
-            <div id="outputBox" class="output-box" onclick="copyText()" title="Click to Copy"></div>
+            <div id="outputBox" class="output-box"></div>
+            
+            <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()" style="display:none;">>> COPY AI "CEng CRITIQUE" PROMPT</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <span id="year"></span> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
 
     <script>
-        document.getElementById('year').innerText = new Date().getFullYear();
-
         // --- AUTO-SAVE SYSTEM ---
-        // 1. Load saved data when page opens
         window.onload = function() {
             if(localStorage.getItem('star_situation')) document.getElementById('situation').value = localStorage.getItem('star_situation');
             if(localStorage.getItem('star_task')) document.getElementById('task').value = localStorage.getItem('star_task');
             if(localStorage.getItem('star_action')) document.getElementById('action').value = localStorage.getItem('star_action');
             if(localStorage.getItem('star_result')) document.getElementById('result').value = localStorage.getItem('star_result');
-            
-            // Trigger a word count update immediately
             updateCounts();
         };
 
-        // 2. Save data whenever user types
         const inputs = ['situation', 'task', 'action', 'result'];
         inputs.forEach(id => {
             document.getElementById(id).addEventListener('input', function() {
@@ -211,7 +223,6 @@
             });
         });
 
-        // --- EXISTING GENERATOR LOGIC ---
         function updateCounts() {
             let total = 0;
             inputs.forEach(id => {
@@ -234,21 +245,43 @@
                 return;
             }
 
-            // The Engineering Competency Formula
             const final = `In this scenario, ${s}. My specific responsibility was to ${t}. To address this, I ${a}. Consequently, ${r}.`;
 
             const out = document.getElementById('outputBox');
             out.style.display = 'block';
             out.innerHTML = `<strong>>> GENERATED COMPETENCY STATEMENT:</strong><br><br>${final}`;
             
-            // Scroll to result
+            // Show AI Button
+            document.getElementById('aiBtn').style.display = 'block';
+            
+            // Scroll
             out.scrollIntoView({behavior: "smooth"});
         }
+        
+        // --- NEW AI PROMPT GENERATOR ---
+        function copyAiPrompt() {
+            const s = document.getElementById('situation').value;
+            const t = document.getElementById('task').value;
+            const a = document.getElementById('action').value;
+            const r = document.getElementById('result').value;
 
-        function copyText() {
-            const text = document.getElementById('outputBox').innerText.replace(">> GENERATED COMPETENCY STATEMENT:", "").trim();
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Copied to clipboard!");
+            const prompt = `Act as a Professional Review Interviewer for the IMechE/IET. I am drafting a competency example for CEng Registration.
+
+Please critique the following S.T.A.R example against the UK-SPEC requirements for "Technical Innovation" and "Leadership".
+
+SITUATION: ${s}
+TASK: ${t}
+ACTION: ${a}
+RESULT: ${r}
+
+1. Identify where I have used "Weak Language" (e.g. "We", "Helped").
+2. Suggest 3 specific ways to make the "Action" section stronger and more technical.
+3. Give this a score out of 10 for "Action Bias".`;
+
+            navigator.clipboard.writeText(prompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
+                setTimeout(() => { btn.innerText = ">> COPY AI \"CEng CRITIQUE\" PROMPT"; }, 3000);
             });
         }
         
@@ -260,6 +293,7 @@
                 });
                 updateCounts();
                 document.getElementById('outputBox').style.display = 'none';
+                document.getElementById('aiBtn').style.display = 'none';
             }
         }
     </script>

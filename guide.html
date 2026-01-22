@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Manual | EmpoweringEngineers.uk</title>
-    <meta name="description" content="Step-by-step Standard Operating Procedure (SOP) for using the Empowering Engineers toolset.">
-    
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,47 +8,72 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Manual | EmpoweringEngineers.uk</title>
+    <meta name="description" content="Step-by-step Standard Operating Procedure (SOP) for using the Empowering Engineers toolset.">
+    
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
     <style>
-        :root { --midnight-navy: #0D1B2A; --terminal-green: #00FF99; --burnt-orange: #FF9F43; --cloud-white: #FAFAFA; --slate-grey: #8899A6; --dark-card: rgba(255, 255, 255, 0.05); --border-color: #1F3A52; }
-        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
-        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
-        .breadcrumb { margin-bottom: 30px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 0.9rem; }
-        .breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
-        
+        :root { 
+            --midnight-navy: #0D1B2A; 
+            --terminal-green: #00FF99; 
+            --burnt-orange: #FF9F43; 
+            --cloud-white: #FAFAFA; 
+            --slate-grey: #8899A6; 
+            --dark-card: rgba(255, 255, 255, 0.05); 
+            --border-color: #1F3A52; 
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: var(--midnight-navy); 
+            color: var(--cloud-white); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .site-brand { 
+            text-decoration: none; 
+            font-family: 'Lora', serif; 
+            font-size: 2rem; 
+            color: var(--cloud-white); 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+        }
+
+        .site-brand span { 
+            color: var(--terminal-green); 
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+        }
+
         .container { max-width: 900px; width: 100%; }
         
-        /* DIAGRAM SECTION */
-        .workflow-diagram {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            background: var(--dark-card);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            flex-wrap: wrap;
-            gap: 10px;
+        .workflow-diagram { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 40px; 
+            background: var(--dark-card); 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            flex-wrap: wrap; 
+            gap: 10px; 
         }
-        .flow-step {
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-        }
-        .flow-icon {
-            font-size: 2rem;
-            color: var(--terminal-green);
-            margin-bottom: 10px;
-            display: block;
-        }
+
+        .flow-step { text-align: center; flex: 1; min-width: 120px; }
+        .flow-icon { font-size: 2rem; color: var(--terminal-green); margin-bottom: 10px; display: block; }
         .flow-arrow { color: var(--slate-grey); font-size: 1.5rem; }
         .flow-title { font-weight: bold; font-family: 'Courier Prime', monospace; font-size: 0.9rem; }
 
-        /* CONTENT CARDS */
         .card { 
             background: var(--dark-card); 
             padding: 30px; 
@@ -63,6 +81,15 @@
             border: 1px solid var(--border-color); 
             margin-bottom: 30px; 
         }
+
+        h1 { 
+            border-bottom: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            font-family: 'Courier Prime', monospace; 
+        }
+
         h2 { 
             border-bottom: 1px solid var(--terminal-green); 
             color: var(--terminal-green); 
@@ -72,50 +99,74 @@
             text-transform: uppercase; 
             letter-spacing: 1px; 
         }
-        h3 { color: var(--burnt-orange); margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; }
-        p, li { line-height: 1.6; color: #d1d5db; margin-bottom: 10px; }
-        ul { padding-left: 20px; }
-        
-        .tip-box {
-            background: rgba(255, 159, 67, 0.1);
-            border-left: 4px solid var(--burnt-orange);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .tip-title { font-weight: bold; color: var(--burnt-orange); display: block; margin-bottom: 5px; font-family: 'Courier Prime', monospace; }
 
-        .cta-btn {
-            display: inline-block;
-            background: var(--terminal-green);
-            color: var(--midnight-navy);
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-top: 10px;
-            font-size: 0.9rem;
+        h3 { 
+            color: var(--burnt-orange); 
+            margin-top: 20px; 
+            margin-bottom: 10px; 
+            font-size: 1.1rem; 
         }
+
+        p, li { 
+            line-height: 1.6; 
+            color: #d1d5db; 
+            margin-bottom: 10px; 
+        }
+        
+        .ethics-box { 
+            border: 1px dashed var(--terminal-green); 
+            padding: 20px; 
+            background: rgba(0, 255, 153, 0.05); 
+            margin-top: 20px; 
+            border-radius: 6px; 
+        }
+
+        .cta-btn { 
+            display: inline-block; 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            margin-top: 10px; 
+            font-size: 0.9rem; 
+        }
+
         .cta-btn:hover { opacity: 0.9; }
 
-        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
-        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
+        footer { 
+            margin-top: 50px; 
+            color: var(--slate-grey); 
+            font-size: 0.8rem; 
+            text-align: center; 
+        }
+
+        footer a { 
+            color: var(--slate-grey); 
+            text-decoration: underline; 
+            margin: 0 10px; 
+        }
         
-        @media (max-width: 600px) { .workflow-diagram { flex-direction: column; } .flow-arrow { transform: rotate(90deg); margin: 10px 0; } }
+        @media (max-width: 600px) { 
+            .workflow-diagram { flex-direction: column; } 
+            .flow-arrow { transform: rotate(90deg); margin: 10px 0; } 
+        }
     </style>
 </head>
 <body>
 
     <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-	<nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
-		<a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-		<a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-		<a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-		<a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-		<a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-		<a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-		<a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-	</nav>
+    
+    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
+        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
+        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
+        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
+        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
+        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
+        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
+        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
+    </nav>
 
     <div class="container">
         
@@ -123,72 +174,43 @@
             <div class="flow-step">
                 <span class="flow-icon">⭐</span>
                 <span class="flow-title">1. STAR Engine</span>
-                <div style="font-size:0.8rem; color:var(--slate-grey)">Draft Evidence</div>
             </div>
             <div class="flow-arrow">→</div>
             <div class="flow-step">
                 <span class="flow-icon">🔍</span>
                 <span class="flow-title">2. Reviewer</span>
-                <div style="font-size:0.8rem; color:var(--slate-grey)">Audit & Refine</div>
             </div>
             <div class="flow-arrow">→</div>
             <div class="flow-step">
                 <span class="flow-icon">📄</span>
                 <span class="flow-title">3. Report Arch</span>
-                <div style="font-size:0.8rem; color:var(--slate-grey)">Assemble Report</div>
             </div>
         </div>
 
         <div class="card">
-            <h2>>> SYSTEM_OVERVIEW</h2>
+            <h1>>> Flight_Manual [SOP]</h1>
             <p>Welcome to the Engineering Competence Framework. This platform is designed to reverse-engineer the UK-SPEC requirements, helping you build a professional registration report (CEng/IEng) from the ground up.</p>
-            <p><strong>Goal:</strong> Transform your raw engineering experience into structured, evidence-based competency statements.</p>
-        </div>
 
-        <div class="card">
-            <h2>>> STEP 1: GENERATE RAW EVIDENCE</h2>
-            <p><strong>Tool:</strong> <a href="STAR_engine.html" style="color:var(--terminal-green)">STAR Engine</a></p>
-            <p>Most engineers fail because they focus on "We" (the team) instead of "I" (the engineer). The STAR Engine forces you to break this habit.</p>
-            
-            <h3>Procedure:</h3>
+            <h2>1. The Core Philosophy</h2>
+            <p>Engineering registration is not a test of technical memory; it is a test of <strong>competence</strong>. The reviewers do not just want to know <em>what</em> you built; they want to know <em>how</em> you managed the risk, budget, safety, and ethics of building it.</p>
+
+            <h2>2. Recommended Workflow</h2>
             <ul>
-                <li><strong>Situation:</strong> Briefly describe the problem (1-2 sentences). Don't waffle.</li>
-                <li><strong>Task:</strong> What was specifically YOUR responsibility?</li>
-                <li><strong>Action:</strong> The most important part. What technical calculations, decisions, or leadership steps did YOU take?</li>
-                <li><strong>Result:</strong> What was the outcome? Did you save money, improve safety, or meet a deadline?</li>
+                <li><strong>Step 1 - CPD Gap Analysis:</strong> Use the <a href="cpd_tool.html" style="color:var(--terminal-green)">Gap Analyzer</a> first. Be honest with the sliders. This generates your "Hit List" of missing evidence.</li>
+                <li><strong>Step 2 - Draft Evidence:</strong> Take your strongest project and run it through the <a href="STAR_engine.html" style="color:var(--terminal-green)">STAR Engine</a>. This forces you to be concise.</li>
+                <li><strong>Step 3 - Audit:</strong> Copy your STAR text into the <a href="STAR_reviewer.html" style="color:var(--terminal-green)">Reviewer Tool</a>. It will strip out passive language ("we decided") and force you to use active language ("I authorized").</li>
+                <li><strong>Step 4 - Ethics:</strong> Use the <a href="ethics_tool.html" style="color:var(--terminal-green)">Ethics Compass</a> to prepare for the "Dilemma Question" in your interview.</li>
             </ul>
-            
-            <div class="tip-box">
-                <span class="tip-title">PRO TIP:</span>
-                Don't worry about word count yet. Just get the facts down. The tool will assemble them into a coherent paragraph for you.
+
+            <h2>3. Privacy Protocol</h2>
+            <p>This site uses "Local Storage" technology. When you type into the STAR Engine or CPD tool, the data is saved <strong>on your own device</strong>. We never see your drafts. This ensures you can write confidentially about sensitive projects.</p>
+
+            <h2>4. AI & Professional Integrity</h2>
+            <div class="ethics-box">
+                <strong>⚠️ A NOTE ON AI USAGE:</strong><br><br>
+                We encourage the use of AI (like our "Mega-Prompts") to structure your thinking and critique your writing. However, <strong>you must never use AI to fabricate evidence.</strong><br><br>
+                Professional Registration is a declaration of <em>your</em> competence. Using AI to generate examples you did not experience is a breach of the Code of Conduct. Use these tools as a "Co-Pilot," not an "Autopilot."
             </div>
-            <a href="STAR_engine.html" class="cta-btn">Launch STAR Engine</a>
-        </div>
-
-        <div class="card">
-            <h2>>> STEP 2: AUDIT & REFINE</h2>
-            <p><strong>Tool:</strong> <a href="STAR_reviewer.html" style="color:var(--terminal-green)">STAR Reviewer</a></p>
-            <p>Once you have a draft paragraph, you need to know if it actually hits the UK-SPEC criteria. Is it strong enough for CEng?</p>
-
-            <h3>Procedure:</h3>
-            <ul>
-                <li>Paste your generated STAR paragraph into the Reviewer.</li>
-                <li><strong>Analyze:</strong> The tool will scan for "Weak Language" (e.g., "I helped", "I supported") and suggest "Strong Language" (e.g., "I formulated", "I authorized").</li>
-                <li><strong>Keyword Check:</strong> It checks if you have included mandatory buzzwords like "Safety", "Budget", "Sustainability", and "Ethics".</li>
-            </ul>
-            <a href="STAR_reviewer.html" class="cta-btn">Launch Reviewer</a>
-        </div>
-
-        <div class="card">
-            <h2>>> STEP 3: FILL THE GAPS</h2>
-            <p><strong>Tools:</strong> <a href="ethics_tool.html" style="color:var(--terminal-green)">Ethics Compass</a> & <a href="cpd_tool.html" style="color:var(--terminal-green)">CPD Analyzer</a></p>
-            <p>Technical evidence is easy. The "soft skills" (Ethics, Leadership, CPD) are where most applications fail.</p>
-            
-            <h3>Procedure:</h3>
-            <ul>
-                <li><strong>Ethics:</strong> Use the <em>Ethics Compass</em> to turn a generic "I worked safely" statement into a specific reference to the RAEng Statement of Ethical Principles.</li>
-                <li><strong>CPD:</strong> Use the <em>Gap Analyzer</em> to identify which UK-SPEC competencies (A-E) you are missing evidence for, and generate a plan to fix it.</li>
-            </ul>
         </div>
 
     </div>
@@ -198,6 +220,7 @@
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>

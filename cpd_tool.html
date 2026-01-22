@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPD Gap Analyzer | EmpoweringEngineers.uk</title>
@@ -9,14 +17,6 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
     <style>
@@ -53,10 +53,9 @@
             color: var(--terminal-green); 
             text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
         }
-
+        
         .container { max-width: 900px; width: 100%; }
 
-        /* PROFILE SECTION */
         .card { 
             background: var(--dark-card); 
             padding: 30px; 
@@ -75,29 +74,38 @@
             letter-spacing: 1px; 
         }
 
-        .profile-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+        /* PROFILE INPUTS */
+        .profile-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            margin-bottom: 30px; 
         }
-
+        
         label { display: block; margin-bottom: 5px; color: var(--burnt-orange); font-weight: bold; font-size: 0.9rem; }
         
-        select, input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border-color);
-            color: white;
-            border-radius: 4px;
-            font-family: 'Roboto', sans-serif;
+        select, input[type="text"] { 
+            width: 100%; 
+            padding: 10px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--border-color); 
+            color: white; 
+            border-radius: 4px; 
+            font-family: 'Roboto', sans-serif; 
             box-sizing: border-box;
         }
         select:focus { outline: none; border-color: var(--terminal-green); }
 
         /* SLIDERS */
-        .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .slider-row { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 15px; 
+            padding: 10px; 
+            background: rgba(255,255,255,0.02); 
+            border-radius: 4px; 
+        }
         .slider-label { width: 45%; font-family: 'Courier Prime', monospace; font-size: 0.95rem; }
         .slider-input { width: 55%; accent-color: var(--terminal-green); cursor: pointer; }
 
@@ -110,7 +118,6 @@
             font-weight: bold; 
             border-radius: 6px; 
             cursor: pointer; 
-            text-transform: uppercase; 
             font-size: 1rem; 
             margin-top: 10px; 
             transition: 0.3s; 
@@ -118,36 +125,50 @@
         .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
         /* RESULTS */
-        .results-box { display: none; margin-top: 20px; animation: fadeIn 0.5s ease-in; }
-        
+        .results-box { 
+            display: none; 
+            margin-top: 20px; 
+            animation: fadeIn 0.5s ease-in; 
+        }
+
         .plan-item { 
             background: rgba(0,0,0,0.3); 
             padding: 20px; 
             border-left: 4px solid var(--terminal-green); 
             margin-bottom: 15px; 
+            border-radius: 0 4px 4px 0; 
         }
-        
-        .plan-header {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
+
+        .plan-header { 
+            display: flex; 
+            justify-content: space-between; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 10px; 
+            margin-bottom: 10px; 
         }
+
         .plan-title { font-weight: bold; color: var(--cloud-white); font-size: 1.1rem; }
         .plan-score { color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
 
         .plan-70 { color: var(--terminal-green); display: block; margin-top: 10px; font-size: 0.95rem; }
         .plan-20 { color: var(--burnt-orange); display: block; margin-top: 8px; font-size: 0.95rem; }
         .plan-10 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; }
-        
-        .tag { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 10px; vertical-align: middle; }
+
+        .tag { 
+            background: rgba(255,255,255,0.1); 
+            padding: 2px 6px; 
+            border-radius: 3px; 
+            font-size: 0.7rem; 
+            margin-left: 10px; 
+            vertical-align: middle; 
+            color: var(--slate-grey); 
+        }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
         footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
-
+        
         @media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -173,16 +194,16 @@
                 <div>
                     <label>Registration Goal</label>
                     <select id="regLevel">
-                        <option value="IEng">IEng (Incorporated Engineer)</option>
-                        <option value="CEng" selected>CEng (Chartered Engineer)</option>
+                        <option value="IEng">IEng (Incorporated)</option>
+                        <option value="CEng" selected>CEng (Chartered)</option>
                     </select>
                 </div>
                 <div>
                     <label>Current Role</label>
                     <select id="jobRole">
-                        <option value="Junior">Junior / Graduate Engineer</option>
+                        <option value="Junior">Junior / Graduate</option>
                         <option value="Senior">Senior Engineer</option>
-                        <option value="Lead">Lead / Principal Engineer</option>
+                        <option value="Lead">Lead / Principal</option>
                         <option value="Manager">Engineering Manager</option>
                         <option value="TeamLead">Team Leader</option>
                     </select>
@@ -203,22 +224,40 @@
                     <label>Main Discipline</label>
                     <select id="discipline">
                         <option value="Mech">Mechanical</option>
-                        <option value="Elec">Electrical / Electronic</option>
+                        <option value="Elec">Electrical</option>
                         <option value="Civil">Civil / Structural</option>
-                        <option value="Software">Software / Systems</option>
-                        <option value="Materials">Materials / Chemical</option>
+                        <option value="Software">Software</option>
+                        <option value="Materials">Materials</option>
                     </select>
                 </div>
             </div>
 
             <h2>2. Self-Assessment</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">Rate your current evidence level (0% = No Evidence, 100% = Fully Competent).</p>
+            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom:20px;">
+                Rate your current evidence level (0% = No Evidence, 100% = Fully Competent).
+                <br><em>Be honest: < 80% will trigger a development action.</em>
+            </p>
             
-            <div class="slider-row"><span class="slider-label">A: Knowledge & Understanding</span><input type="range" id="valA" class="slider-input" min="0" max="100" value="40"></div>
-            <div class="slider-row"><span class="slider-label">B: Application to Practice</span><input type="range" id="valB" class="slider-input" min="0" max="100" value="50"></div>
-            <div class="slider-row"><span class="slider-label">C: Leadership & Management</span><input type="range" id="valC" class="slider-input" min="0" max="100" value="30"></div>
-            <div class="slider-row"><span class="slider-label">D: Interpersonal Skills</span><input type="range" id="valD" class="slider-input" min="0" max="100" value="60"></div>
-            <div class="slider-row"><span class="slider-label">E: Ethics, Safety & Legal</span><input type="range" id="valE" class="slider-input" min="0" max="100" value="45"></div>
+            <div class="slider-row">
+                <span class="slider-label">A: Knowledge & Understanding</span>
+                <input type="range" id="valA" class="slider-input" min="0" max="100" value="40">
+            </div>
+            <div class="slider-row">
+                <span class="slider-label">B: Application to Practice</span>
+                <input type="range" id="valB" class="slider-input" min="0" max="100" value="50">
+            </div>
+            <div class="slider-row">
+                <span class="slider-label">C: Leadership & Management</span>
+                <input type="range" id="valC" class="slider-input" min="0" max="100" value="30">
+            </div>
+            <div class="slider-row">
+                <span class="slider-label">D: Interpersonal Skills</span>
+                <input type="range" id="valD" class="slider-input" min="0" max="100" value="60">
+            </div>
+            <div class="slider-row">
+                <span class="slider-label">E: Ethics, Safety & Legal</span>
+                <input type="range" id="valE" class="slider-input" min="0" max="100" value="45">
+            </div>
             
             <button class="action-btn" onclick="generatePlan()">Generate Tailored Action Plan</button>
             <button class="action-btn" onclick="clearCPD()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey);">Reset Profile</button>
@@ -228,22 +267,20 @@
             <h2>Your 70:20:10 Development Plan</h2>
             <div id="planContainer"></div>
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; <span id="year"></span> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
 
     <script>
-        document.getElementById('year').innerText = new Date().getFullYear();
-
-        // --- AUTO-SAVE SYSTEM ---
+        // --- AUTO-SAVE LOGIC ---
         const cpdInputs = ['regLevel', 'jobRole', 'industry', 'discipline', 'valA', 'valB', 'valC', 'valD', 'valE'];
 
         window.onload = function() {
@@ -260,118 +297,84 @@
         });
 
         function clearCPD() {
-            if(confirm("Reset all profile settings to default?")) {
+            if(confirm("Reset all profile settings?")) {
                 cpdInputs.forEach(id => localStorage.removeItem('cpd_' + id));
-                location.reload(); // Quickest way to reset all sliders to HTML defaults
+                location.reload();
             }
         }
 
-        // --- DATABASE OF ADVICE (Identical to previous version) ---
+        // --- ADVICE DATABASE (THE BRAIN) ---
+        // This matrix maps Competencies (A-E) to Advice based on Role/Level.
         const cpdData = {
-            // CATEGORY A: KNOWLEDGE
             A: {
+                // A: KNOWLEDGE
                 generic: {
-                    p70: "Lead a root-cause analysis using First Principles to solve a recurring technical failure.",
-                    p20: "Find a mentor within the institution who is a Subject Matter Expert in this theory.",
-                    p10: "Complete a technical module or read a seminal paper on this specific theory."
+                    p70: "Lead a root-cause analysis using First Principles (e.g., calculations not just software).",
+                    p20: "Find a mentor who is a Subject Matter Expert (SME) in a discipline adjacent to yours.",
+                    p10: "Complete a formal technical module or Masters-level assignment on this theory."
                 },
-                Software: {
-                    p70: "Refactor a legacy codebase to apply modern architectural patterns (e.g., Microservices).",
-                    p20: "Code review sessions with a Principal Architect.",
-                    p10: "Complete a certification in Cloud Architecture (AWS/Azure)."
-                },
-                Civil: {
-                    p70: "Undertake complex structural calculations for a non-standard load case.",
-                    p20: "Attend a specific Institution of Civil Engineers (ICE) lecture on geotechnics.",
-                    p10: "Study the Eurocodes specific to seismic or wind loading."
-                },
-                CEng: "Focus on developing NEW methodologies or expanding the limits of current technology.",
-                IEng: "Focus on applying EXISTING technology and standards to improve efficiency."
+                CEng: "Focus on developing NEW methodologies or technological innovation, rather than just applying existing ones.",
+                IEng: "Focus on applying EXISTING technology to solve complex problems and managing the process."
             },
-
-            // CATEGORY B: APPLICATION
             B: {
-                generic: {
-                    p70: "Manage a project from concept to commissioning, ensuring all validation steps are logged.",
-                    p20: "Shadow the commissioning/testing team to see how your designs perform in the field.",
-                    p10: "Study the specific ISO/BS standards relevant to your product lifecycle."
-                },
-                Aerospace: {
-                    p70: "Lead a specific verification activity for airworthiness compliance (EASA/FAA).",
-                    p20: "Discuss compliance matrices with the Chief Engineer.",
-                    p10: "Course on Systems Engineering (V-Model) specific to Aerospace."
-                },
-                OilGas: {
-                    p70: "Lead the technical input for a plant modification or brownfield upgrade.",
-                    p20: "Join a 'Lunch & Learn' on flow assurance or process safety.",
-                    p10: "Study API standards relevant to pressure vessel design."
-                }
-            },
-
-            // CATEGORY C: LEADERSHIP
-            C: {
+                // B: APPLICATION
                 Junior: {
-                    p70: "Volunteer to supervise a summer intern or apprentice for a 3-month project.",
-                    p20: "Request feedback from your manager specifically on your delegation style.",
-                    p10: "Read 'The 7 Habits of Highly Effective People' or similar foundational leadership books."
-                },
-                Manager: {
-                    p70: "Lead a strategic review of departmental resources and propose a budget for next year.",
-                    p20: "Engage a professional executive coach or mentor outside your direct reporting line.",
-                    p10: "Complete a 'Finance for Non-Financial Managers' qualification."
-                },
-                generic: {
-                    p70: "Take ownership of a small sub-project, managing schedule, budget, and risks.",
-                    p20: "Interview a Project Manager about how they handle scope creep.",
-                    p10: "Take a LinkedIn Learning course on Project Management Fundamentals (PMP/Prince2)."
-                }
-            },
-
-            // CATEGORY D: COMMUNICATION
-            D: {
-                generic: {
-                    p70: "Present your next project update to a purely non-technical audience (Sales/HR/Finance).",
-                    p20: "Ask a colleague from a different department to review your report for jargon.",
-                    p10: "Join a public speaking group (e.g., Toastmasters) or present at a local school."
+                    p70: "Take ownership of a small work package from concept to delivery.",
+                    p20: "Shadow a Senior Engineer during a critical design review.",
+                    p10: "Learn a new software tool (e.g., FEA, Python, CAD) to an advanced level."
                 },
                 Senior: {
-                    p70: "Lead a high-stakes negotiation with a client or supplier regarding a contract variation.",
-                    p20: "Peer review technical papers for a conference or journal.",
-                    p10: "Advanced course on Negotiation Skills or Conflict Resolution."
-                }
-            },
-
-            // CATEGORY E: ETHICS & SAFETY
-            E: {
-                OilGas: {
-                    p70: "Participate in (or scribe for) a HAZOP or LOPA study.",
-                    p20: "Discuss a recent process safety incident (e.g., Deepwater Horizon) with the H&S lead.",
-                    p10: "Study the ATEX directives or COMAH regulations."
-                },
-                Civil: {
-                    p70: "Review a Construction Phase Plan to ensure compliance with CDM 2015 regulations.",
-                    p20: "Site walk-around with the Safety Officer focusing on temporary works.",
-                    p10: "Formal training on CDM 2015 Principal Designer duties."
-                },
-                Automotive: {
-                    p70: "Conduct a Functional Safety audit compliant with ISO 26262.",
-                    p20: "Review FMEA (Failure Mode Effects Analysis) with the quality team.",
-                    p10: "Study the ethical implications of autonomous driving algorithms."
+                    p70: "Manage a multi-disciplinary project involving conflicting technical requirements.",
+                    p20: "Review and approve the technical work of junior staff.",
+                    p10: "Attend a conference on emerging technologies in your sector."
                 },
                 generic: {
-                    p70: "Conduct a formal Risk Assessment (RAMS) for an upcoming non-standard task.",
-                    p20: "Discuss a specific ethical dilemma (e.g., sustainability vs cost) with a senior mentor.",
-                    p10: "Read the Royal Academy of Engineering 'Statement of Ethical Principles'."
+                    p70: "Manage a project from concept to commissioning.",
+                    p20: "Shadow the commissioning/manufacturing team to understand downstream impact.",
+                    p10: "Study specific ISO/BS standards relevant to your product."
+                }
+            },
+            C: {
+                // C: LEADERSHIP
+                Junior: {
+                    p70: "Supervise an intern, apprentice, or summer placement student.",
+                    p20: "Request specific feedback on your delegation skills from a manager.",
+                    p10: "Read 'The 7 Habits of Highly Effective People' or similar leadership texts."
+                },
+                Manager: {
+                    p70: "Lead a strategic review of a department process or budget.",
+                    p20: "Engage an executive coach or mentor outside your direct reporting line.",
+                    p10: "Complete a 'Finance for Non-Financial Managers' course."
+                },
+                generic: {
+                    p70: "Take ownership of a sub-project budget or timeline.",
+                    p20: "Interview a Project Manager about handling scope creep.",
+                    p10: "Complete a Project Management Fundamentals (APM/PRINCE2) course."
+                }
+            },
+            D: {
+                // D: COMMUNICATION
+                generic: {
+                    p70: "Present a technical update to a non-technical audience (e.g., Sales, Finance).",
+                    p20: "Peer review technical reports for clarity and jargon reduction.",
+                    p10: "Join a public speaking group (e.g., Toastmasters) or take a presentation skills workshop."
+                }
+            },
+            E: {
+                // E: ETHICS & SAFETY
+                generic: {
+                    p70: "Conduct a formal Risk Assessment (RAMS) or HAZOP study.",
+                    p20: "Discuss a specific ethical dilemma with a senior mentor.",
+                    p10: "Read the RAEng Statement of Ethical Principles and your Institution's Code of Conduct."
                 }
             }
         };
 
         function generatePlan() {
-            // 1. Get Inputs
-            const level = document.getElementById('regLevel').value; 
-            const role = document.getElementById('jobRole').value; 
-            const industry = document.getElementById('industry').value; 
-            const discipline = document.getElementById('discipline').value;
+            // Get Values
+            const level = document.getElementById('regLevel').value;
+            const role = document.getElementById('jobRole').value;
+            const industry = document.getElementById('industry').value;
             
             const scores = {
                 A: parseInt(document.getElementById('valA').value),
@@ -385,43 +388,26 @@
             container.innerHTML = "";
             document.getElementById('results').style.display = "block";
 
-            // 2. Loop through Categories
-            const categories = [
-                { id: 'A', name: 'Knowledge & Understanding' },
-                { id: 'B', name: 'Design & Application' },
-                { id: 'C', name: 'Leadership & Management' },
-                { id: 'D', name: 'Communication & Interpersonal' },
-                { id: 'E', name: 'Professional Conduct (Safety/Ethics)' }
+            const cats = [
+                {id:'A', n:'Knowledge & Understanding'},
+                {id:'B', n:'Application to Practice'},
+                {id:'C', n:'Leadership & Management'},
+                {id:'D', n:'Interpersonal Skills'},
+                {id:'E', n:'Ethics, Safety & Legal'}
             ];
 
             let gapFound = false;
 
-            categories.forEach(cat => {
-                // Only show plan if score is below 80%
+            cats.forEach(cat => {
                 if(scores[cat.id] < 80) {
                     gapFound = true;
-                    
-                    // --- LOGIC ENGINE ---
-                    let adviceSet = { p70: "", p20: "", p10: "" };
-                    const db = cpdData[cat.id];
+                    // Logic to find best advice
+                    let adviceSet = cpdData[cat.id][role]; 
+                    if (!adviceSet) adviceSet = cpdData[cat.id]['generic'];
 
-                    if (db[discipline]) {
-                        adviceSet = db[discipline];
-                    } else if (db[industry]) {
-                        adviceSet = db[industry];
-                    } else if (db[role] && cat.id === 'C') { 
-                        adviceSet = db[role];
-                    } else if (role === 'Manager' && cat.id === 'C') {
-                        adviceSet = db['Manager'];
-                    } else if (role === 'Junior' && cat.id === 'C') {
-                        adviceSet = db['Junior'];
-                    } else if (role === 'Senior' && cat.id === 'D') {
-                        adviceSet = db['Senior'];
-                    } else {
-                        adviceSet = db['generic'];
-                    }
-
+                    // Special CEng/IEng note for Comp A
                     let levelNote = "";
+                    const db = cpdData[cat.id];
                     if(cat.id === 'A' && db[level]) {
                         levelNote = ` <br><em style="color:#8899A6; font-size:0.85rem;">(Note for ${level}: ${db[level]})</em>`;
                     }
@@ -429,7 +415,7 @@
                     const html = `
                         <div class="plan-item">
                             <div class="plan-header">
-                                <span class="plan-title">Gap ${cat.id}: ${cat.name} <span class="tag">${industry}</span></span>
+                                <span class="plan-title">Gap ${cat.id}: ${cat.n} <span class="tag">${industry}</span></span>
                                 <span class="plan-score">Score: ${scores[cat.id]}%</span>
                             </div>
                             <span class="plan-70"><strong>70% (Experience):</strong> ${adviceSet.p70}${levelNote}</span>
@@ -444,6 +430,9 @@
             if(!gapFound) {
                 container.innerHTML = `<div class="plan-item" style="border-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Excellent Profile!</span></div><p style="color:white;">Your self-assessment indicates strong competence (>80%) across all areas. Focus on maintaining your CPD and mentoring others (Competence D).</p></div>`;
             }
+            
+            // Scroll to results
+            container.scrollIntoView({behavior: "smooth"});
         }
     </script>
 </body>

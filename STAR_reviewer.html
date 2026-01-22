@@ -14,6 +14,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-PG4ZJ7W444');
     </script>
     
@@ -41,8 +42,18 @@
             align-items: center; 
         }
 
-        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
-        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .site-brand { 
+            text-decoration: none; 
+            font-family: 'Lora', serif; 
+            font-size: 2rem; 
+            color: var(--cloud-white); 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+        }
+        .site-brand span { 
+            color: var(--terminal-green); 
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+        }
 
         .container { max-width: 900px; width: 100%; }
 
@@ -64,18 +75,21 @@
             letter-spacing: 1px; 
         }
 
+        label { display: block; margin-top: 20px; color: var(--burnt-orange); font-weight: bold; }
+        
         textarea { 
             width: 100%; 
-            height: 150px; 
+            height: 200px; 
             background: rgba(0,0,0,0.3); 
             border: 1px solid var(--border-color); 
             color: white; 
             padding: 15px; 
             font-family: 'Roboto', sans-serif; 
             border-radius: 4px; 
-            resize: vertical; 
-            font-size: 1rem;
+            resize: vertical;
             box-sizing: border-box;
+            font-size: 1rem;
+            line-height: 1.5;
         }
         textarea:focus { outline: none; border-color: var(--terminal-green); }
 
@@ -90,40 +104,56 @@
             cursor: pointer; 
             text-transform: uppercase; 
             font-size: 1rem; 
-            margin-top: 20px; 
+            margin-top: 25px; 
             transition: 0.3s; 
         }
         .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        /* ANALYSIS RESULT STYLES */
-        .analysis-box { display: none; margin-top: 20px; animation: fadeIn 0.5s ease-in; }
-        
-        .score-card { 
-            display: flex; 
-            justify-content: space-between; 
-            background: rgba(0,0,0,0.2); 
-            padding: 15px; 
-            border-radius: 6px; 
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
+        /* DASHBOARD GRID */
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            margin-top: 20px; 
         }
-        .score-item { text-align: center; }
-        .score-val { display: block; font-size: 1.5rem; font-weight: bold; color: var(--terminal-green); font-family: 'Courier Prime', monospace; }
-        .score-label { font-size: 0.8rem; color: var(--slate-grey); text-transform: uppercase; }
+        .stat-box { 
+            background: rgba(0,0,0,0.3); 
+            padding: 15px; 
+            border-radius: 4px; 
+            text-align: center; 
+            border: 1px solid var(--border-color); 
+        }
+        .stat-number { 
+            display: block; 
+            font-size: 2rem; 
+            font-weight: bold; 
+            font-family: 'Courier Prime', monospace; 
+            color: var(--cloud-white); 
+        }
+        .stat-label { 
+            font-size: 0.8rem; 
+            color: var(--slate-grey); 
+            text-transform: uppercase; 
+        }
 
+        /* RESULTS LIST */
+        .findings-box { 
+            margin-top: 30px; 
+            max-height: 400px; 
+            overflow-y: auto; 
+        }
         .finding-item { 
             padding: 10px; 
-            border-left: 3px solid; 
-            margin-bottom: 10px; 
-            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            font-size: 0.95rem; 
         }
-        .finding-good { border-color: var(--terminal-green); color: #d1d5db; }
-        .finding-bad { border-color: var(--burnt-orange); color: #ffd1a9; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .finding-bad { color: var(--burnt-orange); }
+        .finding-good { color: var(--terminal-green); }
 
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; text-align: center; }
         footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 10px; }
+        
+        @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -143,95 +173,79 @@
     <div class="container">
         <div class="card">
             <h2>Competency Auditor</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem;">
-                Paste your draft competency paragraph below. Our logic engine will scan for "Weak Language" (Passive Voice) and "Strong Evidence" (UK-SPEC Keywords).
-            </p>
+            <p style="color:var(--slate-grey);">Paste your draft STAR example below. The algorithm will check for <strong>Passive Voice</strong> (We/Us) and scan for <strong>UK-SPEC Keywords</strong>.</p>
             
-            <textarea id="inputText" placeholder="Paste your text here (e.g. 'I was involved in the design of...')..."></textarea>
+            <textarea id="inputText" placeholder="Paste your draft competency statement here..."></textarea>
             
-            <button class="action-btn" onclick="analyzeText()">Audit Text</button>
-            <button class="action-btn" onclick="clearReview()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey); margin-top:10px;">Clear Text</button>
-        </div>
+            <button class="action-btn" onclick="analyzeText()">Audit My Text</button>
+            
+            <div id="results" style="display:none; margin-top:30px;">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number" id="scoreAction" style="color:var(--terminal-green)">0%</span>
+                        <span class="stat-label">Action Bias</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="scoreKeywords">0</span>
+                        <span class="stat-label">UK-SPEC Keywords</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="scoreWeak" style="color:var(--burnt-orange)">0</span>
+                        <span class="stat-label">Weak Words</span>
+                    </div>
+                </div>
 
-        <div id="results" class="analysis-box">
-            <div class="score-card">
-                <div class="score-item">
-                    <span id="scoreAction" class="score-val">0%</span>
-                    <span class="score-label">Action Bias</span>
-                </div>
-                <div class="score-item">
-                    <span id="scoreKeywords" class="score-val">0</span>
-                    <span class="score-label">Keywords Found</span>
-                </div>
-                <div class="score-item">
-                    <span id="scoreWeak" class="score-val" style="color:var(--burnt-orange)">0</span>
-                    <span class="score-label">Weak Phrases</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>>> Audit_Log</h2>
-                <div id="findingsList"></div>
+                <h3 style="margin-top:20px; color:var(--cloud-white); border-bottom:1px solid var(--border-color); padding-bottom:10px;">Analysis Report</h3>
+                <div id="findingsList" class="findings-box"></div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <span id="year"></span> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
 
     <script>
-        document.getElementById('year').innerText = new Date().getFullYear();
+        // --- DICTIONARIES ---
+        const weakWords = [
+            "we", "us", "our", "team", "group", "helped", "assisted", "supported", "involved in", "participated", "observed", "monitored", "oversaw"
+        ];
+        
+        const strongVerbs = [
+            "analysed", "calculated", "designed", "negotiated", "authorized", "initiated", "developed", "engineered", "implemented", "solved", "investigated", "created", "built", "led", "managed", "budgeted", "presented", "influenced", "mentored", "optimized"
+        ];
 
-        // --- AUTO-SAVE ---
-        window.onload = function() {
-            if(localStorage.getItem('reviewer_text')) {
-                document.getElementById('inputText').value = localStorage.getItem('reviewer_text');
-            }
-        };
-
-        document.getElementById('inputText').addEventListener('input', function() {
-            localStorage.setItem('reviewer_text', this.value);
-        });
-
-        function clearReview() {
-            if(confirm("Clear the text?")) {
-                document.getElementById('inputText').value = "";
-                localStorage.removeItem('reviewer_text');
-                document.getElementById('results').style.display = 'none';
-            }
-        }
-
-        // --- AUDIT LOGIC ---
-        const strongVerbs = ['calculated', 'designed', 'authorized', 'negotiated', 'led', 'managed', 'created', 'analyzed', 'solved', 'implemented', 'initiated'];
-        const weakPhrases = ['helped', 'supported', 'assisted', 'was involved in', 'we decided', 'team', 'participated'];
-        const ukSpecKeywords = ['safety', 'ethics', 'budget', 'cost', 'standard', 'iso', 'risk', 'environmental', 'sustainable', 'stakeholder', 'compliance', 'legal', 'innovative'];
+        const ukSpecKeywords = [
+            "safety", "risk", "budget", "cost", "ethics", "sustainability", "environment", "legal", "compliance", "standards", "iso", "stakeholder", "quality", "innovation", "technology", "improvement", "failure", "root cause", "validation", "verification", "commercial"
+        ];
 
         function analyzeText() {
             const text = document.getElementById('inputText').value.toLowerCase();
-            const originalText = document.getElementById('inputText').value;
-            
-            if(text.length < 10) { alert("Please paste a longer text to analyze."); return; }
+            if(text.length < 10) { alert("Please enter more text to analyze."); return; }
 
-            let strongCount = 0;
             let weakCount = 0;
+            let strongCount = 0;
             let keywordCount = 0;
             let findingsHTML = "";
 
-            // 1. Check Weak Phrases
-            weakPhrases.forEach(phrase => {
-                if(text.includes(phrase)) {
-                    weakCount++;
-                    findingsHTML += `<div class="finding-item finding-bad">⚠️ <strong>Weak Language:</strong> "${phrase}" found. Try replacing with "I delivered" or "I owned".</div>`;
+            // 1. Check Weak Words
+            weakWords.forEach(word => {
+                // Regex to find whole words only
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                const matches = text.match(regex);
+                if(matches) {
+                    weakCount += matches.length;
+                    findingsHTML += `<div class="finding-item finding-bad">⚠️ <strong>Passive Language:</strong> Used "${word}" ${matches.length} time(s). Try to replace with "I" or a strong verb.</div>`;
                 }
             });
 
-            // 2. Check Keywords
+            // 2. Check UK-SPEC Keywords
             ukSpecKeywords.forEach(word => {
                 if(text.includes(word)) {
                     keywordCount++;

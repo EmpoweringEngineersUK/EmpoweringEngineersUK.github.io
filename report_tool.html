@@ -43,11 +43,13 @@
         .checkbox-label:hover { background: rgba(255,255,255,0.1); }
         input[type="checkbox"] { accent-color: var(--terminal-green); width: 16px; height: 16px; margin-right: 10px; }
         .preview-box { background: #09121d; color: #e2e8f0; padding: 40px; border-radius: 8px; font-family: 'Courier Prime', monospace; white-space: pre-wrap; min-height: 600px; overflow-y: auto; font-size: 0.9rem; line-height: 1.6; border: 1px solid var(--border-color); }
-        .preview-box.visual-mode { background: white; color: black; font-family: Calibri, 'Segoe UI', sans-serif; white-space: normal; }
-        .visual-mode h1 { font-size: 24pt; color: #2F5496; margin-bottom: 24px; }
-        .visual-mode h2 { font-size: 16pt; color: #2F5496; margin-top: 24px; border-bottom: 1px solid #ddd; }
-        .btn-action { background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 1rem; margin-top: 20px; transition: 0.2s; text-transform: uppercase; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-action { background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: 0.2s; text-transform: uppercase; }
         .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-secondary { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); }
+        .btn-secondary:hover { background: rgba(0, 255, 153, 0.1); }
+
         footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
         footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
         footer a:hover { color: var(--terminal-green); }
@@ -67,7 +69,7 @@
     </nav>
 
     <div class="header">
-        <h1>Technical Report Architect v9.2</h1>
+        <h1>Technical Report Architect v9.3</h1>
         <p class="subtitle">Expert Documentation Generator (IET / FEA / QFD)</p>
     </div>
 
@@ -133,7 +135,11 @@
         <div class="card">
             <h2 class="card-title">2. Output</h2>
             <div id="outputArea" class="preview-box">> Select modules to begin...</div>
-            <button class="btn-action" onclick="copyToClipboard()">Copy to Clipboard</button>
+            
+            <div class="btn-group">
+                <button class="btn-action" onclick="downloadWord()">Export to Word (.doc)</button>
+                <button class="btn-action btn-secondary" onclick="copyToClipboard()">Copy Text</button>
+            </div>
         </div>
     </div>
 
@@ -142,6 +148,7 @@
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
@@ -166,10 +173,11 @@
             const savedPreset = localStorage.getItem('rep_preset');
             if(savedPreset) document.getElementById('presetSelector').value = savedPreset;
             
-            generateReport();
+            // Only generate if we have a preset or checkboxes checked
+            const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+            if(hasChecked) generateReport();
         };
 
-        // Save on interaction
         textInputs.forEach(id => {
             document.getElementById(id).addEventListener('input', function() {
                 localStorage.setItem('rep_' + id, this.value);
@@ -195,18 +203,36 @@
             }
         }
 
-        // --- REPORT GENERATION LOGIC ---
-        let sectionCounter = 1;
-
+        // --- PRESET LOGIC ---
         function applyPreset() {
             const type = document.getElementById('presetSelector').value;
-            // Clear all first
+            // Uncheck all first
             checkboxes.forEach(cb => { cb.checked = false; localStorage.removeItem('rep_' + cb.id); });
 
             let toCheck = [];
-            if (type === 'iet_standard') toCheck = ['mod_exec', 'mod_ack', 'mod_intro', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
-            else if (type === 'fea') toCheck = ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_results_fea', 'mod_conclusion', 'mod_refs'];
-            // (Add other preset logic here if needed, or rely on manual selection)
+            
+            // FULL PRESET MAPPING
+            if (type === 'iet_standard') {
+                toCheck = ['mod_exec', 'mod_ack', 'mod_intro', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
+            } 
+            else if (type === 'academic') {
+                toCheck = ['mod_intro', 'mod_lit', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs', 'mod_appendices'];
+            }
+            else if (type === 'fea') {
+                toCheck = ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_results_fea', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
+            }
+            else if (type === 'qfd') {
+                toCheck = ['mod_intro', 'mod_voc', 'mod_hoq', 'mod_tech_reqs', 'mod_design', 'mod_conclusion', 'mod_appendices'];
+            }
+            else if (type === 'failure') {
+                toCheck = ['mod_exec', 'mod_intro', 'mod_method', 'mod_failure', 'mod_calcs', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
+            }
+            else if (type === 'design') {
+                toCheck = ['mod_exec', 'mod_intro', 'mod_voc', 'mod_tech_reqs', 'mod_design', 'mod_calcs', 'mod_risk', 'mod_timeline', 'mod_finance', 'mod_conclusion'];
+            }
+            else if (type === 'project') {
+                toCheck = ['mod_pid', 'mod_intro', 'mod_stakeholder', 'mod_risk', 'mod_timeline', 'mod_finance', 'mod_conclusion'];
+            }
             
             toCheck.forEach(id => {
                 const el = document.getElementById(id);
@@ -216,30 +242,14 @@
         }
 
         function generateReport() {
-            sectionCounter = 1;
-            const title = document.getElementById('reportTitle').value || "[REPORT TITLE]";
-            const author = document.getElementById('authorName').value || "[AUTHOR NAME]";
+            let sectionCounter = 1;
+            // Handle empty fields properly
+            const title = document.getElementById('reportTitle').value.trim() || "[REPORT TITLE]";
+            const author = document.getElementById('authorName').value.trim() || "[AUTHOR NAME]";
             const date = new Date().toLocaleDateString('en-GB');
             
             let content = `TITLE: ${title}\nAUTHOR: ${author}\nDATE: ${date}\nSTATUS: DRAFT\n========================================================\n\n`;
 
-            function addSection(id, titleText) {
-                const el = document.getElementById(id);
-                if (el && el.checked) {
-                    content += `${sectionCounter}.0 ${titleText}\n\n`;
-                    sectionCounter++;
-                }
-            }
-
-            // Loop through all IDs in order (simplified for brevity)
-            const map = {
-                'mod_exec': 'EXECUTIVE SUMMARY', 'mod_intro': 'INTRODUCTION', 'mod_voc': 'VOICE OF CUSTOMER', 
-                'mod_geometry': 'MODEL GEOMETRY', 'mod_results': 'RESULTS', 'mod_discussion': 'DISCUSSION', 
-                'mod_conclusion': 'CONCLUSIONS' 
-                // ... (Logic remains same as original tool, just mapped to IDs)
-            };
-            
-            // Iterate over all checkboxes in the DOM order
             checkboxes.forEach(cb => {
                 if(cb.checked) {
                     const label = cb.parentElement.textContent.trim();
@@ -253,7 +263,28 @@
 
         function copyToClipboard() {
             const text = document.getElementById('outputArea').innerText;
-            navigator.clipboard.writeText(text).then(() => alert("Copied!"));
+            navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+        }
+
+        // --- WORD EXPORT FUNCTION ---
+        function downloadWord() {
+            const text = document.getElementById('outputArea').innerText;
+            if(!text || text.includes("> Select modules")) { alert("Please generate a report first."); return; }
+
+            // Convert plain text newlines to HTML breaks for the Word file
+            const htmlContent = text.replace(/\n/g, '<br>');
+            
+            const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Report</title></head><body><div style='font-family:Calibri, sans-serif; font-size:12pt;'>";
+            const footer = "</div></body></html>";
+            const sourceHTML = header + htmlContent + footer;
+            
+            const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+            const fileDownload = document.createElement("a");
+            document.body.appendChild(fileDownload);
+            fileDownload.href = source;
+            fileDownload.download = 'EmpoweringEngineers_Draft.doc';
+            fileDownload.click();
+            document.body.removeChild(fileDownload);
         }
     </script>
 </body>

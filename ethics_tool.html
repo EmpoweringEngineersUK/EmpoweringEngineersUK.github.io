@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethics Compass | EmpoweringEngineers.uk</title>
-    
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,6 +8,13 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics Compass | EmpoweringEngineers.uk</title>
+    
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
@@ -41,8 +40,18 @@
             align-items: center; 
         }
 
-        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; }
-        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        .site-brand { 
+            text-decoration: none; 
+            font-family: 'Lora', serif; 
+            font-size: 2rem; 
+            color: var(--cloud-white); 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+        }
+        .site-brand span { 
+            color: var(--terminal-green); 
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+        }
         
         .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
@@ -80,6 +89,21 @@
         .principle-btn { background: transparent; border: 1px solid var(--slate-grey); color: var(--slate-grey); padding: 15px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.3s; text-align: left; }
         .principle-btn:hover, .principle-btn.active { border-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); }
         .principle-btn strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+
+        .ai-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px dashed var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 15px;
+            width: 100%;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: none; /* Hidden until generated */
+        }
+        .ai-btn:hover { background: rgba(0, 255, 153, 0.1); }
 
         /* OUTPUT */
         .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 400px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; position: relative; }
@@ -156,6 +180,7 @@
         <div class="card">
             <h2>3. Professional Analysis</h2>
             <div id="outputArea" class="output-box">Select a principle to generate a structured analysis...</div>
+            <button id="aiPromptBtn" class="ai-btn" onclick="copyAiPrompt()">>> COPY AI "MEGA-PROMPT"</button>
         </div>
     </div>
 
@@ -164,14 +189,13 @@
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
 
     <script>
         // --- AUTO-SAVE LOGIC ---
-        // We use different 'keys' (e.g., 'ethics_role') so we don't overwrite the STAR tool data.
-        
         window.onload = function() {
             if(localStorage.getItem('ethics_reg')) document.getElementById('regLevel').value = localStorage.getItem('ethics_reg');
             if(localStorage.getItem('ethics_role')) document.getElementById('role').value = localStorage.getItem('ethics_role');
@@ -179,9 +203,6 @@
             if(localStorage.getItem('ethics_dilemma')) document.getElementById('dilemmaInput').value = localStorage.getItem('ethics_dilemma');
         };
 
-        const inputs = ['regLevel', 'role', 'industry', 'dilemmaInput'];
-        
-        // Listen for changes
         document.getElementById('regLevel').addEventListener('change', function(){ localStorage.setItem('ethics_reg', this.value) });
         document.getElementById('role').addEventListener('change', function(){ localStorage.setItem('ethics_role', this.value) });
         document.getElementById('industry').addEventListener('change', function(){ localStorage.setItem('ethics_industry', this.value) });
@@ -192,97 +213,116 @@
                 document.getElementById('dilemmaInput').value = "";
                 localStorage.removeItem('ethics_dilemma');
                 document.getElementById('outputArea').innerHTML = "Select a principle to generate a structured analysis...";
+                document.getElementById('aiPromptBtn').style.display = 'none';
             }
         }
 
-        // --- ANALYSIS LOGIC ---
+        // --- EXPANDED ANALYSIS LOGIC (V2.1) ---
         const contextDB = {
-            Civil: {
-                regs: "CDM 2015 Regulations, Building Safety Act, ISO 14001 (Environment)",
-                risk: "public safety, structural failure, and environmental damage",
-                body: "ICE / IStructE"
-            },
-            Aerospace: {
-                regs: "EASA/FAA Airworthiness Directives, ISO 9001/AS9100, Safety Management Systems (SMS)",
-                risk: "catastrophic failure and loss of life (Safety Critical)",
-                body: "RAeS"
-            },
-            Software: {
-                regs: "GDPR (Data Protection), ISO 27001 (InfoSec), WCAG (Accessibility)",
-                risk: "data privacy breaches, algorithmic bias, and system downtime",
-                body: "BCS / IET"
-            },
-            OilGas: {
-                regs: "COMAH Regulations, ATEX/DSEAR, API Standards",
-                risk: "process safety events, containment failure, and ecological disaster",
-                body: "IMechE / IChemE"
-            },
-            General: {
-                regs: "Health & Safety at Work Act 1974, ISO 9001, Product Safety Standards",
-                risk: "operator safety, product liability, and professional negligence",
-                body: "IMechE / IET"
-            }
+            Civil: { regs: "CDM 2015, Building Safety Act, ISO 14001", risk: "public safety, structural failure, and environmental damage", body: "ICE / IStructE" },
+            Aerospace: { regs: "EASA/FAA Airworthiness Directives, AS9100", risk: "catastrophic failure and loss of life (Safety Critical)", body: "RAeS" },
+            Software: { regs: "GDPR, ISO 27001 (InfoSec), WCAG", risk: "data privacy breaches, algorithmic bias, and downtime", body: "BCS / IET" },
+            OilGas: { regs: "COMAH Regulations, ATEX/DSEAR", risk: "process safety events and ecological disaster", body: "IMechE / IChemE" },
+            General: { regs: "Health & Safety at Work Act 1974, ISO 9001", risk: "operator safety and professional negligence", body: "IMechE / IET" }
         };
 
-        const roleAdvice = {
-            Junior: "As a Junior Engineer, your duty is to **escalate** this concern formally to your line manager. Do not attempt to resolve a systemic ethical breach alone. Document your objection in writing.",
-            Senior: "As a Senior Engineer, you are expected to **challenge** the decision. You must provide technical evidence to support your stance and refuse to sign off on work that violates standards.",
-            Manager: "As a Manager/Lead, you have a legal and moral duty to **protect** your team. You must authorize the necessary resources (time/money) to fix this and protect any whistleblowers."
+        const regExpectation = {
+            IEng: "As an IEng, your focus is on maintaining established standards and managing immediate risks within your area of responsibility. You must ensure you do not deviate from approved procedures without authorisation.",
+            CEng: "As a CEng, you are expected to handle complex, non-standard problems. You must assess the wider systemic implications of this dilemma and lead the development of a solution that may require new methodologies."
         };
+
+        let currentPrinciple = ""; // Store for the AI prompt generator
 
         function analyze(principle) {
+            currentPrinciple = principle;
             const input = document.getElementById('dilemmaInput').value;
             const regLevel = document.getElementById('regLevel').value;
             const role = document.getElementById('role').value;
             const industry = document.getElementById('industry').value;
             
-            const out = document.getElementById('outputArea');
-            
             if(!input) { alert("Please describe your dilemma first."); return; }
 
             const ctx = contextDB[industry];
-            const roleText = roleAdvice[role];
+            const regText = regExpectation[regLevel];
             
             let analysis = "";
-            let action = "";
+            let actionList = "";
             let script = "";
 
             if(principle === 'integrity') {
-                analysis = `The RAEng/Engineering Council guidelines state that you must act with integrity. In the **${industry}** sector, this often relates to accurate reporting and declaring conflicts of interest.\n\nFailing to address this could violate specific standards such as **${ctx.regs}**.`;
-                action = `1. **Declare:** If there is a commercial conflict, declare it in writing immediately.\n2. **Verify:** Refuse to sign any document that misrepresents the testing/validation status.\n3. **Record:** Keep a personal log of instructions given to you that felt unethical.`;
-                script = `"I recognized that proceeding in this way would compromise professional integrity. Despite the pressure to [deliver quickly/cut costs], I prioritized our obligation to [Client/Public Trust]. I formally raised a concern regarding compliance with **${ctx.regs}**, ensuring we did not mislead the stakeholder."`;
+                analysis = `The Code of Conduct requires you to reject bribery and declare conflicts of interest. In **${industry}**, this specifically relates to ${industry === 'Civil' ? 'procurement and tender fairness' : 'reporting accurate test data'}.\n\n${regText}`;
+                if(role === 'Junior') {
+                    actionList = `1. **Verify:** Check the company handbook/policy regarding this specific issue.\n2. **Record:** Keep a written log of the request/situation.\n3. **Escalate:** Formally raise this with your Line Manager or Ethics Officer.`;
+                } else {
+                    actionList = `1. **Refuse:** Explicitly refuse to sign-off on any document that is misleading.\n2. **Isolate:** Remove yourself from the decision-making loop to avoid Conflict of Interest.\n3. **Report:** If the issue persists, you have a duty to inform the regulatory body (${ctx.body}).`;
+                }
+                script = `"I recognized a potential breach of Integrity regarding compliance with **${ctx.regs}**. Despite the commercial pressure, I prioritized professional standards. I formally declared the conflict to ensuring transparency."`;
             
             } else if (principle === 'respect') {
-                analysis = `Your primary obligation is to the public good and the environment. In **${industry}**, the risks regarding **${ctx.risk}** are significant. This is not just an internal policy issue; it is a potential legal breach of **${ctx.regs}**.`;
-                action = `1. **Risk Assessment:** Perform a formal risk review (e.g., HAZOP/FMEA) to quantify the danger.\n2. **Legislation:** specific check against **${ctx.regs}** to prove non-compliance.\n3. **Whistleblowing:** If the immediate risk to life is ignored by management, you have a duty to inform the regulator or specific authority.`;
-                script = `"Although the project plan suggested this shortcut, I identified a risk to **${ctx.risk}**. Consistent with the principle of Respect for Life & Law, and adhering to **${ctx.regs}**, I insisted on a full review. I presented the data showing that the 'cost of safety' was far lower than the 'cost of failure'."`;
+                analysis = `Your primary obligation is to the public good. In **${industry}**, a failure here results in **${ctx.risk}**. This overrides any commercial contract or NDA.\n\n${regText}`;
+                if(role === 'Manager') {
+                    actionList = `1. **Stop Work:** You have the authority and duty to halt operations if safety is compromised.\n2. **Resource:** Authorize the budget required to fix the safety gap.\n3. **Review:** Initiate a formal HAZOP/Risk Review immediately.`;
+                } else {
+                    actionList = `1. **Assess:** quantifying the risk (Probability x Severity).\n2. **Notify:** Inform the stakeholders of the violation of **${ctx.regs}** in writing.\n3. **Whistleblow:** If ignored, escalate to the HSE or Regulator.`;
+                }
+                script = `"I identified a significant risk to **${ctx.risk}**. Consistent with the principle of Respect for Life, I refused to compromise on safety standards. I referenced **${ctx.regs}** to demonstrate that the proposed shortcut was illegal."`;
 
             } else if (principle === 'accuracy') {
-                analysis = `Engineers must not mislead. You must ensure you are working within your competence. As a **${regLevel}**, you are expected to acknowledge the limits of your knowledge.`;
-                action = `1. **Validation:** Demand peer review or third-party verification of the data.\n2. **Competence:** If this is outside your expertise, formally request a Subject Matter Expert (SME).\n3. **Transparency:** Ensure all reports clearly state the assumptions and confidence intervals.`;
-                script = `"I realized that the data relied on unverified assumptions. To ensure Rigour, I refused to issue the final approval until we had performed **${industry === 'Software' ? 'regression testing' : 'physical validation'}**. This prevented a decision being made on flawed data."`;
+                analysis = `Engineers must not mislead or work outside their competence. ${regLevel === 'CEng' ? 'You are responsible for validating novel solutions.' : 'You must ensure you are applying standards correctly.'}`;
+                actionList = `1. **Validate:** Do not rely on unverified assumptions. Demand raw data.\n2. **Peer Review:** Request a third-party audit of the calculations.\n3. **Qualify:** Clearly state the limitations/confidence level of your report.`;
+                script = `"To ensure Accuracy & Rigour, I challenged the initial assumptions. I instigated a peer review process and refused to release the data until it was validated against **${ctx.body}** best practice guidelines."`;
 
             } else if (principle === 'leadership') {
-                analysis = `Leadership is not just for managers. It implies listening to concerns and upholding the reputation of the profession. \n\n${roleText}`;
-                action = `1. **Culture:** Promote a 'Just Culture' where mistakes can be reported without fear.\n2. **Stakeholders:** actively seek the views of those affected (e.g., end-users, public).\n3. **Mentoring:** Use this as a teaching moment for junior staff on professional standards.`;
-                script = `"I championed a culture of transparency. Rather than burying the error, I led a 'Lessons Learned' session. I demonstrated Leadership by focusing on process improvement—referencing **${ctx.body}** best practice—rather than assigning blame."`;
+                analysis = `Leadership involves upholding the reputation of the profession and fostering a culture of safety.\n\n${regText}`;
+                if(role === 'Junior') {
+                    actionList = `1. **Model:** Demonstrate the correct behaviour even if others are cutting corners.\n2. **Ask:** Ask 'open questions' in meetings to highlight the risk without being confrontational.`;
+                } else {
+                    actionList = `1. **Culture:** promote a 'Just Culture' where mistakes can be reported without fear.\n2. **Educate:** Use this as a teachable moment for the team regarding **${ctx.regs}**.\n3. **Advocate:** Publicly support team members who raise safety concerns.`;
+                }
+                script = `"I took a Leadership role by shifting the focus from 'blame' to 'process improvement'. I championed a culture of transparency, ensuring the team felt safe to report the issue, thereby protecting the wider business from **${ctx.risk}**."`;
             }
 
-            const finalHTML = `
-                <span class="section-header">>> THE DILEMMA</span>
-                ${input}
+            const finalHTML = 
+`<span class="section-header">>> THE DILEMMA (User Input)</span>
+"${input}"
 
-                <span class="section-header">>> CONTEXTUAL ANALYSIS (${industry} / ${regLevel})</span>
-                ${analysis}
+<span class="section-header">>> CONTEXTUAL ANALYSIS (${regLevel})</span>
+${analysis}
 
-                <span class="section-header">>> RECOMMENDED ACTION PLAN (${role})</span>
-                ${action}
+<span class="section-header">>> RECOMMENDED ACTION PLAN (${role})</span>
+${actionList}
 
-                <span class="section-header">>> INTERVIEW / REPORT SCRIPT (STAR Method)</span>
-                <em style="color:#00FF99">${script}</em>
-            `;
+<span class="section-header">>> INTERVIEW SCRIPT (STAR Method)</span>
+<em style="color:#00FF99">${script}</em>`;
 
-            out.innerHTML = finalHTML.replace(/\n/g, "<br>");
+            document.getElementById('outputArea').innerHTML = finalHTML.replace(/\n/g, "<br>");
+            document.getElementById('aiPromptBtn').style.display = "block"; // Show button
+        }
+
+        // --- NEW: AI PROMPT GENERATOR ---
+        function copyAiPrompt() {
+            const input = document.getElementById('dilemmaInput').value;
+            const regLevel = document.getElementById('regLevel').value;
+            const role = document.getElementById('role').value;
+            const industry = document.getElementById('industry').value;
+            const p = currentPrinciple.charAt(0).toUpperCase() + currentPrinciple.slice(1);
+
+            const prompt = `Act as a Senior Fellow of the IMechE/IET. I am a ${role} Engineer in the ${industry} industry, working towards ${regLevel} registration.
+
+I am facing this Ethical Dilemma:
+"${input}"
+
+Please analyze this using the Royal Academy of Engineering's Statement of Ethical Principles, specifically focusing on "${p}".
+
+1. Identify the specific clause of the UK-SPEC or Code of Conduct this violates.
+2. Provide a step-by-step immediate action plan suitable for my seniority level.
+3. Draft a formal email I could send to my manager to raise this concern professionally.`;
+
+            navigator.clipboard.writeText(prompt).then(() => {
+                const btn = document.getElementById('aiPromptBtn');
+                btn.innerText = ">> COPIED! PASTE INTO CHATGPT/CLAUDE";
+                setTimeout(() => { btn.innerText = ">> COPY AI \"MEGA-PROMPT\""; }, 3000);
+            });
         }
     </script>
 </body>
