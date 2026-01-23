@@ -14,34 +14,31 @@
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    
     <style>
-        :root { 
-            --midnight-navy: #0D1B2A; 
-            --terminal-green: #00FF99; 
-            --burnt-orange: #E57200; 
-            --cloud-white: #FAFAFA; 
-            --slate-grey: #8899A6;
-            --dark-card: rgba(255, 255, 255, 0.05);
-            --border-color: #1F3A52;
-        }
-        body { font-family: 'Roboto', sans-serif; background: var(--midnight-navy); color: var(--cloud-white); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .site-brand { text-decoration: none; font-family: 'Lora', serif; font-size: 2rem; color: var(--cloud-white); font-weight: bold; margin-bottom: 5px; display: block; text-align: center; }
-        .site-brand span { color: var(--terminal-green); text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); }
+        /* PAGE SPECIFIC STYLES */
         .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; }
         .header { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
         h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
         .subtitle { color: var(--slate-grey); margin-top: 0; }
+        
         .card { background: var(--dark-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
         h2.card-title { font-size: 1.1rem; border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin-bottom: 20px; color: var(--terminal-green); text-transform: uppercase; letter-spacing: 1px; }
+        
         .input-group { margin-bottom: 15px; }
         .input-text { width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; border-radius: 4px; font-family: 'Roboto', sans-serif; box-sizing: border-box; }
         .input-text:focus { outline: none; border-color: var(--terminal-green); }
+        
         .preset-select { width: 100%; padding: 12px; background-color: var(--terminal-green); color: var(--midnight-navy); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; }
+        
         .module-grid { display: grid; grid-template-columns: 1fr; gap: 6px; max-height: 600px; overflow-y: auto; padding-right: 10px; border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; background: rgba(0,0,0,0.2); }
         .module-category { font-size: 0.85rem; color: var(--slate-grey); font-weight: bold; margin-top: 15px; margin-bottom: 5px; border-bottom: 1px solid var(--border-color); }
+        
         .checkbox-label { display: flex; align-items: center; cursor: pointer; padding: 6px 10px; border-radius: 4px; transition: 0.2s; font-size: 0.95rem; color: var(--cloud-white); }
         .checkbox-label:hover { background: rgba(255,255,255,0.1); }
         input[type="checkbox"] { accent-color: var(--terminal-green); width: 16px; height: 16px; margin-right: 10px; }
+        
         .preview-box { background: #09121d; color: #e2e8f0; padding: 40px; border-radius: 8px; font-family: 'Courier Prime', monospace; white-space: pre-wrap; min-height: 600px; overflow-y: auto; font-size: 0.9rem; line-height: 1.6; border: 1px solid var(--border-color); }
         
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
@@ -50,23 +47,25 @@
         .btn-secondary { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); }
         .btn-secondary:hover { background: rgba(0, 255, 153, 0.1); }
 
-        footer { margin-top: 50px; color: var(--slate-grey); font-size: 0.8rem; font-family: sans-serif; text-align: center; }
-        footer a { color: var(--slate-grey); text-decoration: underline; margin: 0 5px; }
-        footer a:hover { color: var(--terminal-green); }
         @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
-        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-    </nav>
+    <div class="sticky-container">
+        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <nav>
+            <a href="index.html">[HOME]</a>
+            <a href="guide.html">Manual</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="STAR_reviewer.html">Reviewer</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="report_tool.html" class="active">Report</a>
+            <a href="feedback_tool.html">Feedback</a>
+        </nav>
+    </div>
 
     <div class="header">
         <h1>Technical Report Architect v9.3</h1>

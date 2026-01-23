@@ -16,34 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
     
     <style>
-        :root { 
-            --midnight-navy: #0D1B2A; 
-            --terminal-green: #00FF99; 
-            --burnt-orange: #FF9F43; 
-            --cloud-white: #FAFAFA; 
-            --slate-grey: #8899A6;
-            --border-color: #1F3A52;
-        }
+        /* PAGE SPECIFIC STYLES */
+        body { background: #e0e0e0; }
         
-        body { font-family: 'Roboto', sans-serif; background: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        
-        /* STANDARD NAV BAR STYLE (MATCHING OTHER TOOLS) */
-        nav {
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            flex-wrap: wrap; 
-            padding-bottom: 10px; 
-            margin-bottom: 30px; 
-            border-bottom: 1px solid #ccc; 
-            width: 100%; 
-            max-width: 1000px;
-        }
-        
-        nav a { text-decoration: none; font-family: 'Courier Prime', monospace; font-weight: bold; }
-
         .studio-panel { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 1000px; width: 100%; text-align: center; }
         h2 { font-family: 'Lora', serif; color: #0D1B2A; margin-top: 0; }
         
@@ -61,22 +39,24 @@
         
         .preview-container { display: flex; flex-direction: column; align-items: center; gap: 30px; background: #ccc; padding: 40px; border-radius: 8px; background-image: linear-gradient(45deg, #ddd 25%, transparent 25%), linear-gradient(-45deg, #ddd 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ddd 75%), linear-gradient(-45deg, transparent 75%, #ddd 75%); background-size: 20px 20px; }
         canvas { box-shadow: 0 5px 15px rgba(0,0,0,0.2); max-width: 100%; height: auto; background: white; display: block; }
-        
-        footer { margin-top: 50px; color: #666; font-size: 0.8rem; font-family: sans-serif; text-align: center; }
-        footer a { color: #666; text-decoration: underline; margin: 0 5px; }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="index.html" style="color:#0D1B2A;">[HOME]</a>
-        <a href="guide.html" style="color:#666;">Manual</a>
-        <a href="STAR_engine.html" style="color:#666;">STAR-Gen</a>
-        <a href="STAR_reviewer.html" style="color:#666;">Reviewer</a>
-        <a href="ethics_tool.html" style="color:#666;">Ethics</a>
-        <a href="cpd_tool.html" style="color:#666;">CPD</a>
-        <a href="interview_tool.html" style="color:#666;">Interview</a>
-    </nav>
+    <div class="sticky-container">
+        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <nav>
+            <a href="index.html">[HOME]</a>
+            <a href="guide.html">Manual</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="STAR_reviewer.html">Reviewer</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="report_tool.html">Report</a>
+            <a href="feedback_tool.html">Feedback</a>
+        </nav>
+    </div>
 
     <div class="studio-panel">
         <h2>Master Logo Export v9.0</h2>

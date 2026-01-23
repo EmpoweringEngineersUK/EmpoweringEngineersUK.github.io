@@ -1,0 +1,132 @@
+/* -----------------------------------------------------------
+   layout.css
+   Shared styles for Header, Footer, and Color Variables.
+   Link this in the <head> of every HTML page.
+   ----------------------------------------------------------- */
+
+:root {
+    /* Color Palette */
+    --midnight-navy: #0D1B2A;
+    --terminal-green: #00FF99;
+    --burnt-orange: #FF9F43;  /* Used for highlights/warnings */
+    --cloud-white: #FAFAFA;
+    --slate-grey: #8899A6;
+    --dark-card: rgba(255, 255, 255, 0.05);
+    --border-color: #1F3A52;
+    --alert-red: #ff4757;     /* Used for errors/timers */
+}
+
+/* Base Body Reset (Ensures consistent background) */
+body {
+    background-color: var(--midnight-navy);
+    color: var(--cloud-white);
+    margin: 0;
+    padding: 20px; /* Standard padding for all pages */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* -----------------------------------------------------------
+   STICKY HEADER & NAVIGATION
+   ----------------------------------------------------------- */
+.sticky-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--midnight-navy);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    padding-top: 15px;
+    margin-bottom: 30px;
+    /* Ensure header spans full width even if body has padding */
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: calc(100% + 40px); 
+    box-sizing: border-box;
+}
+
+.site-brand { 
+    text-decoration: none; 
+    font-family: 'Lora', serif; 
+    font-size: 2rem; 
+    color: var(--cloud-white); 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    text-align: center;
+    display: block;
+}
+
+.site-brand span { 
+    color: var(--terminal-green); 
+    text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+}
+
+.site-brand:hover {
+    opacity: 0.8;
+}
+
+nav {
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+    padding-bottom: 15px; 
+    width: 100%; 
+    max-width: 1200px;
+}
+
+nav a { 
+    text-decoration: none; 
+    font-family: 'Courier Prime', monospace; 
+    color: var(--slate-grey); 
+    font-size: 0.9rem; 
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+nav a:hover { 
+    color: var(--terminal-green); 
+}
+
+/* Use class="active" on the link corresponding to the current page */
+nav a.active { 
+    color: var(--terminal-green); 
+    border-bottom: 1px solid var(--terminal-green); 
+}
+
+/* -----------------------------------------------------------
+   STANDARD FOOTER
+   ----------------------------------------------------------- */
+footer { 
+    margin-top: auto; 
+    padding: 40px; 
+    color: var(--slate-grey); 
+    font-size: 0.8rem; 
+    text-align: center; 
+    font-family: sans-serif;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a { 
+    color: var(--slate-grey); 
+    text-decoration: underline; 
+    margin: 0 10px; 
+}
+
+footer a:hover { 
+    color: var(--terminal-green); 
+}

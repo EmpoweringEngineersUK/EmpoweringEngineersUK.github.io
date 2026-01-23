@@ -12,47 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
     
     <style>
-        :root { 
-            --midnight-navy: #0D1B2A; 
-            --terminal-green: #00FF99; 
-            --burnt-orange: #FF9F43; 
-            --cloud-white: #FAFAFA; 
-            --slate-grey: #8899A6; 
-            --dark-card: rgba(255, 255, 255, 0.05); 
-            --border-color: #1F3A52; 
-        }
-
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            background: var(--midnight-navy); 
-            color: var(--cloud-white); 
-            margin: 0; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh; 
-        }
-
-        .site-brand { 
-            text-decoration: none; 
-            font-family: 'Lora', serif; 
-            font-size: 2rem; 
-            color: var(--cloud-white); 
-            font-weight: bold; 
-            margin-bottom: 5px; 
-        }
-        .site-brand span { 
-            color: var(--terminal-green); 
-            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
-        }
-        
+        /* PAGE SPECIFIC STYLES */
         .container { max-width: 600px; width: 100%; }
         
         .content-card { 
@@ -87,39 +52,24 @@
         .email-link:hover { opacity: 0.9; transform: translateY(-2px); }
 
         p { line-height: 1.6; color: #d1d5db; }
-
-        footer { 
-            margin-top: auto; 
-            color: var(--slate-grey); 
-            font-size: 0.8rem; 
-            text-align: center; 
-            padding-top: 40px; 
-        }
-
-        footer a { 
-            color: var(--slate-grey); 
-            text-decoration: underline; 
-            margin: 0 10px; 
-        }
-        
-        footer a:hover { 
-            color: var(--terminal-green); 
-        }
     </style>
 </head>
 <body>
-
-    <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-    
-    <nav style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:30px; border-bottom:1px solid var(--border-color); width:100%; max-width:1000px;">
-        <a href="index.html" style="color:var(--terminal-green); text-decoration:none; font-family:'Courier Prime'; font-weight:bold;">[HOME]</a>
-        <a href="guide.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Manual</a>
-        <a href="STAR_engine.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">STAR-Gen</a>
-        <a href="STAR_reviewer.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Reviewer</a>
-        <a href="ethics_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Ethics</a>
-        <a href="cpd_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">CPD</a>
-        <a href="interview_tool.html" style="color:var(--slate-grey); text-decoration:none; font-family:'Courier Prime';">Interview</a>
-    </nav>
+    <div class="sticky-container">
+        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <nav>
+            <a href="index.html">[HOME]</a>
+            <a href="guide.html">Manual</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="STAR_reviewer.html">Reviewer</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="report_tool.html">Report</a>
+            <a href="feedback_tool.html">Feedback</a>
+        </nav>
+    </div>
 
     <div class="container">
         <div class="content-card">
