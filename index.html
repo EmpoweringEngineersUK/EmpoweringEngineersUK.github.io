@@ -15,142 +15,106 @@
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
     <meta property="og:title" content="Empowering Engineers UK">
-    <meta property="og:description" content="Free, terminal-grade tools for engineering professional registration (CEng/IEng). STAR Engine, Ethics Compass, and more.">
+    <meta property="og:description" content="Free, terminal-grade tools for engineering professional registration (CEng/IEng). STAR Engine, RACI Matrix, Ethics Compass, and more.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
     <meta property="og:url" content="https://www.empoweringengineers.uk/">
     <meta property="og:type" content="website">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="layout.css">
 
     <style>
-        /* LOCAL STYLES (Unique to Index Page) */
-        
-        body {
-            /* Centers content vertically for the landing page look */
-            justify-content: center;
-            min-height: 100vh;
+        /* HOMEPAGE SPECIFIC STYLES */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px; /* Increased top padding since art is gone */
+            max-width: 800px;
         }
 
-        .terminal-window { 
-            max-width: 1000px; 
-            width: 100%; 
-            padding: 20px; 
-            /* GAP FIX: Reduced from 20px to 0 to pull it tighter to the header */
-            margin-top: 0px;
+        .hero h1 {
+            font-family: 'Courier Prime', monospace;
+            color: var(--terminal-green);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
-        h1 { 
-            font-family: 'Lora', serif; 
-            font-size: 3rem; 
-            margin-bottom: 5px; 
-            line-height: 1.1; 
-            color: var(--cloud-white); 
-            text-align: center; 
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--slate-grey);
+            margin-bottom: 30px;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .highlight { 
-            color: var(--terminal-green); 
-            text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
+        .status-line {
+            font-family: 'Courier Prime', monospace;
+            color: var(--burnt-orange);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
         }
 
-        p.console-line { 
-            color: var(--slate-grey); 
-            font-family: 'Courier Prime', monospace; 
-            font-size: 1.1rem; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 15px; 
-            margin-bottom: 30px; 
-            text-align: center; 
+        /* CARD GRID SYSTEM */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
         }
 
-        /* CARD GRID */
-        .nav-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-            margin-top: 30px; 
-            animation: fadeIn 1.5s ease-in forwards; 
-            opacity: 0; 
+        .nav-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .nav-card { 
-            background: var(--dark-card); 
-            border: 1px solid var(--border-color); 
-            padding: 25px; 
-            border-radius: 6px; 
-            text-decoration: none; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-            transition: 0.3s; 
-            font-family: 'Courier Prime', monospace; 
-            min-height: 120px; 
+        .nav-card:hover {
+            border-color: var(--terminal-green);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.1);
         }
 
-        .nav-card:hover { 
-            border-color: var(--terminal-green); 
-            background: rgba(0, 255, 153, 0.05); 
-            transform: translateY(-5px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
-        .nav-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 10px; 
-        }
-
-        .nav-title { 
-            color: var(--terminal-green); 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-        }
-
-        .nav-desc { 
-            color: var(--slate-grey); 
-            font-size: 0.9rem; 
-            line-height: 1.5; 
-            font-family: 'Roboto', sans-serif; 
-        }
-
-        .nav-status { 
-            color: var(--burnt-orange); 
-            font-size: 0.75rem; 
-            opacity: 0.8; 
-            font-family: 'Courier Prime', monospace; 
-            white-space: nowrap; 
-        }
-
-        .badge-new {
-            background-color: var(--terminal-green);
-            color: var(--midnight-navy);
-            font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 10px;
+        .nav-title {
+            color: var(--terminal-green);
+            font-family: 'Courier Prime', monospace;
             font-weight: bold;
-            animation: pulse-green 2s infinite;
-            /* Fixes jumbled text issue */
-            white-space: nowrap;       
-            display: inline-block;     
-            vertical-align: middle;    
+            font-size: 1.1rem;
         }
 
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 255, 153, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0); }
+        .nav-status {
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-family: 'Courier Prime', monospace;
         }
 
-        @keyframes fadeIn { 100% { opacity: 1; } }
+        .nav-desc {
+            color: var(--cloud-white);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
-        @media (max-width: 600px) { 
-            h1 { font-size: 2.2rem; } 
-            .nav-grid { grid-template-columns: 1fr; } 
+        @media (max-width: 600px) {
+            .tool-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -160,7 +124,7 @@
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
             <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
+            <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -168,89 +132,98 @@
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html" >Manual</a>
+            <a href="guide.html">Manual</a>
         </nav>
     </div>
 
-    <div class="terminal-window">
-        <h1>>> System_<span class="highlight">Updated</span></h1>
-        <p class="console-line">Platform v2026.1 loaded. Visual interface standardized. New modules active.</p>
+    <div class="hero">
+        <h1>>> EMPOWERING ENGINEERS UK</h1>
+        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration.</p>
+        <div class="status-line">>> Platform v2026.2 loaded... Ready for input.</div>
+    </div>
 
-        <div class="nav-grid">
-            
-            <a href="cpd_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">CPD_Architect</span>
-                    <span class="nav-status">[v2.1]</span>
-                </div>
-                <div class="nav-desc">Assess your skills gap (A-E) and generate a tailored 70:20:10 development plan.</div>
-            </a>
+    <div class="tool-grid">
 
-            <a href="STAR_engine.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">STAR_Engine</span>
-                    <span class="nav-status">[v2.5] <span class="badge-new">UPDATED</span></span>
-                </div>
-                <div class="nav-desc">Draft perfect competency examples using the S.T.A.R method. Now with unified UI.</div>
-            </a>
+        <a href="cpd_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">CPD_Tracker</span>
+                <span class="nav-status">[v3.1]</span>
+            </div>
+            <div class="nav-desc">Log, categorize, and reflect on your Continuous Professional Development. Export to CSV.</div>
+        </a>
 
-            <a href="STAR_reviewer.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">Competency_Audit</span>
-                    <span class="nav-status">[v1.5]</span>
-                </div>
-                <div class="nav-desc">Analyze your draft text for passive voice ("We") and missing UK-SPEC keywords.</div>
-            </a>
-            
-            <a href="ethics_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">Ethics_Compass</span>
-                    <span class="nav-status">[v1.2] <span class="badge-new">AI READY</span></span>
-                </div>
-                <div class="nav-desc">Navigate ethical dilemmas using RAEng principles. Includes AI Prompt Generator.</div>
-            </a>
+        <a href="raci_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">RACI_Matrix</span>
+                <span class="nav-status">[v2.4]</span>
+            </div>
+            <div class="nav-desc">Generate responsibility matrices for technical projects, STEM volunteering, and events.</div>
+        </a>
 
-            <a href="feedback_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">Engineering_Coach</span>
-                    <span class="nav-status">[v1.0] <span class="badge-new">NEW TOOL</span></span>
-                </div>
-                <div class="nav-desc">Draft professional feedback scripts using GROW, CEDAR, and SBIBI models.</div>
-            </a>
+        <a href="STAR_engine.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">STAR_Generator</span>
+                <span class="nav-status">[v4.0]</span>
+            </div>
+            <div class="nav-desc">Draft perfect competency examples using the Situation, Task, Action, Result framework.</div>
+        </a>
 
-            <a href="glossary_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">The_Decoder</span>
-                    <span class="nav-status">[v4.0] <span class="badge-new">MAJOR UPDATE</span></span>
-                </div>
-                <div class="nav-desc">Search 14,000+ acronyms. NEW: "Speed Run" Knowledge Check with leaderboard logic.</div>
-            </a>
-            
-            <a href="report_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">Report_Builder</span>
-                    <span class="nav-status">[v1.2]</span>
-                </div>
-                <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard templates.</div>
-            </a>
+        <a href="STAR_reviewer.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Competence_Reviewer</span>
+                <span class="nav-status">[v2.1]</span>
+            </div>
+            <div class="nav-desc">Paste your draft application text for instant AI analysis against UK-SPEC criteria.</div>
+        </a>
 
-            <a href="interview_tool.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">Virtual_Interviewer</span>
-                    <span class="nav-status">[v2.6]</span>
-                </div>
-                <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed questions.</div>
-            </a>
+        <a href="ethics_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Ethics_Compass</span>
+                <span class="nav-status">[v1.5]</span>
+            </div>
+            <div class="nav-desc">Navigate ethical dilemmas using the RAEng Statement of Ethical Principles.</div>
+        </a>
 
-            <a href="guide.html" class="nav-card">
-                <div class="nav-header">
-                    <span class="nav-title">User_Manual</span>
-                    <span class="nav-status">[DOCS]</span>
-                </div>
-                <div class="nav-desc">Documentation on how to use these tools effectively and safely.</div>
-            </a>
+        <a href="feedback_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Feedback_Studio</span>
+                <span class="nav-status">[v1.1]</span>
+            </div>
+            <div class="nav-desc">Structure difficult conversations and performance reviews using AID and SBI models.</div>
+        </a>
 
-        </div>
+        <a href="glossary_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">The_Decoder</span>
+                <span class="nav-status">[v3.0]</span>
+            </div>
+            <div class="nav-desc">Search 14,000+ engineering acronyms across Civil, Mech, Elec, and Project Management.</div>
+        </a>
+
+        <a href="report_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Report_Builder</span>
+                <span class="nav-status">[v1.2]</span>
+            </div>
+            <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard templates.</div>
+        </a>
+
+        <a href="interview_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Virtual_Interviewer</span>
+                <span class="nav-status">[v2.7]</span>
+            </div>
+            <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed UK-SPEC questions.</div>
+        </a>
+
+        <a href="guide.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">User_Manual</span>
+                <span class="nav-status">[DOCS]</span>
+            </div>
+            <div class="nav-desc">Documentation on how to use these tools effectively and safely.</div>
+        </a>
+
     </div>
 
     <footer>
