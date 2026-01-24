@@ -63,6 +63,7 @@
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
             <a href="cpd_tool.html">CPD</a>
+			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -130,9 +131,20 @@
     <div class="references-section">
         <details>
             <summary>Verified Data Sources & Credits (Click to Expand)</summary>
-            <div class="ref-list">
-
-            </div>
+            <div style="max-width: 800px; margin: 40px auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
+				<h3 onclick="toggleRefs()" style="cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--slate-grey); user-select: none;">
+					<span id="refIcon" style="transition: transform 0.2s;">▶</span> 
+					REFERENCES & STANDARDS USED
+				</h3>
+				
+				<div id="refContent" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--terminal-green); border-radius: 4px;">
+					<p style="margin: 5px 0;"><strong>General:</strong> ISO 9001 (Quality), ISO 14001 (Environmental), ISO 45001 (Safety)</p>
+					<p style="margin: 5px 0;"><strong>Project:</strong> PRINCE2, APM Body of Knowledge, PMBOK, NEC4 Contracts</p>
+					<p style="margin: 5px 0;"><strong>Mechanical:</strong> BS 8888 (Technical Product Spec), ASME VIII (Pressure Vessels)</p>
+					<p style="margin: 5px 0;"><strong>Electrical:</strong> BS 7671 (Wiring Regs), IEC 61508 (Functional Safety)</p>
+					<p style="margin: 5px 0;"><strong>Civil/Structural:</strong> Eurocodes 0-9, ICE Conditions of Contract</p>
+				</div>
+			</div>
         </details>
     </div>
 
@@ -325,8 +337,22 @@
 			link.href = canvas.toDataURL();
 			link.click();
 		}
-		
-		// Init
+		// --- REFERENCE TOGGLE LOGIC ---
+        function toggleRefs() {
+            const content = document.getElementById("refContent");
+            const icon = document.getElementById("refIcon");
+            
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                icon.innerText = "▼"; // Arrow points down
+                icon.style.color = "var(--terminal-green)";
+            } else {
+                content.style.display = "none";
+                icon.innerText = "▶"; // Arrow points right
+                icon.style.color = "inherit";
+            }
+        }
+		// Init		
 		filterList();
 	</script>
 </body>

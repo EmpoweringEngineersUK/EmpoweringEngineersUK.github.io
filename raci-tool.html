@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RACI Matrix Tool | Empowering Engineers UK</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="RACI Matrix Tool | Empowering Engineers UK">
+    <meta property="og:description" content="Free editable RACI Matrix generator for engineers. Templates for NPD, Value Engineering, Volunteering, and more.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/raci_tool.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="layout.css">
+    
+    <style>
+        /* TOOL SPECIFIC STYLES */
+        .raci-container {
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .controls-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .scenario-selector {
+            background: var(--midnight-navy);
+            color: var(--cloud-white);
+            border: 1px solid var(--terminal-green);
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            min-width: 280px;
+        }
+
+        /* --- LEGEND STYLES --- */
+        .raci-definitions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--terminal-green);
+        }
+
+        @media (min-width: 700px) {
+            .raci-definitions {
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+
+        .def-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .def-badge {
+            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 3px;
+            min-width: 140px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .r-code { background-color: #00FF99; } /* Green */
+        .a-code { background-color: #FF9F43; } /* Orange */
+        .c-code { background-color: #54a0ff; } /* Blue */
+        .i-code { background-color: #feca57; } /* Yellow */
+        .white-code { background-color: #ffffff; }
+
+        /* MATRIX TABLE STYLES */
+        .table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+            min-width: 800px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+            color: #333;
+            position: relative;
+        }
+
+        th {
+            background-color: #0D1B2A;
+            color: #fff;
+            font-weight: 500;
+            min-width: 100px;
+        }
+
+        /* Editable Inputs inside headers */
+        th input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+        th input:focus { outline: 1px solid var(--terminal-green); }
+
+        /* First Column (Tasks) */
+        td:first-child {
+            width: 250px;
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        
+        td:first-child input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-weight: 500;
+            padding: 5px;
+        }
+
+        /* Select Dropdowns */
+        .raci-select {
+            width: 100%;
+            border: none;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            -webkit-appearance: none;
+            background: transparent;
+            padding: 8px 0;
+        }
+        .raci-select:focus { outline: 2px solid #000; }
+
+        /* Action Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 8px 14px;
+            font-family: 'Courier Prime', monospace;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .action-btn:hover { background: var(--terminal-green); color: var(--midnight-navy); }
+        .action-btn.secondary { border-color: var(--slate-grey); color: var(--slate-grey); }
+        .action-btn.secondary:hover { background: var(--slate-grey); color: #fff; }
+
+        .info-box {
+            margin-top: 30px;
+            padding: 15px;
+            border-left: 4px solid var(--burnt-orange);
+            background: rgba(255, 159, 67, 0.1);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .info-box h3 { margin-top: 0; color: var(--burnt-orange); }
+    </style>
+</head>
+<body>
+
+    <div class="sticky-container">
+        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <nav>
+            <a href="cpd_tool.html">CPD</a>
+			<a href="raci_tool.html" class="active">RACI</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="STAR_reviewer.html">Reviewer</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="report_tool.html">Report</a>
+            <a href="interview_tool.html"</a>
+			<a href="guide.html">Manual</a>
+        </nav>
+    </div>
+
+    <h1 style="margin-top: 20px; text-align: center; color: var(--terminal-green);">Project Responsibility Matrix</h1>
+    <p style="text-align: center; max-width: 800px; margin-bottom: 20px;">
+        Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E.
+    </p>
+
+    <div class="raci-container">
+        <div class="controls-top">
+            <div>
+                <label for="scenarioSelect" style="font-family: 'Courier Prime'; display:block; margin-bottom:5px;">LOAD PRESET:</label>
+                <select id="scenarioSelect" class="scenario-selector" onchange="loadScenario()">
+                    <option value="custom">-- Custom / Blank Matrix --</option>
+                    <optgroup label="Technical & Commercial">
+                        <option value="technical">Technical Design Project</option>
+                        <option value="value_eng">Value Engineering (VE) Workshop</option>
+                        <option value="npd">New Product Development (NPD)</option>
+                        <option value="prototype">Prototyping & Testing</option>
+                        <option value="3dprint">3D Printing / Additive Mfg</option>
+                        <option value="software">Software / DevOps Cycle</option>
+                    </optgroup>
+                    <optgroup label="Professional Development (UK-SPEC)">
+                        <option value="stem">STEM Volunteering Event</option>
+                        <option value="lunch">Lunch & Learn / Seminar</option>
+                        <option value="csr">CSR / Charity Initiative</option>
+                        <option value="conf">Conference Facilitation</option>
+                        <option value="travel">Business Travel / Site Visit</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div>
+                <button class="action-btn" onclick="resetToDefaults()">&#8635; Reset</button>
+                <button class="action-btn" onclick="downloadMatrix()">&#11015; Save Image</button>
+            </div>
+        </div>
+
+        <div class="raci-definitions">
+            <div class="def-item">
+                <div class="def-badge r-code">R (Responsible)</div>
+                <div>The "Doer". The engineer performing the calculation, design, or activity.</div>
+            </div>
+            <div class="def-item">
+                <div class="def-badge a-code">A (Accountable)</div>
+                <div>The "Owner". The person signing off (e.g., Lead Engineer/Chair).</div>
+            </div>
+            <div class="def-item">
+                <div class="def-badge c-code">C (Consulted)</div>
+                <div>Two-way info. Experts whose input is required before proceeding.</div>
+            </div>
+            <div class="def-item">
+                <div class="def-badge i-code">I (Informed)</div>
+                <div>One-way info. Stakeholders updated after the fact.</div>
+            </div>
+        </div>
+
+        <div class="table-wrapper" id="matrixCapture">
+            <table id="raciTable">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="btn-group">
+            <button class="action-btn secondary" onclick="addRow()">+ Add Task Row</button>
+            <button class="action-btn secondary" onclick="removeRow()">- Remove Row</button>
+            <span style="border-right: 1px solid #555; margin: 0 10px;"></span>
+            <button class="action-btn secondary" onclick="addCol()">+ Add Role Col</button>
+            <button class="action-btn secondary" onclick="removeCol()">- Remove Col</button>
+        </div>
+
+        <div class="info-box">
+            <h3>How to use this for Chartership</h3>
+            <p>
+                <strong>Competency C (Technical & Commercial Leadership):</strong> Use the <em>Technical</em> or <em>NPD</em> templates to show you understand who is Accountable (A) vs who does the work (R).<br>
+                <strong>Competency D (Communication):</strong> The <em>Seminar</em> or <em>Lunch & Learn</em> templates demonstrate you can coordinate diverse stakeholders.<br>
+                <strong>Competency E (Professional Commitment):</strong> Use the <em>STEM</em> or <em>CSR</em> templates to evidence your volunteering leadership in a structured, professional format.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script>
+        // --- DATA PRESETS ---
+        const scenarios = {
+            custom: {
+                roles: ["Role 1", "Role 2", "Role 3", "Role 4"],
+                tasks: [
+                    { task: "Task 1", raci: ["-", "-", "-", "-"] },
+                    { task: "Task 2", raci: ["-", "-", "-", "-"] },
+                    { task: "Task 3", raci: ["-", "-", "-", "-"] }
+                ]
+            },
+            technical: {
+                roles: ["Grad Engineer", "Senior Eng", "Proj Manager", "Client", "CAD Tech"],
+                tasks: [
+                    { task: "Concept Design", raci: ["R", "C", "A", "C", "I"] },
+                    { task: "Detailed Calculations", raci: ["R", "A", "I", "-", "-"] },
+                    { task: "3D Modelling", raci: ["C", "I", "I", "-", "R"] },
+                    { task: "Design Review (QA)", raci: ["C", "R", "A", "I", "I"] },
+                    { task: "Client Approval", raci: ["I", "C", "R", "A", "-"] },
+                    { task: "Issue for Construction", raci: ["I", "R", "A", "I", "C"] }
+                ]
+            },
+            value_eng: {
+                roles: ["Design Lead", "Cost Consultant", "Client", "Contractor", "Facilitator"],
+                tasks: [
+                    { task: "Identify High Cost Items", raci: ["R", "R", "I", "C", "A"] },
+                    { task: "Brainstorm Alternatives", raci: ["R", "C", "I", "R", "A"] },
+                    { task: "Feasibility Analysis", raci: ["R", "C", "A", "C", "-"] },
+                    { task: "Cost Benefit Report", raci: ["C", "R", "A", "I", "-"] },
+                    { task: "Final Decision", raci: ["C", "I", "A", "I", "-"] }
+                ]
+            },
+            npd: {
+                roles: ["Product Mgr", "R&D Eng", "Manufacturing", "Marketing", "Quality"],
+                tasks: [
+                    { task: "Market Research", raci: ["R", "I", "-", "R", "-"] },
+                    { task: "Product Spec Definition", raci: ["A", "R", "C", "C", "I"] },
+                    { task: "Prototype Fabrication", raci: ["I", "R", "C", "-", "I"] },
+                    { task: "Design Validation (DVT)", raci: ["I", "R", "I", "-", "A"] },
+                    { task: "Production Ramp-up", raci: ["C", "C", "R", "I", "A"] },
+                    { task: "Product Launch", raci: ["A", "I", "I", "R", "-"] }
+                ]
+            },
+            prototype: {
+                roles: ["Design Eng", "Workshop Tech", "Testing Lead", "Project Mgr"],
+                tasks: [
+                    { task: "CAD Model Prep", raci: ["R", "C", "I", "A"] },
+                    { task: "Material Procurement", raci: ["C", "R", "-", "A"] },
+                    { task: "Fabrication / Machining", raci: ["C", "R", "-", "I"] },
+                    { task: "Assembly", raci: ["R", "C", "-", "I"] },
+                    { task: "Performance Testing", raci: ["C", "I", "R", "A"] },
+                    { task: "Test Report", raci: ["R", "-", "A", "I"] }
+                ]
+            },
+            "3dprint": {
+                roles: ["Designer", "3D Print Tech", "Post-Processing", "QA Lead"],
+                tasks: [
+                    { task: "Design for Additive (DfAM)", raci: ["R", "C", "-", "I"] },
+                    { task: "File Slicing & Setup", raci: ["I", "R", "-", "-"] },
+                    { task: "Machine Operation", raci: ["-", "R", "-", "-"] },
+                    { task: "Part Removal & Cleaning", raci: ["-", "C", "R", "-"] },
+                    { task: "Dimensional Check", raci: ["I", "-", "-", "R"] }
+                ]
+            },
+            software: {
+                roles: ["Developer", "Tech Lead", "Product Owner", "QA Tester", "DevOps"],
+                tasks: [
+                    { task: "Write User Stories", raci: ["C", "C", "R", "I", "-"] },
+                    { task: "Code / Feature Dev", raci: ["R", "A", "I", "-", "-"] },
+                    { task: "Code Review (PR)", raci: ["I", "R", "-", "-", "-"] },
+                    { task: "Integration Testing", raci: ["C", "I", "I", "R", "-"] },
+                    { task: "Deploy to Prod", raci: ["I", "C", "A", "I", "R"] }
+                ]
+            },
+            stem: {
+                roles: ["Volunteer (You)", "Teacher", "STEM Lead", "Students", "Manager"],
+                tasks: [
+                    { task: "Define Activity Idea", raci: ["R", "C", "A", "I", "I"] },
+                    { task: "Risk Assessment (RAMS)", raci: ["R", "I", "A", "-", "C"] },
+                    { task: "Prepare Kits/Materials", raci: ["R", "-", "I", "-", "-"] },
+                    { task: "Deliver Session", raci: ["R", "A", "I", "C", "-"] },
+                    { task: "Supervise Students", raci: ["R", "R", "A", "C", "-"] },
+                    { task: "Feedback / Photos", raci: ["A", "R", "I", "C", "I"] }
+                ]
+            },
+            lunch: {
+                roles: ["Organizer (You)", "Speaker", "Team Lead", "Attendees", "IT Support"],
+                tasks: [
+                    { task: "Select Topic", raci: ["R", "C", "A", "I", "-"] },
+                    { task: "Book Room / Link", raci: ["R", "-", "I", "-", "C"] },
+                    { task: "Send Invites", raci: ["R", "I", "I", "I", "-"] },
+                    { task: "Prepare Slides", raci: ["I", "R", "A", "-", "-"] },
+                    { task: "Host Session", raci: ["R", "R", "I", "C", "C"] },
+                    { task: "Share Recording", raci: ["R", "I", "-", "I", "-"] }
+                ]
+            },
+            csr: {
+                roles: ["CSR Champ", "Volunteers", "Charity PoC", "Company Exec"],
+                tasks: [
+                    { task: "Identify Cause/Charity", raci: ["R", "C", "I", "A"] },
+                    { task: "Budget Approval", raci: ["R", "-", "-", "A"] },
+                    { task: "Event Logistics", raci: ["R", "C", "C", "I"] },
+                    { task: "Execute Event", raci: ["A", "R", "C", "I"] },
+                    { task: "Impact Report", raci: ["R", "C", "I", "A"] }
+                ]
+            },
+            conf: {
+                roles: ["Facilitator", "Speakers", "Venue Staff", "Delegates", "Sponsors"],
+                tasks: [
+                    { task: "Agenda Creation", raci: ["R", "C", "-", "I", "I"] },
+                    { task: "Venue/Catering", raci: ["A", "I", "R", "-", "-"] },
+                    { task: "Marketing", raci: ["R", "I", "-", "I", "C"] },
+                    { task: "Registration", raci: ["A", "-", "R", "C", "-"] },
+                    { task: "Running the Day", raci: ["R", "C", "C", "C", "I"] }
+                ]
+            },
+            travel: {
+                roles: ["Traveler", "Line Mgr", "Travel Agent", "H&S Team"],
+                tasks: [
+                    { task: "Determine Need", raci: ["R", "A", "-", "-"] },
+                    { task: "Budget Approval", raci: ["R", "A", "-", "-"] },
+                    { task: "Booking Flights/Hotel", raci: ["C", "I", "R", "-"] },
+                    { task: "Risk Assessment", raci: ["R", "A", "-", "C"] },
+                    { task: "Expense Reporting", raci: ["R", "A", "-", "-"] }
+                ]
+            }
+        };
+
+        // --- RENDER LOGIC ---
+
+        function loadScenario() {
+            const selector = document.getElementById('scenarioSelect');
+            const key = selector.value;
+            const data = scenarios[key];
+            
+            if (!data) return;
+            renderTable(data);
+        }
+
+        function resetToDefaults() {
+            if(confirm("This will erase your current edits. Continue?")) {
+                loadScenario();
+            }
+        }
+
+        function renderTable(data) {
+            const tableHead = document.querySelector('#raciTable thead');
+            const tableBody = document.querySelector('#raciTable tbody');
+
+            // Clear existing
+            tableHead.innerHTML = '';
+            tableBody.innerHTML = '';
+
+            // 1. Build Header Row (Editable)
+            let headerRow = document.createElement('tr');
+            
+            // First cell: "Task / Activity"
+            let thFirst = document.createElement('th');
+            thFirst.innerText = "Task / Activity";
+            headerRow.appendChild(thFirst);
+
+            // Role cells
+            data.roles.forEach(role => {
+                let th = document.createElement('th');
+                let input = document.createElement('input');
+                input.type = "text";
+                input.value = role;
+                th.appendChild(input);
+                headerRow.appendChild(th);
+            });
+            tableHead.appendChild(headerRow);
+
+            // 2. Build Data Rows (Editable)
+            data.tasks.forEach(item => {
+                addRowToTable(item.task, item.raci);
+            });
+        }
+
+        function addRowToTable(taskName = "New Task", raciValues = []) {
+            const tableBody = document.querySelector('#raciTable tbody');
+            const colCount = document.querySelectorAll('#raciTable thead th').length - 1; // exclude first col
+
+            let row = document.createElement('tr');
+
+            // Task Name Cell
+            let tdName = document.createElement('td');
+            let input = document.createElement('input');
+            input.type = "text";
+            input.value = taskName;
+            tdName.appendChild(input);
+            row.appendChild(tdName);
+
+            // RACI Cells
+            for (let i = 0; i < colCount; i++) {
+                let td = document.createElement('td');
+                let defaultVal = raciValues[i] || "-";
+                td.innerHTML = createSelect(defaultVal);
+                row.appendChild(td);
+            }
+
+            tableBody.appendChild(row);
+            updateAllColors();
+        }
+
+        function createSelect(defaultVal) {
+            const options = ['-', 'R', 'A', 'C', 'I'];
+            // We return string HTML to keep it simple, but set 'selected' based on defaultVal
+            let optsHtml = options.map(opt => 
+                `<option value="${opt}" ${opt === defaultVal ? 'selected' : ''}>${opt}</option>`
+            ).join('');
+            
+            return `<select class="raci-select" onchange="colorize(this)">${optsHtml}</select>`;
+        }
+
+        // --- DYNAMIC GRID CONTROLS ---
+
+        function addRow() {
+            addRowToTable("New Task", []);
+        }
+
+        function removeRow() {
+            const tbody = document.querySelector('#raciTable tbody');
+            if (tbody.rows.length > 1) {
+                tbody.deleteRow(tbody.rows.length - 1);
+            }
+        }
+
+        function addCol() {
+            const headRow = document.querySelector('#raciTable thead tr');
+            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
+
+            // Add Header
+            let th = document.createElement('th');
+            let input = document.createElement('input');
+            input.type = "text";
+            input.value = "New Role";
+            th.appendChild(input);
+            headRow.appendChild(th);
+
+            // Add Cell to each body row
+            bodyRows.forEach(row => {
+                let td = document.createElement('td');
+                td.innerHTML = createSelect("-");
+                row.appendChild(td);
+            });
+            
+            updateAllColors();
+        }
+
+        function removeCol() {
+            const headRow = document.querySelector('#raciTable thead tr');
+            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
+
+            if (headRow.cells.length > 2) { // Keep at least 1 role + task column
+                headRow.deleteCell(headRow.cells.length - 1);
+                bodyRows.forEach(row => {
+                    row.deleteCell(row.cells.length - 1);
+                });
+            }
+        }
+
+        // --- VISUALS ---
+
+        function colorize(selectElement) {
+            const val = selectElement.value;
+            // Remove old classes from parent TD
+            selectElement.parentElement.classList.remove('r-code', 'a-code', 'c-code', 'i-code', 'white-code');
+
+            let className = 'white-code';
+            if (val === 'R') className = 'r-code';
+            if (val === 'A') className = 'a-code';
+            if (val === 'C') className = 'c-code';
+            if (val === 'I') className = 'i-code';
+
+            selectElement.parentElement.classList.add(className);
+        }
+
+        function updateAllColors() {
+            const selects = document.querySelectorAll('.raci-select');
+            selects.forEach(s => colorize(s));
+        }
+
+        // --- DOWNLOAD ---
+        function downloadMatrix() {
+            const captureArea = document.getElementById('matrixCapture');
+            
+            html2canvas(captureArea, {
+                backgroundColor: "#ffffff",
+                scale: 2
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'My_RACI_Matrix.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+
+        // Init
+        window.onload = function() {
+            loadScenario(); // Loads default 'custom'
+        };
+
+    </script>
+</body>
+</html>
