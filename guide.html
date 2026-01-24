@@ -15,47 +15,106 @@
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="layout.css">
     
     <style>
         /* PAGE SPECIFIC STYLES */
         .container { max-width: 900px; width: 100%; }
         
-        .workflow-diagram { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; background: var(--dark-card); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); flex-wrap: wrap; gap: 10px; }
+        .workflow-diagram { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 40px; 
+            background: var(--dark-card); 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
         .flow-step { text-align: center; flex: 1; min-width: 120px; }
         .flow-icon { font-size: 2rem; color: var(--terminal-green); margin-bottom: 10px; display: block; }
         .flow-arrow { color: var(--slate-grey); font-size: 1.5rem; }
         .flow-title { font-weight: bold; font-family: 'Courier Prime', monospace; font-size: 0.9rem; }
 
-        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px; }
-        h1 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; }
-        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
-        h3 { color: var(--burnt-orange); margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; }
-        p, li { line-height: 1.6; color: #d1d5db; margin-bottom: 10px; }
+        .card { 
+            background: var(--dark-card); 
+            padding: 30px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 30px; 
+        }
+        h1 { 
+            border-bottom: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            font-family: 'Courier Prime', monospace; 
+        }
+        h2 { 
+            border-bottom: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            font-family: 'Courier Prime', monospace; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        h3 { 
+            color: var(--burnt-orange); 
+            margin-top: 20px; 
+            margin-bottom: 10px; 
+            font-size: 1.1rem; 
+        }
+        p, li { 
+            line-height: 1.6; 
+            color: #d1d5db; 
+            margin-bottom: 10px; 
+        }
         
-        .ethics-box { border: 1px dashed var(--terminal-green); padding: 20px; background: rgba(0, 255, 153, 0.05); margin-top: 20px; border-radius: 6px; }
-        .cta-btn { display: inline-block; background: var(--terminal-green); color: var(--midnight-navy); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; margin-top: 10px; font-size: 0.9rem; }
+        .ethics-box { 
+            border: 1px dashed var(--terminal-green); 
+            padding: 20px; 
+            background: rgba(0, 255, 153, 0.05); 
+            margin-top: 20px; 
+            border-radius: 6px; 
+        }
+        .cta-btn { 
+            display: inline-block; 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            margin-top: 10px; 
+            font-size: 0.9rem; 
+        }
         .cta-btn:hover { opacity: 0.9; }
         
-        @media (max-width: 600px) { .workflow-diagram { flex-direction: column; } .flow-arrow { transform: rotate(90deg); margin: 10px 0; } }
+        @media (max-width: 600px) { 
+            .workflow-diagram { flex-direction: column; } 
+            .flow-arrow { transform: rotate(90deg); margin: 10px 0; } 
+        }
     </style>
 </head>
 <body>
+
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
-            <a href="index.html">[HOME]</a>
-            <a href="guide.html" class="active">Manual</a>
+            <a href="cpd_tool.html">CPD</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
-            <a href="glossary_tool.html">Decoder</a>
             <a href="ethics_tool.html">Ethics</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="interview_tool.html">Interview</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
-            <a href="feedback_tool.html">Feedback</a>
+            <a href="interview_tool.html">Interview</a>
+			<a href="guide.html" class="active">Manual</a>
         </nav>
-    </div>
     </div>
 
     <div class="container">

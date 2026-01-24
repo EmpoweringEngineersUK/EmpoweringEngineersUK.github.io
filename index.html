@@ -8,22 +8,28 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empowering Engineers UK | Professional Tools</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
+    <meta property="og:title" content="Empowering Engineers UK">
+    <meta property="og:description" content="Free, terminal-grade tools for engineering professional registration (CEng/IEng). STAR Engine, Ethics Compass, and more.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/">
+    <meta property="og:type" content="website">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="layout.css">
 
     <style>
         /* LOCAL STYLES (Unique to Index Page) */
         
         body {
-            /* Keep content centered vertically for the landing page look */
+            /* Centers content vertically for the landing page look */
             justify-content: center;
             min-height: 100vh;
         }
@@ -32,7 +38,8 @@
             max-width: 1000px; 
             width: 100%; 
             padding: 20px; 
-            margin-top: 20px;
+            /* GAP FIX: Reduced from 20px to 0 to pull it tighter to the header */
+            margin-top: 0px;
         }
 
         h1 { 
@@ -93,7 +100,7 @@
         .nav-header { 
             display: flex; 
             justify-content: space-between; 
-            align-items: center;  /* Changed from flex-start to center for better alignment */
+            align-items: center; 
             margin-bottom: 10px; 
         }
 
@@ -115,7 +122,28 @@
             font-size: 0.75rem; 
             opacity: 0.8; 
             font-family: 'Courier Prime', monospace; 
-			white-space: nowrap; /* Keeps "[v1.0] NEW" stuck together */
+            white-space: nowrap; 
+        }
+
+        .badge-new {
+            background-color: var(--terminal-green);
+            color: var(--midnight-navy);
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-weight: bold;
+            animation: pulse-green 2s infinite;
+            /* Fixes jumbled text issue */
+            white-space: nowrap;       
+            display: inline-block;     
+            vertical-align: middle;    
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0); }
         }
 
         @keyframes fadeIn { 100% { opacity: 1; } }
@@ -124,32 +152,6 @@
             h1 { font-size: 2.2rem; } 
             .nav-grid { grid-template-columns: 1fr; } 
         }
-		
-		.badge-new {
-			background-color: var(--terminal-green);
-			color: var(--midnight-navy);
-			font-size: 0.65rem;
-			padding: 2px 6px;
-			border-radius: 4px;
-			margin-left: 10px;
-			font-weight: bold;
-			animation: pulse-green 2s infinite;
-			white-space: nowrap;       /* Prevents "AI READY" from wrapping */
-			display: inline-block;     /* Keeps it solid */
-			vertical-align: middle;    /* Aligns it perfectly with the text */
-		}
-
-		@keyframes pulse-green {
-			0% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0.4); }
-			70% { box-shadow: 0 0 0 10px rgba(0, 255, 153, 0); }
-			100% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0); }
-		}
-
-		/* Optional: Make the version numbers pop */
-		.nav-status {
-			color: var(--burnt-orange);
-			font-weight: bold;
-		}
     </style>
 </head>
 <body>
@@ -157,96 +159,108 @@
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
-            <a href="index.html" class="active">[HOME]</a>
-            <a href="guide.html">Manual</a>
+            <a href="cpd_tool.html">CPD</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
-            <a href="glossary_tool.html">Decoder</a>
             <a href="ethics_tool.html">Ethics</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="interview_tool.html">Interview</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
-            <a href="feedback_tool.html">Feedback</a>
+            <a href="interview_tool.html">Interview</a>
+			<a href="guide.html" >Manual</a>
         </nav>
     </div>
 
     <div class="terminal-window">
-		<h1>>> System_<span class="highlight">Updated</span></h1>
-		<p class="console-line">Platform v2026.1 loaded. Visual interface standardized. New modules active.</p>
+        <h1>>> System_<span class="highlight">Updated</span></h1>
+        <p class="console-line">Platform v2026.1 loaded. Visual interface standardized. New modules active.</p>
 
-		<div class="nav-grid">
-			
-			<a href="STAR_engine.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">STAR_Engine</span>
-					<span class="nav-status">[v2.5] <span class="badge-new">UPDATED</span></span>
-				</div>
-				<div class="nav-desc">Draft perfect competency examples using the S.T.A.R method. Now with unified UI.</div>
-			</a>
+        <div class="nav-grid">
+            
+            <a href="cpd_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">CPD_Architect</span>
+                    <span class="nav-status">[v2.1]</span>
+                </div>
+                <div class="nav-desc">Assess your skills gap (A-E) and generate a tailored 70:20:10 development plan.</div>
+            </a>
 
-			<a href="STAR_reviewer.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">Competency_Audit</span>
-					<span class="nav-status">[v1.5]</span>
-				</div>
-				<div class="nav-desc">Analyze your draft text for passive voice ("We") and missing UK-SPEC keywords.</div>
-			</a>
+            <a href="STAR_engine.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">STAR_Engine</span>
+                    <span class="nav-status">[v2.5] <span class="badge-new">UPDATED</span></span>
+                </div>
+                <div class="nav-desc">Draft perfect competency examples using the S.T.A.R method. Now with unified UI.</div>
+            </a>
 
-			<a href="glossary_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">The_Decoder</span>
-					<span class="nav-status">[v4.0] <span class="badge-new">MAJOR UPDATE</span></span>
-				</div>
-				<div class="nav-desc">Search 800+ acronyms. NEW: "Speed Run" Knowledge Check with leaderboard logic.</div>
-			</a>
+            <a href="STAR_reviewer.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">Competency_Audit</span>
+                    <span class="nav-status">[v1.5]</span>
+                </div>
+                <div class="nav-desc">Analyze your draft text for passive voice ("We") and missing UK-SPEC keywords.</div>
+            </a>
+            
+            <a href="ethics_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">Ethics_Compass</span>
+                    <span class="nav-status">[v1.2] <span class="badge-new">AI READY</span></span>
+                </div>
+                <div class="nav-desc">Navigate ethical dilemmas using RAEng principles. Includes AI Prompt Generator.</div>
+            </a>
 
-			<a href="ethics_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">Ethics_Compass</span>
-					<span class="nav-status">[v1.2] <span class="badge-new">AI READY</span></span>
-				</div>
-				<div class="nav-desc">Navigate ethical dilemmas using RAEng principles. Includes AI Prompt Generator.</div>
-			</a>
+            <a href="feedback_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">Engineering_Coach</span>
+                    <span class="nav-status">[v1.0] <span class="badge-new">NEW TOOL</span></span>
+                </div>
+                <div class="nav-desc">Draft professional feedback scripts using GROW, CEDAR, and SBIBI models.</div>
+            </a>
 
-			<a href="cpd_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">CPD_Architect</span>
-					<span class="nav-status">[v2.1]</span>
-				</div>
-				<div class="nav-desc">Assess your skills gap (A-E) and generate a tailored 70:20:10 development plan.</div>
-			</a>
+            <a href="glossary_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">The_Decoder</span>
+                    <span class="nav-status">[v4.0] <span class="badge-new">MAJOR UPDATE</span></span>
+                </div>
+                <div class="nav-desc">Search 14,000+ acronyms. NEW: "Speed Run" Knowledge Check with leaderboard logic.</div>
+            </a>
+            
+            <a href="report_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">Report_Builder</span>
+                    <span class="nav-status">[v1.2]</span>
+                </div>
+                <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard templates.</div>
+            </a>
 
-			<a href="interview_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">Virtual_Interviewer</span>
-					<span class="nav-status">[v2.6]</span>
-				</div>
-				<div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed questions.</div>
-			</a>
-			
-			<a href="report_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">Report_Builder</span>
-					<span class="nav-status">[v1.2]</span>
-				</div>
-				<div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard templates.</div>
-			</a>
+            <a href="interview_tool.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">Virtual_Interviewer</span>
+                    <span class="nav-status">[v2.6]</span>
+                </div>
+                <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed questions.</div>
+            </a>
 
-			<a href="feedback_tool.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">Feedback_Studio</span>
-					<span class="nav-status">[v1.0] <span class="badge-new">NEW TOOL</span></span>
-				</div>
-				<div class="nav-desc">Draft professional feedback scripts using GROW, CEDAR, and SBIBI models.</div>
-			</a>
+            <a href="guide.html" class="nav-card">
+                <div class="nav-header">
+                    <span class="nav-title">User_Manual</span>
+                    <span class="nav-status">[DOCS]</span>
+                </div>
+                <div class="nav-desc">Documentation on how to use these tools effectively and safely.</div>
+            </a>
 
-			 <a href="guide.html" class="nav-card">
-				<div class="nav-header">
-					<span class="nav-title">User_Manual</span>
-					<span class="nav-status">[DOCS]</span>
-				</div>
-				<div class="nav-desc">Documentation on how to use these tools effectively and safely.</div>
-			</a>
+        </div>
+    </div>
 
-		</div>
-	</div>
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -152,16 +152,15 @@
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
-            <a href="index.html">[HOME]</a>
-            <a href="guide.html">Manual</a>
+            <a href="cpd_tool.html">CPD</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
-            <a href="glossary_tool.html">Decoder</a>
             <a href="ethics_tool.html">Ethics</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="interview_tool.html" class="active">Interview</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
-            <a href="feedback_tool.html">Feedback</a>
+            <a href="interview_tool.html" class="active">Interview</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
@@ -171,13 +170,20 @@
         <div id="progressBadge" class="progress-indicator"></div>
         
         <div id="questionDisplay" class="question-text">
-            This tool simulates a live PRI Assessment.
-            <br><br>
-            <span style="font-size:1rem; color:#8899A6; font-family:'Roboto',sans-serif;">
-            You will face 20 questions covering Introduction, Competencies A-E, and Development Plans.
-            <br>A timer will run for each question to simulate exam pressure.
-            </span>
-        </div>
+			This tool simulates a live PRI Assessment.
+			<br><br>
+			<div style="font-size:0.9rem; color:#8899A6; font-family:'Roboto',sans-serif; text-align:left; background:rgba(0,0,0,0.2); padding:15px; border-radius:6px; margin-bottom:20px;">
+				<strong>🎙️ Self-Reflection Protocol:</strong>
+				<ul style="margin:5px 0 0 20px; line-height:1.5;">
+					<li><strong>Record:</strong> Open MS Teams (or Voice Memo) and hit record.</li>
+					<li><strong>Speak:</strong> Read the question aloud, then answer it using the <strong>STAR Method</strong>.</li>
+					<li><strong>Critique:</strong> Afterwards, transcribe your answer and ask an AI: <em>"Review this transcript for clarity and action-bias."</em></li>
+				</ul>
+			</div>
+			<span style="font-size:0.8rem; color:var(--burnt-orange);">
+			Ready? You have 2 minutes per question.
+			</span>
+		</div>
         
         <div class="controls" id="startControls">
             <select id="interviewMode" class="mode-select">

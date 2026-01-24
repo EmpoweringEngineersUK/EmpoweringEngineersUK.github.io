@@ -15,7 +15,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
-    
+    <script src="acronyms.js"></script>
     <style>
         /* PAGE SPECIFIC STYLES */
         .container { max-width: 900px; width: 100%; }
@@ -120,19 +120,17 @@
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
-            <a href="index.html">[HOME]</a>
-            <a href="guide.html">Manual</a>
+            <a href="cpd_tool.html">CPD</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html" class="active">Reviewer</a>
-            <a href="glossary_tool.html">Decoder</a>
             <a href="ethics_tool.html">Ethics</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="interview_tool.html">Interview</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
-            <a href="feedback_tool.html">Feedback</a>
+            <a href="interview_tool.html">Interview</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
-
     <div class="container">
         <div class="card">
             <h2>Competency Auditor</h2>
@@ -189,54 +187,82 @@
         ];
 
         function analyzeText() {
-            const text = document.getElementById('inputText').value.toLowerCase();
-            if(text.length < 10) { alert("Please enter more text to analyze."); return; }
+			// 1. Get Input
+			// We keep the original text case for Acronym checking, but make a lowercase copy for keywords
+			const originalText = document.getElementById('inputText').value; 
+			const textLower = originalText.toLowerCase();
 
-            let weakCount = 0;
-            let strongCount = 0;
-            let keywordCount = 0;
-            let findingsHTML = "";
+			if(originalText.length < 10) { alert("Please enter more text to analyze."); return; }
 
-            // 1. Check Weak Words
-            weakWords.forEach(word => {
-                // Regex to find whole words only
-                const regex = new RegExp(`\\b${word}\\b`, 'gi');
-                const matches = text.match(regex);
-                if(matches) {
-                    weakCount += matches.length;
-                    findingsHTML += `<div class="finding-item finding-bad">⚠️ <strong>Passive Language:</strong> Used "${word}" ${matches.length} time(s). Try to replace with "I" or a strong verb.</div>`;
-                }
-            });
+			let weakCount = 0;
+			let strongCount = 0;
+			let keywordCount = 0;
+			let findingsHTML = "";
 
-            // 2. Check UK-SPEC Keywords
-            ukSpecKeywords.forEach(word => {
-                if(text.includes(word)) {
-                    keywordCount++;
-                    findingsHTML += `<div class="finding-item finding-good">✅ <strong>UK-SPEC Match:</strong> "${word}" detected. Good evidence marker.</div>`;
-                }
-            });
+			// --- EXISTING CHECK: WEAK WORDS ---
+			weakWords.forEach(word => {
+				const regex = new RegExp(`\\b${word}\\b`, 'gi');
+				const matches = textLower.match(regex);
+				if(matches) {
+					weakCount += matches.length;
+					findingsHTML += `<div class="finding-item finding-bad">⚠️ <strong>Passive Language:</strong> Used "${word}" ${matches.length} time(s). Try to replace with "I" or a strong verb.</div>`;
+				}
+			});
 
-            // 3. Check Strong Verbs
-            strongVerbs.forEach(verb => {
-                if(text.includes(verb)) strongCount++;
-            });
+			// --- EXISTING CHECK: UK-SPEC KEYWORDS ---
+			ukSpecKeywords.forEach(word => {
+				if(textLower.includes(word)) {
+					keywordCount++;
+					findingsHTML += `<div class="finding-item finding-good">✅ <strong>UK-SPEC Match:</strong> "${word}" detected. Good evidence marker.</div>`;
+				}
+			});
 
-            // 4. Calculate Action Bias Score
-            // Formula: (Strong Verbs / (Strong + Weak)) * 100
-            let totalVerbs = strongCount + weakCount;
-            let score = totalVerbs === 0 ? 0 : Math.round((strongCount / totalVerbs) * 100);
-            if(totalVerbs === 0 && text.length > 50) score = 20; // Default low score if no verbs found
+			// --- NEW CHECK: ACRONYMS (Added Logic) ---
+			// 1. Split text into words (removing punctuation)
+			const tokens = originalText.split(/[\s,.;:!?()]+/).filter(w => w.length > 1);
+			
+			// 2. Filter for words that are ALL CAPS and have no numbers (Potential Acronyms)
+			const potentialAcronyms = tokens.filter(w => w === w.toUpperCase() && !/\d/.test(w));
+			
+			// 3. Remove duplicates so we don't warn about the same acronym twice
+			const uniqueAcronyms = [...new Set(potentialAcronyms)];
 
-            // UPDATE UI
-            document.getElementById('scoreAction').innerText = score + "%";
-            document.getElementById('scoreKeywords').innerText = keywordCount;
-            document.getElementById('scoreWeak').innerText = weakCount;
-            
-            if(findingsHTML === "") findingsHTML = `<div class="finding-item" style="color:var(--slate-grey)">No specific issues found, but try adding more keywords like "Safety" or "Cost".</div>`;
-            
-            document.getElementById('findingsList').innerHTML = findingsHTML;
-            document.getElementById('results').style.display = 'block';
-        }
+			// 4. Create a simple list of valid acronyms from your database for checking
+			// (We check if 'acronymDb' exists to prevent crashing if the file didn't load)
+			if (typeof acronymDb !== 'undefined') {
+				const knownList = acronymDb.map(item => item.a); // Creates a list like ["API", "BOP", "FEED"...]
+
+				uniqueAcronyms.forEach(acro => {
+					if (knownList.includes(acro)) {
+						// It is in our database -> Good usage
+						findingsHTML += `<div class="finding-item finding-good">✓ <strong>${acro}:</strong> Standard industry term detected.</div>`;
+					} else {
+						// It looks like an acronym but isn't in our database -> Warning
+						findingsHTML += `<div class="finding-item finding-bad">? <strong>${acro}:</strong> Unknown acronym. Ensure you define this on first use (or check spelling).</div>`;
+					}
+				});
+			}
+
+			// --- EXISTING CHECK: STRONG VERBS ---
+			strongVerbs.forEach(verb => {
+				if(textLower.includes(verb)) strongCount++;
+			});
+
+			// --- EXISTING LOGIC: CALCULATE SCORE ---
+			let totalVerbs = strongCount + weakCount;
+			let score = totalVerbs === 0 ? 0 : Math.round((strongCount / totalVerbs) * 100);
+			if(totalVerbs === 0 && textLower.length > 50) score = 20;
+
+			// --- UPDATE UI ---
+			document.getElementById('scoreAction').innerText = score + "%";
+			document.getElementById('scoreKeywords').innerText = keywordCount;
+			document.getElementById('scoreWeak').innerText = weakCount;
+			
+			if(findingsHTML === "") findingsHTML = `<div class="finding-item" style="color:var(--slate-grey)">No specific issues found, but try adding more keywords like "Safety" or "Cost".</div>`;
+			
+			document.getElementById('findingsList').innerHTML = findingsHTML;
+			document.getElementById('results').style.display = 'block';
+		}
     </script>
 </body>
 </html>

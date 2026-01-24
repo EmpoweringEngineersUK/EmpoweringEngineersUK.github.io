@@ -15,10 +15,11 @@
     <meta name="google-adsense-account" content="ca-pub-7071036534151105">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* PAGE SPECIFIC STYLES */
+        /* TOOL-SPECIFIC STYLES */
         .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
         
@@ -85,16 +86,15 @@
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
-            <a href="index.html">[HOME]</a>
-            <a href="guide.html">Manual</a>
+            <a href="cpd_tool.html">CPD</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
-            <a href="glossary_tool.html">Decoder</a>
             <a href="ethics_tool.html" class="active">Ethics</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="interview_tool.html">Interview</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
-            <a href="feedback_tool.html">Feedback</a>
+            <a href="interview_tool.html">Interview</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
@@ -110,14 +110,6 @@
                     </select>
                 </div>
                 <div>
-                    <label>Current Role</label>
-                    <select id="role">
-                        <option value="Junior">Junior / Graduate</option>
-                        <option value="Senior">Senior Engineer</option>
-                        <option value="Manager">Manager / Lead</option>
-                    </select>
-                </div>
-                <div>
                     <label>Industry</label>
                     <select id="industry">
                         <option value="General">General Engineering</option>
@@ -125,6 +117,26 @@
                         <option value="Aerospace">Aerospace & Safety Critical</option>
                         <option value="Software">Software & Data</option>
                         <option value="OilGas">Energy & Process</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <div>
+                    <label>Your Role (Who are you?)</label>
+                    <select id="userRole">
+                        <option value="Junior Engineer">Junior Engineer</option>
+                        <option value="Senior Engineer">Senior Engineer</option>
+                        <option value="Lead Engineer">Lead/Manager</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Target (Who are you influencing?)</label>
+                    <select id="targetRole">
+                        <option value="Engineering Manager">Engineering Manager</option>
+                        <option value="Client">Client / Customer</option>
+                        <option value="Sub-contractor">Sub-contractor</option>
+                        <option value="Director">Director / Board</option>
                     </select>
                 </div>
             </div>
@@ -147,7 +159,7 @@
         <div class="card">
             <h2>3. Professional Analysis</h2>
             <div id="outputArea" class="output-box">Select a principle to generate a structured analysis...</div>
-            <button id="aiPromptBtn" class="ai-btn" onclick="copyAiPrompt()">>> COPY AI "MEGA-PROMPT"</button>
+            <button id="aiBtn" class="ai-btn">>> COPY AI "MEGA-PROMPT"</button>
         </div>
     </div>
 
@@ -165,13 +177,12 @@
         // --- AUTO-SAVE LOGIC ---
         window.onload = function() {
             if(localStorage.getItem('ethics_reg')) document.getElementById('regLevel').value = localStorage.getItem('ethics_reg');
-            if(localStorage.getItem('ethics_role')) document.getElementById('role').value = localStorage.getItem('ethics_role');
             if(localStorage.getItem('ethics_industry')) document.getElementById('industry').value = localStorage.getItem('ethics_industry');
             if(localStorage.getItem('ethics_dilemma')) document.getElementById('dilemmaInput').value = localStorage.getItem('ethics_dilemma');
+            // Save/Load new roles if desired, or leave default
         };
 
         document.getElementById('regLevel').addEventListener('change', function(){ localStorage.setItem('ethics_reg', this.value) });
-        document.getElementById('role').addEventListener('change', function(){ localStorage.setItem('ethics_role', this.value) });
         document.getElementById('industry').addEventListener('change', function(){ localStorage.setItem('ethics_industry', this.value) });
         document.getElementById('dilemmaInput').addEventListener('input', function(){ localStorage.setItem('ethics_dilemma', this.value) });
 
@@ -180,11 +191,11 @@
                 document.getElementById('dilemmaInput').value = "";
                 localStorage.removeItem('ethics_dilemma');
                 document.getElementById('outputArea').innerHTML = "Select a principle to generate a structured analysis...";
-                document.getElementById('aiPromptBtn').style.display = 'none';
+                document.getElementById('aiBtn').style.display = 'none';
             }
         }
 
-        // --- EXPANDED ANALYSIS LOGIC (V2.1) ---
+        // --- CONTEXT DATABASE ---
         const contextDB = {
             Civil: { regs: "CDM 2015, Building Safety Act, ISO 14001", risk: "public safety, structural failure, and environmental damage", body: "ICE / IStructE" },
             Aerospace: { regs: "EASA/FAA Airworthiness Directives, AS9100", risk: "catastrophic failure and loss of life (Safety Critical)", body: "RAeS" },
@@ -194,18 +205,19 @@
         };
 
         const regExpectation = {
-            IEng: "As an IEng, your focus is on maintaining established standards and managing immediate risks within your area of responsibility. You must ensure you do not deviate from approved procedures without authorisation.",
-            CEng: "As a CEng, you are expected to handle complex, non-standard problems. You must assess the wider systemic implications of this dilemma and lead the development of a solution that may require new methodologies."
+            IEng: "As an IEng, focus on maintaining established standards and managing immediate risks.",
+            CEng: "As a CEng, assess wider systemic implications and lead the development of complex solutions."
         };
 
-        let currentPrinciple = ""; // Store for the AI prompt generator
+        let currentPrinciple = ""; 
 
         function analyze(principle) {
             currentPrinciple = principle;
             const input = document.getElementById('dilemmaInput').value;
             const regLevel = document.getElementById('regLevel').value;
-            const role = document.getElementById('role').value;
             const industry = document.getElementById('industry').value;
+            const userRole = document.getElementById('userRole').value;
+            const targetRole = document.getElementById('targetRole').value;
             
             if(!input) { alert("Please describe your dilemma first."); return; }
 
@@ -216,80 +228,62 @@
             let actionList = "";
             let script = "";
 
+            // LOGIC FOR DISPLAY (Clean Text)
             if(principle === 'integrity') {
-                analysis = `The Code of Conduct requires you to reject bribery and declare conflicts of interest. In **${industry}**, this specifically relates to ${industry === 'Civil' ? 'procurement and tender fairness' : 'reporting accurate test data'}.\n\n${regText}`;
-                if(role === 'Junior') {
-                    actionList = `1. **Verify:** Check the company handbook/policy regarding this specific issue.\n2. **Record:** Keep a written log of the request/situation.\n3. **Escalate:** Formally raise this with your Line Manager or Ethics Officer.`;
-                } else {
-                    actionList = `1. **Refuse:** Explicitly refuse to sign-off on any document that is misleading.\n2. **Isolate:** Remove yourself from the decision-making loop to avoid Conflict of Interest.\n3. **Report:** If the issue persists, you have a duty to inform the regulatory body (${ctx.body}).`;
-                }
-                script = `"I recognized a potential breach of Integrity regarding compliance with **${ctx.regs}**. Despite the commercial pressure, I prioritized professional standards. I formally declared the conflict to ensuring transparency."`;
-            
+                analysis = `The Code of Conduct requires you to reject bribery and declare conflicts of interest. In ${industry}, this specifically relates to fair procurement and accurate reporting.\n\n${regText}`;
+                actionList = `1. Verify: Check the company handbook regarding this specific issue.\n2. Record: Keep a written log of the request.\n3. Escalate: Formally raise this with your Line Manager or Ethics Officer.`;
+                script = `"I recognized a potential breach of Integrity regarding compliance with ${ctx.regs}. Despite the pressure, I prioritized professional standards and formally declared the conflict."`;
             } else if (principle === 'respect') {
-                analysis = `Your primary obligation is to the public good. In **${industry}**, a failure here results in **${ctx.risk}**. This overrides any commercial contract or NDA.\n\n${regText}`;
-                if(role === 'Manager') {
-                    actionList = `1. **Stop Work:** You have the authority and duty to halt operations if safety is compromised.\n2. **Resource:** Authorize the budget required to fix the safety gap.\n3. **Review:** Initiate a formal HAZOP/Risk Review immediately.`;
-                } else {
-                    actionList = `1. **Assess:** quantifying the risk (Probability x Severity).\n2. **Notify:** Inform the stakeholders of the violation of **${ctx.regs}** in writing.\n3. **Whistleblow:** If ignored, escalate to the HSE or Regulator.`;
-                }
-                script = `"I identified a significant risk to **${ctx.risk}**. Consistent with the principle of Respect for Life, I refused to compromise on safety standards. I referenced **${ctx.regs}** to demonstrate that the proposed shortcut was illegal."`;
-
+                analysis = `Your primary obligation is to the public good. In ${industry}, a failure here results in ${ctx.risk}. This overrides any commercial contract.\n\n${regText}`;
+                actionList = `1. Assess: Quantify the risk (Probability x Severity).\n2. Notify: Inform stakeholders of the violation of ${ctx.regs} in writing.\n3. Whistleblow: If ignored, escalate to the Regulator.`;
+                script = `"I identified a significant risk to ${ctx.risk}. Consistent with Respect for Life, I refused to compromise safety standards and referenced ${ctx.regs} to support my decision."`;
             } else if (principle === 'accuracy') {
-                analysis = `Engineers must not mislead or work outside their competence. ${regLevel === 'CEng' ? 'You are responsible for validating novel solutions.' : 'You must ensure you are applying standards correctly.'}`;
-                actionList = `1. **Validate:** Do not rely on unverified assumptions. Demand raw data.\n2. **Peer Review:** Request a third-party audit of the calculations.\n3. **Qualify:** Clearly state the limitations/confidence level of your report.`;
-                script = `"To ensure Accuracy & Rigour, I challenged the initial assumptions. I instigated a peer review process and refused to release the data until it was validated against **${ctx.body}** best practice guidelines."`;
-
+                analysis = `Engineers must not mislead or work outside their competence. You must ensure you are applying standards correctly.`;
+                actionList = `1. Validate: Do not rely on unverified assumptions. Demand raw data.\n2. Peer Review: Request a third-party audit.\n3. Qualify: Clearly state the limitations of your data.`;
+                script = `"To ensure Accuracy & Rigour, I challenged the assumptions and instigated a peer review process against ${ctx.body} best practice guidelines."`;
             } else if (principle === 'leadership') {
                 analysis = `Leadership involves upholding the reputation of the profession and fostering a culture of safety.\n\n${regText}`;
-                if(role === 'Junior') {
-                    actionList = `1. **Model:** Demonstrate the correct behaviour even if others are cutting corners.\n2. **Ask:** Ask 'open questions' in meetings to highlight the risk without being confrontational.`;
-                } else {
-                    actionList = `1. **Culture:** promote a 'Just Culture' where mistakes can be reported without fear.\n2. **Educate:** Use this as a teachable moment for the team regarding **${ctx.regs}**.\n3. **Advocate:** Publicly support team members who raise safety concerns.`;
-                }
-                script = `"I took a Leadership role by shifting the focus from 'blame' to 'process improvement'. I championed a culture of transparency, ensuring the team felt safe to report the issue, thereby protecting the wider business from **${ctx.risk}**."`;
+                actionList = `1. Culture: Promote a 'Just Culture' where mistakes can be reported.\n2. Educate: Use this as a teachable moment regarding ${ctx.regs}.\n3. Advocate: Publicly support those who raise concerns.`;
+                script = `"I took a Leadership role by shifting focus from blame to process improvement. I championed transparency to protect the business from ${ctx.risk}."`;
             }
 
+            // RENDER CLEAN HTML TO SCREEN
             const finalHTML = 
-`<span class="section-header">>> THE DILEMMA (User Input)</span>
+`<span class="section-header">>> THE DILEMMA</span>
 "${input}"
 
-<span class="section-header">>> CONTEXTUAL ANALYSIS (${regLevel})</span>
+<span class="section-header">>> ANALYSIS (${regLevel})</span>
 ${analysis}
 
-<span class="section-header">>> RECOMMENDED ACTION PLAN (${role})</span>
-${actionList}
+<span class="section-header">>> ACTION PLAN (${userRole})</span>
+${actionList.replace(/\n/g, "<br>")}
 
-<span class="section-header">>> INTERVIEW SCRIPT (STAR Method)</span>
+<span class="section-header">>> INTERVIEW SCRIPT (STAR)</span>
 <em style="color:#00FF99">${script}</em>`;
 
             document.getElementById('outputArea').innerHTML = finalHTML.replace(/\n/g, "<br>");
-            document.getElementById('aiPromptBtn').style.display = "block"; // Show button
-        }
-
-        // --- NEW: AI PROMPT GENERATOR ---
-        function copyAiPrompt() {
-            const input = document.getElementById('dilemmaInput').value;
-            const regLevel = document.getElementById('regLevel').value;
-            const role = document.getElementById('role').value;
-            const industry = document.getElementById('industry').value;
-            const p = currentPrinciple.charAt(0).toUpperCase() + currentPrinciple.slice(1);
-
-            const prompt = `Act as a Senior Fellow of the IMechE/IET. I am a ${role} Engineer in the ${industry} industry, working towards ${regLevel} registration.
-
-I am facing this Ethical Dilemma:
+            
+            // GENERATE RICH AI PROMPT (For Clipboard)
+            const aiPromptText = `Act as a Fellow of the IET/IMechE. I am a ${userRole} in the ${industry} industry.
+I need to challenge a ${targetRole} regarding this ethical dilemma:
 "${input}"
 
-Please analyze this using the Royal Academy of Engineering's Statement of Ethical Principles, specifically focusing on "${p}".
+Please analyze this using the RAEng Statement of Ethical Principles (Focus: ${principle}).
 
-1. Identify the specific clause of the UK-SPEC or Code of Conduct this violates.
-2. Provide a step-by-step immediate action plan suitable for my seniority level.
-3. Draft a formal email I could send to my manager to raise this concern professionally.`;
+1. Identify the specific UK-SPEC clause violated.
+2. Draft a professional but firm script I can use in a face-to-face meeting with the ${targetRole}.
+3. Explain the long-term commercial risk if we ignore this (e.g. legal action under ${ctx.regs}).`;
 
-            navigator.clipboard.writeText(prompt).then(() => {
-                const btn = document.getElementById('aiPromptBtn');
-                btn.innerText = ">> COPIED! PASTE INTO CHATGPT/CLAUDE";
-                setTimeout(() => { btn.innerText = ">> COPY AI \"MEGA-PROMPT\""; }, 3000);
-            });
+            // Setup Copy Button
+            const btn = document.getElementById('aiBtn');
+            btn.style.display = 'block';
+            btn.onclick = function() {
+                navigator.clipboard.writeText(aiPromptText).then(() => {
+                    const originalText = btn.innerText;
+                    btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
+                    setTimeout(() => { btn.innerText = originalText; }, 3000);
+                });
+            };
         }
     </script>
 </body>
