@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script> -->
+    <!-- <script> -->
+      <!-- window.dataLayer = window.dataLayer || []; -->
+      <!-- function gtag(){dataLayer.push(arguments);} -->
+      <!-- gtag('js', new Date()); -->
+      <!-- gtag('config', 'G-PG4ZJ7W444'); -->
+    <!-- </script> -->
     <meta charset="UTF-8">
     <title>Logo Studio | Empowering Engineers</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <meta name="google-adsense-account" content="ca-pub-7071036534151105">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
@@ -25,7 +25,8 @@
         .studio-panel { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 1000px; width: 100%; text-align: center; }
         h2 { font-family: 'Lora', serif; color: #0D1B2A; margin-top: 0; }
         
-        .controls-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; text-align: left; }
+        /* Adjusted grid to hide the unused slider nicely */
+        .controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;}
         .control-group label { font-weight: 700; color: #0D1B2A; font-size: 0.85rem; display: block; margin-bottom: 5px; }
         input[type=range] { width: 100%; margin: 5px 0; cursor: pointer; }
         .val-display { font-size: 0.8rem; color: #666; font-family: monospace; float: right; }
@@ -46,7 +47,7 @@
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
             <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
+            <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -54,17 +55,18 @@
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
+            <a href="guide.html">Manual</a>
         </nav>
     </div>
 
     <div class="studio-panel">
-        <h2>Master Logo Export v9.0</h2>
+        <h2>Master Logo Export v9.1</h2>
 
         <div class="controls-grid">
-            <div class="control-group"><label>1. .uk Width</label><input type="range" id="ukSlider" min="50" max="600" value="106" oninput="updatePreviews()"><span class="val-display"><span id="ukVal">106</span>px</span></div>
-            <div class="control-group"><label>2. Vertical Nudge</label><input type="range" id="ySlider" min="-300" max="300" value="0" oninput="updatePreviews()"><span class="val-display"><span id="yVal">0</span>px</span></div>
-            <div class="control-group"><label>3. Zoom</label><input type="range" id="scaleSlider" min="50" max="150" value="90" oninput="updatePreviews()"><span class="val-display"><span id="scaleVal">90</span>%</span></div>
+            <div class="control-group" style="display:none;"><label>1. .uk Width</label><input type="range" id="ukSlider" min="50" max="600" value="106" oninput="updatePreviews()"></div>
+            
+            <div class="control-group"><label>1. Vertical Nudge</label><input type="range" id="ySlider" min="-300" max="300" value="0" oninput="updatePreviews()"><span class="val-display"><span id="yVal">0</span>px</span></div>
+            <div class="control-group"><label>2. Zoom</label><input type="range" id="scaleSlider" min="50" max="150" value="90" oninput="updatePreviews()"><span class="val-display"><span id="scaleVal">90</span>%</span></div>
         </div>
 
         <div class="download-section">
@@ -91,71 +93,127 @@
     <script>
         const palette = { navy: "#0D1B2A", white: "#FAFAFA", green: "#00FF99", grey: "#8899A6" };
         window.onload = function() { setTimeout(updatePreviews, 500); };
+        
         function updatePreviews() {
-            document.getElementById('ukVal').innerText = document.getElementById('ukSlider').value;
             document.getElementById('yVal').innerText = document.getElementById('ySlider').value;
             document.getElementById('scaleVal').innerText = document.getElementById('scaleSlider').value;
-            drawLogo('prevSquare', 'square', 0.1); drawLogo('prevRect', 'rect', 0.2); 
+            drawLogo('prevSquare', 'square', 0.1); 
+            drawLogo('prevRect', 'rect', 0.2); 
         }
+
         function exportFile(layout, isTransparent) {
             const exportCanvas = document.createElement('canvas');
-            const w = layout === 'square' ? 3000 : 4000; const h = layout === 'square' ? 3000 : 800;
+            const w = layout === 'square' ? 3000 : 4000; 
+            const h = layout === 'square' ? 3000 : 800;
             exportCanvas.width = w; exportCanvas.height = h;
             const ctx = exportCanvas.getContext('2d');
-            const ukBase = parseInt(document.getElementById('ukSlider').value);
+            
             const yBase = parseInt(document.getElementById('ySlider').value);
             const zoomBase = parseInt(document.getElementById('scaleSlider').value) / 100;
             const sliderMult = layout === 'square' ? 3.5 : 2.5;
+            
+            // FONT SIZE LOGIC: Both parts now use the same calculation
             const fontSize = (layout === 'square' ? 450 : 350) * zoomBase;
-            const ukSize = ukBase * sliderMult * zoomBase;
+            const ukSize = fontSize; // FORCED SAME SIZE
+
             const spacing = 15 * sliderMult * zoomBase;
             const yOffset = yBase * (layout === 'square' ? 4 : 2);
+            
             ctx.clearRect(0, 0, w, h);
             if (!isTransparent) { ctx.fillStyle = palette.navy; ctx.fillRect(0, 0, w, h); }
+            
             ctx.textBaseline = 'alphabetic';
-            const mainFont = `bold ${fontSize}px Lora`; const ukFont = `bold ${ukSize}px Lora`;
-            ctx.font = mainFont; const wEmp = ctx.measureText("Empowering").width; const wEng = ctx.measureText("Engineers").width;
-            ctx.font = ukFont; const wUk = ctx.measureText(".uk").width;
+            const mainFont = `bold ${fontSize}px Lora`; 
+            
+            ctx.font = mainFont; 
+            const wEmp = ctx.measureText("Empowering").width; 
+            const wEng = ctx.measureText("Engineers").width;
+            const wUk = ctx.measureText(".uk").width;
+            
             const centerY = (h / 2) + yOffset;
+            
             if (layout === 'square') {
                 const startX = (w - Math.max(wEmp, wEng + spacing + wUk)) / 2;
-                ctx.font = mainFont; ctx.fillStyle = palette.white; ctx.fillText("Empowering", startX, centerY - (fontSize * 0.15));
-                ctx.fillStyle = palette.green; ctx.fillText("Engineers", startX, centerY + (fontSize * 0.95));
-                ctx.font = ukFont; ctx.fillStyle = isTransparent ? palette.white : palette.grey; ctx.fillText(".uk", startX + wEng + spacing, centerY + (fontSize * 0.95));
+                
+                // Empowering (White)
+                ctx.fillStyle = palette.white; 
+                ctx.fillText("Empowering", startX, centerY - (fontSize * 0.15));
+                
+                // Engineers (Green)
+                ctx.fillStyle = palette.green; 
+                ctx.fillText("Engineers", startX, centerY + (fontSize * 0.95));
+                
+                // .uk (White - FIXED)
+                ctx.fillStyle = palette.white; 
+                ctx.fillText(".uk", startX + wEng + spacing, centerY + (fontSize * 0.95));
+                
             } else {
+                // Rectangular Layout (Header style)
                 const startX = (w - (wEmp + wEng + wUk)) / 2;
                 const baseLineY = centerY + (fontSize * 0.35);
-                ctx.font = mainFont; ctx.fillStyle = palette.white; ctx.fillText("Empowering", startX, baseLineY);
-                ctx.fillStyle = palette.green; ctx.fillText("Engineers", startX + wEmp, baseLineY);
-                ctx.font = ukFont; ctx.fillStyle = palette.grey; ctx.fillText(".uk", startX + wEmp + wEng, baseLineY);
+                
+                // Empowering (White)
+                ctx.fillStyle = palette.white; 
+                ctx.fillText("Empowering", startX, baseLineY);
+                
+                // Engineers (Green)
+                ctx.fillStyle = palette.green; 
+                ctx.fillText("Engineers", startX + wEmp, baseLineY);
+                
+                // .uk (White - FIXED)
+                ctx.fillStyle = palette.white; 
+                ctx.fillText(".uk", startX + wEmp + wEng, baseLineY);
             }
+            
             const link = document.createElement('a');
             link.download = `EE_Logo_${layout}_${isTransparent ? "Trans" : "Solid"}.png`;
             link.href = exportCanvas.toDataURL("image/png");
             link.click();
         }
+
         function drawLogo(id, layout, scale) {
-            const canvas = document.getElementById(id); const ctx = canvas.getContext('2d');
+            const canvas = document.getElementById(id); 
+            const ctx = canvas.getContext('2d');
             const w = canvas.width; const h = canvas.height;
-            ctx.clearRect(0, 0, w, h); ctx.fillStyle = palette.navy; ctx.fillRect(0, 0, w, h);
-            const ukBase = parseInt(document.getElementById('ukSlider').value);
+            
+            ctx.clearRect(0, 0, w, h); 
+            ctx.fillStyle = palette.navy; 
+            ctx.fillRect(0, 0, w, h);
+            
             const zoomBase = parseInt(document.getElementById('scaleSlider').value) / 100;
             const fontSize = (layout === 'square' ? 450 : 350) * scale * zoomBase;
-            const ukSize = ukBase * (layout === 'square' ? 3.5 : 2.5) * scale * zoomBase;
+            const ukSize = fontSize; // FORCED SAME SIZE
+            
             const centerY = (h/2) + (parseInt(document.getElementById('ySlider').value) * (layout==='square'?4:2) * scale);
+            
             ctx.font = `bold ${fontSize}px Lora`;
-            const wEmp = ctx.measureText("Empowering").width; const wEng = ctx.measureText("Engineers").width;
-            ctx.font = `bold ${ukSize}px Lora`; const wUk = ctx.measureText(".uk").width;
+            const wEmp = ctx.measureText("Empowering").width; 
+            const wEng = ctx.measureText("Engineers").width;
+            const wUk = ctx.measureText(".uk").width;
+            
             if (layout === 'square') {
-                const startX = (w - Math.max(wEmp, wEng + (15*scale*3.5) + wUk)) / 2;
-                ctx.font = `bold ${fontSize}px Lora`; ctx.fillStyle = palette.white; ctx.fillText("Empowering", startX, centerY - (fontSize * 0.15));
-                ctx.fillStyle = palette.green; ctx.fillText("Engineers", startX, centerY + (fontSize * 0.95));
-                ctx.font = `bold ${ukSize}px Lora`; ctx.fillStyle = palette.grey; ctx.fillText(".uk", startX + wEng + (15*scale*3.5), centerY + (fontSize * 0.95));
+                const spacing = 15 * scale * 3.5;
+                const startX = (w - Math.max(wEmp, wEng + spacing + wUk)) / 2;
+                
+                ctx.fillStyle = palette.white; 
+                ctx.fillText("Empowering", startX, centerY - (fontSize * 0.15));
+                
+                ctx.fillStyle = palette.green; 
+                ctx.fillText("Engineers", startX, centerY + (fontSize * 0.95));
+                
+                ctx.fillStyle = palette.white; 
+                ctx.fillText(".uk", startX + wEng + spacing, centerY + (fontSize * 0.95));
             } else {
                 const startX = (w - (wEmp + wEng + wUk)) / 2;
-                ctx.font = `bold ${fontSize}px Lora`; ctx.fillStyle = palette.white; ctx.fillText("Empowering", startX, centerY + (fontSize * 0.35));
-                ctx.fillStyle = palette.green; ctx.fillText("Engineers", startX + wEmp, centerY + (fontSize * 0.35));
-                ctx.font = `bold ${ukSize}px Lora`; ctx.fillStyle = palette.grey; ctx.fillText(".uk", startX + wEmp + wEng, centerY + (fontSize * 0.35));
+                
+                ctx.fillStyle = palette.white; 
+                ctx.fillText("Empowering", startX, centerY + (fontSize * 0.35));
+                
+                ctx.fillStyle = palette.green; 
+                ctx.fillText("Engineers", startX + wEmp, centerY + (fontSize * 0.35));
+                
+                ctx.fillStyle = palette.white; 
+                ctx.fillText(".uk", startX + wEmp + wEng, centerY + (fontSize * 0.35));
             }
         }
     </script>

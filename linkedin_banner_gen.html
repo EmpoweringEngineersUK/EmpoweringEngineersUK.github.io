@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Banner Generator | Empowering Engineers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a12; /* Dark Navy Background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Courier Prime', monospace;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            color: #00FF99;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #aaa;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #00FF99;
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+            max-width: 95%; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>LinkedIn Company Banner Generator</h2>
+    <p>Right-click the image below and "Save as..."<br>(Exact Size: 1128 x 191 pixels)</p>
+
+    <canvas id="bannerCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('bannerCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- LINKEDIN SPECIFIC DIMENSIONS ---
+        canvas.width = 1128;
+        canvas.height = 191;
+        // ------------------------------------
+
+        // --- MATRIX RAIN EFFECT SETUP ---
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$<>[]{}#@%&";
+
+        // Wait for fonts to load before drawing text
+        document.fonts.ready.then(function () {
+            setInterval(draw, 50);
+        });
+
+        function draw() {
+            // 1. Semi-transparent background fade (Dark Navy)
+            ctx.fillStyle = 'rgba(10, 10, 18, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 2. Draw Matrix Rain (Background Layer)
+            ctx.font = fontSize + 'px "Courier Prime", monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                
+                // Randomly make some characters brighter
+                if (Math.random() > 0.98) {
+                    ctx.fillStyle = '#00FF99'; 
+                } else {
+                     ctx.fillStyle = '#0f4d3e'; // Darker green for depth
+                }
+                
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+
+            // 3. Draw Main Logo Text (Foreground Layer)
+            
+            // Reduced font slightly to accommodate the shift (72 -> 65)
+            const logoFontSize = 65; 
+            ctx.font = `bold ${logoFontSize}px "Lora", serif`;
+            ctx.textBaseline = 'middle';
+            
+            const text1 = "Empowering";
+            const text2 = "Engineers";
+            const text3 = ".uk";
+            
+            // Measure text
+            const width1 = ctx.measureText(text1).width;
+            const width2 = ctx.measureText(text2).width;
+            const width3 = ctx.measureText(text3).width;
+            const totalWidth = width1 + width2 + width3;
+            
+            // --- SAFE ZONE ADJUSTMENT ---
+            // Shift 120px to the right to avoid the LinkedIn Profile Picture on the left
+            const safeZoneShift = 120; 
+            
+            let startX = ((canvas.width - totalWidth) / 2) + safeZoneShift;
+            const centerY = canvas.height / 2;
+
+            // Draw "Empowering" (White)
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(text1, startX, centerY);
+
+            // Draw "Engineers" (Terminal Green)
+            ctx.fillStyle = '#00FF99'; 
+            ctx.shadowColor = "rgba(0,0,0,0.8)";
+            ctx.shadowBlur = 10;
+            ctx.fillText(text2, startX + width1, centerY);
+            
+            // Reset shadow
+            ctx.shadowBlur = 0;
+
+            // Draw ".uk" (White - Matching your Header)
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(text3, startX + width1 + width2, centerY);
+        }
+    </script>
+
+</body>
+</html>
