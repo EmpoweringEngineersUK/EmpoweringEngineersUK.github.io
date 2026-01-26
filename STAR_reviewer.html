@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STAR Reviewer | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -13,115 +9,69 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR Reviewer | Competency Auditor | EmpoweringEngineers.uk</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
+    
+    <script src="verb.js"></script>
     <script src="acronyms.js"></script>
+
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 900px; width: 100%; }
-
-        .card { 
-            background: var(--dark-card); 
-            padding: 30px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            margin-bottom: 20px; 
-        }
-
-        h2 { 
-            border-bottom: 1px solid var(--terminal-green); 
-            color: var(--terminal-green); 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-            font-family: 'Courier Prime', monospace; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-
-        label { display: block; margin-top: 20px; color: var(--burnt-orange); font-weight: bold; }
+        .container { max-width: 1100px; width: 100%; }
+        .reviewer-layout { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 30px; margin-top: 20px; }
+        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); }
         
-        textarea { 
-            width: 100%; 
-            height: 200px; 
-            background: rgba(0,0,0,0.3); 
-            border: 1px solid var(--border-color); 
-            color: white; 
-            padding: 15px; 
-            font-family: 'Roboto', sans-serif; 
-            border-radius: 4px; 
-            resize: vertical;
-            box-sizing: border-box;
-            font-size: 1rem;
-            line-height: 1.5;
+        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; margin-top: 0; font-family: 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 1px; }
+
+        .level-selector { 
+            width: 100%; padding: 12px; background: var(--midnight-navy); color: var(--terminal-green); 
+            border: 1px solid var(--terminal-green); border-radius: 4px; margin-bottom: 20px; 
+            font-family: 'Courier Prime', monospace; font-weight: bold; cursor: pointer;
         }
-        textarea:focus { outline: none; border-color: var(--terminal-green); }
+
+        textarea { 
+            width: 100%; height: 450px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); 
+            color: white; padding: 20px; font-family: 'Roboto', sans-serif; border-radius: 4px; 
+            resize: vertical; box-sizing: border-box; font-size: 1rem; line-height: 1.6;
+        }
+        textarea:focus { outline: none; border-color: var(--terminal-green); box-shadow: 0 0 10px rgba(0, 255, 153, 0.2); }
 
         .action-btn { 
-            background: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            border: none; 
-            padding: 15px; 
-            width: 100%; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            font-size: 1rem; 
-            margin-top: 25px; 
-            transition: 0.3s; 
+            background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; 
+            width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; 
+            margin-top: 15px; font-family: 'Courier Prime', monospace; transition: 0.3s;
         }
-        .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .action-btn:hover { background: #00cc7a; transform: translateY(-2px); }
 
-        /* DASHBOARD GRID */
-        .stats-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 15px; 
-            margin-top: 20px; 
-        }
-        .stat-box { 
-            background: rgba(0,0,0,0.3); 
-            padding: 15px; 
-            border-radius: 4px; 
-            text-align: center; 
-            border: 1px solid var(--border-color); 
-        }
-        .stat-number { 
-            display: block; 
-            font-size: 2rem; 
-            font-weight: bold; 
-            font-family: 'Courier Prime', monospace; 
-            color: var(--cloud-white); 
-        }
-        .stat-label { 
-            font-size: 0.8rem; 
-            color: var(--slate-grey); 
-            text-transform: uppercase; 
-        }
+        /* Dashboard Styles */
+        .stat-box { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 4px; text-align: center; border: 1px solid var(--border-color); margin-bottom: 15px; }
+        .stat-number { display: block; font-size: 2.2rem; font-weight: bold; font-family: 'Courier Prime', monospace; }
+        .stat-label { font-size: 0.7rem; color: var(--slate-grey); text-transform: uppercase; letter-spacing: 1px;}
 
-        /* RESULTS LIST */
-        .findings-box { 
-            margin-top: 30px; 
-            max-height: 400px; 
-            overflow-y: auto; 
-        }
-        .finding-item { 
-            padding: 10px; 
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            font-size: 0.95rem; 
-        }
-        .finding-bad { color: var(--burnt-orange); }
-        .finding-good { color: var(--terminal-green); }
-        
-        @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
+        .findings-box { margin-top: 10px; max-height: 650px; overflow-y: auto; padding-right: 10px; }
+        .finding-item { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; line-height: 1.4; border-left: 4px solid transparent; }
+        .f-bad { border-left-color: var(--alert-red); background: rgba(255, 71, 87, 0.05); }
+        .f-good { border-left-color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); }
+        .f-warn { border-left-color: var(--burnt-orange); background: rgba(255, 159, 67, 0.05); }
+
+        .tag { display: inline-block; background: #1a2a3a; padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin: 2px; color: var(--terminal-green); border: 1px solid #2f4f4f; }
+
+        @media (max-width: 900px) { .reviewer-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
+            <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
+            <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html" class="active">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -129,36 +79,42 @@
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
+            <a href="guide.html">Manual</a>
         </nav>
     </div>
+
     <div class="container">
         <div class="card">
-            <h2>Competency Auditor</h2>
-            <p style="color:var(--slate-grey);">Paste your draft STAR example below. The algorithm will check for <strong>Passive Voice</strong> (We/Us) and scan for <strong>UK-SPEC Keywords</strong>.</p>
-            
-            <textarea id="inputText" placeholder="Paste your draft competency statement here..."></textarea>
-            
-            <button class="action-btn" onclick="analyzeText()">Audit My Text</button>
-            
-            <div id="results" style="display:none; margin-top:30px;">
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <span class="stat-number" id="scoreAction" style="color:var(--terminal-green)">0%</span>
-                        <span class="stat-label">Action Bias</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" id="scoreKeywords">0</span>
-                        <span class="stat-label">UK-SPEC Keywords</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number" id="scoreWeak" style="color:var(--burnt-orange)">0</span>
-                        <span class="stat-label">Weak Words</span>
-                    </div>
+            <h2>>> Competency_Auditor [v4.0]</h2>
+            <div class="reviewer-layout">
+                
+                <div class="editor-pane">
+                    <label style="color:var(--burnt-orange); font-size:0.8rem; font-weight:bold; display:block; margin-bottom:5px;">1. TARGET REGISTRATION LEVEL</label>
+                    <select id="targetLevel" class="level-selector" onchange="runAudit()">
+                        <option value="EngTech">EngTech (Technician)</option>
+                        <option value="IEng">IEng (Incorporated)</option>
+                        <option value="CEng" selected>CEng (Chartered)</option>
+                    </select>
+
+                    <label style="color:var(--burnt-orange); font-size:0.8rem; font-weight:bold; display:block; margin-bottom:5px;">2. EVIDENCE DRAFT</label>
+                    <textarea id="auditInput" placeholder="Paste your draft STAR statement here..."></textarea>
+                    <button class="action-btn" onclick="runAudit()">Execute Technical Audit</button>
+                    <div id="wordCounter" style="margin-top:10px; font-family:'Courier Prime'; font-size:0.8rem; color:var(--slate-grey);">Words: 0</div>
                 </div>
 
-                <h3 style="margin-top:20px; color:var(--cloud-white); border-bottom:1px solid var(--border-color); padding-bottom:10px;">Analysis Report</h3>
-                <div id="findingsList" class="findings-box"></div>
+                <div class="results-pane" id="resultsPane" style="display:none;">
+                    <div class="stat-box">
+                        <span class="stat-number" id="impactScore">0%</span>
+                        <span class="stat-label">Action Bias (I vs We)</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="markerCount">0</span>
+                        <span class="stat-label">UK-SPEC Markers Found</span>
+                    </div>
+
+                    <div id="findingsList" class="findings-box"></div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -174,96 +130,111 @@
     </footer>
 
     <script>
-        // --- DICTIONARIES ---
-        const weakWords = [
-            "we", "us", "our", "team", "group", "helped", "assisted", "supported", "involved in", "participated", "observed", "monitored", "oversaw"
-        ];
-        
-        const strongVerbs = [
-            "analysed", "calculated", "designed", "negotiated", "authorized", "initiated", "developed", "engineered", "implemented", "solved", "investigated", "created", "built", "led", "managed", "budgeted", "presented", "influenced", "mentored", "optimized"
-        ];
+        function runAudit() {
+            const input = document.getElementById('auditInput').value;
+            const level = document.getElementById('targetLevel').value;
+            const text = input.toLowerCase();
+            const findingsList = document.getElementById('findingsList');
+            
+            if(input.length < 20) { alert("Please provide more technical detail for a meaningful audit."); return; }
+            findingsList.innerHTML = '';
 
-        const ukSpecKeywords = [
-            "safety", "risk", "budget", "cost", "ethics", "sustainability", "environment", "legal", "compliance", "standards", "iso", "stakeholder", "quality", "innovation", "technology", "improvement", "failure", "root cause", "validation", "verification", "commercial"
-        ];
+            let weakCount = 0;
+            let strongCount = 0;
+            let markersFound = 0;
 
-        function analyzeText() {
-			// 1. Get Input
-			// We keep the original text case for Acronym checking, but make a lowercase copy for keywords
-			const originalText = document.getElementById('inputText').value; 
-			const textLower = originalText.toLowerCase();
+            // 1. Weak Word Check
+            verbDb.passiveWeak.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                const count = (text.match(regex) || []).length;
+                if(count > 0) {
+                    weakCount += count;
+                    findingsList.innerHTML += `<div class="finding-item f-bad">⚠️ <strong>Passive/Team Language:</strong> Used "${word}" (${count}x). UK-SPEC evidence must be personally accountable. Replace with "I" and a strong verb.</div>`;
+                }
+            });
 
-			if(originalText.length < 10) { alert("Please enter more text to analyze."); return; }
+            // 2. Strong Verb Check (Specific to Level)
+            const levelVerbs = verbDb.strongVerbs[level];
+            levelVerbs.forEach(verb => {
+                const regex = new RegExp(`\\b${verb}\\b`, 'gi');
+                const count = (text.match(regex) || []).length;
+                if(count > 0) {
+                    strongCount += count;
+                    findingsList.innerHTML += `<div class="finding-item f-good">✅ <strong>Level-Specific Impact:</strong> "${verb}" detected. This is a high-quality ${level} marker.</div>`;
+                }
+            });
 
-			let weakCount = 0;
-			let strongCount = 0;
-			let keywordCount = 0;
-			let findingsHTML = "";
+            // 3. Competency Marker Scan (A-E)
+            Object.keys(verbDb.ukSpecMarkers).forEach(comp => {
+                const levelMarkers = verbDb.ukSpecMarkers[comp][level];
+                let compTags = "";
+                levelMarkers.forEach(m => {
+                    if(text.includes(m)) {
+                        markersFound++;
+                        compTags += `<span class="tag">${m}</span> `;
+                    }
+                });
+                if(compTags !== "") {
+                    findingsList.innerHTML += `<div class="finding-item f-good">⚙️ <strong>UK-SPEC ${comp}:</strong> Evidence clusters detected:<br>${compTags}</div>`;
+                }
+            });
 
-			// --- EXISTING CHECK: WEAK WORDS ---
-			weakWords.forEach(word => {
-				const regex = new RegExp(`\\b${word}\\b`, 'gi');
-				const matches = textLower.match(regex);
-				if(matches) {
-					weakCount += matches.length;
-					findingsHTML += `<div class="finding-item finding-bad">⚠️ <strong>Passive Language:</strong> Used "${word}" ${matches.length} time(s). Try to replace with "I" or a strong verb.</div>`;
-				}
-			});
+            // 4. Industry Specific Scan
+            Object.keys(verbDb.industryClusters).forEach(industry => {
+                let indTags = "";
+                verbDb.industryClusters[industry].forEach(term => {
+                    if(text.includes(term)) {
+                        markersFound++;
+                        indTags += `<span class="tag" style="border-color:var(--burnt-orange)">${term}</span> `;
+                    }
+                });
+                if(indTags !== "") {
+                    findingsList.innerHTML += `<div class="finding-item f-good">🏭 <strong>${industry} Context:</strong> Industry terminology detected:<br>${indTags}</div>`;
+                }
+            });
 
-			// --- EXISTING CHECK: UK-SPEC KEYWORDS ---
-			ukSpecKeywords.forEach(word => {
-				if(textLower.includes(word)) {
-					keywordCount++;
-					findingsHTML += `<div class="finding-item finding-good">✅ <strong>UK-SPEC Match:</strong> "${word}" detected. Good evidence marker.</div>`;
-				}
-			});
+            // 5. Acronym Analysis
+            if (typeof acronymDb !== 'undefined') {
+                const tokens = input.split(/[\s,.;:!?()]+/).filter(w => w.length > 1);
+                const potentialAcro = [...new Set(tokens.filter(w => w === w.toUpperCase() && !/\d/.test(w)))];
+                const knownList = acronymDb.map(item => item.a);
 
-			// --- NEW CHECK: ACRONYMS (Added Logic) ---
-			// 1. Split text into words (removing punctuation)
-			const tokens = originalText.split(/[\s,.;:!?()]+/).filter(w => w.length > 1);
-			
-			// 2. Filter for words that are ALL CAPS and have no numbers (Potential Acronyms)
-			const potentialAcronyms = tokens.filter(w => w === w.toUpperCase() && !/\d/.test(w));
-			
-			// 3. Remove duplicates so we don't warn about the same acronym twice
-			const uniqueAcronyms = [...new Set(potentialAcronyms)];
+                potentialAcro.forEach(acro => {
+                    if (knownList.includes(acro)) {
+                        findingsList.innerHTML += `<div class="finding-item f-good">✓ <strong>${acro}:</strong> Industry acronym validated.</div>`;
+                    } else {
+                        findingsList.innerHTML += `<div class="finding-item f-warn">? <strong>${acro}:</strong> Unknown acronym. Ensure this is defined on first use.</div>`;
+                    }
+                });
+            }
 
-			// 4. Create a simple list of valid acronyms from your database for checking
-			// (We check if 'acronymDb' exists to prevent crashing if the file didn't load)
-			if (typeof acronymDb !== 'undefined') {
-				const knownList = acronymDb.map(item => item.a); // Creates a list like ["API", "BOP", "FEED"...]
+            // Stats Update
+            const score = (strongCount + weakCount) === 0 ? 0 : Math.round((strongCount / (strongCount + (weakCount * 0.5))) * 100);
+            document.getElementById('impactScore').innerText = Math.min(100, score) + "%";
+            document.getElementById('impactScore').style.color = score > 60 ? "var(--terminal-green)" : "var(--burnt-orange)";
+            document.getElementById('markerCount').innerText = markersFound;
+            
+            document.getElementById('resultsPane').style.display = 'block';
+            findingsList.scrollTop = 0;
+            updateWordCount();
+        }
 
-				uniqueAcronyms.forEach(acro => {
-					if (knownList.includes(acro)) {
-						// It is in our database -> Good usage
-						findingsHTML += `<div class="finding-item finding-good">✓ <strong>${acro}:</strong> Standard industry term detected.</div>`;
-					} else {
-						// It looks like an acronym but isn't in our database -> Warning
-						findingsHTML += `<div class="finding-item finding-bad">? <strong>${acro}:</strong> Unknown acronym. Ensure you define this on first use (or check spelling).</div>`;
-					}
-				});
-			}
+        function updateWordCount() {
+            const text = document.getElementById('auditInput').value.trim();
+            const count = text ? text.split(/\s+/).length : 0;
+            document.getElementById('wordCounter').innerText = "Words: " + count;
+        }
 
-			// --- EXISTING CHECK: STRONG VERBS ---
-			strongVerbs.forEach(verb => {
-				if(textLower.includes(verb)) strongCount++;
-			});
-
-			// --- EXISTING LOGIC: CALCULATE SCORE ---
-			let totalVerbs = strongCount + weakCount;
-			let score = totalVerbs === 0 ? 0 : Math.round((strongCount / totalVerbs) * 100);
-			if(totalVerbs === 0 && textLower.length > 50) score = 20;
-
-			// --- UPDATE UI ---
-			document.getElementById('scoreAction').innerText = score + "%";
-			document.getElementById('scoreKeywords').innerText = keywordCount;
-			document.getElementById('scoreWeak').innerText = weakCount;
-			
-			if(findingsHTML === "") findingsHTML = `<div class="finding-item" style="color:var(--slate-grey)">No specific issues found, but try adding more keywords like "Safety" or "Cost".</div>`;
-			
-			document.getElementById('findingsList').innerHTML = findingsHTML;
-			document.getElementById('results').style.display = 'block';
-		}
+        // Handle transfers
+        window.onload = function() {
+            const transfer = localStorage.getItem('starTransferData');
+            if (transfer) {
+                document.getElementById('auditInput').value = transfer;
+                runAudit();
+                localStorage.removeItem('starTransferData');
+            }
+        };
     </script>
+
 </body>
 </html>

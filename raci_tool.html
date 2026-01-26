@@ -101,10 +101,10 @@
             flex-shrink: 0;
         }
 
-        .r-code { background-color: #00FF99; } /* Green */
-        .a-code { background-color: #FF9F43; } /* Orange */
-        .c-code { background-color: #54a0ff; } /* Blue */
-        .i-code { background-color: #feca57; } /* Yellow */
+        .r-code { background-color: #00FF99; } 
+        .a-code { background-color: #FF9F43; } 
+        .c-code { background-color: #54a0ff; } 
+        .i-code { background-color: #feca57; } 
         .white-code { background-color: #ffffff; }
 
         /* MATRIX TABLE STYLES */
@@ -139,7 +139,6 @@
             min-width: 100px;
         }
 
-        /* Editable Inputs inside headers */
         th input {
             background: transparent;
             border: none;
@@ -151,7 +150,6 @@
         }
         th input:focus { outline: 1px solid var(--terminal-green); }
 
-        /* First Column (Tasks) */
         td:first-child {
             width: 250px;
             background-color: #f4f4f4;
@@ -166,7 +164,6 @@
             padding: 5px;
         }
 
-        /* Select Dropdowns */
         .raci-select {
             width: 100%;
             border: none;
@@ -179,7 +176,6 @@
         }
         .raci-select:focus { outline: 2px solid #000; }
 
-        /* Action Buttons */
         .btn-group {
             display: flex;
             gap: 10px;
@@ -200,6 +196,8 @@
         .action-btn:hover { background: var(--terminal-green); color: var(--midnight-navy); }
         .action-btn.secondary { border-color: var(--slate-grey); color: var(--slate-grey); }
         .action-btn.secondary:hover { background: var(--slate-grey); color: #fff; }
+        .action-btn.danger { border-color: #ff4d4d; color: #ff4d4d; }
+        .action-btn.danger:hover { background: #ff4d4d; color: #fff; }
 
         .info-box {
             margin-top: 30px;
@@ -212,13 +210,14 @@
         .info-box h3 { margin-top: 0; color: var(--burnt-orange); }
     </style>
 </head>
-<body>
+<body onload="initApp()">
 
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
+            <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html" class="active">RACI</a>
+            <a href="raci_tool.html" class="active">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -226,13 +225,13 @@
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
+            <a href="guide.html">Manual</a>
         </nav>
     </div>
 
     <h1 style="margin-top: 20px; text-align: center; color: var(--terminal-green);">Project Responsibility Matrix</h1>
-    <p style="text-align: center; max-width: 800px; margin-bottom: 20px;">
-        Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E.
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">
+        Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E. <strong>Progress is saved automatically to your browser.</strong>
     </p>
 
     <div class="raci-container">
@@ -260,7 +259,8 @@
             </div>
 
             <div>
-                <button class="action-btn" onclick="resetToDefaults()">&#8635; Reset</button>
+                <button class="action-btn" onclick="resetToDefaults()">&#8635; Load Preset</button>
+                <button class="action-btn danger" onclick="clearAllData()">&#128465; Clear All</button>
                 <button class="action-btn" onclick="downloadMatrix()">&#11015; Save Image</button>
             </div>
         </div>
@@ -447,19 +447,54 @@
             }
         };
 
-        // --- RENDER LOGIC ---
+        // --- STORAGE LOGIC ---
+        function saveMatrix() {
+            const roles = [];
+            const headerInputs = document.querySelectorAll('#raciTable thead input');
+            headerInputs.forEach(input => roles.push(input.value));
 
+            const tasks = [];
+            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
+            bodyRows.forEach(row => {
+                const taskName = row.querySelector('td:first-child input').value;
+                const raci = [];
+                const selects = row.querySelectorAll('select');
+                selects.forEach(sel => raci.push(sel.value));
+                tasks.push({ task: taskName, raci: raci });
+            });
+
+            const matrixData = { roles, tasks };
+            localStorage.setItem('ee_raci_data', JSON.stringify(matrixData));
+        }
+
+        function loadSavedMatrix() {
+            const saved = localStorage.getItem('ee_raci_data');
+            if (saved) {
+                renderTable(JSON.parse(saved));
+                return true;
+            }
+            return false;
+        }
+
+        function clearAllData() {
+            if(confirm("Erase all progress and clear storage?")) {
+                localStorage.removeItem('ee_raci_data');
+                loadScenario();
+            }
+        }
+
+        // --- RENDER LOGIC ---
         function loadScenario() {
             const selector = document.getElementById('scenarioSelect');
             const key = selector.value;
             const data = scenarios[key];
-            
             if (!data) return;
             renderTable(data);
+            saveMatrix(); // Save initial preset state
         }
 
         function resetToDefaults() {
-            if(confirm("This will erase your current edits. Continue?")) {
+            if(confirm("This will erase current edits and load the preset. Continue?")) {
                 loadScenario();
             }
         }
@@ -468,30 +503,25 @@
             const tableHead = document.querySelector('#raciTable thead');
             const tableBody = document.querySelector('#raciTable tbody');
 
-            // Clear existing
             tableHead.innerHTML = '';
             tableBody.innerHTML = '';
 
-            // 1. Build Header Row (Editable)
             let headerRow = document.createElement('tr');
-            
-            // First cell: "Task / Activity"
             let thFirst = document.createElement('th');
             thFirst.innerText = "Task / Activity";
             headerRow.appendChild(thFirst);
 
-            // Role cells
             data.roles.forEach(role => {
                 let th = document.createElement('th');
                 let input = document.createElement('input');
                 input.type = "text";
                 input.value = role;
+                input.oninput = saveMatrix; // Save on header change
                 th.appendChild(input);
                 headerRow.appendChild(th);
             });
             tableHead.appendChild(headerRow);
 
-            // 2. Build Data Rows (Editable)
             data.tasks.forEach(item => {
                 addRowToTable(item.task, item.raci);
             });
@@ -499,19 +529,17 @@
 
         function addRowToTable(taskName = "New Task", raciValues = []) {
             const tableBody = document.querySelector('#raciTable tbody');
-            const colCount = document.querySelectorAll('#raciTable thead th').length - 1; // exclude first col
+            const colCount = document.querySelectorAll('#raciTable thead th').length - 1;
 
             let row = document.createElement('tr');
-
-            // Task Name Cell
             let tdName = document.createElement('td');
             let input = document.createElement('input');
             input.type = "text";
             input.value = taskName;
+            input.oninput = saveMatrix; // Save on task name change
             tdName.appendChild(input);
             row.appendChild(tdName);
 
-            // RACI Cells
             for (let i = 0; i < colCount; i++) {
                 let td = document.createElement('td');
                 let defaultVal = raciValues[i] || "-";
@@ -525,24 +553,24 @@
 
         function createSelect(defaultVal) {
             const options = ['-', 'R', 'A', 'C', 'I'];
-            // We return string HTML to keep it simple, but set 'selected' based on defaultVal
             let optsHtml = options.map(opt => 
                 `<option value="${opt}" ${opt === defaultVal ? 'selected' : ''}>${opt}</option>`
             ).join('');
             
-            return `<select class="raci-select" onchange="colorize(this)">${optsHtml}</select>`;
+            return `<select class="raci-select" onchange="colorize(this); saveMatrix()">${optsHtml}</select>`;
         }
 
-        // --- DYNAMIC GRID CONTROLS ---
-
+        // --- GRID CONTROLS ---
         function addRow() {
             addRowToTable("New Task", []);
+            saveMatrix();
         }
 
         function removeRow() {
             const tbody = document.querySelector('#raciTable tbody');
             if (tbody.rows.length > 1) {
                 tbody.deleteRow(tbody.rows.length - 1);
+                saveMatrix();
             }
         }
 
@@ -550,15 +578,14 @@
             const headRow = document.querySelector('#raciTable thead tr');
             const bodyRows = document.querySelectorAll('#raciTable tbody tr');
 
-            // Add Header
             let th = document.createElement('th');
             let input = document.createElement('input');
             input.type = "text";
             input.value = "New Role";
+            input.oninput = saveMatrix;
             th.appendChild(input);
             headRow.appendChild(th);
 
-            // Add Cell to each body row
             bodyRows.forEach(row => {
                 let td = document.createElement('td');
                 td.innerHTML = createSelect("-");
@@ -566,25 +593,25 @@
             });
             
             updateAllColors();
+            saveMatrix();
         }
 
         function removeCol() {
             const headRow = document.querySelector('#raciTable thead tr');
             const bodyRows = document.querySelectorAll('#raciTable tbody tr');
 
-            if (headRow.cells.length > 2) { // Keep at least 1 role + task column
+            if (headRow.cells.length > 2) {
                 headRow.deleteCell(headRow.cells.length - 1);
                 bodyRows.forEach(row => {
                     row.deleteCell(row.cells.length - 1);
                 });
+                saveMatrix();
             }
         }
 
         // --- VISUALS ---
-
         function colorize(selectElement) {
             const val = selectElement.value;
-            // Remove old classes from parent TD
             selectElement.parentElement.classList.remove('r-code', 'a-code', 'c-code', 'i-code', 'white-code');
 
             let className = 'white-code';
@@ -604,7 +631,6 @@
         // --- DOWNLOAD ---
         function downloadMatrix() {
             const captureArea = document.getElementById('matrixCapture');
-            
             html2canvas(captureArea, {
                 backgroundColor: "#ffffff",
                 scale: 2
@@ -616,11 +642,12 @@
             });
         }
 
-        // Init
-        window.onload = function() {
-            loadScenario(); // Loads default 'custom'
-        };
-
+        // Init App
+        function initApp() {
+            if (!loadSavedMatrix()) {
+                loadScenario(); // If nothing saved, load default
+            }
+        }
     </script>
 </body>
 </html>

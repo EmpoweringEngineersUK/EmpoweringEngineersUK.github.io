@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Manual | EmpoweringEngineers.uk</title>
-    <meta name="description" content="Step-by-step Standard Operating Procedure (SOP) for using the Empowering Engineers toolset.">
+    <meta name="description" content="Step-by-step Standard Operating Procedure (SOP) for using the Empowering Engineers toolset to accelerate your professional registration.">
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     
     <style>
         /* PAGE SPECIFIC STYLES */
-        .container { max-width: 900px; width: 100%; }
+        .container { max-width: 950px; width: 100%; margin-bottom: 50px; }
         
         .workflow-diagram { 
             display: flex; 
@@ -28,23 +28,22 @@
             align-items: center; 
             margin-bottom: 40px; 
             background: var(--dark-card); 
-            padding: 20px; 
+            padding: 25px; 
             border-radius: 8px; 
             border: 1px solid var(--border-color); 
             flex-wrap: wrap; 
-            gap: 10px; 
+            gap: 15px; 
         }
-        .flow-step { text-align: center; flex: 1; min-width: 120px; }
-        .flow-icon { font-size: 2rem; color: var(--terminal-green); margin-bottom: 10px; display: block; }
-        .flow-arrow { color: var(--slate-grey); font-size: 1.5rem; }
-        .flow-title { font-weight: bold; font-family: 'Courier Prime', monospace; font-size: 0.9rem; }
+        .flow-step { text-align: center; flex: 1; min-width: 140px; }
+        .flow-icon { font-size: 1.8rem; color: var(--terminal-green); margin-bottom: 10px; display: block; }
+        .flow-arrow { color: var(--slate-grey); font-size: 1.2rem; font-weight: bold; }
+        .flow-title { font-weight: bold; font-family: 'Courier Prime', monospace; font-size: 0.85rem; text-transform: uppercase; color: var(--terminal-green); }
 
         .card { 
             background: var(--dark-card); 
-            padding: 30px; 
+            padding: 40px; 
             border-radius: 8px; 
             border: 1px solid var(--border-color); 
-            margin-bottom: 30px; 
         }
         h1 { 
             border-bottom: 1px solid var(--terminal-green); 
@@ -52,51 +51,44 @@
             padding-bottom: 10px; 
             margin-top: 0; 
             font-family: 'Courier Prime', monospace; 
+            font-size: 1.8rem;
         }
         h2 { 
             border-bottom: 1px solid var(--terminal-green); 
             color: var(--terminal-green); 
             padding-bottom: 10px; 
-            margin-top: 0; 
+            margin-top: 40px; 
             font-family: 'Courier Prime', monospace; 
             text-transform: uppercase; 
             letter-spacing: 1px; 
+            font-size: 1.2rem;
         }
         h3 { 
             color: var(--burnt-orange); 
-            margin-top: 20px; 
+            margin-top: 25px; 
             margin-bottom: 10px; 
             font-size: 1.1rem; 
+            font-family: 'Courier Prime', monospace;
         }
         p, li { 
-            line-height: 1.6; 
+            line-height: 1.7; 
             color: #d1d5db; 
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
         }
         
         .ethics-box { 
             border: 1px dashed var(--terminal-green); 
-            padding: 20px; 
+            padding: 25px; 
             background: rgba(0, 255, 153, 0.05); 
-            margin-top: 20px; 
+            margin-top: 30px; 
             border-radius: 6px; 
         }
-        .cta-btn { 
-            display: inline-block; 
-            background: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 4px; 
-            margin-top: 10px; 
-            font-size: 0.9rem; 
-        }
-        .cta-btn:hover { opacity: 0.9; }
+
+        strong { color: var(--cloud-white); }
         
-        @media (max-width: 600px) { 
-            .workflow-diagram { flex-direction: column; } 
-            .flow-arrow { transform: rotate(90deg); margin: 10px 0; } 
+        @media (max-width: 750px) { 
+            .workflow-diagram { flex-direction: column; padding: 30px; } 
+            .flow-arrow { transform: rotate(90deg); margin: 5px 0; } 
         }
     </style>
 </head>
@@ -105,8 +97,9 @@
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
+            <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
+            <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
@@ -114,7 +107,7 @@
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html" class="active">Manual</a>
+            <a href="guide.html" class="active">Manual</a>
         </nav>
     </div>
 
@@ -122,45 +115,58 @@
         
         <div class="workflow-diagram">
             <div class="flow-step">
+                <span class="flow-icon">🚀</span>
+                <span class="flow-title">1. Starter</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <span class="flow-icon">📊</span>
+                <span class="flow-title">2. CPD & RACI</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
                 <span class="flow-icon">⭐</span>
-                <span class="flow-title">1. STAR Engine</span>
+                <span class="flow-title">3. STAR Gen</span>
             </div>
             <div class="flow-arrow">→</div>
             <div class="flow-step">
-                <span class="flow-icon">🔍</span>
-                <span class="flow-title">2. Reviewer</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <span class="flow-icon">📄</span>
-                <span class="flow-title">3. Report Arch</span>
+                <span class="flow-icon">🎓</span>
+                <span class="flow-title">4. Interview</span>
             </div>
         </div>
 
         <div class="card">
             <h1>>> Flight_Manual [SOP]</h1>
-            <p>Welcome to the Engineering Competence Framework. This platform is designed to reverse-engineer the UK-SPEC requirements, helping you build a professional registration report (CEng/IEng) from the ground up.</p>
+            <p>Welcome to the Empowering Engineers toolset. This platform is an open-source framework designed to help you synthesise your career history into a high-impact narrative that satisfies both professional registration (CEng/IEng/EngTech) and commercial employer requirements.</p>
 
-            <h2>1. The Core Philosophy</h2>
-            <p>Engineering registration is not a test of technical memory; it is a test of <strong>competence</strong>. The reviewers do not just want to know <em>what</em> you built; they want to know <em>how</em> you managed the risk, budget, safety, and ethics of building it.</p>
+            <h2>1. The Philosophy of Mutual Benefit</h2>
+            <p>Professional registration is not merely a box-ticking exercise. It is a commitment to <strong>technical governance, ethical leadership, and risk management</strong>. We believe that an engineer pursuing Chartership is a significant asset to their employer. Our tools are built to help you articulate this <strong>mutual benefit</strong>: showing how your growth solves your employer's technical and commercial challenges.</p>
 
-            <h2>2. Recommended Workflow</h2>
-            <ul>
-                <li><strong>Step 1 - CPD Gap Analysis:</strong> Use the <a href="cpd_tool.html" style="color:var(--terminal-green)">Gap Analyzer</a> first. Be honest with the sliders. This generates your "Hit List" of missing evidence.</li>
-                <li><strong>Step 2 - Draft Evidence:</strong> Take your strongest project and run it through the <a href="STAR_engine.html" style="color:var(--terminal-green)">STAR Engine</a>. This forces you to be concise.</li>
-                <li><strong>Step 3 - Audit:</strong> Copy your STAR text into the <a href="STAR_reviewer.html" style="color:var(--terminal-green)">Reviewer Tool</a>. It will strip out passive language ("we decided") and force you to use active language ("I authorized").</li>
-                <li><strong>Step 4 - Ethics:</strong> Use the <a href="ethics_tool.html" style="color:var(--terminal-green)">Ethics Compass</a> to prepare for the "Dilemma Question" in your interview.</li>
-            </ul>
+            <h2>2. Standard Operating Workflow</h2>
+            
+            <h3>Phase A: Positioning (The Career Starter)</h3>
+            <p>Start with the <a href="career_tool.html" style="color:var(--terminal-green)">Career Starter</a>. This tool ingests your CPD logs, training records, and technical drive to generate a "Mega-Prompt." Use this prompt with Gemini or ChatGPT to create a professional CV and Cover Letter that focuses on solving departmental pain points. <strong>Presentation Tip:</strong> Always use familiar fonts like <strong>Arial or Aptos</strong> and consistent Microsoft Word <strong>Styles</strong> to ensure your brand is clean and readable.</p>
 
-            <h2>3. Privacy Protocol</h2>
-            <p>This site uses "Local Storage" technology. When you type into the STAR Engine or CPD tool, the data is saved <strong>on your own device</strong>. We never see your drafts. This ensures you can write confidentially about sensitive projects.</p>
+            <h3>Phase B: Evidence Collection (CPD & RACI)</h3>
+            <p>Use the <a href="cpd_tool.html" style="color:var(--terminal-green)">CPD Tracker</a> and <a href="raci_tool.html" style="color:var(--terminal-green)">RACI Matrix</a> tool to structure your history. A RACI matrix for a technical project or a STEM event is the fastest way to evidence Competencies C (Leadership) and D (Communication) to a reviewer.</p>
 
-            <h2>4. AI & Professional Integrity</h2>
+            <h3>Phase C: Drafting (STAR Engine & Reviewer)</h3>
+            <p>Take your strongest technical achievements and run them through the <a href="STAR_engine.html" style="color:var(--terminal-green)">STAR Engine</a>. Once drafted, use the <a href="STAR_reviewer.html" style="color:var(--terminal-green)">Reviewer Tool</a> to audit your language. It will help you pivot from passive "we" statements to active "I" statements required for UK-SPEC evidence.</p>
+
+            <h3>Phase D: Preparation (Coach & Interview)</h3>
+            <p>Utilise the <a href="feedback_tool.html" style="color:var(--terminal-green)">Coach (Feedback)</a> tool to structure professional conversations and the <a href="interview_tool.html" style="color:var(--terminal-green)">Interview Tool</a> to simulate a Professional Review Interview. We recommend recording your answers on your mobile to critique your delivery style and technical confidence.</p>
+
+            <h2>3. Privacy & Technical Integrity</h2>
+            <p><strong>Your data is yours.</strong> This platform uses "Local Storage" technology, meaning your STAR drafts, CPD logs, and Career Starter inputs are saved <strong>only in your browser's cache</strong>. We do not host databases; we do not see your confidential project data.</p>
+
             <div class="ethics-box">
-                <strong>⚠️ A NOTE ON AI USAGE:</strong><br><br>
-                We encourage the use of AI (like our "Mega-Prompts") to structure your thinking and critique your writing. However, <strong>you must never use AI to fabricate evidence.</strong><br><br>
-                Professional Registration is a declaration of <em>your</em> competence. Using AI to generate examples you did not experience is a breach of the Code of Conduct. Use these tools as a "Co-Pilot," not an "Autopilot."
+                <strong>⚠️ ETHICAL CO-PILOTING:</strong><br><br>
+                We encourage utilizing AI prompts to structure your thoughts and improve your professional branding. However, as an engineer, your integrity is your primary currency. <strong>Never use AI to fabricate STAR evidence or CPD records.</strong> Use these tools to <em>clarify</em> your experience, not to replace it.
             </div>
+            
+            <p style="margin-top:30px; text-align:center;">
+                <a href="index.html" class="cta-btn">Return to Hangar [Home]</a>
+            </p>
         </div>
 
     </div>

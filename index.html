@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -30,31 +30,17 @@
         /* HOMEPAGE SPECIFIC STYLES */
         .hero {
             text-align: center;
-            padding: 60px 20px 40px; /* Increased top padding since art is gone */
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-family: 'Courier Prime', monospace;
-            color: var(--terminal-green);
-            font-size: 2rem;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
+            padding: 40px 20px 20px; 
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--slate-grey);
+            color: var(--cloud-white);
+            line-height: 1.6;
             margin-bottom: 30px;
             font-family: 'Roboto', sans-serif;
-        }
-
-        .status-line {
-            font-family: 'Courier Prime', monospace;
-            color: var(--burnt-orange);
-            font-size: 0.9rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
         }
 
         /* CARD GRID SYSTEM */
@@ -65,6 +51,7 @@
             width: 100%;
             max-width: 1200px;
             padding: 0 20px;
+            margin: 0 auto 50px auto;
         }
 
         .nav-card {
@@ -120,9 +107,10 @@
 </head>
 <body>
 
-    <div class="sticky-container">
+<div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
+            <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
             <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
@@ -137,19 +125,25 @@
     </div>
 
     <div class="hero">
-        <h1>>> EMPOWERING ENGINEERS UK</h1>
-        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration.</p>
-        <div class="status-line">>> Platform v2026.2 loaded... Ready for input.</div>
+        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration through proven methodologies that deliver value to both engineers and their employers.</p>
     </div>
 
     <div class="tool-grid">
+
+        <a href="career_tool.html" class="nav-card">
+            <div class="nav-header">
+                <span class="nav-title">Career_Starter</span>
+                <span class="nav-status">[v1.1]</span>
+            </div>
+            <div class="nav-desc">Synthesise your technical history, CPD, and training into a professional profile that showcases your potential to employers.</div>
+        </a>
 
         <a href="cpd_tool.html" class="nav-card">
             <div class="nav-header">
                 <span class="nav-title">CPD_Tracker</span>
                 <span class="nav-status">[v3.1]</span>
             </div>
-            <div class="nav-desc">Log, categorize, and reflect on your Continuous Professional Development. Export to CSV.</div>
+            <div class="nav-desc">Log, categorise, and reflect on your Continuous Professional Development. Export to CSV for registration.</div>
         </a>
 
         <a href="raci_tool.html" class="nav-card">
@@ -157,7 +151,7 @@
                 <span class="nav-title">RACI_Matrix</span>
                 <span class="nav-status">[v2.4]</span>
             </div>
-            <div class="nav-desc">Generate responsibility matrices for technical projects, STEM volunteering, and events.</div>
+            <div class="nav-desc">Generate responsibility matrices for technical projects, STEM volunteering, and professional events.</div>
         </a>
 
         <a href="STAR_engine.html" class="nav-card">
@@ -205,7 +199,7 @@
                 <span class="nav-title">Report_Builder</span>
                 <span class="nav-status">[v1.2]</span>
             </div>
-            <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard templates.</div>
+            <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard professional templates.</div>
         </a>
 
         <a href="interview_tool.html" class="nav-card">
@@ -221,7 +215,7 @@
                 <span class="nav-title">User_Manual</span>
                 <span class="nav-status">[DOCS]</span>
             </div>
-            <div class="nav-desc">Documentation on how to use these tools effectively and safely.</div>
+            <div class="nav-desc">Documentation on how to use these tools effectively and safely for your career development.</div>
         </a>
 
     </div>

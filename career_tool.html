@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Starter | Engineering CV & Professional Branding | Empowering Engineers UK</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="Career Starter | Empowering Engineers UK">
+    <meta property="og:description" content="Showcase your technical value. Synthesise your technical history, CPD, and drive into a professional business case that delivers value to you and your employer.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/career_tool.html">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    
+    <style>
+        /* TOOL ARCHITECTURE */
+        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 50px;}
+        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        
+        h2 { border-bottom: 1px solid var(--terminal-green); color: var(--terminal-green); padding-bottom: 10px; font-family: 'Courier Prime', monospace; text-transform: uppercase; font-size: 1.1rem; margin-top: 0; }
+        
+        .instruction-header {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 153, 0.05);
+            border-left: 4px solid var(--terminal-green);
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .input-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; color: var(--burnt-orange); font-weight: bold; font-size: 0.85rem; }
+        
+        textarea, input { 
+            width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); 
+            color: white; border-radius: 4px; font-family: 'Roboto', sans-serif; box-sizing: border-box; font-size: 0.95rem;
+        }
+
+        textarea { height: 70px; resize: vertical; }
+        .tall-textarea { height: 180px; }
+
+        .btn-row { display: flex; gap: 10px; margin-top: 10px; }
+        
+        .generate-btn { 
+            flex: 2; background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 16px; 
+            font-family: 'Courier Prime', monospace; font-weight: bold; cursor: pointer; text-transform: uppercase; 
+            border-radius: 4px; transition: 0.2s; font-size: 1rem;
+        }
+        .generate-btn:hover { background: #00cc7a; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3); }
+
+        .reset-btn {
+            flex: 1; background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; padding: 16px;
+            font-family: 'Courier Prime', monospace; font-weight: bold; cursor: pointer; text-transform: uppercase;
+            border-radius: 4px; transition: 0.2s; font-size: 0.8rem;
+        }
+        .reset-btn:hover { background: #ff4d4d; color: white; }
+
+        .output-box { background: #050a0f; padding: 25px; border-radius: 6px; border: 1px solid var(--terminal-green); line-height: 1.7; position: relative; }
+        .prompt-text { font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #e0e0e0; white-space: pre-wrap; }
+        
+        .privacy-note { font-size: 0.75rem; color: var(--slate-grey); margin-top: 15px; font-style: italic; display: block; }
+
+        .copy-btn { 
+            background: var(--terminal-green); border: none; color: var(--midnight-navy); 
+            padding: 12px 24px; cursor: pointer; font-family: 'Courier Prime', monospace; 
+            font-weight: bold; margin-top: 20px; border-radius: 4px; display: inline-block;
+        }
+        
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } .btn-row { flex-direction: column; } }
+    </style>
+</head>
+<body onload="loadSavedData()">
+
+    <div class="sticky-container">
+        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <nav>
+            <a href="career_tool.html" class="active">Career</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="raci_tool.html">RACI</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="STAR_reviewer.html">Reviewer</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="report_tool.html">Report</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="guide.html">Manual</a>
+        </nav>
+    </div>
+
+    <div class="hero">
+        <p>Showcase your technical value. Align your professional development and drive with your employer's goals to create high-impact, successful engineering careers.</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="instruction-header">
+            <h2 style="border:none; color:var(--terminal-green); padding:0; margin-bottom:10px;">SHOWCASING TECHNICAL VALUE</h2>
+            <p style="font-size:0.9rem; line-height:1.6;">
+                The best engineering applications demonstrate a <strong>mutual benefit</strong>. By pursuing professional registration, you are not just advancing your own career; you are increasing the technical capability and safety standards of your employer. 
+            </p>
+            <ul style="font-size:0.85rem; line-height:1.6; color:var(--slate-grey); margin-top:10px;">
+                <li><strong>Professional Branding:</strong> Use clean system fonts like <strong>Arial</strong> or <strong>Aptos</strong>. These ensure maximum readability for reviewers.</li>
+                <li><strong>Word Styles:</strong> Use Microsoft Word's built-in <strong>Styles</strong> (Heading 1, Normal) at 10-11pt to maintain a high-trust, organised profile.</li>
+                <li><strong>Value Alignment:</strong> Show how your growth as an engineer helps your employer solve future technical and commercial challenges.</li>
+            </ul>
+            <span class="privacy-note">
+                [!] DATA PRIVACY: Information entered here is stored strictly in your browser's local cache. No data is sent to or stored on any external servers.
+            </span>
+        </div>
+
+        <div class="card">
+            <h2>1. Profile Intelligence (Optional)</h2>
+            
+            <div class="input-group">
+                <label>Current Role / Level</label>
+                <input type="text" id="currentRole" oninput="saveData()" placeholder="e.g. Graduate Engineer, Aspiring Lead">
+            </div>
+
+            <div class="input-group">
+                <label>Target Role & Company Website</label>
+                <input type="text" id="targetRole" oninput="saveData()" placeholder="e.g. Project Manager, CEng Applicant">
+                <input type="text" id="companyWeb" oninput="saveData()" placeholder="Company Website (for Strategic Analysis)" style="margin-top:10px;">
+            </div>
+
+            <div class="input-group">
+                <label>Expected Hiring Manager Title</label>
+                <input type="text" id="managerTitle" oninput="saveData()" placeholder="e.g. Technical Director, Head of Engineering">
+            </div>
+
+            <div class="input-group">
+                <label>Technical Standards & Key Stakeholders</label>
+                <input type="text" id="contextInfo" oninput="saveData()" placeholder="e.g. API 671, Eurocodes / Site Crews, Procurement">
+            </div>
+
+            <div class="input-group">
+                <label>Your Authentic "Why" (Motivation)</label>
+                <textarea id="passion" oninput="saveData()" placeholder="What is your unique technical drive? Why do you do what you do?"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Deep Context (CPD, Training, Previous Application Data)</label>
+                <textarea id="deepContext" class="tall-textarea" oninput="saveData()" placeholder="Paste old CV snippets, cover letters, training records, or CPD logs here to enrich the AI's understanding."></textarea>
+            </div>
+
+            <div class="btn-row">
+                <button class="generate-btn" onclick="generateStrategicPrompt()">Initialise Career Starter</button>
+                <button class="reset-btn" onclick="resetPageData()">Clear Form</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>2. Generated Mega-Prompt</h2>
+            <div id="outputContainer" style="display:none;">
+                <p style="font-size:0.85rem; color:var(--slate-grey); margin-bottom:15px;">
+                    Copy the prompt below and paste it into Gemini or ChatGPT. <strong>Crucial:</strong> Provide your Job Description PDF and specific STAR statements for a tailored result.
+                </p>
+                <div class="output-box">
+                    <div id="promptOutput" class="prompt-text"></div>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard()">COPY MEGA-PROMPT</button>
+            </div>
+            <div id="placeholderText" style="color:var(--slate-grey); text-align:center; padding:40px;">
+                Complete the parameters to build your bespoke application strategy. Data is saved locally in your browser cache.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script>
+        const fields = ['currentRole', 'targetRole', 'companyWeb', 'managerTitle', 'contextInfo', 'passion', 'deepContext'];
+
+        function saveData() {
+            fields.forEach(field => {
+                localStorage.setItem('career_starter_v1_' + field, document.getElementById(field).value);
+            });
+        }
+
+        function loadSavedData() {
+            fields.forEach(field => {
+                const saved = localStorage.getItem('career_starter_v1_' + field);
+                if (saved) document.getElementById(field).value = saved;
+            });
+        }
+
+        function resetPageData() {
+            if(confirm("Clear all your professional data from this page?")) {
+                fields.forEach(field => {
+                    localStorage.removeItem('career_starter_v1_' + field);
+                    document.getElementById(field).value = '';
+                });
+                document.getElementById('outputContainer').style.display = 'none';
+                document.getElementById('placeholderText').style.display = 'block';
+            }
+        }
+
+        function generateStrategicPrompt() {
+            const current = document.getElementById('currentRole').value || "[Current Position]";
+            const target = document.getElementById('targetRole').value || "[Target Role]";
+            const web = document.getElementById('companyWeb').value || "[Company Website]";
+            const manager = document.getElementById('managerTitle').value || "the Hiring Manager";
+            const info = document.getElementById('contextInfo').value || "relevant engineering standards and stakeholders";
+            const passion = document.getElementById('passion').value || "engineering excellence and technical growth";
+            const deep = document.getElementById('deepContext').value;
+
+            const prompt = `Act as an Engineering Career Mentor and Strategic Consultant. I am currently a ${current} applying for a ${target} position at a company that values technical excellence and professional growth. 
+
+My goal is to demonstrate a high-impact professional profile that aligns my professional registration journey with the company's long-term business and technical goals.
+
+I will provide:
+- My current STAR statements (Work history, Volunteering, Education)
+- The Job Description (provided as a PDF)
+${deep ? "- Professional Context (Training, CPD, and history provided below)" : ""}
+
+Task 1: Strategic Alignment. Access the company website (${web}) and interrogate their latest Annual Report. Identify how an engineer with my background in ${info} can help them achieve their strategic priorities (e.g. ESG, Innovation, or Safety).
+
+Task 2: Professional Summary. My drive is: "${passion}". Create a professional summary that showcases my authentic motivation and my commitment to delivering value to the engineering department.
+
+Task 3: Evidence Synthesis. Using my STAR statements, build a CV that:
+- Demonstrates technical mastery of ${info}.
+- Highlights quantifiable impact (Time/Cost/Safety).
+- Shows my trajectory towards professional registration as a benefit to the company's technical governance.
+- FORMATTING ADVICE: Use Arial/Aptos (10-11pt) and Microsoft Word 'Styles' for a consistent, professional brand.
+
+Task 4: MUTUAL-BENEFIT COVER LETTER. Write a bespoke, ready-to-copy Cover Letter. It must explain how my background and technical drive make me the ideal candidate to solve the company's current challenges and support their future growth.
+
+Task 5: Professional Outreach. Draft two LinkedIn messages focusing on collaboration and technical synergy:
+1. One for the Recruitment team.
+2. One for the Hiring Manager (${manager}).
+
+${deep ? "\nDEEP CONTEXT (TRAINING/CPD/APPLICATION HISTORY):\n" + deep : ""}
+
+Output Requirement: Format the CV and Cover Letter with clear bold headers for direct copy-pasting.
+
+[I WILL NOW PROVIDE MY STAR STATEMENTS AND THE JD PDF]`;
+
+            document.getElementById('promptOutput').innerText = prompt;
+            document.getElementById('placeholderText').style.display = 'none';
+            document.getElementById('outputContainer').style.display = 'block';
+            window.currentPrompt = prompt;
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(window.currentPrompt).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = "COPIED TO CLIPBOARD!";
+                setTimeout(() => { btn.innerText = "COPY MEGA-PROMPT"; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
