@@ -8,93 +8,76 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | EmpoweringEngineers.uk</title>
-    <meta name="description" content="Our mission is to democratise access to professional engineering registration tools.">
+    <meta name="description" content="The story behind Empowering Engineers UK: A mentorless journey to CEng, FIMechE, and the creation of open-access tools for professional registration.">
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 800px; width: 100%; }
+        /* PAGE SPECIFIC STYLES 
+           (Only keeps layout specific to this page)
+        */
+        .container { max-width: 900px; width: 100%; margin-bottom: 50px; }
         
-        .content-card { 
-            background: var(--dark-card); 
-            padding: 40px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            margin-bottom: 20px; 
-        }
-        
-        h1 { 
-            color: var(--terminal-green); 
-            font-family: 'Courier Prime', monospace; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 15px; 
-        }
-
-        h2 { 
-            color: var(--burnt-orange); 
-            margin-top: 30px; 
-            font-size: 1.2rem; 
-        }
-
-        p { 
-            line-height: 1.6; 
-            color: #d1d5db; 
-            margin-bottom: 15px; 
-        }
-        
-        /* FOUNDER SECTION STYLES */
+        /* Founder Section Specifics */
         .founder-box {
             background: rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--terminal-green);
-            padding: 20px;
-            margin-top: 30px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--burnt-orange);
+            padding: 25px;
+            margin-top: 50px;
         }
 
         .founder-role { 
             font-family: 'Courier Prime', monospace; 
             color: var(--slate-grey); 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             display: block; 
-            margin-bottom: 5px; 
+            margin-bottom: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .founder-name { 
-            font-size: 1.2rem; 
+            font-size: 1.4rem; 
             font-weight: bold; 
-            color: var(--cloud-white); 
+            color: var(--terminal-green); 
             line-height: 1.4; 
             display: block; 
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
+            font-family: 'Courier Prime', monospace;
         }
 
-        .linkedin-btn {
-            display: inline-block;
-            margin-top: 15px;
-            background: #0077b5; /* LinkedIn Blue */
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-size: 0.9rem;
+        /* Tool List Styling */
+        ul.tool-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        ul.tool-list li {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid var(--terminal-green);
+            margin-bottom: 10px;
+            padding: 15px;
+            color: #fff;
+        }
+        ul.tool-list li a {
+            color: var(--terminal-green);
             font-weight: bold;
-            transition: 0.2s;
+            text-decoration: none;
+            font-family: 'Courier Prime', monospace;
         }
-
-        .linkedin-btn:hover { 
-            opacity: 0.9; 
-            transform: translateY(-1px); 
-        }
+        ul.tool-list li a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+
     <div class="sticky-container">
         <a href="index.html">
             <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
@@ -114,23 +97,61 @@
     </div>
 
     <div class="container">
-        <div class="content-card">
-            <h1>>> Our_Mission</h1>
-            <p><strong>Empowering Engineers UK</strong> is a free, open-access platform designed to help engineers navigate the complex route to professional registration (CEng, IEng, and EngTech).</p>
-            
-            <h2>The Problem</h2>
-            <p>Professional registration with the Engineering Council is the gold standard for engineers, but the application process—specifically writing the competency reports—is often opaque, time-consuming, and difficult to structure.</p>
+        <div class="card">
+            <h1>>> The_Mentorless_Maze</h1>
+            <p style="color:var(--slate-grey); font-style:italic;">My Journey to CEng and the Birth of Empowering Engineers UK.</p>
 
-            <h2>Our Solution</h2>
-            <p>We provide a suite of "terminal-grade" digital tools that structure your thinking. From the <strong>STAR Engine</strong> to the <strong>Ethics Compass</strong>, our tools break down the UK-SPEC requirements into manageable, data-driven steps.</p>
+            <h2>The Academic Path: Theory Without Context</h2>
+            <p>My fascination with how things work began early, leading me from high school to an intensive BEng Mechanical Engineering degree. University was a deep dive into thermodynamics, design principles, and complex analysis. While the technical knowledge was essential, the wider world of engineering—specifically, the Professional Engineering Institutions (PEIs)—remained largely abstract.</p>
+            <p>I attended a few introductory courses but failed to grasp the true significance of professional registration. This knowledge gap widened during my MSc Mechanical Engineering Design; I’d heard the term <strong>'CEng' (Chartered Engineer)</strong>, but it felt like an inaccessible title reserved for senior leaders, not a roadmap for my own development.</p>
+
+            <h2>The Professional Wilderness: Alone in the Industry</h2>
+            <p>After graduation, I secured roles in companies where professional registration was neither encouraged nor understood. There were no CEng or IEng mentors. I was focused solely on delivery, not development. The ambition to achieve CEng, however, persisted. I decided to tackle the application form alone.</p>
+            <p>This self-guided journey was quickly halted by a critical barrier: the sponsor. Lacking CEng colleagues, I couldn't find anyone to endorse my application. In a last-ditch effort, I reached out directly to my relevant Professional Engineering Institution (PEI), the Institution of Mechanical Engineers (IMechE).</p>
+
+            <h2>The Red Pen Moment: A Wake-Up Call</h2>
+            <p>The institution connected me with an incredible sponsor—a seasoned Fellow member, Paul Shecter. This was the turning point. My diligently compiled application was returned to me, covered in red lines.</p>
+            <p>His feedback was blunt but crucial: my experience descriptions were too passive and lacked clear, quantifiable actions that demonstrated competency against the UK-SPEC criteria. <em>"You need to write action statements, not just job descriptions,"</em> he advised.</p>
+            <p>I realised the application wasn't just a tick-box exercise; it was a rigorous assessment of my professional competence. My biggest shortfall was in Project Management. I had executed tasks, but never held full project ownership. I immediately approached my line manager, asking for the trust to manage a project end-to-end, taking full responsibility for scope, budget, and delivery. Concurrently, I enrolled in a distance-learning PgCert in Project Management Engineering. This dual focus—practical application and formal study—was the key to closing my competency gap rapidly.</p>
+
+            <h2>The Path to Leadership: Volunteering and Growth</h2>
+            <p>Successfully achieving CEng was a triumph, but my sponsor’s influence didn't end there. He inspired me to give back. I began volunteering with the Institution, beside him.</p>
+            <p>The initial years were difficult. Without prior mentors, and working autonomously, I struggled to find my footing. However, through persistent volunteering—leading initiatives, organising technical events, and coordinating STEM outreach—I found my purpose.</p>
+            <p>This extensive voluntary work, alongside my professional career, became the foundation for developing commercial leadership and soft skills far beyond my technical remit. I used this trajectory to successfully achieve <strong>Fellowship (FIMechE), EUR ING, and IntPE(UK)</strong>.</p>
+            <p>My structured and deliberate approach to Continuous Professional Development (CPD) meant I moved up the ranks quickly both at work and within the Institution, culminating in a role co-panelling and later chairing Professional Review Interviews (PRIs). Mentoring countless CEng candidates and Fellows became a deeply rewarding aspect of my life.</p>
+
+            <h2>The Birth of Empowering Engineers UK</h2>
+            <p>Despite the satisfaction of mentoring, I found myself facing a hard truth: there simply wasn't enough time to personally help every single student, graduate, and early-career professional struggling with the professional registration process. The same opaque system and lack of structured guidance that I faced was hindering a new generation.</p>
+            <p>This frustration led to the creation of <strong>Empowering Engineers UK</strong>.</p>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
+
+            <h1>>> Our_Mission</h1>
+            <p>Empowering Engineers UK is a free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.</p>
+
+            <h3>The Problem We Solved</h3>
+            <p>Professional registration is the gold standard, yet the application process—especially writing the competency reports against the UK-SPEC—is notoriously opaque, time-consuming, and difficult to structure. Many talented engineers fail not because of a lack of experience, but a lack of guidance in articulating it.</p>
+
+            <h3>Our Solution</h3>
+            <p>We provide a suite of "terminal-grade" digital tools that structure your thinking and writing:</p>
+
+            <ul class="tool-list">
+                <li><a href="STAR_engine.html">The STAR Engine</a>: Converts raw experience into competency-focused, structured reports.</li>
+                <li><a href="ethics_tool.html">The Ethics Compass</a>: Ensures your portfolio addresses the crucial ethical and professional responsibility requirements.</li>
+                <li><a href="raci_tool.html">RACI Matrix Tool</a>: Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E.</li>
+                <li><a href="feedback_tool.html">Coach / Feedback Studio</a>: Giving you the tool to GROW, review, course correct and give feedback.</li>
+                <li><a href="glossary_tool.html">The Decoder</a>: Is needed to clarify engineering jargon (14,000+ terms).</li>
+                <li><a href="interview_tool.html">Virtual Interviewer</a>: Testing and pushing your limits before the real PRI.</li>
+            </ul>
 
             <div class="founder-box">
                 <span class="founder-role">>> LEAD DEVELOPER & FOUNDER</span>
                 <span class="founder-name">EUR ING Murat Islam CEng IntPE(UK) FIMechE</span>
-                <p style="margin-top:10px; font-size:0.95rem;">
-                    As a practicing engineer, I built these tools to solve the frustrations I faced during my own development journey. This platform is built <em>by</em> engineers, <em>for</em> engineers, ensuring strict adherence to industry standards and ethics.
-                </p>
-                <a href="https://www.linkedin.com/in/muratislam/" target="_blank" class="linkedin-btn">Connect on LinkedIn</a>
+                <p>As a practicing engineer, I built these tools to solve the very frustrations I faced during my own long, mentorless development journey. This platform is my way of ensuring no engineer has to navigate the CEng maze alone. Empowering Engineers UK is built by engineers, for engineers, ensuring strict adherence to industry standards and ethics.</p>
+                
+                <a href="https://www.linkedin.com/in/muratislam/" target="_blank" class="action-btn" style="background-color: #0077b5; display:inline-block; width:auto; margin-top:15px; text-decoration:none;">
+                    Connect on LinkedIn
+                </a>
             </div>
         </div>
     </div>
