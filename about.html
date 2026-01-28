@@ -17,42 +17,54 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* PAGE SPECIFIC STYLES 
-           (Only keeps layout specific to this page)
-        */
+        /* PAGE SPECIFIC STYLES */
         .container { max-width: 900px; width: 100%; margin-bottom: 50px; }
         
-        /* Founder Section Specifics */
-        .founder-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--burnt-orange);
-            padding: 25px;
-            margin-top: 50px;
+        .content-card { 
+            background: var(--dark-card); 
+            padding: 40px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 20px; 
         }
-
-        .founder-role { 
-            font-family: 'Courier Prime', monospace; 
-            color: var(--slate-grey); 
-            font-size: 0.85rem; 
-            display: block; 
-            margin-bottom: 10px; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .founder-name { 
-            font-size: 1.4rem; 
-            font-weight: bold; 
+        
+        /* Headers */
+        h1 { 
             color: var(--terminal-green); 
-            line-height: 1.4; 
-            display: block; 
+            font-family: 'Courier Prime', monospace; 
+            border-bottom: 2px solid var(--terminal-green); 
+            padding-bottom: 15px; 
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 { 
+            color: var(--burnt-orange); 
+            margin-top: 40px; 
             margin-bottom: 15px; 
+            font-size: 1.3rem; 
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 5px;
             font-family: 'Courier Prime', monospace;
         }
+        h3 {
+            color: var(--cloud-white);
+            margin-top: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        p { 
+            line-height: 1.7; 
+            color: #d1d5db; 
+            margin-bottom: 20px; 
+            font-size: 1rem;
+        }
+
+        strong { color: var(--terminal-green); }
 
         /* Tool List Styling */
         ul.tool-list {
@@ -74,6 +86,40 @@
             font-family: 'Courier Prime', monospace;
         }
         ul.tool-list li a:hover { text-decoration: underline; }
+        
+        /* Founder Section */
+        .founder-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--burnt-orange);
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        .founder-role { 
+            font-family: 'Courier Prime', monospace; 
+            color: var(--slate-grey); 
+            font-size: 0.85rem; 
+            display: block; 
+            margin-bottom: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* LinkedIn Badge Styling Override */
+        .LI-profile-badge {
+            margin-top: 15px;
+            width: 100%;
+        }
+        .LI-simple-link {
+            color: var(--terminal-green) !important;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .content-card { padding: 20px; }
+            h1 { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -97,7 +143,7 @@
     </div>
 
     <div class="container">
-        <div class="card">
+        <div class="content-card">
             <h1>>> The_Mentorless_Maze</h1>
             <p style="color:var(--slate-grey); font-style:italic;">My Journey to CEng and the Birth of Empowering Engineers UK.</p>
 
@@ -146,12 +192,17 @@
 
             <div class="founder-box">
                 <span class="founder-role">>> LEAD DEVELOPER & FOUNDER</span>
-                <span class="founder-name">EUR ING Murat Islam CEng IntPE(UK) FIMechE</span>
                 <p>As a practicing engineer, I built these tools to solve the very frustrations I faced during my own long, mentorless development journey. This platform is my way of ensuring no engineer has to navigate the CEng maze alone. Empowering Engineers UK is built by engineers, for engineers, ensuring strict adherence to industry standards and ethics.</p>
                 
-                <a href="https://www.linkedin.com/in/muratislam/" target="_blank" class="action-btn" style="background-color: #0077b5; display:inline-block; width:auto; margin-top:15px; text-decoration:none;">
-                    Connect on LinkedIn
-                </a>
+                <div class="badge-base LI-profile-badge" 
+                     data-locale="en_US" 
+                     data-size="medium" 
+                     data-theme="dark" 
+                     data-type="HORIZONTAL" 
+                     data-vanity="muratislam" 
+                     data-version="v1">
+                     <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/muratislam?trk=profile-badge">Murat Islam EUR ING CEng IntPE(UK) FIMechE</a>
+                </div>
             </div>
         </div>
     </div>
@@ -165,5 +216,8 @@
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
 </body>
 </html>
