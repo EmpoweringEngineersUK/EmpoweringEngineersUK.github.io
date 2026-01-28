@@ -11,13 +11,13 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Studio | Empowering Engineers UK</title>
+    <title>CPD Smart-Planner [v5.1] | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
-    <meta property="og:title" content="Feedback Studio | Empowering Engineers UK">
-    <meta property="og:description" content="Structure difficult conversations professionally using the AID and SBI feedback models.">
+    <meta property="og:title" content="CPD Gap Analyzer | Empowering Engineers UK">
+    <meta property="og:description" content="Generate a discipline-specific 70/20/10 learning plan for CEng, IEng, or EngTech. Now supporting Structural and Building Services.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback_tool.html">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/cpd_tool.html">
     <meta property="og:type" content="website">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
@@ -25,131 +25,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
+    <script src="cpd.js"></script>
+    
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        /* PAGE SPECIFIC LAYOUT */
         
-        .card { 
-            background: var(--dark-card); 
-            padding: 25px; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color); 
+        /* Grid for Context Selectors */
+        .context-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: rgba(255,255,255,0.02);
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+
+        .profile-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            margin-bottom: 30px; 
+        }
+
+        /* Slider Rows */
+        .slider-row { 
             display: flex; 
-            flex-direction: column; 
-            margin-bottom: 20px; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 12px; 
+            padding: 8px 10px; 
+            background: rgba(255,255,255,0.02); 
+            border-radius: 4px; 
+            border: 1px solid transparent;
+            transition: 0.2s;
         }
+        .slider-row:hover { border-color: var(--border-color); }
 
-        h2.card-title { 
-            font-size: 1.1rem; 
-            border-bottom: 1px solid var(--terminal-green); 
-            padding-bottom: 10px; 
-            margin-bottom: 20px; 
-            color: var(--terminal-green); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-
-        .model-select { 
-            width: 100%; 
-            padding: 12px; 
-            background-color: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            border: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-bottom: 20px; 
-            font-family: 'Roboto', sans-serif; 
-        }
-
-        .input-group { margin-bottom: 20px; }
-        .input-label { display: block; color: var(--burnt-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; font-family: 'Courier Prime', monospace; letter-spacing: 0.5px; }
-        .input-hint { display: block; color: var(--slate-grey); font-size: 0.8rem; margin-bottom: 8px; font-style: italic; }
-        
-        textarea { 
-            width: 100%; 
-            height: 80px; 
-            padding: 12px; 
-            background: rgba(0,0,0,0.3); 
-            border: 1px solid var(--border-color); 
-            color: white; 
-            border-radius: 6px; 
-            font-family: 'Roboto', sans-serif; 
-            box-sizing: border-box; 
-            resize: vertical; 
-            font-size: 0.95rem; 
-            transition: 0.2s; 
-        }
-        textarea:focus { border-color: var(--terminal-green); outline: none; box-shadow: 0 0 5px rgba(0, 255, 153, 0.2); }
-
-        .preview-box { 
-            background: #09121d; 
-            padding: 30px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            min-height: 400px; 
-            white-space: pre-wrap; 
-            line-height: 1.6; 
-            font-size: 1rem; 
-            color: var(--cloud-white); 
-        }
-
-        .example-box { 
-            background: rgba(0, 0, 0, 0.2); 
-            padding: 20px; 
-            border-left: 3px solid var(--burnt-orange); 
+        .slider-label { 
+            width: 50%; 
             font-family: 'Courier Prime', monospace; 
             font-size: 0.85rem; 
-            color: #d1d8e0; 
-            white-space: pre-wrap; 
-            line-height: 1.5; 
+            color: var(--cloud-white);
+        }
+        
+        .slider-input { 
+            width: 50%; 
+            accent-color: var(--terminal-green); 
+            cursor: pointer; 
         }
 
-        .btn-action { 
-            background: transparent; 
+        /* Results Box Animation */
+        .results-box { display: none; margin-top: 20px; animation: fadeIn 0.5s ease-in; }
+
+        /* CPD Plan Item Cards */
+        .plan-item { 
+            background: var(--dark-card); 
+            padding: 20px; 
+            border-left: 4px solid var(--terminal-green); 
+            margin-bottom: 15px; 
+            border-radius: 0 4px 4px 0; 
+            border: 1px solid var(--border-color);
+            border-left-width: 4px; 
+        }
+        .plan-header { 
+            display: flex; 
+            justify-content: space-between; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 10px; 
+            margin-bottom: 10px; 
+        }
+        .plan-title { font-weight: bold; color: var(--terminal-green); font-size: 1.1rem; }
+        .plan-score { color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
+        
+        /* Plan Details */
+        .plan-70 { color: var(--cloud-white); display: block; margin-top: 10px; font-size: 0.95rem; }
+        .plan-20 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; }
+        .plan-10 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; font-style: italic; }
+
+        .tag { 
+            display: inline-block; 
+            background: rgba(0,255,153,0.1); 
             border: 1px solid var(--terminal-green); 
             color: var(--terminal-green); 
-            padding: 10px 20px; 
-            width: 100%; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 0.9rem; 
-            margin-top: 10px; 
-            transition: 0.2s; 
-            text-transform: uppercase; 
-        }
-        .btn-action:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-        
-        .ai-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed var(--burnt-orange);
-            color: var(--burnt-orange);
-            padding: 12px;
-            width: 100%;
-            cursor: pointer;
+            padding: 2px 6px; 
+            border-radius: 3px; 
+            font-size: 0.7rem; 
+            margin-left: 10px; 
+            vertical-align: middle; 
             font-family: 'Courier Prime', monospace;
-            margin-top: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: none; /* Hidden until content exists */
         }
-        .ai-btn:hover { background: rgba(255, 159, 67, 0.1); }
-        
-        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 700px) { .profile-grid, .context-bar { grid-template-columns: 1fr; } }
     </style>
 </head>
-<body>
+<body onload="initApp()">
+
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
+            <a href="cpd_tool.html" class="active">CPD</a>
 			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html" class="active">Coach</a>
+            <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
@@ -158,43 +141,72 @@
     </div>
 
     <div class="container">
-        <div class="card" style="grid-column: 1 / -1; margin-bottom: 10px; text-align:center;">
-            <h2 style="border:none; margin:0; font-size:1.5rem;">Feedback & Coaching Studio</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem;">Draft professional feedback using proven leadership frameworks (GROW, CEDAR, SBI).</p>
-        </div>
-        
-        <div class="column-left">
-            <div class="card">
-                <h2 class="card-title">1. Select Framework</h2>
-                <select id="modelSelector" class="model-select" onchange="renderInputs()">
-                    <option value="GROW">GROW Model (Coaching & Goals)</option>
-                    <option value="PENDLETON">Pendleton Model (Peer Review)</option>
-                    <option value="CEDAR">CEDAR Model (Performance Correction)</option>
-                    <option value="SBIBI">SBIBI (Behavioral Feedback)</option>
-                </select>
-                
-                <div id="dynamicInputs"></div>
+        <div class="card">
+            <h2>CPD Smart-Planner [v5.1]</h2>
+            <p style="color:var(--slate-grey); margin-bottom:20px; font-size:0.9rem;">
+                Generate a discipline-specific <strong>70/20/10 Learning Plan</strong> tailored to your registration level (UK-SPEC).
+            </p>
 
-                <button class="btn-action" onclick="clearData()" style="border-color:var(--slate-grey); color:var(--slate-grey); margin-top:20px;">Reset Form</button>
-            </div>
-        </div>
-
-        <div class="column-right">
-            <div class="card">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                    <h2 class="card-title" style="margin:0; border:none;">2. Script Preview</h2>
-                    <button class="btn-action" style="width:auto; margin:0;" onclick="copyToClipboard()">Copy Text</button>
+            <div class="context-bar">
+                <div>
+                    <label>Target Registration</label>
+                    <select id="targetLevel" onchange="generatePlan()">
+                        <option value="CEng">CEng (Chartered)</option>
+                        <option value="IEng">IEng (Incorporated)</option>
+                        <option value="EngTech">EngTech (Technician)</option>
+                    </select>
                 </div>
-                
-                <div id="previewArea" class="preview-box">Select a model to begin...</div>
-                
-                <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()">>> GENERATE AI "ROLEPLAY" PROMPT</button>
+                <div>
+                    <label>Discipline</label>
+                    <select id="discipline" onchange="generatePlan()">
+                        <option value="General">General Engineering</option>
+                        <option value="Mechanical">Mechanical / Piping</option>
+                        <option value="Electrical">Electrical / C&I</option>
+                        <option value="Civil">Civil Engineering</option>
+                        <option value="Structural">Structural Engineering</option>
+                        <option value="BuildingServices">Building Services (MEP)</option>
+                        <option value="Software">Software / Systems</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="card">
-                <h2 class="card-title" style="color:var(--burnt-orange); border-color:var(--burnt-orange);">3. Reference Example</h2>
-                <div id="exampleDisplay" class="example-box"></div>
+            <div class="profile-grid">
+                <div>
+                    <h3>A: Knowledge</h3>
+                    <div class="slider-row"><span class="slider-label">A1: Maintain/Extend</span><input type="range" min="0" max="100" value="50" class="slider-input" id="a1" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">A2: Application</span><input type="range" min="0" max="100" value="50" class="slider-input" id="a2" oninput="saveData()"></div>
+
+                    <h3 style="margin-top:20px;">B: Design & Solutions</h3>
+                    <div class="slider-row"><span class="slider-label">B1: Identify Problems</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b1" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">B2: Design Solutions</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b2" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">B3: Implementation</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b3" oninput="saveData()"></div>
+
+                    <h3 style="margin-top:20px;">C: Leadership</h3>
+                    <div class="slider-row"><span class="slider-label">C1: Planning</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c1" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">C2: Resources/Budget</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c2" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">C3: Teams/Staff</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c3" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">C4: Quality</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c4" oninput="saveData()"></div>
+                </div>
+
+                <div>
+                    <h3>D: Communication</h3>
+                    <div class="slider-row"><span class="slider-label">D1: English Language</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d1" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">D2: Presentation</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d2" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">D3: Social Skills</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d3" oninput="saveData()"></div>
+
+                    <h3 style="margin-top:20px;">E: Commitment</h3>
+                    <div class="slider-row"><span class="slider-label">E1: Codes of Conduct</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e1" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">E2: Safety & Risk</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e2" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">E3: Sustainability</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e3" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">E4: CPD Records</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e4" oninput="saveData()"></div>
+                    <div class="slider-row"><span class="slider-label">E5: Ethics</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e5" oninput="saveData()"></div>
+                </div>
             </div>
+
+            <button class="action-btn" onclick="generatePlan()">Generate Smart-Plan</button>
+            <button class="action-btn action-btn-ghost" onclick="resetForm()" style="margin-top:10px;">Reset Scores</button>
+
+            <div id="resultsArea" class="results-box"></div>
         </div>
     </div>
 
@@ -209,145 +221,90 @@
     </footer>
 
     <script>
-        const models = {
-            GROW: {
-                desc: "Best for: Coaching sessions, career development, and problem solving.",
-                example: `[GOAL]\n"I want to lead the Hydraulic Pump package design for the next project phase."\n\n[REALITY]\n"You currently handle component-level designs well. However, you haven't managed a supplier interface or budget tracking before."`,
-                fields: [
-                    { id: "G", label: "GOAL", hint: "What does the engineer want to achieve?" },
-                    { id: "R", label: "REALITY", hint: "What is happening now? What are the barriers?" },
-                    { id: "O", label: "OPTIONS", hint: "What could they do?" },
-                    { id: "W", label: "WILL / WAY FORWARD", hint: "What will they do? By when?" }
-                ]
-            },
-            PENDLETON: {
-                desc: "Best for: Peer reviews, design reviews, and balanced feedback.",
-                example: `[WHAT WENT WELL?]\n"The logic behind your FEA analysis was robust."\n\n[WHAT COULD BE IMPROVED?]\n"The conclusion was a bit vague."`,
-                fields: [
-                    { id: "P1", label: "WHAT WENT WELL?", hint: "Highlight specific strengths." },
-                    { id: "P2", label: "WHAT COULD BE IMPROVED?", hint: "Identify specific areas for growth." },
-                    { id: "P3", label: "AGREED ACTION", hint: "Key takeaway or change for next time?" }
-                ]
-            },
-            CEDAR: {
-                desc: "Best for: Correcting performance issues or addressing negative patterns.",
-                example: `[CONTEXT]\n"We need to discuss the site safety audit schedule."\n\n[EXAMPLES]\n"You have missed submitting the weekly safety observation reports."`,
-                fields: [
-                    { id: "C", label: "CONTEXT", hint: "Set the scene." },
-                    { id: "E", label: "EXAMPLES", hint: "Provide specific evidence." },
-                    { id: "D", label: "DIAGNOSIS", hint: "Why do you think this is happening?" },
-                    { id: "A", label: "ACTION", hint: "What specific steps will be taken?" },
-                    { id: "R", label: "REVIEW", hint: "When will we check in again?" }
-                ]
-            },
-            SBIBI: {
-                desc: "Best for: Behavioral feedback that requires a specific change.",
-                example: `[SITUATION]\n"During the client design review..."\n\n[BEHAVIOR]\n"You interrupted the client's lead engineer three times."`,
-                fields: [
-                    { id: "S", label: "SITUATION", hint: "Where and when did it happen?" },
-                    { id: "B", label: "BEHAVIOR", hint: "What exactly did they do?" },
-                    { id: "I", label: "IMPACT", hint: "What was the result?" },
-                    { id: "BD", label: "BEHAVIOR DESIRED", hint: "What should they do differently?" },
-                    { id: "ID", label: "IMPACT DESIRED", hint: "Why will this be better?" }
-                ]
+        const ids = ["a1", "a2", "b1", "b2", "b3", "c1", "c2", "c3", "c4", "d1", "d2", "d3", "e1", "e2", "e3", "e4", "e5"];
+
+        // --- LOOKUP FUNCTION (Data is in cpd.js) ---
+        // If cpd.js fails to load, this prevents the page from crashing
+        function getAdviceSafely(id, level, disc) {
+            if (typeof cpdDb === 'undefined') {
+                return "Database not loaded. Please refresh the page.";
             }
-        };
+            if (cpdDb[id] && cpdDb[id][level]) {
+                if (cpdDb[id][level][disc]) return cpdDb[id][level][disc];
+                if (cpdDb[id][level]["General"]) return cpdDb[id][level]["General"];
+            }
+            return "Undertake specific training or seek mentorship in this area.";
+        }
 
-        // --- AUTO-SAVE LOGIC ---
-        function renderInputs() {
-            const type = document.getElementById('modelSelector').value;
-            localStorage.setItem('fb_model', type); 
+        // --- APP LOGIC ---
+        function initApp() {
+            loadSavedData();
+        }
 
-            const container = document.getElementById('dynamicInputs');
-            const data = models[type];
-            
-            let html = `<p style="color:#8899A6; margin-bottom:20px; border-left:3px solid var(--terminal-green); padding-left:10px; font-size:0.9rem;">${data.desc}</p>`;
-            
-            data.fields.forEach(field => {
-                const savedVal = localStorage.getItem('fb_' + field.id) || "";
-                html += `
-                    <div class="input-group">
-                        <span class="input-label">${field.label}</span>
-                        <span class="input-hint">${field.hint}</span>
-                        <textarea id="in_${field.id}" oninput="saveAndPreview('${type}', '${field.id}')">${savedVal}</textarea>
-                    </div>
-                `;
+        function saveData() {
+            ids.forEach(id => {
+                localStorage.setItem('cpd_v5_' + id, document.getElementById(id).value);
             });
-
-            container.innerHTML = html;
-            document.getElementById('exampleDisplay').innerText = data.example;
-            updatePreview(type);
+            localStorage.setItem('cpd_level', document.getElementById('targetLevel').value);
+            localStorage.setItem('cpd_disc', document.getElementById('discipline').value);
         }
 
-        function saveAndPreview(type, fieldId) {
-            const val = document.getElementById('in_' + fieldId).value;
-            localStorage.setItem('fb_' + fieldId, val);
-            updatePreview(type);
+        function loadSavedData() {
+            ids.forEach(id => {
+                const saved = localStorage.getItem('cpd_v5_' + id);
+                if (saved) document.getElementById(id).value = saved;
+            });
+            if(localStorage.getItem('cpd_level')) document.getElementById('targetLevel').value = localStorage.getItem('cpd_level');
+            if(localStorage.getItem('cpd_disc')) document.getElementById('discipline').value = localStorage.getItem('cpd_disc');
         }
 
-        function updatePreview(type) {
-            const data = models[type];
-            let text = `**FEEDBACK MODEL: ${type}**\n\n`;
-            let hasContent = false;
+        function generatePlan() {
+            const container = document.getElementById('resultsArea');
+            const level = document.getElementById('targetLevel').value;
+            const disc = document.getElementById('discipline').value;
             
-            data.fields.forEach(field => {
-                const el = document.getElementById(`in_${field.id}`);
-                if(el && el.value) {
-                    text += `[${field.label}]\n${el.value}\n\n`;
-                    hasContent = true;
+            container.innerHTML = "";
+            container.style.display = 'block';
+            let gapFound = false;
+
+            ids.forEach(id => {
+                const val = document.getElementById(id).value;
+                if(val < 70) {
+                    gapFound = true;
+                    // Call the external DB safely
+                    const specificAdvice = getAdviceSafely(id, level, disc);
+                    
+                    const html = `
+                        <div class="plan-item">
+                            <div class="plan-header">
+                                <span class="plan-title">Gap ${id.toUpperCase()} <span class="tag">${level} | ${disc}</span></span>
+                                <span class="plan-score">Confidence: ${val}%</span>
+                            </div>
+                            <span class="plan-70"><strong>70% (On-the-Job):</strong> ${specificAdvice}</span>
+                            <span class="plan-20"><strong>20% (Social/Peer):</strong> Discuss this specific competency with a ${level} mentor.</span>
+                            <span class="plan-10"><strong>10% (Formal Training):</strong> Read the UK-SPEC section on ${id.toUpperCase()} closely.</span>
+                        </div>
+                    `;
+                    container.innerHTML += html;
                 }
             });
 
-            if (!hasContent) text = "Start typing to generate your script...";
-            document.getElementById('previewArea').innerText = text;
+            if(!gapFound) {
+                container.innerHTML = `<div class="plan-item" style="border-left-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Ready for Assessment?</span></div><p style="color:var(--cloud-white);">Your self-assessment indicates strong competence (>70%) across all areas for <strong>${level} (${disc})</strong>. Consider booking your Professional Review Interview.</p></div>`;
+            }
             
-            // Toggle AI Button based on content
-            document.getElementById('aiBtn').style.display = hasContent ? 'block' : 'none';
+            container.scrollIntoView({behavior: "smooth"});
         }
 
-        // --- NEW AI PROMPT GENERATOR ---
-        function copyAiPrompt() {
-            const type = document.getElementById('modelSelector').value;
-            const script = document.getElementById('previewArea').innerText;
-            
-            const prompt = `Act as an Engineering Team Member. I am your Lead Engineer, and I am preparing to give you some difficult feedback using the ${type} model.
-
-Here is my draft script:
-"""
-${script}
-"""
-
-1. React to this feedback realistically. Are you defensive? Do you accept it?
-2. Then, step out of character and critique my delivery. Was I too harsh? Too vague?
-3. Suggest one specific phrase I could change to make this land better.`;
-
-            navigator.clipboard.writeText(prompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
-                setTimeout(() => { btn.innerText = ">> GENERATE AI \"ROLEPLAY\" PROMPT"; }, 3000);
-            });
-        }
-
-        function clearData() {
-            if(confirm("Clear all data?")) {
-                localStorage.removeItem('fb_model');
-                Object.keys(models).forEach(m => {
-                    models[m].fields.forEach(f => localStorage.removeItem('fb_' + f.id));
+        function resetForm() {
+            if(confirm("Reset all sliders?")) {
+                ids.forEach(id => {
+                    document.getElementById(id).value = 50;
+                    localStorage.removeItem('cpd_v5_' + id);
                 });
-                renderInputs();
+                document.getElementById('resultsArea').style.display = 'none';
             }
         }
-
-        function copyToClipboard() {
-            const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { alert("Script copied!"); });
-        }
-
-        window.onload = function() {
-            const savedModel = localStorage.getItem('fb_model');
-            if(savedModel) document.getElementById('modelSelector').value = savedModel;
-            renderInputs();
-        };
     </script>
 </body>
 </html>

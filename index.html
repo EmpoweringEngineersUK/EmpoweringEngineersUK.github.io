@@ -11,157 +11,197 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empowering Engineers UK | Professional Tools</title>
+    <meta name="description" content="Free AI-powered tools for UK engineering professional registration (CEng, IEng, EngTech). STAR statement generator, CPD planner, and interview simulator.">
+    <title>Empowering Engineers UK | Professional Registration Tools</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    
-    <meta property="og:title" content="Empowering Engineers UK">
-    <meta property="og:description" content="Free, terminal-grade tools for engineering professional registration (CEng/IEng). STAR Engine, RACI Matrix, Ethics Compass, and more.">
+
+    <meta property="og:title" content="Empowering Engineers UK | AI Tools for CEng & IEng">
+    <meta property="og:description" content="Accelerate your engineering chartership with free AI tools: STAR generator, CPD planner, and interview simulator.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-    <meta property="og:url" content="https://www.empoweringengineers.uk/">
+    <meta property="og:url" content="https://www.empoweringengineers.uk">
     <meta property="og:type" content="website">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
 
     <style>
-        /* HOMEPAGE SPECIFIC GRID */
-        .hero {
+        /* HOMEPAGE SPECIFIC STYLES */
+        .hero-section {
             text-align: center;
-            padding: 40px 20px 20px; 
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: radial-gradient(circle at top, rgba(0, 255, 153, 0.05) 0%, transparent 60%);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-family: 'Courier Prime', monospace;
+            letter-spacing: -1px;
+        }
+        .hero-title span { color: var(--terminal-green); }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate-grey);
+            max-width: 700px;
+            margin: 0 auto 30px auto;
         }
 
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 20px;
-            margin: 0 auto 50px auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
-        .nav-card {
+        .tool-card {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
             text-decoration: none;
-            transition: all 0.2s ease;
+            color: var(--cloud-white);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            height: 100%;
         }
 
-        .nav-card:hover {
+        .tool-card:hover {
+            transform: translateY(-5px);
             border-color: var(--terminal-green);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.1);
         }
 
-        .nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .tool-icon {
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-
-        .nav-title {
             color: var(--terminal-green);
-            font-family: 'Courier Prime', monospace;
+        }
+
+        .tool-title {
+            font-size: 1.3rem;
             font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .nav-status {
-            font-size: 0.8rem;
-            color: var(--slate-grey);
+            margin-bottom: 10px;
             font-family: 'Courier Prime', monospace;
+            text-transform: uppercase;
+            color: var(--terminal-green);
         }
 
-        .nav-desc {
-            color: var(--cloud-white);
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .tool-desc { font-size: 0.95rem; color: var(--slate-grey); flex-grow: 1; }
+        .tool-link-text {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--terminal-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-            <a href="raci_tool.html">RACI</a>
+			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-            <a href="guide.html">Manual</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
-    <div class="hero">
-        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration.</p>
+    <div class="hero-section">
+        <h1 class="hero-title">Empowering<span>Engineers</span>.uk</h1>
+        <p class="hero-subtitle">Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech registration.</p>
+        <div style="margin-top: 30px;">
+            <a href="guide.html" class="action-btn" style="display:inline-block; width:auto; padding: 15px 40px; text-decoration:none;">View User Manual & SOP</a>
+        </div>
     </div>
 
-    <div class="tool-grid">
-        <a href="career_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Career_Starter</span><span class="nav-status">[v1.1]</span></div>
-            <div class="nav-desc">Synthesise your technical history into a professional profile that showcases your value.</div>
-        </a>
-        <a href="cpd_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">CPD_Tracker</span><span class="nav-status">[v3.1]</span></div>
-            <div class="nav-desc">Log and reflect on your Continuous Professional Development. Export to CSV.</div>
-        </a>
-        <a href="raci_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">RACI_Matrix</span><span class="nav-status">[v2.4]</span></div>
-            <div class="nav-desc">Generate responsibility matrices for projects and volunteering.</div>
-        </a>
-        <a href="STAR_engine.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">STAR_Generator</span><span class="nav-status">[v4.1]</span></div>
-            <div class="nav-desc">Draft perfect competency examples using the Situation, Task, Action, Result framework.</div>
-        </a>
-        <a href="STAR_reviewer.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Competence_Reviewer</span><span class="nav-status">[v2.1]</span></div>
-            <div class="nav-desc">Paste existing text for instant AI analysis against UK-SPEC criteria.</div>
-        </a>
-        <a href="ethics_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Ethics_Compass</span><span class="nav-status">[v1.5]</span></div>
-            <div class="nav-desc">Navigate ethical dilemmas using the RAEng Statement of Ethical Principles.</div>
-        </a>
-        <a href="feedback_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Feedback_Studio</span><span class="nav-status">[v1.1]</span></div>
-            <div class="nav-desc">Structure difficult conversations using AID and SBI models.</div>
-        </a>
-        <a href="glossary_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">The_Decoder</span><span class="nav-status">[v3.0]</span></div>
-            <div class="nav-desc">Search 14,000+ engineering acronyms across all disciplines.</div>
-        </a>
-        <a href="report_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Report_Builder</span><span class="nav-status">[v1.2]</span></div>
-            <div class="nav-desc">Structure technical reports with professional templates.</div>
-        </a>
-        <a href="interview_tool.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">Virtual_Interviewer</span><span class="nav-status">[v2.7]</span></div>
-            <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed questions.</div>
-        </a>
-        <a href="guide.html" class="nav-card">
-            <div class="nav-header"><span class="nav-title">User_Manual</span><span class="nav-status">[DOCS]</span></div>
-            <div class="nav-desc">Documentation on how to use these tools effectively.</div>
-        </a>
+    <div class="container">
+        <h2 style="text-align:center; border:none;">CORE APPLICATION TOOLS</h2>
+        <div class="tool-grid">
+            <a href="career_tool.html" class="tool-card">
+                <div class="tool-icon">🚀</div>
+                <div class="tool-title">Career Starter</div>
+                <div class="tool-desc">Define your professional brand. Generate a strategic CV and cover letter tailored to your target role and company goals.</div>
+                <div class="tool-link-text">Launch Tool &rarr;</div>
+            </a>
+
+            <a href="cpd_tool.html" class="tool-card">
+                <div class="tool-icon">📈</div>
+                <div class="tool-title">CPD Smart-Planner</div>
+                <div class="tool-desc">Analyze your skills against UK-SPEC. Generate a tailored 70/20/10 learning plan for your specific discipline.</div>
+                <div class="tool-link-text">Plan CPD &rarr;</div>
+            </a>
+
+            <a href="STAR_engine.html" class="tool-card">
+                <div class="tool-icon">⭐</div>
+                <div class="tool-title">STAR Engine & Auditor</div>
+                <div class="tool-desc">Draft powerful competency statements. Our algorithm audits for active language, acronyms, and UK-SPEC mapping.</div>
+                <div class="tool-link-text">Draft Evidence &rarr;</div>
+            </a>
+
+             <a href="interview_tool.html" class="tool-card">
+                <div class="tool-icon">🎙️</div>
+                <div class="tool-title">Virtual Interviewer</div>
+                <div class="tool-desc">Simulate your Professional Review Interview (PRI). Practice timed questions and get AI feedback on your delivery.</div>
+                <div class="tool-link-text">Start Practice &rarr;</div>
+            </a>
+        </div>
+
+        <h2 style="text-align:center; border:none; margin-top: 60px;">WORKPLACE UTILITIES</h2>
+        <div class="tool-grid">
+            <a href="raci_tool.html" class="tool-card">
+                <div class="tool-icon">🏗️</div>
+                <div class="tool-title">RACI Matrix Gen</div>
+                <div class="tool-desc">Define clear roles and responsibilities for projects. Crucial evidence for Competency C (Leadership).</div>
+                <div class="tool-link-text">Build Matrix &rarr;</div>
+            </a>
+            
+            <a href="feedback_tool.html" class="tool-card">
+                <div class="tool-icon">💬</div>
+                <div class="tool-title">Feedback Studio</div>
+                <div class="tool-desc">Prepare for difficult conversations using standard management frameworks like GROW and SBI.</div>
+                <div class="tool-link-text">Draft Feedback &rarr;</div>
+            </a>
+
+            <a href="ethics_tool.html" class="tool-card">
+                <div class="tool-icon">⚖️</div>
+                <div class="tool-title">Ethics Compass</div>
+                <div class="tool-desc">Navigate professional dilemmas using the RAEng Statement of Ethical Principles.</div>
+                <div class="tool-link-text">Analyze Dilemma &rarr;</div>
+            </a>
+            
+             <a href="report_tool.html" class="tool-card">
+                <div class="tool-icon">📝</div>
+                <div class="tool-title">Report Architect</div>
+                <div class="tool-desc">Generate professional technical report structures (IET, FEA, Failure Analysis) and export to Word.</div>
+                <div class="tool-link-text">Structure Report &rarr;</div>
+            </a>
+            
+            <a href="glossary_tool.html" class="tool-card">
+                <div class="tool-icon">📖</div>
+                <div class="tool-title">Engineering Decoder</div>
+                <div class="tool-desc">Search over 14,000 technical acronyms and abbreviations across all engineering disciplines.</div>
+                <div class="tool-link-text">Search Database &rarr;</div>
+            </a>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
@@ -169,6 +209,5 @@
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
-
 </body>
 </html>

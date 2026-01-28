@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,21 +8,26 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Studio | Empowering Engineers</title>
+    <title>Feedback Studio | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="Feedback Studio | Empowering Engineers UK">
+    <meta property="og:description" content="Structure difficult conversations professionally using the AID and SBI feedback models.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback_tool.html">
+    <meta property="og:type" content="website">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
         /* PAGE SPECIFIC STYLES */
-        .header { text-align: center; margin-bottom: 30px; }
-        h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
-        .subtitle { font-family: 'Courier Prime', monospace; color: var(--slate-grey); }
-
-        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
         
         .card { 
             background: var(--dark-card); 
@@ -44,19 +49,6 @@
             letter-spacing: 1px; 
         }
 
-        .model-select { 
-            width: 100%; 
-            padding: 12px; 
-            background-color: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            border: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-bottom: 20px; 
-            font-family: 'Roboto', sans-serif; 
-        }
-
         .input-group { margin-bottom: 20px; }
         .input-label { display: block; color: var(--burnt-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; font-family: 'Courier Prime', monospace; letter-spacing: 0.5px; }
         .input-hint { display: block; color: var(--slate-grey); font-size: 0.8rem; margin-bottom: 8px; font-style: italic; }
@@ -69,7 +61,7 @@
             border: 1px solid var(--border-color); 
             color: white; 
             border-radius: 6px; 
-            font-family: 'Roboto', sans-serif; 
+            font-family: 'Arial', sans-serif; 
             box-sizing: border-box; 
             resize: vertical; 
             font-size: 0.95rem; 
@@ -87,6 +79,7 @@
             line-height: 1.6; 
             font-size: 1rem; 
             color: var(--cloud-white); 
+            font-family: 'Courier Prime', monospace;
         }
 
         .example-box { 
@@ -100,43 +93,14 @@
             line-height: 1.5; 
         }
 
-        .btn-action { 
-            background: transparent; 
-            border: 1px solid var(--terminal-green); 
-            color: var(--terminal-green); 
-            padding: 10px 20px; 
-            width: 100%; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 0.9rem; 
-            margin-top: 10px; 
-            transition: 0.2s; 
-            text-transform: uppercase; 
-        }
-        .btn-action:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-        
-        .ai-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed var(--burnt-orange);
-            color: var(--burnt-orange);
-            padding: 12px;
-            width: 100%;
-            cursor: pointer;
-            font-family: 'Courier Prime', monospace;
-            margin-top: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .ai-btn:hover { background: rgba(255, 159, 67, 0.1); }
-        
         @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
@@ -151,27 +115,25 @@
         </nav>
     </div>
 
-    <div class="header">
-        <h1>Feedback & Coaching Studio</h1>
-        <p class="subtitle">Draft professional feedback using proven leadership frameworks.</p>
-    </div>
-
     <div class="container">
+        <div class="card" style="grid-column: 1 / -1; margin-bottom: 10px; text-align:center;">
+            <h2 style="border:none; margin:0; font-size:1.5rem;">Feedback & Coaching Studio</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem;">Draft professional feedback using proven leadership frameworks (GROW, CEDAR, SBI).</p>
+        </div>
         
         <div class="column-left">
             <div class="card">
                 <h2 class="card-title">1. Select Framework</h2>
-                <select id="modelSelector" class="model-select" onchange="renderInputs()">
+                <select id="modelSelector" onchange="renderInputs()">
                     <option value="GROW">GROW Model (Coaching & Goals)</option>
                     <option value="PENDLETON">Pendleton Model (Peer Review)</option>
                     <option value="CEDAR">CEDAR Model (Performance Correction)</option>
                     <option value="SBIBI">SBIBI (Behavioral Feedback)</option>
                 </select>
                 
-                <div id="dynamicInputs">
-                    </div>
+                <div id="dynamicInputs"></div>
 
-                <button class="btn-action" onclick="clearData()" style="border-color:var(--slate-grey); color:var(--slate-grey); margin-top:20px;">Reset Form</button>
+                <button class="action-btn-ghost" onclick="clearData()" style="margin-top:20px;">Reset Form</button>
             </div>
         </div>
 
@@ -179,12 +141,12 @@
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                     <h2 class="card-title" style="margin:0; border:none;">2. Script Preview</h2>
-                    <button class="btn-action" style="width:auto; margin:0;" onclick="copyToClipboard()">Copy Text</button>
+                    <button class="action-btn" style="width:auto; margin:0; padding:10px 20px; font-size:0.8rem;" onclick="copyToClipboard()">Copy Text</button>
                 </div>
                 
                 <div id="previewArea" class="preview-box">Select a model to begin...</div>
                 
-                <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()" style="display:none;">>> COPY AI "ROLEPLAY" PROMPT</button>
+                <button id="aiBtn" class="ai-btn" style="display:none;" onclick="copyAiPrompt()">>> GENERATE AI "ROLEPLAY" PROMPT</button>
             </div>
 
             <div class="card">
@@ -320,7 +282,7 @@ ${script}
             navigator.clipboard.writeText(prompt).then(() => {
                 const btn = document.getElementById('aiBtn');
                 btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
-                setTimeout(() => { btn.innerText = ">> COPY AI \"ROLEPLAY\" PROMPT"; }, 3000);
+                setTimeout(() => { btn.innerText = ">> GENERATE AI \"ROLEPLAY\" PROMPT"; }, 3000);
             });
         }
 

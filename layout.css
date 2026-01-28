@@ -1,5 +1,5 @@
-/* EMPOWERING ENGINEERS UK - GLOBAL THEME [v6.0]
-   Standardized "Terminal Chic" Design
+/* EMPOWERING ENGINEERS UK - GLOBAL THEME [v6.2]
+   Arial Body/Nav + Terminal Headers + Image Logo
 */
 
 :root {
@@ -46,28 +46,31 @@ h3 { font-size: 1.1rem; color: #fff; border-bottom: 1px dashed var(--border-colo
     background: rgba(13, 27, 42, 0.95); /* Slight transparency */
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
-    padding: 15px 20px;
+    padding: 10px 20px; /* Reduced padding slightly for image logo */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 
-.site-brand {
-    font-family: 'Courier Prime', 'Courier New', monospace;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
+/* NEW: Image Logo Styling */
+.site-brand-img {
+    height: 50px; /* Fixed height ensures consistency */
+    width: auto;  /* Maintain aspect ratio */
+    display: block;
+    transition: opacity 0.2s;
 }
-.site-brand span { color: var(--terminal-green); }
+.site-brand-img:hover {
+    opacity: 0.8;
+}
 
 nav a {
     color: var(--slate-grey);
     text-decoration: none;
     margin-left: 20px;
-    font-size: 0.9rem;
-    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    /* Arial font inherited from body */
     transition: color 0.2s;
 }
 nav a:hover, nav a.active { color: var(--terminal-green); }
@@ -78,9 +81,7 @@ footer {
     padding: 40px 20px;
     margin-top: 50px;
     border-top: 1px solid var(--border-color);
-    /* Brand Consistency: Footer now uses Courier to match Navbar */
-    font-family: 'Courier Prime', 'Courier New', monospace; 
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--slate-grey);
 }
 footer a { color: var(--slate-grey); text-decoration: none; }
@@ -123,7 +124,6 @@ textarea {
     border: 1px solid var(--border-color);
     color: white;
     padding: 12px;
-    /* Consistency: Input fields match Body text (Arial) */
     font-family: "Arial", "Helvetica Neue", sans-serif;
     font-size: 1rem;
     border-radius: 4px;
@@ -201,8 +201,9 @@ input:focus, select:focus, textarea:focus {
 .score-label { font-size: 0.75rem; color: var(--slate-grey); text-transform: uppercase; letter-spacing: 1px; }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .dashboard-grid, .config-grid { grid-template-columns: 1fr; }
-    .sticky-container { flex-direction: column; }
-    nav { margin-top: 10px; }
+    .sticky-container { flex-direction: column; gap: 15px; padding: 15px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { margin-left: 0; margin: 5px; }
 }

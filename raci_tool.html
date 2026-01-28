@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -25,17 +25,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* TOOL SPECIFIC STYLES */
+        /* PAGE SPECIFIC: Matrix & Legend Styles */
         .raci-container {
             max-width: 1200px;
             width: 100%;
             margin-top: 20px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--dark-card);
             border: 1px solid var(--border-color);
             border-radius: 8px;
         }
@@ -51,19 +50,7 @@
             justify-content: space-between;
         }
 
-        .scenario-selector {
-            background: var(--midnight-navy);
-            color: var(--cloud-white);
-            border: 1px solid var(--terminal-green);
-            padding: 10px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            min-width: 280px;
-        }
-
-        /* --- LEGEND STYLES --- */
+        /* Legend */
         .raci-definitions {
             display: grid;
             grid-template-columns: 1fr;
@@ -72,23 +59,13 @@
             padding: 15px;
             border-radius: 6px;
             margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
             font-size: 0.9rem;
             border-left: 4px solid var(--terminal-green);
         }
 
-        @media (min-width: 700px) {
-            .raci-definitions {
-                grid-template-columns: 1fr 1fr; 
-            }
-        }
+        @media (min-width: 700px) { .raci-definitions { grid-template-columns: 1fr 1fr; } }
 
-        .def-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            line-height: 1.4;
-        }
+        .def-item { display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
 
         .def-badge {
             font-family: 'Courier Prime', monospace;
@@ -101,13 +78,14 @@
             flex-shrink: 0;
         }
 
+        /* Color Codes */
         .r-code { background-color: #00FF99; } 
         .a-code { background-color: #FF9F43; } 
         .c-code { background-color: #54a0ff; } 
         .i-code { background-color: #feca57; } 
         .white-code { background-color: #ffffff; }
 
-        /* MATRIX TABLE STYLES */
+        /* Matrix Table */
         .table-wrapper {
             overflow-x: auto;
             background: #fff;
@@ -117,27 +95,11 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: 'Roboto', sans-serif;
-            min-width: 800px;
-        }
+        table { width: 100%; border-collapse: collapse; font-family: "Arial", sans-serif; min-width: 800px; }
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 5px;
-            text-align: center;
-            color: #333;
-            position: relative;
-        }
+        th, td { border: 1px solid #ccc; padding: 5px; text-align: center; color: #333; position: relative; }
 
-        th {
-            background-color: #0D1B2A;
-            color: #fff;
-            font-weight: 500;
-            min-width: 100px;
-        }
+        th { background-color: var(--midnight-navy); color: #fff; font-weight: 500; min-width: 100px; }
 
         th input {
             background: transparent;
@@ -147,22 +109,13 @@
             text-align: center;
             width: 100%;
             font-size: 0.95rem;
+            font-family: 'Courier Prime', monospace;
         }
         th input:focus { outline: 1px solid var(--terminal-green); }
 
-        td:first-child {
-            width: 250px;
-            background-color: #f4f4f4;
-            text-align: left;
-        }
+        td:first-child { width: 250px; background-color: #f4f4f4; text-align: left; }
         
-        td:first-child input {
-            width: 100%;
-            border: none;
-            background: transparent;
-            font-weight: 500;
-            padding: 5px;
-        }
+        td:first-child input { width: 100%; border: none; background: transparent; font-weight: 500; padding: 5px; }
 
         .raci-select {
             width: 100%;
@@ -176,28 +129,7 @@
         }
         .raci-select:focus { outline: 2px solid #000; }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .action-btn {
-            background: transparent;
-            border: 1px solid var(--terminal-green);
-            color: var(--terminal-green);
-            padding: 8px 14px;
-            font-family: 'Courier Prime', monospace;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: 0.2s;
-        }
-        .action-btn:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-        .action-btn.secondary { border-color: var(--slate-grey); color: var(--slate-grey); }
-        .action-btn.secondary:hover { background: var(--slate-grey); color: #fff; }
-        .action-btn.danger { border-color: #ff4d4d; color: #ff4d4d; }
-        .action-btn.danger:hover { background: #ff4d4d; color: #fff; }
+        .btn-group { display: flex; gap: 10px; margin-top: 10px; }
 
         .info-box {
             margin-top: 30px;
@@ -207,109 +139,112 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
-        .info-box h3 { margin-top: 0; color: var(--burnt-orange); }
     </style>
 </head>
 <body onload="initApp()">
 
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-            <a href="raci_tool.html" class="active">RACI</a>
+			<a href="raci_tool.html" class="active">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-            <a href="guide.html">Manual</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
-    <h1 style="margin-top: 20px; text-align: center; color: var(--terminal-green);">Project Responsibility Matrix</h1>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto 20px auto;">
-        Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E. <strong>Progress is saved automatically to your browser.</strong>
-    </p>
+    <div class="container">
+        <h1 style="border:none; text-align: center; color: var(--terminal-green);">Project Responsibility Matrix</h1>
+        <p style="text-align: center; margin-bottom: 20px; color:var(--slate-grey);">
+            Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E. <strong>Progress is saved automatically.</strong>
+        </p>
 
-    <div class="raci-container">
-        <div class="controls-top">
-            <div>
-                <label for="scenarioSelect" style="font-family: 'Courier Prime'; display:block; margin-bottom:5px;">LOAD PRESET:</label>
-                <select id="scenarioSelect" class="scenario-selector" onchange="loadScenario()">
-                    <option value="custom">-- Custom / Blank Matrix --</option>
-                    <optgroup label="Technical & Commercial">
-                        <option value="technical">Technical Design Project</option>
-                        <option value="value_eng">Value Engineering (VE) Workshop</option>
-                        <option value="npd">New Product Development (NPD)</option>
-                        <option value="prototype">Prototyping & Testing</option>
-                        <option value="3dprint">3D Printing / Additive Mfg</option>
-                        <option value="software">Software / DevOps Cycle</option>
-                    </optgroup>
-                    <optgroup label="Professional Development (UK-SPEC)">
-                        <option value="stem">STEM Volunteering Event</option>
-                        <option value="lunch">Lunch & Learn / Seminar</option>
-                        <option value="csr">CSR / Charity Initiative</option>
-                        <option value="conf">Conference Facilitation</option>
-                        <option value="travel">Business Travel / Site Visit</option>
-                    </optgroup>
-                </select>
+        <div class="raci-container">
+            <div class="controls-top">
+                <div>
+                    <label for="scenarioSelect" style="display:block; margin-bottom:5px;">LOAD PRESET:</label>
+                    <select id="scenarioSelect" class="scenario-selector" onchange="loadScenario()">
+                        <option value="custom">-- Custom / Blank Matrix --</option>
+                        <optgroup label="Technical & Commercial">
+                            <option value="technical">Technical Design Project</option>
+                            <option value="value_eng">Value Engineering (VE) Workshop</option>
+                            <option value="npd">New Product Development (NPD)</option>
+                            <option value="prototype">Prototyping & Testing</option>
+                            <option value="3dprint">3D Printing / Additive Mfg</option>
+                            <option value="software">Software / DevOps Cycle</option>
+                        </optgroup>
+                        <optgroup label="Professional Development (UK-SPEC)">
+                            <option value="stem">STEM Volunteering Event</option>
+                            <option value="lunch">Lunch & Learn / Seminar</option>
+                            <option value="csr">CSR / Charity Initiative</option>
+                            <option value="conf">Conference Facilitation</option>
+                            <option value="travel">Business Travel / Site Visit</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <button class="action-btn" onclick="resetToDefaults()">&#8635; Load Preset</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearAllData()">&#128465; Clear All</button>
+                    <button class="action-btn" onclick="downloadMatrix()">&#11015; Save Image</button>
+                </div>
             </div>
 
-            <div>
-                <button class="action-btn" onclick="resetToDefaults()">&#8635; Load Preset</button>
-                <button class="action-btn danger" onclick="clearAllData()">&#128465; Clear All</button>
-                <button class="action-btn" onclick="downloadMatrix()">&#11015; Save Image</button>
+            <div class="raci-definitions">
+                <div class="def-item">
+                    <div class="def-badge r-code">R (Responsible)</div>
+                    <div>The "Doer". The engineer performing the calculation, design, or activity.</div>
+                </div>
+                <div class="def-item">
+                    <div class="def-badge a-code">A (Accountable)</div>
+                    <div>The "Owner". The person signing off (e.g., Lead Engineer/Chair).</div>
+                </div>
+                <div class="def-item">
+                    <div class="def-badge c-code">C (Consulted)</div>
+                    <div>Two-way info. Experts whose input is required before proceeding.</div>
+                </div>
+                <div class="def-item">
+                    <div class="def-badge i-code">I (Informed)</div>
+                    <div>One-way info. Stakeholders updated after the fact.</div>
+                </div>
             </div>
-        </div>
 
-        <div class="raci-definitions">
-            <div class="def-item">
-                <div class="def-badge r-code">R (Responsible)</div>
-                <div>The "Doer". The engineer performing the calculation, design, or activity.</div>
+            <div class="table-wrapper" id="matrixCapture">
+                <table id="raciTable">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
             </div>
-            <div class="def-item">
-                <div class="def-badge a-code">A (Accountable)</div>
-                <div>The "Owner". The person signing off (e.g., Lead Engineer/Chair).</div>
-            </div>
-            <div class="def-item">
-                <div class="def-badge c-code">C (Consulted)</div>
-                <div>Two-way info. Experts whose input is required before proceeding.</div>
-            </div>
-            <div class="def-item">
-                <div class="def-badge i-code">I (Informed)</div>
-                <div>One-way info. Stakeholders updated after the fact.</div>
-            </div>
-        </div>
 
-        <div class="table-wrapper" id="matrixCapture">
-            <table id="raciTable">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
-        </div>
+            <div class="btn-group">
+                <button class="action-btn action-btn-ghost" onclick="addRow()">+ Add Task Row</button>
+                <button class="action-btn action-btn-ghost" onclick="removeRow()">- Remove Row</button>
+                <span style="border-right: 1px solid var(--border-color); margin: 0 10px;"></span>
+                <button class="action-btn action-btn-ghost" onclick="addCol()">+ Add Role Col</button>
+                <button class="action-btn action-btn-ghost" onclick="removeCol()">- Remove Col</button>
+            </div>
 
-        <div class="btn-group">
-            <button class="action-btn secondary" onclick="addRow()">+ Add Task Row</button>
-            <button class="action-btn secondary" onclick="removeRow()">- Remove Row</button>
-            <span style="border-right: 1px solid #555; margin: 0 10px;"></span>
-            <button class="action-btn secondary" onclick="addCol()">+ Add Role Col</button>
-            <button class="action-btn secondary" onclick="removeCol()">- Remove Col</button>
-        </div>
-
-        <div class="info-box">
-            <h3>How to use this for Chartership</h3>
-            <p>
-                <strong>Competency C (Technical & Commercial Leadership):</strong> Use the <em>Technical</em> or <em>NPD</em> templates to show you understand who is Accountable (A) vs who does the work (R).<br>
-                <strong>Competency D (Communication):</strong> The <em>Seminar</em> or <em>Lunch & Learn</em> templates demonstrate you can coordinate diverse stakeholders.<br>
-                <strong>Competency E (Professional Commitment):</strong> Use the <em>STEM</em> or <em>CSR</em> templates to evidence your volunteering leadership in a structured, professional format.
-            </p>
+            <div class="info-box">
+                <h3 style="margin-top:0; color:var(--burnt-orange);">How to use this for Chartership</h3>
+                <p>
+                    <strong>Competency C (Technical & Commercial Leadership):</strong> Use the <em>Technical</em> or <em>NPD</em> templates to show you understand who is Accountable (A) vs who does the work (R).<br>
+                    <strong>Competency D (Communication):</strong> The <em>Seminar</em> or <em>Lunch & Learn</em> templates demonstrate you can coordinate diverse stakeholders.<br>
+                    <strong>Competency E (Professional Commitment):</strong> Use the <em>STEM</em> or <em>CSR</em> templates to evidence your volunteering leadership in a structured, professional format.
+                </p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 

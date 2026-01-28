@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,83 +8,107 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethics Compass | EmpoweringEngineers.uk</title>
+    <title>Ethics Compass | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <meta name="google-adsense-account" content="ca-pub-7071036534151105">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
+    <meta property="og:title" content="Ethics Compass | Empowering Engineers UK">
+    <meta property="og:description" content="Navigate ethical dilemmas using the RAEng Statement of Ethical Principles. Generate challenge scripts.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/ethics_tool.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* TOOL-SPECIFIC STYLES */
-        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .card { background: var(--dark-card); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        /* PAGE SPECIFIC */
+        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
         
-        h2 { 
-            border-bottom: 1px solid var(--terminal-green); 
-            color: var(--terminal-green); 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-            font-family: 'Courier Prime', monospace; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-
-        /* INPUTS */
-        label { display: block; margin-bottom: 5px; color: var(--burnt-orange); font-weight: bold; font-size: 0.85rem; }
-        select, textarea { 
-            width: 100%; 
-            padding: 10px; 
-            background: rgba(0,0,0,0.3); 
+        .card { 
+            background: var(--dark-card); 
+            padding: 30px; 
+            border-radius: 8px; 
             border: 1px solid var(--border-color); 
-            color: white; 
-            border-radius: 4px; 
-            font-family: 'Roboto', sans-serif; 
-            margin-bottom: 15px; 
-            box-sizing: border-box;
+            display: flex; 
+            flex-direction: column; 
         }
-        select:focus, textarea:focus { outline: none; border-color: var(--terminal-green); }
-        textarea { height: 100px; resize: vertical; }
+        
+        h2 { margin-top: 0; color: var(--terminal-green); font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
 
+        /* Inputs */
         .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        
+        textarea { height: 100px; resize: vertical; margin-bottom: 10px; }
 
-        /* BUTTONS */
-        .principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .principle-btn { background: transparent; border: 1px solid var(--slate-grey); color: var(--slate-grey); padding: 15px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.3s; text-align: left; }
-        .principle-btn:hover, .principle-btn.active { border-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0, 255, 153, 0.05); }
-        .principle-btn strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
-
-        .ai-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed var(--terminal-green);
-            color: var(--terminal-green);
-            padding: 15px;
-            width: 100%;
-            cursor: pointer;
-            font-family: 'Courier Prime', monospace;
-            margin-top: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            display: none; 
+        .reset-link { 
+            color: var(--slate-grey); 
+            font-size: 0.8rem; 
+            text-decoration: underline; 
+            cursor: pointer; 
+            display: block; 
+            text-align: right; 
+            margin-top: 5px; 
         }
-        .ai-btn:hover { background: rgba(0, 255, 153, 0.1); }
-
-        /* OUTPUT */
-        .output-box { background: #09121d; padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); min-height: 400px; white-space: pre-wrap; line-height: 1.6; font-family: 'Roboto', sans-serif; position: relative; }
-        .section-header { color: var(--burnt-orange); font-weight: bold; margin-top: 20px; display: block; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px; }
-
-        .reset-link { color: var(--slate-grey); font-size: 0.8rem; text-decoration: underline; cursor: pointer; display: block; text-align: right; margin-top: 10px; }
         .reset-link:hover { color: var(--burnt-orange); }
+
+        /* Principle Buttons */
+        .principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        
+        .principle-btn { 
+            background: transparent; 
+            border: 1px solid var(--slate-grey); 
+            color: var(--slate-grey); 
+            padding: 15px; 
+            cursor: pointer; 
+            border-radius: 6px; 
+            font-family: "Arial", sans-serif;
+            text-align: left; 
+            transition: 0.2s;
+        }
+        .principle-btn:hover, .principle-btn.active { 
+            border-color: var(--terminal-green); 
+            color: var(--terminal-green); 
+            background: rgba(0, 255, 153, 0.05); 
+        }
+        .principle-btn strong { display: block; font-size: 1rem; margin-bottom: 5px; font-family: 'Courier Prime', monospace; }
+
+        /* Output */
+        .output-box { 
+            background: #09121d; 
+            padding: 25px; 
+            border-radius: 6px; 
+            border: 1px solid var(--terminal-green); 
+            min-height: 400px; 
+            white-space: pre-wrap; 
+            line-height: 1.6; 
+            font-size: 0.9rem;
+            color: var(--cloud-white);
+        }
+        
+        .section-header { 
+            color: var(--burnt-orange); 
+            font-weight: bold; 
+            margin-top: 20px; 
+            display: block; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 5px; 
+            margin-bottom: 10px; 
+            font-family: 'Courier Prime', monospace;
+        }
 
         @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
@@ -124,7 +148,7 @@
 
             <div class="profile-grid">
                 <div>
-                    <label>Your Role (Who are you?)</label>
+                    <label>Your Role</label>
                     <select id="userRole">
                         <option value="Junior Engineer">Junior Engineer</option>
                         <option value="Senior Engineer">Senior Engineer</option>
@@ -132,7 +156,7 @@
                     </select>
                 </div>
                 <div>
-                    <label>Target (Who are you influencing?)</label>
+                    <label>Target (Counterpart)</label>
                     <select id="targetRole">
                         <option value="Engineering Manager">Engineering Manager</option>
                         <option value="Client">Client / Customer</option>
@@ -143,16 +167,16 @@
             </div>
 
             <label>The Dilemma</label>
-            <p style="color:var(--slate-grey); font-size:0.8rem; margin-top:0;">Describe the conflict (e.g., "Pressure to cut testing time due to budget").</p>
+            <span class="hint">Describe the conflict (e.g., "Pressure to cut testing time due to budget").</span>
             <textarea id="dilemmaInput" placeholder="Type your scenario here..."></textarea>
             
             <a onclick="clearEthics()" class="reset-link">Clear Form / Start New</a>
 
-            <h2>2. Select RAEng Principle</h2>
+            <h2 style="margin-top:20px;">2. Select RAEng Principle</h2>
             <div class="principle-grid">
-                <button class="principle-btn" onclick="analyze('integrity')"><strong>1. Honesty & Integrity</strong><span style="font-size:0.8rem">Bribery, conflicts of interest, truthfulness.</span></button>
+                <button class="principle-btn" onclick="analyze('integrity')"><strong>1. Honesty & Integrity</strong><span style="font-size:0.8rem">Bribery, conflicts, truthfulness.</span></button>
                 <button class="principle-btn" onclick="analyze('respect')"><strong>2. Respect for Life</strong><span style="font-size:0.8rem">Safety, environment, public good.</span></button>
-                <button class="principle-btn" onclick="analyze('accuracy')"><strong>3. Accuracy & Rigour</strong><span style="font-size:0.8rem">Competence, not misleading, validation.</span></button>
+                <button class="principle-btn" onclick="analyze('accuracy')"><strong>3. Accuracy & Rigour</strong><span style="font-size:0.8rem">Competence, validation, data.</span></button>
                 <button class="principle-btn" onclick="analyze('leadership')"><strong>4. Leadership</strong><span style="font-size:0.8rem">Listening, influencing, culture.</span></button>
             </div>
         </div>
@@ -160,12 +184,12 @@
         <div class="card">
             <h2>3. Professional Analysis</h2>
             <div id="outputArea" class="output-box">Select a principle to generate a structured analysis...</div>
-            <button id="aiBtn" class="ai-btn">>> COPY AI "MEGA-PROMPT"</button>
+            <button id="aiBtn" class="ai-btn" style="display:none;">>> COPY AI "MEGA-PROMPT"</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
@@ -180,7 +204,6 @@
             if(localStorage.getItem('ethics_reg')) document.getElementById('regLevel').value = localStorage.getItem('ethics_reg');
             if(localStorage.getItem('ethics_industry')) document.getElementById('industry').value = localStorage.getItem('ethics_industry');
             if(localStorage.getItem('ethics_dilemma')) document.getElementById('dilemmaInput').value = localStorage.getItem('ethics_dilemma');
-            // Save/Load new roles if desired, or leave default
         };
 
         document.getElementById('regLevel').addEventListener('change', function(){ localStorage.setItem('ethics_reg', this.value) });
@@ -210,10 +233,7 @@
             CEng: "As a CEng, assess wider systemic implications and lead the development of complex solutions."
         };
 
-        let currentPrinciple = ""; 
-
         function analyze(principle) {
-            currentPrinciple = principle;
             const input = document.getElementById('dilemmaInput').value;
             const regLevel = document.getElementById('regLevel').value;
             const industry = document.getElementById('industry').value;
@@ -229,7 +249,7 @@
             let actionList = "";
             let script = "";
 
-            // LOGIC FOR DISPLAY (Clean Text)
+            // LOGIC FOR DISPLAY
             if(principle === 'integrity') {
                 analysis = `The Code of Conduct requires you to reject bribery and declare conflicts of interest. In ${industry}, this specifically relates to fair procurement and accurate reporting.\n\n${regText}`;
                 actionList = `1. Verify: Check the company handbook regarding this specific issue.\n2. Record: Keep a written log of the request.\n3. Escalate: Formally raise this with your Line Manager or Ethics Officer.`;
@@ -248,7 +268,7 @@
                 script = `"I took a Leadership role by shifting focus from blame to process improvement. I championed transparency to protect the business from ${ctx.risk}."`;
             }
 
-            // RENDER CLEAN HTML TO SCREEN
+            // RENDER CLEAN HTML
             const finalHTML = 
 `<span class="section-header">>> THE DILEMMA</span>
 "${input}"
@@ -264,7 +284,7 @@ ${actionList.replace(/\n/g, "<br>")}
 
             document.getElementById('outputArea').innerHTML = finalHTML.replace(/\n/g, "<br>");
             
-            // GENERATE RICH AI PROMPT (For Clipboard)
+            // GENERATE AI PROMPT
             const aiPromptText = `Act as a Fellow of the IET/IMechE. I am a ${userRole} in the ${industry} industry.
 I need to challenge a ${targetRole} regarding this ethical dilemma:
 "${input}"

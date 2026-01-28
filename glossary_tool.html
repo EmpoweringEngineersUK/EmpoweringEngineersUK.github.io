@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,59 +8,98 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Engineering Decoder | Empowering Engineers</title>
+    <title>The Engineering Decoder | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
+    <meta property="og:title" content="The Engineering Decoder | Empowering Engineers UK">
+    <meta property="og:description" content="Search 14,000+ engineering acronyms across all disciplines. Decode terms from Project Management, Nuclear, Electrical, and Mechanical sectors.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/glossary_tool.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
+    <script src="acronyms.js"></script>
+    
     <style>
-        /* GLOSSARY SPECIFIC STYLES */
-        .main-interface { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1200px; width: 100%; padding: 20px; box-sizing: border-box; }
-        .card { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; height: fit-content; max-height: 800px; display: flex; flex-direction: column; }
-        h2 { color: var(--terminal-green); font-family: 'Courier Prime', monospace; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-top: 0; }
+        /* PAGE SPECIFIC: Search Results & Game */
+        .main-interface { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
         
-        /* SEARCH */
-        .search-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .search-box, .filter-select { padding: 15px; font-size: 1rem; border-radius: 6px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); color: white; font-family: 'Courier Prime', monospace; box-sizing: border-box; }
-        .search-box { text-transform: uppercase; }
-        .search-box:focus, .filter-select:focus { outline: none; border-color: var(--terminal-green); }
-        .results-container { flex-grow: 1; overflow-y: auto; padding-right: 5px; }
-        .result-item { background: rgba(255,255,255,0.05); margin-bottom: 10px; padding: 15px; border-radius: 6px; border-left: 3px solid var(--slate-grey); transition: 0.2s; }
-        .result-item:hover { border-left-color: var(--terminal-green); background: rgba(255,255,255,0.08); transform: translateX(5px); }
-        .res-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .res-abbr { font-weight: bold; font-size: 1.3rem; color: var(--cloud-white); letter-spacing: 1px; }
-        .res-full { font-size: 1rem; color: #d1d5db; line-height: 1.4; }
-        .res-context { background: rgba(0, 255, 153, 0.1); color: var(--terminal-green); padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-family: 'Courier Prime', monospace; text-transform: uppercase; border: 1px solid var(--border-color); }
+        .search-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        #resultsArea {
+            display: none;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
 
-        /* GAME AREA */
-        .game-area { text-align: center; }
+        .result-item {
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 0 4px 4px 0;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .acr-term { 
+            font-family: 'Courier Prime', monospace; 
+            font-size: 1.2rem; 
+            color: var(--terminal-green); 
+            font-weight: bold; 
+        }
+        
+        .acr-def { 
+            display: block; 
+            color: var(--cloud-white); 
+            margin-top: 5px; 
+            font-size: 1rem;
+        }
+        
+        .acr-cat { 
+            display: inline-block; 
+            background: rgba(255,255,255,0.1); 
+            padding: 2px 8px; 
+            border-radius: 10px; 
+            font-size: 0.7rem; 
+            margin-top: 8px; 
+            color: var(--slate-grey); 
+        }
+
+        /* GAME STYLES */
+        .game-area { text-align: center; position: relative; }
         .game-q-box { background: rgba(0,0,0,0.3); padding: 30px; border-radius: 8px; margin-bottom: 20px; font-size: 2.5rem; font-weight: bold; font-family: 'Courier Prime', monospace; color: var(--burnt-orange); border: 1px dashed var(--slate-grey); }
         .game-context-hint { font-size: 0.9rem; color: var(--slate-grey); display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
         
         .timer-container { font-size: 1.5rem; font-weight: bold; color: var(--terminal-green); margin-bottom: 10px; font-family: 'Courier Prime', monospace; border: 1px solid var(--terminal-green); display: inline-block; padding: 5px 15px; border-radius: 4px; background: rgba(0, 255, 153, 0.05); }
-        .timer-low { color: #ff4757 !important; border-color: #ff4757 !important; animation: pulse 1s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
-        .game-btn { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); padding: 15px; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 1rem; font-weight: bold; width: 100%; margin-top: 10px; }
+        .game-btn { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); padding: 15px; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 1rem; font-weight: bold; width: 100%; margin-top: 10px; font-family: 'Courier Prime', monospace; text-transform: uppercase; }
         .game-btn:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-        .score-board { margin-top: 20px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 1.1rem; }
 
-        /* REFERENCES (Details/Summary) */
-        .references-section { max-width: 1200px; width: 100%; padding: 20px; margin-top: 30px; }
-        details { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; cursor: pointer; }
-        summary { color: var(--slate-grey); font-family: 'Courier Prime'; font-weight: bold; outline: none; }
-        summary:hover { color: var(--terminal-green); }
-
-        @media (max-width: 800px) { .main-interface { grid-template-columns: 1fr; } .search-controls { grid-template-columns: 1fr; } }
+        @keyframes slideIn { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+        
+        @media (max-width: 800px) { .main-interface { grid-template-columns: 1fr; } .search-area { flex-direction: column; } }
     </style>
 </head>
 <body>
+
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
@@ -75,285 +114,204 @@
         </nav>
     </div>
 
-    <div class="main-interface">
+    <div class="container">
         
-        <div class="card">
-            <h2>>> The_Decoder [v3.0]</h2>
-            <p style="color:#8899A6; margin-bottom:20px;">
-                Massive database of 800+ industry acronyms, initialisms, and symbols.
-            </p>
-            
-            <div class="search-controls">
-                <input type="text" id="searchInput" class="search-box" placeholder="SEARCH (e.g. FEED, API)..." onkeyup="filterList()">
-                <select id="contextFilter" class="filter-select" onchange="filterList()">
-                    <option value="All">All Sectors</option>
-                    <option value="Project">Project/Contracts</option>
-                    <option value="Electrical">Electrical/C&I</option>
-                    <option value="Mechanical">Mechanical/Manuf</option>
-                    <option value="Civil">Civil/Construction</option>
-                    <option value="Safety">HSE/Safety</option>
-                    <option value="Nuclear">Nuclear</option>
-                    <option value="Pharma">Pharma/Bio</option>
-                    <option value="Marine">Marine/Offshore</option>
-                    <option value="Aerospace">Aerospace</option>
-                    <option value="IT">IT/Computing</option>
-                    <option value="Drawing">Drawings/GD&T</option>
-                    <option value="Materials">Materials Science</option>
-                </select>
-            </div>
-            
-            <div id="resultsArea" class="results-container">
+        <div class="main-interface">
+            <div class="card">
+                <h2>The Engineering Decoder</h2>
+                <p style="color:var(--slate-grey); margin-bottom:20px;">
+                    Search our database of <span id="dbCount">14,000+</span> engineering acronyms, initialisms, and abbreviations across all disciplines.
+                </p>
+                
+                <div class="search-area">
+                    <input type="text" id="searchInput" placeholder="Enter acronym (e.g. HAZOP)..." onkeyup="if(event.key === 'Enter') doSearch()">
+                    <select id="contextFilter">
+                        <option value="All">All Sectors</option>
+                        <option value="Project">Project/Contracts</option>
+                        <option value="Electrical">Electrical/C&I</option>
+                        <option value="Mechanical">Mechanical/Manuf</option>
+                        <option value="Civil">Civil/Construction</option>
+                        <option value="Safety">HSE/Safety</option>
+                        <option value="Nuclear">Nuclear</option>
+                        <option value="Pharma">Pharma/Bio</option>
+                        <option value="Marine">Marine/Offshore</option>
+                        <option value="Aerospace">Aerospace</option>
+                        <option value="IT">IT/Computing</option>
+                    </select>
                 </div>
-            <p style="font-size:0.7rem; color:#666; text-align:center; margin-top:10px;">*Showing top 100 matches to optimize performance.</p>
+                
+                <button class="action-btn" onclick="doSearch()">SEARCH DATABASE</button>
+                
+                <div id="resultsArea"></div>
+                <p style="font-size:0.7rem; color:#666; text-align:center; margin-top:10px;">*Showing top 50 matches.</p>
+            </div>
+
+            <div class="card game-area">
+                <div id="startOverlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(13, 27, 42, 0.95); z-index:10; display:flex; flex-direction:column; justify-content:center; align-items:center; border-radius:8px;">
+                    <h3 style="color:var(--terminal-green); margin-bottom:20px;">Test Your Knowledge</h3>
+                    <button id="startBtn" class="game-btn" onclick="startGame()" style="width:200px;">START GAME</button>
+                </div>
+
+                <h2>Knowledge Check</h2>
+                <div id="gameTimer" class="timer-container">30s</div>
+                
+                <div id="gameUI">
+                    <span class="game-context-hint" id="qContext">CONTEXT: GENERAL</span>
+                    <div class="game-q-box" id="qAbbr">???</div>
+                    <input type="text" id="gameInput" style="width:100%; text-align:center;" placeholder="Type meaning..." onkeydown="if(event.key === 'Enter') checkAnswer()">
+                    <div id="feedbackMsg" style="min-height:30px; margin-top:10px; font-weight:bold;"></div>
+                </div>
+                
+                <div style="margin-top: 20px; font-family: 'Courier Prime', monospace; color: var(--slate-grey); font-size: 1.1rem;">
+                    Score: <span id="scoreVal">0</span> | Streak: <span id="streakVal">0</span>
+                </div>
+            </div>
         </div>
-
-        <div class="card game-area" style="position:relative;">
-			<div id="startOverlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(13, 27, 42, 0.95); z-index:10; display:flex; flex-direction:column; justify-content:center; align-items:center; border-radius:12px;">
-				<h3 style="color:var(--terminal-green); margin-bottom:20px;">Ready to test your knowledge?</h3>
-				<button id="startBtn" class="game-btn" onclick="startGame()" style="width:200px;">START GAME</button>
-				<button id="shareBtn" class="game-btn" onclick="downloadCertificate()" style="width:200px; margin-top:10px; display:none; border-color:var(--burnt-orange); color:var(--burnt-orange);">DOWNLOAD CERTIFICATE</button>
-			</div>
-
-			<h2>>> Knowledge_Check</h2>
-			<div id="gameTimer" class="timer-container">30s</div>
-			<div id="gameUI">
-				<span class="game-context-hint" id="qContext">CONTEXT: GENERAL</span>
-				<div class="game-q-box" id="qAbbr">???</div>
-				<input type="text" id="gameInput" class="search-box" style="width:100%; text-align:center;" placeholder="Type meaning..." onkeydown="if(event.key === 'Enter') checkAnswer()">
-				<div id="feedbackMsg" style="min-height:30px; margin-top:10px; font-weight:bold;"></div>
-			</div>
-			<div class="score-board">
-				Score: <span id="scoreVal">0</span> | Streak: <span id="streakVal">0</span>
-			</div>
-		</div>
-    </div>
-
-    <div class="references-section">
-        <details>
-            <summary>Verified Data Sources & Credits (Click to Expand)</summary>
-            <div style="max-width: 800px; margin: 40px auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
-				<h3 onclick="toggleRefs()" style="cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--slate-grey); user-select: none;">
-					<span id="refIcon" style="transition: transform 0.2s;">▶</span> 
-					REFERENCES & STANDARDS USED
-				</h3>
-				
-				<div id="refContent" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--terminal-green); border-radius: 4px;">
-					<p style="margin: 5px 0;"><strong>General:</strong> ISO 9001 (Quality), ISO 14001 (Environmental), ISO 45001 (Safety)</p>
-					<p style="margin: 5px 0;"><strong>Project:</strong> PRINCE2, APM Body of Knowledge, PMBOK, NEC4 Contracts</p>
-					<p style="margin: 5px 0;"><strong>Mechanical:</strong> BS 8888 (Technical Product Spec), ASME VIII (Pressure Vessels)</p>
-					<p style="margin: 5px 0;"><strong>Electrical:</strong> BS 7671 (Wiring Regs), IEC 61508 (Functional Safety)</p>
-					<p style="margin: 5px 0;"><strong>Civil/Structural:</strong> Eurocodes 0-9, ICE Conditions of Contract</p>
-				</div>
-			</div>
-        </details>
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
-            <a href="about.html">About Us</a> |
-            <a href="contact.html">Contact Us</a> |
-            <a href="terms.html">Terms of Use</a> |
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
 
-	<script src="acronyms.js"></script>
-
-	<script>
-		// Use the shared database
-		const db = acronymDb || []; 
-		
-		// Update Count on Load
-		document.getElementById('dbCount').innerText = db.length.toLocaleString();
-
-		// --- SEARCH LOGIC ---
-		function filterList() {
-			const input = document.getElementById('searchInput').value.toUpperCase();
-			const category = document.getElementById('contextFilter').value;
-			const container = document.getElementById('resultsArea');
-			container.innerHTML = "";
-
-			// Filter logic
-			let matches = db.filter(item => {
-				const textMatch = item.a.toUpperCase().startsWith(input);
-				const catMatch = category === "All" || item.c === category;
-				return textMatch && catMatch;
-			});
-
-			// Sort & Limit
-			matches.sort((a, b) => a.a.localeCompare(b.a));
-			if (matches.length > 100) matches = matches.slice(0, 100);
-
-			// Render
-			if (matches.length === 0) {
-				container.innerHTML = `<div style="padding:20px; text-align:center;">No matches found.</div>`;
-			} else {
-				matches.forEach(item => {
-					const div = document.createElement('div');
-					div.className = 'result-item';
-					div.innerHTML = `
-						<div class="res-header">
-							<span class="res-abbr">${item.a}</span>
-							<span class="res-context">${item.c}</span>
-						</div>
-						<span class="res-full">${item.m}</span>
-					`;
-					container.appendChild(div);
-				});
-			}
-		}
-
-		// --- GAME LOGIC ---
-		let currentQ = null;
-		let score = 0;
-		let streak = 0;
-		let gameActive = false;
-		let timerInterval = null;
-
-		function startGame() {
-			gameActive = true;
-			score = 0;
-			streak = 0;
-			document.getElementById('startOverlay').style.display = 'none';
-			updateScoreBoard();
-			nextQuestion();
-		}
-
-		function nextQuestion() {
-			if (!gameActive) return;
-			
-			// FILTER QUESTIONS BASED ON DROPDOWN
-			const category = document.getElementById('contextFilter').value;
-			let pool = db;
-			
-			if (category !== "All") {
-				pool = db.filter(item => item.c === category);
-				if (pool.length === 0) {
-					alert("No acronyms found in this category! Switching to All.");
-					pool = db;
-				}
-			}
-
-			// Pick random
-			currentQ = pool[Math.floor(Math.random() * pool.length)];
-
-			// UI Updates
-			document.getElementById('qAbbr').innerText = currentQ.a;
-			document.getElementById('qContext').innerText = "CONTEXT: " + currentQ.c;
-			document.getElementById('gameInput').value = "";
-			document.getElementById('gameInput').disabled = false;
-			document.getElementById('gameInput').focus();
-			document.getElementById('feedbackMsg').innerHTML = "";
-
-			// Timer
-			let timeLeft = 30;
-			const timerDisplay = document.getElementById('gameTimer');
-			timerDisplay.innerText = timeLeft + "s";
-			clearInterval(timerInterval);
-			
-			timerInterval = setInterval(() => {
-				timeLeft--;
-				timerDisplay.innerText = timeLeft + "s";
-				if (timeLeft <= 0) endGame();
-			}, 1000);
-		}
-
-		function checkAnswer() {
-			const input = document.getElementById('gameInput').value.trim().toLowerCase();
-			const correct = currentQ.m.toLowerCase();
-
-			if (input === correct) {
-				score += 10 + (streak * 2);
-				streak++;
-				document.getElementById('feedbackMsg').innerHTML = `<span style="color:var(--terminal-green)">CORRECT!</span>`;
-				updateScoreBoard();
-				setTimeout(nextQuestion, 1000);
-			} else {
-				streak = 0;
-				document.getElementById('feedbackMsg').innerHTML = `<span style="color:var(--burnt-orange)">WRONG. Answer: ${currentQ.m}</span>`;
-				updateScoreBoard();
-			}
-		}
-
-		function updateScoreBoard() {
-			document.getElementById('scoreVal').innerText = score;
-			document.getElementById('streakVal').innerText = streak;
-		}
-
-		function endGame() {
-			gameActive = false;
-			clearInterval(timerInterval);
-			document.getElementById('gameInput').disabled = true;
-			document.getElementById('feedbackMsg').innerHTML = "TIME UP!";
-			document.getElementById('startOverlay').style.display = 'flex';
-			document.getElementById('startBtn').innerText = "Play Again";
-			
-			// Show Share Button if score > 0
-			if(score > 0) document.getElementById('shareBtn').style.display = 'inline-block';
-		}
-
-		function downloadCertificate() {
-			const canvas = document.createElement('canvas');
-			canvas.width = 800;
-			canvas.height = 600;
-			const ctx = canvas.getContext('2d');
-
-			// Draw Background
-			ctx.fillStyle = "#0D1B2A";
-			ctx.fillRect(0, 0, 800, 600);
-			
-			// Draw Border
-			ctx.strokeStyle = "#00FF99";
-			ctx.lineWidth = 10;
-			ctx.strokeRect(20, 20, 760, 560);
-
-			// Draw Text
-			ctx.fillStyle = "#FFFFFF";
-			ctx.font = "bold 40px Courier Prime";
-			ctx.textAlign = "center";
-			ctx.fillText("THE ENGINEERING DECODER", 400, 100);
-			
-			ctx.font = "30px Roboto";
-			ctx.fillText("Certificate of Competence", 400, 180);
-			
-			ctx.fillStyle = "#00FF99";
-			ctx.font = "bold 60px Courier Prime";
-			ctx.fillText(`SCORE: ${score}`, 400, 300);
-			
-			ctx.fillStyle = "#FF9F43";
-			ctx.font = "40px Courier Prime";
-			ctx.fillText(`STREAK: ${streak}`, 400, 380);
-
-			ctx.fillStyle = "#8899A6";
-			ctx.font = "20px Roboto";
-			const date = new Date().toLocaleDateString();
-			ctx.fillText(`Issued: ${date}`, 400, 500);
-			ctx.fillText("EmpoweringEngineers.uk", 400, 530);
-
-			// Download
-			const link = document.createElement('a');
-			link.download = 'Decoder_Certificate.jpg';
-			link.href = canvas.toDataURL();
-			link.click();
-		}
-		// --- REFERENCE TOGGLE LOGIC ---
-        function toggleRefs() {
-            const content = document.getElementById("refContent");
-            const icon = document.getElementById("refIcon");
-            
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-                icon.innerText = "▼"; // Arrow points down
-                icon.style.color = "var(--terminal-green)";
+    <script>
+        // Use 'acronymDb' from external file, or fallback if missing
+        let db = [];
+        
+        // Wait for DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            if(typeof acronymDb !== 'undefined') {
+                db = acronymDb;
+                document.getElementById('dbCount').innerText = db.length.toLocaleString();
             } else {
-                content.style.display = "none";
-                icon.innerText = "▶"; // Arrow points right
-                icon.style.color = "inherit";
+                console.warn("Database missing");
+            }
+        });
+
+        function doSearch() {
+            const query = document.getElementById('searchInput').value.trim().toUpperCase();
+            const category = document.getElementById('contextFilter').value;
+            const container = document.getElementById('resultsArea');
+            container.innerHTML = "";
+            container.style.display = 'block';
+
+            if(query.length < 2) {
+                container.innerHTML = `<div class="result-item" style="border-left-color:var(--burnt-orange)"><span class="acr-def">Please enter at least 2 characters.</span></div>`;
+                return;
+            }
+
+            // Search Logic
+            let matches = db.filter(item => {
+                const textMatch = item.a.toUpperCase().startsWith(query);
+                const catMatch = category === "All" || item.c === category;
+                return textMatch && catMatch;
+            });
+
+            // Sort: Exact matches first
+            matches.sort((a,b) => {
+                if(a.a === query && b.a !== query) return -1;
+                if(a.a !== query && b.a === query) return 1;
+                return 0;
+            });
+
+            if(matches.length === 0) {
+                container.innerHTML = `<div class="result-item" style="border-left-color:var(--slate-grey)"><span class="acr-def">No matches found for "${query}".</span></div>`;
+            } else {
+                // Limit to 50 results for performance
+                matches.slice(0, 50).forEach(item => {
+                    const html = `
+                        <div class="result-item">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span class="acr-term">${item.a}</span>
+                                <span class="acr-cat">${item.c || 'General'}</span>
+                            </div>
+                            <span class="acr-def">${item.m}</span>
+                        </div>`;
+                    container.innerHTML += html;
+                });
             }
         }
-		// Init		
-		filterList();
-	</script>
+
+        // --- GAME LOGIC ---
+        let currentQ = null;
+        let score = 0;
+        let streak = 0;
+        let gameActive = false;
+        let timerInterval = null;
+
+        function startGame() {
+            gameActive = true;
+            score = 0;
+            streak = 0;
+            document.getElementById('startOverlay').style.display = 'none';
+            updateScoreBoard();
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            if (!gameActive) return;
+            
+            // Pick random from whole DB or filtered
+            const pool = db.length > 0 ? db : [{a:"TEST", m:"Test", c:"General"}];
+            currentQ = pool[Math.floor(Math.random() * pool.length)];
+
+            // UI Updates
+            document.getElementById('qAbbr').innerText = currentQ.a;
+            document.getElementById('qContext').innerText = "CONTEXT: " + (currentQ.c || "General");
+            document.getElementById('gameInput').value = "";
+            document.getElementById('gameInput').disabled = false;
+            document.getElementById('gameInput').focus();
+            document.getElementById('feedbackMsg').innerHTML = "";
+
+            // Timer
+            let timeLeft = 30;
+            const timerDisplay = document.getElementById('gameTimer');
+            timerDisplay.innerText = timeLeft + "s";
+            clearInterval(timerInterval);
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerDisplay.innerText = timeLeft + "s";
+                if (timeLeft <= 0) endGame();
+            }, 1000);
+        }
+
+        function checkAnswer() {
+            const input = document.getElementById('gameInput').value.trim().toLowerCase();
+            const correct = currentQ.m.toLowerCase();
+
+            // Simple check (could be fuzzy)
+            if (input === correct || (input.length > 3 && correct.includes(input))) {
+                score += 10 + (streak * 2);
+                streak++;
+                document.getElementById('feedbackMsg').innerHTML = `<span style="color:var(--terminal-green)">CORRECT!</span>`;
+                updateScoreBoard();
+                setTimeout(nextQuestion, 1000);
+            } else {
+                streak = 0;
+                document.getElementById('feedbackMsg').innerHTML = `<span style="color:var(--burnt-orange)">WRONG. Answer: ${currentQ.m}</span>`;
+                updateScoreBoard();
+            }
+        }
+
+        function updateScoreBoard() {
+            document.getElementById('scoreVal').innerText = score;
+            document.getElementById('streakVal').innerText = streak;
+        }
+
+        function endGame() {
+            gameActive = false;
+            clearInterval(timerInterval);
+            document.getElementById('gameInput').disabled = true;
+            document.getElementById('feedbackMsg').innerHTML = "TIME UP!";
+            document.getElementById('startOverlay').style.display = 'flex';
+            document.getElementById('startBtn').innerText = "Play Again";
+        }
+    </script>
 </body>
 </html>

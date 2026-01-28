@@ -31,7 +31,7 @@
     
     <style>
         /* PAGE-SPECIFIC LAYOUTS ONLY 
-           (All Colors, Fonts, and UI Elements are now in layout.css) 
+           (All Colors, Fonts, and UI Elements are inherited from layout.css) 
         */
 
         /* Input Grid Layout */
@@ -43,6 +43,9 @@
             padding-bottom: 20px; 
             border-bottom: 1px dashed rgba(255,255,255,0.1); 
         }
+        /* Mobile adjustment for grid */
+        @media (max-width: 600px) { .config-grid { grid-template-columns: 1fr; } }
+
         .config-grid label { margin-top: 0; margin-bottom: 5px; }
 
         /* Output Box specific styling */
@@ -52,6 +55,7 @@
             border-left: 4px solid var(--terminal-green); 
             line-height: 1.6; 
             margin-bottom: 25px; 
+            font-family: "Arial", sans-serif; /* Ensure readability */
         }
 
         /* Analysis Section Animation */
@@ -63,7 +67,7 @@
             animation: fadeIn 0.5s ease; 
         }
 
-        /* Finding Items (Auditor) */
+        /* Finding Items (Auditor Results) */
         .finding-item { 
             background: rgba(255,255,255,0.03); 
             border-left: 3px solid var(--slate-grey); 
@@ -99,7 +103,9 @@
 </head>
 <body>
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
@@ -234,7 +240,7 @@
 
         const passiveWords = ["supported", "assisted", "helped", "participated", "involved", "team", "we", "us", "checked"];
         
-        // Internal Fallback
+        // Internal Fallback (will be overwritten by acronyms.js if loaded)
         let safeAcronymDb = ["ASME", "API", "ISO", "BS", "EN", "CFD", "FEA", "ALARP", "CDM", "HAZOP", "FMECA", "SIT", "FAT", "NDT"];
 
         // --- 2. INITIALIZATION ---
@@ -243,7 +249,7 @@
             if(typeof acronymDb !== 'undefined') { safeAcronymDb = acronymDb; } 
             else if(typeof acronyms !== 'undefined') { safeAcronymDb = acronyms; }
             
-            // Restore Data
+            // Restore Data from Local Storage
             const fields = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
             fields.forEach(id => {
                 const storedVal = localStorage.getItem('star_' + id);
@@ -254,7 +260,7 @@
             });
             updateCounts();
 
-            // Populate PEI Dropdown
+            // Populate PEI Dropdown from PEI.js
             const selector = document.getElementById('peiSelector');
             if(selector) {
                 if(typeof peiDatabase !== 'undefined') {
@@ -271,7 +277,7 @@
                 }
             }
 
-            // Listeners
+            // Listeners for Auto-Save
             const inputs = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
             inputs.forEach(id => {
                 const el = document.getElementById(id);
@@ -345,7 +351,7 @@
                 }
             });
 
-            // Action Score Calculation
+            // Action Score Calculation (Target: ~4% density of "I")
             let rawScore = Math.min(100, Math.round((iCount / (simpleWords.length * 0.04)) * 100));
             if(passiveCount > 2) rawScore -= (passiveCount * 2);
             if(rawScore < 0) rawScore = 0;

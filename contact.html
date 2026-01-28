@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,55 +8,75 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
         /* PAGE SPECIFIC STYLES */
-        .container { max-width: 600px; width: 100%; }
+        .container { max-width: 700px; width: 100%; margin-top: 50px; }
         
         .content-card { 
             background: var(--dark-card); 
             padding: 40px; 
             border-radius: 8px; 
             border: 1px solid var(--border-color); 
-            text-align: center; 
-            margin-top: 40px;
+            text-align: center;
         }
         
         h1 { 
             color: var(--terminal-green); 
             font-family: 'Courier Prime', monospace; 
-            margin-bottom: 20px; 
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 15px; 
+            margin-bottom: 20px;
         }
 
-        .email-link { 
-            display: inline-block; 
-            background: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 5px; 
-            margin-top: 20px; 
-            font-family: 'Courier Prime', monospace; 
-            transition: 0.2s;
+        p { 
+            line-height: 1.6; 
+            color: #d1d5db; 
+            margin-bottom: 30px; 
         }
-        .email-link:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        p { line-height: 1.6; color: #d1d5db; }
+        .email-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            border: 1px dashed var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 20px 30px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .email-btn:hover {
+            background: var(--terminal-green);
+            color: var(--midnight-navy);
+            border-style: solid;
+        }
+
+        .meta-info {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--slate-grey);
+            font-family: 'Courier Prime', monospace;
+        }
     </style>
 </head>
 <body>
     <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
@@ -76,17 +96,17 @@
             <h1>>> Open_Channel</h1>
             <p>We value feedback from the engineering community. If you have suggestions for new tools, bug reports, or partnership inquiries, please contact us directly.</p>
             
-            <a href="mailto:info@empoweringengineers.uk" class="email-link">EMAIL: info@empoweringengineers.uk</a>
+            <a href="mailto:info@empoweringengineers.uk" class="email-btn">EMAIL: info@empoweringengineers.uk</a>
             
-            <p style="margin-top: 30px; font-size: 0.9rem; color: var(--slate-grey);">
+            <div class="meta-info">
                 Response time: Typically 24-48 hours.<br>
                 Location: United Kingdom (GMT)
-            </p>
+            </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+	<footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
@@ -94,6 +114,5 @@
             <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
-
 </body>
 </html>
