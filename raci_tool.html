@@ -104,7 +104,7 @@
         th input {
             background: transparent;
             border: none;
-            color: #fff;
+            color: #fff; /* Header input stays white */
             font-weight: bold;
             text-align: center;
             width: 100%;
@@ -115,8 +115,17 @@
 
         td:first-child { width: 250px; background-color: #f4f4f4; text-align: left; }
         
-        td:first-child input { width: 100%; border: none; background: transparent; font-weight: 500; padding: 5px; }
+        /* FIX: Ensure Task Name is dark (overriding global layout.css) */
+        td:first-child input { 
+            width: 100%; 
+            border: none; 
+            background: transparent; 
+            font-weight: 500; 
+            padding: 5px; 
+            color: #0D1B2A !important; 
+        }
 
+        /* FIX: Ensure Dropdown Text is dark (overriding global layout.css) */
         .raci-select {
             width: 100%;
             border: none;
@@ -126,6 +135,7 @@
             -webkit-appearance: none;
             background: transparent;
             padding: 8px 0;
+            color: #0D1B2A !important; 
         }
         .raci-select:focus { outline: 2px solid #000; }
 
