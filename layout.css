@@ -1,132 +1,208 @@
-/* -----------------------------------------------------------
-   layout.css
-   Shared styles for Header, Footer, and Color Variables.
-   Link this in the <head> of every HTML page.
-   ----------------------------------------------------------- */
+/* EMPOWERING ENGINEERS UK - GLOBAL THEME [v6.0]
+   Standardized "Terminal Chic" Design
+*/
 
 :root {
-    /* Color Palette */
-    --midnight-navy: #0D1B2A;
-    --terminal-green: #00FF99;
-    --burnt-orange: #FF9F43;  /* Used for highlights/warnings */
-    --cloud-white: #FAFAFA;
-    --slate-grey: #8899A6;
-    --dark-card: rgba(255, 255, 255, 0.05);
-    --border-color: #1F3A52;
-    --alert-red: #ff4757;     /* Used for errors/timers */
+    /* --- BRAND PALETTE --- */
+    --midnight-navy: #0D1B2A;      /* Background */
+    --dark-card: #101925;          /* Card/Panel Background */
+    --slate-grey: #8899A6;         /* Secondary Text */
+    --terminal-green: #00FF99;     /* Primary Action/Success */
+    --burnt-orange: #FF5733;       /* Alert/Label */
+    --cloud-white: #E6EDF3;        /* Main Text */
+    --border-color: #30363d;       /* Borders */
+    --hover-green: rgba(0, 255, 153, 0.1);
 }
 
-/* Base Body Reset (Ensures consistent background) */
+/* --- TYPOGRAPHY --- */
 body {
     background-color: var(--midnight-navy);
     color: var(--cloud-white);
+    /* Reliability First: Arial is available on 99.9% of devices */
+    font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
     margin: 0;
-    padding: 20px; /* Standard padding for all pages */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    line-height: 1.6;
 }
 
-/* -----------------------------------------------------------
-   STICKY HEADER & NAVIGATION
-   ----------------------------------------------------------- */
+/* Brand Headers - Always Monospace */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Courier Prime', 'Courier New', monospace; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+    color: var(--terminal-green);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.1rem; color: #fff; border-bottom: 1px dashed var(--border-color); }
+
+/* --- NAVIGATION BAR --- */
 .sticky-container {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    background: var(--midnight-navy);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: rgba(13, 27, 42, 0.95); /* Slight transparency */
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    padding-top: 15px;
-    margin-bottom: 30px;
-    /* Ensure header spans full width even if body has padding */
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: calc(100% + 40px); 
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.site-brand {
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+.site-brand span { color: var(--terminal-green); }
+
+nav a {
+    color: var(--slate-grey);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    transition: color 0.2s;
+}
+nav a:hover, nav a.active { color: var(--terminal-green); }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    /* Brand Consistency: Footer now uses Courier to match Navbar */
+    font-family: 'Courier Prime', 'Courier New', monospace; 
+    font-size: 0.85rem;
+    color: var(--slate-grey);
+}
+footer a { color: var(--slate-grey); text-decoration: none; }
+footer a:hover { color: var(--terminal-green); }
+
+/* --- GLOBAL UI CONTAINERS --- */
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
-.site-brand { 
-    text-decoration: none; 
-    font-family: 'Lora', serif; 
-    font-size: 2rem; 
-    color: var(--cloud-white); 
-    font-weight: bold; 
-    margin-bottom: 10px; 
-    text-align: center;
+.card {
+    background: var(--dark-card);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* --- FORM ELEMENTS --- */
+label {
     display: block;
-}
-
-.site-brand span { 
-    color: var(--terminal-green); 
-    text-shadow: 0 0 15px rgba(0, 255, 153, 0.3); 
-}
-
-.site-brand:hover {
-    opacity: 0.8;
-}
-
-nav {
-    display: flex; 
-    justify-content: center; 
-    gap: 15px; 
-    flex-wrap: wrap; 
-    padding-bottom: 15px; 
-    width: 100%; 
-    max-width: 1200px;
-}
-
-nav a { 
-    text-decoration: none; 
-    font-family: 'Courier Prime', monospace; 
-    color: var(--slate-grey); 
-    font-size: 0.9rem; 
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--burnt-orange);
     font-weight: bold;
-    transition: color 0.2s ease;
+    font-size: 0.9rem;
 }
 
-nav a:hover { 
-    color: var(--terminal-green); 
-}
-
-/* Use class="active" on the link corresponding to the current page */
-nav a.active { 
-    color: var(--terminal-green); 
-    border-bottom: 1px solid var(--terminal-green); 
-}
-
-/* -----------------------------------------------------------
-   STANDARD FOOTER
-   ----------------------------------------------------------- */
-footer { 
-    margin-top: auto; 
-    padding: 40px; 
-    color: var(--slate-grey); 
-    font-size: 0.8rem; 
-    text-align: center; 
-    font-family: sans-serif;
+input[type="text"], 
+input[type="email"], 
+select, 
+textarea {
     width: 100%;
-    border-top: 1px solid var(--border-color);
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 12px;
+    /* Consistency: Input fields match Body text (Arial) */
+    font-family: "Arial", "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
 }
 
-footer p {
-    margin: 10px 0;
+/* Dropdowns use Monospace to look "Technical" */
+select { 
+    font-family: 'Courier Prime', 'Courier New', monospace; 
+    cursor: pointer; 
 }
 
-footer a { 
-    color: var(--slate-grey); 
-    text-decoration: underline; 
-    margin: 0 10px; 
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--terminal-green);
+    background: rgba(0, 255, 153, 0.05);
 }
 
-footer a:hover { 
-    color: var(--terminal-green); 
+/* --- BUTTONS --- */
+.action-btn {
+    background: var(--terminal-green);
+    color: var(--midnight-navy);
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: 0.3s;
+    font-family: 'Courier Prime', monospace;
+}
+.action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.action-btn:active { transform: translateY(1px); }
+
+/* Secondary / Ghost Button */
+.action-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--slate-grey);
+    color: var(--slate-grey);
+}
+.action-btn-ghost:hover {
+    border-color: var(--cloud-white);
+    color: var(--cloud-white);
+}
+
+/* AI Prompt Button */
+.ai-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--terminal-green);
+    color: var(--terminal-green);
+    padding: 15px;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+.ai-btn:hover { background: var(--hover-green); }
+
+/* --- HELPERS --- */
+.hint { font-size: 0.85rem; color: var(--slate-grey); margin-bottom: 5px; display: block; font-style: italic; }
+.word-count { font-size: 0.75rem; color: var(--slate-grey); text-align: right; margin-top: 2px; font-family: 'Courier Prime', monospace; }
+
+/* --- DASHBOARD GRIDS (Global) --- */
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.metric-card { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; text-align: center; }
+.score-val { font-size: 2rem; font-weight: 700; display: block; margin-bottom: 5px; font-family: "Arial", sans-serif; }
+.score-label { font-size: 0.75rem; color: var(--slate-grey); text-transform: uppercase; letter-spacing: 1px; }
+
+/* Mobile */
+@media (max-width: 600px) {
+    .dashboard-grid, .config-grid { grid-template-columns: 1fr; }
+    .sticky-container { flex-direction: column; }
+    nav { margin-top: 10px; }
 }

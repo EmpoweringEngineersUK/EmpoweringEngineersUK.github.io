@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,21 +8,27 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Interviewer | Empowering Engineers</title>
+    <title>Virtual Interviewer | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     
+    <meta property="og:title" content="Virtual Interviewer | Empowering Engineers UK">
+    <meta property="og:description" content="Simulate a Professional Review Interview (PRI) with timed UK-SPEC questions. Record your answers and get AI feedback.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/interview_tool.html">
+    <meta property="og:type" content="website">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
+    <script src="questions.js"></script>
+
     <style>
-        /* INTERVIEW TOOL SPECIFIC STYLES */
+        /* PAGE SPECIFIC STYLES */
         .interview-container {
             max-width: 900px;
             width: 100%;
@@ -36,15 +42,21 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             position: relative;
-            min-height: 300px;
+            min-height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: border-color 0.3s;
+        }
+        
+        .screen-card.recording-active {
+            border-color: var(--burnt-orange);
+            background: rgba(255, 87, 51, 0.05);
         }
 
         .category-badge {
@@ -62,19 +74,20 @@
 
         .question-text {
             font-family: 'Lora', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             line-height: 1.4;
             color: var(--cloud-white);
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .timer-display {
             font-family: 'Courier Prime', monospace;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--slate-grey);
             margin-top: 20px;
+            font-weight: bold;
         }
-        .timer-display.recording { color: var(--alert-red); animation: pulse 1s infinite; }
+        .timer-display.recording { color: var(--burnt-orange); animation: pulse 1s infinite; }
 
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
@@ -83,11 +96,11 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
-        .btn {
-            padding: 12px 24px;
+        .btn-int {
+            padding: 15px 30px;
             border: 1px solid var(--terminal-green);
             background: transparent;
             color: var(--terminal-green);
@@ -96,37 +109,38 @@
             cursor: pointer;
             transition: all 0.2s;
             text-transform: uppercase;
+            font-size: 1rem;
+            border-radius: 6px;
         }
-        .btn:hover { background: var(--terminal-green); color: var(--midnight-navy); }
-        .btn:disabled { border-color: #555; color: #555; cursor: not-allowed; background: transparent; }
+        .btn-int:hover { background: var(--terminal-green); color: var(--midnight-navy); transform: translateY(-2px); }
+        .btn-int:disabled { border-color: #555; color: #555; cursor: not-allowed; background: transparent; transform: none; }
         
-        .btn-record { border-color: var(--alert-red); color: var(--alert-red); }
-        .btn-record:hover { background: var(--alert-red); color: white; }
-
-        .btn-ai { border-color: var(--burnt-orange); color: var(--burnt-orange); }
-        .btn-ai:hover { background: var(--burnt-orange); color: white; }
+        .btn-record { border-color: var(--burnt-orange); color: var(--burnt-orange); }
+        .btn-record:hover { background: var(--burnt-orange); color: white; }
 
         /* AI Prompt Modal */
         .ai-modal {
             display: none;
             margin-top: 20px;
-            background: rgba(13, 27, 42, 0.9);
-            border: 1px solid var(--burnt-orange);
+            background: #09121d;
+            border: 1px dashed var(--terminal-green);
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 6px;
             text-align: left;
             width: 100%;
         }
         .ai-text {
             width: 100%;
             height: 150px;
-            background: #000;
-            color: #0f0;
+            background: rgba(0,0,0,0.3);
+            color: #00FF99;
             font-family: 'Courier Prime', monospace;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             padding: 10px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-top: 10px;
+            box-sizing: border-box;
+            resize: vertical;
         }
 
         /* Settings Area */
@@ -134,18 +148,26 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-family: 'Roboto', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--slate-grey);
+            background: var(--dark-card);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
         
-        select {
-            background: var(--midnight-navy);
+        .settings-bar select {
+            background: rgba(0,0,0,0.3);
             color: var(--cloud-white);
             border: 1px solid var(--border-color);
-            padding: 5px;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: 'Courier Prime', monospace;
         }
+
+        @media (max-width: 600px) { .settings-bar { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -155,74 +177,74 @@
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
-            <a href="raci_tool.html">RACI</a>
+			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
-            <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html" class="active">Interview</a>
-            <a href="guide.html">Manual</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
-    <h1 style="margin-top: 20px; text-align: center; color: var(--terminal-green);">Virtual Interview Simulator</h1>
-    <p style="text-align: center; max-width: 800px; margin-bottom: 20px;">
-        Practice your Professional Review Interview (PRI). Select your mode, hit record, and answer out loud. 
-        Use the AI Interrogator to critique your transcript against UK-SPEC.
-    </p>
+    <div class="container">
+        <div class="card" style="text-align:center; padding-bottom: 10px;">
+            <h2>Virtual Interview Simulator [v2.7]</h2>
+            <p style="color:var(--slate-grey); margin-bottom: 20px;">
+                Practice your Professional Review Interview (PRI). Select your mode, hit record, and answer out loud. 
+                Then use the AI Interrogator to critique your transcript against UK-SPEC.
+            </p>
 
-    <div class="settings-bar">
-        <div>
-            <label>Competency Focus:</label>
-            <select id="compSelect">
-                <option value="All">All Competencies (Full Mock)</option>
-                <option value="A">A - Innovation & Problem Solving</option>
-                <option value="B">B - Technical Solution</option>
-                <option value="C">C - Management & Responsibility</option>
-                <option value="D">D - Communication</option>
-                <option value="E">E - Ethics & Safety</option>
-            </select>
+            <div class="settings-bar">
+                <div>
+                    <label>Competency Focus:</label>
+                    <select id="compSelect">
+                        <option value="All">All Competencies (Full Mock)</option>
+                        <option value="A">A - Innovation & Problem Solving</option>
+                        <option value="B">B - Technical Solution</option>
+                        <option value="C">C - Management & Responsibility</option>
+                        <option value="D">D - Communication</option>
+                        <option value="E">E - Ethics & Safety</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Timer:</label>
+                    <select id="timeSelect">
+                        <option value="120">2 Minutes (Standard)</option>
+                        <option value="300">5 Minutes (Deep Dive)</option>
+                        <option value="60">1 Minute (Rapid Fire)</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>Timer:</label>
-            <select id="timeSelect">
-                <option value="120">2 Minutes (Standard)</option>
-                <option value="300">5 Minutes (Deep Dive)</option>
-                <option value="60">1 Minute (Rapid Fire)</option>
-            </select>
-        </div>
-    </div>
 
-    <div class="interview-container">
-        
         <div class="screen-card" id="questionCard">
             <div class="category-badge" id="catBadge">READY</div>
             <div class="question-text" id="qText">Press 'Start Interview' to begin.</div>
             <div class="timer-display" id="timer">00:00</div>
             
             <div id="aiSection" class="ai-modal">
-                <strong style="color:var(--burnt-orange)">>> AI ASSESSOR PROMPT GENERATED</strong>
-                <p style="font-size:0.8rem; margin:5px 0;">1. Transcribe your answer (using Word Dictate, Otter.ai, or typing).<br>2. Copy the prompt below.<br>3. Paste both into ChatGPT/Claude.</p>
-                <textarea id="aiPromptBox" class="ai-text" readonly></textarea>
-                <button class="btn btn-ai" onclick="copyPrompt()" style="margin-top:10px; width:100%;">COPY PROMPT TO CLIPBOARD</button>
+                <strong style="color:var(--terminal-green); font-family:'Courier Prime'; display:block; margin-bottom:10px;">>> AI ASSESSOR PROMPT GENERATED</strong>
+                <p style="font-size:0.85rem; color:var(--slate-grey); margin:5px 0;">1. Transcribe your answer (Dictate or Type).<br>2. Paste it into the box below.<br>3. Copy entire prompt to ChatGPT.</p>
+                <textarea id="aiPromptBox" class="ai-text"></textarea>
+                <button class="btn-int" onclick="copyPrompt()" style="margin-top:10px; width:100%; font-size:0.9rem;">COPY TO CLIPBOARD</button>
             </div>
         </div>
 
         <div class="controls">
-            <button class="btn" id="startBtn" onclick="startInterview()">Start Interview</button>
-            <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next Question >></button>
-            <button class="btn btn-record" id="recBtn" onclick="toggleRecording()" disabled>Rec</button>
-            <button class="btn btn-ai" id="aiBtn" onclick="generatePrompt()" disabled>AI Review</button>
+            <button class="btn-int" id="startBtn" onclick="startInterview()">Start Interview</button>
+            <button class="btn-int" id="nextBtn" onclick="nextQuestion()" disabled>Next Question >></button>
+            <button class="btn-int btn-record" id="recBtn" onclick="toggleRecording()" disabled>Rec</button>
+            <button class="btn-int" id="aiBtn" onclick="generatePrompt()" disabled>AI Review</button>
         </div>
 
-        <audio id="audioPlayback" controls style="width: 100%; display: none;"></audio>
+        <audio id="audioPlayback" controls style="width: 100%; display: none; margin-top:20px;"></audio>
 
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
@@ -231,8 +253,6 @@
         </p>
     </footer>
     
-    <script src="questions.js"></script>
-
     <script>
         let currentQ = null;
         let timerInterval = null;
@@ -240,6 +260,20 @@
         let isRecording = false;
         let mediaRecorder;
         let audioChunks = [];
+        
+        // Internal Fallback if questions.js fails
+        let db = [
+            { catCode: "Intro", catLabel: "Introduction", text: "Please introduce yourself and summarize your career." },
+            { catCode: "A1", catLabel: "A1: Knowledge", text: "Describe a time you used new technology to solve a problem." },
+            { catCode: "B2", catLabel: "B2: Design", text: "How do you ensure your designs are safe and compliant?" },
+            { catCode: "C3", catLabel: "C3: Leadership", text: "Tell us about a time you led a team through a difficult challenge." },
+            { catCode: "E5", catLabel: "E5: Ethics", text: "Describe an ethical dilemma you have faced at work." }
+        ];
+
+        // Ensure we use the external file if loaded
+        document.addEventListener('DOMContentLoaded', () => {
+             if(typeof questions !== 'undefined') db = questions;
+        });
 
         // --- CORE FUNCTIONS ---
 
@@ -256,14 +290,16 @@
             document.getElementById('aiSection').style.display = 'none';
             document.getElementById('audioPlayback').style.display = 'none';
             
-            // Filter questions based on selection (Updated to include sub-categories like A1, A2)
+            // Filter questions
             const filter = document.getElementById('compSelect').value;
-            let available = questions; // 'questions' is now loaded from questions.js
+            let available = db;
             
             if(filter !== "All") {
                 // Allows "A" to match "A1", "A2", etc.
-                available = questions.filter(q => q.catCode.startsWith(filter) || q.catCode === "Intro");
+                available = db.filter(q => q.catCode.startsWith(filter) || q.catCode === "Intro");
             }
+            
+            if(available.length === 0) available = db; // Fallback
 
             // Pick random
             const randomIndex = Math.floor(Math.random() * available.length);
@@ -281,6 +317,7 @@
         function toggleRecording() {
             const btn = document.getElementById('recBtn');
             const timerDisplay = document.getElementById('timer');
+            const card = document.getElementById('questionCard');
 
             if (!isRecording) {
                 // START RECORDING
@@ -305,15 +342,24 @@
                         isRecording = true;
                         btn.innerText = "STOP";
                         timerDisplay.classList.add('recording');
+                        card.classList.add('recording-active');
                         startTimer();
                     })
-                    .catch(err => alert("Microphone access denied. You can still use the timer/prompts."));
+                    .catch(err => {
+                        alert("Microphone access denied. You can still use the timer/prompts.");
+                        // Allow timer to work even if mic fails
+                        isRecording = true;
+                        btn.innerText = "STOP";
+                        timerDisplay.classList.add('recording');
+                        startTimer();
+                    });
             } else {
                 // STOP RECORDING
-                mediaRecorder.stop();
+                if(mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
                 isRecording = false;
                 btn.innerText = "REC";
                 timerDisplay.classList.remove('recording');
+                card.classList.remove('recording-active');
                 stopTimer();
             }
         }
@@ -330,7 +376,7 @@
                 document.getElementById('timer').innerText = `${mins}:${secs}`;
 
                 if(seconds >= limit) {
-                    document.getElementById('timer').style.color = "red";
+                    document.getElementById('timer').style.color = "var(--burnt-orange)";
                 }
             }, 1000);
         }
@@ -365,7 +411,7 @@ Below is the transcript of my spoken answer:
 [PASTE YOUR TRANSCRIPT HERE]
 """
 
-Please critique my response objectively against the UK-SPEC 4th Edition standards (https://www.engc.org.uk/professional-registration/our-professional-titles). 
+Please critique my response objectively against the UK-SPEC 4th Edition standards. 
 
 1. Does this answer demonstrate the required level of responsibility and competence?
 2. Identify 3 strengths in my delivery or technical content.
@@ -385,7 +431,7 @@ Please critique my response objectively against the UK-SPEC 4th Edition standard
             copyText.setSelectionRange(0, 99999); 
             navigator.clipboard.writeText(copyText.value);
             
-            const btn = document.querySelector('.btn-ai');
+            const btn = document.querySelector('#aiSection .btn-int');
             const originalText = btn.innerText;
             btn.innerText = "COPIED!";
             setTimeout(() => { btn.innerText = originalText; }, 2000);

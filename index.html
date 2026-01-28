@@ -23,11 +23,10 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="layout.css">
 
     <style>
-        /* HOMEPAGE SPECIFIC STYLES */
+        /* HOMEPAGE SPECIFIC GRID */
         .hero {
             text-align: center;
             padding: 40px 20px 20px; 
@@ -35,15 +34,6 @@
             margin: 0 auto;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--cloud-white);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* CARD GRID SYSTEM */
         .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -99,22 +89,17 @@
             font-size: 0.95rem;
             line-height: 1.5;
         }
-
-        @media (max-width: 600px) {
-            .tool-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
-<div class="sticky-container">
+    <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
             <a href="career_tool.html">Career</a>
             <a href="cpd_tool.html">CPD</a>
             <a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
-            <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
@@ -125,99 +110,54 @@
     </div>
 
     <div class="hero">
-        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration through proven methodologies that deliver value to both engineers and their employers.</p>
+        <p>Open-source, privacy-first tools to accelerate your journey to CEng, IEng, and EngTech registration.</p>
     </div>
 
     <div class="tool-grid">
-
         <a href="career_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Career_Starter</span>
-                <span class="nav-status">[v1.1]</span>
-            </div>
-            <div class="nav-desc">Synthesise your technical history, CPD, and training into a professional profile that showcases your potential to employers.</div>
+            <div class="nav-header"><span class="nav-title">Career_Starter</span><span class="nav-status">[v1.1]</span></div>
+            <div class="nav-desc">Synthesise your technical history into a professional profile that showcases your value.</div>
         </a>
-
         <a href="cpd_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">CPD_Tracker</span>
-                <span class="nav-status">[v3.1]</span>
-            </div>
-            <div class="nav-desc">Log, categorise, and reflect on your Continuous Professional Development. Export to CSV for registration.</div>
+            <div class="nav-header"><span class="nav-title">CPD_Tracker</span><span class="nav-status">[v3.1]</span></div>
+            <div class="nav-desc">Log and reflect on your Continuous Professional Development. Export to CSV.</div>
         </a>
-
         <a href="raci_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">RACI_Matrix</span>
-                <span class="nav-status">[v2.4]</span>
-            </div>
-            <div class="nav-desc">Generate responsibility matrices for technical projects, STEM volunteering, and professional events.</div>
+            <div class="nav-header"><span class="nav-title">RACI_Matrix</span><span class="nav-status">[v2.4]</span></div>
+            <div class="nav-desc">Generate responsibility matrices for projects and volunteering.</div>
         </a>
-
         <a href="STAR_engine.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">STAR_Generator</span>
-                <span class="nav-status">[v4.0]</span>
-            </div>
+            <div class="nav-header"><span class="nav-title">STAR_Generator</span><span class="nav-status">[v4.1]</span></div>
             <div class="nav-desc">Draft perfect competency examples using the Situation, Task, Action, Result framework.</div>
         </a>
-
         <a href="STAR_reviewer.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Competence_Reviewer</span>
-                <span class="nav-status">[v2.1]</span>
-            </div>
-            <div class="nav-desc">Paste your draft application text for instant AI analysis against UK-SPEC criteria.</div>
+            <div class="nav-header"><span class="nav-title">Competence_Reviewer</span><span class="nav-status">[v2.1]</span></div>
+            <div class="nav-desc">Paste existing text for instant AI analysis against UK-SPEC criteria.</div>
         </a>
-
         <a href="ethics_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Ethics_Compass</span>
-                <span class="nav-status">[v1.5]</span>
-            </div>
+            <div class="nav-header"><span class="nav-title">Ethics_Compass</span><span class="nav-status">[v1.5]</span></div>
             <div class="nav-desc">Navigate ethical dilemmas using the RAEng Statement of Ethical Principles.</div>
         </a>
-
         <a href="feedback_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Feedback_Studio</span>
-                <span class="nav-status">[v1.1]</span>
-            </div>
-            <div class="nav-desc">Structure difficult conversations and performance reviews using AID and SBI models.</div>
+            <div class="nav-header"><span class="nav-title">Feedback_Studio</span><span class="nav-status">[v1.1]</span></div>
+            <div class="nav-desc">Structure difficult conversations using AID and SBI models.</div>
         </a>
-
         <a href="glossary_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">The_Decoder</span>
-                <span class="nav-status">[v3.0]</span>
-            </div>
-            <div class="nav-desc">Search 14,000+ engineering acronyms across Civil, Mech, Elec, and Project Management.</div>
+            <div class="nav-header"><span class="nav-title">The_Decoder</span><span class="nav-status">[v3.0]</span></div>
+            <div class="nav-desc">Search 14,000+ engineering acronyms across all disciplines.</div>
         </a>
-
         <a href="report_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Report_Builder</span>
-                <span class="nav-status">[v1.2]</span>
-            </div>
-            <div class="nav-desc">Structure technical reports (FEA, Failure Analysis) with standard professional templates.</div>
+            <div class="nav-header"><span class="nav-title">Report_Builder</span><span class="nav-status">[v1.2]</span></div>
+            <div class="nav-desc">Structure technical reports with professional templates.</div>
         </a>
-
         <a href="interview_tool.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">Virtual_Interviewer</span>
-                <span class="nav-status">[v2.7]</span>
-            </div>
-            <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed UK-SPEC questions.</div>
+            <div class="nav-header"><span class="nav-title">Virtual_Interviewer</span><span class="nav-status">[v2.7]</span></div>
+            <div class="nav-desc">Simulate a Professional Review Interview (PRI) with timed questions.</div>
         </a>
-
         <a href="guide.html" class="nav-card">
-            <div class="nav-header">
-                <span class="nav-title">User_Manual</span>
-                <span class="nav-status">[DOCS]</span>
-            </div>
-            <div class="nav-desc">Documentation on how to use these tools effectively and safely for your career development.</div>
+            <div class="nav-header"><span class="nav-title">User_Manual</span><span class="nav-status">[DOCS]</span></div>
+            <div class="nav-desc">Documentation on how to use these tools effectively.</div>
         </a>
-
     </div>
 
     <footer>

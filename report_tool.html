@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,49 +8,157 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Report Architect | Empowering Engineers</title>
+    <title>Technical Report Architect | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="Technical Report Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Generate professional engineering report structures (IET, FEA, Failure Analysis) and export to Word.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/report_tool.html">
+    <meta property="og:type" content="website">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
         /* PAGE SPECIFIC STYLES */
         .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; }
-        .header { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
-        h1 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 10px 0; color: var(--cloud-white); }
-        .subtitle { color: var(--slate-grey); margin-top: 0; }
         
-        .card { background: var(--dark-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
-        h2.card-title { font-size: 1.1rem; border-bottom: 1px solid var(--terminal-green); padding-bottom: 10px; margin-bottom: 20px; color: var(--terminal-green); text-transform: uppercase; letter-spacing: 1px; }
+        .card { 
+            background: var(--dark-card); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        h2.card-title { 
+            font-size: 1.1rem; 
+            border-bottom: 1px solid var(--terminal-green); 
+            padding-bottom: 10px; 
+            margin-bottom: 20px; 
+            color: var(--terminal-green); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
         
         .input-group { margin-bottom: 15px; }
-        .input-text { width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; border-radius: 4px; font-family: 'Roboto', sans-serif; box-sizing: border-box; }
+        .input-text { 
+            width: 100%; 
+            padding: 10px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--border-color); 
+            color: white; 
+            border-radius: 4px; 
+            font-family: 'Roboto', sans-serif; 
+            box-sizing: border-box; 
+        }
         .input-text:focus { outline: none; border-color: var(--terminal-green); }
         
-        .preset-select { width: 100%; padding: 12px; background-color: var(--terminal-green); color: var(--midnight-navy); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 20px; }
+        .preset-select { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-bottom: 20px; 
+            font-family: 'Courier Prime', monospace;
+        }
         
-        .module-grid { display: grid; grid-template-columns: 1fr; gap: 6px; max-height: 600px; overflow-y: auto; padding-right: 10px; border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; background: rgba(0,0,0,0.2); }
-        .module-category { font-size: 0.85rem; color: var(--slate-grey); font-weight: bold; margin-top: 15px; margin-bottom: 5px; border-bottom: 1px solid var(--border-color); }
+        .module-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 6px; 
+            max-height: 600px; 
+            overflow-y: auto; 
+            border: 1px solid var(--border-color); 
+            padding: 10px; 
+            border-radius: 4px; 
+            background: rgba(0,0,0,0.2); 
+        }
         
-        .checkbox-label { display: flex; align-items: center; cursor: pointer; padding: 6px 10px; border-radius: 4px; transition: 0.2s; font-size: 0.95rem; color: var(--cloud-white); }
+        .module-category { 
+            font-size: 0.85rem; 
+            color: var(--slate-grey); 
+            font-weight: bold; 
+            margin-top: 15px; 
+            margin-bottom: 5px; 
+            border-bottom: 1px solid var(--border-color); 
+            font-family: 'Courier Prime', monospace;
+        }
+        
+        .checkbox-label { 
+            display: flex; 
+            align-items: center; 
+            cursor: pointer; 
+            padding: 6px 10px; 
+            border-radius: 4px; 
+            transition: 0.2s; 
+            font-size: 0.95rem; 
+            color: var(--cloud-white); 
+        }
         .checkbox-label:hover { background: rgba(255,255,255,0.1); }
-        input[type="checkbox"] { accent-color: var(--terminal-green); width: 16px; height: 16px; margin-right: 10px; }
         
-        .preview-box { background: #09121d; color: #e2e8f0; padding: 40px; border-radius: 8px; font-family: 'Courier Prime', monospace; white-space: pre-wrap; min-height: 600px; overflow-y: auto; font-size: 0.9rem; line-height: 1.6; border: 1px solid var(--border-color); }
+        input[type="checkbox"] { 
+            accent-color: var(--terminal-green); 
+            width: 16px; 
+            height: 16px; 
+            margin-right: 10px; 
+        }
+        
+        .preview-box { 
+            background: #09121d; 
+            color: #e2e8f0; 
+            padding: 40px; 
+            border-radius: 8px; 
+            font-family: 'Courier Prime', monospace; 
+            white-space: pre-wrap; 
+            min-height: 600px; 
+            overflow-y: auto; 
+            font-size: 0.9rem; 
+            line-height: 1.6; 
+            border: 1px solid var(--border-color); 
+        }
         
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-        .btn-action { background: var(--terminal-green); color: var(--midnight-navy); border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: 0.2s; text-transform: uppercase; }
+        
+        .btn-action { 
+            background: var(--terminal-green); 
+            color: var(--midnight-navy); 
+            border: none; 
+            padding: 15px; 
+            width: 100%; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            transition: 0.2s; 
+            text-transform: uppercase; 
+            font-family: 'Courier Prime', monospace;
+        }
         .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
-        .btn-secondary { background: transparent; border: 1px solid var(--terminal-green); color: var(--terminal-green); }
+        
+        .btn-secondary { 
+            background: transparent; 
+            border: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+        }
         .btn-secondary:hover { background: rgba(0, 255, 153, 0.1); }
 
         @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <div class="sticky-container">
         <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
         <nav>
@@ -58,7 +166,6 @@
             <a href="cpd_tool.html">CPD</a>
 			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html">STAR-Gen</a>
-            <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
@@ -68,22 +175,23 @@
         </nav>
     </div>
 
-    <div class="header">
-        <h1>Technical Report Architect v9.3</h1>
-        <p class="subtitle">Expert Documentation Generator (IET / FEA / QFD)</p>
-    </div>
-
     <div class="container">
         <div class="card">
             <h2 class="card-title">1. Configuration</h2>
-            <div class="input-group"><input type="text" id="reportTitle" class="input-text" placeholder="Report Title (e.g. FEA Analysis)"></div>
-            <div class="input-group"><input type="text" id="authorName" class="input-text" placeholder="Author / Engineer Name"></div>
+            
+            <div class="input-group">
+                <input type="text" id="reportTitle" class="input-text" placeholder="Report Title (e.g. FEA Analysis of Bracket)">
+            </div>
+            <div class="input-group">
+                <input type="text" id="authorName" class="input-text" placeholder="Author / Engineer Name">
+            </div>
+            
             <label style="font-size:0.9rem; font-weight:bold; display:block; margin-bottom:5px; color:var(--slate-grey);">Load Preset Template:</label>
             <select class="preset-select" id="presetSelector" onchange="applyPreset()">
                 <option value="custom">-- Select Report Type --</option>
                 <option value="iet_standard">IET Standard (Professional)</option>
                 <option value="academic">Academic Lab Report</option>
-                <option value="fea">FEA Simulation Report</option>
+                <option value="fea">FEA / CFD Simulation Report</option>
                 <option value="qfd">QFD / House of Quality</option>
                 <option value="failure">Failure Analysis (RCA)</option>
                 <option value="design">Design Report / FEED</option>
@@ -105,9 +213,10 @@
 
                 <div class="module-category">FEA / SIMULATION</div>
                 <label class="checkbox-label"><input type="checkbox" id="mod_geometry"> Model Geometry</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_assumptions"> Assumptions</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_assumptions"> Assumptions & Limitations</label>
                 <label class="checkbox-label"><input type="checkbox" id="mod_boundary"> Boundary Conditions</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_results_fea"> FEA Results</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_mesh"> Mesh Quality</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_results_fea"> FEA Results (Stress/Disp)</label>
 
                 <div class="module-category">GENERAL ENGINEERING</div>
                 <label class="checkbox-label"><input type="checkbox" id="mod_method"> Methodology</label>
@@ -120,7 +229,7 @@
                 <label class="checkbox-label"><input type="checkbox" id="mod_pid"> Project Initiation</label>
                 <label class="checkbox-label"><input type="checkbox" id="mod_stakeholder"> Stakeholder Mgmt</label>
                 <label class="checkbox-label"><input type="checkbox" id="mod_risk"> Risk Assessment</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_timeline"> Timeline</label>
+                <label class="checkbox-label"><input type="checkbox" id="mod_timeline"> Timeline / Gantt</label>
                 <label class="checkbox-label"><input type="checkbox" id="mod_finance"> Financial Analysis</label>
 
                 <div class="module-category">BACK MATTER</div>
@@ -129,11 +238,13 @@
                 <label class="checkbox-label"><input type="checkbox" id="mod_refs"> References</label>
                 <label class="checkbox-label"><input type="checkbox" id="mod_appendices"> Appendices</label>
             </div>
-            <button class="btn-action" onclick="generateReport()">Update Preview</button>
+            
+            <button class="btn-action" onclick="generateReport()" style="margin-top:15px;">Update Preview</button>
             <button class="btn-action" onclick="clearReportData()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey); margin-top:10px;">Reset Form</button>
         </div>
+
         <div class="card">
-            <h2 class="card-title">2. Output</h2>
+            <h2 class="card-title">2. Document Preview</h2>
             <div id="outputArea" class="preview-box">> Select modules to begin...</div>
             
             <div class="btn-group">
@@ -206,12 +317,15 @@
         // --- PRESET LOGIC ---
         function applyPreset() {
             const type = document.getElementById('presetSelector').value;
+            
             // Uncheck all first
-            checkboxes.forEach(cb => { cb.checked = false; localStorage.removeItem('rep_' + cb.id); });
+            checkboxes.forEach(cb => { 
+                cb.checked = false; 
+                localStorage.removeItem('rep_' + cb.id); 
+            });
 
             let toCheck = [];
             
-            // FULL PRESET MAPPING
             if (type === 'iet_standard') {
                 toCheck = ['mod_exec', 'mod_ack', 'mod_intro', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
             } 
@@ -219,7 +333,7 @@
                 toCheck = ['mod_intro', 'mod_lit', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs', 'mod_appendices'];
             }
             else if (type === 'fea') {
-                toCheck = ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_results_fea', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
+                toCheck = ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_mesh', 'mod_results_fea', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
             }
             else if (type === 'qfd') {
                 toCheck = ['mod_intro', 'mod_voc', 'mod_hoq', 'mod_tech_reqs', 'mod_design', 'mod_conclusion', 'mod_appendices'];
@@ -236,24 +350,29 @@
             
             toCheck.forEach(id => {
                 const el = document.getElementById(id);
-                if(el) { el.checked = true; localStorage.setItem('rep_' + id, 'true'); }
+                if(el) { 
+                    el.checked = true; 
+                    localStorage.setItem('rep_' + id, 'true'); 
+                }
             });
+            
             generateReport();
         }
 
         function generateReport() {
             let sectionCounter = 1;
-            // Handle empty fields properly
             const title = document.getElementById('reportTitle').value.trim() || "[REPORT TITLE]";
             const author = document.getElementById('authorName').value.trim() || "[AUTHOR NAME]";
             const date = new Date().toLocaleDateString('en-GB');
             
             let content = `TITLE: ${title}\nAUTHOR: ${author}\nDATE: ${date}\nSTATUS: DRAFT\n========================================================\n\n`;
 
+            // Logic to grab selected checkboxes in order
+            // Note: The order in the HTML determines the order in the loop
             checkboxes.forEach(cb => {
                 if(cb.checked) {
                     const label = cb.parentElement.textContent.trim();
-                    content += `${sectionCounter}.0 ${label.toUpperCase()}\n> [Insert text here...]\n\n`;
+                    content += `${sectionCounter}.0 ${label.toUpperCase()}\n\n[Insert ${label} content here...]\n\n`;
                     sectionCounter++;
                 }
             });
@@ -263,7 +382,12 @@
 
         function copyToClipboard() {
             const text = document.getElementById('outputArea').innerText;
-            navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.btn-secondary');
+                const orig = btn.innerText;
+                btn.innerText = "COPIED!";
+                setTimeout(() => { btn.innerText = orig; }, 2000);
+            });
         }
 
         // --- WORD EXPORT FUNCTION ---
@@ -271,7 +395,7 @@
             const text = document.getElementById('outputArea').innerText;
             if(!text || text.includes("> Select modules")) { alert("Please generate a report first."); return; }
 
-            // Convert plain text newlines to HTML breaks for the Word file
+            // Convert plain text newlines to HTML breaks for Word
             const htmlContent = text.replace(/\n/g, '<br>');
             
             const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Report</title></head><body><div style='font-family:Calibri, sans-serif; font-size:12pt;'>";

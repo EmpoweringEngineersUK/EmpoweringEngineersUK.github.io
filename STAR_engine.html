@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STAR Engine | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,90 +8,93 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR Engine & Auditor [v4.2] | Empowering Engineers UK</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="STAR Engine & Auditor | Empowering Engineers UK">
+    <meta property="og:description" content="Draft, Compile, and Audit your Engineering Competency Statements. Features UK-SPEC Mapping and Smart Acronym Detection.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/STAR_engine.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
+    <script src="verb.js" onerror="console.warn('verb.js fallback')"></script> 
+    <script src="acronyms.js" onerror="console.warn('acronyms.js fallback')"></script>
+    <script src="PEI.js" onerror="console.warn('PEI.js fallback')"></script> 
+    
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 800px; width: 100%; }
+        /* PAGE-SPECIFIC LAYOUTS ONLY 
+           (All Colors, Fonts, and UI Elements are now in layout.css) 
+        */
 
-        .card { 
-            background: var(--dark-card); 
-            padding: 30px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            margin-bottom: 20px; 
-            position: relative;
+        /* Input Grid Layout */
+        .config-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            margin-bottom: 25px; 
+            padding-bottom: 20px; 
+            border-bottom: 1px dashed rgba(255,255,255,0.1); 
         }
+        .config-grid label { margin-top: 0; margin-bottom: 5px; }
 
-        h2 { 
-            border-bottom: 1px solid var(--terminal-green); 
-            color: var(--terminal-green); 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-            font-family: 'Courier Prime', monospace; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-
-        label { display: block; margin-top: 20px; color: var(--burnt-orange); font-weight: bold; }
-        .hint { font-size: 0.85rem; color: var(--slate-grey); margin-bottom: 5px; display: block; }
-        
-        textarea { 
-            width: 100%; 
-            height: 80px; 
-            background: rgba(0,0,0,0.3); 
-            border: 1px solid var(--border-color); 
-            color: white; 
-            padding: 10px; 
-            font-family: 'Roboto', sans-serif; 
-            border-radius: 4px; 
-            resize: vertical;
-            box-sizing: border-box;
-        }
-        textarea:focus { outline: none; border-color: var(--terminal-green); }
-
-        .word-count { font-size: 0.75rem; color: var(--slate-grey); text-align: right; margin-top: 2px; font-family: 'Courier Prime', monospace; }
-
-        .action-btn { 
-            background: var(--terminal-green); 
-            color: var(--midnight-navy); 
-            border: none; 
-            padding: 15px; 
-            width: 100%; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            font-size: 1rem; 
-            margin-top: 25px; 
-            transition: 0.3s; 
-        }
-        .action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-
-        .ai-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed var(--terminal-green);
-            color: var(--terminal-green);
-            padding: 12px;
-            width: 100%;
-            cursor: pointer;
-            font-family: 'Courier Prime', monospace;
-            margin-top: 15px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .ai-btn:hover { background: rgba(0, 255, 153, 0.1); }
-
+        /* Output Box specific styling */
         .output-box { 
             background: #09121d; 
             padding: 20px; 
             border-left: 4px solid var(--terminal-green); 
-            margin-top: 30px; 
-            display: none; 
-            line-height: 1.6;
+            line-height: 1.6; 
+            margin-bottom: 25px; 
         }
+
+        /* Analysis Section Animation */
+        #analysisSection { 
+            display: none; 
+            margin-top: 30px; 
+            border-top: 2px solid var(--terminal-green); 
+            padding-top: 20px; 
+            animation: fadeIn 0.5s ease; 
+        }
+
+        /* Finding Items (Auditor) */
+        .finding-item { 
+            background: rgba(255,255,255,0.03); 
+            border-left: 3px solid var(--slate-grey); 
+            padding: 10px 15px; 
+            margin-bottom: 8px; 
+            font-size: 0.9rem; 
+        }
+        .f-warn { border-left-color: var(--burnt-orange); } 
+        .f-good { border-left-color: var(--terminal-green); }
+        .f-info { border-left-color: #4A90E2; }
+        
+        /* Bars & Tags */
+        .comp-bar-container { margin-bottom: 12px; }
+        .comp-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: #ccc; margin-bottom: 4px; }
+        .comp-track { width: 100%; background: #1B263B; height: 8px; border-radius: 4px; overflow: hidden; }
+        .comp-fill { height: 100%; background: var(--terminal-green); width: 0%; transition: width 1s ease; }
+        
+        .sub-tag { 
+            display: inline-block; 
+            background: rgba(0,255,153,0.1); 
+            border: 1px solid var(--terminal-green); 
+            color: var(--terminal-green); 
+            padding: 2px 6px; 
+            border-radius: 3px; 
+            font-size: 0.75rem; 
+            margin-right: 5px; 
+            margin-bottom: 5px; 
+            font-family: 'Courier Prime', monospace;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -107,26 +105,42 @@
             <a href="cpd_tool.html">CPD</a>
 			<a href="raci_tool.html">RACI</a>
             <a href="STAR_engine.html" class="active">STAR-Gen</a>
-            <a href="STAR_reviewer.html">Reviewer</a>
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
             <a href="report_tool.html">Report</a>
             <a href="interview_tool.html">Interview</a>
-			<a href="guide.html" >Manual</a>
+			<a href="guide.html">Manual</a>
         </nav>
     </div>
 
     <div class="container">
         <div class="card">
-            <h2>Competency Generator</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem;">
-                Drafting technical reports is hard. Use this tool to force yourself into the <strong>STAR format</strong> (Situation, Task, Action, Result). 
-                Focus on "I", not "We".
+            <h2>STAR Engine & Auditor [v4.2]</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom: 25px;">
+                Draft your competency example. We will compile it, analyse it against UK-SPEC (A1-E5), and generate an AI refinement prompt.
             </p>
 
+            <div class="config-grid">
+                <div>
+                    <label>Target Goal</label>
+                    <select id="goalSelector">
+                        <option value="CEng">CEng (Chartered Engineer)</option>
+                        <option value="IEng">IEng (Incorporated Engineer)</option>
+                        <option value="EngTech">EngTech (Technician)</option>
+                        <option value="JOB">Job Application / Interview</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Target Institution / Sector</label>
+                    <select id="peiSelector">
+                        <option value="General Engineering">General / Agnostic</option>
+                        </select>
+                </div>
+            </div>
+
             <label>1. Situation (Context)</label>
-            <span class="hint">Briefly describe the project, problem, or technical challenge. Keep it short.</span>
+            <span class="hint">The specific project, problem, or technical challenge.</span>
             <textarea id="situation" placeholder="e.g. During the shutdown of the main turbine, we identified a vibration issue..."></textarea>
             <div class="word-count" id="situationCount">0 words</div>
 
@@ -136,28 +150,57 @@
             <div class="word-count" id="taskCount">0 words</div>
 
             <label>3. Action (The Critical Part)</label>
-            <span class="hint">What did you calculate, design, lead, or decide? (Use strong verbs: Calculated, Authorized, Negotiated).</span>
-            <textarea id="action" placeholder="e.g. I performed a Finite Element Analysis and authorized the replacement of..."></textarea>
+            <span class="hint">What did you calculate, design, lead, or decide? Use "I", not "We".</span>
+            <textarea id="action" placeholder="e.g. I performed a Finite Element Analysis and authorised the replacement of..."></textarea>
             <div class="word-count" id="actionCount">0 words</div>
 
             <label>4. Result (Outcome)</label>
-            <span class="hint">What changed? Did you save money, improve safety, or meet the deadline?</span>
+            <span class="hint">What changed? (Cost saved, safety improved, deadline met).</span>
             <textarea id="result" placeholder="e.g. This reduced downtime by 12 hours and saved the project £50k..."></textarea>
             <div class="word-count" id="resultCount">0 words</div>
 
             <div class="word-count" id="totalCount" style="margin-top:15px; font-weight:bold; color:var(--terminal-green);">Total: 0 words</div>
 
-            <button class="action-btn" onclick="generate()">Compile Evidence</button>
-            <button class="action-btn" onclick="clearData()" style="background:transparent; border:1px solid var(--slate-grey); color:var(--slate-grey); margin-top:10px;">Reset Form</button>
-            
-            <div id="outputBox" class="output-box"></div>
-            
-            <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()" style="display:none;">>> COPY AI "CEng CRITIQUE" PROMPT</button>
+            <button type="button" class="action-btn" onclick="compileAndReview()">Compile & Analyse Statement</button>
+            <button type="button" class="action-btn action-btn-ghost" onclick="clearData()">Reset Form</button>
+
+            <div id="analysisSection">
+                <h3>// COMPILED EVIDENCE STATEMENT</h3>
+                <div id="outputBox" class="output-box"></div>
+
+                <h3>// AUTOMATED REVIEW DASHBOARD</h3>
+                <div class="dashboard-grid">
+                    <div class="metric-card">
+                        <span class="score-val" id="impactScore" style="color: #00FF99;">0%</span>
+                        <span class="score-label">Action Bias Score (I vs We)</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="score-val" id="compDominant" style="color: #fff; font-size:1.5rem;">-</span>
+                        <span class="score-label">Dominant Competency</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div>
+                        <span class="score-label" style="display:block; margin-bottom:10px; text-align:left;">Competency Radar (A-E)</span>
+                        <div id="competencyBars"></div>
+                    </div>
+                    <div>
+                        <span class="score-label" style="display:block; margin-bottom:10px; text-align:left;">Detailed Breakdown (Sub-Comps)</span>
+                        <div id="subCompList"></div>
+                    </div>
+                </div>
+                
+                <span class="score-label" style="display:block; margin-bottom:10px; text-align:left;">Findings & Acronyms</span>
+                <div id="findingsList"></div>
+
+                <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()">>> GENERATE AI "CRITIQUE" PROMPT</button>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
         <p>
             <a href="about.html">About Us</a> | 
             <a href="contact.html">Contact Us</a> | 
@@ -167,96 +210,314 @@
     </footer>
 
     <script>
-        // --- AUTO-SAVE SYSTEM ---
-        window.onload = function() {
-            if(localStorage.getItem('star_situation')) document.getElementById('situation').value = localStorage.getItem('star_situation');
-            if(localStorage.getItem('star_task')) document.getElementById('task').value = localStorage.getItem('star_task');
-            if(localStorage.getItem('star_action')) document.getElementById('action').value = localStorage.getItem('star_action');
-            if(localStorage.getItem('star_result')) document.getElementById('result').value = localStorage.getItem('star_result');
-            updateCounts();
+        // --- 1. CONFIG & MAPPINGS ---
+        
+        const subCompetencyMap = {
+            "A1": { label: "A1: Maintain/Extend Knowledge", keywords: ["research", "learned", "theory", "literature", "studied", "course", "training", "technology", "emerging"] },
+            "A2": { label: "A2: Solve Engineering Problems", keywords: ["analysed", "calculated", "root-cause", "innovated", "first-principles", "mathematics", "physics", "simulation", "modelled"] },
+            "B1": { label: "B1: Identify/Define Requirements", keywords: ["specification", "requirements", "scope", "brief", "defined", "identified", "constraints"] },
+            "B2": { label: "B2: Design & Development", keywords: ["designed", "drafted", "created", "developed", "concept", "cad", "prototype", "solution"] },
+            "B3": { label: "B3: Implement & Evaluate", keywords: ["commissioned", "tested", "installed", "verified", "validated", "deployed", "constructed", "built"] },
+            "C1": { label: "C1: Plan for Implementation", keywords: ["planned", "schedule", "gantt", "resource", "timeline", "programme", "organised"] },
+            "C2": { label: "C2: Budget & Contracts", keywords: ["budget", "cost", "contract", "procurement", "commercial", "tender", "financial"] },
+            "C3": { label: "C3: Lead Teams/Staff", keywords: ["led", "managed", "supervised", "mentored", "delegated", "briefed", "team"] },
+            "C4": { label: "C4: Quality & Improvement", keywords: ["quality", "audit", "improvement", "standard", "iso", "process", "continuous"] },
+            "D1": { label: "D1: Communication", keywords: ["presented", "report", "authored", "meeting", "briefing", "communicated", "email"] },
+            "D2": { label: "D2: Diversity & Negotiation", keywords: ["negotiated", "conflict", "persuaded", "inclusion", "diversity", "agreement"] },
+            "D3": { label: "D3: Personal Conduct", keywords: ["integrity", "impartial", "professional", "reliable", "trust"] },
+            "E1": { label: "E1: Codes of Conduct", keywords: ["code", "conduct", "compliance", "legislation", "regulatory", "law"] },
+            "E2": { label: "E2: Safety & Risk", keywords: ["safety", "risk", "hazard", "alarp", "cdm", "rams", "health"] },
+            "E3": { label: "E3: Sustainability", keywords: ["environment", "carbon", "sustainable", "waste", "energy", "efficiency"] },
+            "E4": { label: "E4: CPD", keywords: ["development", "learning", "growth", "record", "plan"] },
+            "E5": { label: "E5: Ethics", keywords: ["ethical", "ethics", "dilemma", "moral", "principles"] }
         };
 
-        const inputs = ['situation', 'task', 'action', 'result'];
-        inputs.forEach(id => {
-            document.getElementById(id).addEventListener('input', function() {
-                localStorage.setItem('star_' + id, this.value);
-                updateCounts();
+        const passiveWords = ["supported", "assisted", "helped", "participated", "involved", "team", "we", "us", "checked"];
+        
+        // Internal Fallback
+        let safeAcronymDb = ["ASME", "API", "ISO", "BS", "EN", "CFD", "FEA", "ALARP", "CDM", "HAZOP", "FMECA", "SIT", "FAT", "NDT"];
+
+        // --- 2. INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load DB: Check 'acronymDb' (New) -> 'acronyms' (Old) -> Fallback
+            if(typeof acronymDb !== 'undefined') { safeAcronymDb = acronymDb; } 
+            else if(typeof acronyms !== 'undefined') { safeAcronymDb = acronyms; }
+            
+            // Restore Data
+            const fields = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
+            fields.forEach(id => {
+                const storedVal = localStorage.getItem('star_' + id);
+                if(storedVal) {
+                    const el = document.getElementById(id);
+                    if(el) el.value = storedVal;
+                }
+            });
+            updateCounts();
+
+            // Populate PEI Dropdown
+            const selector = document.getElementById('peiSelector');
+            if(selector) {
+                if(typeof peiDatabase !== 'undefined') {
+                    selector.innerHTML = '<option value="General Engineering">General / Agnostic</option>';
+                    const sortedPEIs = peiDatabase.sort((a, b) => a.acronym.localeCompare(b.acronym));
+                    sortedPEIs.forEach(inst => {
+                        const opt = document.createElement('option');
+                        opt.value = inst.acronym; 
+                        opt.innerText = `${inst.acronym} - ${inst.name}`; 
+                        selector.appendChild(opt);
+                    });
+                    const savedPEI = localStorage.getItem('star_peiSelector');
+                    if(savedPEI) selector.value = savedPEI;
+                }
+            }
+
+            // Listeners
+            const inputs = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
+            inputs.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    el.addEventListener('input', function() {
+                        localStorage.setItem('star_' + id, this.value);
+                        if(['situation', 'task', 'action', 'result'].includes(id)) updateCounts();
+                    });
+                }
             });
         });
 
         function updateCounts() {
             let total = 0;
-            inputs.forEach(id => {
-                const text = document.getElementById(id).value;
-                const count = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-                document.getElementById(id + 'Count').innerText = count + " words";
-                total += count;
+            const textFields = ['situation', 'task', 'action', 'result'];
+            textFields.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) {
+                    const text = el.value;
+                    const count = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+                    document.getElementById(id + 'Count').innerText = count + " words";
+                    total += count;
+                }
             });
             document.getElementById('totalCount').innerText = "Total: " + total + " words";
         }
 
-        function generate() {
+        // --- 3. MAIN LOGIC ---
+        window.compileAndReview = function() {
             const s = document.getElementById('situation').value.trim();
             const t = document.getElementById('task').value.trim();
             const a = document.getElementById('action').value.trim();
             const r = document.getElementById('result').value.trim();
 
             if(!s || !t || !a || !r) {
-                alert("Please complete all 4 sections (S.T.A.R) before generating.");
+                alert("Please complete all 4 sections (S.T.A.R) before compiling.");
                 return;
             }
 
-            const final = `In this scenario, ${s}. My specific responsibility was to ${t}. To address this, I ${a}. Consequently, ${r}.`;
+            const finalText = `In this scenario, ${s}. My specific responsibility was to ${t}. To address this, I ${a}. Consequently, ${r}.`;
+            document.getElementById('outputBox').innerHTML = finalText;
+            
+            runAudit(finalText);
+            
+            const results = document.getElementById('analysisSection');
+            results.style.display = 'block';
+            results.scrollIntoView({behavior: "smooth"});
+        };
 
-            const out = document.getElementById('outputBox');
-            out.style.display = 'block';
-            out.innerHTML = `<strong>>> GENERATED COMPETENCY STATEMENT:</strong><br><br>${final}`;
+        function runAudit(text) {
+            const findingsList = document.getElementById('findingsList');
+            const barsContainer = document.getElementById('competencyBars');
+            const subList = document.getElementById('subCompList');
             
-            // Show AI Button
-            document.getElementById('aiBtn').style.display = 'block';
+            findingsList.innerHTML = "";
+            barsContainer.innerHTML = "";
+            subList.innerHTML = "";
+
+            // A) TOKENIZER FOR SCORING (Includes short words like "I")
+            const simpleWords = text.toLowerCase().match(/\b(\w+)\b/g) || [];
             
-            // Scroll
-            out.scrollIntoView({behavior: "smooth"});
+            let iCount = 0; 
+            let passiveCount = 0; 
+            let passiveFound = {}; 
+            
+            simpleWords.forEach(w => {
+                if(w === 'i' || w === 'my') iCount++; 
+                if(passiveWords.includes(w)) { 
+                    passiveCount++; 
+                    passiveFound[w] = (passiveFound[w] || 0) + 1; 
+                }
+            });
+
+            // Action Score Calculation
+            let rawScore = Math.min(100, Math.round((iCount / (simpleWords.length * 0.04)) * 100));
+            if(passiveCount > 2) rawScore -= (passiveCount * 2);
+            if(rawScore < 0) rawScore = 0;
+
+            document.getElementById('impactScore').innerText = rawScore + "%";
+            document.getElementById('impactScore').style.color = rawScore > 60 ? "#00FF99" : "#FF5733";
+
+            // B) SUB-COMPETENCY MAPPING
+            let mainScores = { "A":0, "B":0, "C":0, "D":0, "E":0 };
+            let subScores = {};
+            let totalCompHits = 0;
+
+            simpleWords.forEach(w => {
+                for (let key in subCompetencyMap) {
+                    if (subCompetencyMap[key].keywords.some(k => w.includes(k))) { 
+                        subScores[key] = (subScores[key] || 0) + 1;
+                        mainScores[key.charAt(0)]++;
+                        totalCompHits++;
+                    }
+                }
+            });
+
+            // Render Radar
+            let domKey = "-"; let maxVal = -1;
+            for (let key in mainScores) {
+                if(mainScores[key] > maxVal && mainScores[key] > 0) { maxVal = mainScores[key]; domKey = key; }
+                let percent = totalCompHits === 0 ? 0 : Math.round((mainScores[key] / totalCompHits) * 100);
+                if(totalCompHits > 0) percent += 5; 
+                barsContainer.innerHTML += `
+                    <div class="comp-bar-container">
+                        <div class="comp-label"><span>Comp ${key}</span> <span>${percent}%</span></div>
+                        <div class="comp-track"><div class="comp-fill" style="width:${percent}%; background-color:${percent > 20 ? '#00FF99' : '#4A90E2'}"></div></div>
+                    </div>`;
+            }
+            document.getElementById('compDominant').innerText = domKey === "-" ? "None" : `Comp ${domKey}`;
+
+            // Render Sub-Comps
+            const sortedSubs = Object.keys(subScores).sort((a,b) => subScores[b] - subScores[a]);
+            if(sortedSubs.length > 0) {
+                sortedSubs.slice(0, 5).forEach(key => { 
+                    subList.innerHTML += `<div class="sub-tag">${subCompetencyMap[key].label}</div>`;
+                });
+            } else {
+                subList.innerHTML = `<span style="color:#666; font-size:0.8rem;">No specific sub-competencies detected yet.</span>`;
+            }
+
+            // Findings Display
+            if(passiveCount > 0) {
+                let pText = Object.entries(passiveFound).map(([word, count]) => `'${word}' (${count}x)`).join(", ");
+                findingsList.innerHTML += `<div class="finding-item f-warn">⚠️ <strong>Passive Language:</strong> ${pText}.</div>`;
+            } else if (rawScore > 60) {
+                findingsList.innerHTML += `<div class="finding-item f-good">✅ <strong>Strong Ownership</strong></div>`;
+            }
+
+            // C) SMART ACRONYM DETECTION (Length Logic)
+            const acronymWords = text.match(/\b[a-zA-Z0-9]{2,}\b/g) || [];
+            
+            // Build Lookup
+            const dbLookup = new Set();
+            const dbObjects = {};
+            safeAcronymDb.forEach(item => {
+                if(typeof item === 'string') {
+                    const key = item.split(' - ')[0].toUpperCase();
+                    dbLookup.add(key);
+                    dbObjects[key] = { a: item.split(' - ')[0], m: item };
+                } else {
+                    const key = item.a.toUpperCase();
+                    dbLookup.add(key);
+                    dbObjects[key] = item;
+                }
+            });
+
+            const knownSet = new Set();
+            const unknownSet = new Set();
+            
+            acronymWords.forEach(w => {
+                const upper = w.toUpperCase();
+                const len = w.length;
+
+                // RULE 1: If word is < 4 chars (2 or 3), it MUST be Strict Case (e.g. "led" vs "LED")
+                if (len < 4) {
+                    if (w !== upper) return; 
+                }
+
+                // RULE 2: If word is >= 4 chars, allow loose case (e.g. "Ansys", "hazop")
+                
+                if(dbLookup.has(upper)) {
+                    // It is a known acronym.
+                    knownSet.add(dbObjects[upper].a);
+                } else if (w === upper && !/\d/.test(w) && len > 1) {
+                    // Unknown (ALL CAPS, No Numbers, Not in DB)
+                    unknownSet.add(w);
+                }
+            });
+
+            if(knownSet.size > 0) {
+                const list = Array.from(knownSet).join(", ");
+                findingsList.innerHTML += `<div class="finding-item f-good">✓ <strong>Recognised:</strong> ${list}</div>`;
+            }
+            if(unknownSet.size > 0) {
+                const list = Array.from(unknownSet).join(", ");
+                findingsList.innerHTML += `<div class="finding-item f-warn">? <strong>Unknown:</strong> ${list} <br><em>Ensure these are defined on first use.</em></div>`;
+            }
         }
-        
-        // --- NEW AI PROMPT GENERATOR ---
-        function copyAiPrompt() {
+
+        // --- 4. AI PROMPT ---
+        window.copyAiPrompt = function() {
             const s = document.getElementById('situation').value;
             const t = document.getElementById('task').value;
             const a = document.getElementById('action').value;
             const r = document.getElementById('result').value;
+            
+            const goal = document.getElementById('goalSelector').value;
+            const peiAcronym = document.getElementById('peiSelector').value;
+            
+            let peiName = peiAcronym;
+            if(typeof peiDatabase !== 'undefined') {
+                const found = peiDatabase.find(p => p.acronym === peiAcronym);
+                if(found) peiName = found.name;
+            }
 
-            const prompt = `Act as a Professional Review Interviewer for the IMechE/IET. I am drafting a competency example for CEng Registration.
+            // --- SMART PROMPT LOGIC ---
+            let roleDescription = "";
+            let specificInstructions = "";
 
-Please critique the following S.T.A.R example against the UK-SPEC requirements for "Technical Innovation" and "Leadership".
+            if (goal === "JOB") {
+                roleDescription = `Senior Hiring Manager or Technical Recruiter in the ${peiName} sector`;
+                specificInstructions = `
+1. Critique this example for "Hireability", Commercial Impact, and Clarity.
+2. Identify weak/passive language that undermines my authority.
+3. Suggest 2 difficult follow-up questions an interviewer might ask to test this specific example.
+4. Propose a punchier opening sentence to grab attention.`;
+            } else {
+                roleDescription = `Professional Review Interviewer (PRI) and Fellow of the ${peiName} (${peiAcronym})`;
+                specificInstructions = `
+1. Critique this example strictly against UK-SPEC requirements for ${goal}.
+2. Identify exactly which Sub-Competencies (e.g. A2, B1, C3, E5) this best evidences.
+3. Highlight where I have failed to demonstrate "Personal Responsibility" (e.g. using "We" instead of "I").
+4. Give a "Ready for Submission" score (1-10) and one specific technical improvement.`;
+            }
+
+            const prompt = `Act as a ${roleDescription}. I am writing a competency statement for: ${goal}.
+
+Critique this STAR example:
 
 SITUATION: ${s}
 TASK: ${t}
 ACTION: ${a}
 RESULT: ${r}
 
-1. Identify where I have used "Weak Language" (e.g. "We", "Helped").
-2. Suggest 3 specific ways to make the "Action" section stronger and more technical.
-3. Give this a score out of 10 for "Action Bias".`;
+Please perform the following analysis:
+${specificInstructions}`;
 
             navigator.clipboard.writeText(prompt).then(() => {
                 const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
-                setTimeout(() => { btn.innerText = ">> COPY AI \"CEng CRITIQUE\" PROMPT"; }, 3000);
+                btn.innerText = ">> COPIED! PASTE INTO CHATGPT / CLAUDE";
+                setTimeout(() => { btn.innerText = ">> GENERATE AI \"CRITIQUE\" PROMPT"; }, 3000);
             });
-        }
+        };
         
-        function clearData() {
-            if(confirm("Are you sure? This will clear your draft.")) {
-                inputs.forEach(id => {
-                    document.getElementById(id).value = "";
+        window.clearData = function() {
+            if(confirm("Clear current draft?")) {
+                const fields = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
+                fields.forEach(id => {
+                    const el = document.getElementById(id);
+                    if(el) el.value = "";
                     localStorage.removeItem('star_' + id);
                 });
                 updateCounts();
-                document.getElementById('outputBox').style.display = 'none';
-                document.getElementById('aiBtn').style.display = 'none';
+                document.getElementById('analysisSection').style.display = 'none';
             }
-        }
+        };
     </script>
 </body>
 </html>
