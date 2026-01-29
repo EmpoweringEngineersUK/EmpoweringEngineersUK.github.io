@@ -11,11 +11,11 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Studio | Empowering Engineers UK</title>
+    <title>Management Studio | Empowering Engineers UK</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
-    <meta property="og:title" content="Feedback Studio | Empowering Engineers UK">
-    <meta property="og:description" content="Structure difficult conversations professionally using the AID and SBI feedback models.">
+    <meta property="og:title" content="Management Studio | Empowering Engineers UK">
+    <meta property="og:description" content="30+ Engineering Management Frameworks: SWOT, PESTLE, DMAIC, 5 Whys, GROW, and more.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
     <meta property="og:url" content="https://www.empoweringengineers.uk/feedback_tool.html">
     <meta property="og:type" content="website">
@@ -25,9 +25,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
+    <script src="frameworks.js"></script>
+    
     <style>
         /* PAGE SPECIFIC STYLES */
-        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        .container { max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
         
         .card { 
             background: var(--dark-card); 
@@ -49,15 +51,48 @@
             letter-spacing: 1px; 
         }
 
-        .input-group { margin-bottom: 20px; }
-        .input-label { display: block; color: var(--burnt-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; font-family: 'Courier Prime', monospace; letter-spacing: 0.5px; }
-        .input-hint { display: block; color: var(--slate-grey); font-size: 0.8rem; margin-bottom: 8px; font-style: italic; }
+        .input-group { 
+            margin-bottom: 25px; 
+            padding-left: 15px; 
+            border-left: 2px solid var(--border-color); 
+        }
+
+        .input-label { 
+            display: block; 
+            color: var(--burnt-orange); 
+            font-weight: 700; 
+            font-size: 1rem; 
+            margin-bottom: 5px; 
+            font-family: 'Courier Prime', monospace; 
+            letter-spacing: 0.5px; 
+        }
+
+        .input-hint { 
+            display: block; 
+            color: var(--cloud-white); 
+            font-size: 0.9rem; 
+            margin-bottom: 8px; 
+        }
+
+        /* The inline example styling */
+        .input-example {
+            display: block;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--slate-grey);
+            font-size: 0.85rem;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-family: 'Courier Prime', monospace;
+            font-style: italic;
+            border: 1px dashed var(--border-color);
+        }
         
         textarea { 
             width: 100%; 
-            height: 80px; 
+            height: 70px; 
             padding: 12px; 
-            background: rgba(0,0,0,0.3); 
+            background: rgba(0,0,0,0.6); 
             border: 1px solid var(--border-color); 
             color: white; 
             border-radius: 6px; 
@@ -74,7 +109,7 @@
             padding: 30px; 
             border-radius: 8px; 
             border: 1px solid var(--border-color); 
-            min-height: 400px; 
+            min-height: 600px; 
             white-space: pre-wrap; 
             line-height: 1.6; 
             font-size: 1rem; 
@@ -82,18 +117,18 @@
             font-family: 'Courier Prime', monospace;
         }
 
-        .example-box { 
-            background: rgba(0, 0, 0, 0.2); 
-            padding: 20px; 
-            border-left: 3px solid var(--burnt-orange); 
-            font-family: 'Courier Prime', monospace; 
-            font-size: 0.85rem; 
-            color: #d1d8e0; 
-            white-space: pre-wrap; 
-            line-height: 1.5; 
-        }
+        /* Optgroup styling support */
+        select option { background: var(--dark-card); color: white; padding: 5px; }
+        select optgroup { color: var(--terminal-green); font-weight: bold; background: #000; }
+        
+        /* AI Button Logic */
+        .ai-btn-default { border-color: var(--slate-grey); color: var(--slate-grey); }
+        .ai-btn-default:hover { border-color: var(--cloud-white); color: var(--cloud-white); }
+        
+        .ai-btn-active { border-color: var(--terminal-green); color: var(--terminal-green); }
+        .ai-btn-active:hover { background: var(--hover-green); }
 
-        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -117,21 +152,68 @@
 
     <div class="container">
         <div class="card" style="grid-column: 1 / -1; margin-bottom: 10px; text-align:center;">
-            <h2 style="border:none; margin:0; font-size:1.5rem;">Feedback & Coaching Studio</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem;">Draft professional feedback using proven leadership frameworks (GROW, CEDAR, SBI).</p>
+            <h2 style="border:none; margin:0; font-size:1.5rem;">Management & Strategy Studio</h2>
+            <p style="color:var(--slate-grey); font-size:0.9rem;">
+                A comprehensive suite of 30+ frameworks for Strategy, Process Improvement, Decision Making, and Leadership.
+            </p>
         </div>
         
         <div class="column-left">
             <div class="card">
                 <h2 class="card-title">1. Select Framework</h2>
                 <select id="modelSelector" onchange="renderInputs()">
-                    <option value="GROW">GROW Model (Coaching & Goals)</option>
-                    <option value="PENDLETON">Pendleton Model (Peer Review)</option>
-                    <option value="CEDAR">CEDAR Model (Performance Correction)</option>
-                    <option value="SBIBI">SBIBI (Behavioral Feedback)</option>
+                    <option value="" disabled selected>-- Choose Tool --</option>
+                    
+                    <optgroup label="1. Strategic Analysis">
+                        <option value="SWOT">SWOT Analysis</option>
+                        <option value="PESTLE">PESTLE/STEEPLE Analysis</option>
+                        <option value="PORTER5">Porter's Five Forces</option>
+                        <option value="VRIO">VRIO Framework (Resources)</option>
+                        <option value="BCG">BCG Matrix (Growth-Share)</option>
+                        <option value="ANSOFF">Ansoff Matrix (Growth Strategy)</option>
+                        <option value="BALANCED">Balanced Scorecard</option>
+                        <option value="SCENARIO">Scenario Planning</option>
+                        <option value="VALUECHAIN">Value Chain Analysis</option>
+                        <option value="BLUEOCEAN">Blue Ocean (Strategy Canvas)</option>
+                        <option value="BUSCANVAS">Business Model Canvas</option>
+                        <option value="SOAR">SOAR Analysis</option>
+                    </optgroup>
+
+                    <optgroup label="2. Process & Quality">
+                        <option value="PDCA">PDCA Cycle</option>
+                        <option value="DMAIC">DMAIC (Six Sigma)</option>
+                        <option value="VSM">Value Stream Mapping (Lean)</option>
+                        <option value="5WHYS">5 Whys (Root Cause)</option>
+                        <option value="FISHBONE">Fishbone (Ishikawa) Diagram</option>
+                        <option value="PARETO">Pareto Analysis (80/20)</option>
+                        <option value="KANBAN">Kanban Board Setup</option>
+                        <option value="POKAYOKE">Poka-Yoke (Mistake Proofing)</option>
+                        <option value="SIPOC">SIPOC (Scope Definition)</option>
+                    </optgroup>
+
+                    <optgroup label="3. Decision Making">
+                        <option value="MONTE">Monte Carlo Simulation Plan</option>
+                        <option value="DECTREE">Decision Tree Analysis</option>
+                        <option value="CBA">Cost-Benefit Analysis (CBA)</option>
+                        <option value="RISKMAT">Risk Assessment Matrix</option>
+                        <option value="FORCEFIELD">Force Field Analysis</option>
+                        <option value="OODA">OODA Loop</option>
+                        <option value="WRAP">W-R-A-P Technique</option>
+                    </optgroup>
+
+                    <optgroup label="4. Feedback & Coaching">
+                        <option value="GROW">GROW Model (Coaching)</option>
+                        <option value="SBI">SBI (Feedback)</option>
+                        <option value="SBIBI">SBIBI (Feedback + Action)</option>
+                        <option value="SBII">SBII (Feedback + Intent)</option>
+                        <option value="CEDAR">CEDAR (Performance)</option>
+                        <option value="PENDLETON">Pendleton's Rules</option>
+                        <option value="COIN">COIN Model</option>
+                        <option value="OKRS">OKRs (Goal Setting)</option>
+                    </optgroup>
                 </select>
                 
-                <div id="dynamicInputs"></div>
+                <div id="dynamicInputs" style="margin-top:20px;"></div>
 
                 <button class="action-btn-ghost" onclick="clearData()" style="margin-top:20px;">Reset Form</button>
             </div>
@@ -140,18 +222,15 @@
         <div class="column-right">
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                    <h2 class="card-title" style="margin:0; border:none;">2. Script Preview</h2>
+                    <h2 class="card-title" style="margin:0; border:none;">2. Output Preview</h2>
                     <button class="action-btn" style="width:auto; margin:0; padding:10px 20px; font-size:0.8rem;" onclick="copyToClipboard()">Copy Text</button>
                 </div>
                 
-                <div id="previewArea" class="preview-box">Select a model to begin...</div>
+                <div id="previewArea" class="preview-box">Select a tool to begin...</div>
                 
-                <button id="aiBtn" class="ai-btn" style="display:none;" onclick="copyAiPrompt()">>> GENERATE AI "ROLEPLAY" PROMPT</button>
-            </div>
-
-            <div class="card">
-                <h2 class="card-title" style="color:var(--burnt-orange); border-color:var(--burnt-orange);">3. Reference Example</h2>
-                <div id="exampleDisplay" class="example-box"></div>
+                <button id="aiBtn" class="ai-btn ai-btn-default" style="display:none;" onclick="copyAiPrompt()">
+                    >> GENERATE AI EXAMPLE PROMPT
+                </button>
             </div>
         </div>
     </div>
@@ -167,130 +246,158 @@
     </footer>
 
     <script>
-        const models = {
-            GROW: {
-                desc: "Best for: Coaching sessions, career development, and problem solving.",
-                example: `[GOAL]\n"I want to lead the Hydraulic Pump package design for the next project phase."\n\n[REALITY]\n"You currently handle component-level designs well. However, you haven't managed a supplier interface or budget tracking before."`,
-                fields: [
-                    { id: "G", label: "GOAL", hint: "What does the engineer want to achieve?" },
-                    { id: "R", label: "REALITY", hint: "What is happening now? What are the barriers?" },
-                    { id: "O", label: "OPTIONS", hint: "What could they do?" },
-                    { id: "W", label: "WILL / WAY FORWARD", hint: "What will they do? By when?" }
-                ]
-            },
-            PENDLETON: {
-                desc: "Best for: Peer reviews, design reviews, and balanced feedback.",
-                example: `[WHAT WENT WELL?]\n"The logic behind your FEA analysis was robust."\n\n[WHAT COULD BE IMPROVED?]\n"The conclusion was a bit vague."`,
-                fields: [
-                    { id: "P1", label: "WHAT WENT WELL?", hint: "Highlight specific strengths." },
-                    { id: "P2", label: "WHAT COULD BE IMPROVED?", hint: "Identify specific areas for growth." },
-                    { id: "P3", label: "AGREED ACTION", hint: "Key takeaway or change for next time?" }
-                ]
-            },
-            CEDAR: {
-                desc: "Best for: Correcting performance issues or addressing negative patterns.",
-                example: `[CONTEXT]\n"We need to discuss the site safety audit schedule."\n\n[EXAMPLES]\n"You have missed submitting the weekly safety observation reports."`,
-                fields: [
-                    { id: "C", label: "CONTEXT", hint: "Set the scene." },
-                    { id: "E", label: "EXAMPLES", hint: "Provide specific evidence." },
-                    { id: "D", label: "DIAGNOSIS", hint: "Why do you think this is happening?" },
-                    { id: "A", label: "ACTION", hint: "What specific steps will be taken?" },
-                    { id: "R", label: "REVIEW", hint: "When will we check in again?" }
-                ]
-            },
-            SBIBI: {
-                desc: "Best for: Behavioral feedback that requires a specific change.",
-                example: `[SITUATION]\n"During the client design review..."\n\n[BEHAVIOR]\n"You interrupted the client's lead engineer three times."`,
-                fields: [
-                    { id: "S", label: "SITUATION", hint: "Where and when did it happen?" },
-                    { id: "B", label: "BEHAVIOR", hint: "What exactly did they do?" },
-                    { id: "I", label: "IMPACT", hint: "What was the result?" },
-                    { id: "BD", label: "BEHAVIOR DESIRED", hint: "What should they do differently?" },
-                    { id: "ID", label: "IMPACT DESIRED", hint: "Why will this be better?" }
-                ]
-            }
-        };
-
-        // --- AUTO-SAVE LOGIC ---
+        // --- RENDER LOGIC ---
         function renderInputs() {
             const type = document.getElementById('modelSelector').value;
+            if(!type) return;
             localStorage.setItem('fb_model', type); 
 
+            // Use the external 'frameworks' variable from frameworks.js
+            const data = frameworks[type];
+            if (!data) return;
+
             const container = document.getElementById('dynamicInputs');
-            const data = models[type];
-            
-            let html = `<p style="color:#8899A6; margin-bottom:20px; border-left:3px solid var(--terminal-green); padding-left:10px; font-size:0.9rem;">${data.desc}</p>`;
+            let html = ``;
             
             data.fields.forEach(field => {
-                const savedVal = localStorage.getItem('fb_' + field.id) || "";
+                const savedVal = localStorage.getItem('fb_' + type + '_' + field.id) || "";
                 html += `
                     <div class="input-group">
                         <span class="input-label">${field.label}</span>
                         <span class="input-hint">${field.hint}</span>
+                        <span class="input-example">${field.example}</span>
                         <textarea id="in_${field.id}" oninput="saveAndPreview('${type}', '${field.id}')">${savedVal}</textarea>
                     </div>
                 `;
             });
 
             container.innerHTML = html;
-            document.getElementById('exampleDisplay').innerText = data.example;
             updatePreview(type);
         }
 
         function saveAndPreview(type, fieldId) {
             const val = document.getElementById('in_' + fieldId).value;
-            localStorage.setItem('fb_' + fieldId, val);
+            localStorage.setItem('fb_' + type + '_' + fieldId, val);
             updatePreview(type);
         }
 
         function updatePreview(type) {
-            const data = models[type];
-            let text = `**FEEDBACK MODEL: ${type}**\n\n`;
+            const data = frameworks[type];
+            let text = `**FRAMEWORK: ${type}**\n\n`;
             let hasContent = false;
             
             data.fields.forEach(field => {
                 const el = document.getElementById(`in_${field.id}`);
-                if(el && el.value) {
+                if(el && el.value.trim() !== "") {
                     text += `[${field.label}]\n${el.value}\n\n`;
                     hasContent = true;
                 }
             });
 
-            if (!hasContent) text = "Start typing to generate your script...";
-            document.getElementById('previewArea').innerText = text;
+            const aiBtn = document.getElementById('aiBtn');
+            const previewBox = document.getElementById('previewArea');
+
+            // Toggle AI Button State based on content
+            if (hasContent) {
+                previewBox.innerText = text;
+                aiBtn.innerHTML = ">> GENERATE AI REVIEW PROMPT";
+                aiBtn.className = "ai-btn ai-btn-active";
+            } else {
+                previewBox.innerText = "Select a tool and start typing...\n\n(Or click the AI button below to generate a prompt based on the Reference Examples)";
+                aiBtn.innerHTML = ">> GENERATE AI EXAMPLE PROMPT";
+                aiBtn.className = "ai-btn ai-btn-default";
+            }
             
-            // Toggle AI Button based on content
-            document.getElementById('aiBtn').style.display = hasContent ? 'block' : 'none';
+            // Ensure button is visible once tool is selected
+            aiBtn.style.display = 'block';
         }
 
-        // --- NEW AI PROMPT GENERATOR ---
+        // --- AI PROMPT GENERATOR (SMART) ---
         function copyAiPrompt() {
             const type = document.getElementById('modelSelector').value;
-            const script = document.getElementById('previewArea').innerText;
-            
-            const prompt = `Act as an Engineering Team Member. I am your Lead Engineer, and I am preparing to give you some difficult feedback using the ${type} model.
+            if(!type) return;
 
-Here is my draft script:
+            const data = frameworks[type];
+            const cat = data.cat;
+            
+            let script = "";
+            let promptType = "User Draft";
+
+            // CHECK: Is there user data?
+            let hasUserData = data.fields.some(field => {
+                const el = document.getElementById('in_' + field.id);
+                return el && el.value.trim() !== "";
+            });
+
+            if (hasUserData) {
+                // Build script from User Input
+                data.fields.forEach(field => {
+                    const el = document.getElementById('in_' + field.id);
+                    if(el && el.value.trim()) {
+                        script += `[${field.label}]\n${el.value.trim()}\n\n`;
+                    }
+                });
+            } else {
+                // Build script from Examples (Default)
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                data.fields.forEach(field => {
+                    // Clean the example text: remove "e.g. " and quotes
+                    let cleanEx = field.example.replace(/^e\.g\.\s*['"]?|['"]?$/g, '');
+                    script += `[${field.label}]\n${cleanEx}\n\n`;
+                });
+            }
+            
+            // Context-Aware Personas
+            let role = "Senior Engineer";
+            let action = "review this";
+            
+            if(cat === 'strategy') {
+                role = "Strategic Consultant / Engineering Director";
+                action = `Analyze this ${type} strategic assessment. 1. Identify any blind spots. 2. Challenge assumptions. 3. Suggest one concrete strategic move.`;
+            } 
+            else if (cat === 'process') {
+                role = "Lean Six Sigma Master Black Belt";
+                action = `Critique this ${type} process improvement plan. 1. Is the root cause analysis logical? 2. Are the controls sufficient? 3. Suggest a metric to track success.`;
+            }
+            else if (cat === 'decision') {
+                role = "Risk Manager / Chief Engineer";
+                action = `Review this ${type} decision logic. 1. Have I missed any critical risks? 2. Is the conclusion supported by the inputs? 3. Play 'Devil's Advocate'.`;
+            }
+            else {
+                role = "HR Director / Leadership Coach";
+                action = `Review this ${type} feedback script. 1. Is the tone appropriate? 2. Is the 'Action' specific enough? 3. How might the recipient react?`;
+            }
+
+            const prompt = `Act as a ${role}. 
+            
+I have drafted a ${type} framework below (${promptType}):
 """
 ${script}
 """
 
-1. React to this feedback realistically. Are you defensive? Do you accept it?
-2. Then, step out of character and critique my delivery. Was I too harsh? Too vague?
-3. Suggest one specific phrase I could change to make this land better.`;
+${action}`;
 
             navigator.clipboard.writeText(prompt).then(() => {
                 const btn = document.getElementById('aiBtn');
+                const origText = btn.innerText;
                 btn.innerText = ">> COPIED! PASTE INTO CHATGPT";
-                setTimeout(() => { btn.innerText = ">> GENERATE AI \"ROLEPLAY\" PROMPT"; }, 3000);
+                setTimeout(() => { 
+                    // Restore original text based on state
+                    if(hasUserData) {
+                        btn.innerText = ">> GENERATE AI REVIEW PROMPT";
+                    } else {
+                        btn.innerText = ">> GENERATE AI EXAMPLE PROMPT";
+                    }
+                }, 3000);
             });
         }
 
         function clearData() {
             if(confirm("Clear all data?")) {
                 localStorage.removeItem('fb_model');
-                Object.keys(models).forEach(m => {
-                    models[m].fields.forEach(f => localStorage.removeItem('fb_' + f.id));
+                Object.keys(frameworks).forEach(key => {
+                    frameworks[key].fields.forEach(f => localStorage.removeItem('fb_' + key + '_' + f.id));
                 });
                 renderInputs();
             }
@@ -298,14 +405,24 @@ ${script}
 
         function copyToClipboard() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { alert("Script copied!"); });
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.column-right .action-btn'); 
+                const origText = btn.innerText;
+                btn.innerText = "COPIED!";
+                setTimeout(() => { btn.innerText = origText; }, 2000);
+            });
         }
 
         window.onload = function() {
             const savedModel = localStorage.getItem('fb_model');
-            if(savedModel) document.getElementById('modelSelector').value = savedModel;
-            renderInputs();
+            if(savedModel && frameworks[savedModel]) {
+                document.getElementById('modelSelector').value = savedModel;
+                renderInputs();
+            }
         };
     </script>
+	
+	<script src="footer_feedback.js"></script>
+	
 </body>
 </html>

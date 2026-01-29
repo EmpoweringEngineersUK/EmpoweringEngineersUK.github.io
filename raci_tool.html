@@ -572,17 +572,37 @@
             selects.forEach(s => colorize(s));
         }
 
-        // --- DOWNLOAD ---
+        // --- DOWNLOAD FIX: FULL SCROLL CAPTURE ---
         function downloadMatrix() {
             const captureArea = document.getElementById('matrixCapture');
+            
+            // 1. Save original styles
+            const originalOverflow = captureArea.style.overflow;
+            const originalWidth = captureArea.style.width;
+            
+            // 2. Force full expansion for capture
+            captureArea.style.overflow = "visible";
+            captureArea.style.width = "fit-content";
+
             html2canvas(captureArea, {
                 backgroundColor: "#ffffff",
-                scale: 2
+                scale: 2,
+                scrollX: 0, 
+                scrollY: -window.scrollY // Correction for window scroll
             }).then(canvas => {
+                // 3. Revert styles
+                captureArea.style.overflow = originalOverflow;
+                captureArea.style.width = originalWidth;
+
                 const link = document.createElement('a');
                 link.download = 'My_RACI_Matrix.png';
                 link.href = canvas.toDataURL();
                 link.click();
+            }).catch(err => {
+                // Revert on error too
+                captureArea.style.overflow = originalOverflow;
+                captureArea.style.width = originalWidth;
+                alert("Image export failed. Please try on a desktop if possible.");
             });
         }
 

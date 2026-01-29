@@ -14777,5 +14777,27 @@ const acronymDb = [
 	{ a: "ZTP", m: "Zinc Titanium Phosphate", c: "Materials" },
 	{ a: "ZVP", m: "Zero Voltage Point", c: "Materials" },
 	{ a: "ZW", m: "Zinc White", c: "Materials" },
-	{ a: "ZZ", m: "Zig Zag", c: "Materials" }
+	{ a: "ZZ", m: "Zig Zag", c: "Materials" },
+	// --- UK SECURITY CLEARANCE ---
+    { a: "BPSS", m: "Baseline Personnel Security Standard", c: "Security" },
+    { a: "CTC", m: "Counter Terrorist Check", c: "Security" },
+    { a: "SC", m: "Security Check", c: "Security" },
+    { a: "DV", m: "Developed Vetting", c: "Security" },
+	// --- ADDITIONAL SECURITY & COMPLIANCE ---
+    { a: "DBS", m: "Disclosure and Barring Service", c: "Security" },
+    { a: "e-DBS", m: "Enhanced Disclosure and Barring Service", c: "Security" },
+    { a: "SIA", m: "Security Industry Authority", c: "Security" },
+    { a: "OSA", m: "Official Secrets Act", c: "Legal" },
+    { a: "STRAP", m: "Special Threat Assessment Projects (Clearance)", c: "Security" },
+    { a: "CTS", m: "Counter Terrorist Search", c: "Security" },
+    { a: "NATO Secret", m: "North Atlantic Treaty Organization Secret", c: "Security" },
+    { a: "List X", m: "List X Site (Contractor site approved to hold classified info)", c: "Security" },
+    { a: "SAL", m: "Security Aspects Letter", c: "Security" },
+    { a: "SyOps", m: "Security Operating Procedures", c: "Security" },
+    { a: "MOD", m: "Ministry of Defence", c: "Government" },
+    { a: "NDA", m: "National Decommissioning Authority (also Non-Disclosure Agreement)", c: "Nuclear" },
+    { a: "ONR", m: "Office for Nuclear Regulation", c: "Nuclear" },
+    { a: "GDPR", m: "General Data Protection Regulation", c: "Legal" },
+    { a: "ISO 27001", m: "Information Security Management System Standard", c: "Security" },
+    { a: "Cyber Essentials", m: "UK Government Cyber Security Standard", c: "IT" }
 ];

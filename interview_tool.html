@@ -201,6 +201,15 @@
 
             <div class="settings-bar">
                 <div>
+					<label>Target Role:</label>
+					<select id="modeSelect">
+						<option value="All">All Levels</option>
+						<option value="CEng">Chartered Engineer (CEng)</option>
+						<option value="IEng">Incorporated Engineer (IEng)</option>
+						<option value="EngTech">Engineering Technician (EngTech)</option>
+					</select>
+				</div>
+				<div>
                     <label>Competency Focus:</label>
                     <select id="compSelect">
                         <option value="All">All Competencies (Full Mock)</option>
@@ -289,31 +298,41 @@
         }
 
         function nextQuestion() {
-            // Hide AI box from previous question
-            document.getElementById('aiSection').style.display = 'none';
-            document.getElementById('audioPlayback').style.display = 'none';
-            
-            // Filter questions
-            const filter = document.getElementById('compSelect').value;
-            let available = db;
-            
-            if(filter !== "All") {
-                // Allows "A" to match "A1", "A2", etc.
-                available = db.filter(q => q.catCode.startsWith(filter) || q.catCode === "Intro");
-            }
-            
-            if(available.length === 0) available = db; // Fallback
+			// Hide AI box from previous question
+			document.getElementById('aiSection').style.display = 'none';
+			document.getElementById('audioPlayback').style.display = 'none';
+			
+			// 1. GET USER SETTINGS
+			const compFilter = document.getElementById('compSelect').value;
+			const modeFilter = document.getElementById('modeSelect').value;
+			
+			let available = db;
+			
+			// 2. FILTER BY REGISTRATION MODE (CEng / IEng / EngTech)
+			if(modeFilter !== "All") {
+				// Keep questions that match the specific mode OR are generic "All"
+				available = available.filter(q => q.mode === modeFilter || q.mode === "All");
+			}
 
-            // Pick random
-            const randomIndex = Math.floor(Math.random() * available.length);
-            currentQ = available[randomIndex];
+			// 3. FILTER BY COMPETENCY (A, B, C, D, E)
+			if(compFilter !== "All") {
+				// Allows "A" to match "A1", "A2", etc.
+				available = available.filter(q => q.catCode.startsWith(compFilter) || q.catCode === "Intro");
+			}
+			
+			// Fallback if no questions match
+			if(available.length === 0) available = db; 
 
-            // Update UI
-            document.getElementById('catBadge').innerText = currentQ.catLabel;
-            document.getElementById('qText').innerText = currentQ.text;
-            
-            resetTimer();
-        }
+			// Pick random
+			const randomIndex = Math.floor(Math.random() * available.length);
+			currentQ = available[randomIndex];
+
+			// Update UI
+			document.getElementById('catBadge').innerText = `${currentQ.mode || 'General'}: ${currentQ.catLabel}`;
+			document.getElementById('qText').innerText = currentQ.text;
+			
+			resetTimer();
+		}
 
         // --- TIMER & RECORDING ---
 
@@ -398,35 +417,39 @@
         // --- AI PROMPT GENERATOR ---
 
         function generatePrompt() {
-            if(!currentQ) return;
+			if(!currentQ) return;
 
-            const aiSection = document.getElementById('aiSection');
-            const aiBox = document.getElementById('aiPromptBox');
-            
-            // Build the Prompt
-            const prompt = `Act as a Senior Professional Review Interviewer (PRI) for the Engineering Council (UK). 
+			const aiSection = document.getElementById('aiSection');
+			const aiBox = document.getElementById('aiPromptBox');
+			
+			// Get the selected target role for context
+			const targetRole = document.getElementById('modeSelect').value;
+			const roleText = targetRole === "All" ? "Professional Registration" : targetRole;
+			
+			// Build the Prompt
+			const prompt = `Act as a Senior Professional Review Interviewer (PRI) for the Engineering Council (UK). 
 
-I am applying for CEng/IEng registration. I was asked this question regarding UK-SPEC Competency [${currentQ.catCode}]:
-"${currentQ.text}"
+		I am applying for ${roleText} registration. I was asked this question regarding UK-SPEC Competency [${currentQ.catCode}]:
+		"${currentQ.text}"
 
-Below is the transcript of my spoken answer:
-"""
-[PASTE YOUR TRANSCRIPT HERE]
-"""
+		Below is the transcript of my spoken answer:
+		"""
+		[PASTE YOUR TRANSCRIPT HERE]
+		"""
 
-Please critique my response objectively against the UK-SPEC 4th Edition standards. 
+		Please critique my response objectively against the UK-SPEC 4th Edition standards for ${roleText}. 
 
-1. Does this answer demonstrate the required level of responsibility and competence?
-2. Identify 3 strengths in my delivery or technical content.
-3. Identify 1 critical weakness or area where I was too vague (STAR method).
-4. Suggest a follow-up "probing question" you would ask me next to test my depth.`;
+		1. Does this answer demonstrate the required level of responsibility and competence for ${roleText}?
+		2. Identify 3 strengths in my delivery or technical content.
+		3. Identify 1 critical weakness or area where I was too vague (STAR method).
+		4. Suggest a follow-up "probing question" you would ask me next to test my depth.`;
 
-            aiBox.value = prompt;
-            aiSection.style.display = 'block';
-            
-            // Scroll to it
-            aiSection.scrollIntoView({behavior: "smooth"});
-        }
+			aiBox.value = prompt;
+			aiSection.style.display = 'block';
+			
+			// Scroll to it
+			aiSection.scrollIntoView({behavior: "smooth"});
+		}
 
         function copyPrompt() {
             const copyText = document.getElementById("aiPromptBox");
@@ -441,5 +464,8 @@ Please critique my response objectively against the UK-SPEC 4th Edition standard
         }
 
     </script>
+	
+	<script src="footer_feedback.js"></script>
+	
 </body>
 </html>
