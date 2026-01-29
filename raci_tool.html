@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RACI Matrix Tool | Empowering Engineers UK</title>
+    <title>RACI Matrix Tool | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
     <meta property="og:title" content="RACI Matrix Tool | Empowering Engineers UK">
@@ -48,6 +48,19 @@
             border-bottom: 1px solid var(--border-color);
             align-items: center;
             justify-content: space-between;
+        }
+
+        /* --- DROPDOWN STYLING FIX (Matches Feedback Tool) --- */
+        /* Forces the dropdown menu (the list that pops out) to be dark with white text */
+        select option { 
+            background: var(--dark-card); 
+            color: white; 
+            padding: 5px; 
+        }
+        select optgroup { 
+            color: var(--terminal-green); 
+            font-weight: bold; 
+            background: #000; 
         }
 
         /* Legend */
@@ -104,7 +117,7 @@
         th input {
             background: transparent;
             border: none;
-            color: #fff; /* Header input stays white */
+            color: #fff;
             font-weight: bold;
             text-align: center;
             width: 100%;
@@ -115,7 +128,7 @@
 
         td:first-child { width: 250px; background-color: #f4f4f4; text-align: left; }
         
-        /* FIX: Ensure Task Name is dark (overriding global layout.css) */
+        /* Ensure Task Name Input is Dark Text */
         td:first-child input { 
             width: 100%; 
             border: none; 
@@ -125,7 +138,7 @@
             color: #0D1B2A !important; 
         }
 
-        /* FIX: Ensure Dropdown Text is dark (overriding global layout.css) */
+        /* MATRIX DROPDOWNS */
         .raci-select {
             width: 100%;
             border: none;
@@ -135,7 +148,7 @@
             -webkit-appearance: none;
             background: transparent;
             padding: 8px 0;
-            color: #0D1B2A !important; 
+            color: #0D1B2A !important; /* Forces dark text inside the white table cells */
         }
         .raci-select:focus { outline: 2px solid #000; }
 
@@ -165,7 +178,9 @@
             <a href="ethics_tool.html">Ethics</a>
             <a href="feedback_tool.html">Coach</a>
             <a href="glossary_tool.html">Decoder</a>
+            <a href="reference_tool.html">Library</a>
             <a href="report_tool.html">Report</a>
+            <a href="dap_tool.html">DAP</a>
             <a href="interview_tool.html">Interview</a>
 			<a href="guide.html">Manual</a>
         </nav>

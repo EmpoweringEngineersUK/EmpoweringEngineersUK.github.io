@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic DAP Architect | EmpoweringEngineers.uk</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="Strategic DAP Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Generate a UK-SPEC aligned Development Action Plan (Short, Medium, Long Term) that demonstrates strategic leadership.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/dap_tool.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    
+    <style>
+        .container { max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        
+        .card { 
+            background: var(--dark-card); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 20px; 
+        }
+
+        h2 { color: var(--terminal-green); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-family: 'Courier Prime', monospace; }
+        
+        label { display: block; color: var(--burnt-orange); font-weight: bold; margin-top: 15px; margin-bottom: 5px; font-family: 'Courier Prime', monospace; }
+        select, input, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--border-color); 
+            color: #fff; 
+            border-radius: 4px; 
+            box-sizing: border-box;
+        }
+        
+        /* The Horizon Logic Visualizer */
+        .horizon-bar {
+            display: flex;
+            height: 8px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .h-short { background: #4ecdc4; width: 33%; }
+        .h-med { background: #ffbe0b; width: 33%; }
+        .h-long { background: #ff6b6b; width: 34%; }
+
+        .output-box {
+            background: #09121d;
+            border: 1px solid var(--terminal-green);
+            padding: 20px;
+            min-height: 500px;
+            font-family: 'Courier Prime', monospace;
+            white-space: pre-wrap;
+            color: #e2e8f0;
+            line-height: 1.5;
+            overflow-y: auto;
+        }
+        
+        .concept-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .tag-local { background: rgba(78, 205, 196, 0.2); color: #4ecdc4; border: 1px solid #4ecdc4; }
+        .tag-system { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; border: 1px solid #ff6b6b; }
+
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body onload="loadDapData()">
+	<script defer src="header_nav.js"></script>
+    <div class="sticky-container">
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
+        <nav>
+            <a href="career_tool.html">Career</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="raci_tool.html">RACI</a>
+            <a href="STAR_engine.html">STAR-Gen</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="reference_tool.html">Library</a>
+            <a href="report_tool.html">Report</a>
+            <a href="dap_tool.html" class="active-nav">DAP</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="guide.html">Manual</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="card" style="grid-column: 1/-1; text-align:center;">
+            <h2>Strategic DAP Architect</h2>
+            <p style="color:var(--slate-grey);">
+                A Development Action Plan (DAP) is required for CEng/IEng registration. 
+                Most applicants fail here by focusing only on technical skills ("Local Optimization"). 
+                This tool balances your plan with "Systemic Leadership" goals to demonstrate future value.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>1. Profile Strategy</h2>
+            
+            <label>Registration Target</label>
+            <select id="dapLevel" onchange="saveDapData()">
+                <option value="CEng">Chartered Engineer (CEng)</option>
+                <option value="IEng">Incorporated Engineer (IEng)</option>
+                <option value="EngTech">Engineering Technician (EngTech)</option>
+            </select>
+
+            <label>Primary Discipline</label>
+            <select id="dapDisc" onchange="saveDapData()">
+                <option value="Mech">Mechanical / Piping</option>
+                <option value="Elec">Electrical / C&I</option>
+                <option value="Civil">Civil / Structural</option>
+                <option value="Soft">Software / Systems</option>
+                <option value="Mgmt">Project Management</option>
+                <option value="Nuclear">Nuclear / Safety Case</option>
+            </select>
+
+            <label>Strategic Development Area (Weakness)</label>
+            <select id="dapWeakness" onchange="saveDapData()">
+                <option value="Commercial">Commercial Awareness (Budgets/Contracts)</option>
+                <option value="Safety">Safety & Risk Management (CDM/HAZOP)</option>
+                <option value="Leadership">Team Leadership & Conflict</option>
+                <option value="Digital">Digital Transformation / AI</option>
+                <option value="NetZero">Sustainability & Net Zero</option>
+            </select>
+
+            <label>Career "North Star" (Optional)</label>
+            <input type="text" id="dapGoal" placeholder="e.g. Technical Director, Principal Consultant" oninput="saveDapData()">
+
+            <div style="margin-top:30px; border-top:1px dashed var(--border-color); padding-top:20px;">
+                <span class="concept-tag tag-local">Local Focus (Short Term)</span>
+                <span class="concept-tag tag-system" style="float:right;">Systemic Focus (Long Term)</span>
+                <div class="horizon-bar">
+                    <div class="h-short"></div>
+                    <div class="h-med"></div>
+                    <div class="h-long"></div>
+                </div>
+                <p style="font-size:0.75rem; color:var(--slate-grey); margin-top:5px;">
+                    Logic: Move from Team Expertise -> Boundary Spanning -> Strategic Alignment.
+                </p>
+            </div>
+
+            <button class="action-btn" onclick="generateDAP()">Generate DAP</button>
+            <button class="action-btn action-btn-ghost" onclick="clearDapData()" style="margin-top:10px;">Reset</button>
+        </div>
+
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <h2>2. Action Plan</h2>
+                <button class="action-btn" style="width:auto; margin:0; padding:5px 15px; font-size:0.8rem;" onclick="copyDap()">Copy</button>
+            </div>
+            <div id="dapOutput" class="output-box"> Configure your profile and click Generate to build your Strategic DAP...</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script src="dap.js"></script>
+    <script src="footer_feedback.js"></script>
+
+    <script>
+        function saveDapData() {
+            localStorage.setItem('dap_level', document.getElementById('dapLevel').value);
+            localStorage.setItem('dap_disc', document.getElementById('dapDisc').value);
+            localStorage.setItem('dap_weakness', document.getElementById('dapWeakness').value);
+            localStorage.setItem('dap_goal', document.getElementById('dapGoal').value);
+        }
+
+        function loadDapData() {
+            if(localStorage.getItem('dap_level')) document.getElementById('dapLevel').value = localStorage.getItem('dap_level');
+            if(localStorage.getItem('dap_disc')) document.getElementById('dapDisc').value = localStorage.getItem('dap_disc');
+            if(localStorage.getItem('dap_weakness')) document.getElementById('dapWeakness').value = localStorage.getItem('dap_weakness');
+            if(localStorage.getItem('dap_goal')) document.getElementById('dapGoal').value = localStorage.getItem('dap_goal');
+        }
+
+        function clearDapData() {
+            localStorage.removeItem('dap_level');
+            localStorage.removeItem('dap_disc');
+            localStorage.removeItem('dap_weakness');
+            localStorage.removeItem('dap_goal');
+            location.reload();
+        }
+
+        function generateDAP() {
+            // Check if DB is loaded
+            if (typeof dapDb === 'undefined') {
+                document.getElementById('dapOutput').innerText = "Error: dap.js database not loaded.";
+                return;
+            }
+
+            const level = document.getElementById('dapLevel').value;
+            const disc = document.getElementById('dapDisc').value;
+            const weakness = document.getElementById('dapWeakness').value;
+            const userGoal = document.getElementById('dapGoal').value;
+            
+            // 1. GET SHORT TERM (Discipline Specific)
+            const shortPoints = dapDb.short[disc] ? dapDb.short[disc].join("\n") : "• Define technical goals specific to your role.";
+
+            // 2. GET MEDIUM TERM (Weakness Specific)
+            const medPoints = dapDb.medium[weakness] ? dapDb.medium[weakness].join("\n") : "• Lead cross-functional projects.";
+
+            // 3. GET LONG TERM (Level Specific)
+            let longPoints = dapDb.long[level] ? dapDb.long[level].join("\n") : "• Maintain strategic alignment.";
+            
+            // Inject User's Custom Goal if present
+            if (userGoal) {
+                longPoints = longPoints.replace("[Goal Role]", userGoal);
+            } else {
+                longPoints = longPoints.replace("[Goal Role]", "Senior Leadership Position");
+            }
+
+            const output = `DEVELOPMENT ACTION PLAN (DAP) for ${level} Application
+-------------------------------------------------------
+
+1. SHORT TERM (0-12 Months)
+Focus: Technical Mastery & Team Optimization (Local)
+Goal: Solidify expert knowledge and deliver immediate value to the team.
+${shortPoints}
+
+2. MEDIUM TERM (1-3 Years)
+Focus: Boundary Spanning & ${weakness} Competence
+Goal: Bridge gaps between departments and address systemic risks.
+${medPoints}
+
+3. LONG TERM (3-5 Years)
+Focus: Strategic Alignment & Systemic Leadership
+Goal: Align engineering output with global business objectives.
+${longPoints}
+
+-------------------------------------------------------
+Aligned to UK-SPEC Competencies A, B, C, D, E.
+Generated by Empowering Engineers UK`;
+
+            document.getElementById('dapOutput').innerText = output;
+        }
+
+        function copyDap() {
+            const text = document.getElementById('dapOutput').innerText;
+            navigator.clipboard.writeText(text).then(() => { alert("DAP copied to clipboard!"); });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Reference Library | EmpoweringEngineers.uk</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    
+    <meta property="og:title" content="Reference Library | Empowering Engineers UK">
+    <meta property="og:description" content="A curated collection of essential engineering textbooks, websites, professional institutions, and podcasts.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/reference_tool.html">
+    <meta property="og:type" content="website">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    
+    <style>
+        .filter-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 15px;
+            background: var(--dark-card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .filter-group label {
+            display: block;
+            color: var(--burnt-orange);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        .filter-input:focus {
+            border-color: var(--terminal-green);
+            outline: none;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .ref-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--terminal-green);
+            border-radius: 6px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .ref-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--terminal-green); 
+            box-shadow: 0 5px 15px rgba(0, 255, 153, 0.1);
+        }
+
+        .ref-type { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            color: var(--slate-grey); 
+            letter-spacing: 1px; 
+            margin-bottom: 5px; 
+            display: inline-block;
+        }
+        
+        .ref-title { 
+            color: var(--cloud-white); 
+            font-weight: bold; 
+            font-size: 1.15rem; 
+            margin-bottom: 8px; 
+            font-family: 'Lora', serif; 
+            line-height: 1.3;
+        }
+        
+        .topic-tag {
+            color: var(--terminal-green);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .ref-desc { 
+            color: var(--slate-grey); 
+            font-size: 0.9rem; 
+            line-height: 1.6; 
+            flex-grow: 1; 
+            margin-bottom: 20px; 
+        }
+        
+        .ref-link {
+            text-decoration: none;
+            color: var(--burnt-orange);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+            align-self: flex-start;
+            border-bottom: 1px dashed var(--burnt-orange);
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+        .ref-link:hover { 
+            color: #fff; 
+            border-color: #fff; 
+        }
+
+        .badge-disc { 
+            float: right; 
+            font-size: 0.7rem; 
+            padding: 3px 8px; 
+            border-radius: 4px; 
+            background: rgba(255,255,255,0.05); 
+            color: #aaa;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) { .filter-bar { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body onload="initLibrary()">
+
+    <div class="sticky-container">
+        <a href="index.html">
+            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
+        </a>
+        <nav>
+            <a href="career_tool.html">Career</a>
+            <a href="cpd_tool.html">CPD</a>
+            <a href="raci_tool.html">RACI</a>
+            <a href="STAR_engine.html">STAR</a>
+            <a href="ethics_tool.html">Ethics</a>
+            <a href="feedback_tool.html">Coach</a>
+            <a href="glossary_tool.html">Decoder</a>
+            <a href="reference_tool.html" class="active">Library</a>
+            <a href="report_tool.html">Report</a>
+            <a href="dap_tool.html">DAP</a>
+            <a href="interview_tool.html">Interview</a>
+            <a href="guide.html">Manual</a>
+        </nav>
+    </div>
+
+    <script defer src="header_nav.js"></script>
+
+    <div class="container" style="max-width:1200px; margin: 0 auto; padding: 20px;">
+        
+        <div style="text-align:center; margin-bottom:40px;">
+            <h1 style="color:var(--terminal-green); font-family:'Courier Prime', monospace;">Technical Reference Library</h1>
+            <p style="color:var(--slate-grey);">A curated collection of "Gold Standard" textbooks, standards, software, and podcasts.</p>
+        </div>
+
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>DISCIPLINE</label>
+                <select id="discSelect" class="filter-input" onchange="renderLibrary()">
+                    <option value="All">All Disciplines</option>
+                    <option value="Mechanical">Mechanical & Piping</option>
+                    <option value="Electrical">Electrical & C&I</option>
+                    <option value="Civil">Civil & Structural</option>
+                    <option value="Process">Process & Chemical</option>
+                    <option value="Systems">Systems & Software</option>
+                    <option value="Management">Leadership & Management</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>TYPE</label>
+				<select id="typeSelect" class="filter-input" onchange="renderLibrary()">
+					<option value="All">All Types</option>
+					<option value="Book">Textbooks</option>
+					<option value="Website">Websites & Databases</option>
+					<option value="Tool">Software & Simulation</option>
+					<option value="Standard">Standards / Codes</option>
+					<option value="Institution">Professional Institutions</option>
+					<option value="YouTube">YouTube Channels</option>
+					<option value="Podcast">Podcasts</option>
+					<option value="Magazine">Magazines & Journals</option>
+				</select>
+            </div>
+            <div class="filter-group">
+                <label>SEARCH</label>
+                <input type="text" id="searchInput" class="filter-input" placeholder="Search titles, authors, or keywords..." oninput="renderLibrary()">
+            </div>
+        </div>
+
+        <div id="libraryGrid" class="library-grid">
+            <p style="color:var(--slate-grey); text-align:center; grid-column:1/-1;">Loading library database...</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="terms.html">Terms of Use</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script src="references.js?v=7"></script>
+    <script src="footer_feedback.js"></script>
+
+    <script>
+        function initLibrary() {
+            if (typeof refDb !== 'undefined') {
+                renderLibrary();
+            } else {
+                setTimeout(renderLibrary, 200);
+            }
+        }
+
+        function renderLibrary() {
+            const grid = document.getElementById('libraryGrid');
+
+            if (typeof refDb === 'undefined') {
+                grid.innerHTML = "<p style='color:white; text-align:center; grid-column:1/-1;'>Error: Database not loaded. Please try refreshing the page (Ctrl+F5).</p>";
+                return;
+            }
+
+            const discFilter = document.getElementById('discSelect').value;
+            const typeFilter = document.getElementById('typeSelect').value;
+            const searchFilter = document.getElementById('searchInput').value.toLowerCase();
+
+            grid.innerHTML = "";
+            let count = 0;
+
+            refDb.forEach(ref => {
+                if (discFilter !== "All" && ref.disc !== discFilter) return;
+                if (typeFilter !== "All" && ref.type !== typeFilter) return;
+
+                if (searchFilter) {
+                    const match = ref.title.toLowerCase().includes(searchFilter) || 
+                                  ref.desc.toLowerCase().includes(searchFilter) || 
+                                  ref.topic.toLowerCase().includes(searchFilter);
+                    if (!match) return;
+                }
+
+                const card = document.createElement('div');
+                card.className = "ref-card";
+                card.innerHTML = `
+                    <div style="margin-bottom:5px;">
+                        <span class="ref-type">${ref.type}</span>
+                        <span class="badge-disc">${ref.disc}</span>
+                    </div>
+                    <div class="ref-title">${ref.title}</div>
+                    <span class="topic-tag">> ${ref.topic}</span>
+                    <div class="ref-desc">${ref.desc}</div>
+                    <a href="${ref.link}" target="_blank" class="ref-link">Open Resource ↗</a>
+                `;
+                grid.appendChild(card);
+                count++;
+            });
+
+            if(count === 0) {
+                grid.innerHTML = `
+                    <div style='color:var(--slate-grey); grid-column:1/-1; text-align:center; padding:40px; border:1px dashed var(--border-color); border-radius:8px;'>
+                        <p style="font-size:1.2rem; margin-bottom:10px;">No results found.</p>
+                        <p>Try adjusting your filters.</p>
+                    </div>`;
+            }
+        }
+    </script>
+</body>
+</html>
