@@ -44,23 +44,6 @@
 </head>
 <body>
 	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html" class="site-brand">Empowering<span>Engineers</span>.uk</a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-            <a href="guide.html">Manual</a>
-        </nav>
-    </div>
 
     <div class="studio-panel">
         <h2>Master Logo Export v9.1</h2>
@@ -83,18 +66,14 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
-    
     <script>
-        const palette = { navy: "#0D1B2A", white: "#FAFAFA", green: "#00FF99", grey: "#8899A6" };
+        const styles = getComputedStyle(document.documentElement);
+		const palette = { 
+			navy: styles.getPropertyValue('--midnight-navy').trim(), 
+			white: styles.getPropertyValue('--cloud-white').trim(), 
+			green: styles.getPropertyValue('--terminal-green').trim(), 
+			grey: styles.getPropertyValue('--slate-grey').trim() 
+		};
         window.onload = function() { setTimeout(updatePreviews, 500); };
         
         function updatePreviews() {
@@ -221,7 +200,6 @@
         }
     </script>
 	
-	<script src="footer_feedback.js"></script>
-	
+	<script defer src="footer.js"></script>
 </body>
 </html>

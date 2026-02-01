@@ -79,7 +79,7 @@
 
         /* Output */
         .output-box { 
-            background: #09121d; 
+            background: var(--terminal-bg); 
             padding: 25px; 
             border-radius: 6px; 
             border: 1px solid var(--terminal-green); 
@@ -106,25 +106,6 @@
 </head>
 <body>
 	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html" class="active">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
-        </nav>
-    </div>
 
     <div class="container">
         <div class="card">
@@ -190,16 +171,6 @@
             <button id="aiBtn" class="ai-btn" style="display:none;">>> COPY AI "MEGA-PROMPT"</button>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
 
     <script>
         // --- AUTO-SAVE LOGIC ---
@@ -273,30 +244,30 @@
 
             // RENDER CLEAN HTML
             const finalHTML = 
-`<span class="section-header">>> THE DILEMMA</span>
-"${input}"
+				`<span class="section-header">>> THE DILEMMA</span>
+				"${input}"
 
-<span class="section-header">>> ANALYSIS (${regLevel})</span>
-${analysis}
+				<span class="section-header">>> ANALYSIS (${regLevel})</span>
+				${analysis}
 
-<span class="section-header">>> ACTION PLAN (${userRole})</span>
-${actionList.replace(/\n/g, "<br>")}
+				<span class="section-header">>> ACTION PLAN (${userRole})</span>
+				${actionList.replace(/\n/g, "<br>")}
 
-<span class="section-header">>> INTERVIEW SCRIPT (STAR)</span>
-<em style="color:#00FF99">${script}</em>`;
+				<span class="section-header">>> INTERVIEW SCRIPT (STAR)</span>
+				<em style="color:var(--terminal-green)">${script}</em>`;
 
-            document.getElementById('outputArea').innerHTML = finalHTML.replace(/\n/g, "<br>");
-            
-            // GENERATE AI PROMPT
-            const aiPromptText = `Act as a Fellow of the IET/IMechE. I am a ${userRole} in the ${industry} industry.
-I need to challenge a ${targetRole} regarding this ethical dilemma:
-"${input}"
+							document.getElementById('outputArea').innerHTML = finalHTML.replace(/\n/g, "<br>");
+							
+							// GENERATE AI PROMPT
+							const aiPromptText = `Act as a Fellow of the IET/IMechE. I am a ${userRole} in the ${industry} industry.
+				I need to challenge a ${targetRole} regarding this ethical dilemma:
+				"${input}"
 
-Please analyze this using the RAEng Statement of Ethical Principles (Focus: ${principle}).
+				Please analyze this using the RAEng Statement of Ethical Principles (Focus: ${principle}).
 
-1. Identify the specific UK-SPEC clause violated.
-2. Draft a professional but firm script I can use in a face-to-face meeting with the ${targetRole}.
-3. Explain the long-term commercial risk if we ignore this (e.g. legal action under ${ctx.regs}).`;
+				1. Identify the specific UK-SPEC clause violated.
+				2. Draft a professional but firm script I can use in a face-to-face meeting with the ${targetRole}.
+				3. Explain the long-term commercial risk if we ignore this (e.g. legal action under ${ctx.regs}).`;
 
             // Setup Copy Button
             const btn = document.getElementById('aiBtn');
@@ -311,7 +282,6 @@ Please analyze this using the RAEng Statement of Ethical Principles (Focus: ${pr
         }
     </script>
 	
-	<script src="footer_feedback.js"></script>
-	
+	<script defer src="footer.js"></script>	
 </body>
 </html>

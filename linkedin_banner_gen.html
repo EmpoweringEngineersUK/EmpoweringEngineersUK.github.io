@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn Banner Generator | EmpoweringEngineers.uk</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    
     <style>
         body {
-            background-color: #0a0a12; /* Dark Navy Background */
+            /* Inherits Arial from layout.css */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-family: 'Courier Prime', monospace;
             height: 100vh;
             margin: 0;
-        }
-        h2 {
-            color: #00FF99;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #aaa;
-            margin-bottom: 20px;
             text-align: center;
         }
+        h2 {
+            color: var(--terminal-green);
+            margin-bottom: 10px;
+            font-family: inherit; /* Uses Arial */
+        }
+        p {
+            color: var(--slate-grey);
+            margin-bottom: 20px;
+            font-family: inherit; /* Uses Arial */
+        }
         canvas {
-            border: 2px solid #00FF99;
+            border: 2px solid var(--terminal-green);
             box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
             max-width: 95%; 
             height: auto;
@@ -35,11 +39,12 @@
     </style>
 </head>
 <body>
-	<script defer src="header_nav.js"></script>
-    <h2>LinkedIn Company Banner Generator</h2>
-    <p>Right-click the image below and "Save as..."<br>(Exact Size: 1128 x 191 pixels)</p>
-
-    <canvas id="bannerCanvas"></canvas>
+    <script defer src="header_nav.js"></script>
+    
+    <div style="margin-top: 60px;"> <h2>LinkedIn Company Banner Generator</h2>
+        <p>Right-click the image below and "Save as..."<br>(Exact Size: 1128 x 191 pixels)</p>
+        <canvas id="bannerCanvas"></canvas>
+    </div>
 
     <script>
         const canvas = document.getElementById('bannerCanvas');
@@ -65,18 +70,25 @@
         });
 
         function draw() {
-            // 1. Semi-transparent background fade (Dark Navy)
-            ctx.fillStyle = 'rgba(10, 10, 18, 0.15)';
+            // 1. FETCH COLORS DYNAMICALLY FROM LAYOUT.CSS
+            const styles = getComputedStyle(document.documentElement);
+            const termGreen = styles.getPropertyValue('--terminal-green').trim();
+            const midnightNavy = styles.getPropertyValue('--midnight-navy').trim();
+            const cloudWhite = styles.getPropertyValue('--cloud-white').trim();
+            const slateGrey = styles.getPropertyValue('--slate-grey').trim();
+
+            // 2. Semi-transparent background fade
+            ctx.fillStyle = 'rgba(13, 27, 42, 0.15)'; // Midnight Navy with opacity
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 2. Draw Matrix Rain (Background Layer)
+            // 3. Draw Matrix Rain (Background Layer)
+            // KEEPING COURIER PRIME HERE AS IT IS PART OF THE VISUAL BRAND
             ctx.font = fontSize + 'px "Courier Prime", monospace';
             for (let i = 0; i < drops.length; i++) {
                 const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
                 
-                // Randomly make some characters brighter
                 if (Math.random() > 0.98) {
-                    ctx.fillStyle = '#00FF99'; 
+                    ctx.fillStyle = termGreen; 
                 } else {
                      ctx.fillStyle = '#0f4d3e'; // Darker green for depth
                 }
@@ -89,9 +101,8 @@
                 drops[i]++;
             }
 
-            // 3. Draw Main Logo Text (Foreground Layer)
-            
-            // Reduced font slightly to accommodate the shift (72 -> 65)
+            // 4. Draw Main Logo Text (Foreground Layer)
+            // KEEPING LORA HERE AS IT IS THE LOGO FONT
             const logoFontSize = 65; 
             ctx.font = `bold ${logoFontSize}px "Lora", serif`;
             ctx.textBaseline = 'middle';
@@ -107,18 +118,17 @@
             const totalWidth = width1 + width2 + width3;
             
             // --- SAFE ZONE ADJUSTMENT ---
-            // Shift 120px to the right to avoid the LinkedIn Profile Picture on the left
             const safeZoneShift = 120; 
             
             let startX = ((canvas.width - totalWidth) / 2) + safeZoneShift;
             const centerY = canvas.height / 2;
 
-            // Draw "Empowering" (White)
-            ctx.fillStyle = '#FFFFFF';
+            // Draw "Empowering" (White variable)
+            ctx.fillStyle = cloudWhite;
             ctx.fillText(text1, startX, centerY);
 
-            // Draw "Engineers" (Terminal Green)
-            ctx.fillStyle = '#00FF99'; 
+            // Draw "Engineers" (Green variable)
+            ctx.fillStyle = termGreen; 
             ctx.shadowColor = "rgba(0,0,0,0.8)";
             ctx.shadowBlur = 10;
             ctx.fillText(text2, startX + width1, centerY);
@@ -126,13 +136,12 @@
             // Reset shadow
             ctx.shadowBlur = 0;
 
-            // Draw ".uk" (White - Matching your Header)
-            ctx.fillStyle = '#FFFFFF';
+            // Draw ".uk" (White variable)
+            ctx.fillStyle = cloudWhite;
             ctx.fillText(text3, startX + width1 + width2, centerY);
         }
     </script>
 
-	<script src="footer_feedback.js"></script>
-	
+    <script defer src="footer.js"></script>
 </body>
 </html>

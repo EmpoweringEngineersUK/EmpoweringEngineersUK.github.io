@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
     <script>
@@ -8,321 +8,173 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Report Architect | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
     
+    <meta property="og:title" content="Technical Report Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Structure your Engineering Reports (CEng/IEng) using proven templates: IMechE, IET, Failure Analysis, and Feasibility Studies.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/report_tool.html">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
     <style>
-        /* PAGE SPECIFIC STYLES 
-           (Only layout specific to this tool. Fonts/Colors inherited from layout.css) 
+        /* PAGE SPECIFIC LAYOUT 
+           Buttons, Forms, and Typography are handled by layout.css 
         */
-        .container { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 1.6fr; gap: 30px; }
-        .header { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
         
-        /* Grid for the Checkboxes */
-        .module-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 6px; 
-            max-height: 600px; 
-            overflow-y: auto; 
-            padding-right: 10px; 
-            border: 1px solid var(--border-color); 
-            padding: 10px; 
-            border-radius: 4px; 
-            background: rgba(0,0,0,0.2); 
+        .report-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        .module-category { 
-            font-size: 0.85rem; 
-            color: var(--slate-grey); 
-            font-weight: bold; 
-            margin-top: 15px; 
-            margin-bottom: 5px; 
-            border-bottom: 1px solid var(--border-color); 
-            font-family: 'Courier Prime', monospace;
-        }
-        
-        /* Custom Checkbox Styling */
-        .checkbox-label { 
-            display: flex; 
-            align-items: center; 
-            cursor: pointer; 
-            padding: 6px 10px; 
-            border-radius: 4px; 
-            transition: 0.2s; 
-            font-size: 0.95rem; 
-            color: var(--cloud-white); 
-        }
-        .checkbox-label:hover { background: rgba(255,255,255,0.1); }
-        input[type="checkbox"] { accent-color: var(--terminal-green); width: 16px; height: 16px; margin-right: 10px; }
-        
-        /* Preview Box specific styling */
-        .preview-box { 
-            background: #09121d; 
-            color: #e2e8f0; 
-            padding: 40px; 
-            border-radius: 8px; 
-            font-family: 'Courier Prime', monospace; 
-            white-space: pre-wrap; 
-            min-height: 600px; 
-            overflow-y: auto; 
-            font-size: 0.9rem; 
-            line-height: 1.6; 
-            border: 1px solid var(--border-color); 
-        }
-        
-        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
 
-        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+        .controls-panel {
+            background: var(--dark-card);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .preview-panel {
+            background: var(--dark-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            min-height: 600px;
+            font-family: 'Times New Roman', serif; /* Simulating Word Doc */
+            color: #d1d5db;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .section-header {
+            color: var(--terminal-green);
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--slate-grey);
+            padding-bottom: 5px;
+        }
+
+        /* Custom Label styling not covered by global forms */
+        .field-label {
+            color: var(--burnt-orange); 
+            font-size: 0.85rem; 
+            display: block; 
+            margin-bottom: 5px;
+            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+        }
+
+        @media (max-width: 900px) {
+            .report-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html" class="active">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
-        </nav>
-    </div>
+    
+    <script defer src="header_nav.js"></script>
 
-    <div class="header">
-        <h1>Technical Report Architect v9.3</h1>
-        <p style="color:var(--slate-grey);">Expert Documentation Generator (IET / FEA / QFD)</p>
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <h2>1. Configuration</h2>
+    <div class="report-container">
+        
+        <div class="controls-panel">
+            <div class="section-header">>> REPORT_CONFIGURATION</div>
             
-            <label>Report Details</label>
-            <input type="text" id="reportTitle" placeholder="Report Title (e.g. FEA Analysis)" style="margin-bottom:15px;">
-            <input type="text" id="authorName" placeholder="Author / Engineer Name" style="margin-bottom:15px;">
-            
-            <label>Load Preset Template:</label>
-            <select id="presetSelector" onchange="applyPreset()" style="margin-bottom:20px;">
-                <option value="custom">-- Select Report Type --</option>
-                <option value="iet_standard">IET Standard (Professional)</option>
-                <option value="academic">Academic Lab Report</option>
-                <option value="fea">FEA Simulation Report</option>
-                <option value="qfd">QFD / House of Quality</option>
-                <option value="failure">Failure Analysis (RCA)</option>
-                <option value="design">Design Report / FEED</option>
-                <option value="project">Project Initiation (PID)</option>
+            <label class="field-label">REPORT TYPE</label>
+            <select id="reportType" onchange="updateOptions()">
+                <option value="imeche">IMechE / IET Professional Review Report</option>
+                <option value="failure">Failure Analysis (Root Cause)</option>
+                <option value="feasibility">Feasibility Study / Optioneering</option>
+                <option value="technical">Standard Technical Report</option>
             </select>
-            
-            <div class="module-grid" id="moduleContainer">
-                <div class="module-category">FRONT MATTER</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_exec"> Executive Summary</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_ack"> Acknowledgements</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_intro"> Introduction & Scope</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_lit"> Literature Review</label>
-                
-                <div class="module-category">QFD / DESIGN</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_voc"> Voice of Customer</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_hoq"> House of Quality</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_tech_reqs"> Technical Reqs</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_design"> Design Description</label>
 
-                <div class="module-category">FEA / SIMULATION</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_geometry"> Model Geometry</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_assumptions"> Assumptions</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_boundary"> Boundary Conditions</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_results_fea"> FEA Results</label>
+            <label class="field-label">REPORT TITLE</label>
+            <input type="text" id="reportTitle" placeholder="e.g. Redesign of Cooling System...">
 
-                <div class="module-category">GENERAL ENGINEERING</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_method"> Methodology</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_results"> General Results</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_calcs"> Calculations</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_failure"> Failure Analysis</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_qc"> Quality Control</label>
+            <label class="field-label">AUTHOR NAME</label>
+            <input type="text" id="authorName" placeholder="Name, BEng (Hons)...">
 
-                <div class="module-category">PROJECT & BUSINESS</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_pid"> Project Initiation</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_stakeholder"> Stakeholder Mgmt</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_risk"> Risk Assessment</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_timeline"> Timeline</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_finance"> Financial Analysis</label>
+            <div id="dynamicOptions"></div>
 
-                <div class="module-category">BACK MATTER</div>
-                <label class="checkbox-label"><input type="checkbox" id="mod_discussion"> Discussion</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_conclusion"> Conclusions</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_refs"> References</label>
-                <label class="checkbox-label"><input type="checkbox" id="mod_appendices"> Appendices</label>
-            </div>
-            
-            <button class="action-btn" onclick="generateReport()">Update Preview</button>
-            <button class="action-btn action-btn-ghost" onclick="clearReportData()" style="margin-top:10px;">Reset Form</button>
+            <button class="btn-primary" onclick="generateReport()">INITIALISE STRUCTURE</button>
+            <button class="btn-secondary" onclick="downloadWord()">EXPORT TO WORD (.DOC)</button>
         </div>
 
-        <div class="card">
-            <h2>2. Output</h2>
-            <div id="outputArea" class="preview-box">> Select modules to begin...</div>
-            
-            <div class="btn-group">
-                <button class="action-btn" style="margin-top:0;" onclick="downloadWord()">Export to Word (.doc)</button>
-                <button class="action-btn action-btn-ghost" style="margin-top:0;" onclick="copyToClipboard()">Copy Text</button>
+        <div class="preview-panel" id="outputArea">
+            <div style="text-align:center; padding-top:100px; font-family:'Arial'; color:var(--slate-grey);">
+                <h3>Ready to Draft</h3>
+                <p>Configure your report on the left and click 'Initialise'.<br>The tool will generate a professional skeleton structure.</p>
             </div>
         </div>
+
     </div>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
+    <script defer src="footer.js"></script>
 
     <script>
-        // --- AUTO-SAVE LOGIC ---
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const textInputs = ['reportTitle', 'authorName'];
-
-        window.onload = function() {
-            // Load Text
-            textInputs.forEach(id => {
-                const saved = localStorage.getItem('rep_' + id);
-                if(saved) document.getElementById(id).value = saved;
-            });
-            // Load Checkboxes
-            checkboxes.forEach(cb => {
-                const saved = localStorage.getItem('rep_' + cb.id);
-                if(saved === 'true') cb.checked = true;
-            });
-            // Load Preset Selection
-            const savedPreset = localStorage.getItem('rep_preset');
-            if(savedPreset) document.getElementById('presetSelector').value = savedPreset;
-            
-            // Only generate if we have a preset or checkboxes checked
-            const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
-            if(hasChecked) generateReport();
+        // --- REPORT LOGIC ---
+        
+        const templates = {
+            imeche: {
+                sections: ["Introduction & Project Scope", "Technical Complexity (UK-SPEC A)", "Problem Solving (UK-SPEC B)", "Leadership & Management (UK-SPEC C)", "Safety & Ethics (UK-SPEC E)", "Conclusion"],
+                hints: "Focus on 'I' not 'We'. Map every paragraph to a competence."
+            },
+            failure: {
+                sections: ["Executive Summary", "Incident Description", "Evidence Gathering", "Root Cause Analysis (5 Whys / Fishbone)", "Corrective Actions", "Preventative Recommendations"],
+                hints: "Be factual. Separate observation from opinion."
+            },
+            feasibility: {
+                sections: ["Executive Summary", "Business Need", "Option 1: Do Nothing", "Option 2: Retrofit", "Option 3: Full Replacement", "Cost-Benefit Analysis", "Recommendation"],
+                hints: "Use Tables for comparison. Focus on Lifecycle Cost."
+            },
+            technical: {
+                sections: ["Abstract", "Introduction", "Methodology", "Results / Data Analysis", "Discussion", "Conclusion", "References"],
+                hints: "Standard academic/industry format."
+            }
         };
 
-        textInputs.forEach(id => {
-            document.getElementById(id).addEventListener('input', function() {
-                localStorage.setItem('rep_' + id, this.value);
-            });
-        });
-        
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', function() {
-                localStorage.setItem('rep_' + cb.id, this.checked);
-            });
-        });
-
-        document.getElementById('presetSelector').addEventListener('change', function() {
-            localStorage.setItem('rep_preset', this.value);
-        });
-
-        function clearReportData() {
-            if(confirm("Reset all fields?")) {
-                textInputs.forEach(id => localStorage.removeItem('rep_' + id));
-                checkboxes.forEach(cb => localStorage.removeItem('rep_' + cb.id));
-                localStorage.removeItem('rep_preset');
-                location.reload();
-            }
-        }
-
-        // --- PRESET LOGIC ---
-        function applyPreset() {
-            const type = document.getElementById('presetSelector').value;
-            // Uncheck all first
-            checkboxes.forEach(cb => { cb.checked = false; localStorage.removeItem('rep_' + cb.id); });
-
-            let toCheck = [];
-            
-            // FULL PRESET MAPPING
-            if (type === 'iet_standard') {
-                toCheck = ['mod_exec', 'mod_ack', 'mod_intro', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
-            } 
-            else if (type === 'academic') {
-                toCheck = ['mod_intro', 'mod_lit', 'mod_method', 'mod_results', 'mod_discussion', 'mod_conclusion', 'mod_refs', 'mod_appendices'];
-            }
-            else if (type === 'fea') {
-                toCheck = ['mod_exec', 'mod_intro', 'mod_geometry', 'mod_assumptions', 'mod_boundary', 'mod_results_fea', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
-            }
-            else if (type === 'qfd') {
-                toCheck = ['mod_intro', 'mod_voc', 'mod_hoq', 'mod_tech_reqs', 'mod_design', 'mod_conclusion', 'mod_appendices'];
-            }
-            else if (type === 'failure') {
-                toCheck = ['mod_exec', 'mod_intro', 'mod_method', 'mod_failure', 'mod_calcs', 'mod_discussion', 'mod_conclusion', 'mod_refs'];
-            }
-            else if (type === 'design') {
-                toCheck = ['mod_exec', 'mod_intro', 'mod_voc', 'mod_tech_reqs', 'mod_design', 'mod_calcs', 'mod_risk', 'mod_timeline', 'mod_finance', 'mod_conclusion'];
-            }
-            else if (type === 'project') {
-                toCheck = ['mod_pid', 'mod_intro', 'mod_stakeholder', 'mod_risk', 'mod_timeline', 'mod_finance', 'mod_conclusion'];
-            }
-            
-            toCheck.forEach(id => {
-                const el = document.getElementById(id);
-                if(el) { el.checked = true; localStorage.setItem('rep_' + id, 'true'); }
-            });
-            generateReport();
+        function updateOptions() {
+            // Placeholder for future dynamic options if needed
         }
 
         function generateReport() {
-            let sectionCounter = 1;
-            // Handle empty fields properly
-            const title = document.getElementById('reportTitle').value.trim() || "[REPORT TITLE]";
-            const author = document.getElementById('authorName').value.trim() || "[AUTHOR NAME]";
+            const type = document.getElementById('reportType').value;
+            const title = document.getElementById('reportTitle').value || "[REPORT TITLE]";
+            const author = document.getElementById('authorName').value || "[AUTHOR NAME]";
             const date = new Date().toLocaleDateString('en-GB');
-            
-            let content = `TITLE: ${title}\nAUTHOR: ${author}\nDATE: ${date}\nSTATUS: DRAFT\n========================================================\n\n`;
 
-            checkboxes.forEach(cb => {
-                if(cb.checked) {
-                    const label = cb.parentElement.textContent.trim();
-                    content += `${sectionCounter}.0 ${label.toUpperCase()}\n> [Insert text here...]\n\n`;
-                    sectionCounter++;
-                }
+            const template = templates[type];
+            let content = `TITLE: ${title.toUpperCase()}\nAUTHOR: ${author}\nDATE: ${date}\nTYPE: ${type.toUpperCase()} TEMPLATE\n\n`;
+            content += `-------------------------------------------------------\n\n`;
+
+            template.sections.forEach((sec, index) => {
+                content += `${index + 1}.0 ${sec.toUpperCase()}\n`;
+                content += `[Drafting Note: ${template.hints}]\n\n(Write your content here...)\n\n\n`;
             });
 
             document.getElementById('outputArea').innerText = content;
         }
 
-        function copyToClipboard() {
-            const text = document.getElementById('outputArea').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.querySelector('.action-btn-ghost');
-                const orig = btn.innerText;
-                btn.innerText = "COPIED!";
-                setTimeout(() => { btn.innerText = orig; }, 2000);
-            });
-        }
-
-        // --- WORD EXPORT FUNCTION ---
         function downloadWord() {
             const text = document.getElementById('outputArea').innerText;
-            if(!text || text.includes("> Select modules")) { alert("Please generate a report first."); return; }
+            if(!text || text.includes("Ready to Draft")) { alert("Please generate a report first."); return; }
 
-            // Convert plain text newlines to HTML breaks for the Word file
             const htmlContent = text.replace(/\n/g, '<br>');
-            
             const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Report</title></head><body><div style='font-family:Calibri, sans-serif; font-size:12pt;'>";
             const footer = "</div></body></html>";
-            const sourceHTML = header + htmlContent + footer;
             
+            const sourceHTML = header + htmlContent + footer;
             const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
             const fileDownload = document.createElement("a");
             document.body.appendChild(fileDownload);
@@ -332,8 +184,5 @@
             document.body.removeChild(fileDownload);
         }
     </script>
-	
-	<script src="footer_feedback.js"></script>
-	
 </body>
 </html>

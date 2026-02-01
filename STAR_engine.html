@@ -50,7 +50,7 @@
 
         /* Output Box specific styling */
         .output-box { 
-            background: #09121d; 
+            background: var(--terminal-bg); 
             padding: 20px; 
             border-left: 4px solid var(--terminal-green); 
             line-height: 1.6; 
@@ -103,25 +103,6 @@
 </head>
 <body>
 	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html" class="active">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
-        </nav>
-    </div>
 
     <div class="container">
         <div class="card">
@@ -207,16 +188,6 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
 
     <script>
         // --- 1. CONFIG & MAPPINGS ---
@@ -386,7 +357,7 @@
                 barsContainer.innerHTML += `
                     <div class="comp-bar-container">
                         <div class="comp-label"><span>Comp ${key}</span> <span>${percent}%</span></div>
-                        <div class="comp-track"><div class="comp-fill" style="width:${percent}%; background-color:${percent > 20 ? '#00FF99' : '#4A90E2'}"></div></div>
+                        <div class="comp-track"><div class="comp-fill" style="width:${percent}%; background-color:${percent > 20 ? 'var(--terminal-green)' : 'var(--status-blue)'}"></div></div>
                     </div>`;
             }
             document.getElementById('compDominant').innerText = domKey === "-" ? "None" : `Comp ${domKey}`;
@@ -529,7 +500,6 @@ ${specificInstructions}`;
         };
     </script>
 	
-	<script src="footer_feedback.js"></script>
-	
+	<script defer src="footer.js"></script>
 </body>
 </html>

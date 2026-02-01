@@ -11,60 +11,61 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free AI-powered tools for UK engineering professional registration (CEng, IEng, EngTech). STAR statement generator, CPD planner, and interview simulator.">
-    <title>Empowering Engineers UK | Professional Registration Tools</title>
+    <title>Home | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-
-    <meta property="og:title" content="Empowering Engineers UK | AI Tools for CEng & IEng">
-    <meta property="og:description" content="Accelerate your engineering chartership with free AI tools: STAR generator, CPD planner, and interview simulator.">
+    
+    <meta property="og:title" content="Empowering Engineers UK">
+    <meta property="og:description" content="Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-    <meta property="og:url" content="https://www.empoweringengineers.uk">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/index.html">
     <meta property="og:type" content="website">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
-
+    
     <style>
         /* HOMEPAGE SPECIFIC STYLES */
+        
         .hero-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
+            margin-bottom: 40px;
             border-bottom: 1px solid var(--border-color);
-            background: radial-gradient(circle at top, rgba(0, 255, 153, 0.05) 0%, transparent 60%);
         }
 
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-family: 'Courier Prime', monospace;
-            letter-spacing: -1px;
+        /* THE FIX: Responsive Logo Styling */
+        .hero-logo {
+            max-width: 650px; /* Limits width on large screens */
+            width: 90%;       /* Fits nicely on mobile */
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
         }
-        .hero-title span { color: var(--terminal-green); }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
+        .hero-text {
+            font-size: 1.1rem;
             color: var(--slate-grey);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 30px auto;
+            line-height: 1.6;
         }
 
+        /* Tool Grid for Homepage */
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .tool-card {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 25px;
-            transition: transform 0.2s, border-color 0.2s;
             text-decoration: none;
-            color: var(--cloud-white);
+            transition: transform 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -75,153 +76,135 @@
             border-color: var(--terminal-green);
         }
 
-        .tool-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--terminal-green);
-        }
-
         .tool-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
             font-family: 'Courier Prime', monospace;
-            text-transform: uppercase;
             color: var(--terminal-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .tool-desc { font-size: 0.95rem; color: var(--slate-grey); flex-grow: 1; }
-        .tool-link-text {
-            margin-top: 20px;
-            font-weight: bold;
-            color: var(--terminal-green);
+        .tool-desc {
+            color: var(--cloud-white);
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            flex-grow: 1;
+        }
+
+        .tool-arrow {
+            text-align: right;
+            color: var(--burnt-orange);
+            margin-top: 15px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-			<a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-            <a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-            <a href="guide.html">Manual</a>
-        </nav>
-    </div>
-
-    <div class="hero-section">
-        <h1 class="brand-hero-title">
-			Empowering<span class="brand-green">Engineers</span>.uk
-		</h1>
-        <p class="hero-subtitle">Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration through the Engineering Council.</p>
-        <div style="margin-top: 30px;">
-            <a href="guide.html" class="action-btn" style="display:inline-block; width:auto; padding: 15px 40px; text-decoration:none;">View User Manual & SOP</a>
-        </div>
-    </div>
+    <script src="header_nav.js"></script>
 
     <div class="container">
-        <h2 style="text-align:center; border:none;">CORE APPLICATION TOOLS</h2>
+        
+        <div class="hero-section">
+            <img src="EE_Logo_rect_Solid.png" alt="Empowering Engineers UK" class="hero-logo">
+            
+            <p class="hero-text">
+                Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration through the Engineering Council.
+            </p>
+            
+            <a href="guide.html" class="action-btn" style="display: inline-block; width: auto; padding: 12px 30px; text-decoration: none;">
+                VIEW USER MANUAL & SOP
+            </a>
+        </div>
+
         <div class="tool-grid">
+            
             <a href="career_tool.html" class="tool-card">
-                <div class="tool-icon">🚀</div>
                 <div class="tool-title">Career Starter</div>
-                <div class="tool-desc">Define your professional brand. Generate a strategic CV and cover letter tailored to your target role and company goals.</div>
-                <div class="tool-link-text">Launch Tool &rarr;</div>
+                <div class="tool-desc">Generate a technical CV and Cover Letter tailored to your experience.</div>
+                <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="cpd_tool.html" class="tool-card">
-                <div class="tool-icon">📈</div>
                 <div class="tool-title">CPD Smart-Planner</div>
-                <div class="tool-desc">Analyze your skills against UK-SPEC. Generate a tailored 70/20/10 learning plan for your specific discipline.</div>
-                <div class="tool-link-text">Plan CPD &rarr;</div>
+                <div class="tool-desc">Identify gaps and build a 70/20/10 Development Action Plan.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="raci_tool.html" class="tool-card">
+                <div class="tool-title">RACI Matrix</div>
+                <div class="tool-desc">Define team roles and responsibilities for projects.</div>
+                <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="STAR_engine.html" class="tool-card">
-                <div class="tool-icon">⭐</div>
-                <div class="tool-title">STAR Engine & Auditor</div>
-                <div class="tool-desc">Draft powerful competency statements. Our algorithm audits for active language, acronyms, and UK-SPEC mapping.</div>
-                <div class="tool-link-text">Draft Evidence &rarr;</div>
-            </a>
-
-             <a href="interview_tool.html" class="tool-card">
-                <div class="tool-icon">🎙️</div>
-                <div class="tool-title">Virtual Interviewer</div>
-                <div class="tool-desc">Simulate your Professional Review Interview (PRI). Practice timed questions and get AI feedback on your delivery.</div>
-                <div class="tool-link-text">Start Practice &rarr;</div>
-            </a>
-        </div>
-
-        <h2 style="text-align:center; border:none; margin-top: 60px;">WORKPLACE UTILITIES</h2>
-        <div class="tool-grid">
-            <a href="raci_tool.html" class="tool-card">
-                <div class="tool-icon">🏗️</div>
-                <div class="tool-title">RACI Matrix Gen</div>
-                <div class="tool-desc">Define clear roles and responsibilities for projects. Crucial evidence for Competency C (Leadership).</div>
-                <div class="tool-link-text">Build Matrix &rarr;</div>
-            </a>
-            
-            <a href="feedback_tool.html" class="tool-card">
-                <div class="tool-icon">💬</div>
-                <div class="tool-title">Feedback Studio</div>
-                <div class="tool-desc">Prepare for difficult conversations using standard management frameworks like GROW and SBI.</div>
-                <div class="tool-link-text">Draft Feedback &rarr;</div>
+                <div class="tool-title">STAR Engine</div>
+                <div class="tool-desc">Draft competency evidence using the Situation-Task-Action-Result format.</div>
+                <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="ethics_tool.html" class="tool-card">
-                <div class="tool-icon">⚖️</div>
                 <div class="tool-title">Ethics Compass</div>
-                <div class="tool-desc">Navigate professional dilemmas using the RAEng Statement of Ethical Principles.</div>
-                <div class="tool-link-text">Analyze Dilemma &rarr;</div>
-            </a> 
-			
-            <a href="report_tool.html" class="tool-card">
-                <div class="tool-icon">📝</div>
-                <div class="tool-title">Report Architect</div>
-                <div class="tool-desc">Generate professional technical report structures (IET, FEA, Failure Analysis) and export to Word.</div>
-                <div class="tool-link-text">Structure Report &rarr;</div>
+                <div class="tool-desc">Navigate ethical dilemmas using RAEng principles.</div>
+                <div class="tool-arrow">&rarr;</div>
             </a>
-			
-			<a href="dap_tool.html" class="tool-card">
-                <div class="tool-icon">🔮</div>
-                <div class="tool-title">Strategic DAP Architect</div>
-                <div class="tool-desc">Generate a UK-SPEC compliant Development Action Plan (Short/Med/Long Term) that demonstrates strategic leadership.</div>
-                <div class="tool-link-text">Build DAP &rarr;</div>
-            </a> 
-            
+
+            <a href="feedback_tool.html" class="tool-card">
+                <div class="tool-title">Management Coach</div>
+                <div class="tool-desc">Frameworks (SWOT, PESTLE, GROW) for strategy and leadership.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
             <a href="glossary_tool.html" class="tool-card">
-                <div class="tool-icon">📖</div>
-                <div class="tool-title">Engineering Decoder</div>
-                <div class="tool-desc">Search over 14,000 technical acronyms and abbreviations across all engineering disciplines.</div>
-                <div class="tool-link-text">Search Database &rarr;</div>
+                <div class="tool-title">Decoder</div>
+                <div class="tool-desc">Search 14,000+ engineering acronyms and abbreviations.</div>
+                <div class="tool-arrow">&rarr;</div>
             </a>
+
+            <a href="hardware_tool.html" class="tool-card">
+                <div class="tool-title">Component Atlas</div>
+                <div class="tool-desc">Interactive blueprint database for engineering hardware.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="reference_tool.html" class="tool-card">
+                <div class="tool-title">Library</div>
+                <div class="tool-desc">Curated collection of formulas, standards, and trusted websites.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="report_tool.html" class="tool-card">
+                <div class="tool-title">Report Architect</div>
+                <div class="tool-desc">Structure your CEng/IEng application report.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="dap_tool.html" class="tool-card">
+                <div class="tool-title">DAP Architect</div>
+                <div class="tool-desc">Build a strategic Development Action Plan.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="interview_tool.html" class="tool-card">
+                <div class="tool-title">Virtual Interviewer</div>
+                <div class="tool-desc">Practice timed UK-SPEC questions with AI critique.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="linkedin_banner_gen.html" class="tool-card">
+                <div class="tool-title">Banner Gen</div>
+                <div class="tool-desc">Create professional LinkedIn banners.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+             <a href="logo_tool.html" class="tool-card">
+                <div class="tool-title">Logo Studio</div>
+                <div class="tool-desc">Export the brand logo for presentations.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
         </div>
     </div>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
-	
-	<script src="footer_feedback.js"></script>
-	
+    <script defer src="footer.js"></script>
 </body>
 </html>

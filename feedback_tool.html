@@ -133,25 +133,6 @@
 </head>
 <body>
 	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html">CPD</a>
-			<a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html" class="active">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
-        </nav>
-    </div>
 
     <div class="container">
         <div class="card" style="grid-column: 1 / -1; margin-bottom: 10px; text-align:center;">
@@ -237,16 +218,6 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
 
     <script>
         // --- RENDER LOGIC ---
@@ -374,12 +345,12 @@
 
             const prompt = `Act as a ${role}. 
             
-I have drafted a ${type} framework below (${promptType}):
-"""
-${script}
-"""
+			I have drafted a ${type} framework below (${promptType}):
+			"""
+			${script}
+			"""
 
-${action}`;
+			${action}`;
 
             navigator.clipboard.writeText(prompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -425,7 +396,6 @@ ${action}`;
         };
     </script>
 	
-	<script src="footer_feedback.js"></script>
-	
+	<script defer src="footer.js"></script>	
 </body>
 </html>

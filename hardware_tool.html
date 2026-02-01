@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="The Component Atlas | EmpoweringEngineers.uk">
+    <meta property="og:description" content="Interactive engineering hardware reference database covering Mechanical, Electrical, Civil, Automotive, Aerospace, and more. Detailed design, manufacturing, and failure mode specifications.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/hardware_tool.html">
+    <meta property="og:type" content="website">
+
+    <title>The Component Atlas | EmpoweringEngineers.uk</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+
+    <style>
+        /* --- ATLAS SPECIFIC LAYOUT --- */
+        
+        .atlas-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 320px 1fr; /* Sidebar | Content */
+            gap: 20px;
+            height: 80vh; 
+        }
+
+        /* SIDEBAR */
+        .atlas-sidebar {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow-y: hidden;
+        }
+
+        /* TOOLBAR (Matches CPD Tool Context Bar) */
+        .context-bar {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .context-bar label {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            color: var(--burnt-orange);
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .context-bar select {
+            width: 100%;
+            padding: 8px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 4px;
+            font-family: "Arial", sans-serif;
+        }
+
+        /* SCROLLABLE LIST AREA */
+        .component-list-area {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        /* MAIN VIEW */
+        .atlas-content {
+            overflow-y: auto;
+            position: relative;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* LIST BUTTONS */
+        .discipline-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--slate-grey);
+            padding: 15px;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9rem;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .discipline-btn:hover {
+            background: var(--hover-green);
+            color: var(--terminal-green);
+            padding-left: 20px;
+        }
+
+        .discipline-btn.active {
+            background: var(--terminal-green);
+            color: var(--midnight-navy);
+            font-weight: bold;
+        }
+
+        /* BLUEPRINT CARD STYLING */
+        .blueprint-header {
+            border-bottom: 2px solid var(--terminal-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .blueprint-tag {
+            background: var(--hover-green);
+            color: var(--terminal-green);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border: 1px solid var(--terminal-green);
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .spec-box {
+            background: rgba(0, 0, 0, 0.3); 
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .spec-label {
+            color: var(--burnt-orange);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed var(--slate-grey);
+            padding-bottom: 5px;
+        }
+
+        .spec-text {
+            font-size: 0.95rem;
+            color: var(--cloud-white);
+        }
+
+        /* ACRONYM TOOLTIP */
+        .acronym-link {
+            border-bottom: 1px dotted var(--terminal-green);
+            color: var(--terminal-green);
+            cursor: help;
+        }
+
+        #acronymTooltip {
+            position: absolute;
+            display: none;
+            background: var(--midnight-navy);
+            border: 1px solid var(--terminal-green);
+            padding: 15px;
+            z-index: 2000;
+            max-width: 300px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+
+        .tooltip-header {
+            color: var(--burnt-orange);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .def-primary {
+            background: rgba(255,255,255,0.1);
+            padding: 5px;
+            border-left: 3px solid var(--terminal-green);
+            margin-bottom: 5px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .atlas-container { grid-template-columns: 1fr; height: auto; display: block; }
+            .atlas-sidebar { max-height: 300px; margin-bottom: 20px; }
+            .spec-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <script defer src="header_nav.js"></script>
+
+    <div class="atlas-container">
+        
+        <div class="card atlas-sidebar">
+            <div class="context-bar">
+                <label>DISCIPLINE FILTER</label>
+                <select id="discFilter" onchange="renderList()">
+                    <option value="All">All Disciplines</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Civil">Civil/Structural</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Aerospace">Aerospace</option>
+                    <option value="Naval">Naval</option>
+                    <option value="Nuclear">Nuclear</option>
+                </select>
+            </div>
+            
+            <div id="componentList" class="component-list-area">
+                </div>
+        </div>
+
+        <div class="card atlas-content" id="detailView">
+            <div style="text-align:center; padding-top:100px; color:var(--slate-grey);">
+                <h2>>> COMPONENT_ATLAS_LOADED</h2>
+                <p>Select a hardware component from the left to view its engineering specification.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="acronymTooltip"></div>
+
+    <script src="hardware_db.js"></script>
+    <script src="acronyms.js"></script>
+
+    <script>
+        // --- ACRONYM ENGINE ---
+        let acronymSet = new Set();
+        // Check if acronymDb is loaded
+        if (typeof acronymDb !== 'undefined') {
+            acronymSet = new Set(acronymDb.map(item => item.a));
+        } else {
+            console.warn("Acronym Database not found.");
+        }
+
+        function parseTextForAcronyms(text, context) {
+            if (!text) return '';
+            return text.split(/(\s+)/).map(word => {
+                const cleanWord = word.replace(/[.,;()]/g, '');
+                // Check if word is in DB, is Uppercase, and length > 1
+                if (acronymSet.has(cleanWord) && cleanWord.length > 1 && cleanWord === cleanWord.toUpperCase()) {
+                    return word.replace(cleanWord, `<span class="acronym-link" onmouseenter="showTooltip(event, '${cleanWord}', '${context}')" onmouseleave="hideTooltip()">${cleanWord}</span>`);
+                }
+                return word;
+            }).join('');
+        }
+
+        function showTooltip(e, acronym, context) {
+            if (typeof acronymDb === 'undefined') return;
+
+            const tooltip = document.getElementById('acronymTooltip');
+            const matches = acronymDb.filter(item => item.a === acronym);
+            
+            if (matches.length === 0) return;
+
+            matches.sort((a, b) => {
+                if (a.c === context) return -1;
+                if (b.c === context) return 1;
+                return 0;
+            });
+
+            let html = `<div class="tooltip-header">>> ${acronym}</div>`;
+            matches.forEach(match => {
+                const isContext = match.c === context;
+                const styleClass = isContext ? 'def-primary' : 'def-secondary'; 
+                const prefix = isContext ? 'MATCH' : match.c.toUpperCase();
+                const secondaryStyle = isContext ? '' : 'color: var(--slate-grey); font-size: 0.75rem; margin-bottom: 4px;';
+                
+                html += `<div class="${styleClass}" style="${secondaryStyle}"><span style="opacity:0.7">[${prefix}]</span> ${match.m}</div>`;
+            });
+
+            tooltip.innerHTML = html;
+            tooltip.style.display = 'block';
+            moveTooltip(e);
+        }
+
+        function moveTooltip(e) {
+            const tooltip = document.getElementById('acronymTooltip');
+            let left = e.pageX + 15;
+            let top = e.pageY + 15;
+            if (left + 300 > window.innerWidth) left = e.pageX - 315;
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        function hideTooltip() {
+            document.getElementById('acronymTooltip').style.display = 'none';
+        }
+
+        document.body.addEventListener('mousemove', (e) => {
+            if (document.getElementById('acronymTooltip').style.display === 'block') {
+                moveTooltip(e);
+            }
+        });
+
+        // --- HARDWARE ATLAS LOGIC ---
+        function renderList() {
+            const filter = document.getElementById('discFilter').value;
+            const container = document.getElementById('componentList');
+            container.innerHTML = '';
+
+            if (typeof hardwareDb === 'undefined') {
+                container.innerHTML = '<div style="padding:20px; color:var(--burnt-orange);">Error: Database not loaded.</div>';
+                return;
+            }
+
+            const items = hardwareDb.filter(item => filter === 'All' || item.discipline === filter);
+
+            items.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = 'discipline-btn';
+                btn.innerHTML = `> ${item.name} <span style="font-size:0.7em; opacity:0.6;">[${item.discipline}]</span>`;
+                btn.onclick = () => loadDetail(item.id, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function loadDetail(id, btnElement) {
+            document.querySelectorAll('.discipline-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const data = hardwareDb.find(item => item.id === id);
+            const view = document.getElementById('detailView');
+            const disc = data.discipline;
+
+            view.innerHTML = `
+                <div class="blueprint-header">
+                    <h2 style="margin:0; border:none; color:var(--cloud-white); font-size:1.8rem;">${data.name}</h2>
+                    <span class="blueprint-tag">${data.tag}</span>
+                </div>
+
+                <div class="spec-grid">
+                    <div class="spec-box" style="grid-column: span 2;">
+                        <span class="spec-label">01. DESIGN PRINCIPLES</span>
+                        <div class="spec-text">${parseTextForAcronyms(data.design, disc)}</div>
+                    </div>
+
+                    <div class="spec-box">
+                        <span class="spec-label">02. MANUFACTURING PROCESS</span>
+                        <div class="spec-text">${parseTextForAcronyms(data.manufacture, disc)}</div>
+                    </div>
+
+                    <div class="spec-box">
+                        <span class="spec-label">03. PRACTICAL APPLICATION</span>
+                        <div class="spec-text">${parseTextForAcronyms(data.app, disc)}</div>
+                    </div>
+                    
+                    <div class="spec-box" style="border-color: var(--burnt-orange);">
+                        <span class="spec-label" style="color:var(--burnt-orange);">04. COMMON FAILURE MODES</span>
+                        <div class="spec-text">${parseTextForAcronyms(data.failure, disc)}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.onload = renderList;
+    </script>
+	<script defer src="footer.js"></script>
+</body>
+</html>

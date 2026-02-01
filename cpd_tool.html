@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPD Smart-Planner [v5.1] | EmpoweringEngineers.uk</title>
+    <title>CPD Smart-Planner [v7.2] | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
     
     <meta property="og:title" content="CPD Gap Analyzer | Empowering Engineers UK">
@@ -26,11 +26,10 @@
     <link rel="stylesheet" href="layout.css">
     
     <script src="cpd.js"></script>
+    <script src="UK-SPEC.js"></script>
     
     <style>
         /* PAGE SPECIFIC LAYOUT */
-        
-        /* Grid for Context Selectors */
         .context-bar {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -48,72 +47,133 @@
             margin-bottom: 30px; 
         }
 
-        /* Slider Rows */
-        .slider-row { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            margin-bottom: 12px; 
-            padding: 8px 10px; 
-            background: rgba(255,255,255,0.02); 
-            border-radius: 4px; 
-            border: 1px solid transparent;
+        /* HEADER TOOLTIPS */
+        .header-wrapper { position: relative; display: inline-block; margin-top: 30px; margin-bottom: 15px; }
+        .profile-grid > div > .header-wrapper:first-child { margin-top: 0; }
+
+        .spec-header {
+            cursor: help;
+            border-bottom: 1px dashed var(--slate-grey);
+            padding-bottom: 2px;
+            transition: 0.2s;
+            margin-bottom: 0;
+        }
+        .spec-header:hover { color: var(--cloud-white); border-color: var(--terminal-green); }
+
+        /* SLIDER STYLING */
+        .slider-group { margin-bottom: 25px; position: relative; }
+        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+
+        /* LABEL WRAPPER */
+        .label-wrapper { position: relative; display: inline-block; cursor: help; }
+        .slider-label-text {
+            font-family: inherit; font-size: 0.9rem; color: var(--cloud-white); font-weight: bold;
+            border-bottom: 1px dotted var(--slate-grey);
+        }
+        .slider-label-text:hover { color: var(--terminal-green); border-bottom-color: var(--terminal-green); }
+
+        .slider-value-display {
+            font-family: inherit; font-size: 0.8rem; color: var(--terminal-green);
+            background: rgba(0, 255, 153, 0.1); padding: 2px 8px; border-radius: 4px;
+            border: 1px solid var(--terminal-green);
+        }
+
+        /* RANGE INPUT */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; margin: 5px 0; cursor: pointer; z-index: 10; }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%;
+            background: var(--terminal-green); cursor: pointer; margin-top: -8px;
+            box-shadow: 0 0 10px rgba(0,255,153,0.5); transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #30363d; border-radius: 3px; }
+        
+        /* TOOLTIP STYLING */
+        .comp-tooltip {
+            visibility: hidden; width: 300px; background-color: var(--midnight-navy); color: #fff;
+            text-align: left; border-radius: 6px; padding: 15px; position: absolute; opacity: 0;
+            transition: opacity 0.2s; border: 1px solid var(--terminal-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8); font-size: 0.85rem; line-height: 1.4; pointer-events: none;
+        }
+        .comp-tooltip::after {
+            content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+            border-width: 5px; border-style: solid; border-color: var(--terminal-green) transparent transparent transparent;
+        }
+        .comp-tooltip strong { display: block; color: var(--terminal-green); margin-bottom: 5px; font-family: inherit; border-bottom: 1px dashed #555; padding-bottom: 3px; }
+
+        /* Specific Tooltip Positioning */
+        .header-tip { width: 350px; margin-left: -175px; bottom: 120%; left: 50%; z-index: 200; }
+        .label-tip { width: 400px; bottom: 140%; left: 0; z-index: 300; } 
+        .label-tip::after { left: 20px; }
+        .slider-tip { bottom: 130%; left: 50%; margin-left: -150px; z-index: 150; }
+
+        /* Hover Triggers */
+        .header-wrapper:hover .comp-tooltip { visibility: visible; opacity: 1; }
+        .label-wrapper:hover .comp-tooltip { visibility: visible; opacity: 1; }
+        input[type=range]:hover + .comp-tooltip.slider-tip { visibility: visible; opacity: 1; }
+
+        /* NEW: OBJECTIVES INPUT */
+        .objectives-box {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.02);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        .objectives-box textarea {
+            width: 100%;
+            height: 100px;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            padding: 10px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        /* RESULTS AREA */
+        .results-box { display: none; margin-top: 30px; animation: fadeIn 0.5s ease-in; }
+        
+        /* MEGA PROMPT BOX */
+        .mega-prompt-container {
+            background: var(--dark-card);
+            border: 2px solid var(--terminal-green);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(0, 255, 153, 0.1);
+        }
+        .ai-copy-btn {
+            background: var(--terminal-green);
+            color: var(--midnight-navy);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 15px;
             transition: 0.2s;
         }
-        .slider-row:hover { border-color: var(--border-color); }
+        .ai-copy-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        .slider-label { 
-            width: 50%; 
-            font-family: 'Courier Prime', monospace; 
-            font-size: 0.85rem; 
-            color: var(--cloud-white);
-        }
-        
-        .slider-input { 
-            width: 50%; 
-            accent-color: var(--terminal-green); 
-            cursor: pointer; 
-        }
-
-        /* Results Box Animation */
-        .results-box { display: none; margin-top: 20px; animation: fadeIn 0.5s ease-in; }
-
-        /* CPD Plan Item Cards */
         .plan-item { 
-            background: var(--dark-card); 
-            padding: 20px; 
-            border-left: 4px solid var(--terminal-green); 
-            margin-bottom: 15px; 
-            border-radius: 0 4px 4px 0; 
-            border: 1px solid var(--border-color);
-            border-left-width: 4px; 
+            background: var(--dark-card); padding: 20px; border-left: 4px solid var(--terminal-green);
+            margin-bottom: 15px; border-radius: 0 4px 4px 0; border: 1px solid var(--border-color); border-left-width: 4px; 
         }
-        .plan-header { 
-            display: flex; 
-            justify-content: space-between; 
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            padding-bottom: 10px; 
-            margin-bottom: 10px; 
-        }
+        .plan-header { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px; }
         .plan-title { font-weight: bold; color: var(--terminal-green); font-size: 1.1rem; }
-        .plan-score { color: var(--burnt-orange); font-family: 'Courier Prime', monospace; }
+        .plan-score { color: var(--burnt-orange); font-family: inherit; font-weight: bold; }
         
-        /* Plan Details */
         .plan-70 { color: var(--cloud-white); display: block; margin-top: 10px; font-size: 0.95rem; }
         .plan-20 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; }
         .plan-10 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; font-style: italic; }
 
         .tag { 
-            display: inline-block; 
-            background: rgba(0,255,153,0.1); 
-            border: 1px solid var(--terminal-green); 
-            color: var(--terminal-green); 
-            padding: 2px 6px; 
-            border-radius: 3px; 
-            font-size: 0.7rem; 
-            margin-left: 10px; 
-            vertical-align: middle; 
-            font-family: 'Courier Prime', monospace;
+            display: inline-block; background: rgba(0,255,153,0.1); border: 1px solid var(--terminal-green);
+            color: var(--terminal-green); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 10px; vertical-align: middle; font-family: inherit;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -121,38 +181,20 @@
     </style>
 </head>
 <body onload="initApp()">
-	<script defer src="header_nav.js"></script>
-    <div class="sticky-container">
-        <a href="index.html">
-            <img src="EE_Logo_rect_Trans.png" alt="Empowering Engineers UK" class="site-brand-img">
-        </a>
-        <nav>
-            <a href="career_tool.html">Career</a>
-            <a href="cpd_tool.html" class="active">CPD</a>
-			<a href="raci_tool.html">RACI</a>
-            <a href="STAR_engine.html">STAR</a>
-            <a href="ethics_tool.html">Ethics</a>
-            <a href="feedback_tool.html">Coach</a>
-            <a href="glossary_tool.html">Decoder</a>
-            <a href="reference_tool.html">Library</a>
-            <a href="report_tool.html">Report</a>
-            <a href="dap_tool.html">DAP</a>
-            <a href="interview_tool.html">Interview</a>
-			<a href="guide.html">Manual</a>
-        </nav>
-    </div>
+    <script defer src="header_nav.js"></script>
 
     <div class="container">
         <div class="card">
-            <h2>CPD Smart-Planner [v5.1]</h2>
+            <h2>CPD Smart-Planner [v7.2]</h2>
             <p style="color:var(--slate-grey); margin-bottom:20px; font-size:0.9rem;">
-                Generate a discipline-specific <strong>70/20/10 Learning Plan</strong> tailored to your registration level (UK-SPEC).
+                Generate a discipline-specific <strong>70/20/10 Learning Plan</strong> based on the Engineering Council's 1-4 Competence Scale.
+                <br><em>Hover over the section titles (e.g., "A: Knowledge") or the criteria (e.g. "A1") for UK-SPEC definitions.</em>
             </p>
 
             <div class="context-bar">
                 <div>
                     <label>Target Registration</label>
-                    <select id="targetLevel" onchange="generatePlan()">
+                    <select id="targetLevel" onchange="handleContextChange()">
                         <option value="CEng">CEng (Chartered)</option>
                         <option value="IEng">IEng (Incorporated)</option>
                         <option value="EngTech">EngTech (Technician)</option>
@@ -160,7 +202,7 @@
                 </div>
                 <div>
                     <label>Discipline</label>
-                    <select id="discipline" onchange="generatePlan()">
+                    <select id="discipline" onchange="handleDiscChange()">
                         <option value="General">General Engineering</option>
                         <option value="Mechanical">Mechanical / Piping</option>
                         <option value="Electrical">Electrical / C&I</option>
@@ -172,36 +214,44 @@
                 </div>
             </div>
 
+            <div class="objectives-box">
+                <label>Current Role & Annual Objectives</label>
+                <textarea id="userObjectives" placeholder="e.g., Senior Mech Engineer. Goals: 1. Deliver the HVAC upgrade for Site B. 2. Implement ISO 55000 asset management. 3. Mentor two graduates."></textarea>
+                <div style="font-size:0.8rem; color:var(--slate-grey); margin-top:5px;">
+                    This context helps the AI align your business goals with the UK-SPEC requirements.
+                </div>
+            </div>
+
             <div class="profile-grid">
                 <div>
-                    <h3>A: Knowledge</h3>
-                    <div class="slider-row"><span class="slider-label">A1: Maintain/Extend</span><input type="range" min="0" max="100" value="50" class="slider-input" id="a1" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">A2: Application</span><input type="range" min="0" max="100" value="50" class="slider-input" id="a2" oninput="saveData()"></div>
+                    <div class="header-wrapper"><h3 class="spec-header" id="head_A">A: Knowledge</h3><div class="comp-tooltip header-tip" id="tip_head_A"></div></div>
+                    <div id="wrapper_a1"></div>
+                    <div id="wrapper_a2"></div>
 
-                    <h3 style="margin-top:20px;">B: Design & Solutions</h3>
-                    <div class="slider-row"><span class="slider-label">B1: Identify Problems</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b1" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">B2: Design Solutions</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b2" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">B3: Implementation</span><input type="range" min="0" max="100" value="50" class="slider-input" id="b3" oninput="saveData()"></div>
+                    <div class="header-wrapper"><h3 class="spec-header" id="head_B">B: Design & Solutions</h3><div class="comp-tooltip header-tip" id="tip_head_B"></div></div>
+                    <div id="wrapper_b1"></div>
+                    <div id="wrapper_b2"></div>
+                    <div id="wrapper_b3"></div>
 
-                    <h3 style="margin-top:20px;">C: Leadership</h3>
-                    <div class="slider-row"><span class="slider-label">C1: Planning</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c1" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">C2: Resources/Budget</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c2" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">C3: Teams/Staff</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c3" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">C4: Quality</span><input type="range" min="0" max="100" value="50" class="slider-input" id="c4" oninput="saveData()"></div>
+                    <div class="header-wrapper"><h3 class="spec-header" id="head_C">C: Leadership</h3><div class="comp-tooltip header-tip" id="tip_head_C"></div></div>
+                    <div id="wrapper_c1"></div>
+                    <div id="wrapper_c2"></div>
+                    <div id="wrapper_c3"></div>
+                    <div id="wrapper_c4"></div>
                 </div>
 
                 <div>
-                    <h3>D: Communication</h3>
-                    <div class="slider-row"><span class="slider-label">D1: English Language</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d1" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">D2: Presentation</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d2" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">D3: Social Skills</span><input type="range" min="0" max="100" value="50" class="slider-input" id="d3" oninput="saveData()"></div>
+                    <div class="header-wrapper"><h3 class="spec-header" id="head_D">D: Communication</h3><div class="comp-tooltip header-tip" id="tip_head_D"></div></div>
+                    <div id="wrapper_d1"></div>
+                    <div id="wrapper_d2"></div>
+                    <div id="wrapper_d3"></div>
 
-                    <h3 style="margin-top:20px;">E: Commitment</h3>
-                    <div class="slider-row"><span class="slider-label">E1: Codes of Conduct</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e1" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">E2: Safety & Risk</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e2" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">E3: Sustainability</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e3" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">E4: CPD Records</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e4" oninput="saveData()"></div>
-                    <div class="slider-row"><span class="slider-label">E5: Ethics</span><input type="range" min="0" max="100" value="50" class="slider-input" id="e5" oninput="saveData()"></div>
+                    <div class="header-wrapper"><h3 class="spec-header" id="head_E">E: Commitment</h3><div class="comp-tooltip header-tip" id="tip_head_E"></div></div>
+                    <div id="wrapper_e1"></div>
+                    <div id="wrapper_e2"></div>
+                    <div id="wrapper_e3"></div>
+                    <div id="wrapper_e4"></div>
+                    <div id="wrapper_e5"></div>
                 </div>
             </div>
 
@@ -212,104 +262,226 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Empowering Engineers UK. All rights reserved.</p>
-        <p>
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="terms.html">Terms of Use</a> | 
-            <a href="privacy.html">Privacy Policy</a>
-        </p>
-    </footer>
-
     <script>
-        const ids = ["a1", "a2", "b1", "b2", "b3", "c1", "c2", "c3", "c4", "d1", "d2", "d3", "e1", "e2", "e3", "e4", "e5"];
+        const compLevels = {
+            1: { title: "Level 1 - Aware", text: "Performs with significant supervision and guidance.<br>Performs basic routine and predictable tasks.<br>Little or no individual responsibility.<br><em>(Not sufficient for membership)</em>" },
+            2: { title: "Level 2 - Familiar", text: "Performs activity in a range of contexts.<br>Supervision only required in complex circumstances.<br>Some individual responsibility and autonomy.<br><em>(Minimum level for membership)</em>" },
+            3: { title: "Level 3 - Skilled", text: "Performs activity in complex/non-routine contexts.<br>Significant responsibility and autonomy.<br>Can oversee the work of others.<br><em>(Normal level for election)</em>" },
+            4: { title: "Level 4 - Expert", text: "Performs in wide range of complex contexts.<br>Substantial personal autonomy.<br>Can develop others.<br><em>(Indicator for Fellowship)</em>" }
+        };
 
-        // --- LOOKUP FUNCTION (Data is in cpd.js) ---
-        // If cpd.js fails to load, this prevents the page from crashing
+        const fields = [
+            { id: "a1", label: "A1: Maintain/Extend" }, { id: "a2", label: "A2: Application" },
+            { id: "b1", label: "B1: Identify Problems" }, { id: "b2", label: "B2: Design Solutions" }, { id: "b3", label: "B3: Implementation" },
+            { id: "c1", label: "C1: Planning" }, { id: "c2", label: "C2: Resources/Budget" }, { id: "c3", label: "C3: Teams/Staff" }, { id: "c4", label: "C4: Quality" },
+            { id: "d1", label: "D1: English Language" }, { id: "d2", label: "D2: Presentation" }, { id: "d3", label: "D3: Social Skills" },
+            { id: "e1", label: "E1: Codes of Conduct" }, { id: "e2", label: "E2: Safety & Risk" }, { id: "e3", label: "E3: Sustainability" }, { id: "e4", label: "E4: CPD Records" }, { id: "e5", label: "E5: Ethics" }
+        ];
+
+        // --- GLOBAL VARIABLE FOR PROMPT STORAGE ---
+        window.currentMegaPrompt = "";
+
+        function initApp() {
+            fields.forEach(f => {
+                const wrapper = document.getElementById("wrapper_" + f.id);
+                if (!wrapper) return;
+                wrapper.innerHTML = `
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <div class="label-wrapper">
+                                <span class="slider-label-text" id="label_${f.id}">${f.label}</span>
+                                <div class="comp-tooltip label-tip" id="tip_label_${f.id}"></div>
+                            </div>
+                            <span id="disp_${f.id}" class="slider-value-display">Level 2 - Familiar</span>
+                        </div>
+                        <input type="range" id="${f.id}" min="1" max="4" value="2" step="1" oninput="updateSlider('${f.id}')">
+                        <div class="comp-tooltip slider-tip" id="tip_${f.id}"></div>
+                    </div>
+                `;
+                updateSlider(f.id, true);
+            });
+            loadSavedData();
+            updateSpecData();
+        }
+
+        function handleContextChange() { updateSpecData(); saveData(); hideResults(); }
+        function handleDiscChange() { saveData(); hideResults(); }
+        function hideResults() { document.getElementById('resultsArea').style.display = 'none'; }
+
+        function updateSpecData() {
+            const level = document.getElementById('targetLevel').value;
+            if(typeof ukSpecDb === 'undefined') return;
+            
+            ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
+                const data = ukSpecDb[level].competencies[letter];
+                document.getElementById(`head_${letter}`).innerText = data.title;
+                document.getElementById(`tip_head_${letter}`).innerHTML = `<strong>${data.title}</strong><div style="margin-bottom:8px; border-bottom:1px solid #444; padding-bottom:5px;">${data.requirement}</div><em style="font-size:0.9em; color:var(--slate-grey);">${data.about}</em>`;
+            });
+
+            fields.forEach(f => {
+                const letter = f.id.charAt(0).toUpperCase(); 
+                const code = f.id.toUpperCase(); 
+                const dataGroup = ukSpecDb[level].competencies[letter];
+                if(dataGroup && dataGroup.sub[code]) {
+                    const subData = dataGroup.sub[code];
+                    let bulletHTML = "";
+                    subData.bullets.forEach(b => bulletHTML += `<li>${b}</li>`);
+                    document.getElementById(`tip_label_${f.id}`).innerHTML = `<strong>${code}: ${f.label.split(':')[1] || ''}</strong><div style="margin-bottom:8px;">${dataGroup.about}</div><div style="margin-bottom:8px; font-weight:bold; color:var(--cloud-white);">${subData.text}</div><ul style="margin:0; padding-left:15px; font-size:0.85rem; color:var(--slate-grey);">${bulletHTML}</ul>`;
+                }
+            });
+        }
+
+        function updateSlider(id, isInit) {
+            const val = document.getElementById(id).value;
+            const def = compLevels[val];
+            document.getElementById("disp_" + id).innerText = def.title;
+            document.getElementById("tip_" + id).innerHTML = `<strong>${def.title}</strong>${def.text}`;
+            if (!isInit) saveData();
+        }
+
         function getAdviceSafely(id, level, disc) {
-            if (typeof cpdDb === 'undefined') {
-                return "Database not loaded. Please refresh the page.";
-            }
+            const defaultObj = { 70: "Undertake specific on-the-job training.", 20: "Discuss with mentor.", 10: "Attend formal training.", prompt: "competence development" };
+            if (typeof cpdDb === 'undefined') return defaultObj;
             if (cpdDb[id] && cpdDb[id][level]) {
                 if (cpdDb[id][level][disc]) return cpdDb[id][level][disc];
                 if (cpdDb[id][level]["General"]) return cpdDb[id][level]["General"];
             }
-            return "Undertake specific training or seek mentorship in this area.";
-        }
-
-        // --- APP LOGIC ---
-        function initApp() {
-            loadSavedData();
+            return defaultObj;
         }
 
         function saveData() {
-            ids.forEach(id => {
-                localStorage.setItem('cpd_v5_' + id, document.getElementById(id).value);
-            });
+            fields.forEach(f => localStorage.setItem('cpd_v6_' + f.id, document.getElementById(f.id).value));
             localStorage.setItem('cpd_level', document.getElementById('targetLevel').value);
             localStorage.setItem('cpd_disc', document.getElementById('discipline').value);
+            localStorage.setItem('cpd_objs', document.getElementById('userObjectives').value);
         }
 
         function loadSavedData() {
-            ids.forEach(id => {
-                const saved = localStorage.getItem('cpd_v5_' + id);
-                if (saved) document.getElementById(id).value = saved;
+            fields.forEach(f => {
+                const saved = localStorage.getItem('cpd_v6_' + f.id);
+                if (saved) { document.getElementById(f.id).value = saved; updateSlider(f.id, true); }
             });
             if(localStorage.getItem('cpd_level')) document.getElementById('targetLevel').value = localStorage.getItem('cpd_level');
             if(localStorage.getItem('cpd_disc')) document.getElementById('discipline').value = localStorage.getItem('cpd_disc');
+            if(localStorage.getItem('cpd_objs')) document.getElementById('userObjectives').value = localStorage.getItem('cpd_objs');
         }
 
+        // --- GENERATE PLAN WITH ENRICHED PROMPT ---
         function generatePlan() {
             const container = document.getElementById('resultsArea');
             const level = document.getElementById('targetLevel').value;
             const disc = document.getElementById('discipline').value;
+            const objectives = document.getElementById('userObjectives').value.trim() || "No specific objectives listed.";
             
             container.innerHTML = "";
             container.style.display = 'block';
+            
+            let gapSummary = "";
+            let gapHTML = "";
             let gapFound = false;
 
-            ids.forEach(id => {
-                const val = document.getElementById(id).value;
-                if(val < 70) {
+            // 1. Build Gap List & Prompt Data
+            fields.forEach(f => {
+                const val = parseInt(document.getElementById(f.id).value);
+                const currentTitle = compLevels[val].title;
+                
+                // If Gap (< Skilled)
+                if(val < 3) {
                     gapFound = true;
-                    // Call the external DB safely
-                    const specificAdvice = getAdviceSafely(id, level, disc);
+                    const advice = getAdviceSafely(f.id, level, disc);
                     
-                    const html = `
+                    // Add specifics to the AI prompt
+                    gapSummary += `- ${f.id.toUpperCase()}: Currently ${currentTitle}\n`;
+                    gapSummary += `  * Recommended 70% Activity: ${advice[70]}\n`;
+                    gapSummary += `  * Recommended 20% Activity: ${advice[20]}\n`;
+                    gapSummary += `  * Recommended 10% Activity: ${advice[10]}\n\n`;
+
+                    gapHTML += `
                         <div class="plan-item">
                             <div class="plan-header">
-                                <span class="plan-title">Gap ${id.toUpperCase()} <span class="tag">${level} | ${disc}</span></span>
-                                <span class="plan-score">Confidence: ${val}%</span>
+                                <span class="plan-title">Gap: ${f.label.split(":")[0]} <span class="tag" style="border-color:var(--burnt-orange); color:var(--burnt-orange)">Current: ${currentTitle}</span></span>
+                                <span class="plan-score">Target: Skilled</span>
                             </div>
-                            <span class="plan-70"><strong>70% (On-the-Job):</strong> ${specificAdvice}</span>
-                            <span class="plan-20"><strong>20% (Social/Peer):</strong> Discuss this specific competency with a ${level} mentor.</span>
-                            <span class="plan-10"><strong>10% (Formal Training):</strong> Read the UK-SPEC section on ${id.toUpperCase()} closely.</span>
+                            <span class="plan-70"><strong>70% (On-the-Job):</strong> ${advice[70]}</span>
+                            <span class="plan-20"><strong>20% (Social/Peer):</strong> ${advice[20]}</span>
+                            <span class="plan-10"><strong>10% (Formal Training):</strong> ${advice[10]}</span>
                         </div>
                     `;
-                    container.innerHTML += html;
                 }
             });
 
-            if(!gapFound) {
-                container.innerHTML = `<div class="plan-item" style="border-left-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Ready for Assessment?</span></div><p style="color:var(--cloud-white);">Your self-assessment indicates strong competence (>70%) across all areas for <strong>${level} (${disc})</strong>. Consider booking your Professional Review Interview.</p></div>`;
+            // 2. Construct Mega Prompt & Save to Global
+            // We now include the specific recommended activities in the prompt
+            window.currentMegaPrompt = `Act as a Senior ${level} Mentor in ${disc}. 
+I need a Strategic CPD Plan to achieve Professional Registration.
+
+MY CONTEXT & BUSINESS GOALS:
+${objectives}
+
+MY SELF-ASSESSMENT GAPS & PROPOSED ACTIVITIES:
+${gapSummary}
+
+PLEASE PROVIDE A STRATEGIC PLAN:
+1. TIMELINE: Based on these gaps, estimate the months/years to readiness.
+2. ALIGNMENT: Review the "Proposed Activities" listed above. Are they realistic? How can I tweak them to better align with my "Business Goals" listed in my context?
+3. ROADMAP: Structure these into a chronological action plan (Q1, Q2, Q3, Q4) ensuring I balance Work, Study, and Mentoring (70/20/10).`;
+
+            // 3. Inject Mega Prompt Box
+            const promptBox = `
+                <div class="mega-prompt-container" id="mentorBox">
+                    <h3 style="color:var(--terminal-green); margin-top:0;">>> STRATEGIC AI MENTOR</h3>
+                    <p style="color:var(--cloud-white); font-size:0.9rem;">
+                        Use this prompt with ChatGPT/Claude to get a strategic timeline and alignment check.
+                    </p>
+                    <button class="ai-copy-btn" onclick="copyMegaPrompt(this)">
+                        COPY MEGA PROMPT &rarr;
+                    </button>
+                </div>
+            `;
+
+            // 4. Combine Output
+            if(gapFound) {
+                container.innerHTML = promptBox + gapHTML;
+            } else {
+                container.innerHTML = promptBox + `<div class="plan-item" style="border-left-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Ready for Assessment?</span></div><p style="color:var(--cloud-white);">Your self-assessment indicates you are operating at <strong>Level 3 (Skilled)</strong> or higher across all areas. Use the Mega Prompt above to confirm your readiness and prepare for the interview.</p></div>`;
             }
             
-            container.scrollIntoView({behavior: "smooth"});
+            // 5. Scroll to the prompt box specifically
+            setTimeout(() => {
+                const box = document.getElementById('mentorBox');
+                if(box) {
+                    box.scrollIntoView({behavior: "smooth", block: "center"});
+                } else {
+                    container.scrollIntoView({behavior: "smooth"});
+                }
+            }, 100);
+        }
+
+        function copyMegaPrompt(btn) {
+            if(!window.currentMegaPrompt) {
+                alert("No prompt generated yet.");
+                return;
+            }
+            navigator.clipboard.writeText(window.currentMegaPrompt).then(() => {
+                const orig = btn.innerText;
+                btn.innerText = "COPIED! PASTE INTO AI AGENT";
+                setTimeout(() => btn.innerText = orig, 2000);
+            });
         }
 
         function resetForm() {
-            if(confirm("Reset all sliders?")) {
-                ids.forEach(id => {
-                    document.getElementById(id).value = 50;
-                    localStorage.removeItem('cpd_v5_' + id);
+            if(confirm("Reset all scores to Level 2 (Familiar)?")) {
+                fields.forEach(f => {
+                    document.getElementById(f.id).value = 2;
+                    updateSlider(f.id, false);
+                    localStorage.removeItem('cpd_v6_' + f.id);
                 });
-                document.getElementById('resultsArea').style.display = 'none';
+                document.getElementById('userObjectives').value = "";
+                hideResults();
             }
         }
     </script>
-	
-	<script src="footer_feedback.js"></script>
-	
+    
+    <script defer src="footer.js"></script>    
 </body>
 </html>
