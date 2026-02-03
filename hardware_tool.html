@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta property="og:title" content="The Component Atlas | EmpoweringEngineers.uk">
-    <meta property="og:description" content="Interactive engineering hardware reference database covering Mechanical, Electrical, Civil, Automotive, Aerospace, and more. Detailed design, manufacturing, and failure mode specifications.">
+    <meta property="og:description" content="Interactive engineering hardware reference database. Specifications, failure modes, and linked standards for Mechanical, Electrical, and Civil components.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
     <meta property="og:url" content="https://www.empoweringengineers.uk/hardware_tool.html">
     <meta property="og:type" content="website">
@@ -38,7 +38,7 @@
             display: grid;
             grid-template-columns: 320px 1fr; /* Sidebar | Content */
             gap: 20px;
-            height: 80vh; 
+            height: 85vh; 
         }
 
         /* SIDEBAR */
@@ -49,7 +49,7 @@
             overflow-y: hidden;
         }
 
-        /* TOOLBAR (Matches CPD Tool Context Bar) */
+        /* TOOLBAR */
         .context-bar {
             background: rgba(255,255,255,0.05);
             padding: 15px;
@@ -90,6 +90,7 @@
                 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 20px 20px;
+            padding-bottom: 50px;
         }
 
         /* LIST BUTTONS */
@@ -127,6 +128,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .blueprint-tag {
@@ -165,6 +168,46 @@
         .spec-text {
             font-size: 0.95rem;
             color: var(--cloud-white);
+            line-height: 1.5;
+        }
+
+        /* REFERENCE CARDS */
+        .ref-mini-card {
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .ref-mini-card:hover {
+            border-color: var(--terminal-green);
+            background: rgba(0,255,153,0.05);
+            transform: translateX(5px);
+        }
+        .ref-type-badge {
+            font-size: 0.7rem;
+            color: var(--slate-grey);
+            text-transform: uppercase;
+            border: 1px solid var(--slate-grey);
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        .ref-link-title {
+            color: var(--cloud-white);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .ref-relevance {
+            color: var(--terminal-green);
+            font-size: 0.7rem;
+            font-family: 'Courier Prime', monospace;
+            float: right;
+            opacity: 0.8;
+            font-weight: bold;
         }
 
         /* ACRONYM TOOLTIP */
@@ -238,7 +281,7 @@
         <div class="card atlas-content" id="detailView">
             <div style="text-align:center; padding-top:100px; color:var(--slate-grey);">
                 <h2>>> COMPONENT_ATLAS_LOADED</h2>
-                <p>Select a hardware component from the left to view its engineering specification.</p>
+                <p>Select a hardware component from the left to view specs, failure modes, and related standards.</p>
             </div>
         </div>
 
@@ -247,23 +290,20 @@
     <div id="acronymTooltip"></div>
 
     <script src="hardware_db.js"></script>
+    <script src="references.js"></script>
     <script src="acronyms.js"></script>
 
     <script>
-        // --- ACRONYM ENGINE ---
+        // --- 1. ACRONYM LOGIC ---
         let acronymSet = new Set();
-        // Check if acronymDb is loaded
         if (typeof acronymDb !== 'undefined') {
             acronymSet = new Set(acronymDb.map(item => item.a));
-        } else {
-            console.warn("Acronym Database not found.");
         }
 
         function parseTextForAcronyms(text, context) {
             if (!text) return '';
             return text.split(/(\s+)/).map(word => {
                 const cleanWord = word.replace(/[.,;()]/g, '');
-                // Check if word is in DB, is Uppercase, and length > 1
                 if (acronymSet.has(cleanWord) && cleanWord.length > 1 && cleanWord === cleanWord.toUpperCase()) {
                     return word.replace(cleanWord, `<span class="acronym-link" onmouseenter="showTooltip(event, '${cleanWord}', '${context}')" onmouseleave="hideTooltip()">${cleanWord}</span>`);
                 }
@@ -272,11 +312,8 @@
         }
 
         function showTooltip(e, acronym, context) {
-            if (typeof acronymDb === 'undefined') return;
-
             const tooltip = document.getElementById('acronymTooltip');
             const matches = acronymDb.filter(item => item.a === acronym);
-            
             if (matches.length === 0) return;
 
             matches.sort((a, b) => {
@@ -286,13 +323,11 @@
             });
 
             let html = `<div class="tooltip-header">>> ${acronym}</div>`;
-            matches.forEach(match => {
+            matches.slice(0,3).forEach(match => { 
                 const isContext = match.c === context;
-                const styleClass = isContext ? 'def-primary' : 'def-secondary'; 
+                const styleClass = isContext ? 'def-primary' : ''; 
                 const prefix = isContext ? 'MATCH' : match.c.toUpperCase();
-                const secondaryStyle = isContext ? '' : 'color: var(--slate-grey); font-size: 0.75rem; margin-bottom: 4px;';
-                
-                html += `<div class="${styleClass}" style="${secondaryStyle}"><span style="opacity:0.7">[${prefix}]</span> ${match.m}</div>`;
+                html += `<div class="${styleClass}" style="margin-bottom:4px; font-size:0.8rem;"><span style="opacity:0.6">[${prefix}]</span> ${match.m}</div>`;
             });
 
             tooltip.innerHTML = html;
@@ -319,23 +354,164 @@
             }
         });
 
-        // --- HARDWARE ATLAS LOGIC ---
+
+        // --- 2. SMART REFERENCE MATCHING (Weighted Scoring) ---
+        
+        // 1. Discipline Mapping (Hardware -> Reference DB Categories)
+        // Helps cross-reference (e.g., Automotive hardware uses Mechanical books)
+        const discMap = {
+            "Mechanical": ["Mechanical", "General"],
+            "Electrical": ["Electrical", "Systems", "General"],
+            "Civil": ["Civil", "General"],
+            "Automotive": ["Mechanical", "General"], // Auto relies on Mech
+            "Aerospace": ["Mechanical", "Systems", "General"], // Aero is Mech + Systems
+            "Naval": ["Mechanical", "Process", "General"], // Ships have pumps (Process) and engines (Mech)
+            "Nuclear": ["Process", "Mechanical", "Electrical", "General"]
+        };
+
+        // 2. Tag Mapping (Hardware Tag -> Reference Topics)
+        // Boosts specific topics based on the component type
+        const tagMap = {
+            "Fluid Systems": ["Fluids", "Piping", "Valves", "Process", "Thermodynamics"],
+            "Piping": ["Piping", "Fluids", "Valves"],
+            "Transmission": ["Design", "Analysis", "Tribology"],
+            "Tribology": ["Tribology", "Design", "Materials"],
+            "Fasteners": ["Design", "Analysis", "Standards"],
+            "Springs": ["Design", "Analysis"],
+            "Structures": ["Structural", "Analysis", "Materials", "Civil"],
+            "Geotechnical": ["Geotech", "Civil"],
+            "Concrete": ["Concrete", "Civil", "Materials"],
+            "Power Electronics": ["Electronics", "Power", "Circuits"],
+            "Instrumentation": ["Control", "Electronics", "Process"],
+            "Control": ["Control", "Systems", "Automation"],
+            "Propulsion": ["Propulsion", "Aerodynamics", "Thermodynamics"],
+            "Avionics": ["Systems", "Electronics", "Software"],
+            "Materials": ["Materials", "Data"],
+            "Corrosion": ["Materials", "Safety"],
+            "Safety": ["Safety", "Regulations"],
+            "Thermodynamics": ["Thermodynamics", "Fluids", "Energy"]
+        };
+
+        function getReferencesFor(item) {
+            if (typeof refDb === 'undefined') return "";
+
+            // Prepare Keywords (Name + Tag)
+            const ignoreWords = new Set(["the", "and", "for", "with", "type", "unit", "system"]);
+            const nameKeywords = item.name.split(/[\s()-]+/)
+                                     .filter(w => w.length > 2 && !ignoreWords.has(w.toLowerCase()));
+            
+            // Get allowed reference disciplines
+            const allowedDiscs = discMap[item.discipline] || ["General"];
+            
+            // Get boosted topics based on tag
+            const boostedTopics = tagMap[item.tag] || [];
+
+            // Score References
+            const scoredRefs = refDb.map(ref => {
+                let score = 0;
+                let matchType = "";
+
+                // 1. Discipline Filter (Binary / Heavy Weight)
+                if (allowedDiscs.includes(ref.disc)) {
+                    score += 20;
+                    if (ref.disc === item.discipline) score += 10; // Exact match bonus
+                } else {
+                    return { ...ref, score: -100 }; // Filter out completely
+                }
+
+                // 2. Keyword Search (Precision)
+                let keywordHits = 0;
+                nameKeywords.forEach(word => {
+                    const regex = new RegExp(word, 'i');
+                    if (regex.test(ref.title) || regex.test(ref.desc)) {
+                        score += 50;
+                        keywordHits++;
+                    }
+                });
+                if(keywordHits > 0) matchType = "KEYWORD MATCH";
+
+                // 3. Topic/Tag Alignment (Context)
+                // Does the reference topic match the hardware tag map?
+                if (boostedTopics.includes(ref.topic)) {
+                    score += 40;
+                    if(!matchType) matchType = "TOPIC MATCH";
+                }
+                
+                // 4. Manual Tag Match
+                // Does the ref title/desc contain the hardware tag? (e.g. "Piping" in title for "Piping" tag)
+                if (ref.title.toLowerCase().includes(item.tag.toLowerCase()) || 
+                    ref.desc.toLowerCase().includes(item.tag.toLowerCase())) {
+                    score += 30;
+                    if(!matchType) matchType = "TAG MATCH";
+                }
+
+                // 5. General "Penalty" for IT/Software if Hardware is purely Physical
+                // Prevents "Python" books showing up for "Concrete"
+                const itTopics = ["Python", "Data", "Coding", "Software", "AI / Coding"];
+                const physicalDiscs = ["Civil", "Mechanical", "Naval", "Automotive"];
+                
+                if (physicalDiscs.includes(item.discipline) && 
+                    itTopics.includes(ref.topic) && 
+                    !["Control", "Avionics", "Systems"].includes(item.tag)) {
+                    score -= 50;
+                }
+                
+                // 6. PEI Boost (Professional Institutions are always good)
+                if (ref.type === "Institution" && allowedDiscs.includes(ref.disc)) {
+                    score += 15;
+                }
+
+                return { ...ref, score, matchType };
+            });
+
+            // Filter & Sort
+            const topRefs = scoredRefs
+                .filter(r => r.score > 10) // Threshold to remove noise
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 5); // Show top 5
+
+            if (topRefs.length === 0) return "<p style='color:var(--slate-grey); font-size:0.9rem;'>No specific references found in library.</p>";
+
+            let html = "";
+            topRefs.forEach(ref => {
+                const relevanceLabel = ref.matchType ? `<span class="ref-relevance">${ref.matchType}</span>` : "";
+                
+                html += `
+                <a href="${ref.link}" target="_blank" class="ref-mini-card">
+                    <div>
+                        <span class="ref-type-badge">${ref.type}</span>
+                        <span class="ref-link-title">${ref.title}</span>
+                        ${relevanceLabel}
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--slate-grey); margin-top:2px;">${ref.desc}</div>
+                </a>`;
+            });
+            
+            return html;
+        }
+
+
+        // --- 3. HARDWARE ATLAS RENDER ---
+        
         function renderList() {
             const filter = document.getElementById('discFilter').value;
             const container = document.getElementById('componentList');
             container.innerHTML = '';
 
             if (typeof hardwareDb === 'undefined') {
-                container.innerHTML = '<div style="padding:20px; color:var(--burnt-orange);">Error: Database not loaded.</div>';
+                container.innerHTML = '<div style="padding:20px; color:var(--burnt-orange);">Error: Hardware Database not loaded.</div>';
                 return;
             }
 
             const items = hardwareDb.filter(item => filter === 'All' || item.discipline === filter);
 
+            // Sort alphabetical
+            items.sort((a, b) => a.name.localeCompare(b.name));
+
             items.forEach(item => {
                 const btn = document.createElement('button');
                 btn.className = 'discipline-btn';
-                btn.innerHTML = `> ${item.name} <span style="font-size:0.7em; opacity:0.6;">[${item.discipline}]</span>`;
+                btn.innerHTML = `> ${item.name} <span style="font-size:0.7em; opacity:0.6;">[${item.tag}]</span>`;
                 btn.onclick = () => loadDetail(item.id, btn);
                 container.appendChild(btn);
             });
@@ -348,11 +524,14 @@
             const data = hardwareDb.find(item => item.id === id);
             const view = document.getElementById('detailView');
             const disc = data.discipline;
+            
+            // Get Smart References
+            const refHtml = getReferencesFor(data);
 
             view.innerHTML = `
                 <div class="blueprint-header">
                     <h2 style="margin:0; border:none; color:var(--cloud-white); font-size:1.8rem;">${data.name}</h2>
-                    <span class="blueprint-tag">${data.tag}</span>
+                    <span class="blueprint-tag">${data.discipline} // ${data.tag}</span>
                 </div>
 
                 <div class="spec-grid">
@@ -374,6 +553,11 @@
                     <div class="spec-box" style="border-color: var(--burnt-orange);">
                         <span class="spec-label" style="color:var(--burnt-orange);">04. COMMON FAILURE MODES</span>
                         <div class="spec-text">${parseTextForAcronyms(data.failure, disc)}</div>
+                    </div>
+
+                    <div class="spec-box" style="grid-column: span 2; border-left: 3px solid var(--terminal-green);">
+                        <span class="spec-label" style="color:var(--terminal-green);">05. RECOMMENDED RESOURCES & STANDARDS</span>
+                        <div style="margin-top:10px;">${refHtml}</div>
                     </div>
                 </div>
             `;
