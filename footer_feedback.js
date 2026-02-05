@@ -20,6 +20,7 @@
             "report_tool.html": "Report",
             "reference_tool.html": "Library",
             "dap_tool.html": "DAP",
+			"application_tool.html": "AppBuilder",
             "interview_tool.html": "Interview",
             "guide.html": "Manual",
             "about.html": "General",

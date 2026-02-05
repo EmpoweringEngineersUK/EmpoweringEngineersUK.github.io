@@ -19,6 +19,7 @@
         { label: "Library", url: "reference_tool.html" },
         { label: "Report", url: "report_tool.html" },
         { label: "DAP", url: "dap_tool.html" },
+		{ label: "Application", url: "application_tool.html" }, // OUR LATEST APPLICATION FOR RECORDING YOUR PROFESSIONAL REGISTRATION COMPETENCE STATEMENTS!
         { label: "Interview", url: "interview_tool.html" },
         { label: "Manual", url: "guide.html" }
     ];

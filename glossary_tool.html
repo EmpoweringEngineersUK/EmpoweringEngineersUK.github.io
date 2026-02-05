@@ -8,20 +8,19 @@
       gtag('js', new Date());
       gtag('config', 'G-PG4ZJ7W444');
     </script>
-    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Engineering Decoder: A searchable database of 15,000+ technical acronyms. Decode terms from Nuclear, Aerospace, Rail, and Civil sectors instantly.">
+	<meta property="og:title" content="The Engineering Decoder | Empowering Engineers UK">
+	<meta property="og:description" content="The Engineering Decoder: A searchable database of 15,000+ technical acronyms. Decode terms from Nuclear, Aerospace, Rail, and Civil sectors instantly.">
+	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+	<meta property="og:url" content="https://www.empoweringengineers.uk/glossary_tool.html">
+	<meta property="og:type" content="website">
+    
     <title>The Engineering Decoder | EmpoweringEngineers.uk</title>
     <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    
-    <meta property="og:title" content="The Engineering Decoder | Empowering Engineers UK">
-    <meta property="og:description" content="Search 15,000+ engineering acronyms across all disciplines. Decode terms from Project Management, Nuclear, Electrical, and Mechanical sectors.">
-    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-    <meta property="og:url" content="https://www.empoweringengineers.uk/glossary_tool.html">
-    <meta property="og:type" content="website">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     
@@ -447,11 +446,11 @@
                     <div class="filter-bar">
                         <div class="search-area">
                             <label class="filter-label">SEARCH ACRONYM</label>
-                            <input type="text" id="searchInput" class="filter-input" placeholder="e.g. HAZOP, PID, BOM..." oninput="doSearch()">
+                            <input type="text" id="searchInput" class="filter-input" placeholder="e.g. HAZOP, PID, BOM..." oninput="triggerSearch()">
                         </div>
                         <div class="search-area">
                             <label class="filter-label">DISCIPLINE</label>
-                            <select id="contextFilter" class="filter-input" onchange="doSearch()">
+                            <select id="contextFilter" class="filter-input" onchange="triggerSearch()">
                                 <option value="All">All Sectors</option>
                                 <option value="Project">Project/Contracts</option>
                                 <option value="Electrical">Electrical/C&I</option>
@@ -560,6 +559,20 @@
 
             </div>
         </div>
+		<div class="card" style="margin-top: 40px; border-top: 2px solid var(--burnt-orange);">
+            <h3>Why Accurate Terminology Matters in Engineering</h3>
+            <p>In safety-critical industries like Nuclear, Aerospace, and Oil & Gas, ambiguity can lead to catastrophic failure. A primary cause of engineering incidents is miscommunication arising from undefined acronyms or discipline-specific jargon.</p>
+            
+            <h4>The Context Trap</h4>
+            <p>A major challenge for multi-disciplinary teams is that the same acronym often holds different meanings across sectors. For example:</p>
+            <ul>
+                <li><strong>"CV"</strong> means <em>Check Valve</em> to a Mechanical Engineer, but <em>Curriculum Vitae</em> to HR, and <em>Cost Variance</em> to a Project Manager.</li>
+                <li><strong>"ATM"</strong> is an <em>Automated Teller Machine</em> to the public, but <em>Asynchronous Transfer Mode</em> to a Systems Engineer.</li>
+            </ul>
+            
+            <h4>Standardization & Safety</h4>
+            <p>This database aggregates terms from major standards including <strong>ASME</strong>, <strong>ISO</strong>, and <strong>BS 7671</strong>. When writing technical reports, permit-to-work documents, or operating procedures, always define your acronyms on first use. Use this tool to verify the standard industry definition before issuing documentation.</p>
+        </div>
     </div>
 
     <script>
@@ -589,6 +602,74 @@
             } else {
                 document.getElementById('panelLog').classList.add('active');
                 document.getElementById('tabLog').classList.add('active');
+            }
+        }
+
+        // --- PERFORMANCE: DEBOUNCE LOGIC ---
+        let searchTimeout;
+
+        function triggerSearch() {
+            // Clear the timer if the user keeps typing
+            clearTimeout(searchTimeout);
+            
+            // Set a new timer to run the search in 300ms
+            searchTimeout = setTimeout(() => {
+                doSearch();
+            }, 300);
+        }
+
+        // --- SEARCH LOGIC ---
+        function doSearch() {
+            // Force switch to Search tab if user types
+            if(!document.getElementById('panelSearch').classList.contains('active')){
+                switchPanel('search');
+            }
+
+            const query = document.getElementById('searchInput').value.trim().toUpperCase();
+            const category = document.getElementById('contextFilter').value;
+            const container = document.getElementById('resultsArea');
+            const emptyState = document.getElementById('emptyState');
+            
+            container.innerHTML = "";
+            
+            if(query.length < 2) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            container.style.display = 'block';
+            emptyState.style.display = 'none';
+            
+            // Filter
+            let matches = db.filter(item => {
+                return item.a.toUpperCase().startsWith(query) && (category === "All" || item.c === category);
+            });
+            
+            // Sort (Exact matches first)
+            matches.sort((a,b) => (a.a === query ? -1 : 1));
+            
+            // Render (Limit to 50 for performance)
+            if(matches.length === 0) {
+                container.innerHTML = `<div class="result-item" style="border-left-color:var(--slate-grey); border-left-width: 1px; opacity: 0.7;"><span class=\"acr-def\">No matches found.</span></div>`;
+            } else {
+                // Use a document fragment for faster DOM insertion
+                const fragment = document.createDocumentFragment();
+                
+                matches.slice(0, 50).forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'result-item';
+                    div.innerHTML = `
+                        <div class="result-header">
+                            <span class="acr-term">${item.a}</span>
+                            <span class="acr-cat">${item.c || 'General'}</span>
+                        </div>
+                        <span class="acr-def">${item.m}</span>
+                    `;
+                    fragment.appendChild(div);
+                });
+                
+                container.appendChild(fragment);
             }
         }
 
@@ -781,45 +862,6 @@
               t = Math.imul(t ^ t >>> 15, t | 1);
               t ^= t + Math.imul(t ^ t >>> 7, t | 61);
               return ((t ^ t >>> 14) >>> 0) / 4294967296;
-            }
-        }
-
-        // --- SEARCH LOGIC ---
-        function doSearch() {
-            // Force switch to Search tab if user types
-            if(!document.getElementById('panelSearch').classList.contains('active')){
-                switchPanel('search');
-            }
-
-            const query = document.getElementById('searchInput').value.trim().toUpperCase();
-            const category = document.getElementById('contextFilter').value;
-            const container = document.getElementById('resultsArea');
-            const emptyState = document.getElementById('emptyState');
-            container.innerHTML = "";
-            if(query.length < 2) {
-                container.style.display = 'none';
-                emptyState.style.display = 'block';
-                return;
-            }
-            container.style.display = 'block';
-            emptyState.style.display = 'none';
-            let matches = db.filter(item => {
-                return item.a.toUpperCase().startsWith(query) && (category === "All" || item.c === category);
-            });
-            matches.sort((a,b) => (a.a === query ? -1 : 1));
-            if(matches.length === 0) {
-                container.innerHTML = `<div class="result-item" style="border-left-color:var(--slate-grey); border-left-width: 1px; opacity: 0.7;"><span class=\"acr-def\">No matches found.</span></div>`;
-            } else {
-                matches.slice(0, 50).forEach(item => {
-                    container.innerHTML += `
-                        <div class="result-item">
-                            <div class="result-header">
-                                <span class="acr-term">${item.a}</span>
-                                <span class="acr-cat">${item.c || 'General'}</span>
-                            </div>
-                            <span class="acr-def">${item.m}</span>
-                        </div>`;
-                });
             }
         }
 

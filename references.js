@@ -77,6 +77,14 @@ const refDb = [
         desc: "The primary code for process piping design (USA/Global).",
         link: "https://www.asme.org/codes-standards/find-codes-standards/b31-3-process-piping" 
     },
+	{ 
+        disc: "Mechanical", 
+        topic: "Design", 
+        title: "Stuart J. Bateman", 
+        type: "Website", 
+        desc: "A valuable resource hub for design engineering, product design insights, and creative problem solving.",
+        link: "https://stuartjbateman.com/" 
+    },
 
     // =========================================================================
     // AEROSPACE
@@ -1026,5 +1034,117 @@ const refDb = [
         type: "Magazine", 
         desc: "Latest news on hydrogen economy, policy, and technical innovation.",
         link: "https://hydrogen-innovation.co.uk/" 
+    },
+    { 
+        disc: "Mechanical", 
+        topic: "General Reference", 
+        title: "The Engineering ToolBox", 
+        type: "Website", 
+        desc: "Massive online repository of engineering data, formulas, and unit conversions.",
+        link: "https://www.engineeringtoolbox.com/" 
+    },
+    { 
+        disc: "Mechanical", 
+        topic: "General Reference", 
+        title: "Engineers Edge", 
+        type: "Website", 
+        desc: "Design data, engineering calculators, and specifications for mechanical engineers.",
+        link: "https://www.engineersedge.com/" 
+    },
+    { 
+        disc: "Electrical", 
+        topic: "Theory", 
+        title: "Electrical4U", 
+        type: "Website", 
+        desc: "Free study resources for electrical engineering students and professionals.",
+        link: "https://www.electrical4u.com/" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Coding", 
+        title: "The Odin Project", 
+        type: "Website", 
+        desc: "Full stack curriculum for learning web development (HTML, CSS, JavaScript).",
+        link: "https://www.theodinproject.com/" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Coding", 
+        title: "W3Schools", 
+        type: "Website", 
+        desc: "The world's largest web developer site. essential references for HTML/CSS/SQL.",
+        link: "https://www.w3schools.com/" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Excel / Data", 
+        title: "Leila Gharani", 
+        type: "YouTube", 
+        desc: "Advanced Excel, Power BI, and productivity hacks for engineering data analysis.",
+        link: "https://www.youtube.com/c/LeilaGharani" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Coding", 
+        title: "Wise Owl Tutorials", 
+        type: "YouTube", 
+        desc: "The best resource for learning VBA (Visual Basic for Applications) and SQL.",
+        link: "https://www.youtube.com/user/WiseOwlTutorials" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Statistics", 
+        title: "StatLearning (ISL)", 
+        type: "Book", 
+        desc: "An Introduction to Statistical Learning. The gold standard for understanding data science.",
+        link: "https://www.statlearning.com/" 
+    },
+    { 
+        disc: "Systems", 
+        topic: "Statistics", 
+        title: "Brandon Foltz", 
+        type: "YouTube", 
+        desc: "Deep-dive tutorials on statistics, finite math, and operations management.",
+        link: "https://www.youtube.com/user/BCFoltz" 
+    },
+    { 
+        disc: "Mechanical", 
+        topic: "Metrology", 
+        title: "Mitutoyo Education", 
+        type: "Website", 
+        desc: "Educational resources on precision measurement, dimensional metrology, and tolerances.",
+        link: "https://www.mitutoyo.eu/en_us/support/education" 
+    },
+    { 
+        disc: "Mechanical", 
+        topic: "Metrology", 
+        title: "Keyence Measurement Basics", 
+        type: "Website", 
+        desc: "Comprehensive guide to measurement systems, GD&T, and inspection techniques.",
+        link: "https://www.keyence.com/ss/products/measure-sys/measurement-selection/" 
+    },
+    { 
+        disc: "Mechanical", 
+        topic: "CAD", 
+        title: "Fusion 360 Learn", 
+        type: "Website", 
+        desc: "Official Autodesk learning hub for CAD/CAM/CAE workflows.",
+        link: "https://www.autodesk.com/products/fusion-360/learn-training-tutorials" 
+    },
+    { 
+        disc: "General", 
+        topic: "Skills", 
+        title: "Keybr", 
+        type: "Website", 
+        desc: "Advanced typing tutor to improve speed and accuracy (essential for reporting).",
+        link: "https://www.keybr.com/" 
+    },
+    { 
+        disc: "General", 
+        topic: "Creative", 
+        title: "Creative Bloq", 
+        type: "Website", 
+        desc: "Inspiration for design, 3D modeling, and visual communication.",
+        link: "https://www.creativebloq.com/" 
     }
 ];

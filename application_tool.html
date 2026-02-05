@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PG4ZJ7W444');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Application Architect. Draft your CEng, IEng, or EngTech application. Features UK-SPEC competence scoring, acronym expansion, and .docx export.">
+    <meta property="og:title" content="Application Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Draft, Audit, and Export your Professional Registration Application. The all-in-one workspace for engineers.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/application_tool.html">
+    <meta property="og:type" content="website">
+
+    <title>Application Architect | Empowering Engineers UK</title>
+    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+
+    <script src="verb.js"></script>
+    <script src="acronyms.js"></script>
+    <script src="UK-SPEC.js"></script>
+    <script src="cpd.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <style>
+        /* --- GLOBAL SCROLLBAR HIDING --- */
+        * { scrollbar-width: none; -ms-overflow-style: none; }
+        *::-webkit-scrollbar { display: none; }
+        body { overflow-y: scroll; } 
+
+        .workbench-container {
+            display: grid;
+            grid-template-columns: 260px 1fr 340px;
+            gap: 25px;
+            max-width: 1600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            align-items: start; 
+        }
+
+        /* LEFT: NAVIGATION */
+        .wb-nav {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .wb-nav-header { font-family: 'Courier Prime', monospace; color: var(--burnt-orange); font-size: 0.8rem; margin-bottom: 10px; border-bottom: 1px dashed var(--slate-grey); padding-bottom: 5px; }
+        .nav-group-title { font-size: 0.7rem; color: var(--slate-grey); font-weight:bold; margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-btn { background: transparent; border: none; border-left: 3px solid transparent; color: #aaa; padding: 4px 8px; text-align: left; cursor: pointer; font-family: 'Arial', sans-serif; font-size: 0.85rem; transition: all 0.2s; margin-bottom: 2px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-btn.active { border-left-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0,255,153,0.05); font-weight: bold; }
+        .nav-badge { font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; min-width: 22px; text-align: center; font-weight: bold; font-family: 'Courier Prime', monospace; }
+        .nb-l1 { background: #d63031; color: #fff; box-shadow: 0 0 5px rgba(214, 48, 49, 0.4); } 
+        .nb-l2 { background: #e1b12c; color: #000; box-shadow: 0 0 5px rgba(225, 177, 44, 0.4); } 
+        .nb-l3 { background: #00b894; color: #000; box-shadow: 0 0 5px rgba(0, 184, 148, 0.4); } 
+        .nb-l4 { background: #fdcb6e; color: #000; border: 1px solid #ffeaa7; text-shadow: 0 0 2px #fff; } 
+        .nb-empty { background: #2d3436; color: #636e72; } 
+
+        /* CENTER: EDITOR */
+        .wb-editor { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; min-height: 80vh; }
+        .editor-header { border-bottom: 2px solid var(--terminal-green); padding-bottom: 15px; margin-bottom: 20px; }
+        .editor-title { font-size: 1.4rem; color: var(--cloud-white); margin: 0; }
+        .editor-subtitle { color: var(--slate-grey); font-size: 0.9rem; margin-top: 5px; font-family: 'Courier Prime', monospace;}
+        .star-container { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .star-box { display: flex; flex-direction: column; }
+        .star-label { color: var(--terminal-green); font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; font-family: 'Courier Prime'; text-transform: uppercase; }
+        textarea { background: rgba(13, 27, 42, 0.8); border: 1px solid var(--border-color); color: #fff; padding: 15px; font-family: 'Arial', sans-serif; font-size: 0.95rem; line-height: 1.5; border-radius: 4px; overflow-y: hidden; resize: none; display: block; width: 100%; transition: border-color 0.2s; }
+        textarea:focus { border-color: var(--terminal-green); outline: none; }
+        .star-input { min-height: 100px; margin-bottom: 0; }
+        .editor-textarea { min-height: 250px; }
+        .compiled-output-label { font-size: 0.75rem; color: var(--slate-grey); margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: 10px; }
+        .verb-suggestions { margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); }
+        .verb-chip { display: inline-block; background: rgba(0, 255, 153, 0.1); color: var(--terminal-green); font-size: 0.75rem; padding: 2px 6px; border-radius: 3px; margin: 2px; border: 1px solid var(--terminal-green); cursor: pointer; }
+        .verb-chip:hover { background: var(--terminal-green); color: #000; }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .intro-grid input { margin-bottom: 0; }
+
+        /* RIGHT: COACH */
+        .wb-coach { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; position: sticky; top: 20px; align-self: start; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; }
+        .coach-title { color: var(--terminal-green); font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; display: block; font-family:'Courier Prime'; }
+        .coach-text { font-size: 0.85rem; color: #ccc; line-height: 1.4; }
+        .detected-verb { color: var(--terminal-green); font-weight: bold; }
+        .comp-mismatch { color: var(--burnt-orange); font-size: 0.8rem; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--burnt-orange); font-weight: bold;}
+        .readiness-box { background: #09121d; border: 1px solid #444; padding: 10px; text-align: center; border-radius: 4px; margin-top: 20px; font-size: 0.75rem; color: #888; }
+        .ready-go { border-color: var(--terminal-green); color: var(--terminal-green); font-weight: bold; box-shadow: 0 0 10px rgba(0,255,153,0.1); }
+        
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; justify-content: center; align-items: center; }
+        .config-box { background: var(--midnight-navy); border: 2px solid var(--terminal-green); padding: 30px; width: 450px; text-align: center; border-radius: 8px; box-shadow: 0 0 30px rgba(0,255,153,0.15); }
+        .resume-section { background: rgba(0, 255, 153, 0.05); border: 1px solid var(--terminal-green); padding: 15px; border-radius: 4px; margin-bottom: 20px; text-align: left; }
+
+        @media (max-width: 1200px) {
+            .workbench-container { grid-template-columns: 1fr; height: auto; }
+            .wb-nav, .wb-coach { position: static; max-height: none; align-self: auto; }
+            .star-container { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <script defer src="header_nav.js"></script>
+
+    <div id="configModal" class="modal-overlay">
+        <div class="config-box">
+            <div id="resumeArea" style="display:none;">
+                <h3 style="color:var(--terminal-green); margin-top:0;">>> RESUME SESSION</h3>
+                <div class="resume-section">
+                    <div style="font-size:0.8rem; color:var(--slate-grey);">FOUND SAVED DRAFT:</div>
+                    <div id="foundSessionName" style="color:#fff; font-weight:bold; font-size:1.1rem; margin:5px 0;">-</div>
+                    <div id="foundSessionDate" style="font-size:0.8rem; color:var(--slate-grey);">Last Saved: -</div>
+                    <button class="action-btn" onclick="resumeSession()" style="margin-top:10px;">RESUME DRAFT</button>
+                </div>
+                <div style="border-bottom:1px solid var(--border-color); margin: 20px 0; position:relative;">
+                    <span style="position:absolute; top:-10px; left:45%; background:var(--midnight-navy); padding:0 10px; color:var(--slate-grey); font-size:0.8rem;">OR</span>
+                </div>
+            </div>
+
+            <h3 style="color:var(--burnt-orange); margin-top:0;">>> NEW APPLICATION</h3>
+            <label style="display:block; text-align:left; color:var(--cloud-white); font-size:0.8rem; margin-bottom:5px;">TARGET ROLE</label>
+            <select id="roleSelect" class="filter-input" onchange="toggleRoute()">
+                <option value="CEng">Chartered Engineer (CEng)</option>
+                <option value="IEng">Incorporated Engineer (IEng)</option>
+                <option value="EngTech">Engineering Technician (EngTech)</option>
+            </select>
+            <div id="routeGroup" style="display:none; margin-top:15px;">
+                <label style="display:block; text-align:left; color:var(--cloud-white); font-size:0.8rem; margin-bottom:5px;">APPLICATION ROUTE</label>
+                <select id="routeSelect" class="filter-input">
+                    <option value="Standard">Standard Route (3 Questions)</option>
+                    <option value="Approved">Approved Route (Summary)</option>
+                </select>
+            </div>
+            <button class="action-btn action-btn-ghost" onclick="initWorkbench(true)" style="margin-top:25px;">CREATE BLANK WORKSPACE</button>
+        </div>
+    </div>
+
+    <div class="workbench-container" id="workbench" style="display:none;">
+        
+        <div class="wb-nav">
+            <div class="wb-nav-header">>> SECTIONS</div>
+            <div id="navList"></div>
+            <div id="readinessStatus" class="readiness-box">Status: Analysis Pending</div>
+
+            <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border-color);">
+                <button class="action-btn" onclick="saveAll(true)">SAVE</button>
+                <button class="action-btn action-btn-ghost" onclick="exportDocx()" style="margin-top:10px;">EXPORT .DOCX</button>
+                <button class="action-btn action-btn-ghost" onclick="resetAll()" style="margin-top:10px; border-color:var(--burnt-orange); color:var(--burnt-orange);">RESET</button>
+            </div>
+        </div>
+
+        <div class="wb-editor">
+            <div class="editor-header">
+                <h1 id="editTitle" class="editor-title">Introduction</h1>
+                <div id="editSubtitle" class="editor-subtitle">Set the context for your application.</div>
+            </div>
+            
+            <div id="guidanceBox" style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:20px; border-radius:4px; font-size:0.9rem; color:#ddd; border-left:3px solid var(--terminal-green);"></div>
+
+            <div id="introFields" class="intro-grid" style="display:none;">
+                <input type="text" id="metaName" placeholder="Full Name" oninput="updateMeta()">
+                <input type="email" id="metaEmail" placeholder="Email Address" oninput="updateMeta()">
+            </div>
+
+            <div id="starContainer" class="star-container">
+                <div class="star-box">
+                    <span class="star-label">1. SITUATION</span>
+                    <textarea id="starS" class="star-input" placeholder="Context..." oninput="updateStar(this)"></textarea>
+                </div>
+                <div class="star-box">
+                    <span class="star-label">2. TASK</span>
+                    <textarea id="starT" class="star-input" placeholder="Your responsibility..." oninput="updateStar(this)"></textarea>
+                </div>
+                <div class="star-box">
+                    <span class="star-label">3. ACTION</span>
+                    <textarea id="starA" class="star-input" placeholder="What you did (Use 'I')..." oninput="updateStar(this)"></textarea>
+                </div>
+                <div class="star-box">
+                    <span class="star-label">4. RESULT</span>
+                    <textarea id="starR" class="star-input" placeholder="Outcome & Benefit..." oninput="updateStar(this)"></textarea>
+                </div>
+            </div>
+
+            <div id="outputLabel" class="compiled-output-label">
+                <span>COMPILED DRAFT (Editable):</span>
+                <span style="color:var(--burnt-orange); font-size:0.65rem;">⚠️ Editing STAR boxes will overwrite text below.</span>
+            </div>
+            <textarea id="mainInput" class="editor-textarea" placeholder="Start typing here..." oninput="autoResize(this); analyzeText();"></textarea>
+            
+            <div class="editor-toolbar">
+                <span id="wordCount">0 Words</span>
+                <span id="saveStatus">Synced</span>
+            </div>
+        </div>
+
+        <div class="wb-coach">
+            <div class="wb-nav-header">>> THE COACH</div>
+            
+            <div class="coach-card">
+                <span class="coach-title">COMPETENCE CHECK</span>
+                <div id="compScoreResult" class="coach-text">
+                    <span class="level-badge nb-l1">L1</span>
+                </div>
+            </div>
+
+            <div class="coach-card">
+                <span class="coach-title">LIVE AUDIT</span>
+                <div id="auditResult" class="coach-text">Start typing...</div>
+                <div id="verbAnalysis" class="coach-text" style="margin-top:10px; border-top:1px dashed #555; padding-top:5px; display:none;"></div>
+            </div>
+
+             <div class="coach-card">
+                <span class="coach-title">JARGON WATCH</span>
+                <div id="acronymResult" class="coach-text" style="margin-bottom:10px;">No acronyms detected.</div>
+                <button class="action-btn action-btn-ghost" style="padding:4px; font-size:0.65rem;" onclick="expandAcronyms()">EXPAND ACRONYMS (3+ CAPS)</button>
+            </div>
+
+            <div class="coach-card" style="border-color:var(--terminal-green);">
+                <span class="coach-title">EVIDENCE BANK</span>
+                <button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem; margin-bottom:5px;" onclick="importSTAR()">IMPORT FROM STAR ENGINE</button>
+                <button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem;" onclick="importDAP()">IMPORT DAP GOALS</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+            <h3>The Professional Registration Workbench</h3>
+            <p>The Application Architect is the flagship tool of Empowering Engineers UK. Draft, structure, and audit your entire CEng, IEng, or EngTech application in a single, secure workspace.</p>
+        </div>
+    </div>
+
+    <script defer src="footer.js"></script>
+
+    <script>
+        // --- GLOBAL STATE ---
+        let currentRole = "";
+        let currentRoute = "Standard";
+        let sections = [];
+        let activeIndex = 0;
+        let dataStore = { role: "", route: "", meta: { name:"", email:"" }, lastSaved: "", content: {}, starData: {} }; 
+        
+        // --- INITIALIZATION ---
+        window.onload = function() {
+            const savedRaw = localStorage.getItem('ee_app_data_master');
+            if (savedRaw) {
+                try {
+                    const tempStore = JSON.parse(savedRaw);
+                    if (tempStore.role) {
+                        document.getElementById('resumeArea').style.display = 'block';
+                        document.getElementById('foundSessionName').innerText = `${tempStore.role} (${tempStore.route || 'Standard'})`;
+                        document.getElementById('foundSessionDate').innerText = "Last Saved: " + (tempStore.lastSaved || "Unknown");
+                    }
+                } catch(e) { console.error("Data error", e); }
+            }
+            toggleRoute();
+        };
+
+        function toggleRoute() {
+            const role = document.getElementById('roleSelect').value;
+            document.getElementById('routeGroup').style.display = (role === 'EngTech') ? 'block' : 'none';
+        }
+
+        function resumeSession() {
+            const savedRaw = localStorage.getItem('ee_app_data_master');
+            if (savedRaw) {
+                try {
+                    dataStore = JSON.parse(savedRaw);
+                    if (!dataStore.starData) dataStore.starData = {};
+                    if (!dataStore.meta) dataStore.meta = { name: "", email: "" };
+                    currentRole = dataStore.role;
+                    currentRoute = dataStore.route || "Standard";
+                    launchInterface();
+                } catch(e) {
+                    alert("Error loading save file. Starting fresh.");
+                    initWorkbench(true);
+                }
+            }
+        }
+
+        function initWorkbench(isNew) {
+            if(isNew && localStorage.getItem('ee_app_data_master')) {
+                if(!confirm("Overwrite existing draft? This cannot be undone.")) return;
+            }
+            currentRole = document.getElementById('roleSelect').value;
+            currentRoute = (currentRole === 'EngTech') ? document.getElementById('routeSelect').value : "Standard";
+            
+            dataStore = { role: currentRole, route: currentRoute, meta: { name:"", email:"" }, lastSaved: new Date().toLocaleString(), content: {}, starData: {} };
+            launchInterface();
+        }
+
+        function launchInterface() {
+            buildSections();
+            renderNav();
+            loadSection(0);
+            
+            document.getElementById('metaName').value = dataStore.meta.name || "";
+            document.getElementById('metaEmail').value = dataStore.meta.email || "";
+
+            document.getElementById('configModal').style.display = 'none';
+            document.getElementById('workbench').style.display = 'grid';
+            setInterval(() => saveAll(false), 10000); 
+        }
+
+        // --- SECTION BUILDER ---
+        function buildSections() {
+            const introHint = "Please provide a report of no more than 600 words which details your past experience and roles. This should concentrate on the past 5 years/3 roles. For each position you should state the company name, start and finish dates, list of achievements, responsibilities, level of authority and autonomy.";
+            sections = [{ id: "intro", title: "Career Summary", group: "General", hint: introHint, star: false }];
+
+            if (currentRole === 'EngTech') {
+                if (currentRoute === 'Approved') {
+                    sections.push({ id: "q1", title: "Assessment Question", group: "Assessment", hint: "Summary of contribution (~500 words).", limit: 600, star: true });
+                } else {
+                    sections.push({ id: "q1", title: "Q1: Technical", group: "Assessment", hint: "Solving technical problems (A/B).", limit: 500, star: true });
+                    sections.push({ id: "q2", title: "Q2: Safety/Resources", group: "Assessment", hint: "Planning and Safety (B/E).", limit: 500, star: true });
+                    sections.push({ id: "q3", title: "Q3: Professionalism", group: "Assessment", hint: "Ethics and CPD (C/D/E).", limit: 500, star: true });
+                }
+            } else {
+                const subLimits = { 'A': 200, 'B': 135, 'C': 100, 'D': 135, 'E': 80 };
+                ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
+                    if (typeof ukSpecDb !== 'undefined' && ukSpecDb[currentRole].competencies[letter].sub) {
+                        const subs = ukSpecDb[currentRole].competencies[letter].sub;
+                        Object.keys(subs).forEach(subKey => {
+                            sections.push({ id: subKey, title: `${subKey}: ${subs[subKey].text.substring(0, 25)}...`, group: `Competence ${letter}`, hint: subs[subKey].text, limit: subLimits[letter], star: true });
+                        });
+                    } else {
+                        sections.push({ id: `comp_${letter}`, title: `Competence ${letter}`, group: "Competence", hint: "Evidence required.", limit: 400, star: true });
+                    }
+                });
+            }
+            sections.push({ id: "dap", title: "Action Plan (DAP)", group: "Closing", hint: "Short, Medium, Long term goals.", star: false });
+            sections.push({ id: "sponsor", title: "Sponsors", group: "Closing", hint: "Sponsor details.", star: false });
+        }
+
+        // --- SCORING & LOGIC (STRICT MAPPING) ---
+        function calculateScore(text, sectionId) {
+            if (!text || text.length < 50) return 1;
+            if (typeof verbDb === 'undefined' || !sectionId) return 1;
+            
+            // Get verbs SPECIFIC to this sub-competency (A1, B2, etc.)
+            const allowedVerbs = verbDb.strongVerbMap[sectionId];
+            
+            // If section is not a competency (e.g. Intro), return 1 or skip
+            if (!allowedVerbs) return 1;
+
+            let matchCount = 0;
+            // Iterate strictly through the list for this specific section
+            allowedVerbs.forEach(verb => {
+                if (text.toLowerCase().includes(verb)) matchCount++;
+            });
+
+            if (matchCount < 2) return 1;
+            if (matchCount < 4) return 2;
+            if (matchCount < 6) return 3;
+            return 4;
+        }
+
+        function getScoreBadge(score) {
+            const classes = { 1: "nb-l1", 2: "nb-l2", 3: "nb-l3", 4: "nb-l4" };
+            const labels = { 1: "L1", 2: "L2", 3: "L3", 4: "L4" };
+            return `<span class="nav-badge ${classes[score]}">${labels[score]}</span>`;
+        }
+
+        // --- AGGREGATED READINESS LOGIC ---
+        function checkReadiness() {
+            // 1. Group Scores by Main Competency (A, B, C, D, E)
+            let mainCompScores = { 'A': [], 'B': [], 'C': [], 'D': [], 'E': [] };
+
+            sections.forEach(sec => {
+                const firstChar = sec.id.charAt(0); // A, B, C...
+                // Only process if it's a known competency
+                if (mainCompScores.hasOwnProperty(firstChar)) {
+                    const score = calculateScore(dataStore.content[sec.id], sec.id);
+                    mainCompScores[firstChar].push(score);
+                }
+            });
+
+            // 2. Calculate Block Score (Minimum of sub-competencies)
+            // e.g. A1=L3, A2=L1 => A=L1 (Weakest Link)
+            let finalScores = {};
+            for (let letter in mainCompScores) {
+                if (mainCompScores[letter].length > 0) {
+                    finalScores[letter] = Math.min(...mainCompScores[letter]);
+                } else {
+                    finalScores[letter] = 0;
+                }
+            }
+
+            // 3. Tally Final Scores
+            let l3Plus = 0;
+            let l2 = 0;
+
+            Object.values(finalScores).forEach(s => {
+                if (s >= 3) l3Plus++;
+                else if (s === 2) l2++;
+            });
+
+            // 4. Update UI
+            const status = document.getElementById('readinessStatus');
+            if (l3Plus >= 3 && l2 >= 2) {
+                status.innerHTML = "✅ Application Ready for Review";
+                status.className = "readiness-box ready-go";
+            } else {
+                status.innerHTML = `Profile: ${l3Plus}x L3+, ${l2}x L2<br>(Target: 3x L3, 2x L2)`;
+                status.className = "readiness-box";
+            }
+        }
+
+        function getSuggestedVerbs(secId) {
+            if (!verbDb || !verbDb.ukSpecStems) return "";
+            if(verbDb.ukSpecStems[secId]) {
+                 return verbDb.ukSpecStems[secId].map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
+            }
+            return "";
+        }
+        
+        function insertVerb(word) {
+            const box = document.getElementById('mainInput');
+            box.value += " " + word;
+            analyzeText();
+            autoResize(box);
+        }
+
+        // --- RENDER LOGIC ---
+        function renderNav() {
+            const list = document.getElementById('navList');
+            list.innerHTML = "";
+            let lastGroup = "";
+            sections.forEach((sec, idx) => {
+                if(sec.group !== lastGroup) {
+                    const grp = document.createElement('div');
+                    grp.className = "nav-group-title";
+                    grp.innerText = sec.group;
+                    list.appendChild(grp);
+                    lastGroup = sec.group;
+                }
+                const btn = document.createElement('button');
+                btn.className = `nav-btn ${idx === activeIndex ? 'active' : ''}`;
+                
+                const score = calculateScore(dataStore.content[sec.id], sec.id);
+                const badge = (sec.star) ? getScoreBadge(score) : (dataStore.content[sec.id] ? `<span class="nav-badge nb-l3">✓</span>` : `<span class="nav-badge nb-empty">○</span>`);
+                const displayTitle = sec.id.length < 6 ? sec.id : sec.title.substring(0,18);
+                
+                btn.innerHTML = `<span>${displayTitle}</span> ${badge}`;
+                btn.onclick = () => loadSection(idx);
+                list.appendChild(btn);
+            });
+            checkReadiness();
+        }
+
+        function autoResize(el) {
+            el.style.height = 'auto'; 
+            el.style.height = (el.scrollHeight) + 'px';
+        }
+
+        function loadSection(idx) {
+            if(document.getElementById('mainInput')) dataStore.content[sections[activeIndex].id] = document.getElementById('mainInput').value;
+            activeIndex = idx;
+            const sec = sections[idx];
+
+            document.getElementById('editTitle').innerText = sec.id.toUpperCase();
+            document.getElementById('editSubtitle').innerText = sec.title;
+            document.getElementById('introFields').style.display = (sec.id === 'intro') ? 'grid' : 'none';
+            
+            const starDiv = document.getElementById('starContainer');
+            const outLabel = document.getElementById('outputLabel');
+            if (sec.star) {
+                starDiv.style.display = 'grid';
+                outLabel.style.display = 'flex';
+                const parts = dataStore.starData[sec.id] || { s:"", t:"", a:"", r:"" };
+                document.getElementById('starS').value = parts.s;
+                document.getElementById('starT').value = parts.t;
+                document.getElementById('starA').value = parts.a;
+                document.getElementById('starR').value = parts.r;
+                
+                setTimeout(() => {
+                    document.querySelectorAll('.star-input').forEach(el => autoResize(el));
+                }, 10);
+            } else {
+                starDiv.style.display = 'none';
+                outLabel.style.display = 'none';
+            }
+
+            document.getElementById('mainInput').value = dataStore.content[sec.id] || "";
+            
+            let guideHTML = `<strong>Requirements:</strong><br>`;
+            if (typeof ukSpecDb !== 'undefined' && sec.id.match(/^[A-E][1-5]$/)) {
+                 const letter = sec.id.charAt(0);
+                 const sub = ukSpecDb[currentRole].competencies[letter].sub[sec.id];
+                 if(sub) {
+                     guideHTML += `<p>${sub.text}</p><ul style="margin:0; padding-left:15px; font-size:0.8rem;">`;
+                     sub.bullets.forEach(b => guideHTML += `<li>${b}</li>`);
+                     guideHTML += `</ul>`;
+                 }
+            } else { guideHTML += sec.hint; }
+
+            const suggestions = getSuggestedVerbs(sec.id);
+            if(suggestions) {
+                guideHTML += `<div class="verb-suggestions"><strong>Power Verbs:</strong><br>${suggestions}</div>`;
+            }
+            
+            document.getElementById('guidanceBox').innerHTML = guideHTML;
+
+            renderNav(); 
+            analyzeText();
+            setTimeout(() => autoResize(document.getElementById('mainInput')), 50);
+        }
+
+        function updateMeta() {
+            dataStore.meta.name = document.getElementById('metaName').value;
+            dataStore.meta.email = document.getElementById('metaEmail').value;
+        }
+
+        function updateStar(el) {
+            if(el) autoResize(el);
+            const s = document.getElementById('starS').value;
+            const t = document.getElementById('starT').value;
+            const a = document.getElementById('starA').value;
+            const r = document.getElementById('starR').value;
+            dataStore.starData[sections[activeIndex].id] = { s, t, a, r };
+            
+            const parts = [s, t, a, r].filter(p => p.trim() !== "");
+            document.getElementById('mainInput').value = parts.join("\n\n");
+            autoResize(document.getElementById('mainInput'));
+            analyzeText();
+        }
+
+        document.getElementById('mainInput').addEventListener('input', () => {
+            analyzeText();
+            document.getElementById('saveStatus').innerText = "Unsaved...";
+        });
+
+        function analyzeText() {
+            const text = document.getElementById('mainInput').value;
+            const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+            const limit = sections[activeIndex].limit || 0;
+            
+            let countStr = `${wordCount} Words`;
+            if (limit > 0) countStr += ` / ${limit} Target`;
+            document.getElementById('wordCount').innerText = countStr;
+            document.getElementById('wordCount').style.color = (limit > 0 && wordCount > limit * 1.1) ? "var(--burnt-orange)" : "#8899A6";
+
+            const score = calculateScore(text, sections[activeIndex].id);
+            const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
+            const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
+            document.getElementById('compScoreResult').innerHTML = `<span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>`;
+
+            // Detect Verbs
+            const allowedVerbs = verbDb.strongVerbMap[sections[activeIndex].id];
+            let foundVerbs = [];
+            if(allowedVerbs) {
+                allowedVerbs.forEach(v => { if (text.toLowerCase().includes(v)) foundVerbs.push(v); });
+            }
+            
+            let coachHTML = "";
+            if(foundVerbs.length > 0) {
+                coachHTML = `<strong>Detected Valid Verbs:</strong> <br>${foundVerbs.map(v => `<span class="detected-verb">${v}</span>`).join(", ")}`;
+            } else {
+                coachHTML = "No relevant strong verbs detected for this section.";
+            }
+            document.getElementById('verbAnalysis').innerHTML = coachHTML;
+            document.getElementById('verbAnalysis').style.display = 'block';
+
+            // Acronyms
+            if (typeof acronymDb !== 'undefined') {
+                const matches = text.match(/\b[A-Z]{3,}\b/g) || [];
+                const found = [...new Set(matches.filter(w => acronymDb.some(a => a.a === w)))];
+                if (found.length > 0) document.getElementById('acronymResult').innerText = "Found: " + found.join(", ");
+                else document.getElementById('acronymResult').innerText = "No acronyms detected.";
+            }
+        }
+
+        // --- UTILS ---
+        function expandAcronyms() {
+            let text = document.getElementById('mainInput').value;
+            if (typeof acronymDb === 'undefined') return;
+            const matches = [...new Set(text.match(/\b[A-Z]{3,}\b/g) || [])];
+            let count = 0;
+            matches.forEach(word => {
+                const entry = acronymDb.find(item => item.a === word);
+                if (entry) {
+                    const regex = new RegExp(`\\b${word}\\b(?!\\s*\\()`);
+                    if (regex.test(text)) { text = text.replace(regex, `${entry.m} (${word})`); count++; }
+                }
+            });
+            if(count > 0) {
+                document.getElementById('mainInput').value = text;
+                autoResize(document.getElementById('mainInput'));
+                analyzeText(); 
+                alert(`Expanded ${count} acronyms.`);
+            } else { alert("No undefined known acronyms found."); }
+        }
+
+        function importSTAR() {
+            const s = localStorage.getItem('star_situation') || "";
+            const t = localStorage.getItem('star_task') || "";
+            const a = localStorage.getItem('star_action') || "";
+            const r = localStorage.getItem('star_result') || "";
+            if(!s) { alert("No draft found in STAR Engine."); return; }
+            if(confirm("Import from STAR Engine?")) {
+                document.getElementById('starS').value = s;
+                document.getElementById('starT').value = t;
+                document.getElementById('starA').value = a;
+                document.getElementById('starR').value = r;
+                updateStar();
+            }
+        }
+
+        function importDAP() {
+            if(sections[activeIndex].id !== 'dap') { alert("Please navigate to the DAP section first."); return; }
+            const goal = localStorage.getItem('dap_goal') || "[Goal]";
+            document.getElementById('mainInput').value = `SHORT TERM (0-12m):\n- [Goal 1]\n\nMEDIUM TERM (1-3y):\n- Achieve ${currentRole}\n\nLONG TERM:\n- ${goal}`;
+            autoResize(document.getElementById('mainInput'));
+            analyzeText();
+        }
+
+        function saveAll(notify) {
+            dataStore.content[sections[activeIndex].id] = document.getElementById('mainInput').value;
+            dataStore.lastSaved = new Date().toLocaleString();
+            localStorage.setItem('ee_app_data_master', JSON.stringify(dataStore));
+            const status = document.getElementById('saveStatus');
+            status.innerText = "Saved " + new Date().toLocaleTimeString();
+            status.style.color = "var(--terminal-green)";
+            renderNav();
+            if(notify) alert("Progress Saved!");
+        }
+
+        function resetAll() {
+            if(confirm("Delete all data?")) { localStorage.removeItem('ee_app_data_master'); location.reload(); }
+        }
+
+        async function exportDocx() {
+            saveAll(false);
+            const { Document, Packer, Paragraph, TextRun, HeadingLevel, Header, Footer, ImageRun, ExternalHyperlink, AlignmentType } = docx;
+
+            let imageBuffer = null;
+            try {
+                const response = await fetch('EE_Logo_rect_Solid.png');
+                if (response.ok) imageBuffer = await response.blob().then(b => b.arrayBuffer());
+            } catch(e) { }
+            if (!imageBuffer) {
+                try {
+                    const response = await fetch('https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png', { mode: 'cors' });
+                    if (response.ok) imageBuffer = await response.blob().then(b => b.arrayBuffer());
+                } catch(e) { }
+            }
+
+            const docChildren = [];
+            
+            docChildren.push(new Paragraph({
+                text: `${currentRole} Application (${currentRoute})`,
+                heading: HeadingLevel.TITLE,
+                alignment: AlignmentType.CENTER,
+                spacing: { after: 300 }
+            }));
+
+            if(dataStore.meta.name) docChildren.push(new Paragraph({ text: `Candidate: ${dataStore.meta.name}`, alignment: AlignmentType.CENTER }));
+            if(dataStore.meta.email) docChildren.push(new Paragraph({ text: `Email: ${dataStore.meta.email}`, alignment: AlignmentType.CENTER }));
+            docChildren.push(new Paragraph({ text: `Date: ${new Date().toLocaleDateString()}`, alignment: AlignmentType.CENTER, spacing: { after: 500 } }));
+
+            sections.forEach(sec => {
+                const text = dataStore.content[sec.id] || "";
+                if(text) {
+                    docChildren.push(new Paragraph({
+                        text: sec.title.toUpperCase(),
+                        heading: HeadingLevel.HEADING_2,
+                        spacing: { before: 400, after: 100 }
+                    }));
+                    
+                    const paras = text.split('\n');
+                    paras.forEach(p => {
+                        if(p.trim()) {
+                            docChildren.push(new Paragraph({
+                                children: [new TextRun({ text: p, font: "Arial", size: 22 })], 
+                                spacing: { after: 100 }
+                            }));
+                        }
+                    });
+
+                    // --- COACH REPORT ---
+                    if(sec.group.includes("Competence") || sec.group === "Assessment") {
+                        const score = calculateScore(text, sec.id);
+                        const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
+                        
+                        // Use strict map for export report too
+                        const allowedVerbs = verbDb.strongVerbMap[sec.id];
+                        let foundVerbs = [];
+                        if(allowedVerbs) {
+                            allowedVerbs.forEach(v => { if (text.toLowerCase().includes(v)) foundVerbs.push(v); });
+                        }
+                        foundVerbs = [...new Set(foundVerbs)];
+
+                        const passive = ["we", "us", "our", "team", "helped"];
+                        let passiveCount = 0;
+                        passive.forEach(w => { if(new RegExp(`\\b${w}\\b`, 'gi').test(text)) passiveCount++; });
+
+                        const summaryBlock = [
+                            `>> COACH REPORT: ${sec.id}`,
+                            `Current Level: ${levels[score-1]}`,
+                            `Target Level: Level 3 - Skilled (Standard Requirement)`,
+                            `Strong Verbs Detected: ${foundVerbs.length > 0 ? foundVerbs.join(", ") : "None detected."}`
+                        ];
+                        if(passiveCount > 2) summaryBlock.push(`⚠️ Passive Voice Warning: ${passiveCount} instances of 'We/Us/Team' found.`);
+                        else summaryBlock.push(`✅ Active Voice Check: Passed.`);
+
+                        docChildren.push(new Paragraph({ text: "________________________________________________________________________________", spacing: { before: 200, after: 200 }, color: "AAAAAA" }));
+                        summaryBlock.forEach(line => {
+                            docChildren.push(new Paragraph({
+                                children: [new TextRun({ text: line, font: "Courier New", size: 18, color: "444444", bold: line.startsWith(">>") })],
+                                spacing: { after: 50 }
+                            }));
+                        });
+                        docChildren.push(new Paragraph({ text: "", spacing: { after: 400 } }));
+                    }
+                }
+            });
+
+            const headerChildren = [];
+            if(imageBuffer) {
+                headerChildren.push(new Paragraph({
+                    children: [ new ImageRun({ data: imageBuffer, transformation: { width: 150, height: 35 } }) ],
+                    alignment: AlignmentType.RIGHT
+                }));
+            } else {
+                 headerChildren.push(new Paragraph({ children: [new TextRun({ text: "EmpoweringEngineers.uk", font: "Arial", bold: true, color: "009900" })], alignment: AlignmentType.RIGHT }));
+            }
+
+            const footerChildren = [];
+            footerChildren.push(new Paragraph({
+                children: [ new ExternalHyperlink({ children: [new TextRun({ text: "Produced by EmpoweringEngineers.uk", style: "Hyperlink", color: "009900", font: "Arial", size: 18 })], link: "https://www.empoweringengineers.uk" }) ],
+                alignment: AlignmentType.RIGHT
+            }));
+
+            const doc = new Document({
+                styles: { default: { document: { run: { font: "Arial" } } } },
+                sections: [{ headers: { default: new Header({ children: headerChildren }) }, footers: { default: new Footer({ children: footerChildren }) }, children: docChildren }]
+            });
+
+            Packer.toBlob(doc).then(blob => { saveAs(blob, `Application_${currentRole}_${new Date().toISOString().slice(0,10)}.docx`); });
+        }
+    </script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 /**
- * Empowering Engineers UK - Intelligence Database [v7.0]
- * Massive Expansion: 500+ Stems from IET, IMechE, RAeS, Houston, Penn State, & Harvard.
- * Features: Stem-matching, US/UK Auto-Localiser, Industry-Specific technical recognition.
+ * Empowering Engineers UK - Intelligence Database [v10.0]
+ * GRANULAR MAPPING UPDATE:
+ * - strongVerbMap is now broken down into A1, A2... E5 for precise context checking.
+ * - This allows the tool to validate if a specific verb fits the specific sub-competency.
  */
 
 const verbDb = {
-    // 1. SPELLING LOCALISER: American (Key) -> British Standard (Value)
-    // Ensures technical reports meet UK professional institution standards.
+    // 1. SPELLING LOCALISER
     spellingMap: {
         "analyze": "analyse", "analyzed": "analysed", "analyzing": "analysing", "analysis": "analysis",
         "optimize": "optimise", "optimized": "optimised", "optimizing": "optimising",
@@ -21,8 +21,7 @@ const verbDb = {
         "synchronize": "synchronise", "visualize": "visualise", "utilize": "utilise"
     },
 
-    // 2. PASSIVE/WEAK/VAGUE STEMS: Identifying low-accountability language.
-    // Critical for UK-SPEC A-E where "I" and "Direct Action" are mandatory.
+    // 2. PASSIVE/WEAK STEMS
     passiveStems: [
         "we", "us", "our", "team", "group", "help", "assist", "support", "involv", 
         "participat", "observ", "monitor", "overs", "aid", "contribut", "attend", 
@@ -32,54 +31,75 @@ const verbDb = {
         "dealt with", "talked", "meeting", "involved in", "worked on"
     ],
     
-    // 3. STRONG ACTION STEMS: Tiered by Registration Level.
+    // 3. STRONG ACTION STEMS (General Pool for Tier Estimation)
     strongStems: {
-        EngTech: [
-            "maintain", "operat", "install", "assembl", "inspect", "configur", "identif", 
-            "repair", "adjust", "check", "report", "resolv", "conduct", "demonstrat", 
-            "calibrat", "diagnos", "document", "setup", "test", "replac", "solder", "wire",
-            "commission", "debug", "deploy", "patch", "extinguish", "safeguard", "align",
-            "drill", "fabricat", "grind", "haul", "load", "measur", "patch", "refit", "tighten"
-        ],
-        IEng: [
-            "manag", "design", "implement", "improv", "verif", "budget", "supervis", 
-            "optimis", "review", "standardis", "coordinat", "deliv", "execut", "specif", 
-            "validat", "program", "commiss", "develop", "mentor", "schedul", "procur", 
-            "quantif", "refin", "audit", "refactor", "integrat", "automat", "negotiat",
-            "forecast", "procur", "adapt", "bridge", "classif", "distribut", "expedit",
-            "facilitat", "generat", "harness", "interfac", "modifi", "overhaul"
-        ],
-        CEng: [
-            "pioneer", "innovat", "authoris", "strateg", "formulat", "apprais", "steer", 
-            "synthes", "conceptual", "transform", "justif", "mitigat", "negotiat", 
-            "author", "govern", "adjudicat", "critiqu", "envision", "structur", "champion", 
-            "architect", "orchestrat", "rational", "re-engineer", "speculat", "sanction",
-            "advocat", "arbitrat", "consolidat", "diversifi", "investigat", "pioneer",
-            "reconstruct", "rejuvenat", "spearhead", "underpin"
-        ]
+        EngTech: ["maintain", "operat", "install", "assembl", "inspect", "configur", "identif", "repair", "adjust", "check", "report", "resolv", "conduct", "demonstrat", "calibrat", "diagnos", "document", "setup", "test", "replac", "solder", "wire", "commission", "debug", "deploy", "patch", "safeguard", "align", "drill", "fabricat", "measur", "refit"],
+        IEng: ["manag", "design", "implement", "improv", "verif", "budget", "supervis", "optimis", "review", "standardis", "coordinat", "deliv", "execut", "specif", "validat", "program", "commiss", "develop", "mentor", "schedul", "procur", "quantif", "refin", "audit", "refactor", "integrat", "automat", "negotiat", "forecast", "adapt", "classif", "distribut", "facilitat", "generat", "modifi", "overhaul"],
+        CEng: ["pioneer", "innovat", "authoris", "strateg", "formulat", "apprais", "steer", "synthes", "conceptual", "transform", "justif", "mitigat", "negotiat", "author", "govern", "adjudicat", "critiqu", "envision", "structur", "champion", "architect", "orchestrat", "rational", "re-engineer", "speculat", "sanction", "advocat", "arbitrat", "consolidat", "diversifi", "investigat", "reconstruct", "rejuvenat", "spearhead", "underpin"]
     },
 
-    // 4. INDUSTRY-SPECIFIC CLUSTERS: The Technical "Proof"
-    industryStems: {
-        "Civil & Infrastructure": ["eurocod", "bim", "geotechnic", "structur", "hydrolog", "survey", "load", "nec4", "jct", "pavement", "drainage", "retained", "asce", "concrete", "steelwork", "highway", "rail"],
-        "Mechanical & Manufacturing": ["cad", "fea", "lean", "six sigma", "toleranc", "machin", "thermodynam", "fabricat", "solidwork", "pdm", "ansys", "cfd", "kinematics", "hydraulics", "pneumatics", "gearbox"],
-        "Electrical & Power": ["plc", "telemetr", "scada", "high-voltage", "grid", "circuit", "transformer", "atex", "wiring-reg", "iet", "iec", "inverter", "substation", "switchgear", "phase"],
-        "Aerospace & Defence": ["avionics", "airworthi", "propulsion", "orbital", "composit", "flight-test", "mod", "as9100", "easa", "faa", "aerodynam", "wing-load", "telemetry", "stealth", "payload"],
-        "Renewables & Sustainability": ["photovolt", "wind-load", "decarbonis", "lifecycl", "circular-econom", "energy-storag", "hydrogen", "breeam", "epc", "net-zero", "geothermal", "biomass", "tidal"],
-        "Chemical & Process": ["hazop", "stoichiometr", "distil", "reactor", "feedstock", "fluid-dynam", "sil", "p&id", "icheme", "mass-balance", "ex-rated", "catalyst", "refinery"],
-        "Materials & Mining": ["alloy", "metallurg", "fatigue", "crystallin", "extract", "smelt", "heat-treat", "corros", "iom3", "microstructur", "composite", "polym", "ceramic"],
-        "Software & IT": ["agil", "scrum", "devops", "ci/cd", "microservic", "api", "cloud", "latency", "scalabil", "full-stack", "unit-test", "git", "refactor", "kubernetes", "docker", "frontend", "backend"],
-        "Biomedical & Science": ["biomechanic", "prosthetic", "imaging", "mri", "biomaterial", "lab-on-chip", "clinical", "fda", "iso13485", "genomics", "pharmaceutic"],
-        "Nuclear & High-Risk": ["radiation", "shielding", "reactor", "fission", "fusion", "oncw", "nda", "decommissioning", "criticality", "safety-case", "hpc"],
-        "Automotive & Transport": ["powertrain", "autonomous", "adas", "chassis", "drivetrain", "ev-battery", "suspension", "nvh", "homologation", "can-bus"]
+    // 4. GRANULAR MAPPING (A1-E5)
+    // Used to validate if a strong verb fits the SPECIFIC sub-section.
+// 2. STRICT GRANULAR MAPPING (A1-E5) - SCORING SOURCE
+    strongVerbMap: {
+        // A1: Maintain/Extend Knowledge
+        "A1": ["maintain", "extend", "broaden", "deepen", "research", "investigat", "study", "learn", "master", "absorb", "develop", "keep up-to-date", "knowledge"],
+        // A2: Application of Knowledge
+        "A2": ["pioneer", "innovat", "analy", "diagnos", "simulat", "calculat", "deriv", "math", "physic", "root-cause", "solve", "predict", "apply", "engineer"],
+
+        // B1: Identify Problems/Specifications
+        "B1": ["identif", "defin", "specif", "requir", "determin", "assess", "scope", "investigat", "survey", "evaluat", "brief", "problem"],
+        // B2: Design & Development
+        "B2": ["design", "develop", "architect", "model", "draft", "prototyp", "concept", "create", "construct", "engin", "formulat", "solution"],
+        // B3: Implementation
+        "B3": ["implement", "install", "commission", "deploy", "rollout", "construct", "build", "execut", "realis", "deliver", "operation"],
+
+        // C1: Planning
+        "C1": ["plan", "schedul", "organis", "coordinat", "strateg", "prepar", "estimat", "forecas", "program", "allocat", "timeline"],
+        // C2: Budget & Resources
+        "C2": ["budget", "cost", "financ", "contract", "procur", "tender", "negotiat", "purchas", "bill", "quantif", "resourc", "commercial"],
+        // C3: Leadership & Teams
+        "C3": ["lead", "manag", "supervis", "mentor", "coach", "direct", "delegat", "recruit", "apprais", "chair", "guid", "team"],
+        // C4: Quality
+        "C4": ["audit", "improv", "optimis", "refin", "standardis", "assur", "control", "inspect", "rectifi", "enhanc", "quality", "complianc"],
+
+        // D1: Written Communication
+        "D1": ["write", "report", "document", "author", "draft", "correspond", "record", "log", "submit", "publish", "email", "communication"],
+        // D2: Presentation & Negotiation
+        "D2": ["present", "discuss", "negotiat", "persuad", "convinc", "propos", "brief", "pitch", "explain", "justif", "presentation"],
+        // D3: Interpersonal
+        "D3": ["collaborat", "liais", "mediat", "resolv", "relat", "interact", "network", "partner", "cooperat", "diversity", "inclusion"],
+
+        // E1: Codes of Conduct
+        "E1": ["compli", "adher", "follow", "uphold", "respec", "regulat", "legislat", "law", "standard", "mandat", "conduct", "profession"],
+        // E2: Safety
+        "E2": ["safeguard", "risk", "mitigat", "assess", "protect", "secur", "ensur", "audit", "investigat", "alert", "safety", "hazard"],
+        // E3: Sustainability
+        "E3": ["sustain", "recycl", "conserv", "reduc", "minim", "impact", "environ", "efficien", "renew", "carbon"],
+        // E4: CPD
+        "E4": ["develop", "record", "reflect", "plan", "learn", "attend", "participat", "member", "fellow", "regist", "cpd"],
+        // E5: Ethics
+        "E5": ["ethic", "honest", "integr", "trust", "principl", "moral", "declar", "transparen", "corrupt", "bribe"]
     },
 
-    // 5. UK-SPEC COMPETENCY STEMS: Mapping to specific A-E sub-criteria.
+    // 5. UK-SPEC CONTEXT KEYWORDS (For prompting/suggestions in the UI)
     ukSpecStems: {
-        "A (Knowledge)": ["theor", "technolog", "research", "limit", "emerging", "concept", "knowledge-base", "theoretical", "underpin", "specialist"],
-        "B (Design)": ["design", "specification", "test", "validat", "user", "problem", "solution", "innovat", "iteration", "feasibility", "requirement", "prototyp"],
-        "C (Leadership)": ["budget", "commercial", "quality", "staff", "resourc", "plan", "supervis", "leadership", "governance", "mentoring", "schedule", "procure"],
-        "D (Communication)": ["communicat", "present", "report", "stakehold", "negotiat", "diversity", "interpersonal", "influence", "inclusion", "liais", "collab"],
-        "E (Ethics/Safety)": ["safe", "risk", "ethic", "sustain", "environment", "cpd", "legal", "code", "integrity", "legislation", "conduct", "h&s", "professionalism"]
+        "A1": ["maintain", "extend", "theor", "technolog", "research", "emerging", "study", "learn", "course", "cpd", "literatur"],
+        "A2": ["apply", "analy", "calculat", "model", "simulat", "first-principl", "deriv", "evidence-bas", "solve", "diagnos"],
+        "B1": ["identify", "defin", "requir", "specif", "scope", "brief", "constraint", "opportunit", "problem-solv", "needs"],
+        "B2": ["design", "develop", "architect", "draft", "prototyp", "concept", "solution", "create", "model", "innovat"],
+        "B3": ["implement", "install", "commission", "construct", "build", "deploy", "rollout", "evaluat", "validat", "verif"],
+        "C1": ["plan", "schedul", "organis", "coordinat", "project", "timelin", "gantt", "resource", "prepar", "strateg"],
+        "C2": ["budget", "cost", "financ", "contract", "procur", "tender", "variat", "commerci", "control", "monitor"],
+        "C3": ["lead", "manag", "supervis", "mentor", "coach", "train", "direct", "delegat", "team", "recruit", "apprais"],
+        "C4": ["quality", "audit", "standard", "iso", "improv", "continuous", "assur", "control", "complianc"],
+        "D1": ["write", "report", "document", "email", "specif", "draft", "record", "log", "communicat"],
+        "D2": ["present", "discuss", "negotiat", "persuad", "argu", "convinc", "propos", "meeting", "brief"],
+        "D3": ["relation", "colleagu", "client", "stakehold", "diversity", "inclusion", "conflict", "resolv", "mediat"],
+        "E1": ["code", "conduct", "legal", "legislat", "regulat", "complianc", "rule", "law", "standard"],
+        "E2": ["safe", "risk", "hazard", "rams", "assess", "protect", "danger", "permit", "loto", "incident"],
+        "E3": ["sustain", "environment", "carbon", "waste", "recycl", "energy", "efficienc", "pollut", "impact"],
+        "E4": ["develop", "record", "plan", "learn", "activit", "goal", "object", "reflect", "career"],
+        "E5": ["ethic", "integr", "honest", "moral", "principl", "corrupt", "bribe", "conflict", "interest"]
     }
 };
