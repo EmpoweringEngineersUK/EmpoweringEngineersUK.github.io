@@ -1,99 +1,168 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Contact Empowering Engineers UK. Get support, report bugs, or suggest new engineering tools. We value feedback from the engineering community.">
-	<meta property="og:title" content="Contact Us | Empowering Engineers UK">
-	<meta property="og:description" content="Contact Empowering Engineers UK. Get support, report bugs, or suggest new engineering tools. We value feedback from the engineering community.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/contact.html">
-	<meta property="og:type" content="website">
-	
-    <title>Contact Us | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
+    <meta name="description" content="Contact Empowering Engineers UK. Get support for our engineering tools or suggest new features for CEng/IEng registration.">
+    <meta property="og:title" content="Contact Us | Empowering Engineers UK">
+    <meta property="og:description" content="Contact Empowering Engineers UK. Get support for our engineering tools or suggest new features.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/contact.html">
+    <meta property="og:type" content="website">
+    <title>Contact Us | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
     
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 700px; width: 100%; margin-top: 50px; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-form {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group { margin-bottom: 20px; }
         
-        .content-card { 
-            background: var(--dark-card); 
-            padding: 40px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
+        label {
+            display: block;
+            color: var(--burnt-orange);
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: inherit;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 4px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--terminal-green);
+            outline: none;
+        }
+
+        textarea { height: 150px; resize: vertical; }
+
+        .sidebar-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
             text-align: center;
         }
-        
-        h1 { 
-            color: var(--terminal-green); 
-            font-family: 'Courier Prime', monospace; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 15px; 
-            margin-bottom: 20px;
-        }
 
-        p { 
-            line-height: 1.6; 
-            color: #d1d5db; 
-            margin-bottom: 30px; 
-        }
-
-        .email-btn {
-            display: inline-block;
-            background: rgba(255,255,255,0.05);
-            border: 1px dashed var(--terminal-green);
-            color: var(--terminal-green);
-            padding: 20px 30px;
-            font-family: 'Courier Prime', monospace;
-            font-size: 1.1rem;
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
             text-decoration: none;
-            border-radius: 6px;
-            transition: 0.3s;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .btn-linkedin {
+            background-color: #0077b5;
+            color: white;
+            border: 1px solid #0077b5;
+        }
+        .btn-linkedin:hover {
+            background-color: #005e93;
+            transform: translateY(-2px);
         }
 
-        .email-btn:hover {
-            background: var(--terminal-green);
-            color: var(--midnight-navy);
-            border-style: solid;
-        }
-
-        .meta-info {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: var(--slate-grey);
-            font-family: 'Courier Prime', monospace;
+        @media (max-width: 800px) {
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
-	<script defer src="header_nav.js"></script>
-
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
     <div class="container">
-        <div class="content-card">
-            <h1>>> Open_Channel</h1>
-            <p>We value feedback from the engineering community. If you have suggestions for new tools, bug reports, or partnership inquiries, please contact us directly.</p>
-            
-            <a href="mailto:info@empoweringengineers.uk" class="email-btn">EMAIL: info@empoweringengineers.uk</a>
-            
-            <div class="meta-info">
-                Response time: Typically 24-48 hours.<br>
-                Location: United Kingdom (GMT)
+        
+        <div style="text-align:center; margin-bottom: 40px;">
+            <h1 style="color:var(--terminal-green);">Get in Touch</h1>
+            <p style="color:var(--slate-grey); max-width: 600px; margin: 0 auto;">
+                Have feedback on our tools or a suggestion for a new feature? We'd love to hear from you.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-form">
+                <form action="mailto:hello@empoweringengineers.uk" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select name="subject" style="width:100%; padding:12px; background:rgba(0,0,0,0.3); border:1px solid var(--border-color); color:white; border-radius:4px;">
+                            <option value="Feedback">Tool Feedback</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="How can we help?"></textarea>
+                    </div>
+                    <button type="submit" class="action-btn" style="width:100%;">SEND MESSAGE</button>
+                </form>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <div class="sidebar-card">
+                    <h3 style="color:white; margin-top:0;">Connect with Us</h3>
+                    <p style="color:var(--slate-grey); font-size:0.9rem;">
+                        Follow our company page for updates on new tools, engineering news, and professional registration tips.
+                    </p>
+                    <a href="https://www.linkedin.com/company/empoweringengineersuk/" target="_blank" class="social-btn btn-linkedin">
+                        <span>Follow on LinkedIn</span>
+                        <span>&#8599;</span>
+                    </a>
+                </div>
+
+                <div class="ad-slot ad-mpu">
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-7071036534151105"
+                         data-ad-slot="4413012282"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
             </div>
         </div>
+
     </div>
 
-	<script defer src="footer.js"></script>
+    <script defer src="footer.js?v=11.1"></script>
 </body>
 </html>

@@ -1,236 +1,243 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Synthesise your technical history into a professional profile. Generates a CV, Cover Letter, and LinkedIn bio strategy using UK-SPEC language.">
-	<meta property="og:title" content="Career Starter | Empowering Engineers UK">
-	<meta property="og:description" content="Synthesise your technical history into a professional profile. Generates a CV, Cover Letter, and LinkedIn bio strategy using UK-SPEC language.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/career_tool.html">
-	<meta property="og:type" content="website">
-
-    <title>Career Starter | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-    
+    <meta property="og:title" content="Career Starter | Empowering Engineers UK">
+    <meta property="og:description" content="Synthesise your technical history into a professional profile. Generates a CV, Cover Letter, and LinkedIn bio strategy using UK-SPEC language.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/career_tool.html">
+    <meta property="og:type" content="website">
+    <title>Career Starter | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
     <style>
-        /* PAGE SPECIFIC LAYOUT */
-        /* Note: Colors and Fonts are handled by layout.css */
-        
-        .career-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; /* Equal columns */
-            gap: 30px; 
-            margin-bottom: 50px;
+        .career-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: start;
         }
 
-        /* Instruction Header Styling */
-        .instruction-header {
-            grid-column: 1 / -1;
-            background: rgba(0, 255, 153, 0.05);
-            border-left: 4px solid var(--terminal-green);
-            padding: 25px;
-            margin-bottom: 25px;
+        /* --- THEME-AWARE OUTPUT BOX --- */
+        .output-box {
+            background: var(--terminal-bg);
+            color: var(--cloud-white);
+            border: 1px solid var(--border-color);
             border-radius: 4px;
-        }
-
-        /* Input Group Spacing */
-        .input-group { margin-bottom: 20px; }
-        
-        /* Deep Context Textarea needs to be taller */
-        #deepContext { height: 150px; }
-
-        /* Output Box Styling */
-        .output-box { 
-            background: #09121d; 
-            padding: 25px; 
-            border-radius: 6px; 
-            border: 1px solid var(--terminal-green); 
-            line-height: 1.6; 
-            min-height: 400px;
-            max-height: 800px;
-            overflow-y: auto;
+            padding: 25px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            min-height: 250px; 
             position: relative;
-            font-family: "Arial", sans-serif;
-        }
-        
-        .prompt-text { 
-            font-family: 'Courier Prime', monospace; 
-            font-size: 0.9rem; 
-            color: #e0e0e0; 
-            white-space: pre-wrap; 
-        }
-        
-        .privacy-note { 
-            font-size: 0.75rem; 
-            color: var(--slate-grey); 
-            margin-top: 15px; 
-            font-style: italic; 
-            display: block; 
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 900px) { .career-layout { grid-template-columns: 1fr; } }
+        .output-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--slate-grey);
+            font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+            opacity: 0.8;
+            width: 80%;
+        }
+
+        .ai-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--terminal-green);
+            color: var(--midnight-navy);
+            border: none;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .ai-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,255,153,0.3);
+            opacity: 0.95;
+        }
+
+        /* --- COPY BUTTON (Floating) --- */
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--dark-card);
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            display: none; 
+            font-weight: bold;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background: var(--terminal-green);
+            color: var(--midnight-navy);
+        }
+
+        /* TEXTAREA STYLES (Auto-Expand support) */
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        @media (max-width: 900px) {
+            .career-grid { grid-template-columns: 1fr; }
+            .output-box { min-height: 200px; margin-top: 20px; }
+            /* On mobile, move Ad below content to avoid pushing content too far down */
+            .right-col { order: 2; }
+        }
     </style>
 </head>
-<body onload="loadSavedData()">
-	<script defer src="header_nav.js"></script>
-
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
     <div class="container">
-        
-        <div class="instruction-header">
-            <h2 style="border:none; color:var(--terminal-green); padding:0; margin-bottom:10px;">SHOWCASING TECHNICAL VALUE</h2>
-            <p style="font-size:0.95rem; line-height:1.6; color:var(--cloud-white);">
-                The best engineering applications demonstrate a <strong>mutual benefit</strong>. By pursuing professional registration, you are not just advancing your own career; you are increasing the technical capability and safety standards of your employer.
-            </p>
-            <ul style="font-size:0.9rem; line-height:1.6; color:var(--slate-grey); margin-top:10px;">
-                <li><strong>Professional Branding:</strong> Use clean system fonts like <strong>Arial</strong> or <strong>Calibri</strong>. These ensure maximum readability for reviewers.</li>
-                <li><strong>Word Styles:</strong> Use Microsoft Word's built-in <strong>Styles</strong> (Heading 1, Normal) at 10-11pt to maintain a high-trust, organised profile.</li>
-                <li><strong>Value Alignment:</strong> Show how your growth as an engineer helps your employer solve future technical and commercial challenges.</li>
-            </ul>
-            <span class="privacy-note">
-                [!] DATA PRIVACY: Information entered here is stored strictly in your browser's local cache. No data is sent to or stored on any external servers.
-            </span>
-        </div>
 
-        <div class="career-layout">
-            <div class="card">
-                <h2>1. Profile Intelligence</h2>
-                
-                <div class="input-group">
-                    <label>Current Role / Level</label>
-                    <input type="text" id="currentRole" oninput="saveData()" placeholder="e.g. Graduate Engineer, Aspiring Lead">
-                </div>
+        <div id="tool-header-target"></div>
 
-                <div class="input-group">
-                    <label>Target Role</label>
-                    <input type="text" id="targetRole" oninput="saveData()" placeholder="e.g. Project Manager, CEng Applicant">
-                </div>
-                
-                <div class="input-group">
-                    <label>Company Website (For AI Analysis)</label>
-                    <input type="text" id="companyWeb" oninput="saveData()" placeholder="e.g. www.baesystems.com">
-                </div>
-
-                <div class="input-group">
-                    <label>Expected Hiring Manager Title</label>
-                    <input type="text" id="managerTitle" oninput="saveData()" placeholder="e.g. Technical Director, Head of Engineering">
-                </div>
-
-                <div class="input-group">
-                    <label>Technical Standards & Key Stakeholders</label>
-                    <input type="text" id="contextInfo" oninput="saveData()" placeholder="e.g. API 671, Eurocodes / Site Crews, Procurement">
-                </div>
-
-                <div class="input-group">
-                    <label>Your Authentic "Why" (Motivation)</label>
-                    <textarea id="passion" oninput="saveData()" placeholder="What is your unique technical drive? Why do you do what you do?"></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label>Deep Context (CPD, Training, Previous Application Data)</label>
-                    <textarea id="deepContext" oninput="saveData()" placeholder="Paste old CV snippets, cover letters, training records, or CPD logs here to enrich the AI's understanding."></textarea>
-                </div>
-
-                <button class="action-btn" onclick="generateStrategicPrompt()">Initialise Career Starter</button>
-                <button class="action-btn action-btn-ghost" onclick="resetPageData()" style="margin-top:10px;">Clear Form</button>
-            </div>
-
-            <div class="card">
-                <h2>2. Generated Mega-Prompt</h2>
-                
-                <div id="placeholderText" style="color:var(--slate-grey); text-align:center; padding:40px;">
-                    Complete the parameters on the left to build your bespoke application strategy. Data is saved locally in your browser cache.
-                </div>
-
-                <div id="outputContainer" style="display:none;">
-                    <p style="font-size:0.85rem; color:var(--slate-grey); margin-bottom:15px;">
-                        Copy the prompt below and paste it into Gemini or ChatGPT. <strong>Crucial:</strong> Provide your Job Description PDF and specific STAR statements for a tailored result.
-                    </p>
-                    <div class="output-box">
-                        <div id="promptOutput" class="prompt-text"></div>
-                    </div>
-                    <button class="ai-btn" onclick="copyToClipboard()">>> COPY MEGA-PROMPT</button>
-                </div>
-            </div>
-        </div>
-		<div class="card" style="grid-column: 1 / -1; margin-top: 40px; border-top: 2px solid var(--terminal-green);">
-            <h3>Engineering Your Career Narrative</h3>
-            <p>Generic CVs fail because they list "Responsibilities" rather than "Achievements". In engineering, hiring managers need to know the scale, complexity, and impact of your work.</p>
+        <div class="career-grid">
             
-            <h4>The Quantitative Advantage</h4>
-            <p>Your application must answer the "So What?" question. Instead of saying <em>"I designed a pump system,"</em> say <em>"I designed a 400kW hydraulic system that improved efficiency by 15% and saved £20k annually."</em></p>
+            <div>
+                <label>1. Target Job Description (Paste Here)</label>
+                <textarea id="jobDesc" style="height: 150px;" placeholder="Paste the full job advert text here..."></textarea>
 
-            <h4>Alignment with Professional Registration</h4>
-            <p>Employers highly value staff who are working towards CEng, IEng, or EngTech. It proves you are committed to industry standards and ethics. This tool helps you articulate that ambition, positioning your professional development as a direct asset to the company's technical governance.</p>
+                <label>2. Your Current Role & Experience Level</label>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <select id="userRole">
+                        <option value="Mechanical Engineer">Mechanical Engineer</option>
+                        <option value="Electrical Engineer">Electrical Engineer</option>
+                        <option value="Civil Engineer">Civil Engineer</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Process Engineer">Process Engineer</option>
+                        <option value="Design Engineer">Design Engineer</option>
+                        <option value="Maintenance Engineer">Maintenance Engineer</option>
+                    </select>
+                    <select id="userLevel">
+                        <option value="Graduate (0-2 Years)">Graduate (0-2 Years)</option>
+                        <option value="Mid-Level (3-6 Years)">Mid-Level (3-6 Years)</option>
+                        <option value="Senior (7+ Years)">Senior (7+ Years)</option>
+                        <option value="Managerial">Managerial</option>
+                        <option value="Principal">Principal/Lead</option>
+                    </select>
+                </div>
+
+                <label>3. Key Achievements (Bullet Points)</label>
+                <div class="hint">List 3 technical wins using the STAR format (Situation, Task, Action, Result).</div>
+                <textarea id="achievements" style="height: 120px;" placeholder="- Managed a £50k pump replacement project...&#10;- Redesigned the PLC logic for...&#10;- Led a team of 4 technicians to..."></textarea>
+
+                <label>4. Hiring Manager Name (Optional)</label>
+                <input type="text" id="hiringManager" placeholder="e.g. Mr. Smith (or leave blank)">
+
+                <button class="ai-btn" onclick="generatePrompt()">>> GENERATE AI PROMPT</button>
+            </div>
+
+            <div class="right-col" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="output-box" id="outputContainer">
+                    <button class="copy-btn" onclick="copyToClipboard()">COPY PROMPT</button>
+					
+                    <div class="output-placeholder" id="placeholderText">
+                        <strong>AI PROMPT PREVIEW</strong><br>
+                        <span style="font-size:0.85rem; margin-top:5px; display:block;">
+                            Your generated prompt will appear here.<br>
+                            Ready to Copy & Paste into ChatGPT or Claude.
+                        </span>
+                    </div>
+                    
+                    <div id="promptOutput" style="display:none; color:var(--terminal-green);"></div>
+                </div>
+
+            </div>
+
         </div>
+
+        <article class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+            <h3>Professional Engineering Standards</h3>
+            <p>Empowering Engineers UK is an open-access platform designed to democratise professional registration. We believe that lack of formal mentorship should not be a barrier to achieving <strong>Chartered Status (CEng)</strong>, <strong>Incorporated Engineer (IEng)</strong>, or <strong>EngTech</strong>.</p>
+            
+            <h4>Privacy & Data Integrity</h4>
+            <p>We utilise <strong>Local Storage</strong> technology. This ensures your sensitive project data, CV drafts, and STAR evidence never leave your browser. No data is stored on our servers, ensuring total confidentiality for your professional work.</p>
+        </article>
+
     </div>
 
+    <script defer src="footer.js?v=12"></script>
+
     <script>
-        const fields = ['currentRole', 'targetRole', 'companyWeb', 'managerTitle', 'contextInfo', 'passion', 'deepContext'];
+        window.currentPrompt = "";
 
-        function saveData() {
-            fields.forEach(field => {
-                localStorage.setItem('career_starter_v1_' + field, document.getElementById(field).value);
-            });
-        }
-
-        function loadSavedData() {
-            fields.forEach(field => {
-                const saved = localStorage.getItem('career_starter_v1_' + field);
-                if (saved) document.getElementById(field).value = saved;
-            });
-        }
-
-        function resetPageData() {
-            if(confirm("Clear all your professional data from this page?")) {
-                fields.forEach(field => {
-                    localStorage.removeItem('career_starter_v1_' + field);
-                    document.getElementById(field).value = '';
-                });
-                document.getElementById('outputContainer').style.display = 'none';
-                document.getElementById('placeholderText').style.display = 'block';
+        // 2. INITIALISATION TRIGGER (Added v12.2)
+        function initApp() {
+            if (typeof renderToolHeader === "function") {
+                renderToolHeader('career'); // 'career' key from tools_data.js
+            } else {
+                console.warn("Tool Header system not loaded.");
             }
         }
 
-        function generateStrategicPrompt() {
-            const current = document.getElementById('currentRole').value || "[Current Position]";
-            const target = document.getElementById('targetRole').value || "[Target Role]";
-            const web = document.getElementById('companyWeb').value || "[Company Website]";
-            const manager = document.getElementById('managerTitle').value || "the Hiring Manager";
-            const info = document.getElementById('contextInfo').value || "relevant engineering standards and stakeholders";
-            const passion = document.getElementById('passion').value || "engineering excellence and technical growth";
-            const deep = document.getElementById('deepContext').value;
+        function generatePrompt() {
+            const jd = document.getElementById('jobDesc').value;
+            const role = document.getElementById('userRole').value;
+            const level = document.getElementById('userLevel').value;
+            const wins = document.getElementById('achievements').value;
+            const manager = document.getElementById('hiringManager').value || "Hiring Manager";
 
-            // This is the prompt logic you requested to be preserved
-            const prompt = `Act as an Engineering Career Mentor and Strategic Consultant. I am currently a ${current} applying for a ${target} position at a company that values technical excellence and professional growth. 
+            if (!jd || !wins) {
+                alert("Please enter the Job Description and your Achievements.");
+                return;
+            }
 
-My goal is to demonstrate a high-impact professional profile that aligns my professional registration journey with the company's long-term business and technical goals.
+            const prompt = `Act as an Expert Engineering Recruiter and CV Writer. 
+I am a ${level} ${role} applying for a new position.
 
-I will provide:
-- My current STAR statements (Work history, Volunteering, Education)
-- The Job Description (provided as a PDF)
-${deep ? "- Professional Context (Training, CPD, and history provided below)" : ""}
+Here is the JOB DESCRIPTION I am targeting:
+"""
+${jd}
+"""
 
-Task 1: Strategic Alignment. Access the company website (${web}) and interrogate their latest Annual Report. Identify how an engineer with my background in ${info} can help them achieve their strategic priorities (e.g. ESG, Innovation, or Safety).
+Here are my KEY ACHIEVEMENTS (STAR Format):
+"""
+${wins}
+"""
 
-Task 2: Professional Summary. My drive is: "${passion}". Create a professional summary that showcases my authentic motivation and my commitment to delivering value to the engineering department.
+Please perform the following tasks:
 
-Task 3: Evidence Synthesis. Using my STAR statements, build a CV that:
-- Demonstrates technical mastery of ${info}.
-- Highlights quantifiable impact (Time/Cost/Safety).
-- Shows my trajectory towards professional registration as a benefit to the company's technical governance.
-- FORMATTING ADVICE: Use Arial/Calibri (10-11pt) and Microsoft Word 'Styles' for a consistent, professional brand.
+Task 1: KEYWORD ANALYSIS. Extract the top 5 technical keywords and 3 soft skills from the Job Description that I must include in my CV to pass the ATS (Applicant Tracking System).
+
+Task 2: PROFESSIONAL SUMMARY. Write a compelling 4-line Professional Summary for the top of my CV. It must position me as a solution to the employer's problems found in the JD.
+
+Task 3: WORK EXPERIENCE BULLETS. Rewrite my provided achievements into punchy, metric-heavy bullet points (e.g., "Reduced downtime by 15%...", "Managed budget of £50k..."). Use strong action verbs.
+
+FORMATTING ADVICE: Use Arial/Calibri (10-11pt) and Microsoft Word 'Styles' for a consistent, professional brand.
 
 Task 4: MUTUAL-BENEFIT COVER LETTER. Write a bespoke, ready-to-copy Cover Letter. It must explain how my background and technical drive make me the ideal candidate to solve the company's current challenges and support their future growth.
 
@@ -238,28 +245,31 @@ Task 5: Professional Outreach. Draft two LinkedIn messages focusing on collabora
 1. One for the Recruitment team.
 2. One for the Hiring Manager (${manager}).
 
-${deep ? "\nDEEP CONTEXT (TRAINING/CPD/APPLICATION HISTORY):\n" + deep : ""}
+Output Requirement: Format the CV and Cover Letter with clear bold headers for direct copy-pasting.`;
 
-Output Requirement: Format the CV and Cover Letter with clear bold headers for direct copy-pasting.
-
-[I WILL NOW PROVIDE MY STAR STATEMENTS AND THE JD PDF]`;
-
-            document.getElementById('promptOutput').innerText = prompt;
+            // Display Output
+            const outDiv = document.getElementById('promptOutput');
+            outDiv.innerText = prompt;
+            outDiv.style.display = 'block';
+            
+            // Hide Placeholder / Show Copy Btn
             document.getElementById('placeholderText').style.display = 'none';
-            document.getElementById('outputContainer').style.display = 'block';
+            document.querySelector('.copy-btn').style.display = 'block';
+            
+            // Allow box to grow
+            document.getElementById('outputContainer').style.height = 'auto';
+            
             window.currentPrompt = prompt;
         }
 
         function copyToClipboard() {
             navigator.clipboard.writeText(window.currentPrompt).then(() => {
-                const btn = document.querySelector('.ai-btn');
+                const btn = document.querySelector('.copy-btn');
                 const originalText = btn.innerText;
-                btn.innerText = "COPIED TO CLIPBOARD!";
+                btn.innerText = "COPIED!";
                 setTimeout(() => { btn.innerText = originalText; }, 2000);
             });
         }
     </script>
-	
-	<script defer src="footer.js"></script>
 </body>
 </html>

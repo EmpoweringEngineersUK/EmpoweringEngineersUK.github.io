@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The Application Architect. Draft your CEng, IEng, or EngTech application. Features UK-SPEC competence scoring, acronym expansion, and .docx export.">
@@ -18,29 +9,45 @@
     <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
     <meta property="og:url" content="https://www.empoweringengineers.uk/application_tool.html">
     <meta property="og:type" content="website">
-
-    <title>Application Architect | Empowering Engineers UK</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-
-    <script src="verb.js"></script>
-    <script src="acronyms.js"></script>
-    <script src="UK-SPEC.js"></script>
-    <script src="cpd.js"></script>
-    
+    <title>Application Architect | Empowering Engineers UK</title>  
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="verb.js?v=12"></script>
+    <script src="acronyms.js?v=12"></script>
+    <script src="UK-SPEC.js?v=12"></script>
+    <script src="cpd.js?v=12"></script>
+    <script src="samples.js?v=12"></script> 
     <script src="https://cdn.jsdelivr.net/npm/docx@7.1.0/build/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
     <style>
-        /* --- GLOBAL SCROLLBAR HIDING --- */
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, .wb-nav-header, .editor-title, .editor-subtitle, .job-card h4, .star-label, .coach-title, .p-meta, .tool-h1, .tool-desc, .tool-list, .dash-header, .job-input-group label {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* --- GLOBAL SCROLLBAR HIDING & RESIZING --- */
         * { scrollbar-width: none; -ms-overflow-style: none; }
         *::-webkit-scrollbar { display: none; }
-        body { overflow-y: scroll; } 
+        body { overflow-y: scroll; }
+        
+        /* Auto-sizing Textareas */
+        textarea { 
+            resize: none !important; 
+            overflow-y: hidden !important; 
+            min-height: 60px;
+            background: var(--input-bg) !important;
+            color: var(--cloud-white) !important;
+            border: 1px solid var(--border-color) !important;
+        }
 
+        /* WORKBENCH LAYOUT */
         .workbench-container {
             display: grid;
-            grid-template-columns: 260px 1fr 340px;
+            grid-template-columns: 260px 1fr 340px; /* Nav | Editor | Coach */
             gap: 25px;
             max-width: 1600px;
             margin: 20px auto;
@@ -57,94 +64,220 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 20px;
+            align-self: start;
+            height: auto;
         }
-        .wb-nav-header { font-family: 'Courier Prime', monospace; color: var(--burnt-orange); font-size: 0.8rem; margin-bottom: 10px; border-bottom: 1px dashed var(--slate-grey); padding-bottom: 5px; }
+        .wb-nav-header { color: var(--burnt-orange); font-size: 0.8rem; margin-bottom: 10px; border-bottom: 1px dashed var(--slate-grey); padding-bottom: 5px; font-weight: bold; }
         .nav-group-title { font-size: 0.7rem; color: var(--slate-grey); font-weight:bold; margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-btn { background: transparent; border: none; border-left: 3px solid transparent; color: #aaa; padding: 4px 8px; text-align: left; cursor: pointer; font-family: 'Arial', sans-serif; font-size: 0.85rem; transition: all 0.2s; margin-bottom: 2px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
-        .nav-btn.active { border-left-color: var(--terminal-green); color: var(--terminal-green); background: rgba(0,255,153,0.05); font-weight: bold; }
-        .nav-badge { font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; min-width: 22px; text-align: center; font-weight: bold; font-family: 'Courier Prime', monospace; }
+        
+        .nav-btn { background: transparent; border: none; border-left: 3px solid transparent; color: var(--slate-grey); padding: 4px 8px; text-align: left; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; margin-bottom: 2px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-btn:hover { background: var(--hover-green); color: var(--terminal-green); }
+        .nav-btn.active { border-left-color: var(--terminal-green); color: var(--terminal-green); background: var(--hover-green); font-weight: bold; }
+        
+        /* BADGES */
+        .nav-badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 3px; min-width: 22px; text-align: right; font-weight: bold; white-space: nowrap; }
         .nb-l1 { background: #d63031; color: #fff; box-shadow: 0 0 5px rgba(214, 48, 49, 0.4); } 
         .nb-l2 { background: #e1b12c; color: #000; box-shadow: 0 0 5px rgba(225, 177, 44, 0.4); } 
         .nb-l3 { background: #00b894; color: #000; box-shadow: 0 0 5px rgba(0, 184, 148, 0.4); } 
         .nb-l4 { background: #fdcb6e; color: #000; border: 1px solid #ffeaa7; text-shadow: 0 0 2px #fff; } 
-        .nb-empty { background: #2d3436; color: #636e72; } 
+        .nb-empty { background: var(--terminal-bg); color: var(--slate-grey); } 
 
         /* CENTER: EDITOR */
         .wb-editor { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; min-height: 80vh; }
         .editor-header { border-bottom: 2px solid var(--terminal-green); padding-bottom: 15px; margin-bottom: 20px; }
-        .editor-title { font-size: 1.4rem; color: var(--cloud-white); margin: 0; }
-        .editor-subtitle { color: var(--slate-grey); font-size: 0.9rem; margin-top: 5px; font-family: 'Courier Prime', monospace;}
-        .star-container { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .editor-title { font-size: 1.4rem; color: var(--cloud-white); margin: 0; font-weight: bold; text-transform: uppercase; }
+        .editor-subtitle { color: var(--slate-grey); font-size: 0.9rem; margin-top: 5px; }
+        
+        /* BUILDER CONTAINERS */
+        .builder-container { display: none; margin-bottom: 25px; }
+        
+        .job-card { background: var(--terminal-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid var(--status-blue); }
+        .job-card h4 { margin: 0 0 15px 0; color: var(--status-blue); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; font-weight: bold; }
+        
+        .job-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px; }
+        .job-input-group label { font-size: 0.75rem; color: var(--slate-grey); display: block; margin-bottom: 4px; text-transform: uppercase; }
+        
+        .job-input { width: 100%; padding: 8px; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--cloud-white); border-radius: 4px; font-size: 0.9rem; }
+        .job-textarea { width: 100%; padding: 8px; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--cloud-white); border-radius: 4px; min-height: 60px; resize: vertical; margin-bottom: 10px; font-size: 0.9rem;}
+
+        /* DAP Styles */
+        .dap-box { background: var(--terminal-bg); border: 1px solid var(--border-color); padding: 15px; border-radius: 4px; margin-bottom: 15px; }
+        .dap-label { display: flex; justify-content: space-between; color: var(--burnt-orange); font-weight: bold; font-size: 0.85rem; margin-bottom: 5px; }
+        .word-limit { font-size: 0.75rem; color: var(--slate-grey); font-weight: normal; }
+
+        /* TABS */
+        .star-container { display: none; margin-bottom: 20px; }
+        .star-tabs, .intro-tabs { display: flex; margin-bottom: 10px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; }
+        
+        .star-tab { 
+            padding: 8px 15px; 
+            background: transparent; 
+            border: 1px solid transparent; 
+            color: var(--slate-grey); 
+            font-size: 0.8rem; 
+            cursor: pointer; 
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .star-tab:hover { background: var(--hover-green); color: var(--terminal-green); }
+        .star-tab.active-tab { 
+            background: var(--input-bg); 
+            border-color: var(--border-color); 
+            border-bottom-color: var(--dark-card); 
+            color: var(--terminal-green); 
+            font-weight: bold;
+            margin-bottom: -1px;
+            z-index: 10;
+        }
+        
+        .star-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .star-box { display: flex; flex-direction: column; }
-        .star-label { color: var(--terminal-green); font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; font-family: 'Courier Prime'; text-transform: uppercase; }
-        textarea { background: rgba(13, 27, 42, 0.8); border: 1px solid var(--border-color); color: #fff; padding: 15px; font-family: 'Arial', sans-serif; font-size: 0.95rem; line-height: 1.5; border-radius: 4px; overflow-y: hidden; resize: none; display: block; width: 100%; transition: border-color 0.2s; }
-        textarea:focus { border-color: var(--terminal-green); outline: none; }
-        .star-input { min-height: 100px; margin-bottom: 0; }
-        .editor-textarea { min-height: 250px; }
+        .star-label { color: var(--terminal-green); font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .star-input { min-height: 80px; margin-bottom: 0; padding: 10px; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--cloud-white); border-radius: 4px; font-size: 0.9rem; }
+        .star-input::placeholder, .job-input::placeholder, .job-textarea::placeholder { color: var(--slate-grey); opacity: 0.7; font-style: italic; }
+
+        /* MAIN TEXTAREA */
+        .editor-textarea { min-height: 250px; width: 100%; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--cloud-white); padding: 15px; font-size: 0.95rem; line-height: 1.5; border-radius: 4px; overflow: hidden; }
+        .editor-textarea:focus { border-color: var(--terminal-green); outline: none; }
+        
+        .mentor-box { margin-top: 30px; border-top: 1px dashed var(--slate-grey); padding-top: 20px; }
+        .mentor-textarea { width: 100%; min-height: 120px; background: var(--terminal-bg); border: 1px solid var(--border-color); color: var(--cloud-white); padding: 15px; font-size: 0.9rem; border-radius: 4px; }
+
         .compiled-output-label { font-size: 0.75rem; color: var(--slate-grey); margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: 10px; }
-        .verb-suggestions { margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); }
-        .verb-chip { display: inline-block; background: rgba(0, 255, 153, 0.1); color: var(--terminal-green); font-size: 0.75rem; padding: 2px 6px; border-radius: 3px; margin: 2px; border: 1px solid var(--terminal-green); cursor: pointer; }
-        .verb-chip:hover { background: var(--terminal-green); color: #000; }
+        .verb-suggestions { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); }
+        .verb-chip { display: inline-block; background: var(--hover-green); color: var(--terminal-green); font-size: 0.75rem; padding: 2px 6px; border-radius: 3px; margin: 2px; border: 1px solid var(--terminal-green); cursor: pointer; }
+        .verb-chip:hover { background: var(--terminal-green); color: var(--midnight-navy); }
+        
+        /* INTRO GRID */
         .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .intro-grid input { margin-bottom: 0; }
+        .intro-grid input { margin-bottom: 0; width: 100%; padding: 8px; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--cloud-white); border-radius: 4px; }
 
         /* RIGHT: COACH */
-        .wb-coach { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; position: sticky; top: 20px; align-self: start; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; }
-        .coach-title { color: var(--terminal-green); font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; display: block; font-family:'Courier Prime'; }
-        .coach-text { font-size: 0.85rem; color: #ccc; line-height: 1.4; }
+        .wb-coach { background: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; position: sticky; top: 20px; align-self: start; }
+        
+        .coach-card { background: var(--terminal-bg); border: 1px solid var(--border-color); padding: 10px; border-radius: 4px; margin-bottom: 10px; }
+        .coach-title { color: var(--terminal-green); font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; display: block; }
+        .coach-text { font-size: 0.85rem; color: var(--cloud-white); line-height: 1.4; }
+        
         .detected-verb { color: var(--terminal-green); font-weight: bold; }
         .comp-mismatch { color: var(--burnt-orange); font-size: 0.8rem; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--burnt-orange); font-weight: bold;}
-        .readiness-box { background: #09121d; border: 1px solid #444; padding: 10px; text-align: center; border-radius: 4px; margin-top: 20px; font-size: 0.75rem; color: #888; }
+        .readiness-box { background: var(--terminal-bg); border: 1px solid var(--border-color); padding: 10px; text-align: center; border-radius: 4px; margin-top: 20px; font-size: 0.75rem; color: var(--slate-grey); }
         .ready-go { border-color: var(--terminal-green); color: var(--terminal-green); font-weight: bold; box-shadow: 0 0 10px rgba(0,255,153,0.1); }
         
-        /* MODAL */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; justify-content: center; align-items: center; }
-        .config-box { background: var(--midnight-navy); border: 2px solid var(--terminal-green); padding: 30px; width: 450px; text-align: center; border-radius: 8px; box-shadow: 0 0 30px rgba(0,255,153,0.15); }
-        .resume-section { background: rgba(0, 255, 153, 0.05); border: 1px solid var(--terminal-green); padding: 15px; border-radius: 4px; margin-bottom: 20px; text-align: left; }
+        /* DASHBOARD */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; display: flex; justify-content: center; align-items: center; }
+        
+        .dashboard-box { background: var(--midnight-navy); border: 2px solid var(--terminal-green); width: 800px; max-width:95%; height: auto; min-height: 500px; max-height: 95vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,255,153,0.15); display:grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+        .dash-col { padding: 30px; display: flex; flex-direction: column; }
+        .dash-left { border-right: 1px solid var(--border-color); background: var(--terminal-bg); position: relative; }
+        .dash-header { color: var(--terminal-green); border-bottom: 1px dashed var(--slate-grey); padding-bottom: 10px; margin-bottom: 20px; font-weight: bold; }
+        .profile-list { flex-grow: 1; overflow-y: auto; padding-right: 5px; min-height: 250px; max-height: 50vh; }
+        
+        /* Profile Item */
+        .profile-item { background: var(--dark-card); border: 1px solid var(--border-color); padding: 12px; margin-bottom: 10px; border-radius: 4px; cursor: pointer; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; }
+        .profile-item:hover { border-color: var(--terminal-green); background: var(--hover-green); }
+        .profile-info { display: flex; flex-direction: column; flex-grow: 1; }
+        .p-name { font-weight: bold; color: var(--cloud-white); font-size: 0.95rem; }
+        .p-meta { font-size: 0.75rem; color: var(--slate-grey); margin-top: 3px; }
+        
+        .p-actions { display: flex; gap: 8px; align-items: center; }
+        .p-btn { 
+            padding: 0; 
+            cursor: pointer; 
+            font-size: 1.2rem; 
+            background: var(--input-bg); 
+            border-radius: 4px; 
+            width: 40px; 
+            height: 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .p-btn:hover { background: var(--hover-green); transform: translateY(-2px); border-color: var(--terminal-green); }
+        .p-edit { color: var(--terminal-green); }
+        .p-del { color: var(--burnt-orange); }
 
+        .import-zone { margin-top: 15px; border: 2px dashed var(--slate-grey); padding: 15px; text-align: center; border-radius: 6px; color: var(--slate-grey); font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .import-zone:hover { border-color: var(--terminal-green); color: var(--terminal-green); }
+
+        /* HEADER & AD TARGETS */
+        #tool-header-target { margin-bottom: 20px; }
+		
         @media (max-width: 1200px) {
             .workbench-container { grid-template-columns: 1fr; height: auto; }
             .wb-nav, .wb-coach { position: static; max-height: none; align-self: auto; }
             .star-container { grid-template-columns: 1fr; }
             .intro-grid { grid-template-columns: 1fr; }
+            .dashboard-box { grid-template-columns: 1fr; height: auto; max-height: 90vh; overflow-y: auto; }
+            .dash-left { border-right: none; border-bottom: 1px solid var(--border-color); }
         }
+
     </style>
 </head>
-<body>
-    <script defer src="header_nav.js"></script>
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
+    <div class="container" style="margin-top: 0;"> 
+        <div id="tool-header-target" style="grid-column: 1 / -1;"></div>
+    </div>
 
-    <div id="configModal" class="modal-overlay">
-        <div class="config-box">
-            <div id="resumeArea" style="display:none;">
-                <h3 style="color:var(--terminal-green); margin-top:0;">>> RESUME SESSION</h3>
-                <div class="resume-section">
-                    <div style="font-size:0.8rem; color:var(--slate-grey);">FOUND SAVED DRAFT:</div>
-                    <div id="foundSessionName" style="color:#fff; font-weight:bold; font-size:1.1rem; margin:5px 0;">-</div>
-                    <div id="foundSessionDate" style="font-size:0.8rem; color:var(--slate-grey);">Last Saved: -</div>
-                    <button class="action-btn" onclick="resumeSession()" style="margin-top:10px;">RESUME DRAFT</button>
-                </div>
-                <div style="border-bottom:1px solid var(--border-color); margin: 20px 0; position:relative;">
-                    <span style="position:absolute; top:-10px; left:45%; background:var(--midnight-navy); padding:0 10px; color:var(--slate-grey); font-size:0.8rem;">OR</span>
-                </div>
-            </div>
-
-            <h3 style="color:var(--burnt-orange); margin-top:0;">>> NEW APPLICATION</h3>
-            <label style="display:block; text-align:left; color:var(--cloud-white); font-size:0.8rem; margin-bottom:5px;">TARGET ROLE</label>
-            <select id="roleSelect" class="filter-input" onchange="toggleRoute()">
-                <option value="CEng">Chartered Engineer (CEng)</option>
-                <option value="IEng">Incorporated Engineer (IEng)</option>
-                <option value="EngTech">Engineering Technician (EngTech)</option>
-            </select>
-            <div id="routeGroup" style="display:none; margin-top:15px;">
-                <label style="display:block; text-align:left; color:var(--cloud-white); font-size:0.8rem; margin-bottom:5px;">APPLICATION ROUTE</label>
-                <select id="routeSelect" class="filter-input">
-                    <option value="Standard">Standard Route (3 Questions)</option>
-                    <option value="Approved">Approved Route (Summary)</option>
+    <div id="dashboardModal" class="modal-overlay">
+        <div class="dashboard-box">
+            <div class="dash-col dash-left">
+                <h3 class="dash-header">>> NEW WORKSPACE</h3>
+                <label style="font-size:0.8rem; color:var(--slate-grey);">CANDIDATE NAME</label>
+                <input type="text" id="newProfileName" class="job-input" placeholder="e.g. John Smith" style="margin-bottom:15px;">
+                
+                <label style="font-size:0.8rem; color:var(--slate-grey);">TARGET ROLE</label>
+                <select id="newProfileRole" class="job-input" onchange="toggleDashRoute()" style="margin-bottom:15px;">
+                    <option value="CEng">Chartered Engineer (CEng)</option>
+                    <option value="IEng">Incorporated Engineer (IEng)</option>
+                    <option value="EngTech">Engineering Technician (EngTech)</option>
                 </select>
+
+                <div id="dashRouteGroup" style="display:none;">
+                    <label style="font-size:0.8rem; color:var(--slate-grey);">APPLICATION ROUTE</label>
+                    <select id="newProfileRoute" class="job-input" style="margin-bottom:15px;">
+                        <option value="Standard">Standard Route (3 Questions)</option>
+                        <option value="Approved">Approved Route (Summary)</option>
+                    </select>
+                </div>
+
+                <div style="margin-top:10px;">
+                    <button class="action-btn" onclick="createNewProfile()">CREATE WORKSPACE</button>
+                </div>
+                
+                <div style="flex-grow:1;"></div>
+
+                <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 10px;">
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-7071036534151105"
+                         data-ad-slot="4413012282"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
             </div>
-            <button class="action-btn action-btn-ghost" onclick="initWorkbench(true)" style="margin-top:25px;">CREATE BLANK WORKSPACE</button>
+
+            <div class="dash-col">
+                <h3 class="dash-header" style="color:var(--burnt-orange);">>> RESUME SESSION</h3>
+                <p style="font-size:0.85rem; color:var(--cloud-white); margin-bottom:15px; line-height:1.4;">
+                    Your data is stored locally. Select a profile below to pick up exactly where you left off.
+                </p>
+                <div id="profileList" class="profile-list">
+                    <div style="text-align:center; color:var(--slate-grey); margin-top:50px;">No saved profiles found.</div>
+                </div>
+                <div class="import-zone" onclick="document.getElementById('importFile').click()">
+                    <span>📂 IMPORT BACKUP (.JSON)</span>
+                    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importProfile(this)">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -154,11 +287,10 @@
             <div class="wb-nav-header">>> SECTIONS</div>
             <div id="navList"></div>
             <div id="readinessStatus" class="readiness-box">Status: Analysis Pending</div>
-
             <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border-color);">
-                <button class="action-btn" onclick="saveAll(true)">SAVE</button>
-                <button class="action-btn action-btn-ghost" onclick="exportDocx()" style="margin-top:10px;">EXPORT .DOCX</button>
-                <button class="action-btn action-btn-ghost" onclick="resetAll()" style="margin-top:10px; border-color:var(--burnt-orange); color:var(--burnt-orange);">RESET</button>
+                <button class="action-btn action-btn-ghost" onclick="backupProfile()">💾 BACKUP .JSON</button>
+                <button class="action-btn action-btn-ghost" onclick="exportDocx()" style="margin-top:10px;">📄 EXPORT .DOCX</button>
+                <button class="action-btn action-btn-ghost" onclick="location.reload()" style="margin-top:10px; border-color:var(--burnt-orange); color:var(--burnt-orange);">EXIT TO MENU</button>
             </div>
         </div>
 
@@ -168,70 +300,171 @@
                 <div id="editSubtitle" class="editor-subtitle">Set the context for your application.</div>
             </div>
             
-            <div id="guidanceBox" style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:20px; border-radius:4px; font-size:0.9rem; color:#ddd; border-left:3px solid var(--terminal-green);"></div>
+            <div id="guidanceBox" style="background:var(--terminal-bg); padding:15px; margin-bottom:20px; border-radius:4px; font-size:0.9rem; color:var(--cloud-white); border-left:3px solid var(--terminal-green);"></div>
 
-            <div id="introFields" class="intro-grid" style="display:none;">
-                <input type="text" id="metaName" placeholder="Full Name" oninput="updateMeta()">
-                <input type="email" id="metaEmail" placeholder="Email Address" oninput="updateMeta()">
+            <div id="introBuilder" class="builder-container">
+                <div id="introFields" class="intro-grid">
+                    <input type="text" id="metaName" placeholder="Candidate Name" oninput="updateMeta()">
+                    <input type="email" id="metaEmail" placeholder="Email Address" oninput="updateMeta()">
+                </div>
+                
+                <div class="intro-tabs">
+                    <div class="star-tab active-tab" onclick="switchIntroTab(1)" id="introTab1">ROLE 1: MOST RECENT</div>
+                    <div class="star-tab" onclick="switchIntroTab(2)" id="introTab2">ROLE 2: PREVIOUS</div>
+                    <div class="star-tab" onclick="switchIntroTab(3)" id="introTab3">ROLE 3: PREVIOUS</div>
+                </div>
+
+                <div id="role1_container" class="role-container">
+                    <div class="job-card">
+                        <h4>ROLE 1 DETAILS</h4>
+                        <div class="job-input-group"><label>Company Name</label><input type="text" class="job-input" id="j1_co" oninput="updateIntro()"></div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Job Title</label><input type="text" class="job-input" id="j1_title" oninput="updateIntro()"></div>
+                        <div class="job-row" style="margin-top:10px;">
+                            <div class="job-input-group"><label>Start Date</label><input type="text" class="job-input" id="j1_start" placeholder="e.g. Jan 2023" oninput="updateIntro()"></div>
+                            <div class="job-input-group"><label>Finish Date</label><input type="text" class="job-input" id="j1_end" placeholder="e.g. Present" oninput="updateIntro()"></div>
+                        </div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Responsibilities</label><textarea class="job-textarea" id="j1_resp" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>List of Achievements</label><textarea class="job-textarea" id="j1_ach" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>Level of Authority & Autonomy</label><textarea class="job-textarea" id="j1_auth" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                    </div>
+                </div>
+
+                <div id="role2_container" class="role-container" style="display:none;">
+                    <div class="job-card">
+                        <h4>ROLE 2 DETAILS</h4>
+                        <div class="job-input-group"><label>Company Name</label><input type="text" class="job-input" id="j2_co" oninput="updateIntro()"></div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Job Title</label><input type="text" class="job-input" id="j2_title" oninput="updateIntro()"></div>
+                        <div class="job-row" style="margin-top:10px;">
+                            <div class="job-input-group"><label>Start Date</label><input type="text" class="job-input" id="j2_start" placeholder="MMM YYYY" oninput="updateIntro()"></div>
+                            <div class="job-input-group"><label>Finish Date</label><input type="text" class="job-input" id="j2_end" placeholder="MMM YYYY" oninput="updateIntro()"></div>
+                        </div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Responsibilities</label><textarea class="job-textarea" id="j2_resp" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>Achievements</label><textarea class="job-textarea" id="j2_ach" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>Authority & Autonomy</label><textarea class="job-textarea" id="j2_auth" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                    </div>
+                </div>
+
+                <div id="role3_container" class="role-container" style="display:none;">
+                    <div class="job-card">
+                        <h4>ROLE 3 DETAILS</h4>
+                        <div class="job-input-group"><label>Company Name</label><input type="text" class="job-input" id="j3_co" oninput="updateIntro()"></div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Job Title</label><input type="text" class="job-input" id="j3_title" oninput="updateIntro()"></div>
+                        <div class="job-row" style="margin-top:10px;">
+                            <div class="job-input-group"><label>Start Date</label><input type="text" class="job-input" id="j3_start" placeholder="MMM YYYY" oninput="updateIntro()"></div>
+                            <div class="job-input-group"><label>Finish Date</label><input type="text" class="job-input" id="j3_end" placeholder="MMM YYYY" oninput="updateIntro()"></div>
+                        </div>
+                        <div class="job-input-group" style="margin-top:10px;"><label>Responsibilities</label><textarea class="job-textarea" id="j3_resp" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>Achievements</label><textarea class="job-textarea" id="j3_ach" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                        <div class="job-input-group"><label>Authority & Autonomy</label><textarea class="job-textarea" id="j3_auth" oninput="updateIntro(); autoResize(this)"></textarea></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dapBuilder" class="builder-container">
+                <div class="dap-box">
+                    <div class="dap-label">SHORT TERM GOALS (6-12 Months) <span class="word-limit" id="wc_dap_short">0/50 Words</span></div>
+                    <textarea id="dap_short" class="job-textarea" placeholder="Work-based learning, projects..." oninput="updateDAP(); autoResize(this)"></textarea>
+                </div>
+                <div class="dap-box">
+                    <div class="dap-label">MEDIUM TERM GOALS (1-2 Years) <span class="word-limit" id="wc_dap_med">0/50 Words</span></div>
+                    <textarea id="dap_med" class="job-textarea" placeholder="Mentoring, Papers, Chartership..." oninput="updateDAP(); autoResize(this)"></textarea>
+                </div>
+                <div class="dap-box">
+                    <div class="dap-label">LONG TERM GOALS (2-5 Years) <span class="word-limit" id="wc_dap_long">0/50 Words</span></div>
+                    <textarea id="dap_long" class="job-textarea" placeholder="Senior Role, Fellowship, Strategy..." oninput="updateDAP(); autoResize(this)"></textarea>
+                </div>
+            </div>
+
+            <div id="sponsorBuilder" class="builder-container">
+                <div class="job-card" style="border-left-color:var(--terminal-green);">
+                    <h4>SPONSOR 1: LEAD SPONSOR</h4>
+                    <p style="font-size:0.75rem; color:var(--slate-grey); margin-bottom:10px;">Must be registered at the target level (CEng/IEng/EngTech) or above.</p>
+                    <div class="job-input-group"><label>Full Name</label><input type="text" class="job-input" id="sp1_name" oninput="updateSponsor()"></div>
+                    <div class="job-row" style="margin-top:10px;">
+                        <div class="job-input-group"><label>Company</label><input type="text" class="job-input" id="sp1_comp" oninput="updateSponsor()"></div>
+                        <div class="job-input-group"><label>Job Title</label><input type="text" class="job-input" id="sp1_job" oninput="updateSponsor()"></div>
+                    </div>
+                    <div class="job-input-group"><label>Registration Level</label>
+                        <select class="job-input" id="sp1_reg" onchange="updateSponsor()">
+                            <option value="">Select...</option>
+                            <option value="CEng">CEng</option>
+                            <option value="IEng">IEng</option>
+                            <option value="EngTech">EngTech</option>
+                            <option value="Fellow">Fellow (FCGI/FREng)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="job-card" style="border-left-color:var(--terminal-green);">
+                    <h4>SPONSOR 2: LINE MANAGER</h4>
+                    <p style="font-size:0.75rem; color:var(--slate-grey); margin-bottom:10px;">Recommended to be your Line Manager. If they are not registered, Sponsor 1 must be.</p>
+                    <div class="job-input-group"><label>Full Name</label><input type="text" class="job-input" id="sp2_name" oninput="updateSponsor()"></div>
+                    <div class="job-row" style="margin-top:10px;">
+                        <div class="job-input-group"><label>Company</label><input type="text" class="job-input" id="sp2_comp" oninput="updateSponsor()"></div>
+                        <div class="job-input-group"><label>Job Title</label><input type="text" class="job-input" id="sp2_job" oninput="updateSponsor()"></div>
+                    </div>
+                    <div class="job-input-group"><label>Registration Level (Optional)</label>
+                        <select class="job-input" id="sp2_reg" onchange="updateSponsor()">
+                            <option value="None">Not Registered</option>
+                            <option value="CEng">CEng</option>
+                            <option value="IEng">IEng</option>
+                            <option value="EngTech">EngTech</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div id="starContainer" class="star-container">
-                <div class="star-box">
-                    <span class="star-label">1. SITUATION</span>
-                    <textarea id="starS" class="star-input" placeholder="Context..." oninput="updateStar(this)"></textarea>
+                <div class="star-tabs">
+                    <div class="star-tab active-tab" onclick="switchStarTab(1)" id="tab1">SCENARIO 1</div>
+                    <div class="star-tab" onclick="switchStarTab(2)" id="tab2">SCENARIO 2</div>
+                    <div class="star-tab" onclick="switchStarTab(3)" id="tab3">SCENARIO 3</div>
+                    <div class="star-tab" onclick="switchStarTab(4)" id="tab4">SCENARIO 4</div>
+                    <div class="star-tab" onclick="switchStarTab(5)" id="tab5">SCENARIO 5</div>
                 </div>
-                <div class="star-box">
-                    <span class="star-label">2. TASK</span>
-                    <textarea id="starT" class="star-input" placeholder="Your responsibility..." oninput="updateStar(this)"></textarea>
-                </div>
-                <div class="star-box">
-                    <span class="star-label">3. ACTION</span>
-                    <textarea id="starA" class="star-input" placeholder="What you did (Use 'I')..." oninput="updateStar(this)"></textarea>
-                </div>
-                <div class="star-box">
-                    <span class="star-label">4. RESULT</span>
-                    <textarea id="starR" class="star-input" placeholder="Outcome & Benefit..." oninput="updateStar(this)"></textarea>
+                <div class="star-grid">
+                    <div class="star-box"><span class="star-label">1. SITUATION</span><textarea id="starS" class="star-input" placeholder="Context..." oninput="updateStar(); autoResize(this)"></textarea></div>
+                    <div class="star-box"><span class="star-label">2. TASK</span><textarea id="starT" class="star-input" placeholder="Your responsibility..." oninput="updateStar(); autoResize(this)"></textarea></div>
+                    <div class="star-box"><span class="star-label">3. ACTION</span><textarea id="starA" class="star-input" placeholder="What you did (Use 'I')..." oninput="updateStar(); autoResize(this)"></textarea></div>
+                    <div class="star-box"><span class="star-label">4. RESULT</span><textarea id="starR" class="star-input" placeholder="Outcome & Benefit..." oninput="updateStar(); autoResize(this)"></textarea></div>
                 </div>
             </div>
 
             <div id="outputLabel" class="compiled-output-label">
                 <span>COMPILED DRAFT (Editable):</span>
-                <span style="color:var(--burnt-orange); font-size:0.65rem;">⚠️ Editing STAR boxes will overwrite text below.</span>
+                <span style="color:var(--burnt-orange); font-size:0.65rem;">⚠️ Editing builder boxes will overwrite text below.</span>
             </div>
             <textarea id="mainInput" class="editor-textarea" placeholder="Start typing here..." oninput="autoResize(this); analyzeText();"></textarea>
             
+            <div class="mentor-box">
+                <div class="dap-label">MENTOR FEEDBACK & REVIEW</div>
+                <textarea id="mentorInput" class="mentor-textarea" placeholder="Mentors: Add your comments here. This text will be saved with the backup file." oninput="updateMentorFeedback(); autoResize(this)"></textarea>
+            </div>
+
             <div class="editor-toolbar">
                 <span id="wordCount">0 Words</span>
-                <span id="saveStatus">Synced</span>
+                <span id="saveStatus" style="font-weight:bold; color:var(--terminal-green);">Synced</span>
             </div>
         </div>
 
         <div class="wb-coach">
             <div class="wb-nav-header">>> THE COACH</div>
-            
-            <div class="coach-card">
-                <span class="coach-title">COMPETENCE CHECK</span>
-                <div id="compScoreResult" class="coach-text">
-                    <span class="level-badge nb-l1">L1</span>
-                </div>
-            </div>
-
+            <div class="coach-card"><span class="coach-title">COMPETENCE CHECK</span><div id="compScoreResult" class="coach-text"><span class="level-badge nb-l1">L1 - Aware</span></div></div>
             <div class="coach-card">
                 <span class="coach-title">LIVE AUDIT</span>
                 <div id="auditResult" class="coach-text">Start typing...</div>
-                <div id="verbAnalysis" class="coach-text" style="margin-top:10px; border-top:1px dashed #555; padding-top:5px; display:none;"></div>
+                <div id="verbAnalysis" class="coach-text" style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:5px; display:none;"></div>
+                <div id="recommendations" class="coach-text" style="margin-top:10px; border-top:1px dashed var(--burnt-orange); padding-top:5px; color:var(--burnt-orange); display:none;"></div>
             </div>
+            <div class="coach-card"><span class="coach-title">JARGON WATCH</span><div id="acronymResult" class="coach-text" style="margin-bottom:10px;">No acronyms detected.</div><button class="action-btn action-btn-ghost" style="padding:4px; font-size:0.65rem;" onclick="expandAcronyms()">EXPAND ACRONYMS (3+ CAPS)</button></div>
+            <div class="coach-card" style="border-color:var(--terminal-green);"><span class="coach-title">EVIDENCE BANK</span><button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem; margin-bottom:5px;" onclick="importSTAR()">IMPORT FROM STAR ENGINE</button><button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem;" onclick="importDAP()">IMPORT DAP GOALS</button></div>
 
-             <div class="coach-card">
-                <span class="coach-title">JARGON WATCH</span>
-                <div id="acronymResult" class="coach-text" style="margin-bottom:10px;">No acronyms detected.</div>
-                <button class="action-btn action-btn-ghost" style="padding:4px; font-size:0.65rem;" onclick="expandAcronyms()">EXPAND ACRONYMS (3+ CAPS)</button>
-            </div>
-
-            <div class="coach-card" style="border-color:var(--terminal-green);">
-                <span class="coach-title">EVIDENCE BANK</span>
-                <button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem; margin-bottom:5px;" onclick="importSTAR()">IMPORT FROM STAR ENGINE</button>
-                <button class="action-btn action-btn-ghost" style="padding:5px; font-size:0.7rem;" onclick="importDAP()">IMPORT DAP GOALS</button>
+            <div class="ad-slot ad-mpu" style="margin-top: 20px; border-top:1px solid var(--border-color);">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-7071036534151105"
+                     data-ad-slot="4413012282"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
         </div>
     </div>
@@ -240,128 +473,261 @@
         <div class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
             <h3>The Professional Registration Workbench</h3>
             <p>The Application Architect is the flagship tool of Empowering Engineers UK. Draft, structure, and audit your entire CEng, IEng, or EngTech application in a single, secure workspace.</p>
+            
+            <div class="ad-slot" style="height:auto; min-height:100px; margin: 20px 0; border:none; background:none;">
+                <span style="font-size:0.6rem; color:var(--slate-grey); display:block; text-align:center;">ADVERTISEMENT</span>
+            </div>
         </div>
     </div>
 
-    <script defer src="footer.js"></script>
+    <script defer src="footer.js?v=12"></script>
 
     <script>
-        // --- GLOBAL STATE ---
+        // --- MASTER INIT ---
+        function initApp() {
+            // 1. Inject Header
+            if (typeof renderToolHeader === 'function') {
+                renderToolHeader('application');
+            } else {
+                console.warn("Tool Header system not loaded.");
+            }
+            
+            // 2. Start Logic
+            renderDashboard();
+        }
+
+        // --- REST OF APPLICATION LOGIC ---
+        let currentProfileId = null; 
         let currentRole = "";
         let currentRoute = "Standard";
         let sections = [];
         let activeIndex = 0;
-        let dataStore = { role: "", route: "", meta: { name:"", email:"" }, lastSaved: "", content: {}, starData: {} }; 
-        
-        // --- INITIALIZATION ---
-        window.onload = function() {
-            const savedRaw = localStorage.getItem('ee_app_data_master');
-            if (savedRaw) {
-                try {
-                    const tempStore = JSON.parse(savedRaw);
-                    if (tempStore.role) {
-                        document.getElementById('resumeArea').style.display = 'block';
-                        document.getElementById('foundSessionName').innerText = `${tempStore.role} (${tempStore.route || 'Standard'})`;
-                        document.getElementById('foundSessionDate').innerText = "Last Saved: " + (tempStore.lastSaved || "Unknown");
-                    }
-                } catch(e) { console.error("Data error", e); }
-            }
-            toggleRoute();
+        let activeStarTab = 1; 
+        let activeIntroTab = 1; 
+        let dataStore = { introData: {}, dapData: {}, sponsorData: {}, starData: {}, content: {}, meta: {}, mentorFeedback: "" }; 
+        let autoSaveTimer = null;
+
+        const levelDescriptions = {
+            1: "Performs the activity with significant supervision and guidance. Performs basic routine and predictable tasks. Little or no individual responsibility. This level of competence would not be sufficient for election to membership.",
+            2: "Performs the activity in a range of contexts. Supervision only required in more complex circumstances. Some individual responsibility and autonomy. A minimum level of competence for election to membership, which should be supplemented by higher levels in the areas most relevant to the field of engineering in which the applicant is employed.",
+            3: "Performs the activity in some complex and non-routine contexts. Significant responsibility and autonomy. Can oversee the work of others. A normal level of competence for election to membership.",
+            4: "Performs the activity in a wide range of complex and non-routine contexts. Substantial personal autonomy. Can develop others in the activity. A high level of competence and suitable for election to membership and a possible indicator for Fellowship."
         };
 
-        function toggleRoute() {
-            const role = document.getElementById('roleSelect').value;
-            document.getElementById('routeGroup').style.display = (role === 'EngTech') ? 'block' : 'none';
+        const groupDefinitions = {
+            "A": "Chartered Engineers shall use a combination of general and specialist engineering knowledge and understanding to optimise the application of advanced and complex systems. This competence is about the ability to understand underpinning technical principles relevant to the applicant's area of practice and applying them to develop technical solutions.",
+            "B": "Chartered Engineers shall apply appropriate theoretical and practical methods to the analysis and solution of engineering problems. This competence is about the ability to apply engineering knowledge effectively and efficiently to the individual tasks which need to be undertaken in the applicant's role.",
+            "C": "Chartered Engineers shall demonstrate technical and commercial leadership. This competence is about the ability to plan the applicant's own work and manage or specify the work of others effectively, efficiently, and in a way which provides leadership at an appropriate level.",
+            "D": "Chartered Engineers shall demonstrate effective communication and interpersonal skills. This is the ability to work with others constructively, to explain ideas and proposals clearly and to discuss issues objectively and constructively.",
+            "E": "Chartered Engineers shall demonstrate a personal commitment to professional standards, recognising obligations to society, the profession and the environment. This competence is about ensuring that the applicant is acting in a professional manner."
+        };
+
+        function getUKDateString() {
+            const d = new Date();
+            const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+            const day = String(d.getDate()).padStart(2, '0');
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const time = d.toTimeString().split(' ')[0]; // hh:mm:ss
+            return `${day}/${month}/${year}, ${time}`;
         }
 
-        function resumeSession() {
-            const savedRaw = localStorage.getItem('ee_app_data_master');
-            if (savedRaw) {
-                try {
-                    dataStore = JSON.parse(savedRaw);
-                    if (!dataStore.starData) dataStore.starData = {};
-                    if (!dataStore.meta) dataStore.meta = { name: "", email: "" };
-                    currentRole = dataStore.role;
-                    currentRoute = dataStore.route || "Standard";
-                    launchInterface();
-                } catch(e) {
-                    alert("Error loading save file. Starting fresh.");
-                    initWorkbench(true);
+        function getProfileIndex() { const raw = localStorage.getItem('ee_profiles_index'); return raw ? JSON.parse(raw) : []; }
+
+        function renderDashboard() {
+            const list = document.getElementById('profileList');
+            const index = getProfileIndex();
+            list.innerHTML = "";
+            if(index.length === 0) { list.innerHTML = `<div style="text-align:center; color:var(--slate-grey); margin-top:50px;">No saved profiles.</div>`; return; }
+            
+            // Sort by Date Descending
+            index.sort((a,b) => {
+                 return new Date(b.rawDate || 0) - new Date(a.rawDate || 0);
+            });
+
+            index.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'profile-item';
+                item.innerHTML = `
+                    <div class="profile-info" onclick="loadProfile('${p.id}')">
+                        <span class="p-name">${p.name}</span>
+                        <span class="p-meta">${p.role} // ${p.date}</span>
+                    </div>
+                    <div class="p-actions">
+                        <div class="p-btn p-edit" onclick="renameProfile('${p.id}')" title="Rename">✎</div>
+                        <div class="p-btn p-del" onclick="deleteProfile('${p.id}')" title="Delete">×</div>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function renameProfile(id) {
+            const index = getProfileIndex();
+            const entry = index.find(p => p.id === id);
+            if(entry) {
+                const newName = prompt("Rename profile:", entry.name);
+                if(newName) {
+                    entry.name = newName;
+                    localStorage.setItem('ee_profiles_index', JSON.stringify(index));
+                    const raw = localStorage.getItem('ee_data_' + id);
+                    if(raw) {
+                        const data = JSON.parse(raw);
+                        data.meta.name = newName;
+                        localStorage.setItem('ee_data_' + id, JSON.stringify(data));
+                    }
+                    renderDashboard();
                 }
             }
         }
 
-        function initWorkbench(isNew) {
-            if(isNew && localStorage.getItem('ee_app_data_master')) {
-                if(!confirm("Overwrite existing draft? This cannot be undone.")) return;
-            }
-            currentRole = document.getElementById('roleSelect').value;
-            currentRoute = (currentRole === 'EngTech') ? document.getElementById('routeSelect').value : "Standard";
+        function toggleDashRoute() { document.getElementById('dashRouteGroup').style.display = (document.getElementById('newProfileRole').value === 'EngTech') ? 'block' : 'none'; }
+
+        function createNewProfile() {
+            const name = document.getElementById('newProfileName').value.trim();
+            if(!name) { alert("Enter Name"); return; }
+            const role = document.getElementById('newProfileRole').value;
+            const route = (role === 'EngTech') ? document.getElementById('newProfileRoute').value : "Standard";
+            const id = Date.now().toString();
+            const dateStr = getUKDateString();
             
-            dataStore = { role: currentRole, route: currentRoute, meta: { name:"", email:"" }, lastSaved: new Date().toLocaleString(), content: {}, starData: {} };
-            launchInterface();
+            const newData = { 
+                id, role, route, 
+                meta: { name, email: "" }, 
+                lastSaved: dateStr, 
+                rawDate: Date.now(), 
+                content: {}, 
+                starData: {}, 
+                introData: {}, 
+                dapData: {}, 
+                sponsorData: {}, 
+                mentorFeedback: "" 
+            };
+            localStorage.setItem('ee_data_' + id, JSON.stringify(newData));
+            const index = getProfileIndex();
+            index.push({ id, name, role, date: dateStr, rawDate: Date.now() });
+            localStorage.setItem('ee_profiles_index', JSON.stringify(index));
+            loadProfile(id);
         }
 
-        function launchInterface() {
-            buildSections();
-            renderNav();
-            loadSection(0);
-            
+        function loadProfile(id) {
+            const raw = localStorage.getItem('ee_data_' + id);
+            if(!raw) return;
+            dataStore = JSON.parse(raw);
+            if(!dataStore.introData) dataStore.introData = {};
+            if(!dataStore.dapData) dataStore.dapData = {};
+            if(!dataStore.sponsorData) dataStore.sponsorData = {};
+            if(!dataStore.starData) dataStore.starData = {};
+            if(!dataStore.mentorFeedback) dataStore.mentorFeedback = "";
+            currentProfileId = id; currentRole = dataStore.role; currentRoute = dataStore.route || "Standard";
+            document.getElementById('dashboardModal').style.display = 'none';
+            document.getElementById('workbench').style.display = 'grid';
+            buildSections(); renderNav(); loadSection(0);
             document.getElementById('metaName').value = dataStore.meta.name || "";
             document.getElementById('metaEmail').value = dataStore.meta.email || "";
-
-            document.getElementById('configModal').style.display = 'none';
-            document.getElementById('workbench').style.display = 'grid';
-            setInterval(() => saveAll(false), 10000); 
+            document.getElementById('mentorInput').value = dataStore.mentorFeedback;
         }
 
-        // --- SECTION BUILDER ---
-        function buildSections() {
-            const introHint = "Please provide a report of no more than 600 words which details your past experience and roles. This should concentrate on the past 5 years/3 roles. For each position you should state the company name, start and finish dates, list of achievements, responsibilities, level of authority and autonomy.";
-            sections = [{ id: "intro", title: "Career Summary", group: "General", hint: introHint, star: false }];
+        function deleteProfile(id) {
+            if(confirm("Delete profile?")) {
+                localStorage.removeItem('ee_data_' + id);
+                const index = getProfileIndex().filter(p => p.id !== id);
+                localStorage.setItem('ee_profiles_index', JSON.stringify(index));
+                renderDashboard();
+            }
+        }
 
+        function backupProfile() {
+            saveAllImmediate(); 
+            const dateStr = new Date().toISOString().slice(0,10);
+            const filename = `BACKUP_${dataStore.meta.name.replace(/\s+/g,'')}_${dataStore.role}_${dateStr}.json`;
+            const blob = new Blob([JSON.stringify(dataStore, null, 2)], {type: "application/json"});
+            saveAs(blob, filename);
+        }
+
+        function importProfile(input) {
+            const file = input.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const d = JSON.parse(e.target.result);
+                    if(!d.role) throw new Error();
+                    const newId = Date.now().toString();
+                    d.id = newId; d.meta.name = "[IMPORT] " + d.meta.name;
+                    localStorage.setItem('ee_data_' + newId, JSON.stringify(d));
+                    const index = getProfileIndex();
+                    index.push({ id: newId, name: d.meta.name, role: d.role, date: getUKDateString(), rawDate: Date.now() });
+                    localStorage.setItem('ee_profiles_index', JSON.stringify(index));
+                    alert("Imported!"); renderDashboard();
+                } catch(err) { alert("Invalid File"); }
+            };
+            reader.readAsText(file);
+            input.value = ''; 
+        }
+
+        function triggerAutoSave() {
+            document.getElementById('saveStatus').innerText = "Saving...";
+            document.getElementById('saveStatus').style.color = "var(--status-yellow)";
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(saveAllImmediate, 1000); 
+        }
+
+        function saveAllImmediate() {
+            if(!currentProfileId) return;
+            if(document.getElementById('mainInput')) dataStore.content[sections[activeIndex].id] = document.getElementById('mainInput').value;
+            dataStore.lastSaved = getUKDateString();
+            dataStore.rawDate = Date.now();
+            localStorage.setItem('ee_data_' + currentProfileId, JSON.stringify(dataStore));
+            const index = getProfileIndex();
+            const entry = index.find(p => p.id === currentProfileId);
+            if(entry) { 
+                entry.date = dataStore.lastSaved; 
+                entry.rawDate = dataStore.rawDate;
+                localStorage.setItem('ee_profiles_index', JSON.stringify(index)); 
+            }
+            const status = document.getElementById('saveStatus');
+            status.innerText = "All changes saved";
+            status.style.color = "var(--terminal-green)";
+            renderNav();
+        }
+
+        function updateMentorFeedback() {
+            dataStore.mentorFeedback = document.getElementById('mentorInput').value;
+            triggerAutoSave();
+        }
+
+        function buildSections() {
+            const introHint = "Structure your career history. List your last 3 roles, focusing on Authority and Responsibility. Please focus on the last 5 years of experience.";
+            sections = [{ id: "intro", title: "Career Summary", group: "General", hint: introHint, star: false }];
             if (currentRole === 'EngTech') {
-                if (currentRoute === 'Approved') {
-                    sections.push({ id: "q1", title: "Assessment Question", group: "Assessment", hint: "Summary of contribution (~500 words).", limit: 600, star: true });
-                } else {
-                    sections.push({ id: "q1", title: "Q1: Technical", group: "Assessment", hint: "Solving technical problems (A/B).", limit: 500, star: true });
-                    sections.push({ id: "q2", title: "Q2: Safety/Resources", group: "Assessment", hint: "Planning and Safety (B/E).", limit: 500, star: true });
-                    sections.push({ id: "q3", title: "Q3: Professionalism", group: "Assessment", hint: "Ethics and CPD (C/D/E).", limit: 500, star: true });
+                if (currentRoute === 'Approved') sections.push({ id: "q1", title: "Assessment Question", group: "Assessment", hint: "Summary (~500 words).", limit: 600, star: true });
+                else {
+                    sections.push({ id: "q1", title: "Q1: Technical", group: "Assessment", limit: 500, star: true });
+                    sections.push({ id: "q2", title: "Q2: Safety", group: "Assessment", limit: 500, star: true });
+                    sections.push({ id: "q3", title: "Q3: Ethics", group: "Assessment", limit: 500, star: true });
                 }
             } else {
-                const subLimits = { 'A': 200, 'B': 135, 'C': 100, 'D': 135, 'E': 80 };
                 ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
                     if (typeof ukSpecDb !== 'undefined' && ukSpecDb[currentRole].competencies[letter].sub) {
                         const subs = ukSpecDb[currentRole].competencies[letter].sub;
                         Object.keys(subs).forEach(subKey => {
-                            sections.push({ id: subKey, title: `${subKey}: ${subs[subKey].text.substring(0, 25)}...`, group: `Competence ${letter}`, hint: subs[subKey].text, limit: subLimits[letter], star: true });
+                            sections.push({ id: subKey, title: `${subKey}: ${subs[subKey].text}`, group: `Competence ${letter}`, hint: subs[subKey].text, limit: 200, star: true });
                         });
-                    } else {
-                        sections.push({ id: `comp_${letter}`, title: `Competence ${letter}`, group: "Competence", hint: "Evidence required.", limit: 400, star: true });
-                    }
+                    } else { sections.push({ id: `comp_${letter}`, title: `Competence ${letter}`, group: "Competence", limit: 400, star: true }); }
                 });
             }
-            sections.push({ id: "dap", title: "Action Plan (DAP)", group: "Closing", hint: "Short, Medium, Long term goals.", star: false });
+            sections.push({ id: "dap", title: "Action Plan (DAP)", group: "Closing", hint: "Short/Med/Long goals.", star: false });
             sections.push({ id: "sponsor", title: "Sponsors", group: "Closing", hint: "Sponsor details.", star: false });
         }
 
-        // --- SCORING & LOGIC (STRICT MAPPING) ---
         function calculateScore(text, sectionId) {
             if (!text || text.length < 50) return 1;
             if (typeof verbDb === 'undefined' || !sectionId) return 1;
-            
-            // Get verbs SPECIFIC to this sub-competency (A1, B2, etc.)
             const allowedVerbs = verbDb.strongVerbMap[sectionId];
-            
-            // If section is not a competency (e.g. Intro), return 1 or skip
-            if (!allowedVerbs) return 1;
-
+            if (!allowedVerbs) return 1; 
             let matchCount = 0;
-            // Iterate strictly through the list for this specific section
-            allowedVerbs.forEach(verb => {
-                if (text.toLowerCase().includes(verb)) matchCount++;
-            });
-
+            allowedVerbs.forEach(verb => { if (text.toLowerCase().includes(verb)) matchCount++; });
             if (matchCount < 2) return 1;
             if (matchCount < 4) return 2;
             if (matchCount < 6) return 3;
@@ -370,71 +736,59 @@
 
         function getScoreBadge(score) {
             const classes = { 1: "nb-l1", 2: "nb-l2", 3: "nb-l3", 4: "nb-l4" };
-            const labels = { 1: "L1", 2: "L2", 3: "L3", 4: "L4" };
+            const labels = { 1: "L1 - Aware", 2: "L2 - Familiar", 3: "L3 - Skilled", 4: "L4 - Expert" };
             return `<span class="nav-badge ${classes[score]}">${labels[score]}</span>`;
         }
 
-        // --- AGGREGATED READINESS LOGIC ---
         function checkReadiness() {
-            // 1. Group Scores by Main Competency (A, B, C, D, E)
-            let mainCompScores = { 'A': [], 'B': [], 'C': [], 'D': [], 'E': [] };
+            let scores = { 'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0 };
+            let counts = { 'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0 };
 
             sections.forEach(sec => {
-                const firstChar = sec.id.charAt(0); // A, B, C...
-                // Only process if it's a known competency
-                if (mainCompScores.hasOwnProperty(firstChar)) {
+                const firstChar = sec.id.charAt(0);
+                if (scores.hasOwnProperty(firstChar) && sec.star) {
                     const score = calculateScore(dataStore.content[sec.id], sec.id);
-                    mainCompScores[firstChar].push(score);
+                    if (counts[firstChar] === 0) scores[firstChar] = score;
+                    else scores[firstChar] = Math.min(scores[firstChar], score);
+                    counts[firstChar]++;
                 }
             });
 
-            // 2. Calculate Block Score (Minimum of sub-competencies)
-            // e.g. A1=L3, A2=L1 => A=L1 (Weakest Link)
-            let finalScores = {};
-            for (let letter in mainCompScores) {
-                if (mainCompScores[letter].length > 0) {
-                    finalScores[letter] = Math.min(...mainCompScores[letter]);
-                } else {
-                    finalScores[letter] = 0;
+            let outputStr = `A=L${scores.A || '?'}, B=L${scores.B || '?'}, C=L${scores.C || '?'}, D=L${scores.D || '?'}, E=L${scores.E || '?'}`;
+            
+            let totalL3 = 0;
+            let totalL2 = 0;
+            sections.forEach(sec => {
+                if(sec.star) {
+                    const s = calculateScore(dataStore.content[sec.id], sec.id);
+                    if(s >= 3) totalL3++;
+                    else if(s === 2) totalL2++;
                 }
-            }
-
-            // 3. Tally Final Scores
-            let l3Plus = 0;
-            let l2 = 0;
-
-            Object.values(finalScores).forEach(s => {
-                if (s >= 3) l3Plus++;
-                else if (s === 2) l2++;
             });
 
-            // 4. Update UI
             const status = document.getElementById('readinessStatus');
-            if (l3Plus >= 3 && l2 >= 2) {
-                status.innerHTML = "✅ Application Ready for Review";
-                status.className = "readiness-box ready-go";
+            status.innerHTML = `${outputStr}<br>(Target: 3x L3+, 2x L2+)`; 
+            if (totalL3 >= 3 && totalL2 >= 2) {
+                 status.className = "readiness-box ready-go";
             } else {
-                status.innerHTML = `Profile: ${l3Plus}x L3+, ${l2}x L2<br>(Target: 3x L3, 2x L2)`;
-                status.className = "readiness-box";
+                 status.className = "readiness-box";
             }
         }
 
         function getSuggestedVerbs(secId) {
             if (!verbDb || !verbDb.ukSpecStems) return "";
-            if(verbDb.ukSpecStems[secId]) {
-                 return verbDb.ukSpecStems[secId].map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
-            }
+            if(verbDb.ukSpecStems[secId]) return verbDb.ukSpecStems[secId].map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
             return "";
         }
         
         function insertVerb(word) {
             const box = document.getElementById('mainInput');
             box.value += " " + word;
-            analyzeText();
+            triggerAutoSave();
             autoResize(box);
+            analyzeText();
         }
 
-        // --- RENDER LOGIC ---
         function renderNav() {
             const list = document.getElementById('navList');
             list.innerHTML = "";
@@ -449,11 +803,9 @@
                 }
                 const btn = document.createElement('button');
                 btn.className = `nav-btn ${idx === activeIndex ? 'active' : ''}`;
-                
                 const score = calculateScore(dataStore.content[sec.id], sec.id);
                 const badge = (sec.star) ? getScoreBadge(score) : (dataStore.content[sec.id] ? `<span class="nav-badge nb-l3">✓</span>` : `<span class="nav-badge nb-empty">○</span>`);
                 const displayTitle = sec.id.length < 6 ? sec.id : sec.title.substring(0,18);
-                
                 btn.innerHTML = `<span>${displayTitle}</span> ${badge}`;
                 btn.onclick = () => loadSection(idx);
                 list.appendChild(btn);
@@ -461,111 +813,273 @@
             checkReadiness();
         }
 
-        function autoResize(el) {
+        function autoResize(el) { 
             el.style.height = 'auto'; 
-            el.style.height = (el.scrollHeight) + 'px';
+            el.style.height = (el.scrollHeight) + 'px'; 
+        }
+
+        function switchIntroTab(tabIndex) {
+            document.querySelectorAll('.intro-tabs .star-tab').forEach(t => t.classList.remove('active-tab'));
+            document.getElementById('introTab' + tabIndex).classList.add('active-tab');
+            document.querySelectorAll('.role-container').forEach(c => c.style.display = 'none');
+            document.getElementById('role' + tabIndex + '_container').style.display = 'block';
+            activeIntroTab = tabIndex;
+        }
+
+        function updateIntro() {
+            const getVal = (id) => document.getElementById(id).value;
+            const j1 = { c: getVal('j1_co'), t: getVal('j1_title'), s: getVal('j1_start'), e: getVal('j1_end'), r: getVal('j1_resp'), a: getVal('j1_ach'), aut: getVal('j1_auth') };
+            const j2 = { c: getVal('j2_co'), t: getVal('j2_title'), s: getVal('j2_start'), e: getVal('j2_end'), r: getVal('j2_resp'), a: getVal('j2_ach'), aut: getVal('j2_auth') };
+            const j3 = { c: getVal('j3_co'), t: getVal('j3_title'), s: getVal('j3_start'), e: getVal('j3_end'), r: getVal('j3_resp'), a: getVal('j3_ach'), aut: getVal('j3_auth') };
+            
+            dataStore.introData = { j1, j2, j3 };
+            
+            let text = "CAREER SUMMARY\n\n";
+            [j1, j2, j3].forEach((j, i) => {
+                if(j.c || j.s) {
+                    const finish = j.e ? j.e : "Present";
+                    text += `ROLE ${i+1}: ${j.t || 'Engineer'} at ${j.c} (${j.s} to ${finish})\n`;
+                    if(j.r) text += `Responsibilities: ${j.r}\n`;
+                    if(j.a) text += `Achievements: ${j.a}\n`;
+                    if(j.aut) text += `Authority: ${j.aut}\n`;
+                    text += "\n";
+                }
+            });
+            
+            document.getElementById('mainInput').value = text;
+            autoResize(document.getElementById('mainInput'));
+            analyzeText(); triggerAutoSave();
+        }
+
+        function updateDAP() {
+            const s = document.getElementById('dap_short').value;
+            const m = document.getElementById('dap_med').value;
+            const l = document.getElementById('dap_long').value;
+            
+            dataStore.dapData = { s, m, l };
+            
+            document.getElementById('wc_dap_short').innerText = (s.trim() ? s.trim().split(/\s+/).length : 0) + "/50";
+            document.getElementById('wc_dap_med').innerText = (m.trim() ? m.trim().split(/\s+/).length : 0) + "/50";
+            document.getElementById('wc_dap_long').innerText = (l.trim() ? l.trim().split(/\s+/).length : 0) + "/50";
+
+            const text = `SHORT TERM (0-12m):\n${s}\n\nMEDIUM TERM (1-2y):\n${m}\n\nLONG TERM (2-5y):\n${l}`;
+            document.getElementById('mainInput').value = text;
+            autoResize(document.getElementById('mainInput'));
+            analyzeText(); triggerAutoSave();
+        }
+
+        function updateSponsor() {
+            const s1 = { n: document.getElementById('sp1_name').value, c: document.getElementById('sp1_comp').value, j: document.getElementById('sp1_job').value, r: document.getElementById('sp1_reg').value };
+            const s2 = { n: document.getElementById('sp2_name').value, c: document.getElementById('sp2_comp').value, j: document.getElementById('sp2_job').value, r: document.getElementById('sp2_reg').value };
+            
+            dataStore.sponsorData = { s1, s2 };
+            
+            let text = "SPONSORS\n\n";
+            if(s1.n) text += `LEAD SPONSOR: ${s1.n} (${s1.r || 'Reg Required'})\n${s1.j} at ${s1.c}\n\n`;
+            if(s2.n) text += `SECOND SPONSOR: ${s2.n} (${s2.r})\n${s2.j} at ${s2.c}`;
+            
+            document.getElementById('mainInput').value = text;
+            autoResize(document.getElementById('mainInput'));
+            analyzeText(); triggerAutoSave();
+        }
+
+        function switchStarTab(tabIndex) {
+            document.querySelectorAll('.star-tabs .star-tab').forEach(t => t.classList.remove('active-tab'));
+            document.getElementById('tab' + tabIndex).classList.add('active-tab');
+            activeStarTab = tabIndex;
+            
+            const secId = sections[activeIndex].id;
+            const allStar = dataStore.starData[secId] || {}; 
+            const current = allStar[tabIndex] || { s:"", t:"", a:"", r:"" };
+            
+            document.getElementById('starS').value = current.s;
+            document.getElementById('starT').value = current.t;
+            document.getElementById('starA').value = current.a;
+            document.getElementById('starR').value = current.r;
+            
+            ['starS', 'starT', 'starA', 'starR'].forEach(id => autoResize(document.getElementById(id)));
+        }
+
+        function updateStar() {
+            const secId = sections[activeIndex].id;
+            const s = document.getElementById('starS').value;
+            const t = document.getElementById('starT').value;
+            const a = document.getElementById('starA').value;
+            const r = document.getElementById('starR').value;
+            
+            if(!dataStore.starData[secId]) dataStore.starData[secId] = {};
+            dataStore.starData[secId][activeStarTab] = { s, t, a, r };
+            
+            const secName = secId.toUpperCase();
+            let compiledText = `${secName}:\n`;
+            
+            for(let i=1; i<=5; i++) {
+                const data = dataStore.starData[secId][i];
+                if(data && (data.s || data.t || data.a || data.r)) {
+                    const parts = [data.s, data.t, data.a, data.r].filter(p => p.trim() !== "");
+                    if(parts.length > 0) {
+                        compiledText += parts.join(" ") + "\n"; 
+                    }
+                }
+            }
+            
+            document.getElementById('mainInput').value = compiledText.trim();
+            autoResize(document.getElementById('mainInput'));
+            analyzeText(); triggerAutoSave();
+        }
+
+        function updateMeta() {
+            dataStore.meta.name = document.getElementById('metaName').value;
+            dataStore.meta.email = document.getElementById('metaEmail').value;
+            triggerAutoSave();
+        }
+
+        function loadGhostText(secId) {
+            if (typeof sampleDb === 'undefined') return;
+            const setPH = (id, text) => { 
+                const el = document.getElementById(id); 
+                if(el && text) el.placeholder = text; 
+            };
+            if (secId === 'intro') {
+                ['j1', 'j2', 'j3'].forEach(role => {
+                    if (sampleDb.intro && sampleDb.intro[role]) {
+                        const s = sampleDb.intro[role];
+                        setPH(`${role}_co`, s.c);
+                        setPH(`${role}_title`, s.t);
+                        setPH(`${role}_start`, s.s);
+                        setPH(`${role}_end`, s.e);
+                        setPH(`${role}_resp`, s.r);
+                        setPH(`${role}_ach`, s.a);
+                        setPH(`${role}_auth`, s.aut);
+                    }
+                });
+            }
+            if (sampleDb[secId]) {
+                const s = sampleDb[secId];
+                setPH('starS', s.s);
+                setPH('starT', s.t);
+                setPH('starA', s.a);
+                setPH('starR', s.r);
+            }
         }
 
         function loadSection(idx) {
             if(document.getElementById('mainInput')) dataStore.content[sections[activeIndex].id] = document.getElementById('mainInput').value;
             activeIndex = idx;
             const sec = sections[idx];
+            const id = sec.id;
 
-            document.getElementById('editTitle').innerText = sec.id.toUpperCase();
-            document.getElementById('editSubtitle').innerText = sec.title;
-            document.getElementById('introFields').style.display = (sec.id === 'intro') ? 'grid' : 'none';
+            let letter = id.charAt(0);
+            if(id === 'intro' || id === 'dap' || id === 'sponsor') letter = "";
             
-            const starDiv = document.getElementById('starContainer');
-            const outLabel = document.getElementById('outputLabel');
-            if (sec.star) {
-                starDiv.style.display = 'grid';
-                outLabel.style.display = 'flex';
-                const parts = dataStore.starData[sec.id] || { s:"", t:"", a:"", r:"" };
-                document.getElementById('starS').value = parts.s;
-                document.getElementById('starT').value = parts.t;
-                document.getElementById('starA').value = parts.a;
-                document.getElementById('starR').value = parts.r;
-                
-                setTimeout(() => {
-                    document.querySelectorAll('.star-input').forEach(el => autoResize(el));
-                }, 10);
+            if (letter && groupDefinitions[letter]) {
+                document.getElementById('editTitle').innerText = `COMPETENCE ${letter}`;
+                document.getElementById('editSubtitle').innerText = groupDefinitions[letter];
             } else {
-                starDiv.style.display = 'none';
-                outLabel.style.display = 'none';
+                document.getElementById('editTitle').innerText = id.toUpperCase();
+                document.getElementById('editSubtitle').innerText = sec.title;
+            }
+            
+            document.getElementById('introFields').style.display = (id === 'intro') ? 'grid' : 'none';
+            document.getElementById('introBuilder').style.display = (id === 'intro') ? 'block' : 'none';
+            document.getElementById('dapBuilder').style.display = (id === 'dap') ? 'block' : 'none';
+            document.getElementById('sponsorBuilder').style.display = (id === 'sponsor') ? 'block' : 'none';
+            document.getElementById('starContainer').style.display = (sec.star) ? 'block' : 'none';
+            document.getElementById('outputLabel').style.display = (id==='intro'||id==='dap'||id==='sponsor'||sec.star) ? 'flex' : 'none';
+
+            if (sec.star) {
+                activeStarTab = 1; 
+                switchStarTab(1); 
+            }
+            if (id === 'intro') {
+                activeIntroTab = 1;
+                switchIntroTab(1);
             }
 
-            document.getElementById('mainInput').value = dataStore.content[sec.id] || "";
+            if(id === 'intro' && dataStore.introData) {
+                const d = dataStore.introData;
+                const setVal = (eid, val) => { 
+                    const el = document.getElementById(eid);
+                    if(el) { el.value = val || ""; autoResize(el); }
+                };
+                if(d.j1) { setVal('j1_co', d.j1.c); setVal('j1_title', d.j1.t); setVal('j1_start', d.j1.s); setVal('j1_end', d.j1.e); setVal('j1_resp', d.j1.r); setVal('j1_ach', d.j1.a); setVal('j1_auth', d.j1.aut); }
+                if(d.j2) { setVal('j2_co', d.j2.c); setVal('j2_title', d.j2.t); setVal('j2_start', d.j2.s); setVal('j2_end', d.j2.e); setVal('j2_resp', d.j2.r); setVal('j2_ach', d.j2.a); setVal('j2_auth', d.j2.aut); }
+                if(d.j3) { setVal('j3_co', d.j3.c); setVal('j3_title', d.j3.t); setVal('j3_start', d.j3.s); setVal('j3_end', d.j3.e); setVal('j3_resp', d.j3.r); setVal('j3_ach', d.j3.a); setVal('j3_auth', d.j3.aut); }
+            }
+            if(id === 'dap' && dataStore.dapData) {
+                const setVal = (eid, val) => { const el = document.getElementById(eid); if(el) { el.value = val || ""; autoResize(el); } };
+                setVal('dap_short', dataStore.dapData.s);
+                setVal('dap_med', dataStore.dapData.m);
+                setVal('dap_long', dataStore.dapData.l);
+                updateDAP();
+            }
+            if(id === 'sponsor' && dataStore.sponsorData) {
+                const d = dataStore.sponsorData;
+                const setVal = (eid, val) => { if(document.getElementById(eid)) document.getElementById(eid).value = val || ""; };
+                if(d.s1) { setVal('sp1_name', d.s1.n); setVal('sp1_comp', d.s1.c); setVal('sp1_job', d.s1.j); setVal('sp1_reg', d.s1.r); }
+                if(d.s2) { setVal('sp2_name', d.s2.n); setVal('sp2_comp', d.s2.c); setVal('sp2_job', d.s2.j); setVal('sp2_reg', d.s2.r); }
+            }
+
+            document.getElementById('mainInput').value = dataStore.content[id] || "";
             
-            let guideHTML = `<strong>Requirements:</strong><br>`;
-            if (typeof ukSpecDb !== 'undefined' && sec.id.match(/^[A-E][1-5]$/)) {
-                 const letter = sec.id.charAt(0);
-                 const sub = ukSpecDb[currentRole].competencies[letter].sub[sec.id];
+            loadGhostText(id); 
+
+            let guideHTML = "";
+            if (typeof ukSpecDb !== 'undefined' && id.match(/^[A-E][1-5]$/)) {
+                 const sub = ukSpecDb[currentRole].competencies[id.charAt(0)].sub[id];
                  if(sub) {
+                     guideHTML += `<strong>${id}: Requirements</strong><br>`;
                      guideHTML += `<p>${sub.text}</p><ul style="margin:0; padding-left:15px; font-size:0.8rem;">`;
                      sub.bullets.forEach(b => guideHTML += `<li>${b}</li>`);
                      guideHTML += `</ul>`;
                  }
-            } else { guideHTML += sec.hint; }
+            } else { guideHTML += `<strong>Requirements:</strong><br>${sec.hint}`; }
 
-            const suggestions = getSuggestedVerbs(sec.id);
-            if(suggestions) {
-                guideHTML += `<div class="verb-suggestions"><strong>Power Verbs:</strong><br>${suggestions}</div>`;
-            }
-            
+            const suggestions = getSuggestedVerbs(id);
+            if(suggestions) guideHTML += `<div class="verb-suggestions"><strong>Power Verbs:</strong><br>${suggestions}</div>`;
             document.getElementById('guidanceBox').innerHTML = guideHTML;
 
-            renderNav(); 
-            analyzeText();
-            setTimeout(() => autoResize(document.getElementById('mainInput')), 50);
+            renderNav(); analyzeText(); setTimeout(() => autoResize(document.getElementById('mainInput')), 50);
         }
 
-        function updateMeta() {
-            dataStore.meta.name = document.getElementById('metaName').value;
-            dataStore.meta.email = document.getElementById('metaEmail').value;
-        }
-
-        function updateStar(el) {
-            if(el) autoResize(el);
-            const s = document.getElementById('starS').value;
-            const t = document.getElementById('starT').value;
-            const a = document.getElementById('starA').value;
-            const r = document.getElementById('starR').value;
-            dataStore.starData[sections[activeIndex].id] = { s, t, a, r };
-            
-            const parts = [s, t, a, r].filter(p => p.trim() !== "");
-            document.getElementById('mainInput').value = parts.join("\n\n");
-            autoResize(document.getElementById('mainInput'));
-            analyzeText();
-        }
-
-        document.getElementById('mainInput').addEventListener('input', () => {
-            analyzeText();
-            document.getElementById('saveStatus').innerText = "Unsaved...";
-        });
+        document.getElementById('mainInput').addEventListener('input', () => { analyzeText(); triggerAutoSave(); });
 
         function analyzeText() {
             const text = document.getElementById('mainInput').value;
             const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
-            const limit = sections[activeIndex].limit || 0;
-            
+            const id = sections[activeIndex].id;
+            let limit = sections[activeIndex].limit || 0;
+            if(id === 'intro') limit = 600;
+
             let countStr = `${wordCount} Words`;
             if (limit > 0) countStr += ` / ${limit} Target`;
             document.getElementById('wordCount').innerText = countStr;
-            document.getElementById('wordCount').style.color = (limit > 0 && wordCount > limit * 1.1) ? "var(--burnt-orange)" : "#8899A6";
+            document.getElementById('wordCount').style.color = (limit > 0 && wordCount > limit * 1.1) ? "var(--burnt-orange)" : "var(--slate-grey)";
 
-            const score = calculateScore(text, sections[activeIndex].id);
+            const score = calculateScore(text, id);
             const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
             const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
-            document.getElementById('compScoreResult').innerHTML = `<span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>`;
-
-            // Detect Verbs
-            const allowedVerbs = verbDb.strongVerbMap[sections[activeIndex].id];
-            let foundVerbs = [];
-            if(allowedVerbs) {
-                allowedVerbs.forEach(v => { if (text.toLowerCase().includes(v)) foundVerbs.push(v); });
-            }
             
+            document.getElementById('compScoreResult').innerHTML = `
+                <span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>
+                <div style="font-size:0.8rem; margin-top:5px; color:var(--slate-grey); line-height:1.3;">${levelDescriptions[score]}</div>
+            `;
+            
+            const allowedVerbs = verbDb.strongVerbMap[id];
+            let foundVerbs = [];
+            let unusedVerbs = [];
             let coachHTML = "";
+            let recHTML = "";
+
+            if(allowedVerbs) {
+                allowedVerbs.forEach(v => { 
+                    if (text.toLowerCase().includes(v)) foundVerbs.push(v); 
+                    else unusedVerbs.push(v);
+                });
+            }
+            foundVerbs = [...new Set(foundVerbs)];
+            unusedVerbs = [...new Set(unusedVerbs)];
+
             if(foundVerbs.length > 0) {
                 coachHTML = `<strong>Detected Valid Verbs:</strong> <br>${foundVerbs.map(v => `<span class="detected-verb">${v}</span>`).join(", ")}`;
             } else {
@@ -574,7 +1088,16 @@
             document.getElementById('verbAnalysis').innerHTML = coachHTML;
             document.getElementById('verbAnalysis').style.display = 'block';
 
-            // Acronyms
+            if (score < 3 && unusedVerbs.length > 0) {
+                recHTML = `<strong>RECOMMENDATIONS:</strong><br><span style="font-size:0.75rem; color:var(--slate-grey);">Consider using these unused verbs:</span><br>`;
+                const suggestions = unusedVerbs.map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
+                recHTML += `<div style="margin-top:5px;">${suggestions}</div>`;
+                document.getElementById('recommendations').innerHTML = recHTML;
+                document.getElementById('recommendations').style.display = 'block';
+            } else {
+                document.getElementById('recommendations').style.display = 'none';
+            }
+            
             if (typeof acronymDb !== 'undefined') {
                 const matches = text.match(/\b[A-Z]{3,}\b/g) || [];
                 const found = [...new Set(matches.filter(w => acronymDb.some(a => a.a === w)))];
@@ -583,7 +1106,6 @@
             }
         }
 
-        // --- UTILS ---
         function expandAcronyms() {
             let text = document.getElementById('mainInput').value;
             if (typeof acronymDb === 'undefined') return;
@@ -599,7 +1121,7 @@
             if(count > 0) {
                 document.getElementById('mainInput').value = text;
                 autoResize(document.getElementById('mainInput'));
-                analyzeText(); 
+                analyzeText(); triggerAutoSave();
                 alert(`Expanded ${count} acronyms.`);
             } else { alert("No undefined known acronyms found."); }
         }
@@ -610,7 +1132,7 @@
             const a = localStorage.getItem('star_action') || "";
             const r = localStorage.getItem('star_result') || "";
             if(!s) { alert("No draft found in STAR Engine."); return; }
-            if(confirm("Import from STAR Engine?")) {
+            if(confirm("Import from STAR Engine to Current Tab?")) {
                 document.getElementById('starS').value = s;
                 document.getElementById('starT').value = t;
                 document.getElementById('starA').value = a;
@@ -622,30 +1144,14 @@
         function importDAP() {
             if(sections[activeIndex].id !== 'dap') { alert("Please navigate to the DAP section first."); return; }
             const goal = localStorage.getItem('dap_goal') || "[Goal]";
-            document.getElementById('mainInput').value = `SHORT TERM (0-12m):\n- [Goal 1]\n\nMEDIUM TERM (1-3y):\n- Achieve ${currentRole}\n\nLONG TERM:\n- ${goal}`;
-            autoResize(document.getElementById('mainInput'));
-            analyzeText();
-        }
-
-        function saveAll(notify) {
-            dataStore.content[sections[activeIndex].id] = document.getElementById('mainInput').value;
-            dataStore.lastSaved = new Date().toLocaleString();
-            localStorage.setItem('ee_app_data_master', JSON.stringify(dataStore));
-            const status = document.getElementById('saveStatus');
-            status.innerText = "Saved " + new Date().toLocaleTimeString();
-            status.style.color = "var(--terminal-green)";
-            renderNav();
-            if(notify) alert("Progress Saved!");
-        }
-
-        function resetAll() {
-            if(confirm("Delete all data?")) { localStorage.removeItem('ee_app_data_master'); location.reload(); }
+            document.getElementById('dap_long').value = goal;
+            updateDAP();
         }
 
         async function exportDocx() {
-            saveAll(false);
-            const { Document, Packer, Paragraph, TextRun, HeadingLevel, Header, Footer, ImageRun, ExternalHyperlink, AlignmentType } = docx;
-
+            saveAllImmediate();
+            const { Document, Packer, Paragraph, TextRun, HeadingLevel, Header, Footer, ImageRun, ExternalHyperlink, AlignmentType, PageBreak } = docx;
+            
             let imageBuffer = null;
             try {
                 const response = await fetch('EE_Logo_rect_Solid.png');
@@ -666,20 +1172,13 @@
                 alignment: AlignmentType.CENTER,
                 spacing: { after: 300 }
             }));
-
             if(dataStore.meta.name) docChildren.push(new Paragraph({ text: `Candidate: ${dataStore.meta.name}`, alignment: AlignmentType.CENTER }));
             if(dataStore.meta.email) docChildren.push(new Paragraph({ text: `Email: ${dataStore.meta.email}`, alignment: AlignmentType.CENTER }));
-            docChildren.push(new Paragraph({ text: `Date: ${new Date().toLocaleDateString()}`, alignment: AlignmentType.CENTER, spacing: { after: 500 } }));
-
-            sections.forEach(sec => {
-                const text = dataStore.content[sec.id] || "";
+            docChildren.push(new Paragraph({ text: `Date: ${getUKDateString()}`, alignment: AlignmentType.CENTER, spacing: { after: 500 } }));
+            
+            const addSectionContent = (id) => {
+                const text = dataStore.content[id] || "";
                 if(text) {
-                    docChildren.push(new Paragraph({
-                        text: sec.title.toUpperCase(),
-                        heading: HeadingLevel.HEADING_2,
-                        spacing: { before: 400, after: 100 }
-                    }));
-                    
                     const paras = text.split('\n');
                     paras.forEach(p => {
                         if(p.trim()) {
@@ -689,44 +1188,84 @@
                             }));
                         }
                     });
+                }
+            };
 
-                    // --- COACH REPORT ---
-                    if(sec.group.includes("Competence") || sec.group === "Assessment") {
-                        const score = calculateScore(text, sec.id);
-                        const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
-                        
-                        // Use strict map for export report too
-                        const allowedVerbs = verbDb.strongVerbMap[sec.id];
-                        let foundVerbs = [];
-                        if(allowedVerbs) {
-                            allowedVerbs.forEach(v => { if (text.toLowerCase().includes(v)) foundVerbs.push(v); });
-                        }
-                        foundVerbs = [...new Set(foundVerbs)];
+            docChildren.push(new Paragraph({ text: "CAREER SUMMARY", heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }));
+            addSectionContent("intro");
 
-                        const passive = ["we", "us", "our", "team", "helped"];
-                        let passiveCount = 0;
-                        passive.forEach(w => { if(new RegExp(`\\b${w}\\b`, 'gi').test(text)) passiveCount++; });
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            let overallSummaryData = [];
+            
+            const compSections = sections.filter(s => s.group.includes("Competence") || s.group === "Assessment");
+            
+            compSections.forEach(sec => {
+                 docChildren.push(new Paragraph({ text: sec.id.toUpperCase(), heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }));
+                 addSectionContent(sec.id);
 
-                        const summaryBlock = [
-                            `>> COACH REPORT: ${sec.id}`,
-                            `Current Level: ${levels[score-1]}`,
-                            `Target Level: Level 3 - Skilled (Standard Requirement)`,
-                            `Strong Verbs Detected: ${foundVerbs.length > 0 ? foundVerbs.join(", ") : "None detected."}`
-                        ];
-                        if(passiveCount > 2) summaryBlock.push(`⚠️ Passive Voice Warning: ${passiveCount} instances of 'We/Us/Team' found.`);
-                        else summaryBlock.push(`✅ Active Voice Check: Passed.`);
+                 const text = dataStore.content[sec.id] || "";
+                 const score = calculateScore(text, sec.id);
+                 const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
+                 const allowedVerbs = verbDb.strongVerbMap[sec.id];
+                 let unusedVerbs = [];
+                 if(allowedVerbs) {
+                     allowedVerbs.forEach(v => { if (!text.toLowerCase().includes(v)) unusedVerbs.push(v); });
+                 }
+                 overallSummaryData.push({ id: sec.id, level: levels[score-1], score: score, missing: unusedVerbs });
+            });
 
-                        docChildren.push(new Paragraph({ text: "________________________________________________________________________________", spacing: { before: 200, after: 200 }, color: "AAAAAA" }));
-                        summaryBlock.forEach(line => {
+            docChildren.push(new PageBreak());
+            docChildren.push(new Paragraph({ text: "ACTION PLAN (DAP)", heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }));
+            addSectionContent("dap");
+
+            docChildren.push(new Paragraph({ text: "SPONSORS", heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }));
+            addSectionContent("sponsor");
+
+            if(overallSummaryData.length > 0) {
+                docChildren.push(new PageBreak());
+                docChildren.push(new Paragraph({ text: "COACH EXECUTIVE SUMMARY", heading: HeadingLevel.HEADING_1, alignment: AlignmentType.CENTER, spacing: { before: 400, after: 300 } }));
+                
+                docChildren.push(new Paragraph({ text: "Summary Analysis", heading: HeadingLevel.HEADING_2 }));
+
+                overallSummaryData.forEach(item => {
+                    const color = item.score >= 3 ? "009900" : (item.score === 2 ? "E1B12C" : "D63031");
+                    docChildren.push(new Paragraph({
+                        children: [
+                            new TextRun({ text: `${item.id}: ${item.level}`, bold: true, color: color, size: 24 }),
+                        ],
+                        spacing: { before: 100, after: 50 }
+                    }));
+                });
+
+                docChildren.push(new Paragraph({ text: "Recommendations", heading: HeadingLevel.HEADING_2, spacing: { before: 300, after: 100 } }));
+                
+                overallSummaryData.forEach(item => {
+                    if(item.score < 3 && item.missing.length > 0) {
+                        docChildren.push(new Paragraph({ text: `${item.id} Improvements:`, bold: true, size: 22, spacing: {before:100} }));
+                        const suggestions = item.missing.slice(0, 3);
+                        suggestions.forEach(verb => {
+                            // Simple dynamic prompt logic (placeholder)
+                            const prompt = `Consider using '${verb}' to demonstrate deeper competence.`;
                             docChildren.push(new Paragraph({
-                                children: [new TextRun({ text: line, font: "Courier New", size: 18, color: "444444", bold: line.startsWith(">>") })],
-                                spacing: { after: 50 }
+                                children: [
+                                    new TextRun({ text: `• ${verb.toUpperCase()}: `, bold: true }),
+                                    new TextRun({ text: prompt })
+                                ],
+                                spacing: { after: 50 },
+                                indent: { left: 400 }
                             }));
                         });
-                        docChildren.push(new Paragraph({ text: "", spacing: { after: 400 } }));
                     }
+                });
+
+                if(dataStore.mentorFeedback && dataStore.mentorFeedback.trim() !== "") {
+                    docChildren.push(new Paragraph({ text: "MENTOR FEEDBACK & REVIEW", heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }));
+                    docChildren.push(new Paragraph({
+                        children: [new TextRun({ text: dataStore.mentorFeedback, font: "Arial", size: 22, italic: true, color: "444444" })], 
+                        spacing: { after: 100 }
+                    }));
                 }
-            });
+            }
 
             const headerChildren = [];
             if(imageBuffer) {
@@ -737,7 +1276,6 @@
             } else {
                  headerChildren.push(new Paragraph({ children: [new TextRun({ text: "EmpoweringEngineers.uk", font: "Arial", bold: true, color: "009900" })], alignment: AlignmentType.RIGHT }));
             }
-
             const footerChildren = [];
             footerChildren.push(new Paragraph({
                 children: [ new ExternalHyperlink({ children: [new TextRun({ text: "Produced by EmpoweringEngineers.uk", style: "Hyperlink", color: "009900", font: "Arial", size: 18 })], link: "https://www.empoweringengineers.uk" }) ],
@@ -748,8 +1286,9 @@
                 styles: { default: { document: { run: { font: "Arial" } } } },
                 sections: [{ headers: { default: new Header({ children: headerChildren }) }, footers: { default: new Footer({ children: footerChildren }) }, children: docChildren }]
             });
-
-            Packer.toBlob(doc).then(blob => { saveAs(blob, `Application_${currentRole}_${new Date().toISOString().slice(0,10)}.docx`); });
+            
+            const dateStr = new Date().toISOString().slice(0,10); 
+            Packer.toBlob(doc).then(blob => { saveAs(blob, `Application_${currentRole}_${dateStr}.docx`); });
         }
     </script>
 </body>

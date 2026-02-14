@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Write perfect UK-SPEC competency statements. Our STAR Method generator structures your evidence and audits it for passive language and missing acronyms.">
-	<meta property="og:title" content="STAR Engine & Auditor | Empowering Engineers UK">
-	<meta property="og:description" content="Write perfect UK-SPEC competency statements. Our STAR Method generator structures your evidence and audits it for passive language and missing acronyms.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/STAR_engine.html">
-	<meta property="og:type" content="website">
-
-    <title>STAR Engine & Auditor [v4.2] | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-    
-    <script src="verb.js" onerror="console.warn('verb.js fallback')"></script> 
-    <script src="acronyms.js" onerror="console.warn('acronyms.js fallback')"></script>
-    <script src="PEI.js" onerror="console.warn('PEI.js fallback')"></script> 
-    
+    <meta property="og:title" content="STAR Engine & Auditor | Empowering Engineers UK">
+    <meta property="og:description" content="Write perfect UK-SPEC competency statements. Our STAR Method generator structures your evidence and audits it for passive language and missing acronyms.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/STAR_engine.html">
+    <meta property="og:type" content="website">
+    <title>STAR Engine & Auditor [v4.3] | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="verb.js?v=12" onerror="console.warn('verb.js fallback')"></script> 
+    <script src="acronyms.js?v=12" onerror="console.warn('acronyms.js fallback')"></script>
+    <script src="PEI.js?v=12" onerror="console.warn('PEI.js fallback')"></script> 
     <style>
-        /* PAGE-SPECIFIC LAYOUTS ONLY 
-           (All Colors, Fonts, and UI Elements are inherited from layout.css) 
-        */
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, .def-badge, .tool-list, .tool-desc, .output-box, .finding-item, .sub-tag, h2, h3, h4, h5 {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
 
-        /* Input Grid Layout */
+        /* PAGE-SPECIFIC LAYOUTS */
+        .container {
+            max-width: 1000px; /* Aligns with RACI/Report tools */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .config-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -42,22 +39,39 @@
             padding-bottom: 20px; 
             border-bottom: 1px dashed rgba(255,255,255,0.1); 
         }
-        /* Mobile adjustment for grid */
         @media (max-width: 600px) { .config-grid { grid-template-columns: 1fr; } }
 
         .config-grid label { margin-top: 0; margin-bottom: 5px; }
 
-        /* Output Box specific styling */
+        /* INPUT FIELD STYLING (UPDATED FOR AUTO-EXPAND) */
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            line-height: 1.5;
+            
+            /* Auto-Expand Logic */
+            min-height: 120px;     /* Minimum limit */
+            overflow-y: hidden;    /* Hide scrollbar */
+            resize: none;          /* Disable manual resize handle */
+            transition: none;      /* Prevent jitter during resize */
+        }
+
         .output-box { 
             background: var(--terminal-bg); 
             padding: 20px; 
             border-left: 4px solid var(--terminal-green); 
             line-height: 1.6; 
             margin-bottom: 25px; 
-            font-family: "Arial", sans-serif; /* Ensure readability */
+            font-size: 0.95rem;
+            white-space: pre-wrap;
         }
 
-        /* Analysis Section Animation */
         #analysisSection { 
             display: none; 
             margin-top: 30px; 
@@ -66,7 +80,6 @@
             animation: fadeIn 0.5s ease; 
         }
 
-        /* Finding Items (Auditor Results) */
         .finding-item { 
             background: rgba(255,255,255,0.03); 
             border-left: 3px solid var(--slate-grey); 
@@ -78,7 +91,6 @@
         .f-good { border-left-color: var(--terminal-green); }
         .f-info { border-left-color: #4A90E2; }
         
-        /* Bars & Tags */
         .comp-bar-container { margin-bottom: 12px; }
         .comp-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: #ccc; margin-bottom: 4px; }
         .comp-track { width: 100%; background: #1B263B; height: 8px; border-radius: 4px; overflow: hidden; }
@@ -94,22 +106,84 @@
             font-size: 0.75rem; 
             margin-right: 5px; 
             margin-bottom: 5px; 
-            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+        }
+
+        /* HEADER INSTRUCTION STYLES (Standardized) */
+        .instruction-header {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 153, 0.03);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .tool-h1 {
+            border: none;
+            color: var(--terminal-green);
+            padding: 0;
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--cloud-white);
+            margin-bottom: 12px;
+            max-width: 950px;
+        }
+        
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+        
+        .header-col h4 {
+            color: var(--burnt-orange);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .tool-list {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--slate-grey);
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .tool-list li {
+            margin-bottom: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .header-grid { grid-template-columns: 1fr; gap: 15px; }
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
-	<script defer src="header_nav.js"></script>
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+    
+    <div class="container" style="margin-top: 0;"> 
+        
+        <div id="tool-header-target" style="grid-column: 1 / -1;"></div>
 
-    <div class="container">
         <div class="card">
-            <h2>STAR Engine & Auditor [v4.2]</h2>
-            <p style="color:var(--slate-grey); font-size:0.9rem; margin-bottom: 25px;">
-                Draft your competency example. We will compile it, analyse it against UK-SPEC (A1-E5), and generate an AI refinement prompt.
-            </p>
-
+            
             <div class="config-grid">
                 <div>
                     <label>Target Goal</label>
@@ -124,7 +198,7 @@
                     <label>Target Institution / Sector</label>
                     <select id="peiSelector">
                         <option value="General Engineering">General / Agnostic</option>
-                        </select>
+                    </select>
                 </div>
             </div>
 
@@ -186,22 +260,24 @@
                 <button id="aiBtn" class="ai-btn" onclick="copyAiPrompt()">>> GENERATE AI "CRITIQUE" PROMPT</button>
             </div>
         </div>
-		<div class="card" style="margin-top: 40px; border-top: 2px solid var(--border-color);">
-			<h3>About the STAR Method for Engineers</h3>
-			<p>The Situation-Task-Action-Result (STAR) format is the industry standard for evidencing professional competence...</p>
-			<h4>Why UK-SPEC requires active language</h4>
-			<p>Professional institutions like the IET and IMechE reject applications that rely on passive language...</p>
-			<h4>Common Mistakes</h4>
-			<ul>
-				<li>Focusing too much on the 'We' (Team) rather than 'I' (Personal Contribution).</li>
-				<li>Failing to quantify the Result (e.g., cost savings or safety improvements).</li>
-			</ul>
-		</div>
-    </div>
 
-    <script>
-        // --- 1. CONFIG & MAPPINGS ---
+        <div class="card" style="margin-top: 40px; border-top: 2px solid var(--border-color);">
+            <h3>About the STAR Method for Engineers</h3>
+            <p>The Situation-Task-Action-Result (STAR) format is the industry standard for evidencing professional competence.</p>
+            
+            <h4>Why UK-SPEC requires active language</h4>
+            <p>Professional institutions like the IET and IMechE reject applications that rely on passive language. Reviewers want to know what <strong>you</strong> did, not what the team did.</p>
+            
+            <h4>Common Mistakes</h4>
+            <ul>
+                <li>Focusing too much on the 'We' (Team) rather than 'I' (Personal Contribution).</li>
+                <li>Failing to quantify the Result (e.g., cost savings or safety improvements).</li>
+                <li>Ignoring the 'Task' - simply stating the problem without defining your specific responsibility.</li>
+            </ul>
+        </div>
         
+    </div> <script>
+        // --- 1. CONFIG & MAPPINGS ---
         const subCompetencyMap = {
             "A1": { label: "A1: Maintain/Extend Knowledge", keywords: ["research", "learned", "theory", "literature", "studied", "course", "training", "technology", "emerging"] },
             "A2": { label: "A2: Solve Engineering Problems", keywords: ["analysed", "calculated", "root-cause", "innovated", "first-principles", "mathematics", "physics", "simulation", "modelled"] },
@@ -223,56 +299,62 @@
         };
 
         const passiveWords = ["supported", "assisted", "helped", "participated", "involved", "team", "we", "us", "checked"];
-        
-        // Internal Fallback (will be overwritten by acronyms.js if loaded)
         let safeAcronymDb = ["ASME", "API", "ISO", "BS", "EN", "CFD", "FEA", "ALARP", "CDM", "HAZOP", "FMECA", "SIT", "FAT", "NDT"];
 
         // --- 2. INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', function() {
-            // Load DB: Check 'acronymDb' (New) -> 'acronyms' (Old) -> Fallback
             if(typeof acronymDb !== 'undefined') { safeAcronymDb = acronymDb; } 
             else if(typeof acronyms !== 'undefined') { safeAcronymDb = acronyms; }
             
-            // Restore Data from Local Storage
+            // RESTORE DATA
             const fields = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
             fields.forEach(id => {
                 const storedVal = localStorage.getItem('star_' + id);
                 if(storedVal) {
                     const el = document.getElementById(id);
-                    if(el) el.value = storedVal;
+                    if(el) {
+                        el.value = storedVal;
+                        // Trigger resize for restored content
+                        if (el.tagName === 'TEXTAREA') autoResize(el);
+                    }
                 }
             });
             updateCounts();
 
-            // Populate PEI Dropdown from PEI.js
+            // POPULATE PEI LIST
             const selector = document.getElementById('peiSelector');
-            if(selector) {
-                if(typeof peiDatabase !== 'undefined') {
-                    selector.innerHTML = '<option value="General Engineering">General / Agnostic</option>';
-                    const sortedPEIs = peiDatabase.sort((a, b) => a.acronym.localeCompare(b.acronym));
-                    sortedPEIs.forEach(inst => {
-                        const opt = document.createElement('option');
-                        opt.value = inst.acronym; 
-                        opt.innerText = `${inst.acronym} - ${inst.name}`; 
-                        selector.appendChild(opt);
-                    });
-                    const savedPEI = localStorage.getItem('star_peiSelector');
-                    if(savedPEI) selector.value = savedPEI;
-                }
+            if(selector && typeof peiDatabase !== 'undefined') {
+                selector.innerHTML = '<option value="General Engineering">General / Agnostic</option>';
+                const sortedPEIs = peiDatabase.sort((a, b) => a.acronym.localeCompare(b.acronym));
+                sortedPEIs.forEach(inst => {
+                    const opt = document.createElement('option');
+                    opt.value = inst.acronym; opt.innerText = `${inst.acronym} - ${inst.name}`; selector.appendChild(opt);
+                });
+                const savedPEI = localStorage.getItem('star_peiSelector');
+                if(savedPEI) selector.value = savedPEI;
             }
 
-            // Listeners for Auto-Save
+            // ATTACH LISTENERS (SAVE + RESIZE)
             const inputs = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
             inputs.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) {
                     el.addEventListener('input', function() {
                         localStorage.setItem('star_' + id, this.value);
-                        if(['situation', 'task', 'action', 'result'].includes(id)) updateCounts();
+                        if(['situation', 'task', 'action', 'result'].includes(id)) {
+                            updateCounts();
+                            autoResize(this); // Auto-expand on typing
+                        }
                     });
                 }
             });
         });
+
+        // AUTO-EXPAND FUNCTION (Added v4.3)
+        function autoResize(el) {
+            el.style.height = 'auto'; // Reset to recalculate shrink
+            el.style.height = (el.scrollHeight) + 'px'; // Set to full content height
+        }
 
         function updateCounts() {
             let total = 0;
@@ -303,7 +385,6 @@
 
             const finalText = `In this scenario, ${s}. My specific responsibility was to ${t}. To address this, I ${a}. Consequently, ${r}.`;
             document.getElementById('outputBox').innerHTML = finalText;
-            
             runAudit(finalText);
             
             const results = document.getElementById('analysisSection');
@@ -315,27 +396,16 @@
             const findingsList = document.getElementById('findingsList');
             const barsContainer = document.getElementById('competencyBars');
             const subList = document.getElementById('subCompList');
-            
-            findingsList.innerHTML = "";
-            barsContainer.innerHTML = "";
-            subList.innerHTML = "";
+            findingsList.innerHTML = ""; barsContainer.innerHTML = ""; subList.innerHTML = "";
 
-            // A) TOKENIZER FOR SCORING (Includes short words like "I")
             const simpleWords = text.toLowerCase().match(/\b(\w+)\b/g) || [];
-            
-            let iCount = 0; 
-            let passiveCount = 0; 
-            let passiveFound = {}; 
+            let iCount = 0; let passiveCount = 0; let passiveFound = {}; 
             
             simpleWords.forEach(w => {
                 if(w === 'i' || w === 'my') iCount++; 
-                if(passiveWords.includes(w)) { 
-                    passiveCount++; 
-                    passiveFound[w] = (passiveFound[w] || 0) + 1; 
-                }
+                if(passiveWords.includes(w)) { passiveCount++; passiveFound[w] = (passiveFound[w] || 0) + 1; }
             });
 
-            // Action Score Calculation (Target: ~4% density of "I")
             let rawScore = Math.min(100, Math.round((iCount / (simpleWords.length * 0.04)) * 100));
             if(passiveCount > 2) rawScore -= (passiveCount * 2);
             if(rawScore < 0) rawScore = 0;
@@ -343,22 +413,18 @@
             document.getElementById('impactScore').innerText = rawScore + "%";
             document.getElementById('impactScore').style.color = rawScore > 60 ? "#00FF99" : "#FF5733";
 
-            // B) SUB-COMPETENCY MAPPING
             let mainScores = { "A":0, "B":0, "C":0, "D":0, "E":0 };
-            let subScores = {};
-            let totalCompHits = 0;
+            let subScores = {}; let totalCompHits = 0;
 
             simpleWords.forEach(w => {
                 for (let key in subCompetencyMap) {
                     if (subCompetencyMap[key].keywords.some(k => w.includes(k))) { 
                         subScores[key] = (subScores[key] || 0) + 1;
-                        mainScores[key.charAt(0)]++;
-                        totalCompHits++;
+                        mainScores[key.charAt(0)]++; totalCompHits++;
                     }
                 }
             });
 
-            // Render Radar
             let domKey = "-"; let maxVal = -1;
             for (let key in mainScores) {
                 if(mainScores[key] > maxVal && mainScores[key] > 0) { maxVal = mainScores[key]; domKey = key; }
@@ -372,17 +438,13 @@
             }
             document.getElementById('compDominant').innerText = domKey === "-" ? "None" : `Comp ${domKey}`;
 
-            // Render Sub-Comps
             const sortedSubs = Object.keys(subScores).sort((a,b) => subScores[b] - subScores[a]);
             if(sortedSubs.length > 0) {
-                sortedSubs.slice(0, 5).forEach(key => { 
-                    subList.innerHTML += `<div class="sub-tag">${subCompetencyMap[key].label}</div>`;
-                });
+                sortedSubs.slice(0, 5).forEach(key => { subList.innerHTML += `<div class="sub-tag">${subCompetencyMap[key].label}</div>`; });
             } else {
                 subList.innerHTML = `<span style="color:#666; font-size:0.8rem;">No specific sub-competencies detected yet.</span>`;
             }
 
-            // Findings Display
             if(passiveCount > 0) {
                 let pText = Object.entries(passiveFound).map(([word, count]) => `'${word}' (${count}x)`).join(", ");
                 findingsList.innerHTML += `<div class="finding-item f-warn">⚠️ <strong>Passive Language:</strong> ${pText}.</div>`;
@@ -390,55 +452,23 @@
                 findingsList.innerHTML += `<div class="finding-item f-good">✅ <strong>Strong Ownership</strong></div>`;
             }
 
-            // C) SMART ACRONYM DETECTION (Length Logic)
             const acronymWords = text.match(/\b[a-zA-Z0-9]{2,}\b/g) || [];
-            
-            // Build Lookup
-            const dbLookup = new Set();
-            const dbObjects = {};
+            const dbLookup = new Set(); const dbObjects = {};
             safeAcronymDb.forEach(item => {
-                if(typeof item === 'string') {
-                    const key = item.split(' - ')[0].toUpperCase();
-                    dbLookup.add(key);
-                    dbObjects[key] = { a: item.split(' - ')[0], m: item };
-                } else {
-                    const key = item.a.toUpperCase();
-                    dbLookup.add(key);
-                    dbObjects[key] = item;
-                }
+                const key = (typeof item === 'string' ? item.split(' - ')[0] : item.a).toUpperCase();
+                dbLookup.add(key); dbObjects[key] = typeof item === 'string' ? { a: item.split(' - ')[0] } : item;
             });
 
-            const knownSet = new Set();
-            const unknownSet = new Set();
-            
+            const knownSet = new Set(); const unknownSet = new Set();
             acronymWords.forEach(w => {
-                const upper = w.toUpperCase();
-                const len = w.length;
-
-                // RULE 1: If word is < 4 chars (2 or 3), it MUST be Strict Case (e.g. "led" vs "LED")
-                if (len < 4) {
-                    if (w !== upper) return; 
-                }
-
-                // RULE 2: If word is >= 4 chars, allow loose case (e.g. "Ansys", "hazop")
-                
-                if(dbLookup.has(upper)) {
-                    // It is a known acronym.
-                    knownSet.add(dbObjects[upper].a);
-                } else if (w === upper && !/\d/.test(w) && len > 1) {
-                    // Unknown (ALL CAPS, No Numbers, Not in DB)
-                    unknownSet.add(w);
-                }
+                const upper = w.toUpperCase(); const len = w.length;
+                if (len < 4) { if (w !== upper) return; }
+                if(dbLookup.has(upper)) { knownSet.add(dbObjects[upper].a); } 
+                else if (w === upper && !/\d/.test(w) && len > 1) { unknownSet.add(w); }
             });
 
-            if(knownSet.size > 0) {
-                const list = Array.from(knownSet).join(", ");
-                findingsList.innerHTML += `<div class="finding-item f-good">✓ <strong>Recognised:</strong> ${list}</div>`;
-            }
-            if(unknownSet.size > 0) {
-                const list = Array.from(unknownSet).join(", ");
-                findingsList.innerHTML += `<div class="finding-item f-warn">? <strong>Unknown:</strong> ${list} <br><em>Ensure these are defined on first use.</em></div>`;
-            }
+            if(knownSet.size > 0) findingsList.innerHTML += `<div class="finding-item f-good">✓ <strong>Recognised:</strong> ${Array.from(knownSet).join(", ")}</div>`;
+            if(unknownSet.size > 0) findingsList.innerHTML += `<div class="finding-item f-warn">? <strong>Unrecognised:</strong> ${Array.from(unknownSet).join(", ")} <br><em>Ensure these are defined on first use.</em></div>`;
         }
 
         // --- 4. AI PROMPT ---
@@ -447,7 +477,6 @@
             const t = document.getElementById('task').value;
             const a = document.getElementById('action').value;
             const r = document.getElementById('result').value;
-            
             const goal = document.getElementById('goalSelector').value;
             const peiAcronym = document.getElementById('peiSelector').value;
             
@@ -457,37 +486,16 @@
                 if(found) peiName = found.name;
             }
 
-            // --- SMART PROMPT LOGIC ---
-            let roleDescription = "";
-            let specificInstructions = "";
-
+            let roleDescription = ""; let specificInstructions = "";
             if (goal === "JOB") {
                 roleDescription = `Senior Hiring Manager or Technical Recruiter in the ${peiName} sector`;
-                specificInstructions = `
-1. Critique this example for "Hireability", Commercial Impact, and Clarity.
-2. Identify weak/passive language that undermines my authority.
-3. Suggest 2 difficult follow-up questions an interviewer might ask to test this specific example.
-4. Propose a punchier opening sentence to grab attention.`;
+                specificInstructions = `1. Critique this example for "Hireability", Commercial Impact, and Clarity.\n2. Identify weak/passive language that undermines my authority.\n3. Suggest 2 difficult follow-up questions an interviewer might ask to test this specific example.\n4. Propose a punchier opening sentence to grab attention.`;
             } else {
                 roleDescription = `Professional Review Interviewer (PRI) and Fellow of the ${peiName} (${peiAcronym})`;
-                specificInstructions = `
-1. Critique this example strictly against UK-SPEC requirements for ${goal}.
-2. Identify exactly which Sub-Competencies (e.g. A2, B1, C3, E5) this best evidences.
-3. Highlight where I have failed to demonstrate "Personal Responsibility" (e.g. using "We" instead of "I").
-4. Give a "Ready for Submission" score (1-10) and one specific technical improvement.`;
+                specificInstructions = `1. Critique this example strictly against UK-SPEC requirements for ${goal}.\n2. Identify exactly which Sub-Competencies (e.g. A2, B1, C3, E5) this best evidences.\n3. Highlight where I have failed to demonstrate "Personal Responsibility" (e.g. using "We" instead of "I").\n4. Give a "Ready for Submission" score (1-10) and one specific technical improvement.`;
             }
 
-            const prompt = `Act as a ${roleDescription}. I am writing a competency statement for: ${goal}.
-
-Critique this STAR example:
-
-SITUATION: ${s}
-TASK: ${t}
-ACTION: ${a}
-RESULT: ${r}
-
-Please perform the following analysis:
-${specificInstructions}`;
+            const prompt = `Act as a ${roleDescription}. I am writing a competency statement for: ${goal}.\n\nCritique this STAR example:\n\nSITUATION: ${s}\nTASK: ${t}\nACTION: ${a}\nRESULT: ${r}\n\nPlease perform the following analysis:\n${specificInstructions}`;
 
             navigator.clipboard.writeText(prompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -498,18 +506,26 @@ ${specificInstructions}`;
         
         window.clearData = function() {
             if(confirm("Clear current draft?")) {
-                const fields = ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'];
-                fields.forEach(id => {
-                    const el = document.getElementById(id);
-                    if(el) el.value = "";
-                    localStorage.removeItem('star_' + id);
+                ['situation', 'task', 'action', 'result', 'goalSelector', 'peiSelector'].forEach(id => {
+                    const el = document.getElementById(id); if(el) el.value = ""; localStorage.removeItem('star_' + id);
                 });
-                updateCounts();
-                document.getElementById('analysisSection').style.display = 'none';
+                updateCounts(); document.getElementById('analysisSection').style.display = 'none';
+                
+                // Reset size
+                document.querySelectorAll('textarea').forEach(el => autoResize(el));
             }
         };
+
+        // --- 5. INITIALISATION TRIGGER (ADDED v12.1) ---
+        function initApp() {
+            if (typeof renderToolHeader === "function") {
+                renderToolHeader('star');
+            } else {
+                console.warn("Tool Header system not loaded.");
+            }
+        }
     </script>
-	
-	<script defer src="footer.js"></script>
+    
+    <script defer src="footer.js?v=11.1"></script>
 </body>
 </html>

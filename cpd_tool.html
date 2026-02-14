@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Identify skills gaps and build a 70/20/10 Development Action Plan. A free CPD planner tailored for Mechanical, Civil, Electrical, and Systems engineers.">
-	<meta property="og:title" content="CPD Smart-Planner | Empowering Engineers UK">
-	<meta property="og:description" content="Identify skills gaps and build a 70/20/10 Development Action Plan. A free CPD planner tailored for Mechanical, Civil, Electrical, and Systems engineers.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/cpd_tool.html">
-	<meta property="og:type" content="website">
+    <meta property="og:title" content="CPD Smart-Planner | Empowering Engineers UK">
+    <meta property="og:description" content="Identify skills gaps and build a 70/20/10 Development Action Plan. A free CPD planner tailored for Mechanical, Civil, Electrical, and Systems engineers.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/cpd_tool.html">
+    <meta property="og:type" content="website">
+    <title>CPD Smart-Planner | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="cpd.js?v=12"></script>
+    <script src="UK-SPEC.js?v=12"></script>
 
-    <title>CPD Smart-Planner [v7.2] | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-    
-    <script src="cpd.js"></script>
-    <script src="UK-SPEC.js"></script>
-    
-    <style>
+	<style>
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, .slider-label-text, .slider-value-display, .comp-tooltip, .plan-item, .tag, h2, h3, h4, h5 {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
         /* PAGE SPECIFIC LAYOUT */
+        .container {
+            max-width: 1000px; /* Aligns with other tools */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .context-bar {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -56,6 +58,8 @@
             padding-bottom: 2px;
             transition: 0.2s;
             margin-bottom: 0;
+            color: var(--terminal-green);
+            font-size: 1.1rem;
         }
         .spec-header:hover { color: var(--cloud-white); border-color: var(--terminal-green); }
 
@@ -66,26 +70,50 @@
         /* LABEL WRAPPER */
         .label-wrapper { position: relative; display: inline-block; cursor: help; }
         .slider-label-text {
-            font-family: inherit; font-size: 0.9rem; color: var(--cloud-white); font-weight: bold;
+            font-size: 0.9rem; color: var(--cloud-white); font-weight: bold;
             border-bottom: 1px dotted var(--slate-grey);
         }
         .slider-label-text:hover { color: var(--terminal-green); border-bottom-color: var(--terminal-green); }
 
         .slider-value-display {
-            font-family: inherit; font-size: 0.8rem; color: var(--terminal-green);
+            font-size: 0.8rem; color: var(--terminal-green);
             background: rgba(0, 255, 153, 0.1); padding: 2px 8px; border-radius: 4px;
             border: 1px solid var(--terminal-green);
         }
 
         /* RANGE INPUT */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; margin: 5px 0; cursor: pointer; z-index: 10; }
+        
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%;
             background: var(--terminal-green); cursor: pointer; margin-top: -8px;
             box-shadow: 0 0 10px rgba(0,255,153,0.5); transition: transform 0.1s;
+            border: 2px solid #ffffff; /* Added for contrast */
         }
+        
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #30363d; border-radius: 3px; }
+        
+        input[type=range]::-webkit-slider-runnable-track { 
+            width: 100%; height: 6px; cursor: pointer; 
+            background: var(--border-color); /* Updated to variable for themes */
+            border-radius: 3px; 
+        }
+
+        /* HIGH CONTRAST THEME OVERRIDES (ACCESSIBILITY) */
+        [data-theme="contrast"] input[type=range]::-webkit-slider-thumb {
+            background: #000000;
+            border: 3px solid var(--terminal-green);
+            width: 24px;
+            height: 24px;
+            margin-top: -10px;
+            box-shadow: none;
+        }
+
+        [data-theme="contrast"] .slider-value-display {
+            background: #000000;
+            color: var(--terminal-green);
+            border: 2px solid var(--terminal-green);
+        }
         
         /* TOOLTIP STYLING */
         .comp-tooltip {
@@ -98,7 +126,11 @@
             content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
             border-width: 5px; border-style: solid; border-color: var(--terminal-green) transparent transparent transparent;
         }
-        .comp-tooltip strong { display: block; color: var(--terminal-green); margin-bottom: 5px; font-family: inherit; border-bottom: 1px dashed #555; padding-bottom: 3px; }
+        .comp-tooltip strong { 
+            display: block; color: var(--terminal-green); margin-bottom: 5px; 
+            border-bottom: 1px dashed var(--slate-grey); /* Updated to variable */
+            padding-bottom: 3px; 
+        }
 
         /* Specific Tooltip Positioning */
         .header-tip { width: 350px; margin-left: -175px; bottom: 120%; left: 50%; z-index: 200; }
@@ -111,7 +143,7 @@
         .label-wrapper:hover .comp-tooltip { visibility: visible; opacity: 1; }
         input[type=range]:hover + .comp-tooltip.slider-tip { visibility: visible; opacity: 1; }
 
-        /* NEW: OBJECTIVES INPUT */
+        /* OBJECTIVES INPUT */
         .objectives-box {
             margin-bottom: 30px;
             background: rgba(255,255,255,0.02);
@@ -122,11 +154,10 @@
         .objectives-box textarea {
             width: 100%;
             height: 100px;
-            background: rgba(13, 27, 42, 0.6);
+            background: var(--input-bg); /* Updated to variable */
             border: 1px solid var(--border-color);
             color: var(--cloud-white);
             padding: 10px;
-            font-family: inherit;
             resize: vertical;
         }
 
@@ -149,7 +180,6 @@
             padding: 12px 20px;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Courier Prime', monospace;
             font-weight: bold;
             text-transform: uppercase;
             width: 100%;
@@ -164,7 +194,7 @@
         }
         .plan-header { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px; }
         .plan-title { font-weight: bold; color: var(--terminal-green); font-size: 1.1rem; }
-        .plan-score { color: var(--burnt-orange); font-family: inherit; font-weight: bold; }
+        .plan-score { color: var(--burnt-orange); font-weight: bold; }
         
         .plan-70 { color: var(--cloud-white); display: block; margin-top: 10px; font-size: 0.95rem; }
         .plan-20 { color: var(--slate-grey); display: block; margin-top: 8px; font-size: 0.95rem; }
@@ -172,24 +202,96 @@
 
         .tag { 
             display: inline-block; background: rgba(0,255,153,0.1); border: 1px solid var(--terminal-green);
-            color: var(--terminal-green); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 10px; vertical-align: middle; font-family: inherit;
+            color: var(--terminal-green); padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; margin-left: 10px; vertical-align: middle;
+        }
+
+        /* HEADER INSTRUCTION STYLES */
+        .instruction-header {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 153, 0.03);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .tool-h1 {
+            border: none;
+            color: var(--terminal-green);
+            padding: 0;
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--cloud-white);
+            margin-bottom: 12px;
+            max-width: 950px;
+        }
+        
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+        
+        .header-col h4 {
+            color: var(--burnt-orange);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .tool-list {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--slate-grey);
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .tool-list li {
+            margin-bottom: 3px;
+        }
+
+        /* AD SPECIFICS */
+        .ad-slot-leaderboard {
+            width: 100%;
+            min-height: 90px;
+            margin: 30px 0;
+            text-align: center;
+            background: transparent;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+            padding: 10px 0;
+            overflow: hidden;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 700px) { .profile-grid, .context-bar { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .profile-grid, .context-bar { grid-template-columns: 1fr; } 
+            .header-grid { grid-template-columns: 1fr; gap: 15px; }
+        }
     </style>
 </head>
 <body onload="initApp()">
-    <script defer src="header_nav.js"></script>
-
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
     <div class="container">
-        <div class="card">
-            <h2>CPD Smart-Planner [v7.2]</h2>
-            <p style="color:var(--slate-grey); margin-bottom:20px; font-size:0.9rem;">
-                Generate a discipline-specific <strong>70/20/10 Learning Plan</strong> based on the Engineering Council's 1-4 Competence Scale.
-                <br><em>Hover over the section titles (e.g., "A: Knowledge") or the criteria (e.g. "A1") for UK-SPEC definitions.</em>
-            </p>
+        <div id="tool-header-target"></div>
 
+        <div class="card">
+            
             <div class="context-bar">
                 <div>
                     <label>Target Registration</label>
@@ -257,9 +359,23 @@
             <button class="action-btn" onclick="generatePlan()">Generate Smart-Plan</button>
             <button class="action-btn action-btn-ghost" onclick="resetForm()" style="margin-top:10px;">Reset Scores</button>
 
+            <div class="ad-slot-leaderboard">
+                <span style="display:block; font-size:0.6rem; color:var(--slate-grey); margin-bottom:5px; text-transform:uppercase;">Advertisement</span>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7071036534151105"
+                     data-ad-slot="4413012282"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
             <div id="resultsArea" class="results-box"></div>
         </div>
-		<div class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+
+        <div class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
             <h3>Strategic CPD for UK-SPEC Registration</h3>
             <p>Continuing Professional Development (CPD) is a mandatory requirement for maintaining CEng, IEng, and EngTech status with the Engineering Council. However, many applicants fail to demonstrate a balanced portfolio. This tool utilizes the <strong>70/20/10 Learning Model</strong> to ensure your development is robust and practical.</p>
             
@@ -291,10 +407,14 @@
             { id: "e1", label: "E1: Codes of Conduct" }, { id: "e2", label: "E2: Safety & Risk" }, { id: "e3", label: "E3: Sustainability" }, { id: "e4", label: "E4: CPD Records" }, { id: "e5", label: "E5: Ethics" }
         ];
 
-        // --- GLOBAL VARIABLE FOR PROMPT STORAGE ---
         window.currentMegaPrompt = "";
 
         function initApp() {
+            // FIX: Manually trigger the tool header render
+            if (typeof renderToolHeader === 'function') {
+                renderToolHeader('cpd');
+            }
+
             fields.forEach(f => {
                 const wrapper = document.getElementById("wrapper_" + f.id);
                 if (!wrapper) return;
@@ -379,7 +499,6 @@
             if(localStorage.getItem('cpd_objs')) document.getElementById('userObjectives').value = localStorage.getItem('cpd_objs');
         }
 
-        // --- GENERATE PLAN WITH ENRICHED PROMPT ---
         function generatePlan() {
             const container = document.getElementById('resultsArea');
             const level = document.getElementById('targetLevel').value;
@@ -393,17 +512,13 @@
             let gapHTML = "";
             let gapFound = false;
 
-            // 1. Build Gap List & Prompt Data
             fields.forEach(f => {
                 const val = parseInt(document.getElementById(f.id).value);
                 const currentTitle = compLevels[val].title;
                 
-                // If Gap (< Skilled)
                 if(val < 3) {
                     gapFound = true;
                     const advice = getAdviceSafely(f.id, level, disc);
-                    
-                    // Add specifics to the AI prompt
                     gapSummary += `- ${f.id.toUpperCase()}: Currently ${currentTitle}\n`;
                     gapSummary += `  * Recommended 70% Activity: ${advice[70]}\n`;
                     gapSummary += `  * Recommended 20% Activity: ${advice[20]}\n`;
@@ -423,23 +538,8 @@
                 }
             });
 
-            // 2. Construct Mega Prompt & Save to Global
-            // We now include the specific recommended activities in the prompt
-            window.currentMegaPrompt = `Act as a Senior ${level} Mentor in ${disc}. 
-I need a Strategic CPD Plan to achieve Professional Registration.
+            window.currentMegaPrompt = `Act as a Senior ${level} Mentor in ${disc}. \nI need a Strategic CPD Plan to achieve Professional Registration.\n\nMY CONTEXT & BUSINESS GOALS:\n${objectives}\n\nMY SELF-ASSESSMENT GAPS & PROPOSED ACTIVITIES:\n${gapSummary}\n\nPLEASE PROVIDE A STRATEGIC PLAN:\n1. TIMELINE: Based on these gaps, estimate the months/years to readiness.\n2. ALIGNMENT: Review the \"Proposed Activities\" listed above. Are they realistic? How can I tweak them to better align with my \"Business Goals\" listed in my context?\n3. ROADMAP: Structure these into a chronological action plan (Q1, Q2, Q3, Q4) ensuring I balance Work, Study, and Mentoring (70/20/10).`;
 
-MY CONTEXT & BUSINESS GOALS:
-${objectives}
-
-MY SELF-ASSESSMENT GAPS & PROPOSED ACTIVITIES:
-${gapSummary}
-
-PLEASE PROVIDE A STRATEGIC PLAN:
-1. TIMELINE: Based on these gaps, estimate the months/years to readiness.
-2. ALIGNMENT: Review the "Proposed Activities" listed above. Are they realistic? How can I tweak them to better align with my "Business Goals" listed in my context?
-3. ROADMAP: Structure these into a chronological action plan (Q1, Q2, Q3, Q4) ensuring I balance Work, Study, and Mentoring (70/20/10).`;
-
-            // 3. Inject Mega Prompt Box
             const promptBox = `
                 <div class="mega-prompt-container" id="mentorBox">
                     <h3 style="color:var(--terminal-green); margin-top:0;">>> STRATEGIC AI MENTOR</h3>
@@ -452,21 +552,16 @@ PLEASE PROVIDE A STRATEGIC PLAN:
                 </div>
             `;
 
-            // 4. Combine Output
             if(gapFound) {
                 container.innerHTML = promptBox + gapHTML;
             } else {
                 container.innerHTML = promptBox + `<div class="plan-item" style="border-left-color:var(--terminal-green)"><div class="plan-header"><span class="plan-title">Ready for Assessment?</span></div><p style="color:var(--cloud-white);">Your self-assessment indicates you are operating at <strong>Level 3 (Skilled)</strong> or higher across all areas. Use the Mega Prompt above to confirm your readiness and prepare for the interview.</p></div>`;
             }
             
-            // 5. Scroll to the prompt box specifically
             setTimeout(() => {
                 const box = document.getElementById('mentorBox');
-                if(box) {
-                    box.scrollIntoView({behavior: "smooth", block: "center"});
-                } else {
-                    container.scrollIntoView({behavior: "smooth"});
-                }
+                if(box) box.scrollIntoView({behavior: "smooth", block: "center"});
+                else container.scrollIntoView({behavior: "smooth"});
             }, 100);
         }
 
@@ -495,6 +590,6 @@ PLEASE PROVIDE A STRATEGIC PLAN:
         }
     </script>
     
-    <script defer src="footer.js"></script>    
+    <script defer src="footer.js?v=11.1"></script>     
 </body>
 </html>

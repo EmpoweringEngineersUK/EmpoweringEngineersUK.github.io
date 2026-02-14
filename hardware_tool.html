@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-	
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive Component Atlas. Technical blueprints, failure modes, and design specs for Mechanical gears, Electrical sensors, and Civil structures.">
-	<meta property="og:title" content="The Component Atlas | Empowering Engineers UK">
-	<meta property="og:description" content="Interactive Component Atlas. Technical blueprints, failure modes, and design specs for Mechanical gears, Electrical sensors, and Civil structures.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/hardware_tool.html">
-	<meta property="og:type" content="website">
-
-    <title>The Component Atlas | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-
+    <meta property="og:title" content="The Component Atlas | Empowering Engineers UK">
+    <meta property="og:description" content="Interactive Component Atlas. Technical blueprints, failure modes, and design specs for Mechanical gears, Electrical sensors, and Civil structures.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/hardware_tool.html">
+    <meta property="og:type" content="website">
+    <title>The Component Atlas | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="hardware_db.js?v=12"></script>
+    <script src="acronyms.js?v=12"></script>
+    <script src="references.js?v=12"></script>
+    
     <style>
-        /* --- ATLAS SPECIFIC LAYOUT --- */
-        
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, .spec-text, .ref-link-title, .blueprint-header h2, .spec-label, .context-bar label {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* PAGE SPECIFIC STYLES */
         .atlas-container {
             max-width: 1200px;
             width: 100%;
@@ -45,6 +44,7 @@
             flex-direction: column;
             padding: 0;
             overflow-y: hidden;
+            background: var(--dark-card); 
         }
 
         /* TOOLBAR */
@@ -57,11 +57,11 @@
         }
 
         .context-bar label {
-            font-family: 'Courier Prime', monospace;
             font-size: 0.8rem;
             color: var(--burnt-orange);
             margin-bottom: 5px;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
         .context-bar select {
@@ -71,7 +71,6 @@
             border: 1px solid var(--border-color);
             color: #fff;
             border-radius: 4px;
-            font-family: "Arial", sans-serif;
         }
 
         /* SCROLLABLE LIST AREA */
@@ -100,7 +99,6 @@
             padding: 15px;
             text-align: left;
             cursor: pointer;
-            font-family: 'Courier Prime', monospace;
             font-size: 0.9rem;
             width: 100%;
             transition: all 0.2s;
@@ -136,7 +134,7 @@
             padding: 5px 10px;
             font-size: 0.8rem;
             border: 1px solid var(--terminal-green);
-            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
         }
 
         .spec-grid {
@@ -154,7 +152,6 @@
 
         .spec-label {
             color: var(--burnt-orange);
-            font-family: 'Courier Prime', monospace;
             font-size: 0.85rem;
             font-weight: bold;
             display: block;
@@ -202,7 +199,6 @@
         .ref-relevance {
             color: var(--terminal-green);
             font-size: 0.7rem;
-            font-family: 'Courier Prime', monospace;
             float: right;
             opacity: 0.8;
             font-weight: bold;
@@ -224,7 +220,6 @@
             z-index: 2000;
             max-width: 300px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.8);
-            font-family: 'Courier Prime', monospace;
             font-size: 0.85rem;
             pointer-events: none;
         }
@@ -244,45 +239,145 @@
             margin-bottom: 5px;
         }
 
+        /* HEADER INSTRUCTION STYLES */
+        .instruction-header {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 153, 0.03);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .tool-h1 {
+            border: none;
+            color: var(--terminal-green);
+            padding: 0;
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--cloud-white);
+            margin-bottom: 12px;
+            max-width: 950px;
+        }
+        
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+        
+        .header-col h4 {
+            color: var(--burnt-orange);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .tool-list {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--slate-grey);
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .tool-list li {
+            margin-bottom: 3px;
+        }
+
         /* MOBILE */
         @media (max-width: 800px) {
             .atlas-container { grid-template-columns: 1fr; height: auto; display: block; }
             .atlas-sidebar { max-height: 300px; margin-bottom: 20px; }
             .spec-grid { grid-template-columns: 1fr; }
+            .header-grid { grid-template-columns: 1fr; gap: 15px; }
         }
     </style>
 </head>
-<body>
-    <script defer src="header_nav.js"></script>
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
+    <div class="container" style="max-width:1200px;">
 
-    <div class="atlas-container">
-        
-        <div class="card atlas-sidebar">
-            <div class="context-bar">
-                <label>DISCIPLINE FILTER</label>
-                <select id="discFilter" onchange="renderList()">
-                    <option value="All">All Disciplines</option>
-                    <option value="Mechanical">Mechanical</option>
-                    <option value="Electrical">Electrical</option>
-                    <option value="Civil">Civil/Structural</option>
-                    <option value="Automotive">Automotive</option>
-                    <option value="Aerospace">Aerospace</option>
-                    <option value="Naval">Naval</option>
-                    <option value="Nuclear">Nuclear</option>
-                </select>
-            </div>
+        <div class="instruction-header">
+            <h1 class="tool-h1">The Component Atlas</h1>
+            <p class="tool-desc">
+                Interactive technical specifications for common engineering components. Click a component to view design principles, manufacturing methods, and failure modes.
+            </p>
             
-            <div id="componentList" class="component-list-area">
+            <div class="header-grid">
+                <div class="header-col">
+                    <h4>How to Use</h4>
+                    <ul class="tool-list">
+                        <li><strong>Step 1:</strong> Select a Discipline (e.g., Mechanical) from the dropdown.</li>
+                        <li><strong>Step 2:</strong> Choose a component from the sidebar list.</li>
+                        <li><strong>Step 3:</strong> Review the technical data, including Design Principles and Failure Modes.</li>
+                        <li><strong>Step 4:</strong> Check the "Recommended Standards" for further reading.</li>
+                    </ul>
                 </div>
-        </div>
-
-        <div class="card atlas-content" id="detailView">
-            <div style="text-align:center; padding-top:100px; color:var(--slate-grey);">
-                <h2>>> COMPONENT_ATLAS_LOADED</h2>
-                <p>Select a hardware component from the left to view specs, failure modes, and related standards.</p>
+                <div class="header-col">
+                    <h4>Engineering Logic</h4>
+                    <ul class="tool-list">
+                        <li><strong>Cross-Disciplinary:</strong> Highlights how mechanical failures affect electrical systems (and vice-versa).</li>
+                        <li><strong>Failure Mode Analysis:</strong> Essential knowledge for maintenance and design reviews.</li>
+                        <li><strong>Smart References:</strong> Auto-suggests relevant ISO/BS standards based on your selection.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-		<div class="card" style="grid-column: 1 / -1; margin-top: 20px; border-top: 2px solid var(--status-blue);">
+
+        <div class="card">
+            <div class="atlas-container">
+                <div class="card atlas-sidebar">
+                    <div class="context-bar">
+                        <label>DISCIPLINE FILTER</label>
+                        <select id="discFilter" onchange="renderList()">
+                            <option value="All">All Disciplines</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Civil">Civil/Structural</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Aerospace">Aerospace</option>
+                            <option value="Naval">Naval</option>
+                            <option value="Nuclear">Nuclear</option>
+                        </select>
+                    </div>
+                    
+                    <div id="componentList" class="component-list-area">
+                        </div>
+
+                    <div class="ad-slot ad-mpu" style="margin: 0 auto; width: 300px; border-top:1px solid var(--border-color);">
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-7071036534151105"
+                             data-ad-slot="9995687043"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
+                <div class="card atlas-content" id="detailView">
+                    <div style="text-align:center; padding-top:100px; color:var(--slate-grey);">
+                        <h2>>> COMPONENT_ATLAS_LOADED</h2>
+                        <p>Select a hardware component from the left to view specs, failure modes, and related standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px; border-top: 2px solid var(--status-blue);">
             <h3>Bridging Theory and Practice</h3>
             <p>University education often focuses on first principles (Calculus, Thermodynamics), leaving a "knowledge gap" regarding real-world hardware components. The Component Atlas is designed to bridge this gap for Early Career Engineers.</p>
             
@@ -294,10 +389,6 @@
     </div>
 
     <div id="acronymTooltip"></div>
-
-    <script src="hardware_db.js"></script>
-    <script src="references.js"></script>
-    <script src="acronyms.js"></script>
 
     <script>
         // --- 1. ACRONYM LOGIC ---
@@ -364,7 +455,6 @@
         // --- 2. SMART REFERENCE MATCHING (Weighted Scoring) ---
         
         // 1. Discipline Mapping (Hardware -> Reference DB Categories)
-        // Helps cross-reference (e.g., Automotive hardware uses Mechanical books)
         const discMap = {
             "Mechanical": ["Mechanical", "General"],
             "Electrical": ["Electrical", "Systems", "General"],
@@ -376,7 +466,6 @@
         };
 
         // 2. Tag Mapping (Hardware Tag -> Reference Topics)
-        // Boosts specific topics based on the component type
         const tagMap = {
             "Fluid Systems": ["Fluids", "Piping", "Valves", "Process", "Thermodynamics"],
             "Piping": ["Piping", "Fluids", "Valves"],
@@ -437,14 +526,12 @@
                 if(keywordHits > 0) matchType = "KEYWORD MATCH";
 
                 // 3. Topic/Tag Alignment (Context)
-                // Does the reference topic match the hardware tag map?
                 if (boostedTopics.includes(ref.topic)) {
                     score += 40;
                     if(!matchType) matchType = "TOPIC MATCH";
                 }
                 
                 // 4. Manual Tag Match
-                // Does the ref title/desc contain the hardware tag? (e.g. "Piping" in title for "Piping" tag)
                 if (ref.title.toLowerCase().includes(item.tag.toLowerCase()) || 
                     ref.desc.toLowerCase().includes(item.tag.toLowerCase())) {
                     score += 30;
@@ -452,7 +539,6 @@
                 }
 
                 // 5. General "Penalty" for IT/Software if Hardware is purely Physical
-                // Prevents "Python" books showing up for "Concrete"
                 const itTopics = ["Python", "Data", "Coding", "Software", "AI / Coding"];
                 const physicalDiscs = ["Civil", "Mechanical", "Naval", "Automotive"];
                 
@@ -539,6 +625,8 @@
                     <h2 style="margin:0; border:none; color:var(--cloud-white); font-size:1.8rem;">${data.name}</h2>
                     <span class="blueprint-tag">${data.discipline} // ${data.tag}</span>
                 </div>
+                
+                
 
                 <div class="spec-grid">
                     <div class="spec-box" style="grid-column: span 2;">
@@ -571,6 +659,7 @@
 
         window.onload = renderList;
     </script>
-	<script defer src="footer.js"></script>
+    
+    <script defer src="footer.js?v=12"></script>
 </body>
 </html>

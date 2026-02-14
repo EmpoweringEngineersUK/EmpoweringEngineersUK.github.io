@@ -1,619 +1,986 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script> 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Define project responsibilities instantly. Free RACI Matrix generator with templates for Engineering Design, NPD, and Site Management.">
-	<meta property="og:title" content="RACI Matrix Tool | Empowering Engineers UK">
-	<meta property="og:description" content="Define project responsibilities instantly. Free RACI Matrix generator with templates for Engineering Design, NPD, and Site Management.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/raci_tool.html">
-	<meta property="og:type" content="website">
-	
-	<title>RACI Matrix Tool | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>    
-	
+    <meta property="og:title" content="RACI Matrix Tool | Empowering Engineers UK">
+    <meta property="og:description" content="Define project responsibilities instantly. Free RACI Matrix generator with templates for Engineering Design, NPD, and Site Management.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/raci_tool.html">
+    <meta property="og:type" content="website">
+    <title>RACI Matrix Tool | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="samples.js?v=12"></script> 
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <style>
-        /* PAGE SPECIFIC: Matrix & Legend Styles */
-        .raci-container {
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, table, th, td, .tool-h1, .tool-desc, .tool-list, .audit-msg {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* --- LAYOUT OVERRIDES --- */
+        body { overflow-x: hidden; background: var(--midnight-navy, #09121d); }
+        
+        .main-container {
             max-width: 1200px;
-            width: 100%;
-            margin-top: 20px;
+            margin: 0 auto;
             padding: 20px;
+        }
+
+        /* DASHBOARD HEADER LAYOUT */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 310px 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: stretch; 
+        }
+
+        .dash-panel {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
             border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .controls-top {
+        .dash-panel-center {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: center;
             align-items: center;
+            background: rgba(0,0,0,0.2);
+            border: 1px dashed #444;
+            border-radius: 8px;
+            padding: 5px;
+            position: relative;
+            min-height: 260px;
+        }
+
+        .dash-label {
+            color: var(--burnt-orange); 
+            font-size: 0.7rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 2px;
+            letter-spacing: 0.5px;
+            display: flex;
             justify-content: space-between;
         }
 
-        /* --- DROPDOWN STYLING FIX (Matches Feedback Tool) --- */
-        /* Forces the dropdown menu (the list that pops out) to be dark with white text */
-        select option { 
-            background: var(--dark-card); 
-            color: white; 
-            padding: 5px; 
-        }
-        select optgroup { 
-            color: var(--terminal-green); 
-            font-weight: bold; 
-            background: #000; 
+        /* CONTROLS STYLING */
+        .control-group { margin-bottom: 8px; }
+        
+        .control-label {
+            display: block;
+            font-size: 0.7rem;
+            color: #aaa;
+            margin-bottom: 3px;
         }
 
-        /* Legend */
-        .raci-definitions {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            border-left: 4px solid var(--terminal-green);
+        .dash-select {
+            width: 100%;
+            padding: 6px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.85rem;
         }
 
-        @media (min-width: 700px) { .raci-definitions { grid-template-columns: 1fr 1fr; } }
+        /* BUTTONS */
+        .btn-row { display: flex; gap: 8px; margin-bottom: 5px; }
 
-        .def-item { display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
-
-        .def-badge {
-            font-family: 'Courier Prime', monospace;
-            font-weight: bold;
-            color: #000;
-            padding: 2px 8px;
-            border-radius: 3px;
-            min-width: 140px;
+        .action-btn {
+            flex: 1; 
             text-align: center;
-            flex-shrink: 0;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            font-weight: bold;
+            white-space: nowrap;
         }
+        
+        .btn-primary { background: var(--terminal-green); color: #000; border-color: var(--terminal-green); }
+        .btn-primary:hover { background: #00cc7a; }
+        
+        .btn-ghost { background: transparent; border: 1px solid #666; color: #ccc; }
+        .btn-ghost:hover { border-color: #fff; color: #fff; }
+        
+        .btn-danger { background: transparent; border: 1px solid var(--burnt-orange); color: var(--burnt-orange); }
+        .btn-danger:hover { background: var(--burnt-orange); color: #fff; }
 
-        /* Color Codes */
-		.r-code { background-color: var(--terminal-green); } 
-		.a-code { background-color: var(--burnt-orange); } 
-		.c-code { background-color: var(--status-blue); } 
-		.i-code { background-color: var(--status-yellow); } 
-		.white-code { background-color: #ffffff; }
+        .btn-history { background: #333; color: #fff; border: 1px solid #555; width: 40px; }
+        .btn-history:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-history:hover:not(:disabled) { background: #555; }
 
-        /* Matrix Table */
-        .table-wrapper {
+        /* AUDIT STATUS BOX */
+        .audit-box {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 10px;
+            min-height: 60px;
+            max-height: 100px;
+            overflow-y: auto;
+            font-size: 0.75rem;
+            border: 1px solid #333;
+        }
+        
+        .status-ok { color: var(--terminal-green); font-weight: bold; }
+        .status-err { color: #ffadad; }
+        .status-list { margin: 0; padding-left: 15px; list-style-type: square; }
+        .status-list li { margin-bottom: 2px; }
+
+        /* THE MATRIX */
+        .matrix-wrapper {
             overflow-x: auto;
             background: #fff;
             border-radius: 4px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            min-height: 400px;
         }
 
-        table { width: 100%; border-collapse: collapse; font-family: "Arial", sans-serif; min-width: 800px; }
+        table.raci-table {
+            width: 100%;
+            border-collapse: separate; 
+            border-spacing: 0;
+            color: #333;
+            min-width: 800px;
+            border: 1px solid #999;
+        }
 
-        th, td { border: 1px solid #ccc; padding: 5px; text-align: center; color: #333; position: relative; }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
 
-        th { background-color: var(--midnight-navy); color: #fff; font-weight: 500; min-width: 100px; }
+        /* HEADERS */
+        th.role-header { 
+            min-width: 140px; 
+            color: #fff; 
+            position: relative; 
+            padding: 5px;
+            vertical-align: top;
+        }
+        th.role-header:nth-child(even) { background-color: #4b6584; } 
+        th.role-header:nth-child(odd) { background-color: #2d3436; } 
 
-        th input {
+        th.task-row-header {
+            width: 320px; 
+            text-align: left; 
+            padding: 0;
+            border-right: 2px solid #999; 
+            background-color: #fff;
+            font-weight: normal;
+        }
+
+        tr:nth-child(odd) th.task-row-header { background-color: #ffffff; }
+        tr:nth-child(even) th.task-row-header { background-color: #f1f2f6; } 
+
+        th.task-header { 
+            width: 320px; 
+            background: #2d3436; 
+            color: #fff; 
+            text-align: left; 
+            padding: 10px 15px; 
+            border-right: 2px solid #777;
+        }
+
+        /* INPUTS */
+        .role-input { 
+            text-align: center; 
+            color: #fff; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 5px;
             background: transparent;
             border: none;
-            color: #fff;
-            font-weight: bold;
-            text-align: center;
             width: 100%;
-            font-size: 0.95rem;
-            font-family: 'Courier Prime', monospace;
+            resize: none;
+            overflow: hidden;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            min-height: 40px; 
         }
-        th input:focus { outline: 1px solid var(--terminal-green); }
-
-        td:first-child { width: 250px; background-color: #f4f4f4; text-align: left; }
+        .role-input:focus { background: rgba(255,255,255,0.1); outline: 1px dashed #fff; }
         
-        /* Ensure Task Name Input is Dark Text */
-        td:first-child input { 
-            width: 100%; 
-            border: none; 
-            background: transparent; 
-            font-weight: 500; 
-            padding: 5px; 
-            color: #0D1B2A !important; 
+        .task-input { 
+            text-align: left; 
+            font-weight: 600; 
+            color: #2d3436; 
+            padding: 10px 5px 5px 10px; 
+            min-height: 40px;
+            width: 100%;
+            border: none;
+            background: transparent;
+            resize: none;
+            overflow: hidden;
+            font-size: 0.9rem;
         }
+        .task-input:focus { outline: 2px solid var(--terminal-green); background: #fff; z-index: 2; position: relative; }
 
-        /* MATRIX DROPDOWNS */
+        /* ACTIONS */
+        .header-actions { display: flex; justify-content: center; gap: 8px; padding-bottom: 4px; }
+        .row-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5px;
+            background: rgba(0,0,0,0.05);
+            border-left: 1px solid #ccc;
+            height: 100%;
+            min-width: 40px;
+        }
+        .ctrl-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.1s;
+            color: #fff;
+        }
+        .btn-add { background-color: var(--terminal-green); color: #000; margin-bottom: 2px; }
+        .btn-del { background-color: var(--burnt-orange); color: #fff; }
+        .task-cell-container { display: flex; height: 100%; align-items: stretch; }
+
+        /* SELECTS */
         .raci-select {
             width: 100%;
+            height: 100%;
             border: none;
-            font-weight: bold;
             text-align: center;
+            text-align-last: center;
+            font-weight: bold;
+            font-size: 1.1rem;
             cursor: pointer;
             -webkit-appearance: none;
-            background: transparent;
-            padding: 8px 0;
-            color: #0D1B2A !important; /* Forces dark text inside the white table cells */
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            color: #333;
         }
-        .raci-select:focus { outline: 2px solid #000; }
+        .raci-select:focus { outline: 2px solid #555; z-index: 2; position: relative; }
 
-        .btn-group { display: flex; gap: 10px; margin-top: 10px; }
+        .val-R { background-color: #74b9ff !important; color: #000; } 
+        .val-A { background-color: #00b894 !important; color: #000; } 
+        .val-C { background-color: #ffeaa7 !important; color: #000; } 
+        .val-I { background-color: #dfe6e9 !important; color: #636e72; } 
+        .val- { background-color: transparent; }
 
-        .info-box {
-            margin-top: 30px;
-            padding: 15px;
-            border-left: 4px solid var(--burnt-orange);
-            background: rgba(255, 159, 67, 0.1);
-            font-size: 0.9rem;
-            line-height: 1.5;
+        /* FEEDBACK */
+        .row-error th:first-child { border-left: 6px solid #d63031 !important; background-color: rgba(214, 48, 49, 0.1) !important; }
+        .row-warning th:first-child { border-left: 6px solid #e17055 !important; }
+
+        /* LEGEND */
+        .legend-bar {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.8rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-box { width: 18px; height: 18px; border: 1px solid #999; }
+
+        /* HEADER INSTRUCTION STYLES (Pulled from tools_data.js) */
+        .instruction-header {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 153, 0.03);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .tool-h1 {
+            border: none;
+            color: var(--terminal-green);
+            padding: 0;
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--cloud-white);
+            margin-bottom: 12px;
+            max-width: 950px;
+        }
+        
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+        
+        .header-col h4 {
+            color: var(--burnt-orange);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .tool-list {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--slate-grey);
+            margin: 0;
+            padding-left: 15px;
+        }
+
+        .tool-list li {
+            margin-bottom: 3px;
+        }
+
+        /* AD SPECIFICS */
+        .ad-slot-leaderboard {
+            width: 100%;
+            min-height: 90px;
+            margin: 30px 0;
+            text-align: center;
+            background: transparent;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1150px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .dash-panel-center { order: -1; align-self: center; }
         }
     </style>
 </head>
 <body onload="initApp()">
-	<script defer src="header_nav.js"></script>
-
-    <div class="container">
-        <h1 style="border:none; text-align: center; color: var(--terminal-green);">Project Responsibility Matrix</h1>
-        <p style="text-align: center; margin-bottom: 20px; color:var(--slate-grey);">
-            Generate, edit, and download RACI matrices for engineering scenarios. Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E. <strong>Progress is saved automatically.</strong>
-        </p>
-
-        <div class="raci-container">
-            <div class="controls-top">
-                <div>
-                    <label for="scenarioSelect" style="display:block; margin-bottom:5px;">LOAD PRESET:</label>
-                    <select id="scenarioSelect" class="scenario-selector" onchange="loadScenario()">
-                        <option value="custom">-- Custom / Blank Matrix --</option>
-                        <optgroup label="Technical & Commercial">
-                            <option value="technical">Technical Design Project</option>
-                            <option value="value_eng">Value Engineering (VE) Workshop</option>
-                            <option value="npd">New Product Development (NPD)</option>
-                            <option value="prototype">Prototyping & Testing</option>
-                            <option value="3dprint">3D Printing / Additive Mfg</option>
-                            <option value="software">Software / DevOps Cycle</option>
-                        </optgroup>
-                        <optgroup label="Professional Development (UK-SPEC)">
-                            <option value="stem">STEM Volunteering Event</option>
-                            <option value="lunch">Lunch & Learn / Seminar</option>
-                            <option value="csr">CSR / Charity Initiative</option>
-                            <option value="conf">Conference Facilitation</option>
-                            <option value="travel">Business Travel / Site Visit</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <div>
-                    <button class="action-btn" onclick="resetToDefaults()">&#8635; Load Preset</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearAllData()">&#128465; Clear All</button>
-                    <button class="action-btn" onclick="downloadMatrix()">&#11015; Save Image</button>
-                </div>
-            </div>
-
-            <div class="raci-definitions">
-                <div class="def-item">
-                    <div class="def-badge r-code">R (Responsible)</div>
-                    <div>The "Doer". The engineer performing the calculation, design, or activity.</div>
-                </div>
-                <div class="def-item">
-                    <div class="def-badge a-code">A (Accountable)</div>
-                    <div>The "Owner". The person signing off (e.g., Lead Engineer/Chair).</div>
-                </div>
-                <div class="def-item">
-                    <div class="def-badge c-code">C (Consulted)</div>
-                    <div>Two-way info. Experts whose input is required before proceeding.</div>
-                </div>
-                <div class="def-item">
-                    <div class="def-badge i-code">I (Informed)</div>
-                    <div>One-way info. Stakeholders updated after the fact.</div>
-                </div>
-            </div>
-
-            <div class="table-wrapper" id="matrixCapture">
-                <table id="raciTable">
-                    <thead></thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div class="btn-group">
-                <button class="action-btn action-btn-ghost" onclick="addRow()">+ Add Task Row</button>
-                <button class="action-btn action-btn-ghost" onclick="removeRow()">- Remove Row</button>
-                <span style="border-right: 1px solid var(--border-color); margin: 0 10px;"></span>
-                <button class="action-btn action-btn-ghost" onclick="addCol()">+ Add Role Col</button>
-                <button class="action-btn action-btn-ghost" onclick="removeCol()">- Remove Col</button>
-            </div>
-
-            <div class="info-box">
-                <h3 style="margin-top:0; color:var(--burnt-orange);">How to use this for Chartership</h3>
-                <p>
-                    <strong>Competency C (Technical & Commercial Leadership):</strong> Use the <em>Technical</em> or <em>NPD</em> templates to show you understand who is Accountable (A) vs who does the work (R).<br>
-                    <strong>Competency D (Communication):</strong> The <em>Seminar</em> or <em>Lunch & Learn</em> templates demonstrate you can coordinate diverse stakeholders.<br>
-                    <strong>Competency E (Professional Commitment):</strong> Use the <em>STEM</em> or <em>CSR</em> templates to evidence your volunteering leadership in a structured, professional format.
-                </p>
-            </div>
-        </div>
-		<div class="card" style="margin-top: 40px; border-top: 2px solid var(--status-blue);">
-            <h3>Engineering Leadership & Accountability</h3>
-            <p>One of the most common causes of project failure in engineering is ambiguity regarding roles. The <strong>RACI Model</strong> (Responsible, Accountable, Consulted, Informed) is the industry standard for mapping these responsibilities.</p>
-            
-            <h4>The "Single Point of Accountability" Rule</h4>
-            <p>A critical rule in matrix management is that for any given task, there must be <strong>only one</strong> "Accountable" person (The 'A'). This is the individual who signs off the work and holds the ultimate risk. While multiple engineers can be "Responsible" (The 'R') for doing the work, splitting Accountability leads to decision paralysis.</p>
-
-            <h4>Relevance to UK-SPEC</h4>
-            <p>Using this tool demonstrates competence in <strong>UK-SPEC C (Technical & Commercial Leadership)</strong>. Specifically:</p>
-            <ul>
-                <li><strong>C1:</strong> Planning for effective project implementation.</li>
-                <li><strong>C3:</strong> Leading teams and developing staff.</li>
-            </ul>
-            <p>By explicitly defining who needs to be <em>Consulted</em> (Subject Matter Experts) and who needs to be <em>Informed</em> (Stakeholders), you demonstrate a mature understanding of complex project governance.</p>
-        </div>
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+    <div class="container" style="margin-top: 0;"> 
+        <div id="tool-header-target" style="grid-column: 1 / -1;"></div>
     </div>
 
+    <div class="main-container">
+        
+        <div class="dashboard-grid">
+            
+            <div class="dash-panel">
+                <div>
+                    <div class="dash-label">
+                        <span>>> 1. MATRIX CONFIGURATION</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">ACTIONS</label>
+                        <div class="btn-row">
+                            <button id="btnUndo" class="action-btn btn-history" onclick="performUndo()" disabled title="Undo (Ctrl+Z)">&#8617;</button>
+                            <button id="btnRedo" class="action-btn btn-history" onclick="performRedo()" disabled title="Redo (Ctrl+Y)">&#8618;</button>
+                            <button class="action-btn btn-danger" onclick="clearMatrix()">Reset All</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">SELECT TEMPLATE</label>
+                        <div style="display:flex; gap:5px;">
+                            <select id="scenarioSelect" class="dash-select">
+                                <option value="custom">-- Custom / Blank --</option>
+                                <optgroup label="Engineering Projects">
+                                    <option value="technical">Technical Design</option>
+                                    <option value="value_eng">Value Engineering</option>
+                                    <option value="npd">New Product Development</option>
+                                    <option value="prototype">Prototyping</option>
+                                    <option value="software">Software / DevOps</option>
+                                </optgroup>
+                                <optgroup label="Site & Operations">
+                                    <option value="site">Site Management</option>
+                                    <option value="safety">CDM / Safety</option>
+                                    <option value="travel">Business Travel</option>
+                                </optgroup>
+                                <optgroup label="Professional (UK-SPEC)">
+                                    <option value="stem">STEM Activity</option>
+                                    <option value="lunch">Lunch & Learn</option>
+                                    <option value="csr">CSR Initiative</option>
+                                    <option value="conf">Conference</option>
+                                </optgroup>
+                            </select>
+                            <button class="action-btn btn-primary" style="flex:0 0 60px;" onclick="loadScenario()">Load</button>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div style="margin-top:10px; font-size:0.7rem; color:#666; border-top:1px solid #444; padding-top:5px;">
+                    <span id="save-status">System Ready</span>
+                </div>
+            </div>
+
+            <div class="dash-panel-center">
+                <span style="position:absolute; top:5px; font-size:0.6rem; color:#555;">ADVERTISEMENT</span>
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-7071036534151105"
+                     data-ad-slot="4413012282"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="dash-panel">
+                <div>
+                    <div class="dash-label">>> 2. MATRIX STATUS</div>
+                    
+                    <div id="audit-summary" class="audit-box status-ok">
+                        ✅ Matrix Healthy
+                    </div>
+                    
+                    <div class="dash-label" style="margin-top:10px;">>> 3. EXPORT DATA</div>
+                    <div class="btn-row">
+                        <button class="action-btn btn-ghost" onclick="exportImage()">📸 PNG Image</button>
+                        <button class="action-btn btn-ghost" onclick="exportCSV()">📄 CSV File</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="matrix-wrapper" id="capture-zone">
+            <h2 style="color:#000; margin-top:0; font-size:1.5rem; border-bottom:2px solid #000; padding-bottom:10px; margin-bottom:20px;">PROJECT RACI MATRIX</h2>
+            
+            <table class="raci-table" id="raciTable">
+                <thead>
+                    <tr id="headerRow">
+                        <th class="task-header">DELIVERABLE / ACTIVITY</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            
+            <div class="legend-bar">
+                <div class="legend-item"><div class="legend-box" style="background:#74b9ff;"></div> <strong>R</strong>esponsible</div>
+                <div class="legend-item"><div class="legend-box" style="background:#00b894;"></div> <strong>A</strong>ccountable</div>
+                <div class="legend-item"><div class="legend-box" style="background:#ffeaa7;"></div> <strong>C</strong>onsulted</div>
+                <div class="legend-item"><div class="legend-box" style="background:#dfe6e9;"></div> <strong>I</strong>nformed</div>
+                <div style="margin-left:auto; font-style:italic;">Generated by EmpoweringEngineers.uk</div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+            <h3>Engineering Leadership: The Golden Rule</h3>
+            <p>A critical rule in matrix management (and UK-SPEC Competence C) is that for any given task, there must be <strong>only one</strong> "Accountable" person (The 'A'). This is the individual who signs off the work and holds the ultimate risk. While multiple engineers can be "Responsible" (The 'R') for doing the work, splitting Accountability leads to decision paralysis.</p>
+        </div>
+
+    </div>
+
+    <script defer src="footer.js?v=12"></script>
+
     <script>
-        // --- DATA PRESETS ---
-        const scenarios = {
-            custom: {
-                roles: ["Role 1", "Role 2", "Role 3", "Role 4"],
-                tasks: [
-                    { task: "Task 1", raci: ["-", "-", "-", "-"] },
-                    { task: "Task 2", raci: ["-", "-", "-", "-"] },
-                    { task: "Task 3", raci: ["-", "-", "-", "-"] }
-                ]
-            },
+        // --- DATA & STATE ---
+        let roles = ["Project Manager", "Lead Engineer", "Client", "Sub-Contractor"];
+        let tasks = [];
+        
+        // --- HISTORY ENGINE (UNDO/REDO) ---
+        let historyStack = [];
+        let redoStack = [];
+        const MAX_HISTORY = 10;
+
+        function saveState() {
+            // Capture current state JSON
+            const snapshot = JSON.stringify({ roles, tasks });
+            historyStack.push(snapshot);
+            
+            // Limit stack size
+            if (historyStack.length > MAX_HISTORY) {
+                historyStack.shift();
+            }
+            
+            // Clear redo stack on new action
+            redoStack = [];
+            updateHistoryUI();
+        }
+
+        function performUndo() {
+            if (historyStack.length === 0) return;
+            
+            // Save current state to redo
+            const current = JSON.stringify({ roles, tasks });
+            redoStack.push(current);
+            
+            // Restore previous
+            const prev = JSON.parse(historyStack.pop());
+            roles = prev.roles;
+            tasks = prev.tasks;
+            
+            renderMatrix();
+            updateHistoryUI();
+        }
+
+        function performRedo() {
+            if (redoStack.length === 0) return;
+            
+            // Save current to history
+            const current = JSON.stringify({ roles, tasks });
+            historyStack.push(current);
+            
+            // Restore next
+            const next = JSON.parse(redoStack.pop());
+            roles = next.roles;
+            tasks = next.tasks;
+            
+            renderMatrix();
+            updateHistoryUI();
+        }
+
+        function updateHistoryUI() {
+            document.getElementById('btnUndo').disabled = (historyStack.length === 0);
+            document.getElementById('btnRedo').disabled = (redoStack.length === 0);
+        }
+
+        // KEYBOARD SHORTCUTS
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key.toLowerCase() === 'z') {
+                    e.preventDefault();
+                    if (e.shiftKey) {
+                        performRedo(); 
+                    } else {
+                        performUndo(); 
+                    }
+                }
+                else if (e.key.toLowerCase() === 'y') {
+                    e.preventDefault();
+                    performRedo(); 
+                }
+            }
+        });
+
+        // --- INTERNAL DATA FALLBACK (FULL LIST RESTORED) ---
+        const fallbackScenarios = {
+            custom: { roles: ["Role 1", "Role 2", "Role 3"], tasks: [{name: "Task 1", r: ["","",""]}, {name: "Task 2", r: ["","",""]}] },
             technical: {
-                roles: ["Grad Engineer", "Senior Eng", "Proj Manager", "Client", "CAD Tech"],
+                roles: ["Project Director", "Project Manager", "Senior Engineer", "Graduate Engineer", "CAD Technician", "Client"],
                 tasks: [
-                    { task: "Concept Design", raci: ["R", "C", "A", "C", "I"] },
-                    { task: "Detailed Calculations", raci: ["R", "A", "I", "-", "-"] },
-                    { task: "3D Modelling", raci: ["C", "I", "I", "-", "R"] },
-                    { task: "Design Review (QA)", raci: ["C", "R", "A", "I", "I"] },
-                    { task: "Client Approval", raci: ["I", "C", "R", "A", "-"] },
-                    { task: "Issue for Construction", raci: ["I", "R", "A", "I", "C"] }
+                    { name: "Define Scope of Works", r: ["A", "R", "C", "I", "", "C"] },
+                    { name: "Concept Design Report", r: ["I", "A", "R", "R", "", "C"] },
+                    { name: "Detailed Design Calcs", r: ["", "I", "A", "R", "", ""] },
+                    { name: "3D Modelling & Drawings", r: ["", "I", "A", "C", "R", ""] },
+                    { name: "Internal Design Review", r: ["I", "A", "R", "C", "I", ""] },
+                    { name: "Client Approval (Gateway)", r: ["C", "R", "I", "", "", "A"] }
                 ]
             },
             value_eng: {
-                roles: ["Design Lead", "Cost Consultant", "Client", "Contractor", "Facilitator"],
+                roles: ["Project Director", "Design Lead", "Cost Consultant", "Client", "Contractor"],
                 tasks: [
-                    { task: "Identify High Cost Items", raci: ["R", "R", "I", "C", "A"] },
-                    { task: "Brainstorm Alternatives", raci: ["R", "C", "I", "R", "A"] },
-                    { task: "Feasibility Analysis", raci: ["R", "C", "A", "C", "-"] },
-                    { task: "Cost Benefit Report", raci: ["C", "R", "A", "I", "-"] },
-                    { task: "Final Decision", raci: ["C", "I", "A", "I", "-"] }
+                    { name: "Identify High Cost Items", r: ["A", "R", "R", "I", "C"] },
+                    { name: "Brainstorm Alternatives", r: ["A", "R", "C", "I", "R"] }, 
+                    { name: "Feasibility Analysis", r: ["A", "R", "C", "C", "C"] },
+                    { name: "Cost Benefit Report", r: ["I", "C", "R", "A", "I"] },
+                    { name: "Final Option Selection", r: ["C", "R", "I", "A", "I"] } 
                 ]
             },
             npd: {
-                roles: ["Product Mgr", "R&D Eng", "Manufacturing", "Marketing", "Quality"],
+                roles: ["Product Director", "Product Manager", "Lead Engineer", "Manufacturing", "Marketing", "Quality"],
                 tasks: [
-                    { task: "Market Research", raci: ["R", "I", "-", "R", "-"] },
-                    { task: "Product Spec Definition", raci: ["A", "R", "C", "C", "I"] },
-                    { task: "Prototype Fabrication", raci: ["I", "R", "C", "-", "I"] },
-                    { task: "Design Validation (DVT)", raci: ["I", "R", "I", "-", "A"] },
-                    { task: "Production Ramp-up", raci: ["C", "C", "R", "I", "A"] },
-                    { task: "Product Launch", raci: ["A", "I", "I", "R", "-"] }
+                    { name: "Market Research", r: ["I", "R", "I", "", "R", "A"] },
+                    { name: "Product Spec Definition", r: ["C", "A", "R", "C", "C", "I"] },
+                    { name: "Prototype Fabrication", r: ["", "I", "A", "R", "", "I"] }, 
+                    { name: "Design Validation (DVT)", r: ["", "I", "R", "I", "", "A"] },
+                    { name: "Production Ramp-up", r: ["I", "C", "C", "R", "I", "A"] },
+                    { name: "Product Launch", r: ["A", "R", "I", "I", "R", ""] }
                 ]
             },
             prototype: {
-                roles: ["Design Eng", "Workshop Tech", "Testing Lead", "Project Mgr"],
+                roles: ["Lab Manager", "Design Eng", "Workshop Tech", "Testing Lead", "Project Mgr"],
                 tasks: [
-                    { task: "CAD Model Prep", raci: ["R", "C", "I", "A"] },
-                    { task: "Material Procurement", raci: ["C", "R", "-", "A"] },
-                    { task: "Fabrication / Machining", raci: ["C", "R", "-", "I"] },
-                    { task: "Assembly", raci: ["R", "C", "-", "I"] },
-                    { task: "Performance Testing", raci: ["C", "I", "R", "A"] },
-                    { task: "Test Report", raci: ["R", "-", "A", "I"] }
-                ]
-            },
-            "3dprint": {
-                roles: ["Designer", "3D Print Tech", "Post-Processing", "QA Lead"],
-                tasks: [
-                    { task: "Design for Additive (DfAM)", raci: ["R", "C", "-", "I"] },
-                    { task: "File Slicing & Setup", raci: ["I", "R", "-", "-"] },
-                    { task: "Machine Operation", raci: ["-", "R", "-", "-"] },
-                    { task: "Part Removal & Cleaning", raci: ["-", "C", "R", "-"] },
-                    { task: "Dimensional Check", raci: ["I", "-", "-", "R"] }
+                    { name: "CAD Model Prep", r: ["I", "R", "C", "I", "A"] },
+                    { name: "Material Procurement", r: ["A", "C", "R", "", "I"] },
+                    { name: "Fabrication / Machining", r: ["A", "C", "R", "", "I"] },
+                    { name: "Assembly", r: ["I", "R", "C", "", "A"] },
+                    { name: "Performance Testing", r: ["I", "C", "I", "R", "A"] },
+                    { name: "Test Report", r: ["A", "R", "", "C", "I"] }
                 ]
             },
             software: {
-                roles: ["Developer", "Tech Lead", "Product Owner", "QA Tester", "DevOps"],
+                roles: ["Eng Manager", "Tech Lead", "Developer", "Product Owner", "QA Tester"],
                 tasks: [
-                    { task: "Write User Stories", raci: ["C", "C", "R", "I", "-"] },
-                    { task: "Code / Feature Dev", raci: ["R", "A", "I", "-", "-"] },
-                    { task: "Code Review (PR)", raci: ["I", "R", "-", "-", "-"] },
-                    { task: "Integration Testing", raci: ["C", "I", "I", "R", "-"] },
-                    { task: "Deploy to Prod", raci: ["I", "C", "A", "I", "R"] }
+                    { name: "Write User Stories", r: ["I", "C", "R", "A", "I"] }, 
+                    { name: "Sprint Planning", r: ["I", "R", "C", "A", "C"] },
+                    { name: "Feature Development", r: ["", "A", "R", "I", ""] },
+                    { name: "Code Review (PR)", r: ["", "A", "R", "", ""] },
+                    { name: "Integration Testing", r: ["", "A", "C", "I", "R"] }, 
+                    { name: "Deploy to Prod", r: ["A", "R", "I", "I", "I"] }
                 ]
             },
-            stem: {
-                roles: ["Volunteer (You)", "Teacher", "STEM Lead", "Students", "Manager"],
+            site: {
+                roles: ["Project Director", "Site Manager", "Foreman", "Safety Officer", "Sub-Contractor"],
                 tasks: [
-                    { task: "Define Activity Idea", raci: ["R", "C", "A", "I", "I"] },
-                    { task: "Risk Assessment (RAMS)", raci: ["R", "I", "A", "-", "C"] },
-                    { task: "Prepare Kits/Materials", raci: ["R", "-", "I", "-", "-"] },
-                    { task: "Deliver Session", raci: ["R", "A", "I", "C", "-"] },
-                    { task: "Supervise Students", raci: ["R", "R", "A", "C", "-"] },
-                    { task: "Feedback / Photos", raci: ["A", "R", "I", "C", "I"] }
+                    { name: "RAMS Approval", r: ["I", "A", "I", "R", "C"] },
+                    { name: "Daily Briefing / Toolbox Talk", r: ["", "A", "R", "C", "I"] },
+                    { name: "Permit to Work Issue", r: ["", "A", "R", "C", "R"] },
+                    { name: "Site Inspection Audit", r: ["I", "A", "I", "R", "C"] }, 
+                    { name: "Progress Reporting", r: ["A", "R", "C", "I", ""] }
                 ]
             },
-            lunch: {
-                roles: ["Organizer (You)", "Speaker", "Team Lead", "Attendees", "IT Support"],
+            safety: {
+                roles: ["Client", "Principal Designer", "Principal Contractor", "Designer", "H&S Manager"],
                 tasks: [
-                    { task: "Select Topic", raci: ["R", "C", "A", "I", "-"] },
-                    { task: "Book Room / Link", raci: ["R", "-", "I", "-", "C"] },
-                    { task: "Send Invites", raci: ["R", "I", "I", "I", "-"] },
-                    { task: "Prepare Slides", raci: ["I", "R", "A", "-", "-"] },
-                    { task: "Host Session", raci: ["R", "R", "I", "C", "C"] },
-                    { task: "Share Recording", raci: ["R", "I", "-", "I", "-"] }
-                ]
-            },
-            csr: {
-                roles: ["CSR Champ", "Volunteers", "Charity PoC", "Company Exec"],
-                tasks: [
-                    { task: "Identify Cause/Charity", raci: ["R", "C", "I", "A"] },
-                    { task: "Budget Approval", raci: ["R", "-", "-", "A"] },
-                    { task: "Event Logistics", raci: ["R", "C", "C", "I"] },
-                    { task: "Execute Event", raci: ["A", "R", "C", "I"] },
-                    { task: "Impact Report", raci: ["R", "C", "I", "A"] }
-                ]
-            },
-            conf: {
-                roles: ["Facilitator", "Speakers", "Venue Staff", "Delegates", "Sponsors"],
-                tasks: [
-                    { task: "Agenda Creation", raci: ["R", "C", "-", "I", "I"] },
-                    { task: "Venue/Catering", raci: ["A", "I", "R", "-", "-"] },
-                    { task: "Marketing", raci: ["R", "I", "-", "I", "C"] },
-                    { task: "Registration", raci: ["A", "-", "R", "C", "-"] },
-                    { task: "Running the Day", raci: ["R", "C", "C", "C", "I"] }
+                    { name: "F10 Notification", r: ["A", "R", "I", "", "C"] },
+                    { name: "Pre-Construction Info (PCI)", r: ["A", "R", "I", "C", "C"] },
+                    { name: "Construction Phase Plan (CPP)", r: ["I", "I", "A", "", "R"] },
+                    { name: "Design Risk Assessments", r: ["I", "A", "I", "R", "C"] },
+                    { name: "Health & Safety File", r: ["A", "R", "C", "C", "I"] }
                 ]
             },
             travel: {
-                roles: ["Traveler", "Line Mgr", "Travel Agent", "H&S Team"],
+                roles: ["Director", "Line Mgr", "Traveler", "Travel Agent", "H&S Team"],
                 tasks: [
-                    { task: "Determine Need", raci: ["R", "A", "-", "-"] },
-                    { task: "Budget Approval", raci: ["R", "A", "-", "-"] },
-                    { task: "Booking Flights/Hotel", raci: ["C", "I", "R", "-"] },
-                    { task: "Risk Assessment", raci: ["R", "A", "-", "C"] },
-                    { task: "Expense Reporting", raci: ["R", "A", "-", "-"] }
+                    { name: "Determine Business Need", r: ["A", "R", "C", "", ""] },
+                    { name: "Budget Approval", r: ["A", "R", "I", "", ""] },
+                    { name: "Booking Flights/Hotel", r: ["I", "A", "C", "R", ""] }, 
+                    { name: "Travel Risk Assessment", r: ["I", "A", "R", "", "C"] },
+                    { name: "Expense Reporting", r: ["I", "A", "R", "", ""] }
+                ]
+            },
+            stem: {
+                roles: ["Head Teacher", "STEM Lead (You)", "Volunteer Team", "Students", "Company Mgr"],
+                tasks: [
+                    { name: "Define Activity Idea", r: ["I", "R", "R", "I", "A"] }, 
+                    { name: "Risk Assessment (RAMS)", r: ["A", "R", "I", "", "C"] },
+                    { name: "Prepare Kits/Materials", r: ["", "A", "R", "", "I"] },
+                    { name: "Deliver Session", r: ["I", "A", "R", "C", ""] },
+                    { name: "Feedback / Photos", r: ["C", "A", "R", "C", "I"] }
+                ]
+            },
+            lunch: {
+                roles: ["Dept Head", "Organizer (You)", "Speaker", "Attendees", "IT Support"],
+                tasks: [
+                    { name: "Select Topic", r: ["A", "R", "C", "I", ""] },
+                    { name: "Book Room / Link", r: ["A", "R", "", "", "C"] }, 
+                    { name: "Send Invites", r: ["A", "R", "I", "I", ""] }, 
+                    { name: "Prepare Slides", r: ["I", "A", "R", "", ""] },
+                    { name: "Host Session", r: ["A", "R", "R", "C", "C"] }
+                ]
+            },
+            csr: {
+                roles: ["Board Sponsor", "CSR Champ", "Volunteers", "Charity PoC"],
+                tasks: [
+                    { name: "Identify Cause/Charity", r: ["A", "R", "C", "I"] },
+                    { name: "Budget Approval", r: ["A", "R", "", ""] },
+                    { name: "Event Logistics", r: ["I", "A", "R", "C"] },
+                    { name: "Execute Event", r: ["I", "A", "R", "C"] },
+                    { name: "Impact Report", r: ["A", "R", "C", "I"] }
+                ]
+            },
+            conf: {
+                roles: ["Event Director", "Facilitator", "Speakers", "Venue Staff", "Sponsors"],
+                tasks: [
+                    { name: "Agenda Creation", r: ["A", "R", "C", "", "I"] },
+                    { name: "Venue/Catering", r: ["A", "C", "I", "R", ""] },
+                    { name: "Marketing Strategy", r: ["A", "R", "I", "", "C"] },
+                    { name: "Registration Mgmt", r: ["I", "A", "", "R", ""] },
+                    { name: "Running the Day", r: ["A", "R", "C", "C", "I"] }
                 ]
             }
         };
 
-        // --- STORAGE LOGIC ---
-        function saveMatrix() {
-            const roles = [];
-            const headerInputs = document.querySelectorAll('#raciTable thead input');
-            headerInputs.forEach(input => roles.push(input.value));
-
-            const tasks = [];
-            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
-            bodyRows.forEach(row => {
-                const taskName = row.querySelector('td:first-child input').value;
-                const raci = [];
-                const selects = row.querySelectorAll('select');
-                selects.forEach(sel => raci.push(sel.value));
-                tasks.push({ task: taskName, raci: raci });
-            });
-
-            const matrixData = { roles, tasks };
-            localStorage.setItem('ee_raci_data', JSON.stringify(matrixData));
+        // --- INIT ---
+        function initApp() {
+            if (typeof renderToolHeader === 'function') {
+                renderToolHeader('raci');
+            }
+            if(!loadFromStorage()) {
+                loadScenario('technical', true); 
+            }
+            updateHistoryUI();
         }
 
-        function loadSavedMatrix() {
-            const saved = localStorage.getItem('ee_raci_data');
-            if (saved) {
-                renderTable(JSON.parse(saved));
-                return true;
+        // --- RENDER ENGINE ---
+        function renderMatrix() {
+            const headRow = document.getElementById('headerRow');
+            const body = document.getElementById('tableBody');
+            
+            // 1. Headers
+            while(headRow.children.length > 1) { headRow.removeChild(headRow.lastChild); }
+            
+            roles.forEach((role, idx) => {
+                const th = document.createElement('th');
+                th.className = "role-header";
+                th.scope = "col";
+                th.innerHTML = `<div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
+                                    <textarea class="role-input" onchange="handleRoleChange(${idx}, this.value)" oninput="autoResize(this)" aria-label="Role Name">${role}</textarea>
+                                    <div class="header-actions">
+                                        <button class="ctrl-btn btn-add" onclick="insertCol(${idx})" title="Insert Column After" aria-label="Insert Column After">+</button>
+                                        <button class="ctrl-btn btn-del" onclick="delCol(${idx})" title="Delete Column" aria-label="Delete Column">×</button>
+                                    </div>
+                                </div>`;
+                headRow.appendChild(th);
+            });
+
+            // 2. Body
+            body.innerHTML = "";
+            tasks.forEach((task, tIdx) => {
+                const tr = document.createElement('tr');
+                tr.id = `row-${tIdx}`;
+                
+                const tdName = document.createElement('th');
+                tdName.className = "task-row-header"; 
+                tdName.scope = "row";
+                tdName.innerHTML = `<div class="task-cell-container">
+                                        <div style="flex-grow:1; display:flex; flex-direction:column;">
+                                            <textarea class="task-input" onchange="handleTaskChange(${tIdx}, this.value)" oninput="autoResize(this)" aria-label="Task Name">${task.name}</textarea>
+                                        </div>
+                                        <div class="row-actions">
+                                            <button class="ctrl-btn btn-add" onclick="insertRow(${tIdx})" title="Insert Row Below" aria-label="Insert Row Below">+</button>
+                                            <button class="ctrl-btn btn-del" onclick="delRow(${tIdx})" title="Delete Row" aria-label="Delete Row">×</button>
+                                        </div>
+                                    </div>`;
+                tr.appendChild(tdName);
+
+                roles.forEach((_, rIdx) => {
+                    const td = document.createElement('td');
+                    const val = task.r[rIdx] || "";
+                    
+                    const select = document.createElement('select');
+                    select.className = `raci-select val-${val}`;
+                    select.onchange = (e) => updateCell(tIdx, rIdx, e.target.value);
+                    select.setAttribute('aria-label', `${task.name} - ${roles[rIdx]}`);
+                    
+                    const opts = ["", "R", "A", "C", "I"];
+                    opts.forEach(opt => {
+                        const el = document.createElement('option');
+                        el.value = opt;
+                        el.text = opt;
+                        if(opt === val) el.selected = true;
+                        select.appendChild(el);
+                    });
+
+                    td.appendChild(select);
+                    tr.appendChild(td);
+                });
+
+                body.appendChild(tr);
+            });
+            
+            document.querySelectorAll('textarea').forEach(el => autoResize(el));
+            runAudit();
+            saveToStorage();
+        }
+
+        // --- LOGIC WITH HISTORY WRAPPERS ---
+        
+        function updateCell(rowIdx, colIdx, val) {
+            saveState(); // Record before change
+            if(!tasks[rowIdx]) return;
+            if(!tasks[rowIdx].r) tasks[rowIdx].r = [];
+            tasks[rowIdx].r[colIdx] = val;
+            renderMatrix(); 
+        }
+
+        function insertRow(idx) {
+            saveState();
+            tasks.splice(idx + 1, 0, { name: "New Task...", r: new Array(roles.length).fill("") });
+            renderMatrix();
+        }
+
+        function insertCol(idx) {
+            saveState();
+            roles.splice(idx + 1, 0, "New Role");
+            tasks.forEach(t => t.r.splice(idx + 1, 0, ""));
+            renderMatrix();
+        }
+
+        function delRow(idx) {
+            saveState();
+            tasks.splice(idx, 1);
+            renderMatrix();
+        }
+
+        function delCol(idx) {
+            saveState();
+            roles.splice(idx, 1);
+            tasks.forEach(t => t.r.splice(idx, 1));
+            renderMatrix();
+        }
+
+        // New handlers for TextAreas to support Undo
+        function handleRoleChange(idx, val) {
+            saveState();
+            roles[idx] = val;
+            saveToStorage();
+        }
+
+        function handleTaskChange(idx, val) {
+            saveState();
+            tasks[idx].name = val;
+            saveToStorage();
+        }
+
+        function clearMatrix() {
+            if(confirm("Reset matrix to default state?")) {
+                saveState();
+                loadScenario('technical', true); // Force load
+            }
+        }
+
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = (el.scrollHeight) + 'px';
+        }
+
+        function loadScenario(overrideType, skipConfirmation) {
+            const selector = document.getElementById('scenarioSelect');
+            const type = overrideType || selector.value;
+            
+            if(!skipConfirmation && !confirm("Load template? This will overwrite your current matrix.")) return;
+            
+            if (!skipConfirmation) saveState(); 
+
+            if(type === 'custom') {
+               roles = ["Role 1", "Role 2", "Role 3"];
+               tasks = [{name: "Task 1", r: ["","",""]}];
+            } 
+            else if(typeof raciScenarios !== 'undefined' && raciScenarios[type]) {
+                const data = JSON.parse(JSON.stringify(raciScenarios[type]));
+                roles = data.roles;
+                tasks = data.tasks;
+            }
+            else if(fallbackScenarios[type]) {
+                const data = JSON.parse(JSON.stringify(fallbackScenarios[type]));
+                roles = data.roles;
+                tasks = data.tasks;
+            }
+            // If logic not found, default to technical
+            else if (fallbackScenarios['technical']) {
+                 const data = JSON.parse(JSON.stringify(fallbackScenarios['technical']));
+                 roles = data.roles;
+                 tasks = data.tasks;
+            }
+
+            renderMatrix();
+        }
+
+        // --- DETAILED AUDIT ---
+        function runAudit() {
+            const summary = document.getElementById('audit-summary');
+            let issues = [];
+
+            tasks.forEach((task, idx) => {
+                const row = document.getElementById(`row-${idx}`);
+                const rLine = task.r;
+                const countA = rLine.filter(x => x === 'A').length;
+                const countR = rLine.filter(x => x === 'R').length;
+
+                row.classList.remove('row-error', 'row-warning');
+                
+                if (countA === 0) {
+                    row.classList.add('row-error');
+                    issues.push(`<strong>Row ${idx+1}:</strong> Missing 'Accountable' Person`);
+                } else if (countA > 1) {
+                    row.classList.add('row-warning');
+                    issues.push(`<strong>Row ${idx+1}:</strong> Multiple 'Accountable' People`);
+                }
+                
+                if(countR === 0 && countA > 0) {
+                    row.classList.add('row-error'); 
+                    issues.push(`<strong>Row ${idx+1}:</strong> Missing 'Responsible' (Doer)`);
+                }
+            });
+            
+            if(issues.length === 0) {
+                summary.innerHTML = "✅ Matrix Healthy";
+                summary.className = "audit-box status-ok";
+            } else {
+                summary.className = "audit-box status-err";
+                summary.innerHTML = `<div style="font-weight:bold; margin-bottom:5px;">⚠️ Issues Detected:</div>` + 
+                                    `<ul class="status-list">` +
+                                    issues.slice(0, 4).map(i => `<li>${i}</li>`).join('') + 
+                                    (issues.length > 4 ? `<li>...and ${issues.length-4} more</li>` : '') +
+                                    `</ul>`;
+            }
+        }
+
+        function exportImage() {
+            const area = document.getElementById('capture-zone');
+            const originalOverflow = area.style.overflow;
+            area.style.overflow = "visible";
+            area.style.width = "fit-content";
+            
+            const ctrls = document.querySelectorAll('.header-actions, .row-actions');
+            ctrls.forEach(b => b.style.display = 'none');
+
+            html2canvas(area, {
+                scale: 2,
+                backgroundColor: "#ffffff",
+                scrollY: -window.scrollY
+            }).then(canvas => {
+                area.style.overflow = originalOverflow;
+                area.style.width = "auto";
+                ctrls.forEach(b => b.style.display = 'flex'); 
+
+                const link = document.createElement('a');
+                link.download = 'RACI_Matrix.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+
+        function exportCSV() {
+            let csv = "DELIVERABLE," + roles.join(",") + "\n";
+            tasks.forEach(t => {
+                const cleanName = `"${t.name.replace(/"/g, '""').replace(/\n/g, ' ')}"`;
+                csv += cleanName + "," + t.r.join(",") + "\n";
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            saveAs(blob, "RACI_Matrix.csv");
+        }
+
+        function saveToStorage() {
+            const data = { roles, tasks };
+            localStorage.setItem('ee_raci_data', JSON.stringify(data));
+            document.getElementById('save-status').innerText = "Saved " + new Date().toLocaleTimeString();
+        }
+
+        function loadFromStorage() {
+            const raw = localStorage.getItem('ee_raci_data');
+            if(raw) {
+                try {
+                    const data = JSON.parse(raw);
+                    roles = data.roles;
+                    tasks = data.tasks;
+                    renderMatrix();
+                    return true;
+                } catch(e) { console.error("Load failed", e); }
             }
             return false;
         }
-
-        function clearAllData() {
-            if(confirm("Erase all progress and clear storage?")) {
-                localStorage.removeItem('ee_raci_data');
-                loadScenario();
-            }
-        }
-
-        // --- RENDER LOGIC ---
-        function loadScenario() {
-            const selector = document.getElementById('scenarioSelect');
-            const key = selector.value;
-            const data = scenarios[key];
-            if (!data) return;
-            renderTable(data);
-            saveMatrix(); // Save initial preset state
-        }
-
-        function resetToDefaults() {
-            if(confirm("This will erase current edits and load the preset. Continue?")) {
-                loadScenario();
-            }
-        }
-
-        function renderTable(data) {
-            const tableHead = document.querySelector('#raciTable thead');
-            const tableBody = document.querySelector('#raciTable tbody');
-
-            tableHead.innerHTML = '';
-            tableBody.innerHTML = '';
-
-            let headerRow = document.createElement('tr');
-            let thFirst = document.createElement('th');
-            thFirst.innerText = "Task / Activity";
-            headerRow.appendChild(thFirst);
-
-            data.roles.forEach(role => {
-                let th = document.createElement('th');
-                let input = document.createElement('input');
-                input.type = "text";
-                input.value = role;
-                input.oninput = saveMatrix; // Save on header change
-                th.appendChild(input);
-                headerRow.appendChild(th);
-            });
-            tableHead.appendChild(headerRow);
-
-            data.tasks.forEach(item => {
-                addRowToTable(item.task, item.raci);
-            });
-        }
-
-        function addRowToTable(taskName = "New Task", raciValues = []) {
-            const tableBody = document.querySelector('#raciTable tbody');
-            const colCount = document.querySelectorAll('#raciTable thead th').length - 1;
-
-            let row = document.createElement('tr');
-            let tdName = document.createElement('td');
-            let input = document.createElement('input');
-            input.type = "text";
-            input.value = taskName;
-            input.oninput = saveMatrix; // Save on task name change
-            tdName.appendChild(input);
-            row.appendChild(tdName);
-
-            for (let i = 0; i < colCount; i++) {
-                let td = document.createElement('td');
-                let defaultVal = raciValues[i] || "-";
-                td.innerHTML = createSelect(defaultVal);
-                row.appendChild(td);
-            }
-
-            tableBody.appendChild(row);
-            updateAllColors();
-        }
-
-        function createSelect(defaultVal) {
-            const options = ['-', 'R', 'A', 'C', 'I'];
-            let optsHtml = options.map(opt => 
-                `<option value="${opt}" ${opt === defaultVal ? 'selected' : ''}>${opt}</option>`
-            ).join('');
-            
-            return `<select class="raci-select" onchange="colorize(this); saveMatrix()">${optsHtml}</select>`;
-        }
-
-        // --- GRID CONTROLS ---
-        function addRow() {
-            addRowToTable("New Task", []);
-            saveMatrix();
-        }
-
-        function removeRow() {
-            const tbody = document.querySelector('#raciTable tbody');
-            if (tbody.rows.length > 1) {
-                tbody.deleteRow(tbody.rows.length - 1);
-                saveMatrix();
-            }
-        }
-
-        function addCol() {
-            const headRow = document.querySelector('#raciTable thead tr');
-            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
-
-            let th = document.createElement('th');
-            let input = document.createElement('input');
-            input.type = "text";
-            input.value = "New Role";
-            input.oninput = saveMatrix;
-            th.appendChild(input);
-            headRow.appendChild(th);
-
-            bodyRows.forEach(row => {
-                let td = document.createElement('td');
-                td.innerHTML = createSelect("-");
-                row.appendChild(td);
-            });
-            
-            updateAllColors();
-            saveMatrix();
-        }
-
-        function removeCol() {
-            const headRow = document.querySelector('#raciTable thead tr');
-            const bodyRows = document.querySelectorAll('#raciTable tbody tr');
-
-            if (headRow.cells.length > 2) {
-                headRow.deleteCell(headRow.cells.length - 1);
-                bodyRows.forEach(row => {
-                    row.deleteCell(row.cells.length - 1);
-                });
-                saveMatrix();
-            }
-        }
-
-        // --- VISUALS ---
-        function colorize(selectElement) {
-            const val = selectElement.value;
-            selectElement.parentElement.classList.remove('r-code', 'a-code', 'c-code', 'i-code', 'white-code');
-
-            let className = 'white-code';
-            if (val === 'R') className = 'r-code';
-            if (val === 'A') className = 'a-code';
-            if (val === 'C') className = 'c-code';
-            if (val === 'I') className = 'i-code';
-
-            selectElement.parentElement.classList.add(className);
-        }
-
-        function updateAllColors() {
-            const selects = document.querySelectorAll('.raci-select');
-            selects.forEach(s => colorize(s));
-        }
-
-        // --- DOWNLOAD FIX: FULL SCROLL CAPTURE ---
-        function downloadMatrix() {
-            const captureArea = document.getElementById('matrixCapture');
-            
-            // 1. Save original styles
-            const originalOverflow = captureArea.style.overflow;
-            const originalWidth = captureArea.style.width;
-            
-            // 2. Force full expansion for capture
-            captureArea.style.overflow = "visible";
-            captureArea.style.width = "fit-content";
-
-            html2canvas(captureArea, {
-                backgroundColor: "#ffffff",
-                scale: 2,
-                scrollX: 0, 
-                scrollY: -window.scrollY // Correction for window scroll
-            }).then(canvas => {
-                // 3. Revert styles
-                captureArea.style.overflow = originalOverflow;
-                captureArea.style.width = originalWidth;
-
-                const link = document.createElement('a');
-                link.download = 'My_RACI_Matrix.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            }).catch(err => {
-                // Revert on error too
-                captureArea.style.overflow = originalOverflow;
-                captureArea.style.width = originalWidth;
-                alert("Image export failed. Please try on a desktop if possible.");
-            });
-        }
-
-        // Init App
-        function initApp() {
-            if (!loadSavedMatrix()) {
-                loadScenario(); // If nothing saved, load default
-            }
-        }
     </script>
-	
-	<script defer src="footer.js"></script>
 </body>
 </html>

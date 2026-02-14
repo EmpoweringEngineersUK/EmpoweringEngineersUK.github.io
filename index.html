@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-       
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free engineering tools for CEng, IEng, and EngTech registration. AI-powered writers, CPD planners, and interview simulators. Privacy-focused & open access.">
-	<meta property="og:title" content="Empowering Engineers UK">
-	<meta property="og:description" content="Free engineering tools for CEng, IEng, and EngTech registration. AI-powered writers, CPD planners, and interview simulators. Privacy-focused & open access.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/index.html">
-	<meta property="og:type" content="website">
-	
-	<title>Home | EmpoweringEngineers.uk</title>
-    <link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Free engineering tools for EngTech, IEng, and CEng registration. AI-powered writers, UK-SPEC competency trackers, and CPD planners. Secure, browser-based, and open access.">
+    <meta name="keywords" content="EngTech, IEng, CEng, UK-SPEC, Engineering Council, CPD Log, STAR Technique, Professional Review, Interview">
+    <meta property="og:title" content="Empowering Engineers UK | Professional Registration Tools">
+    <meta property="og:description" content="Accelerate your journey to Engineering Technician (EngTech), Incorporated Engineer (IEng) or Chartered Engineer (CEng) status with our high-trust technical toolset.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/index.html">
+    <meta property="og:type" content="website">
+    <title>Home | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
     
     <style>
-        /* HOMEPAGE SPECIFIC STYLES */
-        
+        /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
+        body, button, input, select, textarea, .hero-text, .tool-title, .tool-desc, .tool-arrow, h2, h3, h4, h5, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* PAGE SPECIFIC LAYOUT */
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HERO SECTION */
         .hero-section {
             text-align: center;
             padding: 40px 20px;
@@ -34,10 +38,9 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* THE FIX: Responsive Logo Styling */
         .hero-logo {
-            max-width: 650px; /* Limits width on large screens */
-            width: 90%;       /* Fits nicely on mobile */
+            max-width: 650px; 
+            width: 90%;        
             height: auto;
             display: block;
             margin: 0 auto 20px auto;
@@ -51,11 +54,32 @@
             line-height: 1.6;
         }
 
-        /* Tool Grid for Homepage */
+        .hero-btn {
+            display: inline-block;
+            width: auto;
+            padding: 12px 30px;
+            text-decoration: none;
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            cursor: pointer; /* Added for button element compatibility */
+            font-size: 1rem; /* Consistency */
+        }
+
+        .hero-btn:hover {
+            background-color: var(--terminal-green);
+            color: #000;
+            border-color: var(--terminal-green);
+        }
+
+        /* TOOL GRID (FLEXBOX FIX) */
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increased width for better text wrapping */
+            gap: 25px;
         }
 
         .tool-card {
@@ -65,9 +89,10 @@
             padding: 25px;
             text-decoration: none;
             transition: transform 0.2s, border-color 0.2s;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            display: flex;       /* ENABLES FLEX LAYOUT */
+            flex-direction: column; /* STACKS ITEMS VERTICALLY */
+            height: 100%;        /* FILLS GRID CELL HEIGHT */
+            box-sizing: border-box;
         }
 
         .tool-card:hover {
@@ -76,33 +101,102 @@
         }
 
         .tool-title {
-            font-family: 'Courier Prime', monospace;
             color: var(--terminal-green);
             font-weight: bold;
             font-size: 1.1rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tool-desc {
             color: var(--cloud-white);
-            font-size: 0.9rem;
-            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1; /* THIS PUSHES THE ARROW DOWN */
         }
 
         .tool-arrow {
             text-align: right;
             color: var(--burnt-orange);
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
     </style>
 </head>
-<body>
-    <script src="header_nav.js"></script>
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
+	
+    <script>
+        const ThemeManager = {
+            states: [null, 'light', 'contrast'], // null = Default Midnight Navy
+            labels: ['DEFAULT DARK', 'SITE LIGHT', 'HIGH VISIBILITY'],
+            
+            init: function() {
+                // Check local storage immediately
+                const savedTheme = localStorage.getItem('ee_theme');
+                if (savedTheme) {
+                    document.body.setAttribute('data-theme', savedTheme);
+                }
+            },
+
+            toggle: function() {
+                const currentTheme = document.body.getAttribute('data-theme');
+                let nextIndex = this.states.indexOf(currentTheme) + 1;
+                
+                // Cycle back to 0 if at end of list
+                if (nextIndex >= this.states.length) nextIndex = 0;
+                
+                const nextTheme = this.states[nextIndex];
+
+                if (nextTheme) {
+                    document.body.setAttribute('data-theme', nextTheme);
+                    localStorage.setItem('ee_theme', nextTheme);
+                } else {
+                    document.body.removeAttribute('data-theme');
+                    localStorage.removeItem('ee_theme');
+                }
+                
+                this.updateButtonLabel();
+            },
+
+            updateButtonLabel: function() {
+                const btn = document.getElementById('a11y-btn');
+                if(!btn) return;
+                
+                const currentTheme = document.body.getAttribute('data-theme');
+                const index = this.states.indexOf(currentTheme || null);
+                
+                // Update button text to show what is currently active
+                btn.innerHTML = `&#128065; VIEW: ${this.labels[index]}`;
+            }
+        };
+
+        // Run Init
+        ThemeManager.init();
+        
+        // Ensure label updates once DOM is ready
+        document.addEventListener('DOMContentLoaded', () => ThemeManager.updateButtonLabel());
+    </script>
+
+    <script defer src="header_nav.js?v=11.1"></script>
 
     <div class="container">
         
+        <div style="text-align: center; margin-bottom: 20px; overflow: hidden; min-height: 90px;">
+             <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-7071036534151105"
+                  data-ad-slot="9995687043"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+             <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+             </script>
+        </div>
+
         <div class="hero-section">
             <img src="EE_Logo_rect_Solid.png" alt="Empowering Engineers UK" class="hero-logo">
             
@@ -110,100 +204,124 @@
                 Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration through the Engineering Council.
             </p>
             
-            <a href="guide.html" class="action-btn" style="display: inline-block; width: auto; padding: 12px 30px; text-decoration: none;">
-                VIEW USER MANUAL & SOP
-            </a>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="guide.html" class="hero-btn">
+                    VIEW USER MANUAL & SOP
+                </a>
+
+                <button id="a11y-btn" 
+                        class="hero-btn" 
+                        onclick="ThemeManager.toggle()"
+                        aria-label="Toggle Colour Scheme">
+                    &#128065; VIEW: DEFAULT DARK
+                </button>
+            </div>
         </div>
 
-        <div class="tool-grid">
+        <nav class="tool-grid">
             
+            <a href="application_tool.html" class="tool-card">
+                <div class="tool-title">Application Architect</div>
+                <div class="tool-desc">The all-in-one workspace. Draft, audit, and export your entire CEng or IEng application with real-time scoring.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
             <a href="career_tool.html" class="tool-card">
                 <div class="tool-title">Career Starter</div>
-                <div class="tool-desc">Generate a technical CV and Cover Letter tailored to your experience.</div>
+                <div class="tool-desc">Generate a technical CV and Cover Letter tailored to your specific engineering discipline and experience level.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="cpd_tool.html" class="tool-card">
                 <div class="tool-title">CPD Smart-Planner</div>
-                <div class="tool-desc">Identify gaps and build a 70/20/10 Development Action Plan.</div>
+                <div class="tool-desc">Audit your skills against UK-SPEC A-E and build a strategic 70/20/10 Development Action Plan.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="raci_tool.html" class="tool-card">
                 <div class="tool-title">RACI Matrix</div>
-                <div class="tool-desc">Define team roles and responsibilities for projects.</div>
+                <div class="tool-desc">Define clear team roles (Responsible, Accountable, Consulted, Informed) for complex engineering projects.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="STAR_engine.html" class="tool-card">
                 <div class="tool-title">STAR Engine</div>
-                <div class="tool-desc">Draft competency evidence using the Situation-Task-Action-Result format.</div>
+                <div class="tool-desc">Structure your competency evidence using the Situation-Task-Action-Result format required by institutions.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="ethics_tool.html" class="tool-card">
                 <div class="tool-title">Ethics Compass</div>
-                <div class="tool-desc">Navigate ethical dilemmas using RAEng principles.</div>
+                <div class="tool-desc">Navigate ethical dilemmas using Royal Academy of Engineering principles and generate conflict resolution scripts.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="feedback_tool.html" class="tool-card">
                 <div class="tool-title">Management Coach</div>
-                <div class="tool-desc">Frameworks (SWOT, PESTLE, GROW) for strategy and leadership.</div>
+                <div class="tool-desc">Apply strategic frameworks (SWOT, PESTLE, GROW) to demonstrate leadership competence.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="glossary_tool.html" class="tool-card">
                 <div class="tool-title">Decoder</div>
-                <div class="tool-desc">Search 14,000+ engineering acronyms and abbreviations.</div>
+                <div class="tool-desc">Search 14,000+ engineering acronyms and abbreviations from Nuclear, Rail, Aerospace, and Civil sectors.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="hardware_tool.html" class="tool-card">
                 <div class="tool-title">Component Atlas</div>
-                <div class="tool-desc">Interactive blueprint database for engineering hardware.</div>
+                <div class="tool-desc">Interactive blueprint database for engineering hardware, including failure modes and design parameters.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="reference_tool.html" class="tool-card">
                 <div class="tool-title">Library</div>
-                <div class="tool-desc">Curated collection of formulas, standards, and trusted websites.</div>
+                <div class="tool-desc">Curated collection of formulas, ISO standards, and trusted technical references.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="report_tool.html" class="tool-card">
                 <div class="tool-title">Report Architect</div>
-                <div class="tool-desc">Structure your CEng/IEng application report.</div>
+                <div class="tool-desc">Structure your Professional Review Report with proven templates for Failure Analysis and Design Studies.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="dap_tool.html" class="tool-card">
                 <div class="tool-title">DAP Architect</div>
-                <div class="tool-desc">Build a strategic Development Action Plan.</div>
+                <div class="tool-desc">Build a long-term strategic Development Action Plan to maintain your professional registration (Obligation 4).</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
             <a href="interview_tool.html" class="tool-card">
                 <div class="tool-title">Virtual Interviewer</div>
-                <div class="tool-desc">Practice timed UK-SPEC questions with AI critique.</div>
+                <div class="tool-desc">Practice timed UK-SPEC questions with AI critique to prepare for your Professional Review Interview.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
 
-            <a href="linkedin_banner_gen.html" class="tool-card">
-                <div class="tool-title">Banner Gen</div>
-                <div class="tool-desc">Create professional LinkedIn banners.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
+        </nav>
 
-             <a href="logo_tool.html" class="tool-card">
-                <div class="tool-title">Logo Studio</div>
-                <div class="tool-desc">Export the brand logo for presentations.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
+        <article class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+            <h3>Professional Engineering Standards</h3>
+            <p>Empowering Engineers UK is an open-access platform designed to democratise professional registration. We believe that lack of formal mentorship should not be a barrier to achieving <strong>Chartered Status (CEng)</strong>, <strong>Incorporated Engineer (IEng)</strong>, or <strong>EngTech</strong>.</p>
+            
+            <div class="ad-slot" style="height:auto; min-height:100px; margin: 20px 0; border:none; background:none;">
+                <span style="font-size:0.6rem; color:var(--slate-grey); display:block; text-align:center;">ADVERTISEMENT</span>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7071036534151105"
+                     data-ad-slot="4413012282"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
 
-        </div>
+            <h4>Privacy & Data Integrity</h4>
+            <p>We utilise <strong>Local Storage</strong> technology. This ensures your sensitive project data, CV drafts, and STAR evidence never leave your browser. No data is stored on our servers, ensuring total confidentiality for your professional work.</p>
+        </article>
     </div>
 
-    <script defer src="footer.js"></script>
+    <script defer src="footer.js?v=12"></script>
 </body>
 </html>

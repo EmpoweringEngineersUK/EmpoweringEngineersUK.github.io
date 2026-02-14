@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PG4ZJ7W444');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Structure your CEng or IEng Professional Review Report. Proven templates for IMechE, IET, and ICE applications, including Failure Analysis formats.">
-	<meta property="og:title" content="Technical Report Architect | Empowering Engineers UK">
-	<meta property="og:description" content="Structure your CEng or IEng Professional Review Report. Proven templates for IMechE, IET, and ICE applications, including Failure Analysis formats.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/report_tool.html">
-	<meta property="og:type" content="website">
-    
-    <title>Technical Report Architect | EmpoweringEngineers.uk</title>
-	<link rel="icon" type="image/jpeg" href="Favicon.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css">
-    
-    <style>
-        /* PAGE SPECIFIC LAYOUT 
-           Buttons, Forms, and Typography are handled by layout.css 
-        */
-        
+    <meta name="description" content="Structure your CEng or IEng Professional Review Report. Proven templates for IMechE, IET, and ICE applications.">
+    <meta property="og:title" content="Technical Report Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Structure your CEng or IEng Professional Review Report. Proven templates for IMechE, IET, and ICE applications.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/report_tool.html">
+    <meta property="og:type" content="website">
+    <title>Report Assembler | Empowering Engineers UK</title>
+    <link rel="icon" type="image/png" href="Favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css?v=12">
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="outlines.js?v=12"></script>
+	<style>
+        /* --- FONT ENFORCEMENT --- */
+        body, button, input, select, textarea, .field-label, .preview-panel, .section-header, .block-title, .block-rationale, .tool-bar-btn {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* LAYOUT */
         .report-container {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 40px auto;
+            grid-template-columns: 450px 1fr;
+            gap: 25px;
+            max-width: 1300px;
+            margin: 20px auto;
             padding: 0 20px;
         }
 
@@ -48,153 +42,501 @@
 
         .preview-panel {
             background: var(--dark-card);
-            padding: 40px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            min-height: 600px;
-            font-family: 'Times New Roman', serif; /* Simulating Word Doc */
-            color: #d1d5db;
+            color: var(--cloud-white);
+            font-size: 0.95rem;
+            display: flex; 
+            flex-direction: column;
+            min-height: 800px;
+            padding: 30px;
+        }
+
+        /* --- THE "BLOCK BUILDER" UI --- */
+        .block-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+            margin-bottom: 20px;
+        }
+
+        .block-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            border-left: 4px solid var(--slate-grey);
+        }
+
+        .block-card:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateX(2px);
+        }
+
+        /* Active State */
+        .block-card.active {
+            background: rgba(0, 255, 153, 0.05);
+            border-color: var(--terminal-green);
+            border-left-color: var(--terminal-green);
+        }
+
+        /* Disabled State */
+        .block-card.inactive {
+            opacity: 0.5;
+            border-left-color: var(--border-color);
+        }
+
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .block-title {
+            font-weight: bold;
+            color: var(--cloud-white);
+            font-size: 0.95rem;
+        }
+
+        .block-rationale {
+            font-size: 0.75rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        .badge-req {
+            font-size: 0.6rem;
+            background: var(--burnt-orange);
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* CONTROL BUTTONS */
+        .smart-select-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .mini-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--slate-grey);
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .mini-btn:hover { border-color: var(--cloud-white); color: var(--cloud-white); }
+
+        /* TOOLBAR */
+        .output-toolbar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .tool-bar-btn {
+            background: var(--dark-card);
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .tool-bar-btn:hover { background: var(--terminal-green); color: var(--dark-card); }
+        .btn-word { border-color: #54a0ff; color: #54a0ff; }
+        .btn-word:hover { background: #54a0ff; color: #fff; }
+        .btn-ai { border-color: #feca57; color: #feca57; }
+        .btn-ai:hover { background: #feca57; color: #000; }
+
+        /* AD & OUTPUT */
+        .ad-container-mpu {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.1);
+            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 15px;
+            flex-shrink: 0; 
+        }
+
+        .output-content-box {
+            flex-grow: 1;
             line-height: 1.6;
             white-space: pre-wrap;
+            color: var(--cloud-white);
+            overflow-y: auto;
         }
 
-        .section-header {
-            color: var(--terminal-green);
-            font-family: 'Courier Prime', monospace;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed var(--slate-grey);
-            padding-bottom: 5px;
-        }
-
-        /* Custom Label styling not covered by global forms */
-        .field-label {
-            color: var(--burnt-orange); 
-            font-size: 0.85rem; 
-            display: block; 
-            margin-bottom: 5px;
-            font-family: 'Courier Prime', monospace;
-            font-weight: bold;
-        }
+        .field-label { color: var(--burnt-orange); font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; display:block; text-transform:uppercase;}
 
         @media (max-width: 900px) {
             .report-container { grid-template-columns: 1fr; }
+            .output-toolbar { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
+<body onload="initApp()">
+    <script defer src="header_nav.js?v=12"></script>
+    <script defer src="tools_data.js?v=12"></script>
     
-    <script defer src="header_nav.js"></script>
-
+    <div class="container" style="margin-top: 0;"> 
+        <div id="tool-header-target" style="grid-column: 1 / -1;"></div>
+    </div>
+    
     <div class="report-container">
         
         <div class="controls-panel">
-            <div class="section-header">>> REPORT_CONFIGURATION</div>
+            <div class="section-header" style="color:var(--terminal-green); border-bottom:1px dashed var(--slate-grey); margin-bottom:15px; font-weight:bold;">>> BLUEPRINT CONFIGURATION</div>
             
-            <label class="field-label">REPORT TYPE</label>
-            <select id="reportType" onchange="updateOptions()">
-                <option value="imeche">IMechE / IET Professional Review Report</option>
-                <option value="failure">Failure Analysis (Root Cause)</option>
-                <option value="feasibility">Feasibility Study / Optioneering</option>
-                <option value="technical">Standard Technical Report</option>
-            </select>
+            <label class="field-label">1. Select Report Type</label>
+            <select id="reportType" class="action-select" onchange="loadBlueprint()">
+                </select>
+            <div id="typeDescription" style="font-size:0.8rem; color:var(--slate-grey); margin:10px 0; font-style:italic; padding-left:10px; border-left:2px solid var(--slate-grey);"></div>
 
-            <label class="field-label">REPORT TITLE</label>
-            <input type="text" id="reportTitle" placeholder="e.g. Redesign of Cooling System...">
+            <label class="field-label" style="margin-top:20px;">2. Assemble Structure</label>
+            
+            <div class="smart-select-bar">
+                <button class="mini-btn" onclick="selectAll()">Select All</button>
+                <button class="mini-btn" onclick="selectCore()">Core Only</button>
+                <button class="mini-btn" onclick="clearAll()">Clear</button>
+            </div>
 
-            <label class="field-label">AUTHOR NAME</label>
-            <input type="text" id="authorName" placeholder="Name, BEng (Hons)...">
+            <div id="blockContainer" class="block-container">
+                </div>
 
-            <div id="dynamicOptions"></div>
+            <label class="field-label">3. File Details</label>
+            <input type="text" id="reportTitle" placeholder="Report Title..." class="input-field" style="margin-bottom:10px;">
+            <input type="text" id="authorName" placeholder="Author Name..." class="input-field">
 
-            <button class="btn-primary" onclick="generateReport()">INITIALISE STRUCTURE</button>
-            <button class="btn-secondary" onclick="downloadWord()">EXPORT TO WORD (.DOC)</button>
+            <button class="action-btn" onclick="generateOutput()" style="margin-top:25px; width:100%;">GENERATE PREVIEW</button>
         </div>
 
-        <div class="preview-panel" id="outputArea">
-            <div style="text-align:center; padding-top:100px; font-family:'Arial'; color:var(--slate-grey);">
-                <h3>Ready to Draft</h3>
-                <p>Configure your report on the left and click 'Initialise'.<br>The tool will generate a professional skeleton structure.</p>
+        <div class="preview-panel">
+            
+            <div class="ad-container-mpu">
+                <span style="font-size:0.6rem; color:var(--slate-grey); text-transform:uppercase; margin-bottom:5px;">Advertisement</span>
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-7071036534151105"
+                     data-ad-slot="4413012282"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="output-toolbar">
+                <button class="tool-bar-btn" onclick="copyOutline()">&#128203; Copy Outline</button>
+                <button class="tool-bar-btn btn-ai" onclick="generateAIPrompt()">&#10024; AI Coach Prompt</button>
+                <button class="tool-bar-btn btn-word" onclick="downloadDocx()">&#11015; Export .DOCX</button>
+            </div>
+
+            <div id="outputArea" class="output-content-box">
+                <div style="text-align:center; padding-top:20px; color:var(--slate-grey);">
+                    <h3 style="color:var(--terminal-green); margin-bottom:10px;">Ready to Draft</h3>
+                    <p>Select your blocks on the left and click 'Generate Preview'.<br>The tool will number your sections automatically.</p>
+                </div>
             </div>
         </div>
-		<div class="card" style="grid-column: 1 / -1; margin-top: 40px; border-top: 2px solid var(--terminal-green);">
-            <h3>Writing for Professional Registration</h3>
-            <p>The Professional Review Report is the most critical document in your application for CEng or IEng. Unlike a standard academic thesis or technical whitepaper, its primary purpose is not to explain <em>how technology works</em>, but to prove <em>how you work</em>.</p>
-            
-            <h4>Competence vs. Technical Description</h4>
-            <p>Reviewers are looking for evidence of your personal contribution. A common mistake is describing the "Team's" achievements ("We designed a bridge...") rather than your specific role ("I calculated the wind loading...").</p>
-            
+
+        <div class="card" style="grid-column: 1 / -1; margin-top: 40px; border-top: 2px solid var(--terminal-green);">
+            <h3>Why Use Detailed Outlines?</h3>
+            <p>Professional Engineering reports (CEng/IEng) fail when they miss the "Why". This tool forces you to include the Rationale for every section.</p>
             <ul>
-                <li><strong>The Technical Report (Option for some routes):</strong> Demonstrates deep technical knowledge (UK-SPEC A) equivalent to Masters level (for CEng) or Bachelors level (for IEng).</li>
-                <li><strong>The Competence Report:</strong> Maps your career history against the 5 UK-SPEC standards (A-E), proving you are a safe, competent, and ethical professional.</li>
+                <li><strong>Dynamic Numbering:</strong> Untick a section, and the rest re-number automatically.</li>
+                <li><strong>Drafting Triggers:</strong> Each section includes specific questions you must answer to satisfy the reviewer.</li>
             </ul>
-            
-            <p>Use this tool to generate a skeleton structure that forces you to address these specific criteria paragraph by paragraph.</p>
         </div>
     </div>
 
-    <script defer src="footer.js"></script>
+    <script defer src="footer.js?v=12"></script>
 
     <script>
-        // --- REPORT LOGIC ---
-        
-        const templates = {
-            imeche: {
-                sections: ["Introduction & Project Scope", "Technical Complexity (UK-SPEC A)", "Problem Solving (UK-SPEC B)", "Leadership & Management (UK-SPEC C)", "Safety & Ethics (UK-SPEC E)", "Conclusion"],
-                hints: "Focus on 'I' not 'We'. Map every paragraph to a competence."
-            },
-            failure: {
-                sections: ["Executive Summary", "Incident Description", "Evidence Gathering", "Root Cause Analysis (5 Whys / Fishbone)", "Corrective Actions", "Preventative Recommendations"],
-                hints: "Be factual. Separate observation from opinion."
-            },
-            feasibility: {
-                sections: ["Executive Summary", "Business Need", "Option 1: Do Nothing", "Option 2: Retrofit", "Option 3: Full Replacement", "Cost-Benefit Analysis", "Recommendation"],
-                hints: "Use Tables for comparison. Focus on Lifecycle Cost."
-            },
-            technical: {
-                sections: ["Abstract", "Introduction", "Methodology", "Results / Data Analysis", "Discussion", "Conclusion", "References"],
-                hints: "Standard academic/industry format."
-            }
-        };
+        let currentBlocks = []; // State of current blocks
 
-        function updateOptions() {
-            // Placeholder for future dynamic options if needed
+        // --- 1. MASTER INITIALISATION ---
+        function initApp() {
+            // A. Trigger Header (Title, Desc, Ads)
+            if (typeof renderToolHeader === "function") {
+                renderToolHeader('report');
+            } else {
+                console.warn("Tool Header system not loaded.");
+            }
+
+            // B. Initialize Tool Logic
+            initTool();
         }
 
-        function generateReport() {
-            const type = document.getElementById('reportType').value;
+        // --- 2. TOOL LOGIC ---
+        function initTool() {
+            const selector = document.getElementById('reportType');
+            
+            if (typeof outlineDb === 'undefined') {
+                document.getElementById('outputArea').innerHTML = "<p style='color:red'>ERROR: outlines.js not found. Please ensure the file is loaded.</p>";
+                return;
+            }
+
+            // Populate Dropdown from outlineDb
+            for (const [key, data] of Object.entries(outlineDb)) {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.innerText = data.title;
+                selector.appendChild(opt);
+            }
+            
+            // Load initial state
+            loadBlueprint();
+        }
+
+        function loadBlueprint() {
+            const key = document.getElementById('reportType').value;
+            if(!key || !outlineDb[key]) return;
+
+            const data = outlineDb[key];
+            document.getElementById('typeDescription').innerText = data.description;
+            
+            const container = document.getElementById('blockContainer');
+            container.innerHTML = "";
+            currentBlocks = [];
+
+            // Generate UI Blocks
+            data.sections.forEach((sec, index) => {
+                const blockId = `blk_${index}`;
+                
+                // State object
+                currentBlocks.push({
+                    id: blockId,
+                    data: sec,
+                    active: true // Default to active
+                });
+
+                const div = document.createElement('div');
+                div.className = 'block-card active'; // Start active
+                div.id = blockId;
+                div.onclick = () => toggleBlock(index);
+
+                // Required Badge Logic
+                const reqBadge = sec.required ? `<span class="badge-req">REQ</span>` : "";
+
+                div.innerHTML = `
+                    <div class="block-header">
+                        <span class="block-title">${sec.title}</span>
+                        ${reqBadge}
+                    </div>
+                    <div class="block-rationale">${sec.rationale}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function toggleBlock(index) {
+            const blockState = currentBlocks[index];
+            if(blockState.data.required) return; // Prevent toggling if Required
+
+            blockState.active = !blockState.active;
+            
+            const el = document.getElementById(blockState.id);
+            if(blockState.active) {
+                el.classList.add('active');
+                el.classList.remove('inactive');
+            } else {
+                el.classList.add('inactive');
+                el.classList.remove('active');
+            }
+        }
+
+        // --- SMART SELECT FUNCTIONS ---
+        function selectAll() {
+            currentBlocks.forEach((b, i) => { if(!b.active) toggleBlock(i); });
+        }
+        
+        function clearAll() {
+            currentBlocks.forEach((b, i) => { if(b.active && !b.data.required) toggleBlock(i); });
+        }
+
+        function selectCore() {
+            clearAll();
+            currentBlocks.forEach((b, i) => { if(b.data.required && !b.active) toggleBlock(i); });
+        }
+
+        // --- PREVIEW GENERATION ---
+        function getGeneratedContent() {
             const title = document.getElementById('reportTitle').value || "[REPORT TITLE]";
             const author = document.getElementById('authorName').value || "[AUTHOR NAME]";
             const date = new Date().toLocaleDateString('en-GB');
 
-            const template = templates[type];
-            let content = `TITLE: ${title.toUpperCase()}\nAUTHOR: ${author}\nDATE: ${date}\nTYPE: ${type.toUpperCase()} TEMPLATE\n\n`;
+            let content = `TITLE: ${title.toUpperCase()}\nAUTHOR: ${author}\nDATE: ${date}\n\n`;
             content += `-------------------------------------------------------\n\n`;
 
-            template.sections.forEach((sec, index) => {
-                content += `${index + 1}.0 ${sec.toUpperCase()}\n`;
-                content += `[Drafting Note: ${template.hints}]\n\n(Write your content here...)\n\n\n`;
-            });
+            let counter = 1;
 
-            document.getElementById('outputArea').innerText = content;
+            currentBlocks.forEach(b => {
+                if(b.active) {
+                    content += `${counter}.0 ${b.data.title.toUpperCase()}\n`;
+                    content += `[RATIONALE: ${b.data.rationale}]\n`;
+                    if(b.data.triggers && b.data.triggers.length > 0) {
+                        content += `DRAFTING PROMPTS:\n`;
+                        b.data.triggers.forEach(t => content += `  - ${t}\n`);
+                    }
+                    content += `\n(Write here...)\n\n\n`;
+                    counter++;
+                }
+            });
+            return content;
         }
 
-        function downloadWord() {
-            const text = document.getElementById('outputArea').innerText;
-            if(!text || text.includes("Ready to Draft")) { alert("Please generate a report first."); return; }
+        function generateOutput() {
+            document.getElementById('outputArea').innerText = getGeneratedContent();
+        }
 
-            const htmlContent = text.replace(/\n/g, '<br>');
-            const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Report</title></head><body><div style='font-family:Calibri, sans-serif; font-size:12pt;'>";
-            const footer = "</div></body></html>";
-            
-            const sourceHTML = header + htmlContent + footer;
-            const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-            const fileDownload = document.createElement("a");
-            document.body.appendChild(fileDownload);
-            fileDownload.href = source;
-            fileDownload.download = 'EmpoweringEngineers_Draft.doc';
-            fileDownload.click();
-            document.body.removeChild(fileDownload);
+        // --- ACTIONS ---
+        function copyOutline() {
+            const text = document.getElementById('outputArea').innerText;
+            if(!text || text.includes("Ready to Draft")) { alert("Generate Preview first."); return; }
+            navigator.clipboard.writeText(text).then(() => { alert("Outline copied to clipboard."); });
+        }
+
+        function generateAIPrompt() {
+            const title = document.getElementById('reportTitle').value || "My Technical Report";
+            let structureList = "";
+            let counter = 1;
+
+            currentBlocks.forEach(b => {
+                if(b.active) {
+                    structureList += `${counter}.0 ${b.data.title} (Context: ${b.data.rationale})\n`;
+                    counter++;
+                }
+            });
+
+            if(structureList === "") { alert("Generate Preview first."); return; }
+
+            const metaPrompt = `Act as a Senior Chartered Engineer and Writing Coach. I am writing a technical report titled: "${title}".\nI have defined the following structure:\n\n${structureList}\n\nPlease acknowledge this structure. Act as my mentor. Ask me for the details regarding Section 1.0 so we can begin drafting content section by section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                alert("AI Prompt copied! Paste into ChatGPT/Claude.");
+            });
+        }
+
+        // --- TRUE .DOCX EXPORT ---
+        function downloadDocx() {
+            if(!currentBlocks.some(b => b.active)) { alert("Generate Preview first."); return; }
+
+            const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Header, Footer } = docx;
+
+            const title = document.getElementById('reportTitle').value || "Technical Report";
+            const author = document.getElementById('authorName').value || "Author";
+
+            const children = [];
+
+            // Title Page
+            children.push(new Paragraph({
+                text: title.toUpperCase(),
+                heading: HeadingLevel.TITLE,
+                alignment: AlignmentType.CENTER,
+                spacing: { after: 300 }
+            }));
+            children.push(new Paragraph({
+                text: `Author: ${author}`,
+                alignment: AlignmentType.CENTER
+            }));
+            children.push(new Paragraph({
+                text: `Date: ${new Date().toLocaleDateString('en-GB')}`,
+                alignment: AlignmentType.CENTER,
+                spacing: { after: 800 }
+            }));
+
+            // Sections
+            let counter = 1;
+            currentBlocks.forEach(b => {
+                if(b.active) {
+                    // Heading (1.0 TITLE)
+                    children.push(new Paragraph({
+                        text: `${counter}.0 ${b.data.title}`,
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 100 }
+                    }));
+
+                    // Rationale (Italic Blue)
+                    children.push(new Paragraph({
+                        children: [
+                            new TextRun({
+                                text: `Rationale: ${b.data.rationale}`,
+                                italics: true,
+                                color: "005a9c", // Engineer Blue
+                                size: 20 // 10pt
+                            })
+                        ],
+                        spacing: { after: 100 }
+                    }));
+
+                    // Triggers (Bullet Points)
+                    if(b.data.triggers) {
+                        b.data.triggers.forEach(trig => {
+                            children.push(new Paragraph({
+                                text: trig,
+                                bullet: { level: 0 },
+                                spacing: { after: 50 }
+                            }));
+                        });
+                    }
+
+                    // Placeholder space
+                    children.push(new Paragraph({
+                        text: "[Write content here...]",
+                        spacing: { before: 200, after: 400 }
+                    }));
+
+                    counter++;
+                }
+            });
+
+            // Create Doc
+            const doc = new Document({
+                sections: [{
+                    properties: {},
+                    children: children,
+                    footers: {
+                        default: new Footer({
+                            children: [
+                                new Paragraph({
+                                    text: "Generated by Empowering Engineers UK",
+                                    alignment: AlignmentType.CENTER,
+                                    size: 16
+                                })
+                            ]
+                        })
+                    }
+                }]
+            });
+
+            // Save
+            Packer.toBlob(doc).then(blob => {
+                saveAs(blob, `EE_Report_Blueprint.docx`);
+            });
         }
     </script>
 </body>

@@ -1,1150 +1,530 @@
-// EMPOWERING ENGINEERS UK - REFERENCE LIBRARY DATABASE
+// EMPOWERING ENGINEERS UK - REFERENCE LIBRARY DATABASE [v13.0]
 // Curated list of "Gold Standard" textbooks, websites, standards, channels, and tools.
-
+// Format: Single-line objects for cleaner maintenance.
+0
 const refDb = [
     // =========================================================================
-    // MECHANICAL & PIPING
+    // 1. MECHANICAL, AEROSPACE & MANUFACTURING
+    { disc: "Mechanical", topic: "General Reference", title: "Machinery's Handbook", type: "Book", desc: "The 'Black Book'. The absolute bible for machining, tolerances, and mechanical standards.", link: "https://www.amazon.co.uk/s?k=Machinery%27s+Handbook" },
+    { disc: "Mechanical", topic: "General Reference", title: "Marks' Standard Handbook", type: "Book", desc: "Comprehensive resource covering everything from thermodynamics to machine elements.", link: "https://www.amazon.co.uk/s?k=Marks%27+Standard+Handbook+for+Mechanical+Engineers" },
+    { disc: "Mechanical", topic: "Design", title: "Shigley's Mechanical Engineering Design", type: "Book", desc: "The gold standard for machine design, fatigue analysis, and component sizing.", link: "https://www.amazon.co.uk/s?k=Shigley%27s+Mechanical+Engineering+Design" },
+    { disc: "Mechanical", topic: "Stress Analysis", title: "Roark's Formulas for Stress & Strain", type: "Book", desc: "The definitive collection of beam, plate, and shell formulas. Essential for FEA validation.", link: "https://www.amazon.co.uk/s?k=Roark%27s+Formulas+for+Stress+and+Strain" },
+    { disc: "Mechanical", topic: "Stress Analysis", title: "Peterson's Stress Concentration Factors", type: "Book", desc: "The visual guide to 'Kt' factors for notches, grooves, and holes.", link: "https://www.amazon.co.uk/s?k=Peterson%27s+Stress+Concentration+Factors" },
+    { disc: "Mechanical", topic: "Materials", title: "ASM Handbooks", type: "Book", desc: "The massive, definitive library of data on metals, ceramics, and composites.", link: "https://www.asminternational.org/handbooks/" },
+    { disc: "Mechanical", topic: "Materials", title: "The New Science of Strong Materials", type: "Book", desc: "Why things break. A readable, classic introduction to material failure and structural design.", link: "https://www.amazon.co.uk/s?k=New+Science+of+Strong+Materials" },
+    { disc: "Mechanical", topic: "GD&T", title: "ASME Y14.5 (GD&T Standard)", type: "Standard", desc: "The global standard for Geometric Dimensioning and Tolerancing.", link: "https://www.asme.org/codes-standards/y14-5-dimensioning-tolerancing" },
+    { disc: "Mechanical", topic: "Metrology", title: "Mitutoyo Education", type: "Website", desc: "Educational resources on precision measurement, dimensional metrology, and tolerances.", link: "https://www.mitutoyo.eu/en_us/support/education" },
+    { disc: "Mechanical", topic: "Aerodynamics", title: "Fundamentals of Aerodynamics (Anderson)", type: "Book", desc: "The introductory bible for aerodynamics, covering lift, drag, and compressible flow.", link: "https://www.amazon.co.uk/s?k=Fundamentals+of+Aerodynamics+Anderson" },
+    { disc: "Mechanical", topic: "Structures", title: "Bruhn: Analysis of Flight Vehicle Structures", type: "Book", desc: "Known simply as 'Bruhn'. The ultimate reference for aircraft stress analysis.", link: "https://www.amazon.co.uk/s?k=Bruhn+Analysis+and+Design" },
+    { disc: "Mechanical", topic: "Automotive", title: "Race Car Vehicle Dynamics (Milliken)", type: "Book", desc: "Known as 'The Bible' of vehicle dynamics. Essential for suspension design and handling analysis.", link: "https://www.amazon.co.uk/s?k=Race+Car+Vehicle+Dynamics+Milliken" },
+    { disc: "Mechanical", topic: "Manufacturing", title: "Toyota Production System (Ohno)", type: "Book", desc: "Beyond Large-Scale Production. The original text on Just-In-Time manufacturing.", link: "https://www.amazon.co.uk/s?k=Toyota+Production+System+Ohno" },
+    { disc: "Mechanical", topic: "Robotics", title: "Introduction to Robotics (Craig)", type: "Book", desc: "The standard text for robot mechanics, kinematics, and control theory.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Robotics+John+Craig" },
+    { disc: "Mechanical", topic: "Standards", title: "SAE International", type: "Institution", desc: "The standards body for aerospace and automotive engineering (J-Standards).", link: "https://www.sae.org/" },
+    { disc: "Mechanical", topic: "PEI", title: "IMechE", type: "Institution", desc: "Institution of Mechanical Engineers. Focus: Auto, Rail, Power, Manufacturing.", link: "https://www.imeche.org/" },
+    { disc: "Mechanical", topic: "Industry", title: "Professional Engineering (PE)", type: "Magazine", desc: "The official magazine of the IMechE. Covers manufacturing, energy, and transport innovation.", link: "https://www.imeche.org/news/professional-engineering-magazine" },
+    { disc: "Mechanical", topic: "Machining", title: "This Old Tony", type: "YouTube", desc: "Humorous and highly educational videos on machining, fabrication, and tools.", link: "https://www.youtube.com/user/featony" },
+    { disc: "Mechanical", topic: "Analysis", title: "The Efficient Engineer", type: "YouTube", desc: "Beautifully visualized explanations of Stress, Strain, FEA, and Fluid Dynamics.", link: "https://www.youtube.com/c/TheEfficientEngineer" },
+    // 2. ELECTRICAL, ELECTRONICS & CONTROL
+    { disc: "Electrical", topic: "Regulations", title: "BS 7671:2018 (The Wiring Regs)", type: "Standard", desc: "The IET Wiring Regulations (18th Edition). Mandatory for UK low voltage design.", link: "https://electrical.theiet.org/bs-7671/" },
+    { disc: "Electrical", topic: "Electronics", title: "The Art of Electronics (Horowitz & Hill)", type: "Book", desc: "Widely accepted as the best book on analog circuit design ever written.", link: "https://artofelectronics.net/" },
+    { disc: "Electrical", topic: "Circuits", title: "Microelectronic Circuits (Sedra & Smith)", type: "Book", desc: "The standard university text for understanding MOSFETs, BJTs, and amplifiers.", link: "https://www.amazon.co.uk/s?k=Microelectronic+Circuits+Sedra+Smith" },
+    { disc: "Electrical", topic: "Power", title: "Power System Analysis (Grainger)", type: "Book", desc: "The classic text for grid analysis, load flow, and fault calculations.", link: "https://www.amazon.co.uk/s?k=Power+System+Analysis+Grainger" },
+    { disc: "Electrical", topic: "Control", title: "Modern Control Engineering (Ogata)", type: "Book", desc: "The go-to reference for PID control, transfer functions, and state-space analysis.", link: "https://www.amazon.co.uk/s?k=Modern+Control+Engineering+Ogata" },
+    { disc: "Electrical", topic: "Integrity", title: "Signal and Power Integrity (Bogatin)", type: "Book", desc: "Simplified guide to signal integrity for high-speed PCB design.", link: "https://www.amazon.co.uk/s?k=Signal+and+Power+Integrity+Simplified" },
+    { disc: "Electrical", topic: "RF Design", title: "RF Microelectronics (Razavi)", type: "Book", desc: "The standard university text for CMOS RF design, LNA, and Mixers.", link: "https://www.amazon.co.uk/s?k=RF+Microelectronics+Razavi" },
+    { disc: "Electrical", topic: "Standards", title: "IPC Standards", type: "Standard", desc: "The global association for electronics manufacturing (e.g., IPC-A-610 for soldering quality).", link: "https://www.ipc.org/" },
+    { disc: "Electrical", topic: "Embedded", title: "Jack Ganssle", type: "Website", desc: "Legendary articles on embedded systems firmware, debouncing, and reliability.", link: "http://www.ganssle.com/" },
+    { disc: "Electrical", topic: "Theory", title: "All About Circuits", type: "Website", desc: "Free, high-quality textbook and forum for EE theory and projects.", link: "https://www.allaboutcircuits.com/" },
+    { disc: "Electrical", topic: "Simulation", title: "Falstad Circuit Simulator", type: "Tool", desc: "The best free interactive circuit simulator. Visualize current flow and voltage in real-time.", link: "https://www.falstad.com/circuit/" },
+    { disc: "Electrical", topic: "Design", title: "EasyEDA", type: "Tool", desc: "Web-based EDA tool for circuit design, simulation, and PCB layout.", link: "https://easyeda.com/" },
+    { disc: "Electrical", topic: "Batteries", title: "Battery University", type: "Website", desc: "The best free resource for understanding Li-Ion chemistry, charging, and safety.", link: "https://batteryuniversity.com/" },
+    { disc: "Electrical", topic: "PEI", title: "IET", type: "Institution", desc: "Institution of Engineering and Technology. Focus: Electrical, Software, Telecoms.", link: "https://www.theiet.org/" },
+    { disc: "Electrical", topic: "Teardowns", title: "EEVblog (Dave Jones)", type: "YouTube", desc: "No-nonsense teardowns, tutorials, and rants. The bible for electronics lab work.", link: "https://www.youtube.com/c/EevblogDave" },
+    { disc: "Electrical", topic: "Education", title: "ElectroBOOM", type: "YouTube", desc: "Learning electrical safety and theory through painful (comedic) mistakes.", link: "https://www.youtube.com/c/Electroboom" },
+    // 3. CIVIL, STRUCTURAL & ENVIRONMENTAL
+    { disc: "Civil", topic: "Structural", title: "IStructE Standard Method of Detailing", type: "Book", desc: "The go-to manual for concrete and steel detailing in the UK.", link: "https://www.istructe.org/resources/guidance/standard-method-of-detailing-structural-concrete/" },
+    { disc: "Civil", topic: "Structural", title: "Structures: Or Why Things Don't Fall Down", type: "Book", desc: "J.E. Gordon's classic. Accessible explanation of structural behaviour.", link: "https://www.amazon.co.uk/s?k=Structures+Gordon" },
+    { disc: "Civil", topic: "Analysis", title: "Structural Analysis (Hibbeler)", type: "Book", desc: "Comprehensive guide to trusses, beams, and frames.", link: "https://www.amazon.co.uk/s?k=Structural+Analysis+Hibbeler" },
+    { disc: "Civil", topic: "Concrete", title: "Reinforced Concrete Design (Mosley)", type: "Book", desc: "The standard text for Eurocode 2 concrete design in the UK.", link: "https://www.amazon.co.uk/s?k=Reinforced+Concrete+Design+Mosley" },
+    { disc: "Civil", topic: "Geotech", title: "Craig's Soil Mechanics", type: "Book", desc: "The classic textbook for geotechnical engineering and soil analysis.", link: "https://www.amazon.co.uk/s?k=Craig%27s+Soil+Mechanics" },
+    { disc: "Civil", topic: "Costing", title: "Spon's Architects' and Builders' Price Book", type: "Book", desc: "Essential for commercial awareness (Competency E). Real-world UK construction costs.", link: "https://www.amazon.co.uk/s?k=Spon%27s+Price+Book" },
+    { disc: "Civil", topic: "Steel", title: "SteelConstruction.info (The Blue Book)", type: "Website", desc: "The definitive online encyclopedia for UK steel construction data.", link: "https://www.steelconstruction.info/The_Blue_Book" },
+    { disc: "Civil", topic: "Bridges", title: "Bridge Engineering (Zhao)", type: "Book", desc: "Design, rehabilitation, and maintenance of modern bridge structures.", link: "https://www.amazon.co.uk/s?k=Bridge+Engineering" },
+    { disc: "Civil", topic: "BIM", title: "ISO 19650: BIM Management", type: "Standard", desc: "International standard for managing information over the whole life cycle of a built asset.", link: "https://www.iso.org/standard/68078.html" },
+    { disc: "Civil", topic: "AR/VR", title: "Enscape", type: "Tool", desc: "Real-time rendering and VR plugin for Revit/SketchUp. Essential for immersive design reviews.", link: "https://enscape3d.com/" },
+    { disc: "Civil", topic: "PEI", title: "ICE (Civil Engineers)", type: "Institution", desc: "Institution of Civil Engineers. Focus: Infrastructure, Bridges, Tunnels.", link: "https://www.ice.org.uk/" },
+    { disc: "Civil", topic: "PEI", title: "IStructE", type: "Institution", desc: "The world's leading professional body for structural engineering.", link: "https://www.istructe.org/" },
+    { disc: "Civil", topic: "Infrastructure", title: "Practical Engineering", type: "YouTube", desc: "The absolute gold standard for civil engineering explainer videos.", link: "https://www.youtube.com/c/PracticalEngineeringChannel" },
+    { disc: "Civil", topic: "Construction", title: "The B1M", type: "YouTube", desc: "The world's largest video channel for construction and architecture projects.", link: "https://www.youtube.com/c/TheB1M" },
+    // 4. PROCESS, CHEMICAL, ENERGY & NUCLEAR
+    { disc: "Process", topic: "Reference", title: "Perry's Chemical Engineers' Handbook", type: "Book", desc: "The 'Chemical Engineer's Bible'. Covers everything from thermodynamics to reactors.", link: "https://www.amazon.co.uk/s?k=Perry%27s+Chemical+Engineers%27+Handbook" },
+    { disc: "Process", topic: "Reference", title: "Coulson & Richardson", type: "Book", desc: "The multi-volume standard text covering fluid flow, heat transfer, and mass transfer.", link: "https://www.amazon.co.uk/s?k=Coulson+and+Richardson" },
+    { disc: "Process", topic: "Fluids", title: "Crane Technical Paper 410", type: "Book", desc: "The quintessential guide to flow of fluids through valves, fittings, and pipe.", link: "https://www.flowoffluids.com/tp410.aspx" },
+    { disc: "Process", topic: "Safety", title: "The Purple Book (CCPS)", type: "Book", desc: "Guidelines for Chemical Process Quantitative Risk Analysis (QRA).", link: "https://www.aiche.org/ccps" },
+    { disc: "Process", topic: "Nuclear", title: "Introduction to Nuclear Engineering", type: "Book", desc: "The classic introductory text for reactor physics, radiation protection, and nuclear power.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Nuclear+Engineering+Lamarsh" },
+    { disc: "Process", topic: "Wind", title: "Wind Energy Explained", type: "Book", desc: "The standard university text for wind turbine aerodynamics, mechanics, and grid integration.", link: "https://www.amazon.co.uk/s?k=Wind+Energy+Explained+Manwell" },
+    { disc: "Process", topic: "Data", title: "MatWeb", type: "Website", desc: "Searchable database of material properties for thousands of metals, plastics, and ceramics.", link: "http://www.matweb.com/" },
+    { disc: "Process", topic: "Data", title: "NIST Chemistry WebBook", type: "Tool", desc: "Standard reference data for thermophysical properties of fluids.", link: "https://webbook.nist.gov/chemistry/" },
+    { disc: "Process", topic: "Simulation", title: "Aspen HYSYS", type: "Tool", desc: "The market-leading process simulation tool for energy and chemical engineering.", link: "https://www.aspentech.com/en/products/engineering/aspen-hysys" },
+    { disc: "Process", topic: "PEI", title: "IChemE", type: "Institution", desc: "Institution of Chemical Engineers. Focus: Process, Pharma, Energy.", link: "https://www.icheme.org/" },
+    { disc: "Process", topic: "PEI", title: "Nuclear Institute", type: "Institution", desc: "Professional body for the nuclear industry.", link: "https://www.nuclearinst.com/" },
+    { disc: "Process", topic: "Safety", title: "USCSB (Chemical Safety Board)", type: "YouTube", desc: "World-class forensic animations of major industrial accidents. Essential for safety engineering.", link: "https://www.youtube.com/user/USCSB" },
+    { disc: "Process", topic: "Energy", title: "The Energy Transition Show", type: "Podcast", desc: "Geeky, deep analysis of the transition from fossil fuels to renewables.", link: "https://xenetwork.org/ets/" },
+    // 5. SYSTEMS, SOFTWARE & COMPUTING
+    { disc: "Systems", topic: "Algorithms", title: "Introduction to Algorithms (CLRS)", type: "Book", desc: "Known as 'CLRS'. The bible of computer algorithms and data structures.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Algorithms+CLRS" },
+    { disc: "Systems", topic: "Architecture", title: "Designing Data-Intensive Applications", type: "Book", desc: "The modern bible for understanding databases, scalability, and distributed systems.", link: "https://www.amazon.co.uk/s?k=Designing+Data+Intensive+Applications" },
+    { disc: "Systems", topic: "Architecture", title: "Domain-Driven Design (Evans)", type: "Book", desc: "The Blue Book. How to tackle complex software logic by connecting implementation to a model.", link: "https://www.amazon.co.uk/s?k=Domain+Driven+Design+Evans" },
+    { disc: "Systems", topic: "Code Quality", title: "Clean Code (Robert C. Martin)", type: "Book", desc: "How to write code that is readable, maintainable, and robust.", link: "https://www.amazon.co.uk/s?k=Clean+Code+Robert+Martin" },
+    { disc: "Systems", topic: "SRE", title: "Site Reliability Engineering (Google)", type: "Book", desc: "How Google runs production systems. The birth of SRE as a discipline.", link: "https://sre.google/books/" },
+    { disc: "Systems", topic: "DevOps", title: "The Phoenix Project", type: "Book", desc: "A novel about IT, DevOps, and helping your business win.", link: "https://www.amazon.co.uk/s?k=The+Phoenix+Project" },
+    { disc: "Systems", topic: "SE", title: "INCOSE Systems Engineering Handbook", type: "Book", desc: "The definitive guide to the systems engineering lifecycle (V-Model).", link: "https://www.incose.org/products-and-publications/se-handbook" },
+    { disc: "Systems", topic: "Security", title: "OWASP Top 10", type: "Standard", desc: "The standard awareness document for developers and web application security.", link: "https://owasp.org/www-project-top-ten/" },
+    { disc: "Systems", topic: "Containerization", title: "Docker Hub", type: "Tool", desc: "The world's largest library of container images.", link: "https://hub.docker.com/" },
+    { disc: "Systems", topic: "Software", title: "Computerphile", type: "YouTube", desc: "Deep dives into algorithms, security, and computing history from experts.", link: "https://www.youtube.com/user/Computerphile" },
+    { disc: "Systems", topic: "Tech", title: "Tom Scott", type: "YouTube", desc: "Short, fascinating videos about infrastructure, technology, and engineering oddities.", link: "https://www.youtube.com/c/TomScottGo" },
+    // 6. BIOMEDICAL, FIRE, MARINE & ACOUSTICS (NEW DISCIPLINES)
+    { disc: "Biomedical", topic: "Innovation", title: "Biodesign: Innovating Medical Technologies", type: "Book", desc: "The Stanford Biodesign bible. Identifying unmet clinical needs and inventing solutions.", link: "https://www.amazon.co.uk/s?k=Biodesign+Process+of+Innovating+Medical+Technologies" },
+    { disc: "Fire", topic: "Reference", title: "SFPE Handbook of Fire Protection Engineering", type: "Book", desc: "The absolute authority on fire dynamics, smoke control, and human behavior in fire.", link: "https://www.sfpe.org/publications/sfpe-handbook" },
+    { disc: "Fire", topic: "Dynamics", title: "An Introduction to Fire Dynamics (Drysdale)", type: "Book", desc: "The standard textbook on the chemistry and physics of fire, ignition, and flame spread.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Fire+Dynamics+Drysdale" },
+    { disc: "Environmental", topic: "Water", title: "Wastewater Engineering (Metcalf & Eddy)", type: "Book", desc: "The bible of wastewater treatment plant design.", link: "https://www.amazon.co.uk/s?k=Wastewater+Engineering+Metcalf+Eddy" },
+    { disc: "Environmental", topic: "Standards", title: "ISO 14001: Environmental Management", type: "Standard", desc: "The international standard for systems to manage environmental responsibilities.", link: "https://www.iso.org/iso-14001-environmental-management.html" },
+    { disc: "Marine", topic: "Design", title: "Principles of Naval Architecture (PNA)", type: "Book", desc: "The SNAME bible. Covers stability, resistance, propulsion, and strength of ships.", link: "https://www.sname.org/" },
+    { disc: "Marine", topic: "Regulations", title: "SOLAS (Safety of Life at Sea)", type: "Standard", desc: "The most important international maritime treaty concerning the safety of merchant ships.", link: "https://www.imo.org/en/KnowledgeCentre/ConferencesMeetings/Pages/SOLAS.aspx" },
+    // 7. MANAGEMENT, LEADERSHIP & SOFT SKILLS
+    { disc: "Management", topic: "Strategy", title: "The Alignment Trap", type: "Book", desc: "Why best leaders may work against each other. Essential for systemic organizational alignment.", link: "https://www.amazon.co.uk/s?k=The+Alignment+Trap" },
+    { disc: "Management", topic: "Strategy", title: "Good to Great (Jim Collins)", type: "Book", desc: "Why some companies make the leap... and others don't. Data-driven management analysis.", link: "https://www.amazon.co.uk/s?k=Good+to+Great+Jim+Collins" },
+    { disc: "Management", topic: "Team Dynamics", title: "The Five Dysfunctions of a Team", type: "Book", desc: "The standard text for understanding team conflict, accountability, and results.", link: "https://www.amazon.co.uk/s?k=Five+Dysfunctions+of+a+Team" },
+    { disc: "Management", topic: "Lean", title: "The Goal (Eliyahu Goldratt)", type: "Book", desc: "A novel about the Theory of Constraints. Essential reading for bottlenecks.", link: "https://www.amazon.co.uk/s?k=The+Goal+Goldratt" },
+    { disc: "Management", topic: "Quality", title: "The Six Sigma Handbook", type: "Book", desc: "The complete guide for Greenbelts and Blackbelts. DMAIC and process improvement.", link: "https://www.amazon.co.uk/s?k=The+Six+Sigma+Handbook" },
+    { disc: "Management", topic: "Leadership", title: "Start With Why (Simon Sinek)", type: "Book", desc: "How great leaders inspire everyone to take action.", link: "https://www.amazon.co.uk/s?k=Start+With+Why" },
+    { disc: "Management", topic: "Psychology", title: "Thinking, Fast and Slow", type: "Book", desc: "Understand cognitive biases (anchoring, availability) to make better engineering decisions.", link: "https://www.amazon.co.uk/s?k=Thinking+Fast+and+Slow" },
+    { disc: "Management", topic: "Culture", title: "Work Rules! (Laszlo Bock)", type: "Book", desc: "Insights from inside Google. Essential for modern HR and People Ops.", link: "https://www.amazon.co.uk/s?k=Work+Rules+Laszlo+Bock" },
+    { disc: "Management", topic: "Focus", title: "Deep Work (Cal Newport)", type: "Book", desc: "Rules for focused success in a distracted world.", link: "https://www.amazon.co.uk/s?k=Deep+Work+Cal+Newport" },
+    { disc: "Management", topic: "Communication", title: "Crucial Conversations", type: "Book", desc: "Tools for talking when stakes are high. Handle difficult feedback and safety discussions.", link: "https://www.amazon.co.uk/s?k=Crucial+Conversations" },
+    { disc: "Management", topic: "Negotiation", title: "Never Split the Difference", type: "Book", desc: "Negotiation tactics from a former FBI hostage negotiator.", link: "https://www.amazon.co.uk/s?k=Never+Split+the+Difference" },
+    { disc: "Management", topic: "Project Mgmt", title: "APM Body of Knowledge", type: "Standard", desc: "The UK standard for Project Management (Association for Project Management).", link: "https://www.apm.org.uk/book-shop/apm-body-of-knowledge-7th-edition/" },
+    { disc: "Management", topic: "Contracts", title: "NEC4 Contracts", type: "Standard", desc: "The New Engineering Contract. The standard for major UK infrastructure projects.", link: "https://www.neccontract.com/" },
+    { disc: "Management", topic: "Contracts", title: "FIDIC Contracts", type: "Standard", desc: "The international standard for construction contracts (Red, Yellow, Silver books).", link: "https://fidic.org/" },
+    { disc: "Management", topic: "Agile", title: "Scrum Guide", type: "Standard", desc: "The official definition of Scrum by Ken Schwaber and Jeff Sutherland.", link: "https://scrumguides.org/" },
+    // 8. GENERAL, NEWSLETTERS & BLOGS
+    { disc: "General", topic: "Safety", title: "HSE (Health and Safety Executive)", type: "Institution", desc: "The UK regulator for workplace health and safety. Guidance on COSHH, RIDDOR, and PPE.", link: "https://www.hse.gov.uk/" },
+    { disc: "General", topic: "Standards", title: "BSI Knowledge", type: "Institution", desc: "UK's National Standards Body. Source for ISO 9001, ISO 14001, and thousands more.", link: "https://knowledge.bsigroup.com/" },
+    { disc: "General", topic: "Regulator", title: "The Engineering Council", type: "Institution", desc: "The UK regulatory body for the engineering profession. Holds the CEng/IEng register.", link: "https://www.engc.org.uk/" },
+    { disc: "General", topic: "Wellbeing", title: "MHFA England", type: "Institution", desc: "Mental Health First Aid. Guidance on implementing mental health support networks.", link: "https://mhfaengland.org/" },
+    { disc: "General", topic: "Wellbeing", title: "Foothold", type: "Institution", desc: "The engineering charity. Free legal support, sleep support, and mental health grants.", link: "https://www.myfoothold.org/" },
+    { disc: "General", topic: "Ethics", title: "NSPE Board of Ethical Review Cases", type: "Website", desc: "Extensive database of real-world engineering ethics cases and judgments.", link: "https://www.nspe.org/resources/ethics/ethics-resources/board-ethical-review-cases" },
+    { disc: "General", topic: "Sustainability", title: "Sustainable Energy – Without the Hot Air", type: "Book", desc: "David MacKay's masterpiece on energy. Essential reading for net-zero engineering.", link: "https://www.withouthotair.com/" },
+    { disc: "General", topic: "Climate Data", title: "Project Drawdown", type: "Website", desc: "The world’s leading resource for climate solutions and CO2 reduction technologies.", link: "https://drawdown.org/" },
+    { disc: "General", topic: "Math", title: "Wolfram Alpha", type: "Tool", desc: "Computational intelligence engine. Solves complex calculus and physics problems instantly.", link: "https://www.wolframalpha.com/" },
+    { disc: "General", topic: "Utility", title: "WebPlotDigitizer", type: "Tool", desc: "Extract raw data (X,Y coordinates) from images of graphs and plots.", link: "https://automeris.io/WebPlotDigitizer/" },
+    { disc: "General", topic: "AI / Coding", title: "GitHub Copilot", type: "Tool", desc: "AI pair programmer. Accelerates code writing and debugging.", link: "https://github.com/features/copilot" },
+    { disc: "General", topic: "Tech", title: "TLDR Engineering", type: "Newsletter", desc: "Daily newsletter summarizing the most interesting engineering stories in tech and coding.", link: "https://tldr.tech/engineering" },
+    { disc: "Systems", topic: "Software", title: "Hacker Newsletter", type: "Newsletter", desc: "A weekly curation of the best articles from Hacker News.", link: "https://hackernewsletter.com/" },
+    { disc: "General", topic: "Analysis", title: "Damn Interesting", type: "Newsletter", desc: "Long-form articles on obscure history and engineering marvels/failures.", link: "https://www.damninteresting.com/" },
+    { disc: "General", topic: "News", title: "The Engineer", type: "Magazine", desc: "UK-based engineering news and analysis since 1856. Covers all technology sectors.", link: "https://www.theengineer.co.uk/" },
+    { disc: "General", topic: "Science", title: "New Scientist", type: "Magazine", desc: "The world's most popular weekly science and technology publication.", link: "https://www.newscientist.com/" },
+    { disc: "General", topic: "Policy", title: "IRENA", type: "Institution", desc: "Global intergovernmental organisation for energy transformation.", link: "https://www.irena.org/" },
+// EMPOWERING ENGINEERS UK - REFERENCE LIBRARY DATABASE [v12.5]
+    // --- MECHANICAL & AEROSPACE ---
+    { disc: "Mechanical", topic: "General Reference", title: "Machinery's Handbook", type: "Book", desc: "The 'Black Book'. The absolute bible for machining, tolerances, and mechanical standards since 1914.", link: "https://www.amazon.co.uk/s?k=Machinery%27s+Handbook" },
+    { disc: "Mechanical", topic: "Design & Analysis", title: "Shigley's Mechanical Engineering Design", type: "Book", desc: "The gold standard for machine design, fatigue analysis, and component sizing.", link: "https://www.amazon.co.uk/s?k=Shigley%27s+Mechanical+Engineering+Design" },
+    { disc: "Mechanical", topic: "Reference", title: "Marks' Standard Handbook for Mechanical Engineers", type: "Book", desc: "A comprehensive resource covering everything from thermodynamics to machine elements.", link: "https://www.amazon.co.uk/s?k=Marks%27+Standard+Handbook+for+Mechanical+Engineers" },
+    { disc: "Mechanical", topic: "Stress Analysis", title: "Roark's Formulas for Stress and Strain", type: "Book", desc: "The definitive collection of beam, plate, and shell formulas. Essential for FEA validation.", link: "https://www.amazon.co.uk/s?k=Roark%27s+Formulas+for+Stress+and+Strain" },
+    { disc: "Mechanical", topic: "General Reference", title: "RoyMech", type: "Website", desc: "An incredible UK-based repository of BS standards, thread data, and gearing formulas.", link: "https://roymech.org/" },
+    { disc: "Mechanical", topic: "General Reference", title: "The Engineering ToolBox", type: "Website", desc: "Massive online repository of engineering data, formulas, and unit conversions.", link: "https://www.engineeringtoolbox.com/" },
+    { disc: "Mechanical", topic: "General Reference", title: "Engineers Edge", type: "Website", desc: "Design data, engineering calculators, and specifications for mechanical engineers.", link: "https://www.engineersedge.com/" },
+    { disc: "Mechanical", topic: "Tribology", title: "Tribology-ABC", type: "Website", desc: "Calculators for Hertzian contact stress, bearings, and lubrication.", link: "https://www.tribology-abc.com/" },
+    { disc: "Mechanical", topic: "Piping", title: "ASME B31.3 Process Piping", type: "Standard", desc: "The primary code for process piping design (USA/Global).", link: "https://www.asme.org/codes-standards/find-codes-standards/b31-3-process-piping" },
+    { disc: "Mechanical", topic: "Design", title: "Stuart J. Bateman", type: "Website", desc: "A valuable resource hub for design engineering, product design insights, and creative problem solving.", link: "https://stuartjbateman.com/" },
+    { disc: "Mechanical", topic: "Data", title: "ASM Handbooks", type: "Book", desc: "The massive, definitive library of data on metals, ceramics, and composites.", link: "https://www.asminternational.org/handbooks/" },
+    { disc: "Mechanical", topic: "Materials", title: "The New Science of Strong Materials (J.E. Gordon)", type: "Book", desc: "Why things break. A readable, classic introduction to material failure and structural design.", link: "https://www.amazon.co.uk/s?k=New+Science+of+Strong+Materials" },
+    { disc: "Mechanical", topic: "Phase Diagrams", title: "NIST Phase Diagram Database", type: "Website", desc: "Standard reference data for alloy phase diagrams and crystallography.", link: "https://phasediagram.nist.gov/" },
+    { disc: "Mechanical", topic: "Structures", title: "Bruhn: Analysis & Design of Flight Vehicle Structures", type: "Book", desc: "Known simply as 'Bruhn'. The ultimate reference for aircraft stress analysis.", link: "https://www.amazon.co.uk/s?k=Bruhn+Analysis+and+Design" },
+    { disc: "Mechanical", topic: "Propulsion", title: "Mechanics and Thermodynamics of Propulsion (Hill & Peterson)", type: "Book", desc: "The standard text for jet engines, rockets, and gas turbines.", link: "https://www.amazon.co.uk/s?k=Mechanics+and+Thermodynamics+of+Propulsion" },
+    { disc: "Mechanical", topic: "NASA Data", title: "NASA Technical Reports Server (NTRS)", type: "Website", desc: "Public access to thousands of aerospace citations, conference papers, and technical reports from NASA.", link: "https://ntrs.nasa.gov/" },
+    { disc: "Mechanical", topic: "Tires", title: "Tyre and Vehicle Dynamics (Pacejka)", type: "Book", desc: "The source of the 'Magic Formula' tire models used in almost all vehicle simulations.", link: "https://www.amazon.co.uk/s?k=Tyre+and+Vehicle+Dynamics+Pacejka" },
+    { disc: "Mechanical", topic: "Metrology", title: "Keyence Measurement Basics", type: "Website", desc: "Comprehensive guide to measurement systems, GD&T, and inspection techniques.", link: "https://www.keyence.com/ss/products/measure-sys/measurement-selection/" },
+    { disc: "Mechanical", topic: "CAD", title: "Fusion 360 Learn", type: "Website", desc: "Official Autodesk learning hub for CAD/CAM/CAE workflows.", link: "https://www.autodesk.com/products/fusion-360/learn-training-tutorials" },
+    { disc: "Mechanical", topic: "CAD / CAM", title: "Autodesk Fusion & Inventor", type: "Tool", desc: "Professional product design, manufacturing, and engineering tools. Fusion is cloud-integrated.", link: "https://www.autodesk.com/solutions/manufacturing" },
+    { disc: "Mechanical", topic: "CAD", title: "SOLIDWORKS", type: "Tool", desc: "The standard 3D CAD software for mechanical engineering and product design.", link: "https://www.solidworks.com/" },
+    { disc: "Mechanical", topic: "CAD", title: "Onshape", type: "Tool", desc: "Full-featured cloud CAD system. Great for collaborative design and prototyping.", link: "https://www.onshape.com/" },
+    { disc: "Mechanical", topic: "CFD / FEA", title: "SimScale", type: "Tool", desc: "Cloud-based simulation platform for CFD, FEA, and Thermodynamics. (Has free tier).", link: "https://www.simscale.com/" },
+    { disc: "Mechanical", topic: "PEI", title: "IMechE (Mechanical Engineers)", type: "Institution", desc: "Institution of Mechanical Engineers. Focus: Auto, Rail, Power, Manufacturing.", link: "https://www.imeche.org/" },
+    { disc: "Mechanical", topic: "Aerospace", title: "AEROSPACE Magazine", type: "Magazine", desc: "The flagship publication of the Royal Aeronautical Society (RAeS). News and features from the aviation sector.", link: "https://www.aerosociety.com/news-expertise/aerospace-magazine/" },
+    { disc: "Mechanical", topic: "Automotive", title: "Engineering Explained", type: "YouTube", desc: "Deep technical dives into combustion engines, aerodynamics, and EVs.", link: "https://www.youtube.com/user/EngineeringExplained" },
+    { disc: "Mechanical", topic: "Aerospace", title: "Real Engineering", type: "YouTube", desc: "High-quality documentaries on planes, materials, and engineering history.", link: "https://www.youtube.com/channel/CR1IuLEqb6UEA_zQ81kwXjg" },
+    { disc: "Mechanical", topic: "Robotics", title: "Boston Dynamics", type: "YouTube", desc: "The cutting edge of dynamic robotics. Atlas, Spot, and Handle in action.", link: "https://www.youtube.com/user/BostonDynamics" },
+    { disc: "Mechanical", topic: "Industry", title: "Being An Engineer", type: "Podcast", desc: "Explores the 'how' and 'why' of engineering with industry professionals.", link: "https://teampipeline.us/podcast/" },
+    { disc: "Mechanical", topic: "Casual", title: "Unprofessional Engineering", type: "Podcast", desc: "A fun, laid-back look at how things work, from cars to space stations.", link: "https://www.unprofessionalengineering.com/" },
+    // --- ELECTRICAL, ELECTRONICS & C&I ---
+    { disc: "Electrical", topic: "Power", title: "Power System Analysis (Grainger & Stevenson)", type: "Book", desc: "The classic text for grid analysis, load flow, and fault calculations.", link: "https://www.amazon.co.uk/s?k=Power+System+Analysis+Grainger" },
+    { disc: "Electrical", topic: "FPGA", title: "Nandland", type: "Website", desc: "Excellent tutorials for learning VHDL, Verilog, and FPGA design.", link: "https://nandland.com/" },
+    { disc: "Electrical", topic: "Theory", title: "Electrical4U", type: "Website", desc: "Free study resources for electrical engineering students and professionals.", link: "https://www.electrical4u.com/" },
+    { disc: "Electrical", topic: "Embedded", title: "Embedded.com", type: "Website", desc: "Technical articles, design ideas, and source code for embedded systems engineers and developers.", link: "https://www.embedded.com/" },
+    { disc: "Electrical", topic: "Storage", title: "Sandia National Labs - Energy Storage", type: "Website", desc: "Technical papers and safety standards for grid-scale battery storage systems (BESS).", link: "https://energy.sandia.gov/programs/energy-storage/" },
+    { disc: "Electrical", topic: "PEI", title: "IET (Engineering & Technology)", type: "Institution", desc: "Institution of Engineering and Technology. Focus: Electrical, Software, Telecoms.", link: "https://www.theiet.org/" },
+    { disc: "Electrical", topic: "Tech", title: "E&T Magazine", type: "Magazine", desc: "Engineering & Technology. The award-winning magazine from the IET covering global tech trends.", link: "https://eandt.theiet.org/" },
+    { disc: "Electrical", topic: "Electronics", title: "EEVblog (Dave Jones)", type: "YouTube", desc: "No-nonsense teardowns, tutorials, and rants. The bible for electronics lab work.", link: "https://www.youtube.com/c/EevblogDave" },
+    { disc: "Electrical", topic: "Teardowns", title: "BigCliveDotCom", type: "YouTube", desc: "Detailed teardowns of cheap electronics, analyzing circuit design and failure modes.", link: "https://www.youtube.com/user/bigclivedotcom" },
+    { disc: "Electrical", topic: "Industry", title: "The Amp Hour", type: "Podcast", desc: "The world's largest and most respected electronics podcast. Discussions on chips, PCBs, and design.", link: "https://theamphour.com/" },
+    { disc: "Electrical", topic: "Hardware", title: "MacroFab Engineering Podcast", type: "Podcast", desc: "Weekly discussions on electrical engineering, DIY projects, and manufacturing.", link: "https://macrofab.com/podcasts/" },
+    // --- CIVIL & STRUCTURAL ---
+    { disc: "Civil", topic: "Concrete", title: "Reinforced Concrete Design (Mosley & Bungey)", type: "Book", desc: "The standard text for Eurocode 2 concrete design in the UK.", link: "https://www.amazon.co.uk/s?k=Reinforced+Concrete+Design+Mosley" },
+    { disc: "Civil", topic: "Geotech", title: "Geotechnical Engineering (Lancellotta)", type: "Book", desc: "Rigorous treatment of soil mechanics and foundation design.", link: "https://www.amazon.co.uk/s?k=Geotechnical+Engineering+Lancellotta" },
+    { disc: "Civil", topic: "Reference", title: "The Civil Engineering Handbook (Chen)", type: "Book", desc: "A comprehensive reference covering all sub-disciplines of civil engineering.", link: "https://www.amazon.co.uk/s?k=Civil+Engineering+Handbook+Chen" },
+    { disc: "Civil", topic: "Formulas", title: "StructX", type: "Website", desc: "Comprehensive online library of structural engineering formulas, beam deflections, and material properties.", link: "https://structx.com/" },
+    { disc: "Civil", topic: "Safety", title: "CROSS (Collaborative Reporting)", type: "Website", desc: "Confidential reporting on structural safety. Learn from failures and near-misses to prevent future disasters.", link: "https://www.cross-safety.org/uk" },
+    { disc: "Civil", topic: "Regulations", title: "Approved Documents (Building Regs)", type: "Standard", desc: "Official UK Government guidance on meeting building regulations (Part A Structure, Part B Fire, Part L Energy).", link: "https://www.gov.uk/government/collections/approved-documents" },
+    { disc: "Civil", topic: "AR / VR", title: "Enscape", type: "Tool", desc: "Real-time rendering and VR plugin for Revit/SketchUp. Essential for immersive design reviews.", link: "https://enscape3d.com/" },
+    { disc: "Civil", topic: "AR / VR", title: "Arkio", type: "Tool", desc: "Collaborative spatial design tool. Model buildings and infrastructure together in VR/AR.", link: "https://www.arkio.is/" },
+    { disc: "Civil", topic: "PEI", title: "IStructE (Structural Engineers)", type: "Institution", desc: "The world's leading professional body for structural engineering.", link: "https://www.istructe.org/" },
+    { disc: "Civil", topic: "Construction", title: "New Civil Engineer (NCE)", type: "Magazine", desc: "The official magazine of the ICE. Essential news on infrastructure projects and geotechnical events.", link: "https://www.newcivilengineer.com/" },
+    { disc: "Civil", topic: "Structural", title: "The Structural Engineer", type: "Magazine", desc: "The flagship publication of the IStructE. Features technical papers and project case studies.", link: "https://www.istructe.org/thestructuralengineer/" },
+    { disc: "Civil", topic: "Infrastructure", title: "Practical Engineering (Grady Hillhouse)", type: "YouTube", desc: "The absolute gold standard for civil engineering explainer videos. Dams, concrete, and grids.", link: "https://www.youtube.com/c/PracticalEngineeringChannel" },
+    { disc: "Civil", topic: "Career", title: "The Civil Engineering Podcast", type: "Podcast", desc: "Dedicated to helping civil engineers create an extraordinary career and life.", link: "https://engineeringmanagementinstitute.org/tcep/" },
+    { disc: "Civil", topic: "Construction", title: "The B1M Podcast", type: "Podcast", desc: "Audio companion to the world's most subscribed video channel for construction.", link: "https://www.theb1m.com/video-category/podcast" },
+    { disc: "Civil", topic: "Wellbeing", title: "Lighthouse Club", type: "Institution", desc: "The Construction Industry Charity. Providing 24/7 emotional, physical, and financial wellbeing support to construction workers.", link: "https://www.lighthouseclub.org/" },
+    // --- PROCESS, CHEMICAL & MATERIALS ---
+    { disc: "Process", topic: "Reference", title: "Coulson & Richardson's Chemical Engineering", type: "Book", desc: "The multi-volume standard text covering fluid flow, heat transfer, and mass transfer.", link: "https://www.amazon.co.uk/s?k=Coulson+and+Richardson" },
+    { disc: "Process", topic: "General", title: "Perry's Chemical Engineers' Handbook", type: "Book", desc: "The 'Chemical Engineer's Bible'. Covers everything from thermodynamics to reactors.", link: "https://www.amazon.co.uk/s?k=Perry%27s+Chemical+Engineers%27+Handbook" },
+    { disc: "Process", topic: "Control", title: "Process Dynamics and Control (Seborg)", type: "Book", desc: "Comprehensive guide to PID control, instrumentation, and plant-wide control strategies.", link: "https://www.amazon.co.uk/s?k=Process+Dynamics+and+Control+Seborg" },
+    { disc: "Process", topic: "Safety", title: "HAZOP Guide to Best Practice (IChemE)", type: "Book", desc: "The definitive guide to conducting Hazard and Operability studies.", link: "https://www.icheme.org/" },
+    { disc: "Process", topic: "Materials", title: "Materials Science and Engineering (Callister)", type: "Book", desc: "The definitive introduction to materials properties, failure, and selection.", link: "https://www.amazon.co.uk/s?k=Callister+Materials+Science" },
+    { disc: "Process", topic: "Solar", title: "Solar Engineering of Thermal Processes (Duffie & Beckman)", type: "Book", desc: "The definitive bible for solar energy engineering. Covers photovoltaics and thermal systems analysis.", link: "https://www.amazon.co.uk/s?k=Solar+Engineering+of+Thermal+Processes" },
+    { disc: "Process", topic: "Wind", title: "Wind Energy Explained (Manwell)", type: "Book", desc: "The standard university text for wind turbine aerodynamics, mechanics, and grid integration.", link: "https://www.amazon.co.uk/s?k=Wind+Energy+Explained+Manwell" },
+    { disc: "Process", topic: "Nuclear", title: "Introduction to Nuclear Engineering (Lamarsh)", type: "Book", desc: "The classic introductory text for reactor physics, radiation protection, and nuclear power systems.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Nuclear+Engineering+Lamarsh" },
+    { disc: "Process", topic: "Thermodynamics", title: "NIST Chemistry WebBook", type: "Tool", desc: "Standard reference data for thermophysical properties of fluids.", link: "https://webbook.nist.gov/chemistry/" },
+    { disc: "Process", topic: "PEI", title: "IChemE (Chemical Engineers)", type: "Institution", desc: "Institution of Chemical Engineers. Focus: Process, Pharma, Energy.", link: "https://www.icheme.org/" },
+    { disc: "Process", topic: "Skills", title: "Cogent Skills", type: "Institution", desc: "The UK strategic skills body for the science industries, covering Nuclear, Petrochemical, and Polymers.", link: "https://cogentskills.com/" },
+    { disc: "Process", topic: "Chemical", title: "The Chemical Engineer", type: "Magazine", desc: "The official publication of the IChemE. Focus on process safety, biotech, and emissions.", link: "https://www.thechemicalengineer.com/" },
+    { disc: "Process", topic: "Nuclear", title: "Nuclear Future", type: "Magazine", desc: "The official journal of the Nuclear Institute. Covers reactor operations, decommissioning, and safety cases.", link: "https://www.nuclearinst.com/Nuclear-Future" },
+    { disc: "Process", topic: "Hydrogen", title: "Engineering Hydrogen Solutions", type: "Magazine", desc: "The leading trade journal for hydrogen technology, fuel cells, and the renewable energy transition.", link: "https://www.engineeringhydrogensolutions.com/" },
+    { disc: "Process", topic: "Hydrogen", title: "Hydrogen & Fuel Cell Innovation", type: "Magazine", desc: "Latest news on hydrogen economy, policy, and technical innovation.", link: "https://hydrogen-innovation.co.uk/" },
+    // --- SYSTEMS, SOFTWARE & COMPUTING ---
+    { disc: "Systems", topic: "Architecture", title: "Designing Data-Intensive Applications (Kleppmann)", type: "Book", desc: "The modern bible for understanding databases, scalability, and distributed systems.", link: "https://www.amazon.co.uk/s?k=Designing+Data+Intensive+Applications" },
+    { disc: "Systems", topic: "Architecture", title: "Domain-Driven Design (Eric Evans)", type: "Book", desc: "The Blue Book. How to tackle complex software logic by connecting implementation to an evolving model.", link: "https://www.amazon.co.uk/s?k=Domain+Driven+Design+Evans" },
+    { disc: "Systems", topic: "Practice", title: "The Pragmatic Programmer", type: "Book", desc: "Essential reading for software craftsmanship and career development.", link: "https://www.amazon.co.uk/s?k=The+Pragmatic+Programmer" },
+    { disc: "Systems", topic: "Management", title: "The Mythical Man-Month (Brooks)", type: "Book", desc: "Classic essays on software engineering management. 'Adding manpower to a late project makes it later.'", link: "https://www.amazon.co.uk/s?k=The+Mythical+Man+Month" },
+    { disc: "Systems", topic: "Robotics", title: "Introduction to Robotics (John Craig)", type: "Book", desc: "The standard text for robot mechanics, kinematics, and control theory.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Robotics+John+Craig" },
+    { disc: "Systems", topic: "AI Safety", title: "The Alignment Problem (Brian Christian)", type: "Book", desc: "A deep dive into how machine learning systems fail to match human values and what researchers are doing to fix it.", link: "https://www.amazon.co.uk/s?k=The+Alignment+Problem" },
+    { disc: "Systems", topic: "DevOps", title: "The Phoenix Project", type: "Book", desc: "A novel about IT, DevOps, and helping your business win. Essential for engineers in operations/IT environments.", link: "https://www.amazon.co.uk/s?k=The+Phoenix+Project" },
+    { disc: "Systems", topic: "Python", title: "Automate the Boring Stuff with Python", type: "Book", desc: "The best practical guide for engineers to start automating spreadsheets, PDFs, and emails.", link: "https://automatetheboringstuff.com/" },
+    { disc: "Systems", topic: "Python", title: "Real Python", type: "Website", desc: "High-quality tutorials and articles for learning Python, from basics to data science.", link: "https://realpython.com/" },
+    { disc: "Systems", topic: "Coding", title: "freeCodeCamp", type: "Website", desc: "Completely free, certification-based learning for Web Dev, Python, and Machine Learning.", link: "https://www.freecodecamp.org/" },
+    { disc: "Systems", topic: "Coding", title: "The Odin Project", type: "Website", desc: "Full stack curriculum for learning web development (HTML, CSS, JavaScript).", link: "https://www.theodinproject.com/" },
+    { disc: "Systems", topic: "Coding", title: "W3Schools", type: "Website", desc: "The world's largest web developer site. Essential references for HTML/CSS/SQL.", link: "https://www.w3schools.com/" },
+    { disc: "Systems", topic: "Design Patterns", title: "Refactoring.Guru", type: "Website", desc: "The definitive visual guide to Design Patterns, Refactoring, and Software Architecture.", link: "https://refactoring.guru/" },
+    { disc: "Systems", topic: "Reference", title: "Stack Overflow", type: "Website", desc: "The essential Q&A site for every programmer. If you have an error, the answer is here.", link: "https://stackoverflow.com/" },
+    { disc: "Systems", topic: "Data", title: "Kaggle", type: "Website", desc: "The world's largest data science community. Free datasets and competitions to practice ML.", link: "https://www.kaggle.com/" },
+    { disc: "Systems", topic: "Math / Coding", title: "Octave Online", type: "Tool", desc: "Free online interface for Octave (MATLAB compatible). Run scripts without installing anything.", link: "https://octave-online.net/" },
+    { disc: "Systems", topic: "Software", title: "ROS (Robot Operating System)", type: "Tool", desc: "The open-source middleware suite used by almost all modern robotics researchers and companies.", link: "https://www.ros.org/" },
+    { disc: "Systems", topic: "Vision", title: "OpenCV", type: "Tool", desc: "The world's biggest computer vision library. Essential for image processing and machine vision engineering.", link: "https://opencv.org/" },
+    { disc: "Systems", topic: "PLM / CAD", title: "CATIA (Dassault Systèmes)", type: "Tool", desc: "High-end multi-platform suite for CAD, CAM, and PLM. The standard in Aerospace and Automotive.", link: "https://www.3ds.com/products/catia" },
+    { disc: "Systems", topic: "PLM / CAD", title: "Siemens NX", type: "Tool", desc: "Advanced high-end CAD/CAM/CAE software. Dominant in complex assembly sectors (Aero/Auto).", link: "https://plm.sw.siemens.com/en-US/nx/" },
+    { disc: "Systems", topic: "Cloud", title: "AWS Well-Architected Framework", type: "Standard", desc: "Best practices for designing and operating reliable, secure, and efficient systems in the cloud.", link: "https://aws.amazon.com/architecture/well-architected/" },
+    { disc: "Systems", topic: "Excel / Data", title: "Leila Gharani", type: "YouTube", desc: "Advanced Excel, Power BI, and productivity hacks for engineering data analysis.", link: "https://www.youtube.com/c/LeilaGharani" },
+    { disc: "Systems", topic: "Coding", title: "Wise Owl Tutorials", type: "YouTube", desc: "The best resource for learning VBA (Visual Basic for Applications) and SQL.", link: "https://www.youtube.com/user/WiseOwlTutorials" },
+    { disc: "Systems", topic: "Software", title: "Software Engineering Radio", type: "Podcast", desc: "Deep dives into software topics. Targeted at professional developers.", link: "https://www.se-radio.net/" },
+    { disc: "Systems", topic: "Security", title: "Darknet Diaries", type: "Podcast", desc: "True stories from the dark side of the internet. Hacking, breaches, and cybercrime.", link: "https://darknetdiaries.com/" },
+    { disc: "Systems", topic: "Tech", title: "CoRecursive", type: "Podcast", desc: "The stories behind the code. Interviews with software engineers about their careers and lives.", link: "https://corecursive.com/" },
+    // --- MANAGEMENT & LEADERSHIP ---
+    { disc: "Management", topic: "Strategy", title: "The Alignment Trap", type: "Book", desc: "Why best leaders may work against each other. Essential for understanding systemic organizational alignment.", link: "https://www.amazon.co.uk/s?k=The+Alignment+Trap" },
+    { disc: "Management", topic: "Strategy", title: "The Book of Five Rings (Miyamoto Musashi)", type: "Book", desc: "A classic text on Kenjutsu and martial arts, widely applied to engineering strategy and conflict resolution.", link: "https://www.amazon.co.uk/s?k=The+Book+of+Five+Rings" },
+    { disc: "Management", topic: "Strategy", title: "The Art of War (Sun Tzu)", type: "Book", desc: "The definitive ancient treatise on competitive strategy, planning, and leadership.", link: "https://www.amazon.co.uk/s?k=The+Art+of+War" },
+    { disc: "Management", topic: "Team Dynamics", title: "The Five Dysfunctions of a Team (Lencioni)", type: "Book", desc: "The standard text for understanding team conflict, accountability, and results.", link: "https://www.amazon.co.uk/s?k=Five+Dysfunctions+of+a+Team" },
+    { disc: "Management", topic: "Productivity", title: "High Output Management (Andy Grove)", type: "Book", desc: "The definitive guide to engineering management, metrics, and meetings by the former Intel CEO.", link: "https://www.amazon.co.uk/s?k=High+Output+Management" },
+    { disc: "Management", topic: "Lean", title: "The Goal (Eliyahu Goldratt)", type: "Book", desc: "A novel about the Theory of Constraints. Essential reading for understanding bottlenecks in production.", link: "https://www.amazon.co.uk/s?k=The+Goal+Goldratt" },
+    { disc: "Management", topic: "Lean", title: "The Toyota Way", type: "Book", desc: "14 management principles from the world's greatest manufacturer. The foundation of Lean Engineering.", link: "https://www.amazon.co.uk/s?k=The+Toyota+Way" },
+    { disc: "Management", topic: "Quality", title: "The Six Sigma Handbook", type: "Book", desc: "The complete guide for Greenbelts and Blackbelts. DMAIC, statistics, and process improvement.", link: "https://www.amazon.co.uk/s?k=The+Six+Sigma+Handbook" },
+    { disc: "Management", topic: "Leadership", title: "Start With Why (Simon Sinek)", type: "Book", desc: "How great leaders inspire everyone to take action. Excellent for engineering managers.", link: "https://www.amazon.co.uk/s?k=Start+With+Why" },
+    { disc: "Management", topic: "Leadership", title: "Dare to Lead (Brené Brown)", type: "Book", desc: "How to lead with courage and vulnerability. A modern standard for inclusive engineering leadership.", link: "https://www.amazon.co.uk/s?k=Dare+to+Lead+Brene+Brown" },
+    { disc: "Management", topic: "Psychology", title: "Thinking, Fast and Slow (Kahneman)", type: "Book", desc: "Understand cognitive biases (anchoring, availability) to make better engineering decisions and risk assessments.", link: "https://www.amazon.co.uk/s?k=Thinking+Fast+and+Slow" },
+    { disc: "Management", topic: "Culture", title: "Work Rules! (Laszlo Bock)", type: "Book", desc: "Insights from inside Google that will transform how you live and lead. Essential for modern HR and People Ops.", link: "https://www.amazon.co.uk/s?k=Work+Rules+Laszlo+Bock" },
+    { disc: "Management", topic: "Focus", title: "Deep Work (Cal Newport)", type: "Book", desc: "Rules for focused success in a distracted world. Vital for engineers who need long periods of uninterrupted concentration.", link: "https://www.amazon.co.uk/s?k=Deep+Work+Cal+Newport" },
+    { disc: "Management", topic: "EQ", title: "Emotional Intelligence 2.0", type: "Book", desc: "A step-by-step program to increase your EQ. Essential for transitioning from technical expert to team leader.", link: "https://www.amazon.co.uk/s?k=Emotional+Intelligence+2.0" },
+    { disc: "Management", topic: "Communication", title: "Crucial Conversations", type: "Book", desc: "Tools for talking when stakes are high. Learn to handle difficult feedback and safety discussions without conflict.", link: "https://www.amazon.co.uk/s?k=Crucial+Conversations" },
+    { disc: "Management", topic: "Negotiation", title: "Never Split the Difference (Chris Voss)", type: "Book", desc: "Negotiation tactics from a former FBI hostage negotiator. Invaluable for contract management and project disputes.", link: "https://www.amazon.co.uk/s?k=Never+Split+the+Difference" },
+    { disc: "Management", topic: "Stress", title: "HSE Management Standards (Stress)", type: "Standard", desc: "The HSE's systematic approach to tackling work-related stress. A requirement for compliant engineering management.", link: "https://www.hse.gov.uk/stress/standards/" },
+    { disc: "Management", topic: "Leadership", title: "The Engineering Leadership Podcast", type: "Podcast", desc: "Insights for engineering managers and executives on building high-performing technical teams.", link: "https://sfelc.com/podcast/" },
+    { disc: "Management", topic: "Soft Skills", title: "Soft Skills Engineering", type: "Podcast", desc: "A weekly advice show for software developers and engineers about the non-technical stuff.", link: "https://softskills.audio/" },
+    // --- GENERAL & MULTIDISCIPLINARY ---
+    { disc: "General", topic: "Safety", title: "HSE (Health and Safety Executive)", type: "Institution", desc: "The UK government regulator for workplace health and safety. The primary source for guidance on COSHH, RIDDOR, and PPE.", link: "https://www.hse.gov.uk/" },
+    { disc: "General", topic: "Law", title: "Legislation.gov.uk", type: "Website", desc: "The official home of UK legislation. Access the full text of the Health and Safety at Work Act 1974 and CDM Regulations.", link: "https://www.legislation.gov.uk/" },
+    { disc: "General", topic: "Standards", title: "BSI Knowledge (British Standards)", type: "Institution", desc: "The UK's National Standards Body. The official source for ISO 9001 (Quality), ISO 14001 (Environment), and thousands more.", link: "https://knowledge.bsigroup.com/" },
+    { disc: "General", topic: "Regulator", title: "The Engineering Council (EngC)", type: "Institution", desc: "The UK regulatory body for the engineering profession. Holds the official register of CEng/IEng.", link: "https://www.engc.org.uk/" },
+    { disc: "General", topic: "Directory", title: "Full List of Licensed PEIs", type: "Institution", desc: "The official directory of all 40+ licensed institutions tailored to specific disciplines.", link: "https://www.engc.org.uk/our-role-as-regulator/licensing-professional-engineering-institutions" },
+    { disc: "General", topic: "PEI", title: "CIBSE (Building Services)", type: "Institution", desc: "Chartered Institution of Building Services Engineers. HVAC, Lighting, Ventilation.", link: "https://www.cibse.org/" },
+    { disc: "General", topic: "PEI", title: "BCS (The Chartered Institute for IT)", type: "Institution", desc: "The professional body for computing and IT professionals.", link: "https://www.bcs.org/" },
+    { disc: "General", topic: "PEI", title: "IOM3 (Materials, Minerals & Mining)", type: "Institution", desc: "Focus on materials science, mining, and extraction.", link: "https://www.iom3.org/" },
+    { disc: "General", topic: "PEI", title: "RAeS (Royal Aeronautical Society)", type: "Institution", desc: "Multidisciplinary professional body for the aerospace community.", link: "https://www.aerosociety.com/" },
+    { disc: "General", topic: "PEI", title: "The Energy Institute (EI)", type: "Institution", desc: "For engineers working in oil, gas, renewables, and nuclear energy.", link: "https://www.energyinst.org/" },
+    { disc: "General", topic: "PEI", title: "IMarEST (Marine)", type: "Institution", desc: "Institute of Marine Engineering, Science and Technology.", link: "https://www.imarest.org/" },
+    { disc: "General", topic: "PEI", title: "Nuclear Institute (NI)", type: "Institution", desc: "Professional body for the nuclear industry.", link: "https://www.nuclearinst.com/" },
+    { disc: "General", topic: "Quality", title: "ASQ (American Society for Quality)", type: "Institution", desc: "Global voice of quality. Resources for Six Sigma, Lean, and ISO standards.", link: "https://asq.org/" },
+    { disc: "General", topic: "Wellbeing", title: "MHFA England", type: "Institution", desc: "Mental Health First Aid England. Guidance on implementing mental health support networks within engineering firms.", link: "https://mhfaengland.org/" },
+    { disc: "General", topic: "Wellbeing", title: "Foothold (The IET Benevolent Fund)", type: "Institution", desc: "The charity for the engineering community. Provides free legal support, sleep support, and mental health grants.", link: "https://www.myfoothold.org/" },
+    { disc: "General", topic: "Support", title: "Samaritans", type: "Institution", desc: "24/7 support for anyone in distress. Essential contact to have available for team safety briefings.", link: "https://www.samaritans.org/" },
+    { disc: "General", topic: "Ethics", title: "Weapons of Math Destruction (Cathy O'Neil)", type: "Book", desc: "A critical look at how big data increases inequality and threatens democracy. Essential for software and systems engineers.", link: "https://www.amazon.co.uk/s?k=Weapons+of+Math+Destruction" },
+    { disc: "General", topic: "Ethics", title: "NSPE Board of Ethical Review Cases", type: "Website", desc: "An extensive database of real-world engineering ethics cases and judgments. Perfect for preparing for interview scenarios.", link: "https://www.nspe.org/resources/ethics/ethics-resources/board-ethical-review-cases" },
+    { disc: "General", topic: "Health", title: "Why We Sleep (Matthew Walker)", type: "Book", desc: "A neuroscientist's analysis of sleep. Critical for engineers managing shift work, safety-critical roles, or high stress.", link: "https://www.amazon.co.uk/s?k=Why+We+Sleep+Matthew+Walker" },
+    { disc: "General", topic: "Burnout", title: "Mind (Mental Health Charity)", type: "Website", desc: "Practical advice for managing stress, anxiety, and workplace mental health.", link: "https://www.mind.org.uk/workplace/mental-health-at-work/" },
+    { disc: "General", topic: "Personality", title: "Quiet: The Power of Introverts", type: "Book", desc: "Susan Cain's masterpiece on the strengths of introverts. Highly relevant for the engineering demographic.", link: "https://www.amazon.co.uk/s?k=Quiet+Susan+Cain" },
+    { disc: "General", topic: "Habits", title: "Atomic Habits (James Clear)", type: "Book", desc: "An easy and proven way to build good habits and break bad ones. Vital for CPD consistency.", link: "https://www.amazon.co.uk/s?k=Atomic+Habits" },
+    { disc: "General", topic: "Learning", title: "A Mind for Numbers (Barbara Oakley)", type: "Book", desc: "How to excel at Math and Science. Techniques for deep learning and mastering difficult technical concepts.", link: "https://www.amazon.co.uk/s?k=A+Mind+for+Numbers" },
+    { disc: "General", topic: "Writing", title: "The Pyramid Principle (Minto)", type: "Book", desc: "Logic in writing and thinking. The McKinsey standard for structuring technical reports and presentations.", link: "https://www.amazon.co.uk/s?k=The+Pyramid+Principle" },
+    { disc: "General", topic: "Sustainability", title: "Sustainable Energy – Without the Hot Air", type: "Book", desc: "David MacKay's data-driven masterpiece on energy. Essential reading for understanding net-zero engineering reality.", link: "https://www.withouthotair.com/" },
+    { disc: "General", topic: "Data", title: "Our World in Data (Energy)", type: "Website", desc: "The absolute best source for visualized data on global energy production, CO2 emissions, and transition progress.", link: "https://ourworldindata.org/energy" },
+    { disc: "General", topic: "Math", title: "Wolfram Alpha", type: "Tool", desc: "Computational intelligence. Solves complex calculus, algebra, and physics problems instantly.", link: "https://www.wolframalpha.com/" },
+    { disc: "General", topic: "Graphing", title: "Desmos", type: "Tool", desc: "Advanced online graphing calculator. Excellent for visualizing functions and data.", link: "https://www.desmos.com/calculator" },
+    { disc: "General", topic: "Simulation", title: "Ansys", type: "Tool", desc: "The industry heavyweight for multiphysics engineering simulation (FEA, CFD, Electromagnetics).", link: "https://www.ansys.com/" },
+    { disc: "General", topic: "Simulation", title: "COMSOL Multiphysics", type: "Tool", desc: "Advanced platform for modeling coupled physics phenomena (e.g., thermal-electric, fluid-structure).", link: "https://www.comsol.com/" },
+    { disc: "General", topic: "Simulation", title: "NAFEMS", type: "Institution", desc: "The International Association for the Engineering Modelling, Analysis and Simulation Community.", link: "https://www.nafems.org/" },
+    { disc: "General", topic: "AI / Coding", title: "GitHub Copilot", type: "Tool", desc: "AI pair programmer. Essential for accelerating code writing and debugging.", link: "https://github.com/features/copilot" },
+    { disc: "General", topic: "Skills", title: "Keybr", type: "Website", desc: "Advanced typing tutor to improve speed and accuracy (essential for reporting).", link: "https://www.keybr.com/" },
+    { disc: "General", topic: "Creative", title: "Creative Bloq", type: "Website", desc: "Inspiration for design, 3D modeling, and visual communication.", link: "https://www.creativebloq.com/" },
+    { disc: "General", topic: "Automation", title: "SimStack (Evotech CAE)", type: "Podcast", desc: "A simplified workflow automation platform for complex multi-physics simulation processes.", link: "https://evotechcae.com/simstack/" },
+    { disc: "General", topic: "Science", title: "Veritasium", type: "YouTube", desc: "High-concept science and engineering videos exploring physics and mathematics.", link: "https://www.youtube.com/c/veritasium" },
+    { disc: "General", topic: "Physics", title: "MinutePhysics", type: "YouTube", desc: "Cool physics and other sweet science explained simply via whiteboard animation.", link: "https://www.youtube.com/user/minutephysics" },
+    { disc: "General", topic: "Education", title: "The Great Courses (Wondrium)", type: "Website", desc: "University-level lecture series. Recommended: 'Understanding Modern Electronics' and 'Everyday Engineering'.", link: "https://www.wondrium.com/" },
+    { disc: "General", topic: "Stories", title: "99% Invisible (Roman Mars)", type: "Podcast", desc: "Beautifully produced stories about the unnoticed architecture and design that shape our world.", link: "https://99percentinvisible.org/" },
+    { disc: "General", topic: "News", title: "Engineering Matters", type: "Podcast", desc: "Award-winning podcast covering vital engineering innovations and their impact on the world.", link: "https://engineeringmatters.reby.media/" },
+    { disc: "General", topic: "Career", title: "The Engineering Career Coach Podcast", type: "Podcast", desc: "Strategies for engineers to develop soft skills, leadership, and career advancement.", link: "https://engineeringmanagementinstitute.org/the-podcast/" },
+    { disc: "General", topic: "Innovation", title: "Ingenia", type: "Magazine", desc: "The flagship magazine of the Royal Academy of Engineering (RAEng). High-level policy and innovation.", link: "https://www.ingenia.org.uk/" },
+    { disc: "General", topic: "Policy", title: "IRENA (Intl Renewable Energy Agency)", type: "Institution", desc: "Global intergovernmental organisation for energy transformation. Excellent reports on cost trends and capacity.", link: "https://www.irena.org/" },
+// =========================================================================
+    // BIOMEDICAL ENGINEERING (New Discipline)
+    { disc: "Biomedical", topic: "Innovation", title: "Biodesign: The Process of Innovating Medical Technologies", type: "Book", desc: "The Stanford Biodesign bible. The definitive guide to identifying unmet clinical needs and inventing solutions.", link: "https://www.amazon.co.uk/s?k=Biodesign+Process+of+Innovating+Medical+Technologies" },
+    { disc: "Biomedical", topic: "Standards", title: "ISO 13485: Medical Devices", type: "Standard", desc: "The gold standard for Quality Management Systems in the medical device industry. Mandatory for regulatory compliance.", link: "https://www.iso.org/iso-13485-medical-devices.html" },
+    { disc: "Biomedical", topic: "Instrumentation", title: "Medical Instrumentation: Application and Design (Webster)", type: "Book", desc: "The classic textbook on the physics and electronics behind ECG, EEG, and imaging systems.", link: "https://www.amazon.co.uk/s?k=Medical+Instrumentation+Application+and+Design" },
+    { disc: "Biomedical", topic: "Regulation", title: "FDA Device Advice", type: "Website", desc: "Official US guidance on medical device regulation (510k, PMA). Essential for global medtech.", link: "https://www.fda.gov/medical-devices/device-advice-comprehensive-regulatory-assistance" },
+    { disc: "Biomedical", topic: "Biomechanics", title: "Biomechanics: Mechanical Properties of Living Tissues (Fung)", type: "Book", desc: "The foundational text on soft tissue mechanics and bio-fluid dynamics by the father of biomechanics.", link: "https://www.amazon.co.uk/s?k=Biomechanics+Mechanical+Properties+of+Living+Tissues" },
+    { disc: "Biomedical", topic: "Materials", title: "Biomaterials Science (Ratner)", type: "Book", desc: "The 'White Book'. Comprehensive guide to biocompatibility, implants, and tissue engineering.", link: "https://www.amazon.co.uk/s?k=Biomaterials+Science+Ratner" },
+    { disc: "Biomedical", topic: "Institute", title: "IPEM (Physics & Engineering in Medicine)", type: "Institution", desc: "The professional body for physicists, engineers, and technologists working in healthcare.", link: "https://www.ipem.ac.uk/" },
+    // FIRE & SAFETY ENGINEERING (New Discipline)
+    { disc: "Fire", topic: "Regulations", title: "BS 9999: Code of Practice for Fire Safety", type: "Standard", desc: "The primary UK code for fire safety in the design, management, and use of buildings.", link: "https://knowledge.bsigroup.com/products/fire-safety-in-the-design-management-and-use-of-buildings-code-of-practice/standard" },
+    { disc: "Fire", topic: "Simulation", title: "FDS (Fire Dynamics Simulator)", type: "Tool", desc: "Open-source CFD model of fire-driven fluid flow, developed by NIST. The industry standard for smoke modelling.", link: "https://pages.nist.gov/fds-smv/" },
+    { disc: "Fire", topic: "Institution", title: "IFE (Institution of Fire Engineers)", type: "Institution", desc: "Global professional body for fire engineering and safety professionals.", link: "https://www.ife.org.uk/" },
+    // ENVIRONMENTAL & WATER ENGINEERING (New Discipline)
+    { disc: "Environmental", topic: "Water", title: "Wastewater Engineering: Treatment and Resource Recovery (Metcalf & Eddy)", type: "Book", desc: "Known simply as 'Metcalf & Eddy'. The bible of wastewater treatment plant design.", link: "https://www.amazon.co.uk/s?k=Wastewater+Engineering+Metcalf+Eddy" },
+    { disc: "Environmental", topic: "Climate", title: "IPCC Assessment Reports", type: "Website", desc: "The definitive scientific data on climate change. Essential for carbon footprinting and adaptation strategies.", link: "https://www.ipcc.ch/" },
+    { disc: "Environmental", topic: "Institution", title: "CIWEM", type: "Institution", desc: "Chartered Institution of Water and Environmental Management.", link: "https://www.ciwem.org/" },
+    { disc: "Environmental", topic: "Hydrology", title: "OpenFlows WaterGEMS", type: "Tool", desc: "Advanced hydraulic modeling software for water distribution networks.", link: "https://www.bentley.com/software/openflows-watergems/" },
+    // MARINE & NAVAL ARCHITECTURE (New Discipline)
+    { disc: "Marine", topic: "Propulsion", title: "Marine Auxiliary Machinery (McGeorge)", type: "Book", desc: "Comprehensive guide to pumps, heat exchangers, and systems on board ships.", link: "https://www.amazon.co.uk/s?k=Marine+Auxiliary+Machinery" },
+    { disc: "Marine", topic: "Institution", title: "RINA (Royal Institution of Naval Architects)", type: "Institution", desc: "World-renowned professional institution for naval architects.", link: "https://www.rina.org.uk/" },
+    // ACOUSTICS & VIBRATION (New Discipline)
+    { disc: "Acoustics", topic: "Reference", title: "Master Handbook of Acoustics (Everest)", type: "Book", desc: "The go-to guide for understanding sound behavior, studio design, and noise control.", link: "https://www.amazon.co.uk/s?k=Master+Handbook+of+Acoustics" },
+    { disc: "Acoustics", topic: "Industrial", title: "Engineering Noise Control (Bies & Hansen)", type: "Book", desc: "The standard text for industrial noise control, physics of sound, and legislation.", link: "https://www.amazon.co.uk/s?k=Engineering+Noise+Control+Bies" },
+    { disc: "Acoustics", topic: "Institution", title: "Institute of Acoustics (IOA)", type: "Institution", desc: "UK's professional body for those working in acoustics, noise, and vibration.", link: "https://www.ioa.org.uk/" },
+    // ELECTRONICS: RF, POWER & IOT (Deepening)
+    { disc: "Electrical", topic: "RF Design", title: "High Speed Digital Design (Johnson)", type: "Book", desc: "A Handbook of Black Magic. Essential for PCB designers dealing with signal integrity.", link: "https://www.amazon.co.uk/s?k=High+Speed+Digital+Design+Johnson" },
+    { disc: "Electrical", topic: "Power", title: "Fundamentals of Power Electronics (Erickson)", type: "Book", desc: "The definitive guide to switching converters, inverters, and magnetics.", link: "https://www.amazon.co.uk/s?k=Fundamentals+of+Power+Electronics+Erickson" },
+    { disc: "Electrical", topic: "IoT", title: "MQTT Essentials", type: "Website", desc: "Deep dive into the lightweight messaging protocol that powers the Internet of Things.", link: "https://www.hivemq.com/mqtt-essentials/" },
+    { disc: "Electrical", topic: "Reference", title: "Jack Ganssle", type: "Website", desc: "Legendary articles on embedded systems firmware, debouncing, and reliability.", link: "http://www.ganssle.com/" },
+    // SOFTWARE: DEVOPS, SRE & CLOUD (Deepening)
+    { disc: "Systems", topic: "Architecture", title: "Building Microservices (Sam Newman)", type: "Book", desc: "Comprehensive guide to designing, building, and deploying microservices.", link: "https://www.amazon.co.uk/s?k=Building+Microservices+Sam+Newman" },
+    { disc: "Systems", topic: "Cloud", title: "Azure Architecture Center", type: "Website", desc: "Microsoft's design patterns and best practices for building scalable cloud solutions.", link: "https://learn.microsoft.com/en-us/azure/architecture/" },
+    { disc: "Systems", topic: "Containerization", title: "Docker Hub", type: "Tool", desc: "The world's largest library of container images. Essential for modern software deployment.", link: "https://hub.docker.com/" },
+    { disc: "Systems", topic: "Orchestration", title: "Kubernetes Documentation", type: "Website", desc: "The official docs for K8s. The operating system of the cloud.", link: "https://kubernetes.io/docs/" },
+    { disc: "Systems", topic: "DevOps", title: "The DevOps Handbook (Kim)", type: "Book", desc: "How to create world-class agility, reliability, and security in technology organizations.", link: "https://www.amazon.co.uk/s?k=The+DevOps+Handbook" },
+    { disc: "Systems", topic: "Landscape", title: "CNCF Landscape", type: "Website", desc: "Interactive map of the entire Cloud Native ecosystem (Service Mesh, CI/CD, Observability).", link: "https://landscape.cncf.io/" },
+    // MANAGEMENT: PRODUCT & AGILE (Deepening)
+    { disc: "Management", topic: "Product", title: "Inspired (Marty Cagan)", type: "Book", desc: "How to create tech products customers love. The bible for Product Managers.", link: "https://www.amazon.co.uk/s?k=Inspired+Marty+Cagan" },
+    { disc: "Management", topic: "Innovation", title: "The Lean Startup (Eric Ries)", type: "Book", desc: "How constant innovation creates radically successful businesses. MVP and pivot concepts.", link: "https://www.amazon.co.uk/s?k=The+Lean+Startup" },
+    { disc: "Management", topic: "Feedback", title: "Radical Candor (Kim Scott)", type: "Book", desc: "How to get what you want by saying what you mean. Crucial for engineering leadership.", link: "https://www.amazon.co.uk/s?k=Radical+Candor" },
+    { disc: "Management", topic: "Manufacturing", title: "The Machine That Changed the World", type: "Book", desc: "The story of Lean Production and how Toyota's secret weapon revolutionized industry.", link: "https://www.amazon.co.uk/s?k=The+Machine+That+Changed+the+World" },
+    // CIVIL & GEOTECH (Deepening)
+    { disc: "Civil", topic: "Geotech", title: "Tomlinson: Pile Design and Construction", type: "Book", desc: "The definitive reference for piling engineering and foundations.", link: "https://www.amazon.co.uk/s?k=Pile+Design+and+Construction+Practice+Tomlinson" },
+    { disc: "Civil", topic: "Materials", title: "Concrete Society", type: "Institution", desc: "Technical guidance on concrete mix design, testing, and durability.", link: "https://www.concrete.org.uk/" },
+    // NEWSLETTERS (New Type)
+    { disc: "Mechanical", topic: "Industry", title: "The Prepared", type: "Newsletter", desc: "Weekly dive into manufacturing, engineering, and infrastructure. High signal-to-noise ratio.", link: "https://theprepared.org/" },
+    { disc: "Management", topic: "Leadership", title: "Software Lead Weekly", type: "Newsletter", desc: "A weekly email for engineering managers and technical leaders.", link: "https://softwareleadweekly.com/" },
+    // INTERESTING BLOGS (New Type)
+    { disc: "Systems", topic: "Software", title: "Martin Fowler", type: "Blog", desc: "Legendary blog on software architecture, refactoring, and agile methodologies.", link: "https://martinfowler.com/" },
+    { disc: "Systems", topic: "Security", title: "Schneier on Security", type: "Blog", desc: "Bruce Schneier's blog. The ultimate resource for cryptography and security engineering news.", link: "https://www.schneier.com/" },
+    { disc: "General", topic: "Space", title: "Wait But Why (Elon Musk Series)", type: "Blog", desc: "Deep, illustrated dives into how SpaceX rockets work and the future of energy.", link: "https://waitbutwhy.com/2015/08/how-and-why-spacex-will-colonize-mars.html" },
+    { disc: "Electrical", topic: "Hardware", title: "Hackaday", type: "Blog", desc: "Daily fresh hacks, hardware mods, and engineering projects from the community.", link: "https://hackaday.com/" },
+    { disc: "Civil", topic: "Infrastructure", title: "Construction Physics", type: "Blog", desc: "Analysis of the construction industry: why it's expensive, how it works, and how to fix it.", link: "https://constructionphysics.substack.com/" },
+    // ADDITIONAL TOOLS & CALCULATORS
+    { disc: "General", topic: "Units", title: "ConvertUtils", type: "Tool", desc: "Simple, fast unit conversion for engineering units (Viscosity, Torque, Pressure).", link: "https://www.convertunits.com/" },
+    { disc: "Electrical", topic: "Calc", title: "PCB Trace Width Calculator", type: "Tool", desc: "Standard calculator for determining trace width based on current and temperature rise (IPC-2221).", link: "https://www.4pcb.com/trace-width-calculator.html" },
+    { disc: "Mechanical", topic: "Calc", title: "Engineer's Edge Calculators", type: "Tool", desc: "Suite of calculators for interference fits, beam deflection, and bolt torque.", link: "https://www.engineersedge.com/calculators.htm" },
+    { disc: "Civil", topic: "Maps", title: "British Geological Survey (GeoIndex)", type: "Tool", desc: "Interactive map of UK geology. Essential for initial site investigations and geotech.", link: "https://mapapps2.bgs.ac.uk/geoindex/home.html" },
+    { disc: "Process", topic: "Data", title: "Cameo Chemicals (NOAA)", type: "Tool", desc: "Database of hazardous chemicals. Used for safety planning and predicting reactivity.", link: "https://cameochemicals.noaa.gov/" },
+    // RAILWAY & TRANSPORT ENGINEERING (New Section)
+    { disc: "Civil", topic: "Rail", title: "Practical Railway Engineering (Clifford Bonnett)", type: "Book", desc: "The ideal introduction to the engineering of railway systems, from track to signaling.", link: "https://www.amazon.co.uk/s?k=Practical+Railway+Engineering" },
+    { disc: "Civil", topic: "Rail", title: "Track Design Handbook (Network Rail)", type: "Standard", desc: "Technical standards for the design, construction, and maintenance of UK rail infrastructure.", link: "https://standards.networkrail.co.uk/" },
+    { disc: "Civil", topic: "Rail", title: "PWI (Permanent Way Institution)", type: "Institution", desc: "The professional body for rail infrastructure engineers.", link: "https://www.thepwi.org/" },
+    { disc: "Civil", topic: "Rail", title: "RSSB (Rail Safety and Standards Board)", type: "Institution", desc: "The independent safety and standards body for the UK rail industry.", link: "https://www.rssb.co.uk/" },
+    { disc: "Electrical", topic: "Rail", title: "Signalling Principles (IRSE)", type: "Book", desc: "The definitive guide to railway signaling and control systems.", link: "https://www.irse.org/" },
+    { disc: "Civil", topic: "Highways", title: "DMRB (Design Manual for Roads and Bridges)", type: "Standard", desc: "The bible for highway engineering in the UK. Covers geometry, drainage, and pavement.", link: "https://www.standardsforhighways.co.uk/dmrb/" },
+    { disc: "Civil", topic: "Transport", title: "Manual for Streets", type: "Standard", desc: "Government guidance on designing residential streets that prioritize people over cars.", link: "https://www.gov.uk/government/publications/manual-for-streets" },
+    { disc: "Civil", topic: "Transport", title: "CIHT (Chartered Institution of Highways & Transportation)", type: "Institution", desc: "Professional body for transport infrastructure professionals.", link: "https://www.ciht.org.uk/" },
+    // SPACE & SATELLITE ENGINEERING (New Section)
+    { disc: "Mechanical", topic: "Space", title: "Space Mission Analysis and Design (SMAD)", type: "Book", desc: "Known as the 'Space Bible'. The comprehensive handbook for designing satellites and missions.", link: "https://www.amazon.co.uk/s?k=Space+Mission+Analysis+and+Design" },
+    { disc: "Mechanical", topic: "Space", title: "Rocket Propulsion Elements (Sutton)", type: "Book", desc: "The definitive text on the physics and engineering of rocket engines.", link: "https://www.amazon.co.uk/s?k=Rocket+Propulsion+Elements" },
+    { disc: "Systems", topic: "Space", title: "ECSS Standards", type: "Standard", desc: "European Cooperation for Space Standardization. The ISO equivalent for the European space sector.", link: "https://ecss.nl/" },
+    { disc: "Systems", topic: "Space", title: "NASA Eyes", type: "Tool", desc: "Visualization tool for real-time tracking of spacecraft and orbital mechanics.", link: "https://eyes.nasa.gov/" },
+    { disc: "General", topic: "Space", title: "Space News", type: "Magazine", desc: "The leading source for news and analysis of the global space industry.", link: "https://spacenews.com/" },
+    { disc: "General", topic: "Space", title: "UK Space Agency", type: "Institution", desc: "Government agency responsible for the UK's civil space programme.", link: "https://www.gov.uk/government/organisations/uk-space-agency" },
+    // PHARMA, BIOTECH & GMP (New Section)
+    { disc: "Process", topic: "Pharma", title: "ISPE GAMP 5", type: "Standard", desc: "Good Automated Manufacturing Practice. The standard for validating computerized systems in pharma.", link: "https://ispe.org/publications/guidance-documents/gamp-5" },
+    { disc: "Process", topic: "Pharma", title: "The Orange Guide (MHRA)", type: "Book", desc: "Rules and Guidance for Pharmaceutical Manufacturers and Distributors. Essential for GMP compliance.", link: "https://www.amazon.co.uk/s?k=The+Orange+Guide+MHRA" },
+    { disc: "Process", topic: "Pharma", title: "Cleanroom Technology (Whyte)", type: "Book", desc: "Fundamentals of design, testing, and operation of cleanrooms.", link: "https://www.amazon.co.uk/s?k=Cleanroom+Technology+Whyte" },
+    { disc: "Process", topic: "Pharma", title: "ISPE (Intl Society for Pharmaceutical Engineering)", type: "Institution", desc: "The world's largest non-profit association for pharma engineering professionals.", link: "https://ispe.org/" },
+    { disc: "Process", topic: "Biotech", title: "Bioprocess Engineering Principles (Doran)", type: "Book", desc: "The standard text for fermentation, cell culture, and downstream processing.", link: "https://www.amazon.co.uk/s?k=Bioprocess+Engineering+Principles" },
+    // HVAC & BUILDING SERVICES (Deepening CIBSE)
+    { disc: "Mechanical", topic: "HVAC", title: "CIBSE Guide A: Environmental Design", type: "Standard", desc: "Criteria for design of indoor environments (Thermal comfort, Air quality).", link: "https://www.cibse.org/knowledge/knowledge-items/detail?id=a0q20000008I7f5AAC" },
+    { disc: "Mechanical", topic: "HVAC", title: "CIBSE Guide B: Heating, Ventilating", type: "Standard", desc: "Guidance on HVAC systems, cooling, and ductwork design.", link: "https://www.cibse.org/" },
+    { disc: "Electrical", topic: "Lighting", title: "SLL Code for Lighting", type: "Standard", desc: "The definitive guide to lighting design from the Society of Light and Lighting.", link: "https://www.cibse.org/society-of-light-and-lighting-sll" },
+    { disc: "Mechanical", topic: "Plumbing", title: "CIBSE Guide G: Public Health Engineering", type: "Standard", desc: "Water services and sanitation for buildings.", link: "https://www.cibse.org/" },
+    { disc: "General", topic: "Net Zero", title: "LETI Climate Emergency Design Guide", type: "Standard", desc: "Practical guidance on designing Net Zero Carbon buildings.", link: "https://www.leti.uk/cedg" },
+    { disc: "General", topic: "Building", title: "BREEAM Technical Standards", type: "Standard", desc: "The world's leading sustainability assessment method for masterplanning projects.", link: "https://bregroup.com/products/breeam/" },
+    // MINING, GEOLOGY & OFFSHORE (New Section)
+    { disc: "Civil", topic: "Mining", title: "SME Mining Engineering Handbook", type: "Book", desc: "The essential reference for mining and mineral processing.", link: "https://www.amazon.co.uk/s?k=SME+Mining+Engineering+Handbook" },
+    { disc: "Civil", topic: "Geology", title: "JORC Code", type: "Standard", desc: "The Australasian Code for Reporting of Exploration Results, Mineral Resources and Ore Reserves.", link: "https://www.jorc.org/" },
+    { disc: "Civil", topic: "Rock", title: "Rock Mechanics and Engineering (Jaeger)", type: "Book", desc: "The definitive text on rock mechanics for tunnels and slopes.", link: "https://www.amazon.co.uk/s?k=Rock+Mechanics+and+Engineering" },
+    { disc: "Mechanical", topic: "Offshore", title: "DNV Rules and Standards", type: "Standard", desc: "Technical assurance standards for the offshore oil, gas, and wind industries.", link: "https://www.dnv.com/rules-standards/" },
+    { disc: "Process", topic: "Subsea", title: "Subsea Engineering Handbook", type: "Book", desc: "Design, installation, and operation of subsea production systems.", link: "https://www.amazon.co.uk/s?k=Subsea+Engineering+Handbook" },
+    // CYBERSECURITY & OT (Operational Technology)
+    { disc: "Systems", topic: "Security", title: "IEC 62443: Industrial Security", type: "Standard", desc: "The global standard for the security of Industrial Control Systems (ICS).", link: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards" },
+    { disc: "Systems", topic: "Security", title: "NIST SP 800-82: ICS Security", type: "Standard", desc: "Guide to Industrial Control Systems (ICS) Security.", link: "https://csrc.nist.gov/publications/detail/sp/800-82/rev-2/final" },
+    { disc: "Systems", topic: "Hacking", title: "The Web Application Hacker's Handbook", type: "Book", desc: "The bible of discovering and exploiting security flaws in web applications.", link: "https://www.amazon.co.uk/s?k=The+Web+Application+Hacker%27s+Handbook" },
+    { disc: "Systems", topic: "Security", title: "Krebs on Security", type: "Blog", desc: "Brian Krebs' investigative blog on cybercrime and security news.", link: "https://krebsonsecurity.com/" },
+    { disc: "Systems", topic: "Crypto", title: "Applied Cryptography (Schneier)", type: "Book", desc: "Protocols, algorithms, and source code in C. The classic crypto text.", link: "https://www.amazon.co.uk/s?k=Applied+Cryptography+Schneier" },
+    // MATHEMATICS & PHYSICS (Deepening)
+    { disc: "General", topic: "Math", title: "Advanced Engineering Mathematics (Kreyszig)", type: "Book", desc: "The worldwide standard for engineering math. ODEs, PDEs, and Linear Algebra.", link: "https://www.amazon.co.uk/s?k=Advanced+Engineering+Mathematics+Kreyszig" },
+    { disc: "General", topic: "Math", title: "3Blue1Brown", type: "YouTube", desc: "The best visual explanations of calculus, linear algebra, and neural networks on the internet.", link: "https://www.youtube.com/c/3blue1brown" },
+    { disc: "General", topic: "Physics", title: "Feynman Lectures on Physics", type: "Book", desc: "The legendary lectures by Nobel laureate Richard Feynman. Essential for first principles thinking.", link: "https://www.feynmanlectures.caltech.edu/" },
+    { disc: "General", topic: "Calc", title: "Symbolab", type: "Tool", desc: "Step-by-step equation solver. Great for checking calculus and algebra work.", link: "https://www.symbolab.com/" },
+    { disc: "General", topic: "Units", title: "NIST SI Unit Rules", type: "Website", desc: "Official guide to the International System of Units (SI).", link: "https://www.nist.gov/pml/special-publication-811" },
+    // MANUFACTURING & SUPPLY CHAIN (Deepening)
+    { disc: "Mechanical", topic: "Manufacturing", title: "Fundamentals of Modern Manufacturing (Groover)", type: "Book", desc: "Comprehensive coverage of materials, processes, and systems.", link: "https://www.amazon.co.uk/s?k=Fundamentals+of+Modern+Manufacturing+Groover" },
+    { disc: "Management", topic: "Supply Chain", title: "The Box (Marc Levinson)", type: "Book", desc: "How the shipping container made the world smaller and the world economy bigger.", link: "https://www.amazon.co.uk/s?k=The+Box+Levinson" },
+    { disc: "Management", topic: "Supply Chain", title: "CIPS (Procurement & Supply)", type: "Institution", desc: "Chartered Institute of Procurement & Supply. The body for purchasing professionals.", link: "https://www.cips.org/" },
+    { disc: "Mechanical", topic: "Plastics", title: "Plastic Part Design for Injection Molding", type: "Book", desc: "The definitive guide to designing parts for manufacturing.", link: "https://www.amazon.co.uk/s?k=Plastic+Part+Design+for+Injection+Molding" },
+    { disc: "Mechanical", topic: "3D Printing", title: "Hubs Manufacturing Guides", type: "Website", desc: "Excellent free guides on CNC machining, 3D printing, and sheet metal.", link: "https://www.hubs.com/guides/" },
+    // ADDITIONAL SOFTWARE TOOLS
+    { disc: "Systems", topic: "Diagrams", title: "Draw.io", type: "Tool", desc: "Free, open-source diagramming software. Essential for flowcharts and system architecture.", link: "https://app.diagrams.net/" },
+    { disc: "Systems", topic: "Regex", title: "Regex101", type: "Tool", desc: "Build, test, and debug regular expressions. A lifesaver for parsing text data.", link: "https://regex101.com/" },
+    { disc: "Systems", topic: "API", title: "Postman", type: "Tool", desc: "The platform for building and testing APIs.", link: "https://www.postman.com/" },
+    { disc: "General", topic: "Productivity", title: "Notion", type: "Tool", desc: "All-in-one workspace for notes, project management, and wikis.", link: "https://www.notion.so/" },
+    { disc: "General", topic: "Productivity", title: "Trello", type: "Tool", desc: "Kanban-style project management. Great for tracking personal engineering tasks.", link: "https://trello.com/" },
+    { disc: "Systems", topic: "Linux", title: "Linux Journey", type: "Website", desc: "Friendly guide to learning the Linux command line and operating system.", link: "https://linuxjourney.com/" },
+    { disc: "Systems", topic: "Git", title: "Oh Shit, Git!?!", type: "Website", desc: "Simple recipes for getting out of Git mistakes. Practical and humorous.", link: "https://ohshitgit.com/" },
+    // HISTORY & INSPIRATION
+    { disc: "General", topic: "History", title: "Skunk Works (Ben Rich)", type: "Book", desc: "A personal memoir of my years at Lockheed. How the SR-71 and F-117 were built.", link: "https://www.amazon.co.uk/s?k=Skunk+Works+Ben+Rich" },
+    { disc: "General", topic: "History", title: "The Soul of a New Machine (Kidder)", type: "Book", desc: "The drama of designing a new 32-bit computer in the 1970s. Pulitzer winner.", link: "https://www.amazon.co.uk/s?k=The+Soul+of+a+New+Machine" },
+    { disc: "Civil", topic: "History", title: "The Great Bridge (David McCullough)", type: "Book", desc: "The epic story of the building of the Brooklyn Bridge.", link: "https://www.amazon.co.uk/s?k=The+Great+Bridge" },
+    { disc: "General", topic: "Biography", title: "Elon Musk (Walter Isaacson)", type: "Book", desc: "Detailed biography covering SpaceX and Tesla engineering challenges.", link: "https://www.amazon.co.uk/s?k=Elon+Musk+Walter+Isaacson" },
+    { disc: "General", topic: "Failures", title: "To Engineer Is Human (Petroski)", type: "Book", desc: "The role of failure in successful design.", link: "https://www.amazon.co.uk/s?k=To+Engineer+Is+Human" },
+    // MORE ELECTRICAL & ELECTRONICS
+    { disc: "Electrical", topic: "Motors", title: "Electric Motors and Drives (Hughes)", type: "Book", desc: "Fundamentals, types, and applications of electric motors.", link: "https://www.amazon.co.uk/s?k=Electric+Motors+and+Drives+Hughes" },
+    { disc: "Electrical", topic: "Sensors", title: "Handbook of Modern Sensors (Fraden)", type: "Book", desc: "Physics, designs, and applications of sensors.", link: "https://www.amazon.co.uk/s?k=Handbook+of+Modern+Sensors" },
+    { disc: "Electrical", topic: "Grid", title: "National Grid ESO Data", type: "Website", desc: "Live data on the UK energy mix, frequency, and demand.", link: "https://data.nationalgrideso.com/" },
+    { disc: "Electrical", topic: "EMC", title: "EMC for Product Designers (Williams)", type: "Book", desc: "Meeting the requirements of the EMC Directive.", link: "https://www.amazon.co.uk/s?k=EMC+for+Product+Designers" },
+    { disc: "Electrical", topic: "Reference", title: "HyperPhysics", type: "Website", desc: "Concept maps for physics, electricity, and magnetism. Old school but reliable.", link: "http://hyperphysics.phy-astr.gsu.edu/hbase/index.html" },
+    // MORE CIVIL & STRUCTURAL
+    { disc: "Civil", topic: "Wind", title: "Wind Loading of Structures (Cook)", type: "Book", desc: "The theory and practice of wind engineering.", link: "https://www.amazon.co.uk/s?k=Wind+Loading+of+Structures" },
+    { disc: "Civil", topic: "Surveying", title: "Engineering Surveying (Schofield)", type: "Book", desc: "Theory and examination problems for students.", link: "https://www.amazon.co.uk/s?k=Engineering+Surveying" },
+    { disc: "Civil", topic: "Hydraulics", title: "Open Channel Hydraulics (Chow)", type: "Book", desc: "The classic text on flow in open channels.", link: "https://www.amazon.co.uk/s?k=Open+Channel+Hydraulics" },
+    { disc: "Civil", topic: "Earthquake", title: "Dynamics of Structures (Chopra)", type: "Book", desc: "Theory and applications to earthquake engineering.", link: "https://www.amazon.co.uk/s?k=Dynamics+of+Structures+Chopra" },
+    { disc: "Civil", topic: "Management", title: "CESMM4", type: "Standard", desc: "Civil Engineering Standard Method of Measurement. Essential for bill of quantities.", link: "https://www.icevirtuallibrary.com/isbn/9780727757517" },
+    // MORE MECHANICAL
+    { disc: "Mechanical", topic: "Bearings", title: "SKF Rolling Bearings Handbook", type: "Website", desc: "The definitive guide to bearing selection, lubrication, and life calculation.", link: "https://www.skf.com/uk/support/engineering-tools/skf-bearing-calculator" },
+    { disc: "Mechanical", topic: "Seals", title: "Parker O-Ring Handbook", type: "Book", desc: "Everything you ever needed to know about elastomer seals.", link: "https://www.parker.com/literature/ORD%205700%20Parker_O-Ring_Handbook.pdf" },
+    { disc: "Mechanical", topic: "Fasteners", title: "Bolt Science", type: "Website", desc: "Technical resources on bolted joints, torque tightening, and failure.", link: "https://www.boltscience.com/" },
+    { disc: "Mechanical", topic: "Springs", title: "SMI Handbook of Spring Design", type: "Book", desc: "Standards and guidelines for spring design.", link: "https://smihq.org/" },
+    { disc: "Mechanical", topic: "Hydraulics", title: "Eaton Industrial Hydraulics Manual", type: "Book", desc: "Color-coded guide to hydraulic systems and components.", link: "https://www.amazon.co.uk/s?k=Eaton+Industrial+Hydraulics+Manual" },
+    // MORE MANAGEMENT & LEADERSHIP
+    { disc: "Management", topic: "Complexity", title: "Team Topologies", type: "Book", desc: "Organizing business and technology teams for fast flow.", link: "https://www.amazon.co.uk/s?k=Team+Topologies" },
+    { disc: "Management", topic: "Metrics", title: "Accelerate", type: "Book", desc: "The science of lean software and DevOps: building and scaling high performing technology organizations.", link: "https://www.amazon.co.uk/s?k=Accelerate+Nicole+Forsgren" },
+    { disc: "Management", topic: "Innovation", title: "The Innovator's Dilemma (Christensen)", type: "Book", desc: "When new technologies cause great firms to fail.", link: "https://www.amazon.co.uk/s?k=The+Innovator%27s+Dilemma" },
+    { disc: "Management", topic: "Change", title: "Leading Change (Kotter)", type: "Book", desc: "The 8-step process for leading change.", link: "https://www.amazon.co.uk/s?k=Leading+Change+Kotter" },
+    { disc: "Management", topic: "Productivity", title: "Getting Things Done (Allen)", type: "Book", desc: "The art of stress-free productivity.", link: "https://www.amazon.co.uk/s?k=Getting+Things+Done" },
+    // MORE GENERAL & NEWS
+    { disc: "General", topic: "Data", title: "Information is Beautiful", type: "Website", desc: "Ideas, issues, knowledge, and data - visualized.", link: "https://informationisbeautiful.net/" },
+    { disc: "General", topic: "Search", title: "Google Scholar", type: "Tool", desc: "Search engine for academic literature, patents, and case law.", link: "https://scholar.google.com/" },
+    { disc: "General", topic: "Patents", title: "Espacenet", type: "Tool", desc: "Free access to over 130 million patent documents worldwide.", link: "https://worldwide.espacenet.com/" },
+    { disc: "General", topic: "Events", title: "Eventbrite Engineering", type: "Website", desc: "Find engineering conferences, workshops, and networking events.", link: "https://www.eventbrite.co.uk/d/united-kingdom/science-and-tech--events/" },
+    { disc: "General", topic: "Dictionary", title: "Oxford Reference (Engineering)", type: "Website", desc: "Dictionary of Mechanical Engineering and other disciplines.", link: "https://www.oxfordreference.com/page/engineering" },
+// =========================================================================
+    // TELECOMMUNICATIONS & NETWORKING (New Discipline)
     // =========================================================================
-    { 
-        disc: "Mechanical", 
-        topic: "General Reference", 
-        title: "Machinery's Handbook", 
-        type: "Book", 
-        desc: "The 'Black Book'. The absolute bible for machining, tolerances, and mechanical standards since 1914.",
-        link: "https://www.amazon.co.uk/s?k=Machinery%27s+Handbook" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Design & Analysis", 
-        title: "Shigley's Mechanical Engineering Design", 
-        type: "Book", 
-        desc: "The gold standard for machine design, fatigue analysis, and component sizing.",
-        link: "https://www.amazon.co.uk/s?k=Shigley%27s+Mechanical+Engineering+Design" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Reference", 
-        title: "Marks' Standard Handbook for Mechanical Engineers", 
-        type: "Book", 
-        desc: "A comprehensive resource covering everything from thermodynamics to machine elements.",
-        link: "https://www.amazon.co.uk/s?k=Marks%27+Standard+Handbook+for+Mechanical+Engineers" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Stress Analysis", 
-        title: "Roark's Formulas for Stress and Strain", 
-        type: "Book", 
-        desc: "The definitive collection of beam, plate, and shell formulas. Essential for FEA validation.",
-        link: "https://www.amazon.co.uk/s?k=Roark%27s+Formulas+for+Stress+and+Strain" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Stress Analysis", 
-        title: "Peterson's Stress Concentration Factors", 
-        type: "Book", 
-        desc: "The visual guide to 'Kt' factors for notches, grooves, and holes.",
-        link: "https://www.amazon.co.uk/s?k=Peterson%27s+Stress+Concentration+Factors" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "GD&T", 
-        title: "ASME Y14.5 (GD&T Standard)", 
-        type: "Standard", 
-        desc: "The global standard for Geometric Dimensioning and Tolerancing.",
-        link: "https://www.asme.org/codes-standards/y14-5-dimensioning-tolerancing" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "General Reference", 
-        title: "RoyMech", 
-        type: "Website", 
-        desc: "An incredible UK-based repository of BS standards, thread data, and gearing formulas.",
-        link: "https://roymech.org/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Tribology", 
-        title: "Tribology-ABC", 
-        type: "Website", 
-        desc: "Calculators for Hertzian contact stress, bearings, and lubrication.",
-        link: "https://www.tribology-abc.com/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Piping", 
-        title: "ASME B31.3 Process Piping", 
-        type: "Standard", 
-        desc: "The primary code for process piping design (USA/Global).",
-        link: "https://www.asme.org/codes-standards/find-codes-standards/b31-3-process-piping" 
-    },
-	{ 
-        disc: "Mechanical", 
-        topic: "Design", 
-        title: "Stuart J. Bateman", 
-        type: "Website", 
-        desc: "A valuable resource hub for design engineering, product design insights, and creative problem solving.",
-        link: "https://stuartjbateman.com/" 
-    },
+    { disc: "Electrical", topic: "Telecoms", title: "Wireless Communications (Andrea Goldsmith)", type: "Book", desc: "The standard university text on wireless systems, fading, diversity, and MIMO.", link: "https://www.amazon.co.uk/s?k=Wireless+Communications+Andrea+Goldsmith" },
+    { disc: "Electrical", topic: "Telecoms", title: "Optical Fiber Communications (Keiser)", type: "Book", desc: "Comprehensive guide to fiber optics, lightwave systems, and signal degradation.", link: "https://www.amazon.co.uk/s?k=Optical+Fiber+Communications+Keiser" },
+    { disc: "Electrical", topic: "Telecoms", title: "3GPP Specifications", type: "Standard", desc: "The global technical specifications for mobile networks (5G, 4G LTE).", link: "https://www.3gpp.org/specifications" },
+    { disc: "Electrical", topic: "Network", title: "TCP/IP Illustrated (Stevens)", type: "Book", desc: "The protocols data bible. Essential for network engineers and systems architects.", link: "https://www.amazon.co.uk/s?k=TCP+IP+Illustrated" },
+    { disc: "Electrical", topic: "RF", title: "Microwave Engineering (Pozar)", type: "Book", desc: "The definitive reference for RF and microwave circuits and antenna design.", link: "https://www.amazon.co.uk/s?k=Microwave+Engineering+Pozar" },
+    { disc: "Electrical", topic: "Institution", title: "IEEE ComSoc", type: "Institution", desc: "IEEE Communications Society. The premier body for telecom professionals.", link: "https://www.comsoc.org/" },
 
     // =========================================================================
-    // AEROSPACE
+    // ASSET MANAGEMENT & RELIABILITY (New Discipline)
     // =========================================================================
-    { 
-        disc: "Mechanical", 
-        topic: "Aerodynamics", 
-        title: "Fundamentals of Aerodynamics (Anderson)", 
-        type: "Book", 
-        desc: "The introductory bible for aerodynamics, covering lift, drag, and compressible flow.",
-        link: "https://www.amazon.co.uk/s?k=Fundamentals+of+Aerodynamics+Anderson" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Structures", 
-        title: "Bruhn: Analysis & Design of Flight Vehicle Structures", 
-        type: "Book", 
-        desc: "Known simply as 'Bruhn'. The ultimate reference for aircraft stress analysis.",
-        link: "https://www.amazon.co.uk/s?k=Bruhn+Analysis+and+Design" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Propulsion", 
-        title: "Mechanics and Thermodynamics of Propulsion (Hill & Peterson)", 
-        type: "Book", 
-        desc: "The standard text for jet engines, rockets, and gas turbines.",
-        link: "https://www.amazon.co.uk/s?k=Mechanics+and+Thermodynamics+of+Propulsion" 
-    },
+    { disc: "Management", topic: "Assets", title: "ISO 55000: Asset Management", type: "Standard", desc: "The international standard for managing physical assets to maximize value.", link: "https://committee.iso.org/home/tc251" },
+    { disc: "Management", topic: "Reliability", title: "Practical Reliability Engineering (O'Connor)", type: "Book", desc: "The standard text for reliability, life testing, and failure prediction.", link: "https://www.amazon.co.uk/s?k=Practical+Reliability+Engineering" },
+    { disc: "Management", topic: "Maintenance", title: "RCM3: Risk-Based Reliability Centered Maintenance", type: "Book", desc: "The definitive guide to RCM and maintenance strategy optimization.", link: "https://www.amazon.co.uk/s?k=RCM3+Risk-Based+Reliability+Centered+Maintenance" },
+    { disc: "Management", topic: "Safety", title: "IEC 61508: Functional Safety", type: "Standard", desc: "The overarching standard for functional safety of electrical/electronic safety-related systems.", link: "https://www.iec.ch/functionalsafety" },
+    { disc: "Management", topic: "Institution", title: "The Institute of Asset Management (IAM)", type: "Institution", desc: "Professional body for asset management professionals worldwide.", link: "https://theiam.org/" },
 
     // =========================================================================
-    // ELECTRICAL, ELECTRONICS & C&I
+    // FOOD & AGRICULTURAL ENGINEERING (New Discipline)
     // =========================================================================
-    { 
-        disc: "Electrical", 
-        topic: "Regulations", 
-        title: "BS 7671:2018 (The Wiring Regs)", 
-        type: "Standard", 
-        desc: "The IET Wiring Regulations (18th Edition). Mandatory for UK low voltage design.",
-        link: "https://electrical.theiet.org/bs-7671/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Electronics", 
-        title: "The Art of Electronics (Horowitz & Hill)", 
-        type: "Book", 
-        desc: "Widely accepted as the best book on analog circuit design ever written.",
-        link: "https://artofelectronics.net/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Circuits", 
-        title: "Microelectronic Circuits (Sedra & Smith)", 
-        type: "Book", 
-        desc: "The standard university text for understanding MOSFETs, BJTs, and amplifiers.",
-        link: "https://www.amazon.co.uk/s?k=Microelectronic+Circuits+Sedra+Smith" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Power", 
-        title: "Power System Analysis (Grainger & Stevenson)", 
-        type: "Book", 
-        desc: "The classic text for grid analysis, load flow, and fault calculations.",
-        link: "https://www.amazon.co.uk/s?k=Power+System+Analysis+Grainger" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Control", 
-        title: "Modern Control Engineering (Ogata)", 
-        type: "Book", 
-        desc: "The go-to reference for PID control, transfer functions, and state-space analysis.",
-        link: "https://www.amazon.co.uk/s?k=Modern+Control+Engineering+Ogata" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Theory", 
-        title: "All About Circuits", 
-        type: "Website", 
-        desc: "Free, high-quality textbook and forum for EE theory and projects.",
-        link: "https://www.allaboutcircuits.com/" 
-    },
+    { disc: "Process", topic: "Food", title: "Hygienic Design of Food Factories (Holah)", type: "Book", desc: "Guidelines for designing safe and cleanable food processing facilities.", link: "https://www.amazon.co.uk/s?k=Hygienic+Design+of+Food+Factories" },
+    { disc: "Process", topic: "Food", title: "EHEDG Guidelines", type: "Standard", desc: "European Hygienic Engineering & Design Group. Essential for food safety compliance.", link: "https://www.ehedg.org/" },
+    { disc: "Mechanical", topic: "Agri", title: "Engineering Principles of Agricultural Machines", type: "Book", desc: "Mechanics of farm machinery, soil dynamics, and harvesting systems.", link: "https://www.amazon.co.uk/s?k=Engineering+Principles+of+Agricultural+Machines" },
+    { disc: "Process", topic: "Institution", title: "IAgrE (Institution of Agricultural Engineers)", type: "Institution", desc: "Professional body for engineers in land-based industries.", link: "https://iagre.org/" },
 
     // =========================================================================
-    // CIVIL & STRUCTURAL
+    // OPTICS & PHOTONICS (New Discipline)
     // =========================================================================
-    { 
-        disc: "Civil", 
-        topic: "Structural", 
-        title: "IStructE Standard Method of Detailing", 
-        type: "Book", 
-        desc: "The go-to manual for concrete and steel detailing in the UK.",
-        link: "https://www.istructe.org/resources/guidance/standard-method-of-detailing-structural-concrete/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Analysis", 
-        title: "Structural Analysis (Hibbeler)", 
-        type: "Book", 
-        desc: "Comprehensive guide to trusses, beams, and frames.",
-        link: "https://www.amazon.co.uk/s?k=Structural+Analysis+Hibbeler" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Concrete", 
-        title: "Reinforced Concrete Design (Mosley & Bungey)", 
-        type: "Book", 
-        desc: "The standard text for Eurocode 2 concrete design in the UK.",
-        link: "https://www.amazon.co.uk/s?k=Reinforced+Concrete+Design+Mosley" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Steel", 
-        title: "SteelConstruction.info (The Blue Book)", 
-        type: "Website", 
-        desc: "The definitive online encyclopedia for UK steel construction data.",
-        link: "https://www.steelconstruction.info/The_Blue_Book" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Geotech", 
-        title: "Craig's Soil Mechanics", 
-        type: "Book", 
-        desc: "The classic textbook for geotechnical engineering and soil analysis.",
-        link: "https://www.amazon.co.uk/s?k=Craig%27s+Soil+Mechanics" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Costing", 
-        title: "Spon's Architects' and Builders' Price Book", 
-        type: "Book", 
-        desc: "Essential for commercial awareness (Competency E). Real-world UK construction costs.",
-        link: "https://www.amazon.co.uk/s?k=Spon%27s+Price+Book" 
-    },
+    { disc: "Electrical", topic: "Optics", title: "Optics (Hecht)", type: "Book", desc: "The classic textbook on wave optics, polarization, and lenses.", link: "https://www.amazon.co.uk/s?k=Optics+Eugene+Hecht" },
+    { disc: "Electrical", topic: "Photonics", title: "SPIE Field Guides", type: "Book", desc: "Pocket guides for optical design, lasers, and sensors.", link: "https://spie.org/publications/books/field-guides" },
+    { disc: "Electrical", topic: "Institution", title: "SPIE", type: "Institution", desc: "The international society for optics and photonics.", link: "https://spie.org/" },
 
     // =========================================================================
-    // PROCESS, CHEMICAL & MATERIALS
+    // FORENSIC ENGINEERING (New Discipline)
     // =========================================================================
-    { 
-        disc: "Process", 
-        topic: "General", 
-        title: "Perry's Chemical Engineers' Handbook", 
-        type: "Book", 
-        desc: "The 'Chemical Engineer's Bible'. Covers everything from thermodynamics to reactors.",
-        link: "https://www.amazon.co.uk/s?k=Perry%27s+Chemical+Engineers%27+Handbook" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Fluids", 
-        title: "Crane Technical Paper 410", 
-        type: "Book", 
-        desc: "The quintessential guide to flow of fluids through valves, fittings, and pipe.",
-        link: "https://www.flowoffluids.com/tp410.aspx" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Safety", 
-        title: "The Purple Book (CCPS)", 
-        type: "Book", 
-        desc: "Guidelines for Chemical Process Quantitative Risk Analysis (QRA).",
-        link: "https://www.aiche.org/ccps" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Materials", 
-        title: "Materials Science and Engineering (Callister)", 
-        type: "Book", 
-        desc: "The definitive introduction to materials properties, failure, and selection.",
-        link: "https://www.amazon.co.uk/s?k=Callister+Materials+Science" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Data", 
-        title: "MatWeb", 
-        type: "Website", 
-        desc: "Searchable database of material properties for thousands of metals, plastics, and ceramics.",
-        link: "http://www.matweb.com/" 
-    },
+    { disc: "Civil", topic: "Forensic", title: "Introduction to Forensic Engineering (Noon)", type: "Book", desc: "How to investigate failures, accidents, and product liability cases.", link: "https://www.amazon.co.uk/s?k=Introduction+to+Forensic+Engineering+Noon" },
+    { disc: "Civil", topic: "Forensic", title: "Why Buildings Fall Down (Levy)", type: "Book", desc: "Case studies of structural failures and what we learned from them.", link: "https://www.amazon.co.uk/s?k=Why+Buildings+Fall+Down" },
+    { disc: "General", topic: "Law", title: "Expert Witness Institute", type: "Institution", desc: "Supporting professionals who act as expert witnesses in court.", link: "https://www.ewi.org.uk/" },
 
     // =========================================================================
-    // SYSTEMS, SOFTWARE & COMPUTING
+    // PETROLEUM & DRILLING (Deepening)
     // =========================================================================
-    { 
-        disc: "Systems", 
-        topic: "Algorithms", 
-        title: "Introduction to Algorithms (CLRS)", 
-        type: "Book", 
-        desc: "Known as 'CLRS'. The bible of computer algorithms and data structures.",
-        link: "https://www.amazon.co.uk/s?k=Introduction+to+Algorithms+CLRS" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Practice", 
-        title: "The Pragmatic Programmer", 
-        type: "Book", 
-        desc: "Essential reading for software craftsmanship and career development.",
-        link: "https://www.amazon.co.uk/s?k=The+Pragmatic+Programmer" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Code Quality", 
-        title: "Clean Code (Robert C. Martin)", 
-        type: "Book", 
-        desc: "How to write code that is readable, maintainable, and robust.",
-        link: "https://www.amazon.co.uk/s?k=Clean+Code+Robert+Martin" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Management", 
-        title: "The Mythical Man-Month (Brooks)", 
-        type: "Book", 
-        desc: "Classic essays on software engineering management. 'Adding manpower to a late project makes it later.'",
-        link: "https://www.amazon.co.uk/s?k=The+Mythical+Man+Month" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "SE", 
-        title: "INCOSE Systems Engineering Handbook", 
-        type: "Book", 
-        desc: "The definitive guide to the systems engineering lifecycle (V-Model).",
-        link: "https://www.incose.org/products-and-publications/se-handbook" 
-    },
+    { disc: "Process", topic: "Petroleum", title: "Petroleum Production Systems", type: "Book", desc: "Engineering analysis of oil and gas production systems.", link: "https://www.amazon.co.uk/s?k=Petroleum+Production+Systems" },
+    { disc: "Mechanical", topic: "Drilling", title: "Applied Drilling Engineering (Bourgoyne)", type: "Book", desc: "The bible of drilling mechanics, fluids, and well design.", link: "https://www.amazon.co.uk/s?k=Applied+Drilling+Engineering" },
+    { disc: "Process", topic: "Standards", title: "API Standards", type: "Standard", desc: "American Petroleum Institute. The primary standards for oil & gas equipment.", link: "https://www.api.org/products-and-services/standards" },
+    { disc: "Process", topic: "Institution", title: "SPE (Society of Petroleum Engineers)", type: "Institution", desc: "The largest individual member organization serving the oil and gas industry.", link: "https://www.spe.org/" },
 
     // =========================================================================
-    // LEADERSHIP & MANAGEMENT (UK-SPEC C & D)
+    // MORE SOFTWARE & DATA (Deepening)
     // =========================================================================
-    { 
-        disc: "Management", 
-        topic: "Strategy", 
-        title: "The Alignment Trap", 
-        type: "Book", 
-        desc: "Why best leaders may work against each other. Essential for understanding systemic organizational alignment.",
-        link: "https://www.amazon.co.uk/s?k=The+Alignment+Trap" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Team Dynamics", 
-        title: "The Five Dysfunctions of a Team (Lencioni)", 
-        type: "Book", 
-        desc: "The standard text for understanding team conflict, accountability, and results.",
-        link: "https://www.amazon.co.uk/s?k=Five+Dysfunctions+of+a+Team" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Productivity", 
-        title: "High Output Management (Andy Grove)", 
-        type: "Book", 
-        desc: "The definitive guide to engineering management, metrics, and meetings by the former Intel CEO.",
-        link: "https://www.amazon.co.uk/s?k=High+Output+Management" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Project Mgmt", 
-        title: "APM Body of Knowledge", 
-        type: "Standard", 
-        desc: "The UK standard for Project Management (Association for Project Management).",
-        link: "https://www.apm.org.uk/book-shop/apm-body-of-knowledge-7th-edition/" 
-    },
+    { disc: "Systems", topic: "Patterns", title: "Patterns of Enterprise Application Architecture (Fowler)", type: "Book", desc: "Essential for designing complex, scalable enterprise software systems.", link: "https://www.amazon.co.uk/s?k=Patterns+of+Enterprise+Application+Architecture" },
+    { disc: "Systems", topic: "AI", title: "Deep Learning (Goodfellow)", type: "Book", desc: "The comprehensive textbook on machine learning and neural networks.", link: "https://www.deeplearningbook.org/" },
+    { disc: "Systems", topic: "Cloud", title: "Google Cloud Architecture Framework", type: "Standard", desc: "Best practices for building secure and scalable applications on GCP.", link: "https://cloud.google.com/architecture/framework" },
+    { disc: "Systems", topic: "Testing", title: "Test Driven Development: By Example (Beck)", type: "Book", desc: "The foundational text on TDD and agile software quality.", link: "https://www.amazon.co.uk/s?k=Test+Driven+Development+By+Example" },
+    { disc: "Systems", topic: "Legacy", title: "Working Effectively with Legacy Code (Feathers)", type: "Book", desc: "How to handle, refactor, and improve existing codebases safely.", link: "https://www.amazon.co.uk/s?k=Working+Effectively+with+Legacy+Code" },
+    { disc: "Systems", topic: "Visualization", title: "D3.js Gallery", type: "Website", desc: "The standard library for producing dynamic, interactive data visualizations.", link: "https://d3js.org/" },
 
     // =========================================================================
-    // PROFESSIONAL INSTITUTIONS (PEIs) & REGULATORS
+    // MORE MANAGEMENT & STRATEGY (Deepening)
     // =========================================================================
-    { 
-        disc: "General", 
-        topic: "Regulator", 
-        title: "The Engineering Council (EngC)", 
-        type: "Institution", 
-        desc: "The UK regulatory body for the engineering profession. Holds the official register of CEng/IEng.",
-        link: "https://www.engc.org.uk/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Directory", 
-        title: "Full List of Licensed PEIs", 
-        type: "Institution", 
-        desc: "The official directory of all 40+ licensed institutions tailored to specific disciplines.",
-        link: "https://www.engc.org.uk/our-role-as-regulator/licensing-professional-engineering-institutions" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "PEI", 
-        title: "IMechE (Mechanical Engineers)", 
-        type: "Institution", 
-        desc: "Institution of Mechanical Engineers. Focus: Auto, Rail, Power, Manufacturing.",
-        link: "https://www.imeche.org/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "PEI", 
-        title: "IET (Engineering & Technology)", 
-        type: "Institution", 
-        desc: "Institution of Engineering and Technology. Focus: Electrical, Software, Telecoms.",
-        link: "https://www.theiet.org/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "PEI", 
-        title: "ICE (Civil Engineers)", 
-        type: "Institution", 
-        desc: "Institution of Civil Engineers. Focus: Infrastructure, Bridges, Tunnels.",
-        link: "https://www.ice.org.uk/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "PEI", 
-        title: "IStructE (Structural Engineers)", 
-        type: "Institution", 
-        desc: "The world's leading professional body for structural engineering.",
-        link: "https://www.istructe.org/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "PEI", 
-        title: "IChemE (Chemical Engineers)", 
-        type: "Institution", 
-        desc: "Institution of Chemical Engineers. Focus: Process, Pharma, Energy.",
-        link: "https://www.icheme.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "CIBSE (Building Services)", 
-        type: "Institution", 
-        desc: "Chartered Institution of Building Services Engineers. HVAC, Lighting, Ventilation.",
-        link: "https://www.cibse.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "BCS (The Chartered Institute for IT)", 
-        type: "Institution", 
-        desc: "The professional body for computing and IT professionals.",
-        link: "https://www.bcs.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "IOM3 (Materials, Minerals & Mining)", 
-        type: "Institution", 
-        desc: "Focus on materials science, mining, and extraction.",
-        link: "https://www.iom3.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "RAeS (Royal Aeronautical Society)", 
-        type: "Institution", 
-        desc: "Multidisciplinary professional body for the aerospace community.",
-        link: "https://www.aerosociety.com/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "The Energy Institute (EI)", 
-        type: "Institution", 
-        desc: "For engineers working in oil, gas, renewables, and nuclear energy.",
-        link: "https://www.energyinst.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "IMarEST (Marine)", 
-        type: "Institution", 
-        desc: "Institute of Marine Engineering, Science and Technology.",
-        link: "https://www.imarest.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "PEI", 
-        title: "Nuclear Institute (NI)", 
-        type: "Institution", 
-        desc: "Professional body for the nuclear industry.",
-        link: "https://www.nuclearinst.com/" 
-    },
+    { disc: "Management", topic: "Strategy", title: "Blue Ocean Strategy", type: "Book", desc: "How to create uncontested market space and make the competition irrelevant.", link: "https://www.amazon.co.uk/s?k=Blue+Ocean+Strategy" },
+    { disc: "Management", topic: "Productivity", title: "The 7 Habits of Highly Effective People", type: "Book", desc: "Timeless lessons in personal change and leadership.", link: "https://www.amazon.co.uk/s?k=The+7+Habits+of+Highly+Effective+People" },
+    { disc: "Management", topic: "Psychology", title: "The Chimp Paradox (Steve Peters)", type: "Book", desc: "Mind management program for confidence, success, and happiness.", link: "https://www.amazon.co.uk/s?k=The+Chimp+Paradox" },
+    { disc: "Management", topic: "Negotiation", title: "Getting to Yes", type: "Book", desc: "Negotiating agreement without giving in. The Harvard Negotiation Project.", link: "https://www.amazon.co.uk/s?k=Getting+to+Yes" },
+    { disc: "Management", topic: "Innovation", title: "Zero to One (Peter Thiel)", type: "Book", desc: "Notes on startups, or how to build the future.", link: "https://www.amazon.co.uk/s?k=Zero+to+One" },
+    { disc: "Management", topic: "Culture", title: "Leaders Eat Last (Simon Sinek)", type: "Book", desc: "Why some teams pull together and others don't.", link: "https://www.amazon.co.uk/s?k=Leaders+Eat+Last" },
 
     // =========================================================================
-    // YOUTUBE CHANNELS
+    // MORE GENERAL TOOLS & RESOURCES
     // =========================================================================
-    { 
-        disc: "Civil", 
-        topic: "Infrastructure", 
-        title: "Practical Engineering (Grady Hillhouse)", 
-        type: "YouTube", 
-        desc: "The absolute gold standard for civil engineering explainer videos. Dams, concrete, and grids.",
-        link: "https://www.youtube.com/c/PracticalEngineeringChannel" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Construction", 
-        title: "The B1M", 
-        type: "YouTube", 
-        desc: "The world's largest video channel for construction and architecture projects.",
-        link: "https://www.youtube.com/c/TheB1M" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Analysis", 
-        title: "The Efficient Engineer", 
-        type: "YouTube", 
-        desc: "Beautifully visualized explanations of Stress, Strain, FEA, and Fluid Dynamics.",
-        link: "https://www.youtube.com/c/TheEfficientEngineer" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Automotive", 
-        title: "Engineering Explained", 
-        type: "YouTube", 
-        desc: "Deep technical dives into combustion engines, aerodynamics, and EVs.",
-        link: "https://www.youtube.com/user/EngineeringExplained" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Aerospace", 
-        title: "Real Engineering", 
-        type: "YouTube", 
-        desc: "High-quality documentaries on planes, materials, and engineering history.",
-        link: "https://www.youtube.com/channel/CR1IuLEqb6UEA_zQ81kwXjg" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Electronics", 
-        title: "EEVblog (Dave Jones)", 
-        type: "YouTube", 
-        desc: "No-nonsense teardowns, tutorials, and rants. The bible for electronics lab work.",
-        link: "https://www.youtube.com/c/EevblogDave" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Education", 
-        title: "ElectroBOOM", 
-        type: "YouTube", 
-        desc: "Learning electrical safety and theory through painful (comedic) mistakes.",
-        link: "https://www.youtube.com/c/Electroboom" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Safety", 
-        title: "USCSB (Chemical Safety Board)", 
-        type: "YouTube", 
-        desc: "World-class forensic animations of major industrial accidents. Essential for safety engineering.",
-        link: "https://www.youtube.com/user/USCSB" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Software", 
-        title: "Computerphile", 
-        type: "YouTube", 
-        desc: "Deep dives into algorithms, security, and computing history from experts.",
-        link: "https://www.youtube.com/user/Computerphile" 
-    },
-    { 
-        disc: "General", 
-        topic: "Science", 
-        title: "Veritasium", 
-        type: "YouTube", 
-        desc: "High-concept science and engineering videos exploring physics and mathematics.",
-        link: "https://www.youtube.com/c/veritasium" 
-    },
-
-    // =========================================================================
-    // SIMULATION & CALCULATION TOOLS (New Category)
-    // =========================================================================
-    { 
-        disc: "General", 
-        topic: "Math", 
-        title: "Wolfram Alpha", 
-        type: "Tool", 
-        desc: "Computational intelligence. Solves complex calculus, algebra, and physics problems instantly.",
-        link: "https://www.wolframalpha.com/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Graphing", 
-        title: "Desmos", 
-        type: "Tool", 
-        desc: "Advanced online graphing calculator. Excellent for visualizing functions and data.",
-        link: "https://www.desmos.com/calculator" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "CFD / FEA", 
-        title: "SimScale", 
-        type: "Tool", 
-        desc: "Cloud-based simulation platform for CFD, FEA, and Thermodynamics. (Has free tier).",
-        link: "https://www.simscale.com/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "CAD", 
-        title: "Onshape", 
-        type: "Tool", 
-        desc: "Full-featured cloud CAD system. Great for collaborative design and prototyping.",
-        link: "https://www.onshape.com/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Simulation", 
-        title: "Falstad Circuit Simulator", 
-        type: "Tool", 
-        desc: "The best free interactive circuit simulator. Visualize current flow and voltage in real-time.",
-        link: "https://www.falstad.com/circuit/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Design", 
-        title: "EasyEDA", 
-        type: "Tool", 
-        desc: "Web-based EDA tool for circuit design, simulation, and PCB layout.",
-        link: "https://easyeda.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Math / Coding", 
-        title: "Octave Online", 
-        type: "Tool", 
-        desc: "Free online interface for Octave (MATLAB compatible). Run scripts without installing anything.",
-        link: "https://octave-online.net/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Utility", 
-        title: "WebPlotDigitizer", 
-        type: "Tool", 
-        desc: "Extract raw data (X,Y coordinates) from images of graphs and plots.",
-        link: "https://automeris.io/WebPlotDigitizer/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Thermodynamics", 
-        title: "NIST Chemistry WebBook", 
-        type: "Tool", 
-        desc: "Standard reference data for thermophysical properties of fluids.",
-        link: "https://webbook.nist.gov/chemistry/" 
-    },
-	// =========================================================================
-    // HIGH-END ENGINEERING SOFTWARE (CAD / CAE / PLM)
-    // =========================================================================
-    { 
-        disc: "General", 
-        topic: "Simulation", 
-        title: "Ansys", 
-        type: "Tool", 
-        desc: "The industry heavyweight for multiphysics engineering simulation (FEA, CFD, Electromagnetics).",
-        link: "https://www.ansys.com/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Simulation", 
-        title: "COMSOL Multiphysics", 
-        type: "Tool", 
-        desc: "Advanced platform for modeling coupled physics phenomena (e.g., thermal-electric, fluid-structure).",
-        link: "https://www.comsol.com/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "CAD / CAM", 
-        title: "Autodesk Fusion & Inventor", 
-        type: "Tool", 
-        desc: "Professional product design, manufacturing, and engineering tools. Fusion is cloud-integrated.",
-        link: "https://www.autodesk.com/solutions/manufacturing" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "CAD", 
-        title: "SOLIDWORKS", 
-        type: "Tool", 
-        desc: "The standard 3D CAD software for mechanical engineering and product design.",
-        link: "https://www.solidworks.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "PLM / CAD", 
-        title: "CATIA (Dassault Systèmes)", 
-        type: "Tool", 
-        desc: "High-end multi-platform suite for CAD, CAM, and PLM. The standard in Aerospace and Automotive.",
-        link: "https://www.3ds.com/products/catia" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "PLM / CAD", 
-        title: "Siemens NX", 
-        type: "Tool", 
-        desc: "Advanced high-end CAD/CAM/CAE software. Dominant in complex assembly sectors (Aero/Auto).",
-        link: "https://plm.sw.siemens.com/en-US/nx/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Simulation", 
-        title: "Aspen HYSYS", 
-        type: "Tool", 
-        desc: "The market-leading process simulation tool for energy and chemical engineering.",
-        link: "https://www.aspentech.com/en/products/engineering/aspen-hysys" 
-    },
-	// [ADD THESE NEW AR/VR & AI TOOLS]
-    { 
-        disc: "Civil", 
-        topic: "AR / VR", 
-        title: "Enscape", 
-        type: "Tool", 
-        desc: "Real-time rendering and VR plugin for Revit/SketchUp. Essential for immersive design reviews.",
-        link: "https://enscape3d.com/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "AR / VR", 
-        title: "Arkio", 
-        type: "Tool", 
-        desc: "Collaborative spatial design tool. Model buildings and infrastructure together in VR/AR.",
-        link: "https://www.arkio.is/" 
-    },
-    { 
-        disc: "General", 
-        topic: "AI / Coding", 
-        title: "GitHub Copilot", 
-        type: "Tool", 
-        desc: "AI pair programmer. Essential for accelerating code writing and debugging.",
-        link: "https://github.com/features/copilot" 
-    },
-    // =========================================================================
-    // STRATEGY, LEADERSHIP & INSPIRATION
-    // =========================================================================
-    { 
-        disc: "Management", 
-        topic: "Strategy", 
-        title: "The Book of Five Rings (Miyamoto Musashi)", 
-        type: "Book", 
-        desc: "A classic text on Kenjutsu and martial arts, widely applied to engineering strategy and conflict resolution.",
-        link: "https://www.amazon.co.uk/s?k=The+Book+of+Five+Rings" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Strategy", 
-        title: "The Art of War (Sun Tzu)", 
-        type: "Book", 
-        desc: "The definitive ancient treatise on competitive strategy, planning, and leadership.",
-        link: "https://www.amazon.co.uk/s?k=The+Art+of+War" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Culture", 
-        title: "Work Rules! (Laszlo Bock)", 
-        type: "Book", 
-        desc: "Insights from inside Google that will transform how you live and lead. Essential for modern HR and People Ops.",
-        link: "https://www.amazon.co.uk/s?k=Work+Rules+Laszlo+Bock" 
-    },
-    { 
-        disc: "General", 
-        topic: "Education", 
-        title: "The Great Courses (Wondrium)", 
-        type: "Website", 
-        desc: "University-level lecture series. Recommended: 'Understanding Modern Electronics' and 'Everyday Engineering'.",
-        link: "https://www.wondrium.com/" 
-    },
-	// =========================================================================
-    // PROGRAMMING & DATA SCIENCE FOR ENGINEERS
-    // =========================================================================
-    { 
-        disc: "Systems", 
-        topic: "Python", 
-        title: "Automate the Boring Stuff with Python", 
-        type: "Book", 
-        desc: "The best practical guide for engineers to start automating spreadsheets, PDFs, and emails.",
-        link: "https://automatetheboringstuff.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Python", 
-        title: "Real Python", 
-        type: "Website", 
-        desc: "High-quality tutorials and articles for learning Python, from basics to data science.",
-        link: "https://realpython.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Data", 
-        title: "Kaggle", 
-        type: "Website", 
-        desc: "The world's largest data science community. Free datasets and competitions to practice ML.",
-        link: "https://www.kaggle.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Courses", 
-        title: "freeCodeCamp", 
-        type: "Website", 
-        desc: "Completely free, certification-based learning for Web Dev, Python, and Machine Learning.",
-        link: "https://www.freecodecamp.org/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Reference", 
-        title: "Stack Overflow", 
-        type: "Website", 
-        desc: "The essential Q&A site for every programmer. If you have an error, the answer is here.",
-        link: "https://stackoverflow.com/" 
-    },
-	// =========================================================================
-    // ENGINEERING PODCASTS (New Category)
-    // =========================================================================
-    { 
-        disc: "General", 
-        topic: "Stories", 
-        title: "99% Invisible (Roman Mars)", 
-        type: "Podcast", 
-        desc: "Beautifully produced stories about the unnoticed architecture and design that shape our world.",
-        link: "https://99percentinvisible.org/" 
-    },
-    { 
-        disc: "General", 
-        topic: "News", 
-        title: "Engineering Matters", 
-        type: "Podcast", 
-        desc: "Award-winning podcast covering vital engineering innovations and their impact on the world.",
-        link: "https://engineeringmatters.reby.media/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Career", 
-        title: "The Engineering Career Coach Podcast", 
-        type: "Podcast", 
-        desc: "Strategies for engineers to develop soft skills, leadership, and career advancement.",
-        link: "https://engineeringmanagementinstitute.org/the-podcast/" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Leadership", 
-        title: "The Engineering Leadership Podcast", 
-        type: "Podcast", 
-        desc: "Insights for engineering managers and executives on building high-performing technical teams.",
-        link: "https://sfelc.com/podcast/" 
-    },
-    { 
-        disc: "Management", 
-        topic: "Soft Skills", 
-        title: "Soft Skills Engineering", 
-        type: "Podcast", 
-        desc: "A weekly advice show for software developers and engineers about the non-technical stuff.",
-        link: "https://softskills.audio/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Industry", 
-        title: "Being An Engineer", 
-        type: "Podcast", 
-        desc: "Explores the 'how' and 'why' of engineering with industry professionals.",
-        link: "https://teampipeline.us/podcast/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Casual", 
-        title: "Unprofessional Engineering", 
-        type: "Podcast", 
-        desc: "A fun, laid-back look at how things work, from cars to space stations.",
-        link: "https://www.unprofessionalengineering.com/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Career", 
-        title: "The Civil Engineering Podcast", 
-        type: "Podcast", 
-        desc: "Dedicated to helping civil engineers create an extraordinary career and life.",
-        link: "https://engineeringmanagementinstitute.org/tcep/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Construction", 
-        title: "The B1M Podcast", 
-        type: "Podcast", 
-        desc: "Audio companion to the world's most subscribed video channel for construction.",
-        link: "https://www.theb1m.com/video-category/podcast" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Industry", 
-        title: "The Amp Hour", 
-        type: "Podcast", 
-        desc: "The world's largest and most respected electronics podcast. Discussions on chips, PCBs, and design.",
-        link: "https://theamphour.com/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Hardware", 
-        title: "MacroFab Engineering Podcast", 
-        type: "Podcast", 
-        desc: "Weekly discussions on electrical engineering, DIY projects, and manufacturing.",
-        link: "https://macrofab.com/podcasts/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Software", 
-        title: "Software Engineering Radio", 
-        type: "Podcast", 
-        desc: "Deep dives into software topics. Targeted at professional developers.",
-        link: "https://www.se-radio.net/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Security", 
-        title: "Darknet Diaries", 
-        type: "Podcast", 
-        desc: "True stories from the dark side of the internet. Hacking, breaches, and cybercrime.",
-        link: "https://darknetdiaries.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Tech", 
-        title: "CoRecursive", 
-        type: "Podcast", 
-        desc: "The stories behind the code. Interviews with software engineers about their careers and lives.",
-        link: "https://corecursive.com/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Energy", 
-        title: "The Energy Transition Show", 
-        type: "Podcast", 
-        desc: "Geeky, deep analysis of the transition from fossil fuels to renewables.",
-        link: "https://xenetwork.org/ets/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Automation", 
-        title: "SimStack (Evotech CAE)", 
-        type: "Podcast", 
-        desc: "A simplified workflow automation platform for complex multi-physics simulation processes.",
-        link: "https://evotechcae.com/simstack/" 
-    },
-	// [ADD TO "HIGH-END ENGINEERING SOFTWARE" SECTION]
-    { 
-        disc: "General", 
-        topic: "Simulation", 
-        title: "NAFEMS", 
-        type: "Institution", 
-        desc: "The International Association for the Engineering Modelling, Analysis and Simulation Community.",
-        link: "https://www.nafems.org/" 
-    },
-
-    // =========================================================================
-    // ENGINEERING MAGAZINES & JOURNALS (New Category)
-    // =========================================================================
-    { 
-        disc: "Mechanical", 
-        topic: "Industry", 
-        title: "Professional Engineering (PE)", 
-        type: "Magazine", 
-        desc: "The official magazine of the IMechE. Covers manufacturing, energy, and transport innovation.",
-        link: "https://www.imeche.org/news/professional-engineering-magazine" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Tech", 
-        title: "E&T Magazine", 
-        type: "Magazine", 
-        desc: "Engineering & Technology. The award-winning magazine from the IET covering global tech trends.",
-        link: "https://eandt.theiet.org/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Construction", 
-        title: "New Civil Engineer (NCE)", 
-        type: "Magazine", 
-        desc: "The official magazine of the ICE. Essential news on infrastructure projects and geotechnical events.",
-        link: "https://www.newcivilengineer.com/" 
-    },
-    { 
-        disc: "Civil", 
-        topic: "Structural", 
-        title: "The Structural Engineer", 
-        type: "Magazine", 
-        desc: "The flagship publication of the IStructE. Features technical papers and project case studies.",
-        link: "https://www.istructe.org/thestructuralengineer/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Chemical", 
-        title: "The Chemical Engineer", 
-        type: "Magazine", 
-        desc: "The official publication of the IChemE. Focus on process safety, biotech, and emissions.",
-        link: "https://www.thechemicalengineer.com/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Innovation", 
-        title: "Ingenia", 
-        type: "Magazine", 
-        desc: "The flagship magazine of the Royal Academy of Engineering (RAEng). High-level policy and innovation.",
-        link: "https://www.ingenia.org.uk/" 
-    },
-    { 
-        disc: "General", 
-        topic: "News", 
-        title: "The Engineer", 
-        type: "Magazine", 
-        desc: "UK-based engineering news and analysis since 1856. Covers all technology sectors.",
-        link: "https://www.theengineer.co.uk/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Science", 
-        title: "New Scientist", 
-        type: "Magazine", 
-        desc: "The world's most popular weekly science and technology publication.",
-        link: "https://www.newscientist.com/" 
-    },
-	{ 
-        disc: "Mechanical", 
-        topic: "Aerospace", 
-        title: "AEROSPACE Magazine", 
-        type: "Magazine", 
-        desc: "The flagship publication of the Royal Aeronautical Society (RAeS). News and features from the aviation sector.",
-        link: "https://www.aerosociety.com/news-expertise/aerospace-magazine/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Nuclear", 
-        title: "Nuclear Future", 
-        type: "Magazine", 
-        desc: "The official journal of the Nuclear Institute. Covers reactor operations, decommissioning, and safety cases.",
-        link: "https://www.nuclearinst.com/Nuclear-Future" 
-    },
-	{ 
-        disc: "General", 
-        topic: "Safety", 
-        title: "The Hazards Forum", 
-        type: "Institution", 
-        desc: "Interdisciplinary body focused on major hazard management, safety leadership, and disaster prevention.",
-        link: "https://hazardsforum.org/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Skills", 
-        title: "Cogent Skills", 
-        type: "Institution", 
-        desc: "The UK strategic skills body for the science industries, covering Nuclear, Petrochemical, and Polymers.",
-        link: "https://cogentskills.com/" 
-    },
-	{ 
-        disc: "Process", 
-        topic: "Hydrogen", 
-        title: "Engineering Hydrogen Solutions", 
-        type: "Magazine", 
-        desc: "The leading trade journal for hydrogen technology, fuel cells, and the renewable energy transition.",
-        link: "https://www.engineeringhydrogensolutions.com/" 
-    },
-    { 
-        disc: "Process", 
-        topic: "Hydrogen", 
-        title: "Hydrogen & Fuel Cell Innovation", 
-        type: "Magazine", 
-        desc: "Latest news on hydrogen economy, policy, and technical innovation.",
-        link: "https://hydrogen-innovation.co.uk/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "General Reference", 
-        title: "The Engineering ToolBox", 
-        type: "Website", 
-        desc: "Massive online repository of engineering data, formulas, and unit conversions.",
-        link: "https://www.engineeringtoolbox.com/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "General Reference", 
-        title: "Engineers Edge", 
-        type: "Website", 
-        desc: "Design data, engineering calculators, and specifications for mechanical engineers.",
-        link: "https://www.engineersedge.com/" 
-    },
-    { 
-        disc: "Electrical", 
-        topic: "Theory", 
-        title: "Electrical4U", 
-        type: "Website", 
-        desc: "Free study resources for electrical engineering students and professionals.",
-        link: "https://www.electrical4u.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Coding", 
-        title: "The Odin Project", 
-        type: "Website", 
-        desc: "Full stack curriculum for learning web development (HTML, CSS, JavaScript).",
-        link: "https://www.theodinproject.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Coding", 
-        title: "W3Schools", 
-        type: "Website", 
-        desc: "The world's largest web developer site. essential references for HTML/CSS/SQL.",
-        link: "https://www.w3schools.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Excel / Data", 
-        title: "Leila Gharani", 
-        type: "YouTube", 
-        desc: "Advanced Excel, Power BI, and productivity hacks for engineering data analysis.",
-        link: "https://www.youtube.com/c/LeilaGharani" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Coding", 
-        title: "Wise Owl Tutorials", 
-        type: "YouTube", 
-        desc: "The best resource for learning VBA (Visual Basic for Applications) and SQL.",
-        link: "https://www.youtube.com/user/WiseOwlTutorials" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Statistics", 
-        title: "StatLearning (ISL)", 
-        type: "Book", 
-        desc: "An Introduction to Statistical Learning. The gold standard for understanding data science.",
-        link: "https://www.statlearning.com/" 
-    },
-    { 
-        disc: "Systems", 
-        topic: "Statistics", 
-        title: "Brandon Foltz", 
-        type: "YouTube", 
-        desc: "Deep-dive tutorials on statistics, finite math, and operations management.",
-        link: "https://www.youtube.com/user/BCFoltz" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Metrology", 
-        title: "Mitutoyo Education", 
-        type: "Website", 
-        desc: "Educational resources on precision measurement, dimensional metrology, and tolerances.",
-        link: "https://www.mitutoyo.eu/en_us/support/education" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "Metrology", 
-        title: "Keyence Measurement Basics", 
-        type: "Website", 
-        desc: "Comprehensive guide to measurement systems, GD&T, and inspection techniques.",
-        link: "https://www.keyence.com/ss/products/measure-sys/measurement-selection/" 
-    },
-    { 
-        disc: "Mechanical", 
-        topic: "CAD", 
-        title: "Fusion 360 Learn", 
-        type: "Website", 
-        desc: "Official Autodesk learning hub for CAD/CAM/CAE workflows.",
-        link: "https://www.autodesk.com/products/fusion-360/learn-training-tutorials" 
-    },
-    { 
-        disc: "General", 
-        topic: "Skills", 
-        title: "Keybr", 
-        type: "Website", 
-        desc: "Advanced typing tutor to improve speed and accuracy (essential for reporting).",
-        link: "https://www.keybr.com/" 
-    },
-    { 
-        disc: "General", 
-        topic: "Creative", 
-        title: "Creative Bloq", 
-        type: "Website", 
-        desc: "Inspiration for design, 3D modeling, and visual communication.",
-        link: "https://www.creativebloq.com/" 
-    }
+    { disc: "General", topic: "Writing", title: "The Elements of Style (Strunk & White)", type: "Book", desc: "The classic style manual for writing clear, concise English.", link: "https://www.amazon.co.uk/s?k=The+Elements+of+Style" },
+    { disc: "General", topic: "Math", title: "Paul's Online Math Notes", type: "Website", desc: "Incredible free cheat sheets and notes for Calculus and Differential Equations.", link: "https://tutorial.math.lamar.edu/" },
+    { disc: "General", topic: "Reference", title: "Knovel", type: "Tool", desc: "Searchable library of technical data and engineering equations (Subscription required).", link: "https://www.elsevier.com/solutions/knovel-engineering-information" },
+    { disc: "General", topic: "Maps", title: "Digimap", type: "Tool", desc: "Detailed Ordnance Survey maps and geospatial data for UK engineers.", link: "https://digimap.edina.ac.uk/" },
+    { disc: "General", topic: "Search", title: "ScienceDirect", type: "Website", desc: "Leading platform of peer-reviewed literature to support technical arguments.", link: "https://www.sciencedirect.com/" },
+    { disc: "General", topic: "Climate", title: "Carbon Trust", type: "Institution", desc: "Expert partners for businesses, governments, and organizations to decarbonize.", link: "https://www.carbontrust.com/" },
+    { disc: "General", topic: "Ethics", title: "Engineering Council: Statement of Ethical Principles", type: "Standard", desc: "The core ethical code for all registered engineers in the UK.", link: "https://www.engc.org.uk/standards-guidance/guidance/statement-of-ethical-principles/" }
 ];
