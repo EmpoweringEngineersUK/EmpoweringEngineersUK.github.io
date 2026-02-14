@@ -6,30 +6,30 @@
 /* --- 0. CENTRALISED ANALYTICS & SCRIPT INJECTION --- */
 (function() {
     // A. Google Analytics 4 (GA4) Injection
-    // if (!document.getElementById('ga4-script')) {
-        // const gaScript = document.createElement('script');
-        // gaScript.id = 'ga4-script';
-        // gaScript.async = true;
-        // gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444';
-        // document.head.appendChild(gaScript);
+    if (!document.getElementById('ga4-script')) {
+        const gaScript = document.createElement('script');
+        gaScript.id = 'ga4-script';
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-PG4ZJ7W444';
+        document.head.appendChild(gaScript);
 
-        // window.dataLayer = window.dataLayer || [];
-        // function gtag(){dataLayer.push(arguments);}
-        // gtag('js', new Date());
-        // gtag('config', 'G-PG4ZJ7W444');
-        // console.log("System Status: GA4 Tracking Initialised.");
-    // }
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PG4ZJ7W444');
+        console.log("System Status: GA4 Tracking Initialised.");
+    }
 
     // B. Google AdSense Injection
-    // if (!document.getElementById('adsense-script')) {
-        // const adScript = document.createElement('script');
-        // adScript.id = 'adsense-script';
-        // adScript.async = true;
-        // adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105';
-        // adScript.crossOrigin = 'anonymous';
-        // document.head.appendChild(adScript);
-        // console.log("System Status: AdSense Library Loaded.");
-    // }
+    if (!document.getElementById('adsense-script')) {
+        const adScript = document.createElement('script');
+        adScript.id = 'adsense-script';
+        adScript.async = true;
+        adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7071036534151105';
+        adScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adScript);
+        console.log("System Status: AdSense Library Loaded.");
+    }
 })();
 
 /* --- 1. THEME MANAGER --- */
