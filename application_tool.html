@@ -219,6 +219,42 @@
         }
 
     </style>
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "SoftwareApplication",
+	  "name": "Engineering Application Generator",
+	  "operatingSystem": "Web Browser",
+	  "applicationCategory": "ProductivityApplication",
+	  "url": "https://empoweringengineers.uk/application_tool.html",
+	  "description": "A comprehensive engineering application builder that structures evidence for CEng, IEng, and EngTech registration against UK-SPEC requirements.",
+	  "offers": {
+		"@type": "Offer",
+		"price": "0.00",
+		"priceCurrency": "GBP",
+		"availability": "https://schema.org/InStock"
+	  },
+	  "aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"ratingCount": "85",
+		"bestRating": "5",
+		"worstRating": "1"
+	  },
+	  "author": {
+		"@type": "Person",
+		"name": "Murat Islam",
+		"jobTitle": "EUR ING CEng IntPE(UK) FIMechE"
+	  },
+	  "featureList": [
+		"UK-SPEC Competency Mapping (A-E)",
+		"Career Episode Structuring",
+		"Report Word Count Optimizer",
+		"Professional Registration Guidance"
+	  ],
+	  "screenshot": "https://empoweringengineers.uk/assets/app_tool_preview.png"
+	}
+	</script>
 </head>
 <body onload="initApp()">
     <script defer src="header_nav.js?v=12"></script>
@@ -1109,7 +1145,8 @@
         function expandAcronyms() {
             let text = document.getElementById('mainInput').value;
             if (typeof acronymDb === 'undefined') return;
-            const matches = [...new Set(text.match(/\b[A-Z]{3,}\b/g) || [])];
+            // Updated Regex: Matches words with at least 2 uppercase letters (e.g. API, CEng, EngTech)
+			const matches = [...new Set(text.match(/\b[A-Za-z]*[A-Z][a-z]*[A-Z][A-Za-z]*\b/g) || [])];
             let count = 0;
             matches.forEach(word => {
                 const entry = acronymDb.find(item => item.a === word);
