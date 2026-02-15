@@ -1,6 +1,6 @@
-// EMPOWERING ENGINEERS UK - CENTRAL TOOL DATABASE [v12.4]
-// Version: 12.4 (Audit for Copyright Clarity & Expanded Detail)
-// Date: 13 Feb 2026
+// EMPOWERING ENGINEERS UK - CENTRAL TOOL DATABASE [v13.0]
+// Version: 13.0 (Optimized: Removed redundant AdSense triggers)
+// Date: 15 Feb 2026
 // Logic: Dynamically renders the 'Instruction Header' into the #tool-header-target div.
 
 const toolHeaders = {
@@ -210,7 +210,7 @@ const toolHeaders = {
         privacy: "[!] PRIVACY: Your drafts are saved to your browser. Clearing cache will remove them."
     },
 
-    // 13. REFERENCE LIBRARY (Updated for Clarity)
+    // 13. REFERENCE LIBRARY
     "reference": {
         title: "ENGINEERING LIBRARY",
         desc: "Curated 'Gold Standard' resources. Textbooks, standards (ISO/BS), and tools for all disciplines.",
@@ -286,18 +286,6 @@ function renderToolHeader(toolKey) {
                 </div>
             </div>`;
 
-    // Add Ad Slot (300x250 MPU)
-    html += `
-            <div class="ad-tool-header" style="margin-top: 20px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px; text-align: center; min-height: 100px;">
-                <span style="display:block; font-size: 0.65rem; color: #555; margin-bottom: 5px; letter-spacing: 1px;">ADVERTISEMENT</span>
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7071036534151105"
-                     data-ad-slot="9995687043" 
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>`;
-
     if (data.privacy) {
         html += `<span class="privacy-badge" style="display:inline-block; margin-top:10px; font-size:0.7rem; color:#888; border:1px solid #333; padding:2px 6px; border-radius:4px;">🔒 ${data.privacy}</span>`;
     }
@@ -305,6 +293,6 @@ function renderToolHeader(toolKey) {
     // Inject content
     container.innerHTML = html;
 
-    // Trigger AdSense
-    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    // NOTE: AdSense trigger removed to prevent conflicts. 
+    // Ads are now handled via specific placement in the HTML tools.
 }
