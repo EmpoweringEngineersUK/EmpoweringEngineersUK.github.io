@@ -1145,22 +1145,31 @@
         function expandAcronyms() {
             let text = document.getElementById('mainInput').value;
             if (typeof acronymDb === 'undefined') return;
-            // Updated Regex: Matches words with at least 2 uppercase letters (e.g. API, CEng, EngTech)
-			const matches = [...new Set(text.match(/\b[A-Za-z]*[A-Z][a-z]*[A-Z][A-Za-z]*\b/g) || [])];
+            
+            // FIXED: Regex now detects mixed-case acronyms (must have 2+ Caps, e.g. CEng, EngTech)
+            const matches = [...new Set(text.match(/\b[A-Za-z]*[A-Z][a-z]*[A-Z][A-Za-z]*\b/g) || [])];
+            
             let count = 0;
             matches.forEach(word => {
                 const entry = acronymDb.find(item => item.a === word);
                 if (entry) {
+                    // Check if already expanded to avoid double replacement e.g. "Chartered Engineer (CEng) (CEng)"
                     const regex = new RegExp(`\\b${word}\\b(?!\\s*\\()`);
-                    if (regex.test(text)) { text = text.replace(regex, `${entry.m} (${word})`); count++; }
+                    if (regex.test(text)) { 
+                        text = text.replace(regex, `${entry.m} (${word})`); 
+                        count++; 
+                    }
                 }
             });
             if(count > 0) {
                 document.getElementById('mainInput').value = text;
                 autoResize(document.getElementById('mainInput'));
-                analyzeText(); triggerAutoSave();
+                analyzeText(); 
+                triggerAutoSave();
                 alert(`Expanded ${count} acronyms.`);
-            } else { alert("No undefined known acronyms found."); }
+            } else { 
+                alert("No undefined known acronyms found."); 
+            }
         }
 
         function importSTAR() {
