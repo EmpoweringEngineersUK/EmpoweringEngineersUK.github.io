@@ -3,138 +3,133 @@
 
    <url>
       <loc>https://www.empoweringengineers.uk/</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/index.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/about.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/contact.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/guide.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 
    <url>
-      <loc>https://www.empoweringengineers.uk/STAR_engine.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
       <loc>https://www.empoweringengineers.uk/application_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/cpd_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/report_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/STAR_engine.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/cpd_tool.html</loc>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/dap_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
 
    <url>
       <loc>https://www.empoweringengineers.uk/raci_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/glossary_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/interview_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/hardware_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/ethics_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.empoweringengineers.uk/feedback_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <loc>https://www.empoweringengineers.uk/interview_tool.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/hardware_tool.html</loc>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/career_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/reference_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.empoweringengineers.uk/linkedin_banner_gen.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/logo_tool.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <loc>https://www.empoweringengineers.uk/glossary_tool.html</loc>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.7</priority>
    </url>
 
    <url>
-      <loc>https://www.empoweringengineers.uk/guide.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <loc>https://www.empoweringengineers.uk/assets/Application_Tool_Manual_EEUK.pdf</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://www.empoweringengineers.uk/feedback_tool.html</loc>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/about.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/contact.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://www.empoweringengineers.uk/terms.html</loc>
-      <lastmod>2026-02-11</lastmod>
-      <changefreq>yearly</changefreq>
       <priority>0.5</priority>
    </url>
    <url>
       <loc>https://www.empoweringengineers.uk/privacy.html</loc>
-      <lastmod>2026-02-11</lastmod>
+      <lastmod>2026-02-16</lastmod>
       <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
+      <priority>0.3</priority>
+   </url>
+   <url>
+      <loc>https://www.empoweringengineers.uk/terms.html</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.3</priority>
    </url>
 
 </urlset>
