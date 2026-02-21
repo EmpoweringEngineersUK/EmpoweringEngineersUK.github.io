@@ -1,7 +1,7 @@
 {
     "name": "Empowering Engineers UK",
-    "short_name": "EmpowerEng",
-    "description": "Accelerating your journey to CEng, IEng, and Engineering Leadership.",
+    "short_name": "EmpowerEngUK",
+    "description": "Accelerating your journey to CEng, IEng, EngTech and Engineering Leadership.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -19,6 +19,6 @@
     "theme_color": "#0D1B2A",
     "background_color": "#0D1B2A",
     "display": "standalone",
-    "start_url": "/index.html",
+    "start_url": "https://www.empoweringengineers.uk/",
     "orientation": "portrait"
 }

@@ -1,6 +1,6 @@
-// EMPOWERING ENGINEERS UK - CENTRAL TOOL DATABASE [v13.0]
-// Version: 13.0 (Optimized: Removed redundant AdSense triggers)
-// Date: 15 Feb 2026
+// EMPOWERING ENGINEERS UK - CENTRAL TOOL DATABASE [v14.0]
+// Version: 14.0 (Updated: Report Architect Global Search & AI Framework details)
+// Date: 21 Feb 2026
 // Logic: Dynamically renders the 'Instruction Header' into the #tool-header-target div.
 
 const toolHeaders = {
@@ -160,18 +160,20 @@ const toolHeaders = {
     // 10. REPORT ARCHITECT
     "report": {
         title: "TECHNICAL REPORT ARCHITECT",
-        desc: "Structure professional reports. Templates for Failure Analysis, Design Studies, and Feasibility Reports.",
+        desc: "Access 23 standard industry blueprints, dynamically inject custom clauses, and generate highly structured AI prompts to coach you through drafting professional engineering reports.",
         bullets: [
-            "<strong>Narrative Flow:</strong> Problem -> Analysis -> Solution -> Validation.",
-            "<strong>Guidance:</strong> Prompts for calculations, standards, and evidence.",
-            "<strong>Export:</strong> Download as .DOCX for final editing."
+            "<strong>23 Core Blueprints:</strong> Pre-loaded standards for Engineering Council Reviews, BoD, FDS, FEA/CFD Analysis, Root Cause (RCA), and CapEx Business Cases.",
+            "<strong>Global Database Injection:</strong> Don't be limited by rigid templates. Use the global search to find and inject specific modules (e.g., 'Risk Assessment') into any report.",
+            "<strong>Elite AI Prompting:</strong> The tool builds a structured [Role/Goal/Context/Expectation] prompt to act as your AI mentor, ensuring it coaches you section-by-section rather than writing generic text.",
+            "<strong>Dynamic Export:</strong> Compiles your selected blocks, auto-numbers H1/H2 levels, and exports directly to a native .DOCX file."
         ],
         steps: [
-            "<strong>1. Choose Type:</strong> Select the report template.",
-            "<strong>2. Populate:</strong> Follow the section hints.",
-            "<strong>3. Download:</strong> Export to Word."
+            "<strong>1. Base Blueprint:</strong> Select your core template from the dropdown.",
+            "<strong>2. Assemble Structure:</strong> Toggle core sections, remove unneeded blocks, or search the global database to add custom ones.",
+            "<strong>3. Provide AI Context:</strong> Type specific instructions or data into the Context Box to guide your AI.",
+            "<strong>4. Action:</strong> Copy the AI prompt to begin drafting, or export to Word to write manually."
         ],
-        privacy: "[!] PRIVACY: Your drafts are saved to your browser. Clearing cache will remove them."
+        privacy: "[!] PRIVACY: Your structures are generated purely in your browser. Clearing cache will remove them."
     },
 
     // 11. DAP ARCHITECT
