@@ -293,19 +293,11 @@
                 <input type="text" id="newProfileName" class="job-input" placeholder="e.g. John Smith" style="margin-bottom:15px;">
                 
                 <label style="font-size:0.8rem; color:var(--slate-grey);">TARGET ROLE</label>
-                <select id="newProfileRole" class="job-input" onchange="toggleDashRoute()" style="margin-bottom:15px;">
+                <select id="newProfileRole" class="job-input" style="margin-bottom:15px;">
                     <option value="CEng">Chartered Engineer (CEng)</option>
                     <option value="IEng">Incorporated Engineer (IEng)</option>
                     <option value="EngTech">Engineering Technician (EngTech)</option>
                 </select>
-
-                <div id="dashRouteGroup" style="display:none;">
-                    <label style="font-size:0.8rem; color:var(--slate-grey);">APPLICATION ROUTE</label>
-                    <select id="newProfileRoute" class="job-input" style="margin-bottom:15px;">
-                        <option value="Standard">Standard Route (3 Questions)</option>
-                        <option value="Approved">Approved Route (Summary)</option>
-                    </select>
-                </div>
 
                 <div style="margin-top:10px;">
                     <button class="action-btn" onclick="createNewProfile()">CREATE WORKSPACE</button>
@@ -638,13 +630,11 @@
             }
         }
 
-        function toggleDashRoute() { document.getElementById('dashRouteGroup').style.display = (document.getElementById('newProfileRole').value === 'EngTech') ? 'block' : 'none'; }
-
         function createNewProfile() {
             const name = document.getElementById('newProfileName').value.trim();
             if(!name) { alert("Enter Name"); return; }
             const role = document.getElementById('newProfileRole').value;
-            const route = (role === 'EngTech') ? document.getElementById('newProfileRoute').value : "Standard";
+            const route = "Standard";
             const id = Date.now().toString();
             const dateStr = getUKDateString();
             
@@ -757,31 +747,26 @@
         function buildSections() {
             const introHint = "Structure your career history. List your last 3 roles, focusing on Authority and Responsibility. Please focus on the last 5 years of experience.";
             sections = [{ id: "intro", title: "Career Summary", group: "General", hint: introHint, star: false }];
-            if (currentRole === 'EngTech') {
-                if (currentRoute === 'Approved') sections.push({ id: "q1", title: "Assessment Question", group: "Assessment", hint: "Summary (~500 words).", limit: 600, star: true });
-                else {
-                    sections.push({ id: "q1", title: "Q1: Technical", group: "Assessment", limit: 500, star: true });
-                    sections.push({ id: "q2", title: "Q2: Safety", group: "Assessment", limit: 500, star: true });
-                    sections.push({ id: "q3", title: "Q3: Ethics", group: "Assessment", limit: 500, star: true });
+            
+            ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
+                if (typeof ukSpecDb !== 'undefined' && ukSpecDb[currentRole].competencies[letter].sub) {
+                    const subs = ukSpecDb[currentRole].competencies[letter].sub;
+                    Object.keys(subs).forEach(subKey => {
+                        sections.push({ id: subKey, title: `${subKey}: ${subs[subKey].text}`, group: `Competence ${letter}`, hint: subs[subKey].text, limit: 200, star: true });
+                    });
+                } else { 
+                    sections.push({ id: `comp_${letter}`, title: `Competence ${letter}`, group: "Competence", limit: 400, star: true }); 
                 }
-            } else {
-                ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
-                    if (typeof ukSpecDb !== 'undefined' && ukSpecDb[currentRole].competencies[letter].sub) {
-                        const subs = ukSpecDb[currentRole].competencies[letter].sub;
-                        Object.keys(subs).forEach(subKey => {
-                            sections.push({ id: subKey, title: `${subKey}: ${subs[subKey].text}`, group: `Competence ${letter}`, hint: subs[subKey].text, limit: 200, star: true });
-                        });
-                    } else { sections.push({ id: `comp_${letter}`, title: `Competence ${letter}`, group: "Competence", limit: 400, star: true }); }
-                });
-            }
+            });
+            
             sections.push({ id: "dap", title: "Action Plan (DAP)", group: "Closing", hint: "Short/Med/Long goals.", star: false });
             sections.push({ id: "sponsor", title: "Sponsors", group: "Closing", hint: "Sponsor details.", star: false });
         }
 
         function calculateScore(text, sectionId) {
-            if (!text || text.length < 50) return 1;
-            if (typeof verbDb === 'undefined' || !sectionId) return 1;
-            const allowedVerbs = verbDb.strongVerbMap[sectionId];
+			if (!text || text.length < 50) return 1;
+			if (typeof verbDb === 'undefined' || !sectionId || !currentRole) return 1;
+			const allowedVerbs = verbDb.strongVerbMap[currentRole][sectionId]; // Fixed variable name
             if (!allowedVerbs) return 1; 
             let matchCount = 0;
             allowedVerbs.forEach(verb => { if (text.toLowerCase().includes(verb)) matchCount++; });
@@ -833,10 +818,13 @@
         }
 
         function getSuggestedVerbs(secId) {
-            if (!verbDb || !verbDb.ukSpecStems) return "";
-            if(verbDb.ukSpecStems[secId]) return verbDb.ukSpecStems[secId].map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
-            return "";
-        }
+			if (!verbDb || !verbDb.strongVerbMap || !currentRole) return "";
+			const roleVerbs = verbDb.strongVerbMap[currentRole];
+			if(roleVerbs && roleVerbs[secId]) {
+				return roleVerbs[secId].map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ");
+			}
+			return "";
+		}
         
         function insertVerb(word) {
             const box = document.getElementById('mainInput');
@@ -1122,7 +1110,7 @@
                 <div style="font-size:0.8rem; margin-top:5px; color:var(--slate-grey); line-height:1.3;">${levelDescriptions[score]}</div>
             `;
             
-            const allowedVerbs = verbDb.strongVerbMap[id];
+            const allowedVerbs = verbDb.strongVerbMap[currentRole][id];
             let foundVerbs = [];
             let unusedVerbs = [];
             let coachHTML = "";
@@ -1346,7 +1334,8 @@
                  const text = dataStore.content[sec.id] || "";
                  const score = calculateScore(text, sec.id);
                  const levels = ["Level 1 - Aware", "Level 2 - Familiar", "Level 3 - Skilled", "Level 4 - Expert"];
-                 const allowedVerbs = verbDb.strongVerbMap[sec.id];
+                 const allowedVerbs = verbDb.strongVerbMap[currentRole] ? verbDb.strongVerbMap[currentRole][sec.id] : null;
+				 
                  let unusedVerbs = [];
                  if(allowedVerbs) {
                      allowedVerbs.forEach(v => { if (!text.toLowerCase().includes(v)) unusedVerbs.push(v); });
