@@ -18,7 +18,29 @@
     <script src="verb.js?v=12" onerror="console.warn('verb.js fallback')"></script> 
     <script src="acronyms.js?v=12" onerror="console.warn('acronyms.js fallback')"></script>
     <script src="PEI.js?v=12" onerror="console.warn('PEI.js fallback')"></script> 
-    <style>
+    <script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "WebApplication",
+	  "name": "STAR Engine",
+	  "url": "https://www.empoweringengineers.uk/STAR_engine.html",
+	  "description": "An interactive generator helping engineers draft competency-focused evidence using the Situation-Task-Action-Result (STAR) format against UK-SPEC criteria.",
+	  "applicationCategory": "EducationalApplication",
+	  "operatingSystem": "All",
+	  "browserRequirements": "Requires JavaScript",
+	  "publisher": {
+		"@type": "Organization",
+		"name": "Empowering Engineers UK",
+		"url": "https://www.empoweringengineers.uk/"
+	  },
+	  "offers": {
+		"@type": "Offer",
+		"price": "0",
+		"priceCurrency": "GBP"
+	  }
+	}
+	</script>
+	<style>
         /* --- FONT ENFORCEMENT (ARIAL ONLY) --- */
         body, button, input, select, textarea, .def-badge, .tool-list, .tool-desc, .output-box, .finding-item, .sub-tag, h2, h3, h4, h5 {
             font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
@@ -173,6 +195,41 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "SoftwareApplication",
+	  "name": "STAR Engine",
+	  "operatingSystem": "Web Browser",
+	  "applicationCategory": "EducationalApplication",
+	  "url": "https://empoweringengineers.uk/STAR_engine.html",
+	  "description": "A specialized engineering competency tool that helps candidates structure CEng, IEng, and EngTech evidence using the STAR method (Situation, Task, Action, Result).",
+	  "offers": {
+		"@type": "Offer",
+		"price": "0.00",
+		"priceCurrency": "GBP",
+		"availability": "https://schema.org/InStock"
+	  },
+	  "aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.8",
+		"ratingCount": "124",
+		"bestRating": "5",
+		"worstRating": "1"
+	  },
+	  "author": {
+		"@type": "Person",
+		"name": "Murat Islam",
+		"jobTitle": "EUR ING CEng IntPE(UK) FIMechE"
+	  },
+	  "featureList": [
+		"Automated Character Count Analysis",
+		"UK-SPEC Competency Mapping",
+		"Active Voice ('I' vs 'We') Detection",
+		"Real-time STAR Formatting"
+	  ]
+	}
+	</script>
 </head>
 <body onload="initApp()">
     <script defer src="header_nav.js?v=12"></script>

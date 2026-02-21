@@ -170,7 +170,7 @@
             <div class="footer-col">
                 <h5>Navigation</h5>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
+                    <a href="https://www.empoweringengineers.uk/">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact Us</a>
                     <a href="terms.html">Terms of Use</a>

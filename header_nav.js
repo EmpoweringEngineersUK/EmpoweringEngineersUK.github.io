@@ -98,7 +98,7 @@ window.ThemeManager.init();
 
     const headerHTML = `
         <div class="sticky-container">
-            <a href="index.html">
+            <a href="https://www.empoweringengineers.uk/">
                 <img src="EE_Logo_rect_Solid.png" alt="Empowering Engineers UK" class="site-brand-img">
             </a>
             <nav>${navHTML}</nav>

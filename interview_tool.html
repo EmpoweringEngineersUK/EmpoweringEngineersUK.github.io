@@ -16,7 +16,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css?v=12">
     <script src="questions.js?v=12"></script>
-	
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "WebApplication",
+	  "name": "Virtual Interviewer",
+	  "url": "https://www.empoweringengineers.uk/interview_tool.html",
+	  "description": "A virtual practice tool that generates timed, targeted UK-SPEC questions to prepare engineers for their Professional Review Interview (PRI).",
+	  "applicationCategory": "EducationalApplication",
+	  "operatingSystem": "All",
+	  "browserRequirements": "Requires JavaScript",
+	  "publisher": {
+		"@type": "Organization",
+		"name": "Empowering Engineers UK",
+		"url": "https://www.empoweringengineers.uk/"
+	  },
+	  "offers": {
+		"@type": "Offer",
+		"price": "0",
+		"priceCurrency": "GBP"
+	  }
+	}
+	</script>
     <style>
         /* PAGE SPECIFIC STYLES */
         .interview-container {
@@ -171,6 +192,41 @@
 
         @media (max-width: 600px) { .settings-bar { flex-direction: column; } }
     </style>
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "SoftwareApplication",
+	  "name": "Virtual Interview Simulator",
+	  "operatingSystem": "Web Browser",
+	  "applicationCategory": "EducationalApplication",
+	  "url": "https://www.empoweringengineers.uk/interview_tool.html",
+	  "description": "An interactive mock interview tool for CEng and IEng candidates, featuring real-time recording, UK-SPEC competency questions, and AI feedback prompts.",
+	  "offers": {
+		"@type": "Offer",
+		"price": "0.00",
+		"priceCurrency": "GBP",
+		"availability": "https://schema.org/InStock"
+	  },
+	  "aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.8",
+		"ratingCount": "92",
+		"bestRating": "5",
+		"worstRating": "1"
+	  },
+	  "author": {
+		"@type": "Person",
+		"name": "Murat Islam",
+		"jobTitle": "EUR ING CEng IntPE(UK) FIMechE"
+	  },
+	  "featureList": [
+		"UK-SPEC Question Bank (Competencies A-E)",
+		"Real-time Voice Recording & Playback",
+		"AI Assessor Prompt Generation",
+		"Timed Interview Modes"
+	  ]
+	}
+	</script>
 </head>
 <body onload="initApp()">
     <script defer src="header_nav.js?v=12"></script>

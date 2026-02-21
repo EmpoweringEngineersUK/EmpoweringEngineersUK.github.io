@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /private/
 
-# Sitemap Location
-Sitemap: https://www.empoweringengineers.uk/sitemap.xml
+# Sitemaps provide the "Logic Map" for Googlebot
+Sitemap: https://empoweringengineers.uk/sitemap.xml

@@ -1,8 +1,9 @@
-/* EMPOWERING ENGINEERS UK - MASTER LAYOUT [v12]
+/* EMPOWERING ENGINEERS UK - MASTER LAYOUT [v13.1]
    Updates: 
-   - Stacked A11y Button vertically above Objective Selector.
-   - Unified control widths (250px) for the right-hand stack.
-   - Refined vertical centering for brand and primary navigation.
+   - Feature: Split Input Grid (Input Left / MPU Right)
+   - Feature: Global Range Slider styling (Webkit + Moz)
+   - Feature: Standardised AI "Magic" Button (.btn-ai)
+   - Feature: Standardised Output Box (.terminal-output)
 */
 
 :root {
@@ -90,11 +91,11 @@ a:hover {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     height: auto; 
-    min-height: 65px; /* Slightly taller for the stacked controls */
+    min-height: 65px; 
     padding: 5px 20px; 
     display: flex;
     justify-content: space-between;
-    align-items: center; /* VERTICAL CENTERING OF LOGO AND NAV */
+    align-items: center; 
     flex-wrap: wrap; 
     gap: 15px; 
 }
@@ -134,28 +135,27 @@ nav a.active {
     padding: 0;
     font-family: inherit;
     display: flex;
-    flex-direction: column; /* VERTICAL STACK */
+    flex-direction: column; 
     align-items: center;
     margin-left: 15px; 
     justify-content: center;
-    width: 250px; /* MATCHES SELECT WIDTH */
-    gap: 4px; /* TIGHT GAP BETWEEN BUTTON AND SELECT */
+    width: 250px; 
+    gap: 4px; 
 }
 
-/* Accessibility Theme Button (Header Stack) */
 .nav-theme-btn {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--slate-grey);
     padding: 0 12px;
-    height: 30px; /* MATCHES SELECT HEIGHT */
+    height: 30px; 
     font-size: 0.75rem;
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
-    width: 100%; /* FULL WIDTH OF CONTAINER */
+    width: 100%; 
     margin: 0;
     box-sizing: border-box;
 }
@@ -215,7 +215,7 @@ nav a.active {
 }
 
 .rec-card {
-    display: none; /* Hidden by default */
+    display: none; 
     background: var(--dark-card);
     border: 1px solid var(--terminal-green);
     border-radius: 6px;
@@ -319,29 +319,69 @@ select {
     cursor: pointer;
 }
 
+/* --- GLOBAL RANGE SLIDER STYLING (Standardised) --- */
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;
     background: transparent;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: var(--terminal-green); 
-    cursor: pointer;
-    margin-top: -6px;
+input[type=range]:focus {
+    outline: none;
 }
 
+/* Webkit (Chrome, Safari, Edge) */
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
     background: var(--slate-grey);
     border-radius: 2px;
+    transition: 0.2s;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--terminal-green);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px; /* Centers thumb on track */
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: 0.2s;
+}
+
+/* Firefox */
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: var(--slate-grey);
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    background: var(--terminal-green);
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: 0.2s;
+}
+
+/* Hover Effects */
+input[type=range]:hover::-webkit-slider-thumb {
+    background: #fff;
+    box-shadow: 0 0 10px var(--terminal-green);
+}
+input[type=range]:hover::-moz-range-thumb {
+    background: #fff;
+    box-shadow: 0 0 10px var(--terminal-green);
 }
 
 label {
@@ -420,6 +460,29 @@ button, .btn, .action-btn {
     background-color: var(--hover-green); 
 }
 
+/* STANDARD AI "MAGIC" BUTTON */
+.btn-ai {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--terminal-green);
+    color: var(--terminal-green);
+    padding: 15px;
+    width: 100%;
+    font-family: 'Courier Prime', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-ai:hover {
+    background: rgba(0, 255, 153, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.1);
+    transform: translateY(-1px);
+}
+
 /* --- 7. FOOTER STYLING --- */
 footer {
     text-align: center;
@@ -477,6 +540,20 @@ footer a:hover { color: var(--terminal-green); }
     background: rgba(0,0,0,0.3); 
     border-left: 3px solid var(--terminal-green); 
     display: none; 
+}
+
+/* STANDARD TERMINAL OUTPUT BOX */
+.terminal-output {
+    background: var(--terminal-bg);
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    min-height: 200px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif; 
+    position: relative;
+    margin-top: 20px;
 }
 
 /* Tool Header Styles */
@@ -608,6 +685,64 @@ footer a:hover { color: var(--terminal-green); }
     height: auto; 
 }
 
+/* --- FEATURE: SPLIT INPUT GRID (Standardised) --- */
+/* Use this for "Input Left" / "MPU + AI Button Right" Layout */
+
+.tool-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Left: Auto-fill, Right: Fixed MPU */
+    gap: 25px;
+    align-items: start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Wrapper for the Right Column (Ad + Button stack) */
+.tool-stack-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+}
+
+/* The Ad Container - Visual Styling */
+.ad-mpu-container {
+    width: 300px;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* The Input Area - Ensure it stretches correctly */
+.tool-input-grid .input-group {
+    width: 100%;
+    min-width: 0; /* Prevents grid blowout */
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 850px) {
+    .tool-input-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* On mobile, stack the Ad below inputs, or hide if preferred */
+    .tool-stack-right {
+        width: 100%;
+        margin: 20px auto 0 auto;
+        align-items: center;
+    }
+    
+    /* Ensure Buttons fill width on mobile */
+    .btn-ai {
+        width: 100%;
+    }
+}
+
 /* =========================================================================
    ACCESSIBILITY THEMES (WCAG 2.1 AA COMPLIANT) [v11.6 Updated]
    ========================================================================= */
@@ -643,7 +778,8 @@ footer a:hover { color: var(--terminal-green); }
     .hero-btn, 
     .action-btn-ghost, 
     .btn-secondary,
-    .action-select {
+    .action-select,
+    .btn-ai {
         border-color: var(--border-color) !important;
         color: var(--cloud-white) !important;
         background-color: #ffffff;
@@ -652,7 +788,8 @@ footer a:hover { color: var(--terminal-green); }
     .nav-theme-btn:hover,
     .hero-btn:hover, 
     .action-btn-ghost:hover,
-    .action-select:hover {
+    .action-select:hover,
+    .btn-ai:hover {
         background-color: var(--terminal-green) !important;
         border-color: var(--terminal-green) !important;
         color: #ffffff !important;
@@ -686,7 +823,8 @@ footer a:hover { color: var(--terminal-green); }
     input, 
     select,
     .action-select,
-    .rec-card {
+    .rec-card,
+    .btn-ai {
         border: 2px solid #FFFFFF !important;
         color: #FFFFFF !important;
     }
