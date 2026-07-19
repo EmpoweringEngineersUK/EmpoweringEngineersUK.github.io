@@ -8,8 +8,8 @@
 
 /* --- 0. CENTRALISED ANALYTICS & SCRIPT INJECTION --- */
 (function() {
-    A. Google Analytics 4 (GA4) Injection 
-    Deactivated per WebDesign Standard directive for local dev/testing.
+    // A. Google Analytics 4 (GA4) Injection 
+    // Deactivated per WebDesign Standard directive for local dev/testing.
     if (!document.getElementById('ga4-script')) {
         const gaScript = document.createElement('script');
         gaScript.id = 'ga4-script';
@@ -24,8 +24,8 @@
         console.log("System Status: GA4 Tracking Initialised.");
     }
 
-    B. Google AdSense Injection
-    Deactivated per WebDesign Standard directive to prevent sandbox policy violations.
+    // B. Google AdSense Injection
+    // Deactivated per WebDesign Standard directive to prevent sandbox policy violations.
     if (!document.getElementById('adsense-script')) {
         const adScript = document.createElement('script');
         adScript.id = 'adsense-script';
