@@ -41,13 +41,13 @@ const sampleDb = {
 
     // COMPETENCE A
     A1: {
-        s: "CONTEXT: On the Alpha Bridge project, we encountered an unexpected soil condition (running sand) during piling...",
+        s: "SITUATION: On the Alpha Bridge project, we encountered an unexpected soil condition (running sand) during piling...",
         t: "TASK: My task was to review the geotechnical report and propose a revised piling methodology to prevent collapse...",
         a: "ACTION: I researched alternative techniques and selected a CFA (Continuous Flight Auger) method. I calculated the new load capacities using Eurocode 7...",
         r: "RESULT: The solution was approved by the client. Piling was completed safely with no settlement issues."
     },
     A2: {
-        s: "CONTEXT: The original specification called for Grade 304 Stainless Steel for the coastal piping system...",
+        s: "SITUATION: The original specification called for Grade 304 Stainless Steel for the coastal piping system...",
         t: "TASK: I identified that this grade was insufficient for the high-salinity environment and would lead to premature corrosion...",
         a: "ACTION: I conducted a lifecycle cost analysis comparing 304, 316, and Duplex steel. I used NACE standards to justify the upgrade...",
         r: "RESULT: I persuaded the client to adopt Duplex steel, increasing the design life by 15 years."
@@ -55,19 +55,19 @@ const sampleDb = {
 
     // COMPETENCE B
     B1: {
-        s: "CONTEXT: The production line was suffering from 20% downtime due to motor overheating...",
+        s: "SITUATION: The production line was suffering from 20% downtime due to motor overheating...",
         t: "TASK: I needed to diagnose the root cause of the failure and implement a permanent fix...",
         a: "ACTION: I installed thermal loggers and vibration sensors. I analysed the data and found a misalignment in the drive shaft. I designed a new laser-alignment procedure...",
         r: "RESULT: Downtime was reduced to <2%, saving the company £50k per year."
     },
     B2: {
-        s: "CONTEXT: We were designing a safety-critical pressure vessel...",
+        s: "SITUATION: We were designing a safety-critical pressure vessel...",
         t: "TASK: I had to ensure the design met the Pressure Equipment Directive (PED) requirements...",
         a: "ACTION: I performed a 'First Principles' calculation for the wall thickness. I then verified this using Ansys FEA software to check for stress concentrations...",
         r: "RESULT: The design passed the Notified Body audit on the first submission."
     },
     B3: {
-        s: "CONTEXT: The legacy control system used an obsolete PLC that was failing frequently...",
+        s: "SITUATION: The legacy control system used an obsolete PLC that was failing frequently...",
         t: "TASK: I was tasked with upgrading the system to a modern Siemens S7 architecture without stopping production...",
         a: "ACTION: I studied the old ladder logic and reverse-engineered the control philosophy. I wrote a migration strategy that involved installing the new system in parallel...",
         r: "RESULT: The switch-over was seamless. The new system allows for remote diagnostics, reducing maintenance call-outs."
@@ -75,25 +75,25 @@ const sampleDb = {
 
     // COMPETENCE C
     C1: {
-        s: "CONTEXT: I was assigned as Project Manager for the £2M depot upgrade...",
+        s: "SITUATION: I was assigned as Project Manager for the £2M depot upgrade...",
         t: "TASK: I had to deliver the project within a tight 6-month window during a factory shutdown...",
         a: "ACTION: I created a detailed Gantt chart in MS Project, identifying the critical path. I established weekly progress meetings to track milestones...",
         r: "RESULT: The facility opened on time. I managed the snagging list to clear all defects within 2 weeks."
     },
     C2: {
-        s: "CONTEXT: During the tender phase for the HVAC subcontract...",
+        s: "SITUATION: During the tender phase for the HVAC subcontract...",
         t: "TASK: I had to select a supplier that offered the best value, not just the lowest price...",
         a: "ACTION: I negotiated with three suppliers to fix prices for 12 months. I replaced the specified bespoke valves with standard off-the-shelf equivalents...",
         r: "RESULT: The project was delivered for £1.8M (10% under budget) without compromising technical performance."
     },
     C3: {
-        s: "CONTEXT: My team of 3 junior engineers was struggling with the new BIM software...",
+        s: "SITUATION: My team of 3 junior engineers was struggling with the new BIM software...",
         t: "TASK: I needed to upskill the team to ensure we met the drawing submission deadline...",
         a: "ACTION: I arranged for a specialist trainer to visit. I also created a 'Quick Start Guide' and held daily 15-minute stand-ups to resolve technical blockers...",
         r: "RESULT: The team became proficient within 2 weeks. We met the deadline and the drawings were accepted."
     },
     C4: {
-        s: "CONTEXT: I noticed that the site drawings were often outdated versions...",
+        s: "SITUATION: I noticed that the site drawings were often outdated versions...",
         t: "TASK: I had to implement a document control system to prevent construction errors...",
         a: "ACTION: I introduced a cloud-based 'Common Data Environment' (CDE). I set up a strict approval workflow (Check -> Review -> Approve) before drawings could be issued for construction...",
         r: "RESULT: Rework due to outdated drawings was eliminated, saving approximately £10k in wasted materials."
@@ -101,19 +101,19 @@ const sampleDb = {
 
     // COMPETENCE D
     D1: {
-        s: "CONTEXT: We discovered a significant error in the foundation design just before pouring concrete...",
+        s: "SITUATION: I discovered a significant error in the foundation design just before pouring concrete...",
         t: "TASK: I had to communicate this urgent issue to the Client and the Structural Director...",
         a: "ACTION: I wrote a formal Non-Conformance Report (NCR). I explained the technical issue clearly and proposed a remedial design (adding reinforcement bars)...",
         r: "RESULT: The client appreciated the transparency. The fix was implemented in 24 hours, avoiding a project delay."
     },
     D2: {
-        s: "CONTEXT: We needed to convince the client to adopt a more expensive, but safer, fire suppression system...",
+        s: "SITUATION: We needed to convince the client to adopt a more expensive, but safer, fire suppression system...",
         t: "TASK: I had to present the technical safety case to the non-technical client board...",
         a: "ACTION: I prepared a presentation focusing on lifecycle costs and risk reduction (ALARP). I used simple diagrams to explain the complex failure mode...",
         r: "RESULT: The client approved the £20k upgrade, acknowledging the long-term safety benefits."
     },
     D3: {
-        s: "CONTEXT: Two senior technicians disagreed on the best method to weld the pipework...",
+        s: "SITUATION: Two senior technicians disagreed on the best method to weld the pipework...",
         t: "TASK: As the Lead Engineer, I had to resolve the conflict to allow work to proceed...",
         a: "ACTION: I held a meeting with both. I listened to their technical arguments. I decided to run a procedure qualification test (WPQR) to see which method was stronger...",
         r: "RESULT: The test showed Method A was superior. Both technicians accepted the data-driven decision."
@@ -121,31 +121,31 @@ const sampleDb = {
 
     // COMPETENCE E
     E1: {
-        s: "CONTEXT: A client asked us to ignore a minor clause in the BS 7671 wiring regulations to save money...",
+        s: "SITUATION: A client asked us to ignore a minor clause in the BS 7671 wiring regulations to save money...",
         t: "TASK: I had a duty of care to uphold professional standards and refuse this request...",
         a: "ACTION: I referenced the Electricity at Work Regulations (EAWR) and explained that as professional engineers, we could not sign off on non-compliant work...",
         r: "RESULT: The client accepted the position. We remained compliant and protected our professional indemnity."
     },
     E2: {
-        s: "CONTEXT: While inspecting the site, I noticed a contractor working at height without a harness...",
+        s: "SITUATION: While inspecting the site, I noticed a contractor working at height without a harness...",
         t: "TASK: I had a duty of care to intervene immediately to prevent a potential fatality...",
         a: "ACTION: I stopped the work immediately. I spoke to the site supervisor and conducted a 'Toolbox Talk' on the spot. I updated the RAMS to include clearer anchor points...",
         r: "RESULT: Work resumed safely. No accidents occurred on the project, and the safety culture score improved."
     },
     E3: {
-        s: "CONTEXT: Our manufacturing process was generating excessive plastic waste...",
+        s: "SITUATION: Our manufacturing process was generating excessive plastic waste...",
         t: "TASK: I wanted to improve the sustainability of our operations...",
         a: "ACTION: I conducted a waste audit. I identified that the packaging could be reused. I implemented a 'return to supplier' scheme...",
         r: "RESULT: Waste sent to landfill was reduced by 40%, aligning with the company's ISO 14001 targets."
     },
     E4: {
-        s: "CONTEXT: I identified a gap in my knowledge regarding high-voltage switchgear...",
+        s: "SITUATION: I identified a gap in my knowledge regarding high-voltage switchgear...",
         t: "TASK: I needed to close this gap to take on a new project...",
         a: "ACTION: I attended a 3-day C&G certified course. I also shadowed the Senior Electrical Engineer during the shutdown maintenance...",
         r: "RESULT: I gained the authorized person (AP) status and successfully led the switchgear upgrade."
     },
     E5: {
-        s: "CONTEXT: I was offered a gift (tickets to a sports event) by a supplier during a tender process...",
+        s: "SITUATION: I was offered a gift (tickets to a sports event) by a supplier during a tender process...",
         t: "TASK: I had to manage this ethical conflict of interest...",
         a: "ACTION: I politely declined the gift, citing the company's anti-bribery policy. I declared the offer in the company gift register...",
         r: "RESULT: The tender process remained fair and transparent. The supplier respected our strict ethical stance."

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Scenario Planning tool. Map macro-environmental uncertainties, explore alternative future narratives, align capital allocations with UK-SPEC Competence C requirements, and compile advanced AI strategic coaching reviews. Secure client-side memory.">
+    <meta name="keywords" content="Scenario Planning, Futures Forecasting, Strategic Uncertainty, UK-SPEC Competence, Engineering Management, Risk Profiles, CDM Regulations, Strategic Resiliency">
+    <meta property="og:title" content="Scenario Planning Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, client-side scenario planning and futures exploration workbench engineered for lead engineers and technical directors.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-scenarios.html">
+    <meta property="og:type" content="website">
+    
+    <title>Scenario Planning | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Scenario Planning Workbench",
+      "url": "https://www.empoweringengineers.uk/strategy-scenarios.html",
+      "description": "An interactive scenario planning framework tool mapped directly to the UK-SPEC strategic foresight and contingency management metrics.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        /* Protects `.header-page-title` from contrast-breaking global color overrides */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- 2. SCENARIOS FORM STYLING --- */
+        .scenarios-form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .scenarios-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .scenarios-card.scope-card { border-top: 4px solid var(--terminal-green); }
+        .scenarios-card.forces-card { border-top: 4px solid var(--burnt-orange); }
+        .scenarios-card.uncertainties-card { border-top: 4px solid var(--terminal-green); }
+        .scenarios-card.narratives-card { border-top: 4px solid var(--burnt-orange); }
+        .scenarios-card.actions-card { border-top: 4px solid var(--terminal-green); }
+
+        .scenarios-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .scope-label { color: var(--terminal-green) !important; }
+        .forces-label { color: var(--burnt-orange) !important; }
+        .uncertainties-label { color: var(--terminal-green) !important; }
+        .narratives-label { color: var(--burnt-orange) !important; }
+        .actions-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 130px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px; /* Accessible touch target target bounding box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0; /* Terminal green glow text */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Engineering Leadership: Deploying the Scenario Planning Framework</h1>
+            <p>
+                In an era dominated by rapid technological transitions, volatile global supply chains, and evolving climate stress profiles, professional engineers cannot rely on single baseline predictions. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) explicitly mandates that senior technical leaders possess advanced foresight capability. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) dictate that candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) status must prove they can lead under uncertainty, establishing robust project architectures that withstand disruptive macro-environmental shifts.
+            </p>
+            <p>
+                Scenario Planning is a structured strategic methodology used to explore alternative future states. Unlike traditional deterministic forecasting, which projects historical data linearly into a single future path, Scenario Planning forces multi-disciplinary teams to consider a matrix of plausible, distinct futures. By isolating primary driving forces and mapping critical uncertainties, engineering leads can build robust operational strategies. This ensures major infrastructure investments, R&D pipelines, and capital allocation frameworks remain resilient regardless of regulatory revisions, material price spikes, or environmental disruptions.
+            </p>
+
+            <h2>The Operational Taxonomy of Engineering Foresight</h2>
+            <p>
+                Executing a rigorous scenario planning exercise requires a structured, multi-phase methodology. Here is how the strategic steps directly intersect with complex technical asset management:
+            </p>
+            <p>
+                <strong>1. Defining the Focal Question & Scope [Scope]:</strong> Every foresight cycle must begin by identifying a specific, high-stakes strategic challenge. For an engineering organization, this question might address the viability of transitioning an asset baseline to carbon-neutral configurations over a ten-year horizon, or expanding specialized asset-maintenance workflows into automated offshore wind sectors. Defining this scope prevents analytical drift, ensuring the resultant future narratives directly inform near-term asset management choices and risk registers.
+            </p>
+            <p>
+                <strong>2. Mapping Driving Forces & External Trends [Forces]:</strong> This step requires a comprehensive audit of macro-environmental variables. Lead engineers leverage PESTLE inputs to trace changing technological paradigms (such as the integration of Building Information Modeling Level 3 protocols or predictive IoT arrays), changing political landscapes, and raw material index shifts. These forces represent the underlying currents that reshape industry dynamics, and their systemic tracking is highly correlated with satisfying UK-SPEC Criterion C2 (Manage continuous improvement).
+            </p>
+            <p>
+                <strong>3. Isolating Critical Uncertainties [Uncertainties]:</strong> From the array of driving forces, managers must separate predictable mega-trends from highly volatile, high-impact parameters whose trajectory is entirely unknown. These critical uncertainties serve as the axes for futures configuration. In a modern civil or mechanical construction framework, primary uncertainties typically encompass the rapid volatility of material inflation indices (such as structural steel or copper) and the exact introduction timelines of more stringent statutory safety regulations by the Health and Safety Executive (HSE).
+            </p>
+            <p>
+                <strong>4. Constructing Future Narratives & Matrix Quadrants [Narratives]:</strong> By crossing the two most critical independent uncertainties on a 2x2 matrix grid, four distinct, internally consistent future worlds are generated. Each quadrant requires a comprehensive descriptive narrative detailing how engineering parameters operate under those distinct parameters. For instance, a world combining high regulatory restriction with extreme material scarcity demands completely different structural safety margins and circular-economy component reuse targets than a world characterized by open market policies and abundant supply.
+            </p>
+            <p>
+                <strong>5. Formulating Strategic Resiliency Actions [Actions]:</strong> The final phase maps strategic actions back against the constructed future states. Technical directors utilize this step to identify "core plays" (actions that are highly successful across all four plausible worlds) and "contingency triggers" (specialized adaptation paths initialized only if specific environmental markers are breached). This multi-tier protective structure is essential for compliance with Construction (Design and Management) (CDM) Regulations 2015, guaranteeing system safety under extreme stress profiles.
+            </p>
+
+            <h2>Interactive Client-Side Scenario Planning Workbench</h2>
+            <p>
+                The interactive Scenario Planning Workbench below is explicitly designed to help technical professionals systematically document their futures audits. To safeguard highly sensitive commercial strategies and protect proprietary corporate data, our platform operates on a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks or servers. Use this analytical toolkit to compile comprehensive future outlines, export clean JSON databases, or generate sophisticated AI system prompts engineered to expose hidden operational blind spots and insulate your technical programmes.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy</span>
+            </a>
+            <a href="strategy-swot.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_swot"></div>
+                <span class="tab-label">SWOT</span>
+            </a>
+            <a href="strategy-pestle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pestle"></div>
+                <span class="tab-label">PESTLE</span>
+            </a>
+            <a href="strategy-porters.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_porters"></div>
+                <span class="tab-label">Porter's 5 Forces</span>
+            </a>
+            <a href="strategy-vrio.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vrio"></div>
+                <span class="tab-label">VRIO</span>
+            </a>
+            <a href="strategy-bcg.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bcg"></div>
+                <span class="tab-label">BCG Matrix</span>
+            </a>
+            <a href="strategy-ansoff.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ansoff"></div>
+                <span class="tab-label">Ansoff</span>
+            </a>
+            <a href="strategy-scenarios.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scenarios"></div>
+                <span class="tab-label">Scenarios</span>
+            </a>
+            <a href="strategy-value-chain.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_value_chain"></div>
+                <span class="tab-label">Value Chain</span>
+            </a>
+            <a href="strategy-blue-ocean.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_blue_ocean"></div>
+                <span class="tab-label">Blue Ocean</span>
+            </a>
+            <a href="strategy-bmc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bmc"></div>
+                <span class="tab-label">Canvas</span>
+            </a>
+            <a href="strategy-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="strategy-map.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_map"></div>
+                <span class="tab-label">Strategy Map</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Scenario Planning</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="scenarios-form-grid">
+                    
+                    <!-- Focal Question & Scope Card -->
+                    <div class="scenarios-card scope-card">
+                        <label class="scenarios-label scope-label">1. Focal Question & Strategic Decision Scope</label>
+                        <span class="form-hint">Define the core strategic challenge, target asset lifecycle boundaries, and the specific planning horizon. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Is our 10-year capital infrastructure roadmap resilient against accelerated grid-decarbonisation regulations?</span></span>
+                        <textarea id="scenarios_Scope" class="form-input" placeholder="Define focal question and planning scope here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Driving Forces Card -->
+                    <div class="scenarios-card forces-card">
+                        <label class="scenarios-label forces-label">2. Driving Forces & External Trends (PESTLE Audit)</label>
+                        <span class="form-hint">Identify macroeconomic, political, social, and technological trends shifting the baseline constraints of your industry. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Proliferation of Building Information Modeling (BIM) level 3; continuous tightening of life-cycle carbon targets.</span></span>
+                        <textarea id="scenarios_Forces" class="form-input" placeholder="Log driving forces and external trends here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Critical Uncertainties Card -->
+                    <div class="scenarios-card uncertainties-card">
+                        <label class="scenarios-label uncertainties-label">3. Critical Uncertainties (Matrix Axes Configuration)</label>
+                        <span class="form-hint">Isolate the two most high-impact, completely unpredictable parameters that will form the axes of your planning matrix. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Axis 1: Volatility of raw material price indices (Steel/Copper). Axis 2: Strictness of HSE statutory enforcement.</span></span>
+                        <textarea id="scenarios_Uncertainties" class="form-input" placeholder="Isolate critical uncertainties here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Future Narratives Card -->
+                    <div class="scenarios-card narratives-card">
+                        <label class="scenarios-label narratives-label">4. Scenario Matrix Narratives (The 2x2 Matrix Worlds)</label>
+                        <span class="form-hint">Flesh out the four plausible future worlds generated by crossing your axes. Outline operational conditions within each world. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. World 1 (High Safety/Low Scarcity): Smooth compliance paths. World 2 (High Safety/High Scarcity): Circular engineering required.</span></span>
+                        <textarea id="scenarios_Narratives" class="form-input" placeholder="Outline future scenario narratives and matrix quadrants here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Strategic Actions Card -->
+                    <div class="scenarios-card actions-card">
+                        <label class="scenarios-label actions-label">5. Strategic Resiliency Actions & Contingency Triggers</label>
+                        <span class="form-hint">Formulate core plays successful across all worlds, combined with specialized adaptation triggers tied to specific threat markers. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Diversify material supply streams immediately; implement automated drawing control workflows to hedge compliance costs.</span></span>
+                        <textarea id="scenarios_Actions" class="form-input" placeholder="Formulate strategic resilience plans and contingency triggers here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_strategy_scenarios";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            // Restore data seamlessly if page reloads (High Trust UI Subsystem)
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('scenarios_Scope').value = data.Scope || '';
+                    document.getElementById('scenarios_Forces').value = data.Forces || '';
+                    document.getElementById('scenarios_Uncertainties').value = data.Uncertainties || '';
+                    document.getElementById('scenarios_Narratives').value = data.Narratives || '';
+                    document.getElementById('scenarios_Actions').value = data.Actions || '';
+                } catch (e) {
+                    console.error("Failed to parse stored Scenario Planning state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
+            const toolsMap = {
+                'coach': 'ee_comm_coach',
+                'strategy': 'ee_strategy',
+                'swot': 'ee_strategy_swot',
+                'pestle': 'ee_strategy_pestle',
+                'porters': 'ee_strategy_porters',
+                'vrio': 'ee_strategy_vrio',
+                'bcg': 'ee_strategy_bcg',
+                'ansoff': 'ee_strategy_ansoff',
+                'scenarios': 'ee_strategy_scenarios',
+                'value_chain': 'ee_strategy_value-chain',
+                'blue_ocean': 'ee_strategy_blue-ocean',
+                'bmc': 'ee_strategy_bmc',
+                'soar': 'ee_strategy_soar',
+                'map': 'ee_strategy_map'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const scope = document.getElementById('scenarios_Scope').value.trim();
+            const forces = document.getElementById('scenarios_Forces').value.trim();
+            const uncertainties = document.getElementById('scenarios_Uncertainties').value.trim();
+            const narratives = document.getElementById('scenarios_Narratives').value.trim();
+            const actions = document.getElementById('scenarios_Actions').value.trim();
+
+            let output = `=== SCENARIO PLANNING ARCHITECTURE ===\n\n`;
+            output += `[1. SCOPE] Focal Question & Decision Scope:\n${scope ? scope : '...\n'}\n`;
+            output += `[2. FORCES] Driving Forces & Trends:\n${forces ? forces : '...\n'}\n`;
+            output += `[3. UNCERTAINTIES] Critical Uncertainties:\n${uncertainties ? uncertainties : '...\n'}\n`;
+            output += `[4. NARRATIVES] Scenario Matrix Worlds:\n${narratives ? narratives : '...\n'}\n`;
+            output += `[5. ACTIONS] Strategic Resiliency & Contingency Plan:\n${actions ? actions : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = scope || forces || uncertainties || narratives || actions;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic for performance)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Scope: scope, Forces: forces, Uncertainties: uncertainties, Narratives: narratives, Actions: actions };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Scenario Planning state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const scope = document.getElementById('scenarios_Scope').value.trim();
+            const forces = document.getElementById('scenarios_Forces').value.trim();
+            const uncertainties = document.getElementById('scenarios_Uncertainties').value.trim();
+            const narratives = document.getElementById('scenarios_Narratives').value.trim();
+            const actions = document.getElementById('scenarios_Actions').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = scope || forces || uncertainties || narratives || actions;
+
+            if (hasUserData) {
+                script += `[FOCAL QUESTION & DECISION SCOPE]\n${scope ? scope : 'Not defined.'}\n\n`;
+                script += `[DRIVING FORCES & EXTERNAL TRENDS]\n${forces ? forces : 'Not defined.'}\n\n`;
+                script += `[CRITICAL UNCERTAINTIES]\n${uncertainties ? uncertainties : 'Not defined.'}\n\n`;
+                script += `[SCENARIO MATRIX NARRATIVES]\n${narratives ? narratives : 'Not defined.'}\n\n`;
+                script += `[STRATEGIC RESILIENCY ACTIONS]\n${actions ? actions : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[FOCAL QUESTION & DECISION SCOPE]\ne.g., Is our 10-year asset development strategy robust against accelerated regional grid-decarbonisation rules?\n\n`;
+                script += `[DRIVING FORCES & EXTERNAL TRENDS]\ne.g., Increasing integration of IoT industrial data hubs; global trends toward circular material reuse.\n\n`;
+                script += `[CRITICAL UNCERTAINTIES]\ne.g., Axis 1: Volatility rate of structural material import inflation. Axis 2: Degree of HSE regulatory policing rigidity.\n\n`;
+                script += `[SCENARIO MATRIX NARRATIVES]\ne.g., Quadrant 1 (Stagnant/Strict): High-compliance overhead coupled with severe component scarcity requiring localized re-manufacturing configurations.\n\n`;
+                script += `[STRATEGIC RESILIENCY ACTIONS]\ne.g., Commit to cloud-based open telemetry designs immediately; pre-qualify independent European aggregate suppliers to hedge import tariffs.\n\n`;
+            }
+
+            const role = "Strategic Risk Manager & Engineering Director";
+            const action = "Analyse this Scenario Planning futures analysis. 1. Identify any critical inconsistencies within the future world narratives. 2. Highlight macro-environmental blind spots or compliance liabilities (such as CDM 2015 vulnerabilities) that have been overlooked. 3. Evaluate the resiliency actions to separate standard business-as-usual plays from true contingency configurations.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence C and E). The format used is a Scenario Planning framework (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the Scenario Planning canvas?")) {
+                document.getElementById('scenarios_Scope').value = '';
+                document.getElementById('scenarios_Forces').value = '';
+                document.getElementById('scenarios_Uncertainties').value = '';
+                document.getElementById('scenarios_Narratives').value = '';
+                document.getElementById('scenarios_Actions').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const scope = document.getElementById('scenarios_Scope').value.trim();
+            const forces = document.getElementById('scenarios_Forces').value.trim();
+            const uncertainties = document.getElementById('scenarios_Uncertainties').value.trim();
+            const narratives = document.getElementById('scenarios_Narratives').value.trim();
+            const actions = document.getElementById('scenarios_Actions').value.trim();
+
+            const state = { Scope: scope, Forces: forces, Uncertainties: uncertainties, Narratives: narratives, Actions: actions };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Scenario_Planning_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Scope !== undefined || data.Forces !== undefined || data.Uncertainties !== undefined || data.Narratives !== undefined || data.Actions !== undefined) {
+                        document.getElementById('scenarios_Scope').value = data.Scope || '';
+                        document.getElementById('scenarios_Forces').value = data.Forces || '';
+                        document.getElementById('scenarios_Uncertainties').value = data.Uncertainties || '';
+                        document.getElementById('scenarios_Narratives').value = data.Narratives || '';
+                        document.getElementById('scenarios_Actions').value = data.Actions || '';
+                        updatePreview();
+                        alert("Scenario Planning data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Scenario Planning architectural fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const scope = document.getElementById('scenarios_Scope').value.trim();
+            const forces = document.getElementById('scenarios_Forces').value.trim();
+            const uncertainties = document.getElementById('scenarios_Uncertainties').value.trim();
+            const narratives = document.getElementById('scenarios_Narratives').value.trim();
+            const actions = document.getElementById('scenarios_Actions').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Scenario Planning Strategy Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
+                    .scope { border-top: 4px solid #006837; }
+                    .forces { border-top: 4px solid #C05621; }
+                    .uncertainties { border-top: 4px solid #006837; }
+                    .narratives { border-top: 4px solid #C05621; }
+                    .actions { border-top: 4px solid #006837; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Scenario Planning Strategy Report</h1>
+                <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="card scope">
+                    <h2>1. Focal Question & Strategic Decision Scope</h2>
+                    <p>${scope ? scope : 'Not defined.'}</p>
+                </div>
+                <div class="card forces">
+                    <h2>2. Driving Forces & External Trends (PESTLE Audit)</h2>
+                    <p>${forces ? forces : 'Not defined.'}</p>
+                </div>
+                <div class="card uncertainties">
+                    <h2>3. Critical Uncertainties (Matrix Axes Configuration)</h2>
+                    <p>${uncertainties ? uncertainties : 'Not defined.'}</p>
+                </div>
+                <div class="card narratives">
+                    <h2>4. Scenario Matrix Narratives (The 2x2 Matrix Worlds)</h2>
+                    <p>${narratives ? narratives : 'Not defined.'}</p>
+                </div>
+                <div class="card actions">
+                    <h2>5. Strategic Resiliency Actions & Contingency Triggers</h2>
+                    <p>${actions ? actions : 'Not defined.'}</p>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Strategy & Business Planning Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Porter's Five Forces tool. Analyse market mechanics, evaluate competitive dynamics, align industrial risk profiles with UK-SPEC Competence C requirements, and generate advanced AI strategic reviews. Secure client-side memory.">
+    <meta name="keywords" content="Porter's Five Forces, Competitive Rivalry, Strategic Business Planning, UK-SPEC Competence, Engineering Leadership, Supplier Power, Buyer Power, Threat of Substitutes, Industry Dynamics">
+    <meta property="og:title" content="Porter's Five Forces Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, client-side strategic micro-environmental analysis tool engineered for engineering managers and technical directors.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-porters.html">
+    <meta property="og:type" content="website">
+    
+    <title>Porter's Five Forces Analysis | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Porter's Five Forces Workbench",
+      "url": "https://www.empoweringengineers.uk/strategy-porters.html",
+      "description": "An interactive Porter's Five Forces analysis platform mapped directly to the UK-SPEC strategic management competence metrics.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        /* Protects `.header-page-title` from contrast-breaking global color overrides */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- 2. FIVE FORCES GRID STYLING --- */
+        .forces-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .force-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .force-card.rivalry-card { border-top: 4px solid var(--terminal-green); }
+        .force-card.suppliers-card { border-top: 4px solid var(--burnt-orange); }
+        .force-card.buyers-card { border-top: 4px solid var(--terminal-green); }
+        .force-card.substitutes-card { border-top: 4px solid var(--burnt-orange); }
+        .force-card.entrants-card { border-top: 4px solid var(--terminal-green); }
+
+        .force-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rivalry-label { color: var(--terminal-green) !important; }
+        .suppliers-label { color: var(--burnt-orange) !important; }
+        .buyers-label { color: var(--terminal-green) !important; }
+        .substitutes-label { color: var(--burnt-orange) !important; }
+        .entrants-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 120px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px; /* Accessible touch target bounding box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0; /* Terminal green glow text */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Engineering Leadership: Deploying Porter's Five Forces Framework</h1>
+            <p>
+                To lead engineering enterprises successfully, technical specialists must expand their horizons beyond structural layouts or pure technical criteria. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) emphasizes that senior engineers must prove their commercial awareness and structural leadership capabilities. Under Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards), candidates must demonstrate that they can critically audit the competitive structures and industrial forces influencing their technical programs.
+            </p>
+            <p>
+                Michael Porter's Five Forces framework serves as an essential strategic blueprint to map micro-environmental profitability, operational exposure, and long-term project viability. In multi-disciplinary project offices, engineering managers use this structured matrix to evaluate the distribution of industrial leverage. By mapping competitive rivalry, supplier power, buyer leverage, substitution vectors, and new entrant barriers, engineering leads can systematically shield their project pipelines from structural cost overruns and contract procurement failures.
+            </p>
+
+            <h2>The Five Distinct Dimensions of Industrial Leverage</h2>
+            <p>
+                Applying this diagnostic model to safety-critical sectors requires an objective assessment of the micro-environment. Here is how each of Porter's five market dimensions directly intersects with modern technical management:
+            </p>
+            <p>
+                <strong>1. Competitive Rivalry [R]:</strong> This baseline force audits the density and technical velocity of existing engineering contractors or consultancies in your market. High competitive rivalry often manifests as aggressive price wars during public asset tenders or race-to-the-bottom margins on commercial engineering programs. Mitigating this force requires technical teams to differentiate their output, using advanced proprietary modeling automation, deep specialized sector knowledge, or unique execution tracks that insulate the firm from low-margin commodity engineering battles.
+            </p>
+            <p>
+                <strong>2. Bargaining Power of Suppliers [S]:</strong> Modern engineering lines rely heavily on specialized raw material inputs, complex software infrastructure, and technical component vendors. Supplier leverage increases dramatically when your supply chain is concentrated among a few single-source manufacturers or when switching costs to alternative sub-contractors are prohibitive. For instance, reliance on an isolated, specialized silicon fabricator or a unique CAD/BIM software script shifts pricing power to the vendor, requiring engineering lead managers to establish robust diversification registers to defend project budgets.
+            </p>
+            <p>
+                <strong>3. Bargaining Power of Buyers [B]:</strong> This dimension defines the leverage wielded by corporate or governmental asset clients. In industries dominated by a small group of major procurers (such as public utility boards or national transport authorities), buyers hold immense leverage. They can dictate harsh contract terms, mandate strict penalty clauses for scheduling drift, and demand extensive indemnity parameters. Astute engineering leads counter buyer concentration by demonstrating immense value-add through compliance with lifecycle optimization models, reducing long-term operational expenditure (OpEx) for the client.
+            </p>
+            <p>
+                <strong>4. Threat of Substitutes [Sub]:</strong> Substitution tracks occur when alternative technical methods or completely different technology formats can satisfy the client's underlying requirement. This is not a match against direct competitors, but rather a structural shift; for example, a civil infrastructure contract for traditional concrete piling being entirely replaced by an eco-friendly automated soil stabilization method, or physical data centers giving way to cloud networks. Anticipating these technological pivots is critical to protecting current research and development pipelines from premature obsolescence.
+            </p>
+            <p>
+                <strong>5. Threat of New Entrants [New]:</strong> This metric tracks the ease with which new engineering startups or international consultancies can break into your operational territory. In highly regulated sectors like nuclear or defense engineering, the barrier to entry remains incredibly high due to mandatory safety accreditations and security clearings. However, in less regulated or purely digital design spaces, capital-initialization costs are low, allowing agile entrants to disrupt the market. Strategic engineers continuously build protective moats by locking down intellectual property and securing advanced institutional quality badges.
+            </p>
+
+            <h2>Deploying the Interactive Client-Side Analysis Workbench</h2>
+            <p>
+                The interactive Porter's Five Forces Workbench below is explicitly designed to help technical professionals systematically document their micro-environmental audits. To safeguard highly sensitive commercial strategies and protect proprietary corporate data, our platform operates on a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks or servers. Use this analytical toolkit to compile comprehensive industrial outlines, export clean JSON databases, or generate sophisticated AI system prompts engineered to expose competitive vulnerabilities and protect your technical programs.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy</span>
+            </a>
+            <a href="strategy-swot.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_swot"></div>
+                <span class="tab-label">SWOT</span>
+            </a>
+            <a href="strategy-pestle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pestle"></div>
+                <span class="tab-label">PESTLE</span>
+            </a>
+            <a href="strategy-porters.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_porters"></div>
+                <span class="tab-label">Porter's 5 Forces</span>
+            </a>
+            <a href="strategy-vrio.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vrio"></div>
+                <span class="tab-label">VRIO</span>
+            </a>
+            <a href="strategy-bcg.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bcg"></div>
+                <span class="tab-label">BCG Matrix</span>
+            </a>
+            <a href="strategy-ansoff.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ansoff"></div>
+                <span class="tab-label">Ansoff</span>
+            </a>
+            <a href="strategy-scenarios.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scenarios"></div>
+                <span class="tab-label">Scenarios</span>
+            </a>
+            <a href="strategy-value-chain.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_value_chain"></div>
+                <span class="tab-label">Value Chain</span>
+            </a>
+            <a href="strategy-blue-ocean.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_blue_ocean"></div>
+                <span class="tab-label">Blue Ocean</span>
+            </a>
+            <a href="strategy-bmc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bmc"></div>
+                <span class="tab-label">Canvas</span>
+            </a>
+            <a href="strategy-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="strategy-map.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_map"></div>
+                <span class="tab-label">Strategy Map</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Inheritance Rules -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Porter's Five Forces</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="forces-grid">
+                    
+                    <!-- Competitive Rivalry Card -->
+                    <div class="force-card rivalry-card">
+                        <label class="force-label rivalry-label">1. Competitive Rivalry Among Existing Competitors</label>
+                        <span class="form-hint">Density of direct competitors, commodity pricing friction, standardisation level, and industry growth rates. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Intensive bidding wars on public utility tenders; low differentiation among regional civil consultancies.</span></span>
+                        <textarea id="force_R" class="form-input" placeholder="Analyse current competitive rivalry here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Supplier Power Card -->
+                    <div class="force-card suppliers-card">
+                        <label class="force-label suppliers-label">2. Bargaining Power of Suppliers</label>
+                        <span class="form-hint">Concentration of raw material vendors, switching costs of specialized engineering toolsets, or single-source dependencies. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Single-source reliance on specialized German alloy vendors; high switching costs for enterprise CAD architecture.</span></span>
+                        <textarea id="force_S" class="form-input" placeholder="Analyse supplier power here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Buyer Power Card -->
+                    <div class="force-card buyers-card">
+                        <label class="force-label buyers-label">3. Bargaining Power of Buyers</label>
+                        <span class="form-hint">Consolidation of enterprise clients, tender scale metrics, pricing sensitivities, and contract penalty constraints. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Large governmental infrastructure buyers dictating tight scheduling penalty clauses and fixed CapEx caps.</span></span>
+                        <textarea id="force_B" class="form-input" placeholder="Analyse buyer power here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Threat of Substitutes Card -->
+                    <div class="force-card substitutes-card">
+                        <label class="force-label substitutes-label">4. Threat of Substitute Products or Services</label>
+                        <span class="form-hint">Alternative engineering methodologies, disruptive technical designs, or structural out-of-sector shifts. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Traditional concrete foundations being substituted by automated off-site modular composite configurations.</span></span>
+                        <textarea id="force_Sub" class="form-input" placeholder="Analyse threat of substitutes here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Threat of New Entrants Card -->
+                    <div class="force-card entrants-card">
+                        <label class="force-label entrants-label">5. Threat of New Entrants</label>
+                        <span class="form-hint">Capital initialization thresholds, statutory compliance friction, licensing requirements, and IP moats. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. High entry barriers in nuclear engineering due to strict ONR clearings; low barriers in generic software modeling design.</span></span>
+                        <textarea id="force_New" class="form-input" placeholder="Analyse threat of new entrants here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_strategy_porters";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            // Restore data seamlessly if page reloads (High Trust UI Subsystem)
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('force_R').value = data.R || '';
+                    document.getElementById('force_S').value = data.S || '';
+                    document.getElementById('force_B').value = data.B || '';
+                    document.getElementById('force_Sub').value = data.Sub || '';
+                    document.getElementById('force_New').value = data.New || '';
+                } catch (e) {
+                    console.error("Failed to parse stored Porter's state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_comm_coach',
+                'strategy': 'ee_strategy',
+                'swot': 'ee_strategy_swot',
+                'pestle': 'ee_strategy_pestle',
+                'porters': 'ee_strategy_porters',
+                'vrio': 'ee_strategy_vrio',
+                'bcg': 'ee_strategy_bcg',
+                'ansoff': 'ee_strategy_ansoff',
+                'scenarios': 'ee_strategy_scenarios',
+                'value_chain': 'ee_strategy_value-chain',
+                'blue_ocean': 'ee_strategy_blue-ocean',
+                'bmc': 'ee_strategy_bmc',
+                'soar': 'ee_strategy_soar',
+                'map': 'ee_strategy_map'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const r = document.getElementById('force_R').value.trim();
+            const s = document.getElementById('force_S').value.trim();
+            const b = document.getElementById('force_B').value.trim();
+            const sub = document.getElementById('force_Sub').value.trim();
+            const n = document.getElementById('force_New').value.trim();
+
+            let output = `=== PORTER'S FIVE FORCES MATRIX ===\n\n`;
+            output += `[1. RIVALRY] Competitive Rivalry:\n${r ? r : '...\n'}\n`;
+            output += `[2. SUPPLIERS] Supplier Power:\n${s ? s : '...\n'}\n`;
+            output += `[3. BUYERS] Buyer Power:\n${b ? b : '...\n'}\n`;
+            output += `[4. SUBSTITUTES] Threat of Substitutes:\n${sub ? sub : '...\n'}\n`;
+            output += `[5. ENTRANTS] Threat of New Entrants:\n${n ? n : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = r || s || b || sub || n;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic for performance)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { R: r, S: s, B: b, Sub: sub, New: n };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Porter's state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const r = document.getElementById('force_R').value.trim();
+            const s = document.getElementById('force_S').value.trim();
+            const b = document.getElementById('force_B').value.trim();
+            const sub = document.getElementById('force_Sub').value.trim();
+            const n = document.getElementById('force_New').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = r || s || b || sub || n;
+
+            if (hasUserData) {
+                script += `[COMPETITIVE RIVALRY]\n${r ? r : 'Not defined.'}\n\n`;
+                script += `[BARGAINING POWER OF SUPPLIERS]\n${s ? s : 'Not defined.'}\n\n`;
+                script += `[BARGAINING POWER OF BUYERS]\n${b ? b : 'Not defined.'}\n\n`;
+                script += `[THREAT OF SUBSTITUTE PRODUCTS OR SERVICES]\n${sub ? sub : 'Not defined.'}\n\n`;
+                script += `[THREAT OF NEW ENTRANTS]\n${n ? n : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[COMPETITIVE RIVALRY]\ne.g., High rivalry in municipal civil engineering tenders; firms undercutting margins by 15% using standard design templates.\n\n`;
+                script += `[BARGAINING POWER OF SUPPLIERS]\ne.g., High vendor power for structural steel due to supply line consolidation; zero leverage on proprietary PLC automation software updates.\n\n`;
+                script += `[BARGAINING POWER OF BUYERS]\ne.g., Consolidated utility operators holding extreme leverage; demanding 60-day payment schedules and high liquidated damages blocks.\n\n`;
+                script += `[THREAT OF SUBSTITUTE PRODUCTS OR SERVICES]\ne.g., Low immediate threat, but 3D concrete printing options are emerging as long-term alternatives to standard block masonry.\n\n`;
+                script += `[THREAT OF NEW ENTRANTS]\ne.g., Low threat in structural bridge design due to mandatory Professional Indemnity Insurance limits and verified track record barriers.\n\n`;
+            }
+
+            const role = "Strategic Engineering Consultant & Engineering Director";
+            const action = "Analyse this Porter's Five Forces micro-environmental audit. 1. Identify where competitive friction or supply chain leverage is most dangerous. 2. Highlight structural risks or barriers that have been understated. 3. Formulate one specific operational pivot or contract negotiation play to neutralize the dominant force.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence C and E). The format used is a Porter's Five Forces framework (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the Porter's Five Forces canvas?")) {
+                document.getElementById('force_R').value = '';
+                document.getElementById('force_S').value = '';
+                document.getElementById('force_B').value = '';
+                document.getElementById('force_Sub').value = '';
+                document.getElementById('force_New').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const r = document.getElementById('force_R').value.trim();
+            const s = document.getElementById('force_S').value.trim();
+            const b = document.getElementById('force_B').value.trim();
+            const sub = document.getElementById('force_Sub').value.trim();
+            const n = document.getElementById('force_New').value.trim();
+
+            const state = { R: r, S: s, B: b, Sub: sub, New: n };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Porters_Five_Forces_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.R !== undefined || data.S !== undefined || data.B !== undefined || data.Sub !== undefined || data.New !== undefined) {
+                        document.getElementById('force_R').value = data.R || '';
+                        document.getElementById('force_S').value = data.S || '';
+                        document.getElementById('force_B').value = data.B || '';
+                        document.getElementById('force_Sub').value = data.Sub || '';
+                        document.getElementById('force_New').value = data.New || '';
+                        updatePreview();
+                        alert("Porter's Five Forces data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Porter's Five Forces fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const r = document.getElementById('force_R').value.trim();
+            const s = document.getElementById('force_S').value.trim();
+            const b = document.getElementById('force_B').value.trim();
+            const sub = document.getElementById('force_Sub').value.trim();
+            const n = document.getElementById('force_New').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Porter's Five Forces Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
+                    .rivalry { border-top: 4px solid #006837; }
+                    .suppliers { border-top: 4px solid #C05621; }
+                    .buyers { border-top: 4px solid #006837; }
+                    .substitutes { border-top: 4px solid #C05621; }
+                    .entrants { border-top: 4px solid #006837; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Porter's Five Forces Analysis Report</h1>
+                <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="card rivalry">
+                    <h2>1. Competitive Rivalry Among Existing Competitors</h2>
+                    <p>${r ? r : 'Not defined.'}</p>
+                </div>
+                <div class="card suppliers">
+                    <h2>2. Bargaining Power of Suppliers</h2>
+                    <p>${s ? s : 'Not defined.'}</p>
+                </div>
+                <div class="card buyers">
+                    <h2>3. Bargaining Power of Buyers</h2>
+                    <p>${b ? b : 'Not defined.'}</p>
+                </div>
+                <div class="card substitutes">
+                    <h2>4. Threat of Substitute Products or Services</h2>
+                    <p>${sub ? sub : 'Not defined.'}</p>
+                </div>
+                <div class="card entrants">
+                    <h2>5. Threat of New Entrants</h2>
+                    <p>${n ? n : 'Not defined.'}</p>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Strategy & Business Planning Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

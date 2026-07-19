@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering PESTLE Analysis tool. Evaluate macro-environmental risks, align industrial projects to UK-SPEC Competence C and E requirements, and generate advanced AI strategic reviews. Secure client-side memory.">
+    <meta name="keywords" content="PESTLE Analysis, Strategic Planning, UK-SPEC Competence, Engineering Management, Macro-Environmental Risk, CDM Regulations, Statutory Compliance, Business Planning">
+    <meta property="og:title" content="PESTLE Analysis Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, client-side strategic PESTLE tool engineered specifically for lead engineers and technical managers to audit macro-environmental project risks.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-pestle.html">
+    <meta property="og:type" content="website">
+    
+    <title>PESTLE Analysis | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering PESTLE Analysis Workbench",
+      "url": "https://www.empoweringengineers.uk/strategy-pestle.html",
+      "description": "An interactive PESTLE analysis tool mapped directly to the UK-SPEC strategic engineering competence metrics.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- 1. BRAND SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
+        /* Protects `.header-page-title` from contrast-breaking global color overrides */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- 2. PESTLE GRID STYLING --- */
+        .pestle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .pestle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pestle-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .pestle-card.political-card { border-top: 4px solid var(--terminal-green); }
+        .pestle-card.economic-card { border-top: 4px solid var(--burnt-orange); }
+        .pestle-card.social-card { border-top: 4px solid var(--terminal-green); }
+        .pestle-card.technological-card { border-top: 4px solid var(--burnt-orange); }
+        .pestle-card.legal-card { border-top: 4px solid var(--terminal-green); }
+        .pestle-card.environmental-card { border-top: 4px solid var(--burnt-orange); }
+
+        .pestle-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .political-label { color: var(--terminal-green) !important; }
+        .economic-label { color: var(--burnt-orange) !important; }
+        .social-label { color: var(--terminal-green) !important; }
+        .technological-label { color: var(--burnt-orange) !important; }
+        .legal-label { color: var(--terminal-green) !important; }
+        .environmental-label { color: var(--burnt-orange) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px; /* Accessible touch target target bounding box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0; /* Terminal green glow text */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Engineering Leadership: Deploying the PESTLE Analysis Framework</h1>
+            <p>
+                To deliver resilient, future-proof projects, professional engineers must look far beyond standard mechanical boundaries or technical calculations. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) requires that candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration prove they possess comprehensive commercial awareness and a deep commitment to societal safety. Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) directly demand that candidates evaluate how macro-environmental forces impact design methodologies, supply chains, and statutory compliance parameters.
+            </p>
+            <p>
+                PESTLE Analysis (Political, Economic, Social, Technological, Legal, and Environmental) is a structured, multi-dimensional framework designed to assess external factors that influence project viability. In multi-disciplinary engineering environments, utilising PESTLE ensures that lead engineers can identify and mitigate strategic risks before committing capital expenditure (CapEx). It provides a holistic, continuous framework to evaluate risk vectors that are often ignored during standard, narrow-focused design reviews, ensuring that infrastructure developments remain aligned with national policy, economic realities, and emerging environmental targets.
+            </p>
+
+            <h2>Analyse the Six Macro-Environmental Dimensions</h2>
+            <p>
+                Evaluating these external parameters requires objective, evidence-based assessment. Here is how each of the six PESTLE dimensions directly intersects with modern engineering management:
+            </p>
+            <p>
+                <strong>Political Factors [P]:</strong> Engineering programmes are heavily influenced by national policy directions, government funding streams (such as Innovate UK subsidies), and regional devolution plans. Political shifts can instantly redefine public infrastructure strategies, redirect grid-decarbonisation priorities, or influence import tariffs on critical construction raw materials. Critical evaluations in this domain enable technical groups to shield long-term research and development assets from legislative instability.
+            </p>
+            <p>
+                <strong>Economic Factors [E]:</strong> Macroeconomic forces govern commercial project feasibility. These include currency exchange rate volatility, inflation rates affecting material supply lines (such as steel and copper price spikes), and fluctuations in local labour market rates. Identifying these economic parameters allows engineering managers to construct robust contingency models and justify life-cycle cost parameters (OpEx vs CapEx) to corporate clients and institutional investors.
+            </p>
+            <p>
+                <strong>Social Factors [S]:</strong> Societal trends dictate demographic needs, public safety expectations, and consumer behaviour. Engineers must account for shifting public perception regarding major infrastructure initiatives, requirements for localised public consultations, and evolving workforce demographic variables. Managing social considerations guarantees project acceptance, decreases local operational friction, and ensures that systems are designed with human factors and accessibility centrally integrated.
+            </p>
+            <p>
+                <strong>Technological Factors [T]:</strong> Digital transformation is rewriting the rules of industrial manufacturing and construction. This dimension tracks technological developments such as the transition to Industry 4.0 automation, the integration of Building Information Modeling (BIM) Level 2/3 protocols, internet of things (IoT) asset monitoring, and the rise of cyber-physical system security. Incorporating these technologies ensures engineering groups prevent premature technical obsolescence and sustain operational excellence.
+            </p>
+            <p>
+                <strong>Legal Factors [L]:</strong> Structural compliance is non-negotiable. This category audits strict statutory requirements, including the Health and Safety at Work etc. Act 1974, the Construction (Design and Management) (CDM) Regulations 2015, lifting equipment safety guidelines (LOLER), and rigorous product liability laws. Reviewing these legal variables guarantees absolute regulatory alignment, protects workers on-site, and insulates the engineering firm from catastrophic litigation risks.
+            </p>
+            <p>
+                <strong>Environmental Factors [Env]:</strong> Modern engineering must operate in absolute harmony with the natural environment. This dimension assesses extreme weather risk profiles under climate change scenarios, carbon intensity limitations, life-cycle carbon calculations, and circular-economy resource reusability policies. Evaluating these criteria ensures technical systems achieve rigorous Net-Zero carbon thresholds and satisfy local Environmental Impact Assessments (EIAs) seamlessly.
+            </p>
+
+            <h2>Interactive Client-Side PESTLE Analysis Workbench</h2>
+            <p>
+                The interactive PESTLE Workbench below is specifically designed to help technical professionals systematically structure their macro-environmental audits. To ensure absolute confidentiality and protect sensitive client-side intellectual property, our portal implements a zero-knowledge local storage model. Your strategic notes are parsed and saved in real-time entirely within your browser sandboxed memory profiles—nothing is ever shared with external networks. Use this analytical instrument to compile robust PESTLE summaries, export clean JSON databases, or generate comprehensive AI prompts designed to expose hidden blind spots in your strategic engineering programmes.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy</span>
+            </a>
+            <a href="strategy-swot.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_swot"></div>
+                <span class="tab-label">SWOT</span>
+            </a>
+            <a href="strategy-pestle.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pestle"></div>
+                <span class="tab-label">PESTLE</span>
+            </a>
+            <a href="strategy-porters.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_porters"></div>
+                <span class="tab-label">Porter's 5 Forces</span>
+            </a>
+            <a href="strategy-vrio.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vrio"></div>
+                <span class="tab-label">VRIO</span>
+            </a>
+            <a href="strategy-bcg.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bcg"></div>
+                <span class="tab-label">BCG Matrix</span>
+            </a>
+            <a href="strategy-ansoff.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ansoff"></div>
+                <span class="tab-label">Ansoff</span>
+            </a>
+            <a href="strategy-scenarios.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scenarios"></div>
+                <span class="tab-label">Scenarios</span>
+            </a>
+            <a href="strategy-value-chain.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_value_chain"></div>
+                <span class="tab-label">Value Chain</span>
+            </a>
+            <a href="strategy-blue-ocean.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_blue_ocean"></div>
+                <span class="tab-label">Blue Ocean</span>
+            </a>
+            <a href="strategy-bmc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bmc"></div>
+                <span class="tab-label">Canvas</span>
+            </a>
+            <a href="strategy-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="strategy-map.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_map"></div>
+                <span class="tab-label">Strategy Map</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Inheritance Rules -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">PESTLE Analysis</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="pestle-grid">
+                    
+                    <!-- Political Card -->
+                    <div class="pestle-card political-card">
+                        <label class="pestle-label political-label">P: Political Factors</label>
+                        <span class="form-hint">Government infrastructure policy, public R&D funding pipelines, regional tax codes, or national trading tariffs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Innovate UK clean-energy grants; public decarbonisation policy adjustments.</span></span>
+                        <textarea id="pestle_P" class="form-input" placeholder="Type political factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Economic Card -->
+                    <div class="pestle-card economic-card">
+                        <label class="pestle-label economic-label">E: Economic Factors</label>
+                        <span class="form-hint">Inflation impact on raw material prices, labour cost variables, energy utility tariffs, or monetary interest rates. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Volatile steel import pricing index; rising regional engineering skilled labour costs.</span></span>
+                        <textarea id="pestle_E" class="form-input" placeholder="Type economic factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Social Card -->
+                    <div class="pestle-card social-card">
+                        <label class="pestle-label social-label">S: Social Factors</label>
+                        <span class="form-hint">Demographic trends, consumer behaviour transitions, localised consultation dynamics, or general public safety perception. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Heightened public concern regarding localised infrastructure projects; ageing technical workforce.</span></span>
+                        <textarea id="pestle_S" class="form-input" placeholder="Type social factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Technological Card -->
+                    <div class="pestle-card technological-card">
+                        <label class="pestle-label technological-label">T: Technological Factors</label>
+                        <span class="form-hint">Industry 4.0 automation, cyber-physical systems security, BIM integration levels, or IoT system monitoring developments. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Deployment of IoT predictive maintenance; BIM Level 3 modelling protocols.</span></span>
+                        <textarea id="pestle_T" class="form-input" placeholder="Type technological factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Legal Card -->
+                    <div class="pestle-card legal-card">
+                        <label class="pestle-label legal-label">L: Legal Factors</label>
+                        <span class="form-hint">Health and safety statutory acts (HASAWA), CDM 2015 obligations, LOLER regulations, or patent compliance. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Strict compliance with CDM 2015 safety guidelines; product liability and CE marking rules.</span></span>
+                        <textarea id="pestle_L" class="form-input" placeholder="Type legal factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Environmental Card -->
+                    <div class="pestle-card environmental-card">
+                        <label class="pestle-label environmental-label">E: Environmental Factors</label>
+                        <span class="form-hint">Extreme weather risk planning, carbon output caps, environmental audits (EIAs), or waste circular reuse policies. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Climate change resilience structures; material reuse targets; Net-Zero limits.</span></span>
+                        <textarea id="pestle_Env" class="form-input" placeholder="Type environmental factors here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_strategy_pestle";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            // Restore data seamlessly if page reloads (High Trust UI Subsystem)
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('pestle_P').value = data.P || '';
+                    document.getElementById('pestle_E').value = data.E || '';
+                    document.getElementById('pestle_S').value = data.S || '';
+                    document.getElementById('pestle_T').value = data.T || '';
+                    document.getElementById('pestle_L').value = data.L || '';
+                    document.getElementById('pestle_Env').value = data.Env || '';
+                } catch (e) {
+                    console.error("Failed to parse stored PESTLE state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
+            const toolsMap = {
+                'coach': 'ee_comm_coach',
+                'strategy': 'ee_strategy',
+                'swot': 'ee_strategy_swot',
+                'pestle': 'ee_strategy_pestle',
+                'porters': 'ee_strategy_porters',
+                'vrio': 'ee_strategy_vrio',
+                'bcg': 'ee_strategy_bcg',
+                'ansoff': 'ee_strategy_ansoff',
+                'scenarios': 'ee_strategy_scenarios',
+                'value_chain': 'ee_strategy_value-chain',
+                'blue_ocean': 'ee_strategy_blue-ocean',
+                'bmc': 'ee_strategy_bmc',
+                'soar': 'ee_strategy_soar',
+                'map': 'ee_strategy_map'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const p = document.getElementById('pestle_P').value.trim();
+            const e = document.getElementById('pestle_E').value.trim();
+            const s = document.getElementById('pestle_S').value.trim();
+            const t = document.getElementById('pestle_T').value.trim();
+            const l = document.getElementById('pestle_L').value.trim();
+            const env = document.getElementById('pestle_Env').value.trim();
+
+            let output = `=== PESTLE ANALYSIS MATRIX ===\n\n`;
+            output += `[P] POLITICAL:\n${p ? p : '...\n'}\n`;
+            output += `[E] ECONOMIC:\n${e ? e : '...\n'}\n`;
+            output += `[S] SOCIAL:\n${s ? s : '...\n'}\n`;
+            output += `[T] TECHNOLOGICAL:\n${t ? t : '...\n'}\n`;
+            output += `[L] LEGAL:\n${l ? l : '...\n'}\n`;
+            output += `[E] ENVIRONMENTAL:\n${env ? env : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = p || e || s || t || l || env;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic for performance)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { P: p, E: e, S: s, T: t, L: l, Env: env };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("PESTLE state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const p = document.getElementById('pestle_P').value.trim();
+            const e = document.getElementById('pestle_E').value.trim();
+            const s = document.getElementById('pestle_S').value.trim();
+            const t = document.getElementById('pestle_T').value.trim();
+            const l = document.getElementById('pestle_L').value.trim();
+            const env = document.getElementById('pestle_Env').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = p || e || s || t || l || env;
+
+            if (hasUserData) {
+                script += `[POLITICAL FACTORS]\n${p ? p : 'Not defined.'}\n\n`;
+                script += `[ECONOMIC FACTORS]\n${e ? e : 'Not defined.'}\n\n`;
+                script += `[SOCIAL FACTORS]\n${s ? s : 'Not defined.'}\n\n`;
+                script += `[TECHNOLOGICAL FACTORS]\n${t ? t : 'Not defined.'}\n\n`;
+                script += `[LEGAL FACTORS]\n${l ? l : 'Not defined.'}\n\n`;
+                script += `[ENVIRONMENTAL FACTORS]\n${env ? env : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[POLITICAL FACTORS]\ne.g., Innovate UK funding availability for hydrogen gas trials; changes to National Energy Policy frameworks.\n\n`;
+                script += `[ECONOMIC FACTORS]\ne.g., High raw material price index volatility (copper/steel); high sterling interest rates limits capital-intensive investments.\n\n`;
+                script += `[SOCIAL FACTORS]\ne.g., Increasing public focus on sustainable community spaces; a deficit of younger specialised engineers entering the local workforce.\n\n`;
+                script += `[TECHNOLOGICAL FACTORS]\ne.g., Widespread implementation of BIM Level 3 protocols; transition to Industry 4.0 IoT analytics platforms.\n\n`;
+                script += `[LEGAL FACTORS]\ne.g., Ofgem regulatory pricing caps; enforcement of strict CDM 2015 design risk assessments; compliance with UKCA certification standards.\n\n`;
+                script += `[ENVIRONMENTAL FACTORS]\ne.g., Mandatory carbon life-cycle audits; flood defence protections for high-risk geographical assets.\n\n`;
+            }
+
+            const role = "Strategic Engineering Consultant & Engineering Director";
+            const action = "Analyse this PESTLE strategic assessment. 1. Identify any critical macro-environmental blind spots. 2. Highlight statutory, structural, or commercial risks that have been underrepresented. 3. Suggest one proactive technical adaptation or risk mitigation strategy for the primary threat.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence C and E). The format used is a PESTLE framework (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the PESTLE canvas?")) {
+                document.getElementById('pestle_P').value = '';
+                document.getElementById('pestle_E').value = '';
+                document.getElementById('pestle_S').value = '';
+                document.getElementById('pestle_T').value = '';
+                document.getElementById('pestle_L').value = '';
+                document.getElementById('pestle_Env').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const p = document.getElementById('pestle_P').value.trim();
+            const e = document.getElementById('pestle_E').value.trim();
+            const s = document.getElementById('pestle_S').value.trim();
+            const t = document.getElementById('pestle_T').value.trim();
+            const l = document.getElementById('pestle_L').value.trim();
+            const env = document.getElementById('pestle_Env').value.trim();
+
+            const state = { P: p, E: e, S: s, T: t, L: l, Env: env };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_PESTLE_Analysis_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.P !== undefined || data.E !== undefined || data.S !== undefined || data.T !== undefined || data.L !== undefined || data.Env !== undefined) {
+                        document.getElementById('pestle_P').value = data.P || '';
+                        document.getElementById('pestle_E').value = data.E || '';
+                        document.getElementById('pestle_S').value = data.S || '';
+                        document.getElementById('pestle_T').value = data.T || '';
+                        document.getElementById('pestle_L').value = data.L || '';
+                        document.getElementById('pestle_Env').value = data.Env || '';
+                        updatePreview();
+                        alert("PESTLE data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected PESTLE fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const p = document.getElementById('pestle_P').value.trim();
+            const e = document.getElementById('pestle_E').value.trim();
+            const s = document.getElementById('pestle_S').value.trim();
+            const t = document.getElementById('pestle_T').value.trim();
+            const l = document.getElementById('pestle_L').value.trim();
+            const env = document.getElementById('pestle_Env').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE PESTLE Analysis Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .political { border-top: 4px solid #006837; }
+                    .economic { border-top: 4px solid #C05621; }
+                    .social { border-top: 4px solid #006837; }
+                    .technological { border-top: 4px solid #C05621; }
+                    .legal { border-top: 4px solid #006837; }
+                    .environmental { border-top: 4px solid #C05621; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>PESTLE Analysis Report</h1>
+                <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card political">
+                        <h2>Political</h2>
+                        <p>${p ? p : 'Not defined.'}</p>
+                    </div>
+                    <div class="card economic">
+                        <h2>Economic</h2>
+                        <p>${e ? e : 'Not defined.'}</p>
+                    </div>
+                    <div class="card social">
+                        <h2>Social</h2>
+                        <p>${s ? s : 'Not defined.'}</p>
+                    </div>
+                    <div class="card technological">
+                        <h2>Technological</h2>
+                        <p>${t ? t : 'Not defined.'}</p>
+                    </div>
+                    <div class="card legal">
+                        <h2>Legal</h2>
+                        <p>${l ? l : 'Not defined.'}</p>
+                    </div>
+                    <div class="card environmental">
+                        <h2>Environmental</h2>
+                        <p>${env ? env : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Strategy & Business Planning Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

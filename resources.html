@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Central engineering technical reference database. Curate, bookmark, and manage gold-standard textbooks, BS/EN/ISO standards, and code matrices for CPD compliance.">
+    <meta property="og:title" content="Technical References & Resource Manager | Empowering Engineers UK">
+    <meta property="og:description" content="Central engineering technical reference database. Curate, bookmark, and manage gold-standard textbooks, BS/EN/ISO standards, and code matrices for CPD compliance.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/resources.html">
+    <meta property="og:type" content="website">
+    <title>Technical References & Resource Manager | Empowering Engineers UK</title>  
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="references.js?v=21.7" onerror="handleMissingDatabase()"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Technical Reference Library Manager",
+      "url": "https://www.empoweringengineers.uk/resources.html",
+      "description": "A high-density search directory and client-side bookmark manager for engineering reference parameters, code compliance, and statutory documents.",
+      "applicationCategory": "ReferenceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      }
+    }
+    </script>
+
+    <style>
+        /* --- GLOBAL INPUT INHERITANCE OVERRIDES --- */
+        body, button, input, select, textarea, h1, h2, h3, p, a, label {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px; 
+            background-color: var(--input-bg);
+            color: var(--cloud-white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-family: inherit;
+            transition: border-color 0.2s, background-color 0.2s;
+            box-sizing: border-box;
+            min-height: 48px;
+        }
+
+        select { cursor: pointer; }
+        input[type="text"] { cursor: text; }
+        select:hover, input[type="text"]:hover { background-color: var(--hover-green); }
+        select:focus, input[type="text"]:focus { outline: none; border-color: var(--terminal-green); }
+
+        select option {
+            background-color: var(--dark-card);
+            color: var(--cloud-white);
+        }
+
+        label {
+            color: var(--burnt-orange); 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            margin-bottom: 6px; 
+            display:block; 
+            text-transform:uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- THEMATIC NARRATIVE BLOCK --- */
+        .thick-content {
+            padding: 25px 5% 45px 5%;
+            color: var(--cloud-white);
+            line-height: 1.75;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .thick-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* --- HARMONISED HORIZONTAL NAVIGATION STRIP --- */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 14px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 6px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* --- HIGH CONTRAST STATUS CHECKBOXES --- */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: var(--dark-card);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 20px;
+            height: 20px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- INTEGRATED LAYOUT GRID ARCHITECTURE --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 30px;
+            margin: 20px auto;
+            align-items: start;
+        }
+
+        .controls-col {
+            position: sticky;
+            top: 85px;
+            height: fit-content;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 20px;
+            max-height: 800px; 
+            overflow-y: auto;  
+            padding-right: 12px; 
+            align-content: start; 
+        }
+
+        .ref-grid::-webkit-scrollbar { width: 8px; }
+        .ref-grid::-webkit-scrollbar-track { background: var(--input-bg); border-radius: 4px; }
+        .ref-grid::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        .ref-grid::-webkit-scrollbar-thumb:hover { background: var(--slate-grey); }
+
+        .ref-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--border-color);
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .ref-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--terminal-green);
+        }
+        
+        .ref-card.bookmarked {
+            border-top-color: var(--burnt-orange);
+        }
+
+        .badge-disc {
+            background: var(--midnight-navy);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .topic-tag {
+            color: var(--burnt-orange);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        body[data-theme="dark"] .topic-tag { color: #ff8c42; }
+
+        .ref-type {
+            background: var(--terminal-green);
+            color: var(--ee-dark-blue);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 6px;
+        }
+        
+        body[data-theme="dark"] .ref-type { color: #0d1b2a; }
+
+        .ref-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--cloud-white);
+            margin: 12px 0 6px 0;
+            line-height: 1.3;
+        }
+
+        .ref-desc {
+            font-size: 0.9rem;
+            color: var(--slate-grey);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            gap: 10px;
+        }
+
+        .ref-link {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .ref-link:hover { color: var(--terminal-green); }
+
+        .bookmark-toggle-btn {
+            background: transparent !important;
+            border: 1px solid var(--border-color) !important;
+            box-shadow: none !important;
+            min-height: 48px !important; 
+            min-width: 48px !important;
+            height: 48px;
+            width: 48px;
+            padding: 0 !important;
+            color: var(--slate-grey) !important;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .bookmark-toggle-btn:hover { border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important; background-color: var(--hover-green) !important; }
+        .bookmark-toggle-btn.active { color: var(--burnt-orange) !important; border-color: var(--burnt-orange) !important; background-color: var(--hover-green) !important;}
+
+        .panel-tab-row {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            gap: 4px;
+        }
+        .panel-tab {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--slate-grey);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .panel-tab.active { color: var(--terminal-green); border-bottom-color: var(--terminal-green); }
+
+        .custom-item-panel {
+            background: var(--midnight-navy);
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        body[data-theme="dark"] .custom-item-panel {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .workspace-backup-box {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 992px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .controls-col { position: relative; top: 0; }
+            .ref-grid { max-height: none; overflow-y: visible; padding-right: 0; }
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Technical Codes of Practice, Standards Compliance, and Data Retrieval Engineering</h1>
+            <p>In the execution of high-hazard structural engineering, infrastructure architecture, or safety-critical software systems, decisions can never be based upon unverified intuition or anecdotal experience. The Engineering Council rigidly enforces this standard across the sector via the <strong>UK Standard for Professional Engineering Competence (UK-SPEC)</strong>. Specifically, <strong>Competence B (Design, Development, and Solution Innovation)</strong> and <strong>Competence E (Personal Commitment to Professional Standards)</strong> dictate that engineering candidates must prove absolute compliance with domestic and international statutory guidelines, authoritative codes of practice, and standardized regulatory parameters.</p>
+            
+            <h2>The Taxonomy of Structural Standardization: BS, EN, ISO, and ASME</h2>
+            <p>Engineering documentation frameworks follow a rigorous hierarchy designed to shield the public from catastrophic system failures. <strong>British Standards (BS)</strong> establish national operational baselines, which are routinely harmonized into <strong>European Standards (EN)</strong>—such as the Eurocodes suite for structural validation—and globally unified via the <strong>International Organization for Standardization (ISO)</strong>. Within mechanical systems and pressure vessel networks, frameworks transcend borders through the integration of the <strong>ASME (American Society of Mechanical Engineers)</strong> Boiler and Pressure Vessel Codes. Interrogating these comprehensive code blocks guarantees that materials, fluid flow metrics, and thermal fatigue behaviors operate within mathematically validated safety thresholds, protecting corporate assets while fulfilling environmental protection mandates.</p>
+
+            <h2>Information Retrieval Routines within the CPD Lifecycle</h2>
+            <p>Maintaining status as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) requires an ongoing commitment to Continuous Professional Development (CPD). The systematic logging, filtering, and cross-referencing of technical literature constitute a valid entry for your developmental logs. When a design panel or corporate audit board interrogates a Basis of Design (BoD) report, they demand a transparent reference citation layer tracing back to definitive, current standards. Failure to track regulatory updates introduces catastrophic project risk, vulnerable liability profiles, and immediate compliance penalties.</p>
+
+            <h2>Zero-Knowledge Secure Local Bookmark Layer</h2>
+            <p>Acknowledging that consultants, senior designers, and validation engineers regularly process proprietary reference tracking paths and classified corporate asset indexes, this workbench operates completely on a zero-knowledge local client-side memory substratum. While the search script dynamically queries our curated baseline database, all personalized resource bookmarks and custom textbook additions are cached natively within the sandboxed parameters of your individual machine's browser memory loop (`ee_resources_bookmarks`). No external data scraping or network loops occur, safeguarding your absolute confidentiality and enterprise compliance tracking. Utilize our high-density command filters below to systematically navigate our gold-standard engineering database.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic CPD Framework Pathway with Programmatic Completion Badges -->
+        <nav class="ee-horizontal-nav" id="cpdMasterNav" aria-label="CPD Framework Hub Pathway">
+            <a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cpd_hub"></div>
+                <span class="tab-label">CPD Hub</span>
+            </a>
+            <a href="planner.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_planner"></div>
+                <span class="tab-label">CPD Planner</span>
+            </a>
+            <a href="decoder.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_decoder"></div>
+                <span class="tab-label">Decoder</span>
+            </a>
+            <a href="raci.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_raci"></div>
+                <span class="tab-label">RACI Matrix</span>
+            </a>
+            <a href="resources.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_resources"></div>
+                <span class="tab-label">Resources</span>
+            </a>
+        </nav>
+
+        <!-- Interactive Layout Grid Container -->
+        <div class="main-grid">
+            
+            <div class="controls-col">
+                <div class="card" style="padding: 20px; background-color: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="color:var(--terminal-green); border-bottom:1px dashed var(--border-color); margin-bottom:15px; font-weight:bold; text-transform:uppercase; font-size:0.85rem; letter-spacing:0.5px;">
+                        >> Search Engine Filters
+                    </div>
+                    
+                    <div class="panel-tab-row">
+                        <div id="tabAll" class="panel-tab active" onclick="switchLibraryView('all')">Global DB</div>
+                        <div id="tabBookmarked" class="panel-tab" onclick="switchLibraryView('bookmarks')">My Bookmarks</div>
+                        <div id="tabAddCustom" class="panel-tab" onclick="switchLibraryView('custom')">+ Custom</div>
+                    </div>
+                    
+                    <div id="standardFilterControls">
+                        <label for="searchInput">Query Terms</label>
+                        <input type="text" id="searchInput" placeholder="e.g. Eurocode, FEA, ISO 9001..." oninput="executeDataFilterRoutine()">
+
+                        <label for="discSelect">Engineering Discipline</label>
+                        <select id="discSelect" onchange="executeDataFilterRoutine()">
+                            <option value="All">All Disciplines</option>
+                        </select>
+
+                        <label for="typeSelect">Resource Typology</label>
+                        <select id="typeSelect" onchange="executeDataFilterRoutine()">
+                            <option value="All">All Typologies</option>
+                        </select>
+
+                        <label for="topicSelect">Technical Domain Topic</label>
+                        <select id="topicSelect" onchange="executeDataFilterRoutine()">
+                            <option value="All">All Domain Topics</option>
+                        </select>
+                    </div>
+
+                    <!-- Add Custom Entry Framework Form -->
+                    <div id="customItemPanel" class="panel-content custom-item-panel" style="display:none;">
+                        <div style="font-size:0.75rem; font-weight:bold; color:var(--burnt-orange); text-transform:uppercase; margin-bottom:10px;">Create Custom Reference Card</div>
+                        <input type="text" id="customTitle" placeholder="Title (e.g., Institution Handbook)">
+                        <input type="text" id="customDesc" placeholder="Brief Description / Context Notes">
+                        <input type="text" id="customLink" placeholder="Resource Web URL Reference (https://...)">
+                        <input type="text" id="customDisc" placeholder="Discipline (e.g., Mechanical)">
+                        <input type="text" id="customType" placeholder="Type (e.g., Guidebook)">
+                        <input type="text" id="customTopic" placeholder="Topic (e.g., Compliance)">
+                        <button type="button" class="action-btn" style="width:100%; min-height:48px;" onclick="injectCustomUserReference()">Add to Local Workspace</button>
+                    </div>
+
+                    <!-- Dedicated Module Isolated Import / Export Actions -->
+                    <div class="workspace-backup-box">
+                        <label style="color:var(--slate-grey); font-size:0.7rem; font-weight:bold; margin-bottom:8px;">Workspace References Archive</label>
+                        <div style="display:flex; gap:10px;">
+                            <button type="button" class="action-btn" style="flex:1; min-height:48px;" onclick="exportModuleReferencesOnly()">💾 Export</button>
+                            <button type="button" class="action-btn action-btn-ghost" style="flex:1; min-height:48px;" onclick="triggerModuleReferencesImport()">📥 Import</button>
+                        </div>
+                        <input type="file" id="ee_isolated_module_import" style="display:none;" accept=".json" onchange="handleModuleReferencesImport(event)">
+                    </div>
+                </div>
+
+                <div class="ad-mpu-container" style="margin: 20px auto; text-align: center; position: relative;">
+                    <span style="font-size:0.6rem; color:var(--slate-grey); text-transform:uppercase; display:block; margin-bottom:4px; font-weight:bold;">Advertisement Content Node</span>
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-7071036534151105"
+                         data-ad-slot="4413012282"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+
+            <div>
+                <div id="resourceLibraryGrid" class="ref-grid">
+                    <!-- Dynamic Reference Cards Target Workspace Layout -->
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // Unique operational module namespace string
+        const EE_TOOL_ID = "ee_resources_bookmarks";
+
+        // Fallback reference matrix dataset deployed natively if references.js layer encounters a dropout
+        const fallbackDatabase = [
+            { type: "Standard", disc: "General", topic: "Quality", title: "ISO 9001:2015 Quality Management Systems", desc: "The definitive global framework regulating document control parameters, leadership alignment metrics, and continuous organizational improvement pipelines.", link: "https://www.iso.org/standard/62085.html" },
+            { type: "Standard", disc: "Civil", topic: "Structures", title: "BS EN 1990: Eurocode - Basis of Structural Design", desc: "The foundational European standard establishing target safety thresholds, serviceability bounds, and mechanical durability paradigms across load structures.", link: "https://www.bsigroup.com/" },
+            { type: "Textbook", disc: "Mechanical", topic: "Fluids", title: "Crane Technical Paper No. 410 (TP-410)", desc: "The standard textbook reference for analyzing fluid friction metrics, pressure drops, and valve coefficients across piping networks.", link: "https://www.flowcontrolnetwork.com" },
+            { type: "Standard", disc: "Electrical", topic: "Safety", title: "BS 7671:2018+A2:2022 IET Wiring Regulations", desc: "The core British standard governing the safe architectural design, installation parameters, and validation steps for electrical networks.", link: "https://electrical.theiet.org/" },
+            { type: "Handbook", disc: "Mechanical", topic: "Design", title: "Machinery's Handbook (Dense Reference Edition)", desc: "The definitive operational toolbox manual for mechanical engineering tolerances, thread criteria, and machining metrics.", link: "https://books.industrialpress.com/" },
+            { type: "Guidance", disc: "Safety", topic: "Legislation", title: "HSE L153: Construction (Design and Management) Regulations 2015", desc: "Statutory guidance expansion detailing legal parameters, safety duties, and pre-construction risk matrix ownership rules under CDM 2015.", link: "https://www.hse.gov.uk/pubns/books/l153.htm" }
+        ];
+
+        let masterDb = [];
+        let bookmarkedIdsArray = [];
+        let customUserRefsArray = [];
+        let activeViewMode = "all"; 
+
+        // --- MASTER SYSTEM INITIALISATION ---
+        function initApp() {
+            // Load memory parameters client-side safely
+            parseLocalMemoryBuffers();
+
+            // Bind master reference dataset pool
+            if (typeof refDb !== 'undefined' && Array.isArray(refDb) && refDb.length > 0) {
+                masterDb = [...refDb];
+            } else {
+                console.warn("System Notice: references.js dataset empty or unreachable. Activating structural fallback database layers.");
+                masterDb = [...fallbackDatabase];
+            }
+
+            // Concat user added reference entries
+            masterDb = [...customUserRefsArray, ...masterDb];
+
+            // Assign structural runtime ID hashes to distinguish duplicate items uniquely
+            masterDb.forEach((item, index) => {
+                if (!item.id) item.id = "ref_hash_" + index + "_" + item.title.replace(/\s+/g, '').substring(0, 5).toLowerCase();
+            });
+
+            // Initial Dynamic Cascade Options Mapping
+            populateDropdownFiltersPipeline();
+
+            // Render Framework Workspace Grid Layout
+            executeDataFilterRoutine();
+            updateSubpageDiagnosticBadges();
+        }
+
+        function handleMissingDatabase() {
+            console.error("Critical Path Catch: references.js script element failed lookup runtime execution loops.");
+        }
+
+        // --- FILTER OPTIMISATION CASCADES ---
+        function populateDropdownFiltersPipeline() {
+            const discSelect = document.getElementById('discSelect');
+            const typeSelect = document.getElementById('typeSelect');
+            const topicSelect = document.getElementById('topicSelect');
+
+            const uniqueDiscs = [...new Set(masterDb.map(item => item.disc || 'General'))].sort();
+            const uniqueTypes = [...new Set(masterDb.map(item => item.type || 'Standard'))].sort();
+            const uniqueTopics = [...new Set(masterDb.map(item => item.topic || 'General'))].sort();
+
+            discSelect.innerHTML = '<option value="All">All Disciplines</option>';
+            typeSelect.innerHTML = '<option value="All">All Typologies</option>';
+            topicSelect.innerHTML = '<option value="All">All Domain Topics</option>';
+
+            uniqueDiscs.forEach(d => discSelect.innerHTML += `<option value="${d}">${d}</option>`);
+            uniqueTypes.forEach(t => typeSelect.innerHTML += `<option value="${t}">${t}</option>`);
+            uniqueTopics.forEach(tp => topicSelect.innerHTML += `<option value="${tp}">${tp}</option>`);
+        }
+
+        function switchLibraryView(targetMode) {
+            activeViewMode = targetMode;
+            
+            document.getElementById('tabAll').classList.toggle('active', targetMode === 'all');
+            document.getElementById('tabBookmarked').classList.toggle('active', targetMode === 'bookmarks');
+            document.getElementById('tabAddCustom').classList.toggle('active', targetMode === 'custom');
+
+            const filterControlsDOM = document.getElementById('standardFilterControls');
+            const customPanelDOM = document.getElementById('customItemPanel');
+
+            if (targetMode === 'custom') {
+                filterControlsDOM.style.display = 'none';
+                customPanelDOM.style.display = 'block';
+            } else {
+                filterControlsDOM.style.display = 'block';
+                customPanelDOM.style.display = 'none';
+                executeDataFilterRoutine();
+            }
+        }
+
+        // --- CORE SEARCH ENGINE ---
+        function executeDataFilterRoutine() {
+            if (activeViewMode === 'custom') return;
+
+            const searchQuery = document.getElementById('searchInput').value.toUpperCase().trim();
+            const discFilter = document.getElementById('discSelect').value;
+            const typeFilter = document.getElementById('typeSelect').value;
+            const topicFilter = document.getElementById('topicSelect').value;
+            
+            const grid = document.getElementById('resourceLibraryGrid');
+            grid.innerHTML = "";
+
+            let processedItems = masterDb.filter(ref => {
+                // If checking user bookmarks exclusively
+                if (activeViewMode === 'bookmarks' && !bookmarkedIdsArray.includes(ref.id)) return false;
+
+                const matchDisc = discFilter === "All" || ref.disc === discFilter || ref.disc === "General"; 
+                const matchType = typeFilter === "All" || ref.type === typeFilter;
+                const matchTopic = topicFilter === "All" || ref.topic === topicFilter;
+                
+                let matchSearch = true;
+                if(searchQuery) {
+                    const haystack = `${ref.title} ${ref.desc} ${ref.topic} ${ref.disc} ${ref.type}`.toUpperCase();
+                    matchSearch = haystack.includes(searchQuery);
+                }
+
+                return matchDisc && matchType && matchTopic && matchSearch;
+            });
+
+            // Alpha Sorting Layout Logic
+            processedItems.sort((a, b) => a.title.localeCompare(b.title));
+
+            if(processedItems.length === 0) {
+                grid.innerHTML = `
+                    <div style='color:var(--slate-grey); grid-column:1/-1; text-align:center; padding:50px; border:1px dashed var(--border-color); border-radius:8px; font-weight: bold;'>
+                        <p style="font-size:1.1rem; margin-bottom:8px;">No matching compliance records located.</p>
+                        <p style="font-size:0.9rem; font-weight: normal;">Try resetting your search engine filter parameters or adding a custom node.</p>
+                    </div>`;
+                return;
+            }
+
+            processedItems.forEach(ref => {
+                const isItemBookmarked = bookmarkedIdsArray.includes(ref.id);
+                const cardClass = isItemBookmarked ? "ref-card bookmarked" : "ref-card";
+                const starGlyph = isItemBookmarked ? "★" : "☆";
+                const activeStarClass = isItemBookmarked ? "active" : "";
+
+                const card = document.createElement('div');
+                card.className = cardClass;
+                card.innerHTML = `
+                    <div style="margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="ref-type">${ref.type || 'Standard'}</span>
+                            <span class="badge-disc">${ref.disc || 'General'}</span>
+                        </div>
+                    </div>
+                    <div class="ref-title">${ref.title}</div>
+                    <span class="topic-tag">> Domain: ${ref.topic || 'General'}</span>
+                    <div class="ref-desc">${ref.desc}</div>
+                    <div class="card-action-row">
+                        <a href="${ref.link}" target="_blank" rel="noopener" class="ref-link">View Documentation Reference ↗</a>
+                        <button type="button" class="bookmark-toggle-btn ${activeStarClass}" onclick="toggleBookmarkState('${ref.id}')" title="Toggle local bookmark track status">${starGlyph}</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- BOOKMARK LAYER INTERFACES ---
+        function toggleBookmarkState(id) {
+            const index = bookmarkedIdsArray.indexOf(id);
+            if (index > -1) {
+                bookmarkedIdsArray.splice(index, 1);
+            } else {
+                bookmarkedIdsArray.push(id);
+            }
+            commitStateToLocalMemory();
+            executeDataFilterRoutine();
+            updateSubpageDiagnosticBadges();
+        }
+
+        // --- CUSTOM USER INJECTIONS ---
+        function injectCustomUserReference() {
+            const title = document.getElementById('customTitle').value.trim();
+            const desc = document.getElementById('customDesc').value.trim();
+            const link = document.getElementById('customLink').value.trim() || "#";
+            const disc = document.getElementById('customDisc').value.trim() || "General";
+            const type = document.getElementById('customType').value.trim() || "Manual";
+            const topic = document.getElementById('customTopic').value.trim() || "Custom";
+
+            if (!title || !desc) {
+                alert("Please provide at least a technical title and brief context description.");
+                return;
+            }
+
+            const customId = "custom_ref_hash_" + Date.now();
+            const newRefObj = { id: customId, title, desc, link, disc, type, topic };
+
+            customUserRefsArray.unshift(newRefObj);
+            masterDb.unshift(newRefObj);
+
+            commitStateToLocalMemory();
+            populateDropdownFiltersPipeline();
+
+            // Clear inputs
+            document.getElementById('customTitle').value = "";
+            document.getElementById('customDesc').value = "";
+            document.getElementById('customLink').value = "";
+            document.getElementById('customDisc').value = "";
+            document.getElementById('customType').value = "";
+            document.getElementById('customTopic').value = "";
+
+            alert("✅ Custom documentation reference card injected into localized session mapping.");
+            switchLibraryView('all');
+            updateSubpageDiagnosticBadges();
+        }
+
+        // --- ISOLATED MODULE EXPORT / IMPORT ENGINE ---
+        function exportModuleReferencesOnly() {
+            const dataPayload = {
+                bookmarks: bookmarkedIdsArray,
+                customEntries: customUserRefsArray
+            };
+            const blob = new Blob([JSON.stringify(dataPayload, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_CustomReferences_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+            link.click();
+        }
+
+        function triggerModuleReferencesImport() {
+            document.getElementById('ee_isolated_module_import').click();
+        }
+
+        function handleModuleReferencesImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    let importedBookmarks = parsed.bookmarks || [];
+                    let importedCustom = parsed.customEntries || [];
+
+                    // If user inadvertently uploads the whole platform JSON file
+                    if (parsed.ee_tools && parsed.ee_tools[EE_TOOL_ID]) {
+                        importedBookmarks = parsed.ee_tools[EE_TOOL_ID].bookmarks || [];
+                        importedCustom = parsed.ee_tools[EE_TOOL_ID].customEntries || [];
+                    }
+
+                    // Strategic Merge: deduplicate via target hash maps
+                    const mergeArraysById = (existing, imported) => {
+                        const map = new Map(existing.map(item => [item.id, item]));
+                        imported.forEach(item => { if (item && item.id) map.set(item.id, item); });
+                        return Array.from(map.values());
+                    };
+
+                    bookmarkedIdsArray = [...new Set([...bookmarkedIdsArray, ...importedBookmarks])];
+                    customUserRefsArray = mergeArraysById(customUserRefsArray, importedCustom);
+
+                    commitStateToLocalMemory();
+                    
+                    // Re-align memory layer states safely
+                    masterDb = [...customUserRefsArray, ...(typeof refDb !== 'undefined' ? refDb : fallbackDatabase)];
+                    masterDb.forEach((item, index) => {
+                        if (!item.id) item.id = "ref_hash_" + index + "_" + item.title.replace(/\s+/g, '').substring(0, 5).toLowerCase();
+                    });
+
+                    populateDropdownFiltersPipeline();
+                    executeDataFilterRoutine();
+                    updateSubpageDiagnosticBadges();
+                    alert("✅ Custom Reference Cards and Bookmarks successfully synchronised.");
+                } catch (err) {
+                    alert("❌ Parsing Error. Please verify the structural integrity of your .JSON references archive.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // --- CLIENT-SIDE CACHE MANAGEMENT LAYERS ---
+        function commitStateToLocalMemory() {
+            const trackingPayload = {
+                bookmarks: bookmarkedIdsArray,
+                customEntries: customUserRefsArray
+            };
+            
+            localStorage.setItem('ee_resources_bookmarks', JSON.stringify(trackingPayload));
+            
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            masterData.ee_tools[EE_TOOL_ID] = trackingPayload;
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+        }
+
+        function parseLocalMemoryBuffers() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (masterData && masterData.ee_tools && masterData.ee_tools[EE_TOOL_ID]) {
+                const sData = masterData.ee_tools[EE_TOOL_ID];
+                bookmarkedIdsArray = sData.bookmarks || [];
+                customUserRefsArray = sData.customEntries || [];
+                return;
+            }
+
+            const modularCacheRaw = localStorage.getItem('ee_resources_bookmarks');
+            if (modularCacheRaw) {
+                try {
+                    const parsed = JSON.parse(modularCacheRaw);
+                    bookmarkedIdsArray = parsed.bookmarks || [];
+                    customUserRefsArray = parsed.customEntries || [];
+                } catch(err) {
+                    console.error("Historical memory alignment mismatch caught.", err);
+                }
+            }
+        }
+
+        // --- DYNAMIC DIAGNOSTIC BADGE RE-EVALUATION ---
+        function parseToolTextLog(toolKeyStr) {
+            const structuralString = localStorage.getItem(toolKeyStr);
+            if (!structuralString) return false;
+            try {
+                const parsedJSON = JSON.parse(structuralString);
+                if (toolKeyStr === 'ee_master_state') {
+                    return parsedJSON.ee_tools && Object.keys(parsedJSON.ee_tools).length > 0;
+                }
+                if (Array.isArray(parsedJSON)) return parsedJSON.length > 0;
+                if (typeof parsedJSON === 'object' && parsedJSON !== null) {
+                    if (parsedJSON.bookmarks) return parsedJSON.bookmarks.length > 0;
+                    return Object.keys(parsedJSON).length > 0;
+                }
+                return String(parsedJSON).trim().length > 0;
+            } catch (err) {
+                return structuralString.trim().length > 0;
+            }
+        }
+
+        function buildTickHTML(isCompleteFlag) {
+            return isCompleteFlag ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateSubpageDiagnosticBadges() {
+            const hasPlanner = parseToolTextLog('ee_cpd_planner_state');
+            const hasDecoder = parseToolTextLog('EE_ACRONYM_DECODER');
+            const hasRaci = parseToolTextLog('ee_raci_matrix_state');
+            const hasResources = bookmarkedIdsArray.length > 0 || customUserRefsArray.length > 0;
+
+            if (document.getElementById('badge_nav_planner')) document.getElementById('badge_nav_planner').innerHTML = buildTickHTML(hasPlanner);
+            if (document.getElementById('badge_nav_decoder')) document.getElementById('badge_nav_decoder').innerHTML = buildTickHTML(hasDecoder);
+            if (document.getElementById('badge_nav_raci')) document.getElementById('badge_nav_raci').innerHTML = buildTickHTML(hasRaci);
+            if (document.getElementById('badge_nav_resources')) document.getElementById('badge_nav_resources').innerHTML = buildTickHTML(hasResources);
+
+            const hasCpdHub = hasPlanner || hasDecoder || hasRaci || hasResources;
+            if (document.getElementById('badge_cpd_hub')) document.getElementById('badge_cpd_hub').innerHTML = buildTickHTML(hasCpdHub);
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

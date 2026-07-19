@@ -1,5 +1,5 @@
 /*
- * EMPOWERING ENGINEERS UK - UK-SPEC DATABASE [v2.1]
+ * EMPOWERING ENGINEERS UK - UK-SPEC DATABASE [v21.7]
  * - Fixed: Main Category 'About' text restored to descriptive definitions.
  * - Retained: Detailed bullet points for sub-competencies.
  */
@@ -25,107 +25,99 @@ const ukSpecDb = {
                     "A2": {
                         text: "Use appropriate scientific, technical or engineering principles.",
                         bullets: [
-                            "Applying scientific and engineering principles to the successful completion of an engineering task",
-                            "Understanding the ‘why’ as well as the ‘what’ and ‘how’",
-                            "Distinguishing between an issue with the process and a flaw in the design",
-                            "Performing calculations to resolve a problem"
+                            "Drawing on your technical knowledge to complete a task",
+                            "Performing calculations using standard formulae",
+                            "Analysing performance or test data or comparing performance information with published material"
                         ]
                     }
                 }
             },
             "B": {
-                title: "B. Design and development",
+                title: "B. Design, development and solving engineering problems",
                 requirement: "Engineering Technicians shall contribute to the design, development, manufacture, construction, commissioning, operation or maintenance of products, equipment, processes, systems or services.",
-                about: "This competence is about the ability to apply engineering skills to identify and resolve problems and to contribute to the development and improvement of engineering products, processes, systems and services.",
+                about: "This competence is about the ability to apply engineering knowledge effectively and efficiently to the individual tasks which need to be undertaken in the applicant’s role.",
                 sub: {
                     "B1": {
                         text: "Identify problems and apply appropriate methods to identify causes and achieve satisfactory solutions.",
                         bullets: [
-                            "Identifying a problem and resolving it by using a diagnostic technique",
-                            "Identifying why a process or system has failed",
-                            "Identifying and reporting a diversity or inclusion issue that is affecting the team’s ability to solve a problem",
-                            "Learning from the resolution of a problem and identifying any necessary changes to prevent recurrence"
+                            "Using knowledge to identify a problem or an opportunity for improvement",
+                            "Investigating a problem to identify the underlying cause",
+                            "Identifying a solution to a problem or an improvement opportunity",
+                            "Contributing to the design of an item or process"
                         ]
                     },
                     "B2": {
                         text: "Identify, organise and use resources effectively to complete tasks, with consideration for cost, quality, safety, security and environmental impact.",
                         bullets: [
-                            "Identifying the resources required to complete a task",
-                            "Providing information to enable others to plan resources",
-                            "Completing a task while minimising waste and/or energy usage",
-                            "Identifying and disposing of hazardous waste in accordance with local regulations",
-                            "Taking steps to secure the physical and digital infrastructure and/or data"
+                            "Balancing these factors in selecting appropriate materials ",
+                            "Identifying precautions as a result of evaluating risks and other factors",
+                            "Considering how waste can be minimised, recycled or disposed of safely if recycling is not possible",
+                            "Contributing to best practice methods of continuous improvement",
+                            "Improving the quality of an operation or process"
                         ]
-                    },
-                    "B3": { text: "N/A for EngTech (Covered in B1/B2)", bullets: ["This sub-competence is not applicable to EngTech registration."] }
+                    }
                 }
             },
             "C": {
-                title: "C. Responsibility, management or leadership",
+                title: "C. Responsibility, management and leadership",
                 requirement: "Engineering Technicians shall accept and exercise personal responsibility.",
-                about: "This competence is about the ability to plan and organise work, manage resources and/or supervise others. It also involves taking responsibility for the quality and safety of the work and for the environment.",
+                about: "This competence is about the ability to plan and manage the applicant’s own work effectively and efficiently. It is also about the ability to consider and identify improvements to maintain quality in their work.",
                 sub: {
                     "C1": {
                         text: "Work reliably and effectively without close supervision, to the appropriate codes of practice.",
                         bullets: [
-                            "Completing a task to the required standard and deadline",
-                            "Identifying and reporting any issues that may affect the completion of a task",
-                            "Understanding and applying the relevant codes of practice and/or standards",
-                            "Checking the work of others to ensure it meets the required standard"
+                            "Completing challenging tasks successfully within your area of work",
+                            "Identifying issues which fall outside of your current knowledge and seeking advice",
+                            "Identifying standards and codes of practice relevant to a new task"
                         ]
                     },
                     "C2": {
                         text: "Accept responsibility for the work of themselves or others.",
                         bullets: [
-                            "Taking responsibility for the quality and safety of your own work",
-                            "Taking responsibility for the quality and safety of the work of others",
-                            "Supervising or guiding others",
-                            "Accepting responsibility for the use of equipment and resources"
+                            "Fully understanding drawings, permits to work, instructions or other similar documents after appropriate checking, and identifying issues",
+                            "Inspecting work carried out by others",
+                            "Checking the status of equipment, the work environment and facilities and taking appropriate actions before commencing work"
                         ]
                     },
                     "C3": {
                         text: "Accept, allocate and supervise technical and other tasks.",
                         bullets: [
-                            "Planning and organising your own work and/or the work of others",
-                            "Allocating tasks to others",
-                            "Monitoring the progress of tasks and taking action to ensure they are completed on time",
-                            "Ensuring that others have the necessary skills and resources to complete tasks"
+                            "Ensuring that the scope of a task is clear before accepting and/or allocating it to others",
+                            "Querying any aspect of a task which is not clear and/or providing an explanation if a query is raised by others",
+                            "Learning from your own experience and/or providing constructive feedback when supervising or working with others"
                         ]
-                    },
-                    "C4": { text: "N/A for EngTech", bullets: ["This sub-competence is not applicable to EngTech registration."] }
+                    }
                 }
             },
             "D": {
                 title: "D. Communication and interpersonal skills",
                 requirement: "Engineering Technicians shall use effective communication and interpersonal skills.",
-                about: "This competence is about the ability to work with others, to communicate effectively and to maintain professional relationships.",
+                about: "This is the ability to work with others constructively, to explain ideas and proposals clearly and to discuss issues objectively and constructively.",
                 sub: {
                     "D1": {
                         text: "Communicate effectively with others, at all levels, in English.",
                         bullets: [
-                            "Communicating technical information to a non-technical audience",
-                            "Reporting on the progress of a task",
                             "Contributing to meetings and discussions",
-                            "Writing technical reports, instructions or procedures",
-                            "Using email and other digital communication methods effectively"
+                            "Preparing communications, documents and reports on technical matters",
+                            "Exchanging information and providing advice to technical and non-technical colleagues"
                         ]
                     },
                     "D2": {
                         text: "Work effectively with colleagues, clients, suppliers or the public.",
                         bullets: [
-                            "Working as part of a team",
-                            "Dealing with customers, clients or suppliers",
-                            "Resolving conflicts or disagreements",
-                            "Promoting a positive and inclusive working environment"
+                            "Contributing constructively as part of a team",
+                            "Successfully resolving issues in discussions with team members, suppliers, clients and/or others",
+                            "Persuading others to accept suggestions or recommendations",
+                            "Identifying, agreeing and working towards collective goals"
                         ]
                     },
                     "D3": {
-                        text: "Demonstrate personal and social skills and awareness of diversity and inclusion.",
+                        text: "Demonstrate personal and social skills and awareness of diversity and inclusion issues.",
                         bullets: [
-                            "Treating others with respect and courtesy",
-                            "Being aware of and respecting the views and opinions of others",
-                            "Recognising the value of diversity and inclusion",
-                            "Adapting your behaviour to suit the situation or audience"
+                            "Knowing and managing own emotions, strengths and weaknesses",
+                            "Being confident and flexible in dealing with new and changing interpersonal situations",
+                            "Creating, maintaining and enhancing productive working relationships, and resolving conflicts",
+                            "Being supportive of the needs and concerns of others, especially where this relates to diversity and inclusion"
                         ]
                     }
                 }
@@ -133,52 +125,46 @@ const ukSpecDb = {
             "E": {
                 title: "E. Personal and professional commitment",
                 requirement: "Engineering Technicians shall demonstrate a personal commitment to an appropriate code of professional conduct, recognising obligations to society, the profession and the environment.",
-                about: "This competence is about maintaining and enhancing competence in your own area of practice through professional development activity, as well as adopting a set of values and behaviours that maintains and enhances the reputation of the profession.",
+                about: "This competence is about ensuring that the applicant is acting in a professional manner in their work and in their dealings with others. An Engineering Technician should set a standard and example to others with regard to professionalism.",
                 sub: {
                     "E1": {
                         text: "Understand and comply with relevant codes of conduct.",
                         bullets: [
-                            "Understanding and complying with your employer’s code of conduct",
-                            "Understanding and complying with the code of conduct of your professional institution",
-                            "Acting with integrity and honesty",
-                            "Reporting any unethical behaviour"
+                            "Demonstrating compliance with your Licensee’s Code of Professional Conduct",
+                            "Working within all relevant legislative and regulatory frameworks, including social and employment legislation"
                         ]
                     },
                     "E2": {
                         text: "Understand the safety implications of their role and apply safe systems of work.",
                         bullets: [
-                            "Identifying hazards and risks",
-                            "Following safe systems of work",
-                            "Using personal protective equipment (PPE) correctly",
-                            "Reporting accidents, incidents or near misses",
-                            "Contributing to safety improvements"
+                            "Providing evidence of applying current safety requirements, such as risk assessment and other examples of good practice you adopt in your work",
+                            "A sound knowledge of health and safety legislation, for example: HASAW 1974, CDM regulations, ISO 45001 and company safety policies"
                         ]
                     },
                     "E3": {
                         text: "Understand the principles of sustainable development and apply them in their work.",
                         bullets: [
-                            "Minimising waste and energy usage",
-                            "Using resources efficiently",
-                            "Considering the environmental impact of your work",
-                            "Contributing to sustainability improvements"
+                            "Recognising how sustainability principles, as described in the Guidance on Sustainability on page 48, can be applied in your day-to-day work",
+                            "Identifying actions that you can and have taken to improve sustainability"
                         ]
                     },
                     "E4": {
                         text: "Carry out and record the Continuing Professional Development (CPD) necessary to maintain and enhance competence in their own area of practice.",
                         bullets: [
-                            "Identifying your own development needs",
-                            "Planning and carrying out CPD activities",
-                            "Recording your CPD activities",
-                            "Reflecting on your learning and development"
+                            "Undertaking reviews of your own development needs",
+                            "Planning how to meet personal and organisational objectives",
+							"Carrying out and recording planned and unplanned CPD activities",
+                            "Maintaining evidence of competence development",
+                            "Evaluating CPD outcomes against any plans made",
+							"Assisting others with their own CPD"
                         ]
                     },
                     "E5": {
                         text: "Understand the ethical issues that may arise in their role and carry out their responsibilities in an ethical manner.",
                         bullets: [
-                            "Identifying ethical issues",
-                            "Seeking advice on ethical issues",
-                            "Making ethical decisions",
-                            "Promoting ethical behaviour"
+                            "Understanding the ethical issues that you may encounter in your role",
+                            "Giving an example of where you have applied ethical principles as described in the Statement of Ethical Principles on page 47",
+                            "Giving an example of where you have applied or upheld ethical principles as defined by your organisation or company"
                         ]
                     }
                 }

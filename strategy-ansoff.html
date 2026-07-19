@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Ansoff Matrix portfolio scaling tool. Analyse growth strategies, evaluate technical product diversification risks, align engineering assets to UK-SPEC Competence C requirements, and compile advanced AI strategic coaching prompts. Secure client-side memory.">
+    <meta name="keywords" content="Ansoff Matrix, Growth Strategy, Market Penetration, Product Development, Market Development, Diversification, UK-SPEC Competence, Engineering Management, Risk Profiles, Strategic Planning">
+    <meta property="og:title" content="Ansoff Matrix Portfolio Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, client-side strategic scaling tool engineered specifically for technical managers, product leads, and engineering directors.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-ansoff.html">
+    <meta property="og:type" content="website">
+    
+    <title>Ansoff Matrix | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Ansoff Matrix Portfolio Workbench",
+      "url": "https://www.empoweringengineers.uk/strategy-ansoff.html",
+      "description": "An interactive Ansoff Matrix framework tool mapped directly to the UK-SPEC strategic expansion and risk profiling competence metrics.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        /* Protects `.header-page-title` from contrast-breaking global color overrides */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- 2. ANSOFF GRID STYLING --- */
+        .ansoff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .ansoff-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ansoff-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .ansoff-card.penetration-card { border-top: 4px solid var(--terminal-green); }
+        .ansoff-card.product-dev-card { border-top: 4px solid var(--burnt-orange); }
+        .ansoff-card.market-dev-card { border-top: 4px solid var(--terminal-green); }
+        .ansoff-card.diversification-card { border-top: 4px solid var(--burnt-orange); }
+
+        .ansoff-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .penetration-label { color: var(--terminal-green) !important; }
+        .product-dev-label { color: var(--burnt-orange) !important; }
+        .market-dev-label { color: var(--terminal-green) !important; }
+        .diversification-label { color: var(--burnt-orange) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px; /* Accessible touch target target bounding box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0; /* Terminal green glow text */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Engineering Leadership: Deploying the Ansoff Matrix Portfolio Growth Framework</h1>
+            <p>
+                To direct complex engineering enterprises and maintain sustainable corporate value, technical directors must operate far beyond localized project delivery. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) explicitly mandates these advanced strategic accountabilities. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) demand clear proof that professional engineers can critically evaluate risk profiles, manage capital allocation pipelines, and optimize technological resource deployment across volatile market sectors.
+            </p>
+            <p>
+                The Ansoff Matrix, authored by Igor Ansoff, is an indispensable corporate planning instrument used by technical managers to categorize and risk-profile business expansion tracks. By mapping strategic vectors across two core criteria—Products/Technologies (Existing vs. New) and Markets/Sectors (Existing vs. New)—the matrix frames corporate growth into four distinct strategic choices. It provides a highly continuous, mathematical logic block to evaluate risk magnification, ensuring that consultancies and engineering firms do not overextend their baseline technical resource pools while seeking industrial growth.
+            </p>
+
+            <h2>Analyse the Four Growth Quadrants from an Engineering Perspective</h2>
+            <p>
+                Structuring your technological service divisions within the Ansoff framework requires a data-driven, first-principles methodology. Here is how each of the four core matrix quadrants directly maps to modern technical management environments:
+            </p>
+            <p>
+                <strong>1. Market Penetration (Existing Products, Existing Markets) [Penetration]:</strong> This low-risk quadrant focuses on expanding market share with established technical capabilities inside verified operational sectors. In engineering environments, this strategy involves increasing the utilization rate of your in-house finite element analysis (FEA) scripts within current client frameworks or securing additional asset-maintenance contracts with familiar municipal water boards. It emphasizes operational efficiency and process standardisation under ISO 9001 quality guidelines, ensuring maximum capital extraction with minimal technical disruption.
+            </p>
+            <p>
+                <strong>2. Product Development (New Products, Existing Markets) [Product Dev]:</strong> This strategy involves introducing completely novel technologies, software architectures, or engineering methodologies to your existing customer base. For example, an established automotive design consultancy developing and delivering custom automated EV battery diagnostic scripts to their legacy manufacturing clients. While the customer relationship remains stable, risk elevates because it demands substantial research and development (R&D) capital expenditure and the acquisition of new specialized technical competencies.
+            </p>
+            <p>
+                <strong>3. Market Development (Existing Products, New Markets) [Market Dev]:</strong> Market development takes proven, legacy technical capabilities and exports them into entirely unmapped sectors or geographic zones. An example includes a civil structural office applying their offshore oil and gas structural engineering expertise to wind turbine subsea jacket foundations, or expanding domestic rail engineering workflows into overseas territories. The primary strategic hurdle is navigating unfamiliar statutory compliance regulations, local planning variations, and different procurement tender loops.
+            </p>
+            <p>
+                <strong>4. Diversification (New Products, New Markets) [Diversification]:</strong> Diversification is the highest-risk strategic track, requiring the concurrent development of new technical capabilities and entry into completely unmapped market sectors. A traditional internal combustion engine component manufacturer acquiring and launching a generative AI design automation service targetting aerospace infrastructure operators is a classic diversification play. Technical directors must approach this quadrant with extreme caution, building comprehensive risk registers under Construction (Design and Management) (CDM) Regulations to prevent catastrophic capital and operational attrition.
+            </p>
+
+            <h2>Interactive Client-Side Ansoff Matrix Workbench</h2>
+            <p>
+                The interactive Ansoff Matrix Expansion Workbench below is custom-engineered to help engineering managers systematically profile their portfolio segments and optimize corporate scaling paths. To protect highly sensitive financial records and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilizes a zero-knowledge local browser storage profile. All text inputs are parsed and stored entirely within your device's browser memory partition; no proprietary corporate details are ever transmitted to external networks. Use this tool to build comprehensive expansion outlines, export verified JSON archives, or compile highly targeted AI prompts designed to audit your strategic corporate assumptions.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy</span>
+            </a>
+            <a href="strategy-swot.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_swot"></div>
+                <span class="tab-label">SWOT</span>
+            </a>
+            <a href="strategy-pestle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pestle"></div>
+                <span class="tab-label">PESTLE</span>
+            </a>
+            <a href="strategy-porters.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_porters"></div>
+                <span class="tab-label">Porter's 5 Forces</span>
+            </a>
+            <a href="strategy-vrio.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vrio"></div>
+                <span class="tab-label">VRIO</span>
+            </a>
+            <a href="strategy-bcg.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bcg"></div>
+                <span class="tab-label">BCG Matrix</span>
+            </a>
+            <a href="strategy-ansoff.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ansoff"></div>
+                <span class="tab-label">Ansoff</span>
+            </a>
+            <a href="strategy-scenarios.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scenarios"></div>
+                <span class="tab-label">Scenarios</span>
+            </a>
+            <a href="strategy-value-chain.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_value_chain"></div>
+                <span class="tab-label">Value Chain</span>
+            </a>
+            <a href="strategy-blue-ocean.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_blue_ocean"></div>
+                <span class="tab-label">Blue Ocean</span>
+            </a>
+            <a href="strategy-bmc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bmc"></div>
+                <span class="tab-label">Canvas</span>
+            </a>
+            <a href="strategy-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="strategy-map.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_map"></div>
+                <span class="tab-label">Strategy Map</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Ansoff Matrix</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="ansoff-grid">
+                    
+                    <!-- Market Penetration Card -->
+                    <div class="ansoff-card penetration-card">
+                        <label class="ansoff-label penetration-label">1. Market Penetration (Existing Products ➔ Existing Markets)</label>
+                        <span class="form-hint">Strategies to increase market share using current capabilities inside familiar sectors. Focus on standardisation, scale, and operational optimization. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Securing multi-year extensions on current municipal structural design framework contracts.</span></span>
+                        <textarea id="ansoff_MP" class="form-input" placeholder="Analyse Market Penetration strategies here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Product Development Card -->
+                    <div class="ansoff-card product-dev-card">
+                        <label class="ansoff-label product-dev-label">2. Product Development (New Products ➔ Existing Markets)</label>
+                        <span class="form-hint">Introducing new engineering services, software macros, or advanced technological designs to your legacy customer base. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Offering newly engineered automated EV diagnostic mapping tools to legacy tier-1 automotive clients.</span></span>
+                        <textarea id="ansoff_PD" class="form-input" placeholder="Analyse Product Development strategies here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Market Development Card -->
+                    <div class="ansoff-card market-dev-card">
+                        <label class="ansoff-label market-dev-label">3. Market Development (Existing Products ➔ New Markets)</label>
+                        <span class="form-hint">Exporting proven legacy technical solutions or capabilities into entirely unmapped industrial sectors or alternative geographic regions. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Transferring deep offshore oil and gas foundation expertise over to offshore wind wind turbine jackets.</span></span>
+                        <textarea id="ansoff_MD" class="form-input" placeholder="Analyse Market Development strategies here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Diversification Card -->
+                    <div class="ansoff-card diversification-card">
+                        <label class="ansoff-label diversification-label">4. Diversification (New Products ➔ New Markets)</label>
+                        <span class="form-hint">The highest-risk growth path. Developing unique technological solutions while simultaneously targeting entirely unknown customer sectors. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Launching a new generative AI design automation service branch targetting aerospace asset managers.</span></span>
+                        <textarea id="ansoff_D" class="form-input" placeholder="Analyse Diversification risk strategies here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_strategy_ansoff";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            // Restore data seamlessly if page reloads (High Trust UI Subsystem)
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('ansoff_MP').value = data.MP || '';
+                    document.getElementById('ansoff_PD').value = data.PD || '';
+                    document.getElementById('ansoff_MD').value = data.MD || '';
+                    document.getElementById('ansoff_D').value = data.D || '';
+                } catch (e) {
+                    console.error("Failed to parse stored Ansoff state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
+            const toolsMap = {
+                'coach': 'ee_comm_coach',
+                'strategy': 'ee_strategy',
+                'swot': 'ee_strategy_swot',
+                'pestle': 'ee_strategy_pestle',
+                'porters': 'ee_strategy_porters',
+                'vrio': 'ee_strategy_vrio',
+                'bcg': 'ee_strategy_bcg',
+                'ansoff': 'ee_strategy_ansoff',
+                'scenarios': 'ee_strategy_scenarios',
+                'value_chain': 'ee_strategy_value-chain',
+                'blue_ocean': 'ee_strategy_blue-ocean',
+                'bmc': 'ee_strategy_bmc',
+                'soar': 'ee_strategy_soar',
+                'map': 'ee_strategy_map'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const mp = document.getElementById('ansoff_MP').value.trim();
+            const pd = document.getElementById('ansoff_PD').value.trim();
+            const md = document.getElementById('ansoff_MD').value.trim();
+            const d = document.getElementById('ansoff_D').value.trim();
+
+            let output = `=== ANSOFF GROWTH MATRIX ===\n\n`;
+            output += `[1. PENETRATION] Market Penetration:\n${mp ? mp : '...\n'}\n`;
+            output += `[2. PRODUCT DEV] Product Development:\n${pd ? pd : '...\n'}\n`;
+            output += `[3. MARKET DEV] Market Development:\n${md ? md : '...\n'}\n`;
+            output += `[4. DIVERSIFICATION] Diversification:\n${d ? d : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = mp || pd || md || d;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic for performance)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { MP: mp, PD: pd, MD: md, D: d };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Ansoff Matrix state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const mp = document.getElementById('ansoff_MP').value.trim();
+            const pd = document.getElementById('ansoff_PD').value.trim();
+            const md = document.getElementById('ansoff_MD').value.trim();
+            const d = document.getElementById('ansoff_D').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = mp || pd || md || d;
+
+            if (hasUserData) {
+                script += `[MARKET PENETRATION - EXISTING CAPABILITIES, EXISTING MARKETS]\n${mp ? mp : 'Not defined.'}\n\n`;
+                script += `[PRODUCT DEVELOPMENT - NEW CAPABILITIES, EXISTING MARKETS]\n${pd ? pd : 'Not defined.'}\n\n`;
+                script += `[MARKET DEVELOPMENT - EXISTING CAPABILITIES, NEW MARKETS]\n${md ? md : 'Not defined.'}\n\n`;
+                script += `[DIVERSIFICATION - NEW CAPABILITIES, NEW MARKETS]\n${d ? d : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[MARKET PENETRATION - EXISTING CAPABILITIES, EXISTING MARKETS]\ne.g., Increasing design framework utilization inside regional structural concrete contracts by adding automated drafting protocols.\n\n`;
+                script += `[PRODUCT DEVELOPMENT - NEW CAPABILITIES, EXISTING MARKETS]\ne.g., Engineering a specialized automated electric vehicle battery diagnostic script suite for our legacy tier-1 automotive manufacturing clients.\n\n`;
+                script += `[MARKET DEVELOPMENT - EXISTING CAPABILITIES, NEW MARKETS]\ne.g., Transposing subsea oil and gas jacket design competencies directly into offshore wind turbine foundation planning parameters.\n\n`;
+                script += `[DIVERSIFICATION - NEW CAPABILITIES, NEW MARKETS]\ne.g., Creating and delivering a custom machine-learning asset tracking service branch aimed specifically at commercial aerospace operators.\n\n`;
+            }
+
+            const role = "Strategic Corporate Planner & Corporate Engineering Director";
+            const action = "Analyse this Ansoff Matrix portfolio growth strategy. 1. Evaluate if the technological capability development risk matches market access realities. 2. Highlight regulatory or statutory compliance dependencies (e.g. CDM 2015 rules) that might be compromised across the quadrants. 3. Formulate one concrete strategic intervention to de-risk the transition path into the highest-exposure growth quadrant.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence C and E). The format used is an Ansoff Matrix framework (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the Ansoff Matrix canvas?")) {
+                document.getElementById('ansoff_MP').value = '';
+                document.getElementById('ansoff_PD').value = '';
+                document.getElementById('ansoff_MD').value = '';
+                document.getElementById('ansoff_D').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const mp = document.getElementById('ansoff_MP').value.trim();
+            const pd = document.getElementById('ansoff_PD').value.trim();
+            const md = document.getElementById('ansoff_MD').value.trim();
+            const d = document.getElementById('ansoff_D').value.trim();
+
+            const state = { MP: mp, PD: pd, MD: md, D: d };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Ansoff_Matrix_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.MP !== undefined || data.PD !== undefined || data.MD !== undefined || data.D !== undefined) {
+                        document.getElementById('ansoff_MP').value = data.MP || '';
+                        document.getElementById('ansoff_PD').value = data.PD || '';
+                        document.getElementById('ansoff_MD').value = data.MD || '';
+                        document.getElementById('ansoff_D').value = data.D || '';
+                        updatePreview();
+                        alert("Ansoff Matrix data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Ansoff Matrix growth fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const mp = document.getElementById('ansoff_MP').value.trim();
+            const pd = document.getElementById('ansoff_PD').value.trim();
+            const md = document.getElementById('ansoff_MD').value.trim();
+            const d = document.getElementById('ansoff_D').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Ansoff Matrix Expansion Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .penetration { border-top: 4px solid #006837; }
+                    .product-dev { border-top: 4px solid #C05621; }
+                    .market-dev { border-top: 4px solid #006837; }
+                    .diversification { border-top: 4px solid #C05621; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Ansoff Matrix Expansion Report</h1>
+                <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card penetration">
+                        <h2>1. Market Penetration</h2>
+                        <p>${mp ? mp : 'Not defined.'}</p>
+                    </div>
+                    <div class="card product-dev">
+                        <h2>2. Product Development</h2>
+                        <p>${pd ? pd : 'Not defined.'}</p>
+                    </div>
+                    <div class="card market-dev">
+                        <h2>3. Market Development</h2>
+                        <p>${md ? md : 'Not defined.'}</p>
+                    </div>
+                    <div class="card diversification">
+                        <h2>4. Diversification</h2>
+                        <p>${d ? d : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Strategy & Business Planning Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

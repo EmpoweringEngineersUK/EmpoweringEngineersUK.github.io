@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering VRIO Framework tool. Analyse internal resources, audit sustained competitive advantages, align core technical capabilities with UK-SPEC Competence C and E requirements, and compile advanced AI strategic coaching prompts. Secure client-side memory.">
+    <meta name="keywords" content="VRIO Framework, Resource-Based View, Strategic Management, UK-SPEC Competence, Engineering Leadership, Sustained Competitive Advantage, Intellectual Property, Operational Moats">
+    <meta property="og:title" content="VRIO Framework Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, client-side resource-based view (RBV) analysis engine designed specifically for engineering lead managers and technical directors.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-vrio.html">
+    <meta property="og:type" content="website">
+    
+    <title>VRIO Framework | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering VRIO Framework Workbench",
+      "url": "https://www.empoweringengineers.uk/strategy-vrio.html",
+      "description": "An interactive VRIO analysis tool mapped directly to the UK-SPEC internal capability and resource management competence metrics.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        /* Protects `.header-page-title` from contrast-breaking global color overrides */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- 2. VRIO GRID STYLING --- */
+        .vrio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .vrio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .vrio-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .vrio-card.value-card { border-top: 4px solid var(--terminal-green); }
+        .vrio-card.rarity-card { border-top: 4px solid var(--burnt-orange); }
+        .vrio-card.inimitability-card { border-top: 4px solid var(--terminal-green); }
+        .vrio-card.organisation-card { border-top: 4px solid var(--burnt-orange); }
+
+        .vrio-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .value-label { color: var(--terminal-green) !important; }
+        .rarity-label { color: var(--burnt-orange) !important; }
+        .inimitability-label { color: var(--terminal-green) !important; }
+        .organisation-label { color: var(--burnt-orange) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px; /* Accessible touch target bounding box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0; /* Terminal green glow text */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Engineering Leadership: Resource-Based View and the VRIO Framework</h1>
+            <p>
+                To secure sustainable market insulation and execute engineering programmes flawlessly, lead engineers must expand their diagnostic focus beyond standard client briefs or direct technical designs. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) heavily dictates that candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) status must prove rigorous management and strategic accountability. Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) explicitly mandate that professionals evaluate how internal organizational capabilities protect commercial margins, secure public safety, and insulated delivery paths.
+            </p>
+            <p>
+                The VRIO Framework (Value, Rarity, Inimitability, and Organisation) functions as a foundational strategic lens rooted in the Resource-Based View (RBV) of corporate strategy. Rather than evaluating purely external market structures, VRIO forces technical managers to execute a brutal internal audit of their core assets, specialized engineering skillsets, unique software scripts, and proprietary physical facilities. By evaluating these internal resource vectors systematically, engineering enterprises can identify if an internal technical strength provides a mere temporary operational advantage or constitutes a true, sustained competitive advantage.
+            </p>
+
+            <h2>Analyse the Four Resource-Based Dimensions</h2>
+            <p>
+                Auditing internal technical resources requires a data-driven, first-principles methodology. Here is how each of the four VRIO parameters directly maps to modern technical environments:
+            </p>
+            <p>
+                <strong>Value [V]:</strong> An internal engineering resource provides value when it enables your technical group to exploit emerging industrial opportunities or directly neutralise design risks. For example, a proprietary, custom-coded computational fluid dynamics (CFD) automation script provides immense value if it decreases simulation cycles by 40%, directly reducing project lead times and enabling rapid design loops that insulate client workflows from scheduling overruns.
+            </p>
+            <p>
+                <strong>Rarity [R]:</strong> If a valuable resource is controlled by a vast circle of direct market operators, it yields competitive parity but cannot provide an insulated market moat. Rarity examines scarcity within your immediate operational space. If your department houses a specialized hyper-baric testing rig or a unique cluster of Chartered Engineers with specific nuclear-decommissioning clearings, your resource portfolio is rare, granting a distinct temporary competitive edge during complex procurement tenders.
+            </p>
+            <p>
+                <strong>Inimitability [I]:</strong> This parameter defines whether your valuable and rare technical asset is costly, time-prohibitive, or physically complex for direct market competitors to copy, replicate, or duplicate. Inimitability is heavily built upon path-dependent historical developments, patent architectures, or deep causal ambiguities within your custom modeling codes. A patented composite curing method or a proprietary safety-critical software algorithm is highly inimitable, creating a protected long-term operational moat.
+            </p>
+            <p>
+                <strong>Organisation [O]:</strong> The final component measures whether the engineering firm's corporate management structure, document control matrices, and data protection workflows (such as ISO 9001 and ISO 27001) are configured to fully leverage and capture the underlying resource potential. Without formal drawing revision architectures, strict training pipelines, and optimized resource allocation frameworks, even the most valuable, rare, and inimitable technological systems will remain underutilized or vulnerable to operational attrition.
+            </p>
+
+            <h2>Interactive Client-Side VRIO Framework Workbench</h2>
+            <p>
+                The interactive VRIO Analysis Workbench below is custom-engineered to help engineering managers systematically profile their internal corporate resources. To safeguard highly sensitive commercial strategies and protect proprietary corporate data, our platform operates on a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks or servers. Use this analytical toolkit to compile comprehensive industrial outlines, export clean JSON databases, or generate sophisticated AI system prompts engineered to expose hidden resource constraints and protect your technical programs.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy</span>
+            </a>
+            <a href="strategy-swot.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_swot"></div>
+                <span class="tab-label">SWOT</span>
+            </a>
+            <a href="strategy-pestle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pestle"></div>
+                <span class="tab-label">PESTLE</span>
+            </a>
+            <a href="strategy-porters.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_porters"></div>
+                <span class="tab-label">Porter's 5 Forces</span>
+            </a>
+            <a href="strategy-vrio.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vrio"></div>
+                <span class="tab-label">VRIO</span>
+            </a>
+            <a href="strategy-bcg.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bcg"></div>
+                <span class="tab-label">BCG Matrix</span>
+            </a>
+            <a href="strategy-ansoff.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ansoff"></div>
+                <span class="tab-label">Ansoff</span>
+            </a>
+            <a href="strategy-scenarios.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scenarios"></div>
+                <span class="tab-label">Scenarios</span>
+            </a>
+            <a href="strategy-value-chain.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_value_chain"></div>
+                <span class="tab-label">Value Chain</span>
+            </a>
+            <a href="strategy-blue-ocean.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_blue_ocean"></div>
+                <span class="tab-label">Blue Ocean</span>
+            </a>
+            <a href="strategy-bmc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bmc"></div>
+                <span class="tab-label">Canvas</span>
+            </a>
+            <a href="strategy-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="strategy-map.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_map"></div>
+                <span class="tab-label">Strategy Map</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Inheritance Rules -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">VRIO Framework</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="vrio-grid">
+                    
+                    <!-- Value Card -->
+                    <div class="vrio-card value-card">
+                        <label class="vrio-label value-label">V: Value (Resource Evaluation)</label>
+                        <span class="form-hint">Does the internal resource exploit technical opportunities, mitigate operational risk, or reduce execution timelines? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Custom-coded finite element analysis (FEA) macro scripts reducing iteration times by 40%.</span></span>
+                        <textarea id="vrio_V" class="form-input" placeholder="Analyse technical resource value here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Rarity Card -->
+                    <div class="vrio-card rarity-card">
+                        <label class="vrio-label rarity-label">R: Rarity (Scarcity Profiling)</label>
+                        <span class="form-hint">Is this specific resource, asset, testing facility, or domain expertise uniquely held by your technical group? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Only laboratory within the UK region containing a specialized ultra-high pressure testing rig.</span></span>
+                        <textarea id="vrio_R" class="form-input" placeholder="Analyse technical resource rarity here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Inimitability Card -->
+                    <div class="vrio-card inimitability-card">
+                        <label class="vrio-label inimitability-label">I: Inimitability (Replication Moats)</label>
+                        <span class="form-hint">Is the capability costly, time-prohibitive, or legally complex for direct market competitors to copy or replicate? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Patented alloy chemical formulations combined with 15 years of path-dependent process scripts.</span></span>
+                        <textarea id="vrio_I" class="form-input" placeholder="Analyse resource inimitability moats here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Organisation Card -->
+                    <div class="vrio-card organisation-card">
+                        <label class="vrio-label organisation-label">O: Organisation (Structural Leverage)</label>
+                        <span class="form-hint">Are your drawing control matrices, ISO management standards, and resource allocations optimized to exploit the resource? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Strict compliance under unified ISO 9001 and ISO 27001 document control architectures.</span></span>
+                        <textarea id="vrio_O" class="form-input" placeholder="Analyse corporate organizational alignment here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_strategy_vrio";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            // Restore data seamlessly if page reloads (High Trust UI Subsystem)
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('vrio_V').value = data.V || '';
+                    document.getElementById('vrio_R').value = data.R || '';
+                    document.getElementById('vrio_I').value = data.I || '';
+                    document.getElementById('vrio_O').value = data.O || '';
+                } catch (e) {
+                    console.error("Failed to parse stored VRIO state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
+            const toolsMap = {
+                'coach': 'ee_comm_coach',
+                'strategy': 'ee_strategy',
+                'swot': 'ee_strategy_swot',
+                'pestle': 'ee_strategy_pestle',
+                'porters': 'ee_strategy_porters',
+                'vrio': 'ee_strategy_vrio',
+                'bcg': 'ee_strategy_bcg',
+                'ansoff': 'ee_strategy_ansoff',
+                'scenarios': 'ee_strategy_scenarios',
+                'value_chain': 'ee_strategy_value-chain',
+                'blue_ocean': 'ee_strategy_blue-ocean',
+                'bmc': 'ee_strategy_bmc',
+                'soar': 'ee_strategy_soar',
+                'map': 'ee_strategy_map'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const v = document.getElementById('vrio_V').value.trim();
+            const r = document.getElementById('vrio_R').value.trim();
+            const i = document.getElementById('vrio_I').value.trim();
+            const o = document.getElementById('vrio_O').value.trim();
+
+            let output = `=== VRIO ANALYSIS MATRIX ===\n\n`;
+            output += `[V] VALUE:\n${v ? v : '...\n'}\n`;
+            output += `[R] RARITY:\n${r ? r : '...\n'}\n`;
+            output += `[I] INIMITABILITY:\n${i ? i : '...\n'}\n`;
+            output += `[O] ORGANISATION:\n${o ? o : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = v || r || i || o;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic for performance)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { V: v, R: r, I: i, O: o };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("VRIO state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const v = document.getElementById('vrio_V').value.trim();
+            const r = document.getElementById('vrio_R').value.trim();
+            const i = document.getElementById('vrio_I').value.trim();
+            const o = document.getElementById('vrio_O').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = v || r || i || o;
+
+            if (hasUserData) {
+                script += `[VALUE FACTORS]\n${v ? v : 'Not defined.'}\n\n`;
+                script += `[RARITY FACTORS]\n${r ? r : 'Not defined.'}\n\n`;
+                script += `[INIMITABILITY FACTORS]\n${i ? i : 'Not defined.'}\n\n`;
+                script += `[ORGANISATION FACTORS]\n${o ? o : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[VALUE FACTORS]\ne.g., In-house custom mathematical scripts accelerating structural integrity validation workflows by 50%.\n\n`;
+                script += `[RARITY FACTORS]\ne.g., Possession of a unique clean-room facility configured for extreme environmental stress tests; rare in the local contracting region.\n\n`;
+                script += `[INIMITABILITY FACTORS]\ne.g., Deeply embedded causal ambiguity within the firmware optimization algorithm, protected by continuous trade secrets and multi-tier patent filings.\n\n`;
+                script += `[ORGANISATION FACTORS]\ne.g., Full structural synergy under verified ISO 9001 and ISO 45001 processes ensuring drawings and project deliverables scale cleanly.\n\n`;
+            }
+
+            const role = "Strategic Engineering Consultant & Engineering Director";
+            const action = "Analyse this VRIO resource-based view audit. 1. Identify any hidden resource vulnerabilities or organizational bottlenecks. 2. Evaluate whether the asset truly generates a sustained competitive advantage or just temporary parity. 3. Suggest one concrete risk-mitigation step to strengthen resource inimitability.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence C and E). The format used is a VRIO framework (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the VRIO canvas?")) {
+                document.getElementById('vrio_V').value = '';
+                document.getElementById('vrio_R').value = '';
+                document.getElementById('vrio_I').value = '';
+                document.getElementById('vrio_O').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const v = document.getElementById('vrio_V').value.trim();
+            const r = document.getElementById('vrio_R').value.trim();
+            const i = document.getElementById('vrio_I').value.trim();
+            const o = document.getElementById('vrio_O').value.trim();
+
+            const state = { V: v, R: r, I: i, O: o };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_VRIO_Analysis_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.V !== undefined || data.R !== undefined || data.I !== undefined || data.O !== undefined) {
+                        document.getElementById('vrio_V').value = data.V || '';
+                        document.getElementById('vrio_R').value = data.R || '';
+                        document.getElementById('vrio_I').value = data.I || '';
+                        document.getElementById('vrio_O').value = data.O || '';
+                        updatePreview();
+                        alert("VRIO data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected VRIO fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const v = document.getElementById('vrio_V').value.trim();
+            const r = document.getElementById('vrio_R').value.trim();
+            const i = document.getElementById('vrio_I').value.trim();
+            const o = document.getElementById('vrio_O').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE VRIO Framework Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .value { border-top: 4px solid #006837; }
+                    .rarity { border-top: 4px solid #C05621; }
+                    .inimitability { border-top: 4px solid #006837; }
+                    .organisation { border-top: 4px solid #C05621; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px solid #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>VRIO Framework Analysis Report</h1>
+                <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card value">
+                        <h2>Value</h2>
+                        <p>${v ? v : 'Not defined.'}</p>
+                    </div>
+                    <div class="card rarity">
+                        <h2>Rarity</h2>
+                        <p>${r ? r : 'Not defined.'}</p>
+                    </div>
+                    <div class="card inimitability">
+                        <h2>Inimitability</h2>
+                        <p>${i ? i : 'Not defined.'}</p>
+                    </div>
+                    <div class="card organisation">
+                        <h2>Organisation</h2>
+                        <p>${o ? o : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Strategy & Business Planning Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

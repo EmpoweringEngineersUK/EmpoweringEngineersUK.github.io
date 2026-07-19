@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Discover how STEM volunteering satisfies all UK-SPEC Competences (A-E) for your CEng, IEng, or EngTech registration. Log hours, earn official EE Badges, and verify your impact.">
+    <meta name="keywords" content="STEM Ambassador, Primary Engineer, UK-SPEC Competences, Professional Registration, CEng, IEng, EngTech, CPD Logging, EE Certification, Engineering Badges, STAR Method">
+    <meta property="og:title" content="STEM Volunteering & Outreach | Empowering Engineers UK">
+    <meta property="og:description" content="Log your STEM volunteering hours, map them to UK-SPEC A-E standards via the strict S.T.A.R method, and submit for official EE Certification.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/stem.html">
+    <meta property="og:type" content="website">
+    
+    <title>STEM Volunteering & Outreach | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Cache-busting CSS linkage per layout engine standard -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <!-- External Lexicon Injection -->
+    <script src="verb.js" defer></script>
+
+    <style>
+        /* Tool-Specific Micro-Overrides aligned with High-Density Aesthetic */
+        body, button, input, select, textarea, h1, h2, h3, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .thick-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .thick-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .thick-content li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .reference-block {
+            font-size: 0.85rem;
+            color: var(--slate-grey);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Interactive Logger Architecture */
+        .workspace-card {
+            background-color: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .workspace-title {
+            color: var(--ee-dark-blue);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--terminal-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--ee-dark-blue);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            padding: 12px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            min-height: 48px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* Competence Multi-Select Grid */
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .comp-btn {
+            background: var(--input-bg);
+            border: 2px solid var(--border-color);
+            color: var(--slate-grey);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+        }
+
+        .comp-btn:hover {
+            border-color: var(--terminal-green);
+            color: var(--ee-dark-blue);
+        }
+
+        .comp-btn.active {
+            background: var(--ee-dark-blue);
+            color: var(--terminal-green);
+            border-color: var(--terminal-green);
+            box-shadow: 0 4px 10px rgba(13, 27, 42, 0.3);
+        }
+
+        /* Verb Warning System */
+        .verb-warning-box {
+            background: rgba(192, 86, 33, 0.08);
+            border-left: 4px solid var(--burnt-orange);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+            animation: pulse-border 2s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            0% { border-left-color: var(--burnt-orange); }
+            100% { border-left-color: #FF0000; }
+        }
+
+        .verb-warning-title {
+            color: var(--burnt-orange);
+            font-weight: 900;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .verb-warning-text {
+            color: var(--slate-grey);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .verb-advice-box {
+            background: rgba(3, 247, 160, 0.05);
+            border: 1px dashed var(--terminal-green);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--slate-grey);
+        }
+
+        /* Word Counter UI */
+        .word-counter {
+            font-size: 0.8rem;
+            text-align: right;
+            margin-top: 5px;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            transition: color 0.3s ease;
+        }
+        .word-counter.valid {
+            color: var(--terminal-green);
+        }
+
+        .log-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .log-item {
+            background: var(--input-bg);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px;
+            border-radius: 4px;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .log-data {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .log-data h4 {
+            color: var(--cloud-white);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .log-data p {
+            color: var(--slate-grey);
+            font-size: 0.9rem;
+            margin: 2px 0;
+            line-height: 1.4;
+        }
+        
+        .badge-competence {
+            display: inline-block;
+            background: var(--ee-dark-blue);
+            color: var(--terminal-green);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 3px;
+            margin-top: 8px;
+            margin-right: 5px;
+            text-transform: uppercase;
+        }
+
+        .star-breakdown {
+            margin-top: 15px;
+            background: rgba(0,0,0,0.02);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .star-breakdown strong {
+            color: var(--ee-dark-blue);
+        }
+
+        /* Verification & Badge Infrastructure */
+        .cert-promo-box {
+            background: rgba(13, 27, 42, 0.03);
+            border: 2px solid var(--ee-dark-blue);
+            padding: 25px;
+            border-radius: 6px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .cert-protocol-list {
+            font-size: 0.95rem;
+            color: var(--slate-grey);
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--input-bg);
+            border-left: 3px solid var(--burnt-orange);
+            border-radius: 4px;
+        }
+
+        .badge-display-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .ee-badge {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 8px solid var(--slate-grey); /* Thickened Border */
+            filter: grayscale(100%);
+            opacity: 0.4;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: var(--ee-dark-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .ee-badge::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('assets/EE_banner.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .ee-badge img {
+            position: relative;
+            z-index: 2;
+            width: 50%; /* Adjusted for better spacing */
+            height: auto;
+            margin-bottom: 4px;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
+        }
+
+        .ee-badge .badge-text {
+            position: relative;
+            z-index: 2;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            text-align: center;
+            line-height: 1.2;
+            transform: translateY(-12px); /* Lifts text clear of bottom border */
+        }
+
+        .ee-badge.earned {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.08);
+            z-index: 5;
+        }
+
+        /* Enhanced Metallic Shines */
+        .ee-badge.earned.bronze { border-color: #CD7F32; box-shadow: 0 0 35px rgba(205, 127, 50, 0.8), inset 0 0 15px rgba(205, 127, 50, 0.5); }
+        .ee-badge.earned.silver { border-color: #C0C0C0; box-shadow: 0 0 35px rgba(192, 192, 192, 0.8), inset 0 0 15px rgba(192, 192, 192, 0.5); }
+        .ee-badge.earned.gold   { border-color: #FFD700; box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 215, 0, 0.6); }
+
+        .master-plinth-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            margin-top: -10px;
+        }
+
+        .badge-base-logo {
+            width: 220px;
+            height: auto;
+            opacity: 0.3;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .badge-base-logo.illuminated {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            background: var(--border-color);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--terminal-green);
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stats-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ee-dark-blue);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .headshot-guide {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            background: var(--dark-card);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .headshot-svg {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed var(--slate-grey);
+            border-radius: 4px;
+            background: rgba(0,0,0,0.03);
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Injection of system standard navigation -->
+    <script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Cultivating Engineering Excellence Through Outreach</h1>
+            <p>Volunteering to promote Science, Technology, Engineering, and Mathematics (STEM) is widely considered one of the most rewarding ways to give back to your community. Beyond the societal impact, it is an elite, multi-faceted mechanism for developing engineers to demonstrate comprehensive compliance across the entire UK-SPEC (4th Edition) framework for professional registration.</p>
+            <p>While many candidates mistakenly view outreach as merely ticking a box for "ethics and diversity", constructing and delivering a successful STEM programme is fundamentally a project management and leadership exercise. By capturing these experiences strategically using the STAR (Situation, Task, Action, Result) methodology, you generate highly robust, quantifiable evidence for your Professional Review Interview (PRI).</p>
+
+            <h2>Mapping STEM Outreach to UK-SPEC A-E Competences</h2>
+            <p>Engaging with schools and young people provides concrete, actionable evidence across all key areas of professional engineering commitment:</p>
+            <ul>
+                <li><strong>Competence A (Engineering Knowledge & Understanding):</strong> To distil highly complex engineering concepts into accessible demonstrations for primary or secondary school students, you must possess a flawless, fundamental understanding of your craft. Translating thermodynamics or structural load dynamics into relatable classroom experiments proves complete mastery of the theoretical subject matter.</li>
+                <li><strong>Competence B (Design, Development & Risk Assessment):</strong> Engineers delivering outreach frequently design and assemble hands-on learning kits. This encompasses the entire project lifecycle: conceptual design, material procurement, prototyping, and—critically—conducting rigorous health and safety Risk Assessments tailored for unpredictable classroom environments.</li>
+                <li><strong>Competence C (Responsibility, Management & Leadership):</strong> Stepping up as a STEM Ambassador allows you to develop essential leadership skills. By forming task forces, coordinating teams of fellow volunteer engineers, developing others through mentorship, and overseeing the logistical execution of school visits, you directly demonstrate team management and operational leadership.</li>
+                <li><strong>Competence D (Communication & Interpersonal Skills):</strong> Outreach volunteers are heavy communicators. You are required to draft compelling proposals to academic institutions, secure outreach budgets from corporate sponsors, and seamlessly adapt your communication style to captivate non-technical, diverse audiences.</li>
+                <li><strong>Competence E (Professional Commitment & Ethics):</strong> Working with educational institutions necessitates strict adherence to safeguarding policies (E1), provides universally recognised Continual Professional Development (E4), and actively promotes equality, diversity, and inclusion (EDI) within the sector by taking engineering to underrepresented demographics (E5).</li>
+            </ul>
+
+            <h2>The National Framework & Primary Engineer</h2>
+            <p>To get involved on a national scale, the best starting point is STEM Learning Ltd, the UK’s largest provider of education and careers support. By registering as a STEM Ambassador, you join a network of over 30,000 volunteers, gaining access to structured support and enhanced DBS checks.</p>
+            <p>Once established, you can dive into highly structured initiatives like <strong>Primary Engineer</strong>. Their flagship <em>Leaders Award</em> competition asks pupils ranging from ages 3 to 19: <em>"If you were an engineer, what would you do?"</em> As an engineer, you can conduct interviews, grade annotated drawings, and attend regional award ceremonies to provide constructive feedback, validating their creativity and shaping the next generation of problem-solvers.</p>
+
+            <h3>Get Started:</h3>
+            <ul>
+                <li><strong>STEM Learning:</strong> Visit <a href="https://www.stem.org.uk" target="_blank" rel="noopener" style="color: var(--terminal-green);">www.stem.org.uk</a> to find your local hub and complete your induction.</li>
+                <li><strong>Primary Engineer:</strong> Visit <a href="https://www.primaryengineer.com" target="_blank" rel="noopener" style="color: var(--terminal-green);">www.primaryengineer.com</a> to register as an industry professional and sign up for grading days.</li>
+            </ul>
+
+            <div class="reference-block">
+                Document Data Origin [Source: 1] - Engineering Council UK-SPEC Integration Metrics & Competency Frameworks.
+            </div>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Interactive STEM Reflection Logger -->
+        <div class="workspace-card">
+            <h2 class="workspace-title">STEM STAR Architect & Logger</h2>
+            <p style="color: var(--slate-grey); font-size: 0.95rem; margin-bottom: 20px;">
+                Systematically capture your outreach hours and map your reflective notes directly to UK-SPEC Competences A through E. The form enforces a strict 25-word minimum per section to ensure your evidence density is sufficient for PRI review.
+            </p>
+
+            <form id="stemLogForm" onsubmit="event.preventDefault(); saveStemLog();">
+                <input type="hidden" id="stemEntryId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="stemDate">Activity Date</label>
+                        <input type="date" id="stemDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stemOrganisation">Programme / Organisation</label>
+                        <select id="stemOrganisation" required>
+                            <option value="">-- Select Framework --</option>
+                            <option value="STEM Ambassador Hub">STEM Ambassador Hub</option>
+                            <option value="Primary Engineer">Primary Engineer</option>
+                            <option value="Independent School Visit">Independent School Visit</option>
+                            <option value="University Mentoring">University Mentoring</option>
+                            <option value="Corporate Task Force">Corporate Task Force</option>
+                            <option value="Other Outreach">Other Outreach</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stemHours">Duration (Hours)</label>
+                        <input type="number" id="stemHours" min="0.5" step="0.5" placeholder="e.g. 2.5" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>Cross-Disciplinary Impact (Select all applicable UK-SPEC Competences)</label>
+                </div>
+                <div class="comp-grid" id="competenceContainer">
+                    <div class="comp-btn" data-comp="A" onclick="toggleCompetence('A')">Competence A<br><small>&nbsp&nbsp(Knowledge & Craft)</small></div>
+                    <div class="comp-btn" data-comp="B" onclick="toggleCompetence('B')">Competence B<br><small>&nbsp&nbsp(Design & Risk)</small></div>
+                    <div class="comp-btn" data-comp="C" onclick="toggleCompetence('C')">Competence C<br><small>&nbsp&nbsp(Leadership & Teams)</small></div>
+                    <div class="comp-btn" data-comp="D" onclick="toggleCompetence('D')">Competence D<br><small>&nbsp&nbsp(Comm & Proposals)</small></div>
+                    <div class="comp-btn active" data-comp="E" onclick="toggleCompetence('E')">Competence E<br><small>&nbsp&nbsp(Ethics, EDI, CPD)</small></div>
+                </div>
+
+                <div class="verb-advice-box" id="verbAdviceText">
+                    <strong>Lexicon Advisor:</strong> To ensure your evidence is robust, we advise using action verbs mapped to your selected competences. Please incorporate verbs relevant to your selections above.
+                </div>
+
+                <div class="verb-warning-box" id="verbWarningBox">
+                    <div class="verb-warning-title">⚠️ Warning of Verification Difficulty</div>
+                    <div class="verb-warning-text" id="verbWarningMessage">
+                        Your narrative currently lacks sufficient active engineering verbs for your selected competences. Assessing panels require action-oriented vocabulary to verify your personal impact. Please consider revising your text before submission.
+                    </div>
+                </div>
+
+                <h3 style="color: var(--ee-dark-blue); font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin: 25px 0 15px 0; text-transform: uppercase;">STEM Record Narrative Generation</h3>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="star_S">Situation</label>
+                    <textarea id="star_S" placeholder="Describe the background and context of the STEM activity. Who was the audience? What was the venue? What were the overarching constraints or challenges you faced?" oninput="updateWordCount('star_S', 'wc_S'); triggerVerbCheck();" required></textarea>
+                    <div class="word-counter" id="wc_S">0 / 25 words minimum</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="star_T">Task</label>
+                    <textarea id="star_T" placeholder="Detail your specific responsibilities within this situation. Were you forming a task force? Did you need to secure a budget? What was your personal objective?" oninput="updateWordCount('star_T', 'wc_T'); triggerVerbCheck();" required></textarea>
+                    <div class="word-counter" id="wc_T">0 / 25 words minimum</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="star_A">Action - Critical Area for Verbs</label>
+                    <textarea id="star_A" placeholder="Explain exactly what YOU did. How did you design the kit? How did you conduct the risk assessment? How did you adapt your engineering craft to explain concepts to the students?" oninput="updateWordCount('star_A', 'wc_A'); triggerVerbCheck();" required></textarea>
+                    <div class="word-counter" id="wc_A">0 / 25 words minimum</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <label for="star_R">Result</label>
+                    <textarea id="star_R" placeholder="Quantify the outcome. How many students were engaged? Did the sponsor approve the budget? Did you successfully demonstrate Competence E regarding EDI and safeguarding?" oninput="updateWordCount('star_R', 'wc_R'); triggerVerbCheck();" required></textarea>
+                    <div class="word-counter" id="wc_R">0 / 25 words minimum</div>
+                </div>
+
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; border-top: 1px dashed var(--border-color); padding-top: 20px;">
+                    <button type="submit" class="action-btn">💾 Commit STAR Record</button>
+                    <button type="button" class="action-btn action-btn-ghost" onclick="clearStemForm()">Clear Canvas</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="workspace-card">
+            <h2 class="workspace-title">Archived Outreach Records & Certification</h2>
+            
+            <div style="text-align: center; margin-bottom: 10px;">
+                <div class="stats-text">Total Operational Impact: <span id="displayTotalHours" style="color: var(--terminal-green);">0</span> Hours</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="hoursProgressBar"></div>
+                </div>
+            </div>
+
+            <div class="badge-display-area">
+                <!-- Bronze 10 Hrs -->
+                <div class="ee-badge" id="badgeBronze">
+                    <img src="assets/EE_transparent.png" alt="EE Monogram Transparent">
+                    <span class="badge-text">STEM<br>10 HRS</span>
+                </div>
+                <!-- Silver 25 Hrs -->
+                <div class="ee-badge" id="badgeSilver">
+                    <img src="assets/EE_transparent.png" alt="EE Monogram Transparent">
+                    <span class="badge-text">STEM<br>25 HRS</span>
+                </div>
+                <!-- Gold 50 Hrs -->
+                <div class="ee-badge" id="badgeGold">
+                    <img src="assets/EE_transparent.png" alt="EE Monogram Transparent">
+                    <span class="badge-text">STEM<br>50 HRS</span>
+                </div>
+            </div>
+
+            <div class="master-plinth-container">
+                <img src="assets/EE_Logo_rect_Solid.webp" class="badge-base-logo" id="sharedBaseLogo" alt="Empowering Engineers UK Logo">
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                <h3 style="color: var(--ee-dark-blue); font-size: 1.1rem; margin: 0; text-transform: uppercase;">Activity Log</h3>
+                <div style="display: flex; gap: 10px;">
+                    <!-- Admin specific load function without overriding master storage -->
+                    <label class="action-btn action-btn-ghost" style="min-height: 36px; padding: 4px 10px; font-size: 0.8rem; margin: 0; cursor: pointer;">
+                        📂 Load STEM Archive
+                        <input type="file" accept=".json" style="display:none;" onchange="importStemData(event)">
+                    </label>
+                    <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; padding: 4px 10px; font-size: 0.8rem; margin: 0; border-color: #FF4C4C; color: #FF4C4C;" onclick="wipeAllStemData()">
+                        🗑️ Wipe All Records
+                    </button>
+                </div>
+            </div>
+
+            <div id="stemLogsContainer" class="log-list">
+                <!-- Dynamically injected via JavaScript -->
+            </div>
+
+            <div class="cert-promo-box">
+                <h3 style="color: var(--ee-dark-blue); margin-bottom: 10px; font-size: 1.2rem; text-transform: uppercase; text-align: center;">Official Assessment & Verification</h3>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; margin-bottom: 15px; text-align: center;">
+                    Have you accumulated enough hours to unlock a Bronze, Silver, or Gold EE Badge? Submit your records to obtain your official <strong>Empowering Engineers UK STEM Certification Badge</strong> for publishing on LinkedIn and acknowledging in your professional review.
+                </p>
+                
+                <div class="cert-protocol-list">
+                    <strong>Verification Protocol:</strong>
+                    <ol style="margin-top: 8px; padding-left: 20px;">
+                        <li>Export your JSON STEM archive using the button below (Strict limit: &lt; 10MB total attachment size).</li>
+                        <li>Prepare a professional headshot for your LinkedIn badge asset. <strong>Important:</strong> Ensure your photo is cropped to a 1:1 square ratio, covering only the top of your head and both shoulders. We highly recommend using <a href="https://squoosh.app/" target="_blank" rel="noopener" style="color: var(--terminal-green); font-weight: bold;">Squoosh.app</a> to compress your image below the 10MB transmission limit.</li>
+                        <li>Complete the EE Certification Assessment via our secure Google Form portal, attaching your archive and headshot.</li>
+                        <li>Book and attend a mandatory 30-minute STEM Review Interview with an EE Assessor to discuss your activities. This process ensures absolute integrity and confirm individual impact.</li>
+                    </ol>
+					</br>
+					<!-- Google Calendar Appointment Scheduling begin -->
+					<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+					<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+					<script>
+					(function() {
+					  var target = document.currentScript;
+					  window.addEventListener('load', function() {
+						calendar.schedulingButton.load({
+						  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1UfnxTwtfnT5wfUB0YtBQB6nzJSyNVYOmPJ4VUJOR92MoynqD-uQaPv6mF0S8IcyudTsmG9lyu?gv=true',
+						  color: '#039BE5',
+						  label: "Book an appointment",
+						  target,
+						});
+					  });
+					})();
+					</script>
+					<!-- end Google Calendar Appointment Scheduling -->
+                </div>
+
+                <div class="headshot-guide">
+                    <svg class="headshot-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="35" r="22" fill="#4A5568" />
+                        <path d="M 15 100 C 15 65, 85 65, 85 100" fill="#4A5568" />
+                    </svg>
+                    <p style="font-size: 0.85rem; color: var(--slate-grey); margin: 0; line-height: 1.4;">
+                        <strong>Headshot Reference Guide:</strong><br>
+                        Your portrait must be squarely cropped focusing directly on the head and shoulders, identical to the silhouette wireframe provided.
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+                    <button type="button" class="action-btn action-btn-ghost" onclick="exportStemData()">📦 Download STEM Archive</button>
+                    <a href="https://forms.gle/placeholder_link_for_verification" target="_blank" rel="noopener" class="action-btn" style="min-width: 250px; text-decoration: none;">📋 Initiate Verification Form</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Injection of system standard footer -->
+    <script src="footer.js?v=21.7" defer></script>
+
+    <script>
+        // =========================================================================
+        // EMPOWERING ENGINEERS UK - STEM LOGGER & CERTIFICATION LOGIC
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        // =========================================================================
+        
+        const EE_STEM_TOOL_ID = "ee_stem_logger";
+        let stemDatabase = [];
+        let activeCompetences = new Set(['E']);
+        let debounceTimer;
+
+        // Local Fallback Verb Dictionary (Safeguard if verb.js fails to load over network)
+        const localVerbDictionary = {
+            'A': ['analysed', 'calculated', 'evaluated', 'modelled', 'researched', 'conceptualised', 'explained', 'demonstrated', 'simplified', 'translated', 'diagnosed', 'simulated'],
+            'B': ['designed', 'developed', 'drafted', 'assessed', 'mitigated', 'specified', 'assembled', 'constructed', 'prototyped', 'tested', 'fabricated', 'optimised'],
+            'C': ['led', 'managed', 'coordinated', 'mentored', 'supervised', 'directed', 'organised', 'delegated', 'facilitated', 'guided', 'orchestrated', 'motivated'],
+            'D': ['presented', 'proposed', 'negotiated', 'communicated', 'authored', 'pitched', 'articulated', 'conveyed', 'documented', 'secured', 'persuaded', 'clarified'],
+            'E': ['complied', 'safeguarded', 'committed', 'promoted', 'volunteered', 'adhered', 'ensured', 'advocated', 'upheld', 'championed', 'fostered', 'supported']
+        };
+
+        function initialiseStemApp() {
+            // Retrieve core unified master object if available, otherwise fallback to local silo
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || {};
+            if (masterData.ee_tools && masterData.ee_tools[EE_STEM_TOOL_ID]) {
+                stemDatabase = masterData.ee_tools[EE_STEM_TOOL_ID].logs || [];
+            } else {
+                stemDatabase = JSON.parse(localStorage.getItem(EE_STEM_TOOL_ID)) || [];
+            }
+            
+            // Set default date to today for UX efficiency
+            const today = new Date();
+            document.getElementById('stemDate').value = today.toISOString().split('T')[0];
+            
+            updateVerbAdvisorUI();
+            renderStemLogs();
+        }
+
+        function toggleCompetence(comp) {
+            if (activeCompetences.has(comp)) {
+                activeCompetences.delete(comp);
+            } else {
+                activeCompetences.add(comp);
+            }
+            
+            // Re-render grid selection visually
+            document.querySelectorAll('.comp-btn').forEach(btn => {
+                const c = btn.getAttribute('data-comp');
+                if (activeCompetences.has(c)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            updateVerbAdvisorUI();
+            triggerVerbCheck();
+        }
+
+        function updateVerbAdvisorUI() {
+            const advisorBox = document.getElementById('verbAdviceText');
+            if (activeCompetences.size === 0) {
+                advisorBox.innerHTML = `<strong>Lexicon Advisor:</strong> Please select at least one UK-SPEC competence to receive verb recommendations.`;
+                return;
+            }
+
+            let adviceArray = [];
+            activeCompetences.forEach(c => {
+                // Try window.ee_verbs if verb.js loaded, else use local fallback
+                const sourceDict = (window.ee_verbs && window.ee_verbs[c]) ? window.ee_verbs : localVerbDictionary;
+                if (sourceDict[c]) {
+                    // Pick top 4 verbs for display
+                    adviceArray = adviceArray.concat(sourceDict[c].slice(0, 4));
+                }
+            });
+
+            // Unique and formatted
+            const displayWords = [...new Set(adviceArray)].map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
+            advisorBox.innerHTML = `<strong>Lexicon Advisor:</strong> To ensure your evidence is robust, we advise using action verbs mapped to your selected competences. Examples: <em>${displayWords}</em>.`;
+        }
+
+        function getWordCount(str) {
+            return str.trim().split(/\s+/).filter(w => w.length > 0).length;
+        }
+
+        function updateWordCount(inputId, counterId) {
+            const text = document.getElementById(inputId).value;
+            const count = getWordCount(text);
+            const counterEl = document.getElementById(counterId);
+            
+            counterEl.innerText = `${count} / 25 words minimum`;
+            if (count >= 25) {
+                counterEl.classList.add('valid');
+            } else {
+                counterEl.classList.remove('valid');
+            }
+        }
+
+        function triggerVerbCheck() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const s = document.getElementById('star_S').value;
+                const t = document.getElementById('star_T').value;
+                const a = document.getElementById('star_A').value;
+                const r = document.getElementById('star_R').value;
+                
+                const combinedText = (s + " " + t + " " + a + " " + r).toLowerCase();
+                if (combinedText.trim().length === 0) {
+                    document.getElementById('verbWarningBox').style.display = 'none';
+                    return;
+                }
+
+                let missingCompetences = [];
+
+                activeCompetences.forEach(c => {
+                    const sourceDict = (window.ee_verbs && window.ee_verbs[c]) ? window.ee_verbs : localVerbDictionary;
+                    const verbs = sourceDict[c] || [];
+                    let found = false;
+                    for (let i = 0; i < verbs.length; i++) {
+                        if (combinedText.includes(verbs[i].toLowerCase())) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) missingCompetences.push(c);
+                });
+
+                const warningBox = document.getElementById('verbWarningBox');
+                const warningMsg = document.getElementById('verbWarningMessage');
+
+                if (missingCompetences.length > 0) {
+                    let requiredVerbs = [];
+                    missingCompetences.forEach(c => {
+                        const dict = (window.ee_verbs && window.ee_verbs[c]) ? window.ee_verbs : localVerbDictionary;
+                        if(dict[c]) requiredVerbs.push(...dict[c].slice(0, 3));
+                    });
+                    
+                    warningBox.style.display = 'block';
+                    warningMsg.innerHTML = `Your narrative currently lacks sufficient active engineering verbs for Competence <strong>[${missingCompetences.join(', ')}]</strong>. Assessing panels require action-oriented vocabulary to verify your personal impact. Please consider revising your text to include words such as: <em>${requiredVerbs.join(', ')}</em>.`;
+                } else {
+                    warningBox.style.display = 'none';
+                }
+            }, 800);
+        }
+
+        function saveStemLog() {
+            if (activeCompetences.size === 0) {
+                alert("⚠️ Please select at least one UK-SPEC Competence before committing your record.");
+                return;
+            }
+
+            const sText = document.getElementById('star_S').value;
+            const tText = document.getElementById('star_T').value;
+            const aText = document.getElementById('star_A').value;
+            const rText = document.getElementById('star_R').value;
+
+            if (getWordCount(sText) < 25 || getWordCount(tText) < 25 || getWordCount(aText) < 25 || getWordCount(rText) < 25) {
+                alert("⚠️ Strict Formatting Law: Every STAR sector must contain a minimum of 25 words to ensure your evidence density satisfies PRI requirements. Please expand your narrative.");
+                return;
+            }
+
+            const entryId = document.getElementById('stemEntryId').value;
+            const logData = {
+                id: entryId || 'stem_' + Date.now(),
+                date: document.getElementById('stemDate').value,
+                organisation: document.getElementById('stemOrganisation').value,
+                hours: parseFloat(document.getElementById('stemHours').value) || 0,
+                competencesArr: Array.from(activeCompetences),
+                reflection: {
+                    S: sText.trim(),
+                    T: tText.trim(),
+                    A: aText.trim(),
+                    R: rText.trim()
+                }
+            };
+
+            if (entryId) {
+                const index = stemDatabase.findIndex(l => l.id === entryId);
+                if (index > -1) stemDatabase[index] = logData;
+            } else {
+                stemDatabase.unshift(logData);
+            }
+
+            persistStemData();
+            clearStemForm();
+            renderStemLogs();
+            alert("✅ STEM STAR log successfully committed to local storage.");
+        }
+
+        function deleteStemLog(id) {
+            if (confirm("Are you sure you wish to purge this outreach record? This action cannot be reversed.")) {
+                stemDatabase = stemDatabase.filter(l => l.id !== id);
+                persistStemData();
+                renderStemLogs();
+            }
+        }
+
+        function editStemLog(id) {
+            const log = stemDatabase.find(l => l.id === id);
+            if (!log) return;
+
+            document.getElementById('stemEntryId').value = log.id;
+            document.getElementById('stemDate').value = log.date;
+            document.getElementById('stemOrganisation').value = log.organisation;
+            document.getElementById('stemHours').value = log.hours;
+            
+            // Handle legacy strings vs new object structures safely
+            if (typeof log.reflection === 'object') {
+                document.getElementById('star_S').value = log.reflection.S || '';
+                document.getElementById('star_T').value = log.reflection.T || '';
+                document.getElementById('star_A').value = log.reflection.A || '';
+                document.getElementById('star_R').value = log.reflection.R || '';
+            } else {
+                // Fallback dump for old legacy strings
+                document.getElementById('star_S').value = log.reflection || '';
+                document.getElementById('star_T').value = '';
+                document.getElementById('star_A').value = '';
+                document.getElementById('star_R').value = '';
+            }
+
+            // Sync Word Counters
+            updateWordCount('star_S', 'wc_S');
+            updateWordCount('star_T', 'wc_T');
+            updateWordCount('star_A', 'wc_A');
+            updateWordCount('star_R', 'wc_R');
+
+            // Handle multi-select competences
+            activeCompetences.clear();
+            if (log.competencesArr && Array.isArray(log.competencesArr)) {
+                log.competencesArr.forEach(c => activeCompetences.add(c));
+            } else if (log.competence) {
+                // Legacy fallback map
+                activeCompetences.add(log.competence.charAt(0));
+            }
+            
+            // Re-render UI toggles
+            document.querySelectorAll('.comp-btn').forEach(btn => {
+                const c = btn.getAttribute('data-comp');
+                if (activeCompetences.has(c)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            updateVerbAdvisorUI();
+            triggerVerbCheck();
+            
+            window.scrollTo({ top: document.getElementById('stemLogForm').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function clearStemForm() {
+            document.getElementById('stemEntryId').value = '';
+            document.getElementById('stemOrganisation').value = '';
+            document.getElementById('stemHours').value = '';
+            
+            document.getElementById('star_S').value = '';
+            document.getElementById('star_T').value = '';
+            document.getElementById('star_A').value = '';
+            document.getElementById('star_R').value = '';
+            
+            updateWordCount('star_S', 'wc_S');
+            updateWordCount('star_T', 'wc_T');
+            updateWordCount('star_A', 'wc_A');
+            updateWordCount('star_R', 'wc_R');
+
+            activeCompetences.clear();
+            activeCompetences.add('E');
+            
+            document.querySelectorAll('.comp-btn').forEach(btn => {
+                const c = btn.getAttribute('data-comp');
+                if (c === 'E') btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            const today = new Date();
+            document.getElementById('stemDate').value = today.toISOString().split('T')[0];
+            
+            document.getElementById('verbWarningBox').style.display = 'none';
+            updateVerbAdvisorUI();
+        }
+
+        function persistStemData() {
+            localStorage.setItem(EE_STEM_TOOL_ID, JSON.stringify(stemDatabase));
+            
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            masterData.ee_tools[EE_STEM_TOOL_ID] = { logs: stemDatabase };
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+        }
+
+        function wipeAllStemData() {
+            if(confirm("⚠️ ADMIN WARNING: This will permanently wipe all loaded STEM records from the interface and local storage. Proceed?")) {
+                stemDatabase = [];
+                persistStemData();
+                renderStemLogs();
+                alert("✅ All STEM records have been purged.");
+            }
+        }
+
+        function updateBadgesAndProgress(totalHours) {
+            document.getElementById('displayTotalHours').innerText = totalHours.toFixed(1);
+            
+            const bronze = document.getElementById('badgeBronze');
+            const silver = document.getElementById('badgeSilver');
+            const gold = document.getElementById('badgeGold');
+            const baseLogo = document.getElementById('sharedBaseLogo');
+            
+            // Reset Badges
+            bronze.className = 'ee-badge';
+            silver.className = 'ee-badge';
+            gold.className = 'ee-badge';
+
+            // Calculate Progress Bar (Max 50)
+            let progressPct = (totalHours / 50) * 100;
+            if (progressPct > 100) progressPct = 100;
+            document.getElementById('hoursProgressBar').style.width = progressPct + '%';
+
+            // Exclusive Unlocking Logic: Only the highest tier achieved lights up
+            if (totalHours >= 50) {
+                gold.classList.add('earned', 'gold');
+                baseLogo.classList.add('illuminated');
+            } else if (totalHours >= 25) {
+                silver.classList.add('earned', 'silver');
+                baseLogo.classList.add('illuminated');
+            } else if (totalHours >= 10) {
+                bronze.classList.add('earned', 'bronze');
+                baseLogo.classList.add('illuminated');
+            } else {
+                baseLogo.classList.remove('illuminated');
+            }
+        }
+
+        function renderStemLogs() {
+            const container = document.getElementById('stemLogsContainer');
+            container.innerHTML = '';
+            
+            let totalHours = 0;
+
+            if (stemDatabase.length === 0) {
+                container.innerHTML = '<p style="color: var(--slate-grey); font-style: italic; text-align: center; padding: 20px;">No outreach records logged. Initialise your first entry above.</p>';
+                updateBadgesAndProgress(0);
+                return;
+            }
+
+            stemDatabase.forEach(log => {
+                totalHours += parseFloat(log.hours) || 0;
+                
+                let compBadgesHTML = '';
+                if (log.competencesArr) {
+                    log.competencesArr.forEach(c => compBadgesHTML += `<span class="badge-competence">Comp ${c}</span>`);
+                } else if (log.competence) {
+                    compBadgesHTML = `<span class="badge-competence">${log.competence.split(':')[0]}</span>`;
+                }
+
+                let starOutputHTML = '';
+                if (typeof log.reflection === 'object') {
+                    starOutputHTML = `
+                        <div class="star-breakdown">
+                            <p><strong>S:</strong> ${log.reflection.S}</p>
+                            <p><strong>T:</strong> ${log.reflection.T}</p>
+                            <p><strong>A:</strong> ${log.reflection.A}</p>
+                            <p><strong>R:</strong> ${log.reflection.R}</p>
+                        </div>
+                    `;
+                } else {
+                    starOutputHTML = `<div class="star-breakdown"><p>${log.reflection}</p></div>`;
+                }
+                
+                const logEl = document.createElement('div');
+                logEl.className = 'log-item';
+                logEl.innerHTML = `
+                    <div class="log-data">
+                        <h4>${log.organisation}</h4>
+                        <p><strong>Date Executed:</strong> ${new Date(log.date).toLocaleDateString('en-GB')} | <strong>Duration:</strong> ${log.hours} Hours</p>
+                        <div style="margin-top: 5px;">${compBadgesHTML}</div>
+                        ${starOutputHTML}
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="action-btn action-btn-ghost" onclick="editStemLog('${log.id}')" style="min-height: 36px; padding: 4px 10px; font-size: 0.8rem;">Edit</button>
+                        <button class="action-btn action-btn-ghost" onclick="deleteStemLog('${log.id}')" style="min-height: 36px; padding: 4px 10px; font-size: 0.8rem; border-color: #FF4C4C; color: #FF4C4C;">Delete</button>
+                    </div>
+                `;
+                container.appendChild(logEl);
+            });
+            
+            updateBadgesAndProgress(totalHours);
+        }
+
+        // Dedicated STEM Isolation Export Function
+        function exportStemData() {
+            let totalHours = 0;
+            stemDatabase.forEach(log => totalHours += parseFloat(log.hours) || 0);
+
+            if (stemDatabase.length === 0) {
+                alert("⚠️ Error: No STEM records found. You must log your outreach activities before exporting.");
+                return;
+            }
+
+            if (totalHours < 10) {
+                alert(`⚠️ Error: Insufficient hours. You have logged ${totalHours.toFixed(1)} hours, but a minimum of 10 hours is required to unlock the Bronze certification badge. Keep volunteering!`);
+                return;
+            }
+
+            const data = JSON.stringify(stemDatabase, null, 2);
+            const blob = new Blob([data], {type: "application/json"});
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `EE_STEM_Records_Candidate.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Dedicated STEM Import Function for Admin Verification directly in the UI
+        function importStemData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (Array.isArray(data)) {
+                        stemDatabase = data;
+                        persistStemData();
+                        renderStemLogs();
+                        alert("✅ STEM Archive loaded successfully for review.");
+                    } else {
+                        alert("⚠️ Invalid file format. Please ensure you are uploading a valid EE_STEM_Records_Candidate.json file.");
+                    }
+                } catch(err) {
+                    alert("⚠️ Error parsing file.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; // Reset input
+        }
+
+        // Fire initialisation sequence on DOM load
+        document.addEventListener('DOMContentLoaded', initialiseStemApp);
+    </script>
+</body>
+</html>

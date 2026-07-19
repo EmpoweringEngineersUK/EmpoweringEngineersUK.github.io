@@ -2,92 +2,166 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+    <!-- Strict fluid viewport bounds to prevent mobile scaling anomalies -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Terms of Use for Empowering Engineers UK. Understanding our zero-data retention policy, liability disclaimers, and user responsibilities.">
-	<meta property="og:title" content="Terms of Use | Empowering Engineers UK">
-	<meta property="og:description" content="Terms of Use for Empowering Engineers UK. Understanding our zero-data retention policy, liability disclaimers, and user responsibilities.">
-	<meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
-	<meta property="og:url" content="https://www.empoweringengineers.uk/terms.html">
-	<meta property="og:type" content="website">
+    <meta name="description" content="Terms of Use for Empowering Engineers UK. Understanding our zero-knowledge data retention policy, liability disclaimers, and professional user obligations.">
+    <meta property="og:title" content="Terms of Use | Empowering Engineers UK">
+    <meta property="og:description" content="Terms of Use for Empowering Engineers UK. Understanding our zero-knowledge data retention policy, liability disclaimers, and professional user obligations.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/terms.html">
+    <meta property="og:type" content="website">
     <title>Terms of Use | Empowering Engineers UK</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css?v=12">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Central layout engine connection -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
     
     <style>
-        /* PAGE SPECIFIC STYLES */
-        .container { max-width: 800px; width: 100%; margin-top: 40px; margin-bottom: 60px; }
-        
-        .card { 
-            background: var(--dark-card); 
-            padding: 40px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
+        /* PAGE SPECIFIC STYLES: Enforcing high information density and structural boundaries */
+        body, button, input, select, textarea, h1, h2, h3, h4, h5, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
         }
 
-        h1 { 
-            color: var(--terminal-green); 
-            font-family: 'Courier Prime', monospace; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 15px; 
+        /* Decoupled from .thick-content to bypass layout.css print-hide rules */
+        .legal-wrapper {
+            padding: 40px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        .legal-wrapper h1 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        h2 { 
-            color: var(--burnt-orange); 
-            margin-top: 30px; 
-            font-size: 1.2rem; 
+        .legal-wrapper h2, .legal-wrapper h3 {
+            color: var(--burnt-orange);
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
             border-bottom: 1px dashed rgba(255,255,255,0.1);
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            font-weight: 700;
         }
-
-        p { 
-            line-height: 1.7; 
-            color: #d1d5db; 
+        
+        .legal-wrapper p, .legal-wrapper li { 
             margin-bottom: 15px; 
+            font-size: 1.05rem;
         }
 
         .alert-box {
-            background: rgba(255, 87, 51, 0.1);
+            background: rgba(192, 86, 33, 0.1);
             border-left: 4px solid var(--burnt-orange);
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
             font-size: 0.95rem;
+            border-radius: 0 4px 4px 0;
+            font-weight: 700;
+        }
+
+        /* Print formatting action container */
+        .action-row {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* PRINT ENGINE OVERRIDE: Ensures the legal wrapper formats perfectly on A4 paper */
+        @media print {
+            .legal-wrapper {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .legal-wrapper h1, .legal-wrapper h2, .legal-wrapper p, .legal-wrapper li {
+                color: #000000 !important;
+            }
+            .alert-box {
+                border-left: 4px solid #000000 !important;
+                color: #000000 !important;
+                background: transparent !important;
+            }
         }
     </style>
 </head>
-<body onload="initApp()">
-    <script defer src="header_nav.js?v=12"></script>
-    <script defer src="tools_data.js?v=12"></script>
-	
-    <div class="container">
-        <div class="card">
-            <h1>>> Terms_of_Use</h1>
+<!-- Initialise the primary navigation schema strictly on body load -->
+<body onload="if(typeof initApp === 'function') initApp();">
+    
+    <!-- Injection of core navigation and persistent memory tools -->
+    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="tools_data.js?v=21.7"></script>
+    
+    <main class="container">
+        
+        <!-- Document Boundary bypassing standard thick-content rules for clean printing -->
+        <article class="legal-wrapper">
+            <h1>Terms of Use</h1>
             
-            <p>Welcome to Empowering Engineers UK. By accessing this website, you agree to comply with and be bound by the following terms and conditions of use.</p>
+            <p>Welcome to Empowering Engineers UK. By initialising a session on this digital platform, you agree to comply with and be bound by the following comprehensive terms and conditions of use. This structural framework dictates the rigid operational boundary between our proprietary analytical tools and your professional obligations as an engineering candidate seeking UK-SPEC registration.</p>
 
-            <h2>1. Accuracy of Tools</h2>
+            <h2>1. Systematisation of the UK-SPEC Application Programme</h2>
+            <p>Our bespoke applications—including the STAR Methodology Architect, CPD Smart-Planner, and various Strategy Matrix tools—are engineered specifically to help you structure your analytical thoughts and critically evaluate your draft competencies. Achieving professional registration as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) represents a critical milestone within the British engineering sector. The UK Standard for Professional Engineering Competence (UK-SPEC), published by the Engineering Council, dictates a rigorous set of criteria. Our platform serves exclusively as an assistive preparation matrix to map your experiential evidence against these standards. We cannot and do not guarantee success in any professional review, technical interview, or job application programme. Registration decisions are determined solely by the licensed institutions (such as the IET, IMechE, or ICE) under the delegated authority of the Engineering Council.</p>
+
+            <h2>2. Accuracy and Ethical Utilisation of Analytical Tools</h2>
             <div class="alert-box">
-                <strong>Important:</strong> You are solely responsible for the accuracy of your engineering applications.
+                CRITICAL DIRECTIVE: You are solely responsible for the factual accuracy and ethical integrity of your engineering applications.
             </div>
-            <p>Our tools (STAR Engine, CPD Planner, etc.) are designed to help you <strong>structure</strong> your thoughts and <strong>critique</strong> your drafts. They must NOT be used to fabricate evidence. The output generated by AI prompts should always be verified by you, the professional engineer.</p>
+            <p>The tools provided herein must absolutely not be utilised to fabricate evidence, misrepresent professional experience, or plagiarise external content. Output generated by our prompt structures, diagnostic heatmaps, or structural algorithms must always be independently verified and owned by you, the professional engineer. Upholding the rigorous ethical standards of the profession is paramount; any falsification of technical competence fundamentally undermines the integrity of the sector and violates professional codes of conduct.</p>
 
-            <h2>2. No Guarantee of Success</h2>
-            <p>While these tools are built on UK-SPEC guidance and industry best practices, Empowering Engineers UK cannot guarantee success in any professional review, interview, or job application. Professional registration decisions are made solely by the licensed institutions (IET, IMechE, ICE, etc.).</p>
+            <h2>3. Zero-Knowledge Architecture & Client-Side Data Sovereignty</h2>
+            <p>We recognise that engineering candidates frequently process highly sensitive, commercially confidential project data when drafting their portfolios. To guarantee absolute data integrity and compliance with non-disclosure agreements, this platform is built upon a stringent, dual-persistence "Local Storage" architectural protocol. All of your textual input, strategic matrices, and continuous professional development (CPD) logs remain securely sandboxed on your local device's browser memory cache. We do not retain, transmit, or parse your private engineering drafts on our external servers. Consequently, you are entirely responsible for the backup and synchronisation of your own data payloads. We strongly advise utilising the platform's integrated JSON export functionality to prevent data loss resulting from routine browser cache clearances.</p>
 
-            <h2>3. User Responsibility & Data</h2>
-            <p>We use "Local Storage" technology to ensure your data remains on your device. We do not store your STAR examples or CV details on our servers. You are responsible for backing up your own work (e.g., by copying generated text to a Word document).</p>
+            <h2>4. Intellectual Property & Commercial Licence Constraints</h2>
+            <p>The underlying HTML, CSS, and JavaScript source code, application logic matrices, fuzzy search algorithms, and proprietary databases (including our targeted coaching prompts and extensive acronym dictionaries) constitute the protected intellectual property of Empowering Engineers UK. Your access is granted strictly for individual, non-commercial professional development. You are explicitly prohibited from reverse-engineering, scraping, duplicating, or redistributing our toolkits and design frameworks for commercial gain or competitive enterprise without express written authorisation.</p>
 
-            <h2>4. Intellectual Property</h2>
-            <p>The code, design, logic, and databases (including the specific coaching prompts and acronym lists) of this platform are the intellectual property of Empowering Engineers UK. You may not reverse-engineer, scrape, or duplicate the tools for commercial gain.</p>
+            <h2>5. Service Availability & Limitation of Liability</h2>
+            <p>All materials, simulations, and tools hosted on this platform are provided on a strict 'as is' and 'as available' basis. We make no warranties, either expressed or implied, regarding the uninterrupted availability or absolute computational reliability of the website. In no event shall Empowering Engineers UK, its developers, or its consulting strategists be held liable for any direct, indirect, or consequential damages—including, but not limited to, loss of data, career progression delays, or loss of prospective earnings—arising from the utilisation or inability to utilise the resources provided herein.</p>
+            
+            <h2>6. Platform Modifications and Optimisation</h2>
+            <p>We reserve the right to dynamically optimise, update, or deprecate platform features, interface layouts, and these legal terms without prior individual notification. Continued utilisation of the platform following any modifications to this document constitutes your definitive acceptance of the revised conditions. We recommend reviewing this document periodically to ensure your ongoing compliance with our latest operational standards.</p>
+        </article>
 
-            <h2>5. Disclaimer</h2>
-            <p>The materials on this website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the reliability or availability of the website.</p>
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-    </div>
 
-	<script defer src="footer.js"></script>
+        <!-- Interactive System Controls -->
+        <div class="action-row">
+            <!-- Employs .action-btn-ghost for secondary visual hierarchy, ensuring 48px touch compliance -->
+            <button class="action-btn action-btn-ghost" onclick="window.print()" aria-label="Print Terms of Use Document">
+                Print Document
+            </button>
+        </div>
+    </main>
+
+    <!-- Master Footer Injection -->
+    <script defer src="footer.js?v=21.7"></script>
 </body>
 </html>
