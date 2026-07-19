@@ -35,6 +35,11 @@
         document.head.appendChild(adScript);
         console.log("System Status: AdSense Library Loaded.");
     }
+	
+    // C. Google Ad blocking recovery
+    // Deactivated per WebDesign Standard directive to prevent sandbox policy violations.	
+	<script async src="https://fundingchoicesmessages.google.com/i/pub-7071036534151105?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+		
 })();
 
 /* --- 1. CORE ACCESSIBILITY THEME MANAGER --- */
