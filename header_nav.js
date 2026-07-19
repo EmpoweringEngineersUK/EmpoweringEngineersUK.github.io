@@ -137,7 +137,7 @@ window.ThemeManager.init();
             visibility: hidden !important;
             display: none !important;
         }
-        .ee-nav-menu, .ee-nav-menu ul {
+        .ee-nav-menu {
             display: flex !important;
             flex-direction: row !important;
             list-style: none !important;
@@ -154,7 +154,9 @@ window.ThemeManager.init();
             padding: 0 !important;
         }
         .ee-nav-item { position: relative; }
-        .ee-dropdown {
+        
+        /* Isolated Sub-Menu Architecture Restoring Correct Dropdown States */
+        .ee-nav-menu .ee-dropdown {
             position: absolute !important;
             top: 100% !important;
             left: 0 !important;
@@ -575,7 +577,7 @@ window.ThemeManager.init();
     }
 
     const desktopNavHTML = buildDesktopMenu(menuTree);
-    const mobileNavHTML = buildMobileMenu(tree = menuTree);
+    const mobileNavHTML = buildMobileMenu(menuTree);
 
     const headerHTML = `
         ${navStyles}
