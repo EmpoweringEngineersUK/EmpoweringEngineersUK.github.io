@@ -425,7 +425,7 @@ window.ThemeManager.init();
                 
                 // UX Fix: If the parent tab contains an actual URL hub, inject it explicitly into the mobile dropdown so users can navigate to it.
                 if (item.url && item.url !== "#") {
-                    html += `<li><a href="${item.url}" class="ee-accordion-link" style="color: var(--ee-terminal-green) !important; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px;">${item.label} Overview</a></li>`;
+                    html += `<li><a href="${item.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: var(--ee-terminal-green) !important; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px;">${item.label} Overview</a></li>`;
                 }
                 
                 item.children.forEach(child => {
@@ -438,23 +438,23 @@ window.ThemeManager.init();
                         
                         // Apply the same hub overview logic to mid-level tiers (e.g. Coach -> Strategy.html)
                         if (child.url && child.url !== "#") {
-                            html += `<li><a href="${child.url}" class="ee-accordion-link" style="color: var(--ee-terminal-green) !important; font-style: italic;">${child.label} Overview</a></li>`;
+                            html += `<li><a href="${child.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: var(--ee-terminal-green) !important; font-style: italic;">${child.label} Overview</a></li>`;
                         }
 
                         child.children.forEach(subChild => {
-                            html += `<li><a href="${subChild.url}" class="ee-accordion-link">${subChild.label}</a></li>`;
+                            html += `<li><a href="${subChild.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)">${subChild.label}</a></li>`;
                         });
                         html += `</ul>`;
                         html += `</li>`;
                     } else {
-                        html += `<li><a href="${child.url}" class="ee-accordion-link">${child.label}</a></li>`;
+                        html += `<li><a href="${child.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)">${child.label}</a></li>`;
                     }
                 });
                 
                 html += `</ul>`;
                 html += `</li>`;
             } else {
-                html += `<li><a href="${item.url}" class="ee-accordion-link" style="padding: 12px 16px; font-size:1rem;">${item.label}</a></li>`;
+                html += `<li><a href="${item.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="padding: 12px 16px; font-size:1rem;">${item.label}</a></li>`;
             }
         });
         
@@ -518,7 +518,7 @@ window.ThemeManager.init();
 
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
-    /* --- 3. HIGH PERFORMANCE SCROLL ENGINE --- */
+    /* --- 3. HIGH PERFORMANCE SCROLL ENGINE & LIFECYCLE CONTROLS --- */
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.sticky-container');
         if (header) {
@@ -530,9 +530,19 @@ window.ThemeManager.init();
     window.toggleMobileDrawer = function(openState) {
         const drawer = document.getElementById('eeMobileDrawer');
         const overlay = document.getElementById('eeMobileOverlay');
-        if (openState) { drawer.classList.add('open'); overlay.classList.add('visible'); }
-        else { drawer.classList.remove('open'); overlay.classList.remove('visible'); }
+        if (openState) { 
+            drawer.classList.add('open'); 
+            overlay.classList.add('visible'); 
+        } else { 
+            drawer.classList.remove('open'); 
+            overlay.classList.remove('visible'); 
+        }
     };
+
+    // Strict Restoration Listener: Clear lingering history cache states on page return flows
+    window.addEventListener('pageshow', function(event) {
+        window.toggleMobileDrawer(false);
+    });
 
     window.toggleMobileAccordion = function(element) {
         const item = element.parentElement;
