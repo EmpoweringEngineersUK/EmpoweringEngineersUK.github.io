@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Build a strategic Development Action Plan (DAP) for the Engineering Council. Maps short, medium, and long-term goals to UK-SPEC competencies. Secure and browser-based.">
+    <meta name="keywords" content="Development Action Plan, DAP, CPD, Continuous Professional Development, UK-SPEC, Chartered Engineer, CEng, IEng, Engineering Council, Strategy">
+    <meta property="og:title" content="Strategic DAP Architect | Empowering Engineers UK">
+    <meta property="og:description" content="Build a strategic Development Action Plan (DAP) mapped to UK-SPEC competencies with browser-based privacy safeguards.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/dap.html">
+    <meta property="og:type" content="website">
+    
+    <title>Strategic DAP Architect | Empowering Engineers UK</title>    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/dap.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Strategic DAP Architect",
+      "url": "https://www.empoweringengineers.uk/dap.html",
+      "description": "Build a structured Short, Medium, and Long-term Development Action Plan (DAP) required for professional engineering registration.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/dap.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & PARITY ENFORCEMENT --- */
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Strict Levelling Badges matching the master framework template */
+        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
+        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
+        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
+        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
+        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
+        
+        .ee-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .dap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .dap-grid { grid-template-columns: 1fr; }
+        }
+
+        .horizon-bar {
+            display: flex;
+            height: 8px;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .h-short { background: #4ecdc4; width: 33%; }
+        .h-med { background: #ffbe0b; width: 33%; }
+        .h-long { background: #ff6b6b; width: 34%; }
+
+        .concept-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .tag-local { background: rgba(78, 205, 196, 0.1); color: #4ecdc4; border: 1px solid #4ecdc4; }
+        .tag-system { background: rgba(255, 107, 107, 0.1); color: #ff6b6b; border: 1px solid #ff6b6b; }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Strategic Development Action Plan (DAP) Architect</h1>
+            <p>Achieving professional registration via the Engineering Council is not merely a retrospective assessment of past achievements; it fundamentally demands a forward-looking commitment to the engineering profession. A Development Action Plan (DAP) is the formal, strategic roadmap that outlines how you intend to maintain your technical currency and leadership edge. For candidates pursuing Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status, the DAP forms a critical component of the Professional Review Interview (PRI), providing assessors with tangible proof of your ambition, self-awareness, and dedication to Continuous Professional Development (CPD).</p>
+            
+            <h2>The 70/20/10 Engineering Learning Framework</h2>
+            <p>Effective professional development extends far beyond attending isolated training courses. A highly optimised DAP must incorporate the globally recognised 70/20/10 learning framework. Assessing panels expect to see that 70% of your development is achieved through experiential, on-the-job learning (such as leading complex projects or integrating new technologies). A further 20% should stem from social learning (mentoring juniors, collaborating across disciplines, or active PEI committee involvement), while only the final 10% is dedicated to formal educational interventions (seminars, certifications, and university courses).</p>
+            
+            <h2>Structuring Your Strategic Horizons</h2>
+            <p>To demonstrate true commercial and technical maturity, your DAP must categorise objectives across three distinct chronological horizons:</p>
+            <ul>
+                <li><strong>Short-Term Goals (0-12 Months): Local Optimisation.</strong> These objectives focus on immediate technical deficiencies and operational execution. Examples include mastering specific computational fluid dynamics (CFD) software, gaining proficiency in local safety regulations (e.g., CDM 2015), or successfully delivering an ongoing departmental project.</li>
+                <li><strong>Medium-Term Goals (1-3 Years): Boundary Spanning.</strong> The focus shifts from purely technical delivery to comprehensive project management. Goals here should include cross-functional leadership, managing inter-departmental budgets, and leading risk mitigation strategies (HAZOP/LOPA) across wider operational scopes.</li>
+                <li><strong>Long-Term Goals (3-5 Years): Systemic Alignment.</strong> The ultimate horizon targets true strategic leadership. Objectives must align your personal output with overarching corporate strategy. Examples involve leading organisational sustainability (Net Zero) initiatives, authoring national industry standards, or ascending to Principal Consultant/Technical Director positions.</li>
+            </ul>
+
+            <h2>Secure Client-Side Architecture</h2>
+            <p>We recognise the highly confidential nature of your career ambitions and internal corporate trajectories. This Strategic DAP Architect is fortified by a zero-knowledge local storage framework. Your career targets and operational weaknesses are processed entirely within your local browser cache. Empowering Engineers UK guarantees absolute data sovereignty—your professional timeline never traverses external servers, ensuring complete alignment with enterprise security and personal privacy protocols.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="ceng.html" id="link_hub" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">Hub Overview</span>
+            </a>
+            <a href="career.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cv"></div>
+                <span class="tab-label">CV Builder</span>
+            </a>
+            <a href="ceng-a.html" id="link_comp_a" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_a"></div>
+                <span class="tab-label">Comp A</span>
+            </a>
+            <a href="ceng-b.html" id="link_comp_b" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_b"></div>
+                <span class="tab-label">Comp B</span>
+            </a>
+            <a href="ceng-c.html" id="link_comp_c" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_c"></div>
+                <span class="tab-label">Comp C</span>
+            </a>
+            <a href="ceng-d.html" id="link_comp_d" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_d"></div>
+                <span class="tab-label">Comp D</span>
+            </a>
+            <a href="ceng-e.html" id="link_comp_e" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_e"></div>
+                <span class="tab-label">Comp E</span>
+            </a>
+            <a href="dap.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dap"></div>
+                <span class="tab-label">DAP</span>
+            </a>
+            <a href="sponsors.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sponsors"></div>
+                <span class="tab-label">Sponsors</span>
+            </a>
+        </nav>
+
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">DAP Architect</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Development Action Plan Configurator</p>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
+            </div>
+        </div>
+
+        <div class="dap-grid">
+            <!-- Left Column: Inputs -->
+            <div class="ee-card">
+                <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.2rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Profile Strategy</h2>
+                
+                <div class="ee-form-group">
+                    <label class="ee-label">Registration Target</label>
+                    <select class="ee-select" id="dapLevel" onchange="triggerSave()">
+                        <option value="CEng">Chartered Engineer (CEng)</option>
+                        <option value="IEng">Incorporated Engineer (IEng)</option>
+                        <option value="EngTech">Engineering Technician (EngTech)</option>
+                    </select>
+                </div>
+
+                <div class="ee-form-group">
+                    <label class="ee-label">Primary Discipline</label>
+                    <select class="ee-select" id="dapDisc" onchange="triggerSave()">
+                        <option value="Mech">Mechanical / Piping</option>
+                        <option value="Elec">Electrical / C&I</option>
+                        <option value="Civil">Civil / Structural</option>
+                        <option value="Soft">Software / Systems</option>
+                        <option value="Mgmt">Project Management</option>
+                        <option value="Nuclear">Nuclear / Safety Case</option>
+                    </select>
+                </div>
+
+                <div class="ee-form-group">
+                    <label class="ee-label">Strategic Development Area (Weakness)</label>
+                    <select class="ee-select" id="dapWeakness" onchange="triggerSave()">
+                        <option value="Commercial">Commercial Awareness (Budgets/Contracts)</option>
+                        <option value="Safety">Safety & Risk Management (CDM/HAZOP)</option>
+                        <option value="Leadership">Team Leadership & Conflict</option>
+                        <option value="Digital">Digital Transformation / AI</option>
+                        <option value="NetZero">Sustainability & Net Zero</option>
+                    </select>
+                </div>
+
+                <div class="ee-form-group">
+                    <label class="ee-label">Career "North Star" (Optional)</label>
+                    <input type="text" class="ee-input" id="dapGoal" placeholder="e.g. Technical Director, Principal Consultant" oninput="triggerSave()">
+                </div>
+
+                <div style="margin-top:30px; border-top:1px dashed var(--border-color); padding-top:20px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="concept-tag tag-local">Local Focus (Short Term)</span>
+                        <span class="concept-tag tag-system">Systemic Focus (Long Term)</span>
+                    </div>
+                    <div class="horizon-bar">
+                        <div class="h-short"></div>
+                        <div class="h-med"></div>
+                        <div class="h-long"></div>
+                    </div>
+                    <p style="font-size:0.85rem; color:var(--slate-grey); margin-top:10px; font-weight: 700;">
+                        Logic Matrix: Move from Team Expertise &rarr; Boundary Spanning &rarr; Strategic Alignment.
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" class="action-btn" style="flex: 1;" onclick="generateDAP()">Generate AI Draft</button>
+                    <button type="button" class="action-btn action-btn-ghost" onclick="clearDapData()">Reset</button>
+                </div>
+            </div>
+
+            <!-- Right Column: Output -->
+            <div class="ee-card" style="display: flex; flex-direction: column;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                    <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.2rem; border-bottom: none; margin: 0; padding: 0;">2. Action Plan</h2>
+                    <button class="action-btn action-btn-outline" style="min-height: 32px; padding: 4px 12px; font-size: 0.8rem;" onclick="copyDap()">📋 Copy to Clipboard</button>
+                </div>
+                
+                <textarea id="dapOutput" class="ee-textarea" style="flex-grow: 1; min-height: 400px; font-family: monospace; font-size: 0.95rem; line-height: 1.6;" oninput="triggerSave()">Configure your profile on the left and click Generate to build your Strategic DAP...</textarea>
+            </div>
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        const EE_TOOL_ID = "ee_dap"; 
+        let appState = {
+            level: 'CEng',
+            disc: 'Mech',
+            weakness: 'Commercial',
+            goal: '',
+            compiled: ''
+        };
+
+        // --- PATHWAY ROUTING DETECTION ---
+        function getActivePathwayPrefix() {
+            const levelSelect = document.getElementById('dapLevel');
+            if (levelSelect && levelSelect.value) {
+                return levelSelect.value.toLowerCase() === 'ieng' ? 'ieng' : 'ceng';
+            }
+            return appState.level.toLowerCase() === 'ieng' ? 'ieng' : 'ceng';
+        }
+
+        function reRouteBreadcrumbs() {
+            const prefix = getActivePathwayPrefix();
+            document.getElementById('link_hub').href = `${prefix}.html`;
+            document.getElementById('link_comp_a').href = `${prefix}-a.html`;
+            document.getElementById('link_comp_b').href = `${prefix}-b.html`;
+            document.getElementById('link_comp_c').href = `${prefix}-c.html`;
+            document.getElementById('link_comp_d').href = `${prefix}-d.html`;
+            document.getElementById('link_comp_e').href = `${prefix}-e.html`;
+            
+            const labelText = prefix.toUpperCase();
+            document.querySelector('#link_hub span.tab-label').innerText = `${labelText} Hub`;
+        }
+
+        function getEETimestamp() {
+            const d = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+        }
+
+        function loadToolStateFromMaster() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (masterData && masterData.ee_tools && masterData.ee_tools[EE_TOOL_ID]) {
+                const savedState = masterData.ee_tools[EE_TOOL_ID];
+                if (savedState.level) appState.level = savedState.level;
+                if (savedState.disc) appState.disc = savedState.disc;
+                if (savedState.weakness) appState.weakness = savedState.weakness;
+                if (savedState.goal !== undefined) appState.goal = savedState.goal;
+                if (savedState.compiled) appState.compiled = savedState.compiled;
+                
+                document.getElementById('dapLevel').value = appState.level;
+                document.getElementById('dapDisc').value = appState.disc;
+                document.getElementById('dapWeakness').value = appState.weakness;
+                document.getElementById('dapGoal').value = appState.goal;
+                if(appState.compiled) document.getElementById('dapOutput').value = appState.compiled;
+            }
+            reRouteBreadcrumbs();
+            updateNavigationBadges();
+        }
+
+        function triggerSave() {
+            appState.level = document.getElementById('dapLevel').value;
+            appState.disc = document.getElementById('dapDisc').value;
+            appState.weakness = document.getElementById('dapWeakness').value;
+            appState.goal = document.getElementById('dapGoal').value;
+            appState.compiled = document.getElementById('dapOutput').value;
+
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            masterData.ee_tools[EE_TOOL_ID] = appState; 
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+            
+            reRouteBreadcrumbs();
+            updateNavigationBadges();
+        }
+
+        // --- PLATFORM DIAGNOSTIC STATE ENGINE ---
+        function calculateScoreForBadge(text, subId, pathway) {
+            if (!text || text.trim() === "") return 1;
+            const wordCount = text.trim().split(/\s+/).length;
+            if (wordCount < 50) return 1;
+
+            let score = 1;
+            if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap[pathway]) {
+                const allowedVerbs = verbDb.strongVerbMap[pathway][subId] || [];
+                let foundVerbs = 0;
+                allowedVerbs.forEach(v => {
+                    if (text.toLowerCase().includes(v)) foundVerbs++;
+                });
+                if (foundVerbs >= 4) score = 4;
+                else if (foundVerbs >= 2) score = 3;
+                else if (foundVerbs >= 1) score = 2;
+            }
+            return score;
+        }
+
+        function getBadgeHTML(score) {
+            const levels = ["L1 - AWARE", "L2 - FAMILIAR", "L3 - SKILLED", "L4 - EXPERT"];
+            const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
+            return `<span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>`;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const tools = masterData.ee_tools || {};
+            const pathType = getActivePathwayPrefix().toUpperCase(); // CENG or IENG
+
+            // CV Builder Checkbox validation loops
+            const hasCV = tools['ee_career_builder_state'] && tools['ee_career_builder_state'].p_name && tools['ee_career_builder_state'].p_name.trim() !== '';
+            document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
+
+            // DAP Checkbox validation loops
+            const hasDAP = appState.compiled && appState.compiled.trim() !== '' && !appState.compiled.startsWith('Configure your profile');
+            document.getElementById('badge_dap').innerHTML = getTickHTML(hasDAP);
+
+            // Sponsors Checkbox validation loops
+            const hasSponsors = tools['ee_sponsors'] && tools['ee_sponsors'].s1 && tools['ee_sponsors'].s1.n && tools['ee_sponsors'].s1.n.trim() !== '';
+            document.getElementById('badge_sponsors').innerHTML = getTickHTML(hasSponsors);
+
+            // Loop and assign L1-L4 competencies metrics across breadcrumbs
+            const competencies = ['a', 'b', 'c', 'd', 'e'];
+            let compScores = [];
+            const subMap = {
+                'a': ['A1', 'A2'],
+                'b': ['B1', 'B2', 'B3'],
+                'c': ['C1', 'C2', 'C3', 'C4'],
+                'd': ['D1', 'D2', 'D3'],
+                'e': ['E1', 'E2', 'E3', 'E4', 'E5']
+            };
+
+            competencies.forEach(comp => {
+                const toolId = `ee_${pathType.toLowerCase()}_${comp}`;
+                const expectedSubs = subMap[comp] || [];
+                let subScores = [];
+
+                expectedSubs.forEach(sub => {
+                    let score = 1;
+                    if (tools[toolId] && tools[toolId][sub]) {
+                        score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub, pathType);
+                    }
+                    subScores.push(score);
+                });
+
+                let minScore = subScores.length > 0 ? Math.min(...subScores) : 1;
+                compScores.push(minScore);
+
+                const badgeEl = document.getElementById(`badge_comp_${comp}`);
+                if (badgeEl) badgeEl.innerHTML = getBadgeHTML(minScore);
+            });
+
+            // Master Hub Readyness Logic Block validation
+            let countL3Plus = 0, countL2Plus = 0;
+            compScores.forEach(s => {
+                if (s >= 3) countL3Plus++;
+                if (s >= 2) countL2Plus++;
+            });
+            const isHubReady = (countL3Plus >= 3 && countL2Plus === 5 && hasCV && hasDAP && hasSponsors);
+            document.getElementById('badge_hub').innerHTML = getTickHTML(isHubReady);
+        }
+
+        function exportEEData() {
+            triggerSave();
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            masterData.lastUpdated = getEETimestamp();
+            
+            const prefix = masterData.username !== "EE_User" ? masterData.username.replace(/\s+/g, '') : EE_TOOL_ID;
+            const filename = `${prefix}_${masterData.lastUpdated}.json`;
+
+            const blob = new Blob([JSON.stringify(masterData, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importEEData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (!importedData.ee_tools) throw new Error("Invalid");
+                    
+                    localStorage.setItem('ee_master_state', JSON.stringify(importedData));
+                    loadToolStateFromMaster(); 
+                    alert("EE Master Profile package synchronised successfully!");
+                } catch (err) {
+                    alert("Error checking JSON configuration backup structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        function clearDapData() {
+            if(confirm("Permanently purge active DAP roadmap configurations?")) {
+                document.getElementById('dapGoal').value = '';
+                document.getElementById('dapOutput').value = 'Configure your profile on the left and click Generate to build your Strategic DAP...';
+                triggerSave();
+            }
+        }
+
+        function generateDAP() {
+            if (typeof dapDb === 'undefined') {
+                document.getElementById('dapOutput').value = "Error: dap.js database stream failed to load. Await connection bounds.";
+                return;
+            }
+
+            const level = document.getElementById('dapLevel').value;
+            const disc = document.getElementById('dapDisc').value;
+            const weakness = document.getElementById('dapWeakness').value;
+            const userGoal = document.getElementById('dapGoal').value;
+            
+            const shortPoints = dapDb.short[disc] ? dapDb.short[disc].join("\n") : "• Define technical goals specific to your role.";
+            const medPoints = dapDb.medium[weakness] ? dapDb.medium[weakness].join("\n") : "• Lead cross-functional projects.";
+            let longPoints = dapDb.long[level] ? dapDb.long[level].join("\n") : "• Maintain strategic alignment.";
+            
+            if (userGoal) {
+                longPoints = longPoints.replace(/\[Goal Role\]/g, userGoal);
+            } else {
+                longPoints = longPoints.replace(/\[Goal Role\]/g, "Senior Leadership Position");
+            }
+
+            const output = `DEVELOPMENT ACTION PLAN (DAP) - ${level} Target
+=======================================================
+
+1. SHORT TERM (0-12 Months)
+Focus: Technical Mastery & Team Optimization (Local)
+Goal: Solidify expert knowledge and deliver immediate value to the team.
+${shortPoints}
+
+2. MEDIUM TERM (1-3 Years)
+Focus: Boundary Spanning & ${weakness} Competence
+Goal: Bridge gaps between departments and address systemic risks.
+${medPoints}
+
+3. LONG TERM (3-5 Years)
+Focus: Strategic Alignment & Systemic Leadership
+Goal: Align engineering output with global business objectives.
+${longPoints}
+
+=======================================================
+Aligned to UK-SPEC Competencies A, B, C, D, E.
+Generated securely by Empowering Engineers UK`;
+
+            document.getElementById('dapOutput').value = output;
+            triggerSave();
+            alert("✅ Dynamic UK-SPEC Development roadmap generated successfully.");
+        }
+
+        function copyDap() {
+            const text = document.getElementById('dapOutput').value;
+            navigator.clipboard.writeText(text).then(() => { alert("DAP payload copied to clipboard!"); });
+        }
+
+        window.addEventListener('load', () => {
+            loadToolStateFromMaster();
+        });
+
+        function initApp() {
+            console.log("System Status: DAP Architect Initialised. Core systems online. Local Storage Active.");
+        }
+    </script>
+</body>
+</html>

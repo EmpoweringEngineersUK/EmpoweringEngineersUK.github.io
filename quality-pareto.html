@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Pareto Analysis Matrix (80/20 Prioritisation Rule) interactive workspace. Isolate vital process flaws from trivial non-conformances across production channels to satisfy UK-SPEC Competence C leadership targets. Secure client-side memory.">
+    <meta name="keywords" content="Pareto Analysis, Pareto Chart, 80/20 Rule, Root Cause Prioritisation, Quality Engineering, Process Control, Non-Conformance Matrix, UK-SPEC Competence C, Engineering Leadership, Juran Matrix">
+    <meta property="og:title" content="Bespoke Pareto Optimization Analytics Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side cumulative defect mapping engine designed to prioritize industrial variations into an interactive Pareto bar and line chart visualization.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality-pareto.html">
+    <meta property="og:type" content="website">
+    
+    <title>Pareto Prioritisation Analytics Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bespoke Engineering Pareto Analysis Matrix Studio",
+      "url": "https://www.empoweringengineers.uk/quality-pareto.html",
+      "description": "An interactive digital workbench designed to execute 80/20 cost and defect prioritization matrices to isolate high-impact failure nodes cleanly under a dynamic cumulative distribution graph.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 500px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1200px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        .framework-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .framework-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .framework-card.matrix-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.data-entry-card { border-left-color: var(--burnt-orange); }
+
+        .framework-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--terminal-green) !important;
+        }
+        .data-entry-title-label {
+            color: var(--burnt-orange) !important;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .data-row-headers {
+            display: grid;
+            grid-template-columns: 2fr 1fr 48px;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--slate-grey);
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .pareto-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 48px;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .form-input-inline {
+            width: 100%;
+            min-height: 40px !important;
+            padding: 8px 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .form-input-inline:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+        }
+
+        .btn-row-action {
+            min-height: 40px !important;
+            min-width: 40px !important;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+
+        .btn-add-item {
+            align-self: flex-start;
+            min-height: 38px !important;
+            font-size: 0.8rem;
+            background: transparent !important;
+            background-image: none !important;
+            border: 1px dashed var(--terminal-green) !important;
+            color: var(--terminal-green) !important;
+            box-shadow: none !important;
+            margin-top: 5px;
+        }
+        .btn-add-item:hover {
+            background: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .chart-vector-wrapper {
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 5px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 120px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content" id="aeoThickContentBlock">
+            <h1>80/20 Prioritisation in Root Cause Diagnostics: Mastering the Pareto Principle</h1>
+            <p>
+                In the engineering governance, quality assurance, and system audit phases of high-volume component production line setups, cross-country pipeline infrastructure maintenance operations, and aerospace hardware fabrication tracks, technical failures rarely manifest with equal weight or distribution. When teams are presented with extensive failure datasets—such as thousands of structural non-conformance tags or asset reliability dropout logs accumulated over an entire operating quarter—the primary leadership pitfall is to distribute corporate remediation budgets and engineering resource hours uniformly across every logged failure mode. This non-strategic management response overburdens engineering teams with a multitude of trivial issues while leaving the root drivers of systemic process degradation unaddressed. To prevent this operational drift, lead engineers deploy a structured **Pareto Analysis Matrix**, an analytical instrument built upon the 80/20 rule formulated originally by economist Vilfredo Pareto and adapted for quality control management by Dr Joseph Juran. Within the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, applying quantitative data prioritisation loops to execute process corrections directly targets **Competence C (Technical and Commercial Leadership)**, which demands clear evidence of a candidate's capacity to lead continuous improvement schemes, manage risk factors safely, and eliminate operational waste across major commercial engineering blocks.
+            </p>
+            <p>
+                The implementation of an interactive Pareto tool transforms raw defect tracking manifests into an objective, data-driven prioritization route. By mapping distinct non-conformance metrics, sorting them in a descending order of incidence frequency or financial loss severity, and calculating their cumulative mathematical percentages, the vital few root parameters are visually isolated from the useful many trivial variations. This analysis reveals the structural reality that approximately 80% of systemic process defects or material scrap costs are caused by just 20% of the underlying process categories. This insight empowers technical directors to focus engineering hours and capital asset refurbishments precisely on the high-impact elements, ensuring maximum return on investment while fully complying with corporate ISO 9001 continuous optimization directives.
+            </p>
+            <h2>Executing Weighted Data Loops for Portfolio Compliance</h2>
+            <p>
+                For instance, when auditing an automated vehicle chassis assembly track, defects might range from minor paint runs and surface scratches to safety-critical structural weld deformities or out-of-tolerance chassis clearances. A basic frequency tally might mistake surface scratches for a major crisis due to their high volume. However, by running a weighted Pareto analysis—factoring in either the exact frequency or the total financial cost of rework and down-time metrics—the line trace quickly shows that a single specific weld variance accounts for the vast majority of commercial profit erosion and structural integrity dropouts. Addressing this specific weld variation via a modified toolpath jig or robotic code update achieves an instantaneous system stabilization, completely mitigating corporate delivery risks without needing to overhaul the entire painting installation. Use the dynamic cards below to register your process failure inputs, automatically execute descending sequence calculations, and extract white-backed print previews ready for formal engineering council portfolios or executive boardroom reviews.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Pareto Prioritisation Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">80/20 Statistical Distribution & Non-Conformance Analytics Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="framework-stack" id="paretoEditorStack">
+                    
+                    <!-- Macro Context Configuration Card -->
+                    <div class="framework-card matrix-card">
+                        <label class="framework-label">Audit Scope / Problem Context Statement</label>
+                        <span class="form-hint">Isolate the operational boundary under review. <br><span class="example-text">e.g. Analysis of non-conformance dropouts on automated vehicle chassis assembly track.</span></span>
+                        <input type="text" id="input_Scope" class="form-input-inline" placeholder="Configure scope parameters..." oninput="updatePreview()">
+                    </div>
+
+                    <!-- Defect Data Entry Grid Card -->
+                    <div class="framework-card data-entry-card">
+                        <label class="framework-label data-entry-title-label">Failure Modes & Frequency Registry</label>
+                        <span class="form-hint" style="margin-bottom:15px;">Input categorical variance descriptors alongside factual incident counts or rework loss overheads.</span>
+                        
+                        <div class="data-row-headers">
+                            <div>Defect Category / Non-Conformance Type</div>
+                            <div>Frequency / Cost Count</div>
+                            <div style="text-align:center;">Purge</div>
+                        </div>
+
+                        <div id="paretoRowsContainer"></div>
+                        
+                        <button type="button" class="action-btn btn-add-item" onclick="addNewDataRow()">+ Add Defect Category Node</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach & Real-Time Chart Visualizer -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE PARETO OPTIMISATION DIAGRAM</div>
+                
+                <!-- Dynamic SVG Pareto Presentation Layer -->
+                <div class="chart-vector-wrapper">
+                    <svg id="paretoSVG" viewBox="0 0 800 450" width="100%" height="100%" style="background:#000; border-radius: 4px;">
+                        <!-- Static background framework nodes and axes labels render dynamically via loop -->
+                        <g id="svg_chart_layer"></g>
+                        
+                        <!-- Axis Lines -->
+                        <line x1="70" y1="50" x2="70" y2="350" stroke="#4A5568" stroke-width="2" />
+                        <line x1="70" y1="350" x2="730" y2="350" stroke="#4A5568" stroke-width="2" />
+                        <line x1="730" y1="50" x2="730" y2="350" stroke="#4A5568" stroke-width="2" />
+                        
+                        <!-- Axis Micro Typography -->
+                        <text x="25" y="200" fill="#8899A6" font-family="monospace" font-size="10" transform="rotate(-90 25 200)" text-anchor="middle">FREQUENCY / LOSS</text>
+                        <text x="775" y="200" fill="#FF8C42" font-family="monospace" font-size="10" transform="rotate(90 775 200)" text-anchor="middle">CUMULATIVE %</text>
+                        <text x="400" y="395" fill="#E6EDF3" font-family="monospace" font-size="11" text-anchor="middle" font-weight="bold">SORTED FAILURE ATTRIBUTES (DESCENDING)</text>
+                    </svg>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting structured parameter entries...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. CONFIGURATION & STATE REGISTRY ---
+        const EE_TOOL_ID = "ee_quality_pareto";
+        let autosaveTimer;
+
+        // Default layout parameters injected on empty storage detection
+        const defaultItems = [
+            { category: "Surface Scratches", frequency: 142 },
+            { category: "Weld Non-Conformance", frequency: 68 },
+            { category: "Paint Sag/Run", frequency: 24 },
+            { category: "Chassis Clearance Warp", frequency: 18 },
+            { category: "Thread Misalignment", frequency: 9 }
+        ];
+
+        let appState = {
+            scope: "Analysis of non-conformance dropouts on automated vehicle chassis assembly track",
+            items: []
+        };
+
+        // --- 2. INITIALISATION ENGINE ---
+        function initApp() {
+            loadInitialState();
+            renderRows();
+            updatePreview();
+        }
+
+        function loadInitialState() {
+            const cached = localStorage.getItem(EE_TOOL_ID);
+            if (cached) {
+                try {
+                    const parsed = JSON.parse(cached);
+                    if (parsed.scope !== undefined && Array.isArray(parsed.items)) {
+                        appState = parsed;
+                        return;
+                    }
+                } catch(e) { console.error("Cached profile lines corrupted. Resetting core framework registers."); }
+            }
+            // Populate fallback profile if empty
+            appState.items = defaultItems.map(i => ({ ...i }));
+            localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+        }
+
+        function renderRows() {
+            const container = document.getElementById('paretoRowsContainer');
+            container.innerHTML = "";
+            document.getElementById('input_Scope').value = appState.scope;
+
+            appState.items.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = "pareto-row";
+                row.innerHTML = `
+                    <input type="text" class="form-input-inline" value="${escapeHtml(item.category)}" 
+                           placeholder="e.g. Defect descriptor node..." 
+                           oninput="updateItemValue(${index}, 'category', this.value)">
+                    <input type="number" class="form-input-inline" value="${item.frequency}" min="0"
+                           placeholder="Value tally..." 
+                           oninput="updateItemValue(${index}, 'frequency', this.value)">
+                    <button type="button" class="action-btn action-btn-ghost btn-row-action" 
+                            onclick="removeDataRow(${index})" title="Purge row tracking data">✖</button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function updateItemValue(index, field, value) {
+            if (field === 'frequency') {
+                const parsedVal = parseInt(value);
+                appState.items[index][field] = isNaN(parsedVal) ? 0 : Math.max(0, parsedVal);
+            } else {
+                appState.items[index][field] = value;
+            }
+            updatePreview();
+        }
+
+        function addNewDataRow() {
+            appState.items.push({ category: "", frequency: 0 });
+            renderRows();
+            updatePreview();
+        }
+
+        function removeDataRow(index) {
+            appState.items.splice(index, 1);
+            renderRows();
+            updatePreview();
+        }
+
+        // --- 3. COMPILER & SVG GEOMETRIC CHART ENGINE ---
+        function updatePreview() {
+            appState.scope = document.getElementById('input_Scope').value.trim();
+            
+            // Clean and compute structured Pareto mathematical parameters
+            let processedItems = appState.items
+                .map(i => ({ category: i.category.trim() || "Unnamed Node", frequency: i.frequency }))
+                .sort((a, b) => b.frequency - a.frequency);
+
+            const totalFrequency = processedItems.reduce((sum, item) => sum + item.frequency, 0);
+            
+            let rollingSum = 0;
+            processedItems = processedItems.map(item => {
+                rollingSum += item.frequency;
+                const cumPercent = totalFrequency > 0 ? (rollingSum / totalFrequency) * 100 : 0;
+                return {
+                    ...item,
+                    cumPercent: parseFloat(cumPercent.toFixed(2))
+                };
+            });
+
+            // Compile Structural Text Summary Outline Console
+            let textOutput = `=== PARETO PRIORITISATION SYSTEM MATRIX SUMMARY ===\n\n`;
+            textOutput += `[AUDIT TRACK SCOPE]: ${appState.scope || "Not defined."}\n`;
+            textOutput += `[ACCUMULATED FIELD OVERHEADS]: ${totalFrequency}\n`;
+            textOutput += `---------------------------------------------------\n`;
+            
+            if (processedItems.length > 0) {
+                processedItems.forEach((item, i) => {
+                    const contributionPercent = totalFrequency > 0 ? (item.frequency / totalFrequency) * 100 : 0;
+                    textOutput += `Rank ${i+1}: [${item.category}] \n`;
+                    textOutput += `       ├── Value: ${item.frequency} (${contributionPercent.toFixed(1)}%)\n`;
+                    textOutput += `       └── Cumulative Sequence: ${item.cumPercent.toFixed(2)}%\n`;
+                });
+            } else {
+                textOutput += "Awaiting analytical dataset inputs inside array cards.\n";
+            }
+            document.getElementById('previewArea').innerText = textOutput;
+
+            // Render Dynamic SVG Vector Chart Elements
+            renderSvgParetoChart(processedItems);
+
+            // Keystroke Real-Time Auto-Save with 3-second boundary delay logic
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+                updateNavigationBadges();
+                console.log("Pareto configuration workspace metrics auto-saved.");
+            }, 3000);
+        }
+
+        function renderSvgParetoChart(sortedItems) {
+            const layer = document.getElementById('svg_chart_layer');
+            layer.innerHTML = "";
+            
+            if (sortedItems.length === 0) return;
+            
+            const maxFreq = Math.max(...sortedItems.map(i => i.frequency), 1);
+            const startX = 70;
+            const endX = 730;
+            const startY = 50;
+            const endY = 350;
+            const chartW = endX - startX;
+            const chartH = endY - startY;
+            
+            const numItems = sortedItems.length;
+            const colWidth = chartW / numItems;
+            
+            // Draw Symmetrical Scale Horizontal Reference Lines
+            for(let i=0; i<=5; i++) {
+                const pct = i / 5;
+                const currentY = endY - (chartH * pct);
+                const freqVal = Math.round(maxFreq * pct);
+                const pctVal = Math.round(100 * pct);
+                
+                const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                line.setAttribute("x1", startX);
+                line.setAttribute("y1", currentY);
+                line.setAttribute("x2", endX);
+                line.setAttribute("y2", currentY);
+                line.setAttribute("stroke", "#2D3748");
+                line.setAttribute("stroke-width", "1");
+                line.setAttribute("stroke-dasharray", "4,4");
+                layer.appendChild(line);
+                
+                const tLeft = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                tLeft.setAttribute("x", startX - 10);
+                tLeft.setAttribute("y", currentY + 4);
+                tLeft.setAttribute("fill", "#8899A6");
+                tLeft.setAttribute("font-family", "monospace");
+                tLeft.setAttribute("font-size", "10");
+                tLeft.setAttribute("text-anchor", "end");
+                tLeft.textContent = freqVal;
+                layer.appendChild(tLeft);
+                
+                const tRight = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                tRight.setAttribute("x", endX + 10);
+                tRight.setAttribute("y", currentY + 4);
+                tRight.setAttribute("fill", "#FF8C42");
+                tRight.setAttribute("font-family", "monospace");
+                tRight.setAttribute("font-size", "10");
+                tRight.setAttribute("text-anchor", "start");
+                tRight.textContent = pctVal + "%";
+                layer.appendChild(tRight);
+            }
+            
+            let linePoints = [];
+            
+            // Draw Prioritisation Bars
+            sortedItems.forEach((item, idx) => {
+                const barW = colWidth * 0.7;
+                const padX = colWidth * 0.15;
+                const x = startX + (idx * colWidth) + padX;
+                
+                const freqRatio = item.frequency / maxFreq;
+                const barH = chartH * freqRatio;
+                const y = endY - barH;
+                
+                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute("x", x);
+                rect.setAttribute("y", y);
+                rect.setAttribute("width", barW);
+                rect.setAttribute("height", Math.max(barH, 1));
+                
+                // Color separation: highlight the 'vital few' elements underneath the 80% cutoff line
+                const isVital = item.cumPercent - ((item.frequency / sortedItems.reduce((a,b)=>a+b.frequency,0))*100) <= 80.0;
+                rect.setAttribute("fill", isVital ? "rgba(3, 247, 160, 0.25)" : "rgba(74, 85, 104, 0.3)");
+                rect.setAttribute("stroke", isVital ? "#03F7A0" : "#4A5568");
+                rect.setAttribute("stroke-width", "1.5");
+                layer.appendChild(rect);
+                
+                const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                labelText.setAttribute("x", startX + (idx * colWidth) + (colWidth / 2));
+                labelText.setAttribute("y", endY + 20);
+                labelText.setAttribute("fill", "#E6EDF3");
+                labelText.setAttribute("font-family", "monospace");
+                labelText.setAttribute("font-size", "10");
+                labelText.setAttribute("text-anchor", "middle");
+                labelText.textContent = item.category.length > 11 ? item.category.substring(0, 9) + "..." : item.category;
+                layer.appendChild(labelText);
+                
+                const cumY = endY - (chartH * (item.cumPercent / 100));
+                const pointX = startX + (idx * colWidth) + (colWidth / 2);
+                linePoints.push({ x: pointX, y: cumY });
+            });
+            
+            // Draw Cumulative Line Path Component
+            if(linePoints.length > 0) {
+                let dStr = `M ${linePoints[0].x} ${linePoints[0].y}`;
+                for(let i = 1; i < linePoints.length; i++) {
+                    dStr += ` L ${linePoints[i].x} ${linePoints[i].y}`;
+                }
+                
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", dStr);
+                path.setAttribute("fill", "none");
+                path.setAttribute("stroke", "#FF8C42");
+                path.setAttribute("stroke-width", "2.5");
+                layer.appendChild(path);
+                
+                linePoints.forEach(p => {
+                    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    circle.setAttribute("cx", p.x);
+                    circle.setAttribute("cy", p.y);
+                    circle.setAttribute("r", "4");
+                    circle.setAttribute("fill", "#FF8C42");
+                    circle.setAttribute("stroke", "#000");
+                    circle.setAttribute("stroke-width", "1.5");
+                    layer.appendChild(circle);
+                });
+            }
+        }
+
+        // --- 4. VERIFICATION BADGE ENGINE ---
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const status = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(status);
+                }
+            });
+        }
+
+        function checkToolContent(toolLocalStorageKey) {
+            const stored = localStorage.getItem(toolLocalStorageKey);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                if (data.scope && data.scope.trim().length > 0) return true;
+                return Array.isArray(data.items) && data.items.some(i => i.category.trim().length > 0 && i.frequency > 0);
+            } catch (e) { return false; }
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            let script = `[PARETO ANALYSIS SCOPE BOUNDARY]\n${appState.scope || "Not defined."}\n\n`;
+            script += `[LOGGED FAILURES LEDGER]\n`;
+            appState.items.forEach(i => {
+                if(i.category.trim()) script += `- Category attribute: "${i.category.trim()}" // Value tally: ${i.frequency}\n`;
+            });
+
+            const role = "Principal Statistical Process Engineer & Lean Six Sigma Master Black Belt";
+            const actionText = "Analyse this Pareto prioritisation matrix user draft. 1. Critique if the scope definition sets up an empirical framework challenge safely. 2. Evaluate if the distribution entries suggest proper diagnostic segmentation, or if symptoms are grouped too broadly. 3. Assess if this 80/20 breakdown isolates a true 'vital few' node to support corporate asset risk mitigation strategies under UK-SPEC Competency C parameters.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior systems engineer structuring a quality audit report to validate leadership capabilities for professional board review. The format used is an interactive Pareto Studio sheet.
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "AMPLITUDE COPIED! ✔️";
+                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm(`Confirm action: permanently scrub all metric rows from the Pareto analytics canvas workspace?`)) {
+                appState.scope = "";
+                appState.items = [];
+                renderRows();
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(appState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Pareto_Prioritisation_Matrix_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (parsed.scope !== undefined && Array.isArray(parsed.items)) {
+                        appState = parsed;
+                        renderRows();
+                        updatePreview();
+                        alert("Pareto diagnostic metrics imported successfully into localized memory.");
+                    } else {
+                        alert("Invalid JSON format. Missing required Pareto array structural maps.");
+                    }
+                } catch (err) { alert("Failed to parse file as a valid configuration structure."); }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT PRINT PREVIEW GENERATOR ---
+        function generateReport() {
+            const originalSvg = document.getElementById('paretoSVG');
+            const svgClone = originalSvg.cloneNode(true);
+            
+            // Re-style SVG clone explicitly for high-contrast corporate printing criteria
+            svgClone.style.background = "#FFFFFF";
+            
+            // Update line configurations inside printing nodes
+            const lines = svgClone.querySelectorAll('line');
+            lines.forEach(l => {
+                if(l.getAttribute("stroke") === "#4A5568") l.setAttribute("stroke", "#1A202C");
+                if(l.getAttribute("stroke") === "#2D3748") l.setAttribute("stroke", "#E2E8F0");
+            });
+
+            const texts = svgClone.querySelectorAll('text');
+            texts.forEach(t => {
+                const f = t.getAttribute("fill");
+                if (f === "#8899A6") t.setAttribute("fill", "#2D3748");
+                if (f === "#E6EDF3") t.setAttribute("fill", "#1A202C");
+            });
+
+            const rects = svgClone.querySelectorAll('rect');
+            rects.forEach(r => {
+                if(r.getAttribute("stroke") === "#03F7A0") {
+                    r.setAttribute("fill", "rgba(0, 104, 55, 0.15)");
+                    r.setAttribute("stroke", "#006837");
+                } else {
+                    r.setAttribute("fill", "rgba(226, 232, 240, 0.5)");
+                    r.setAttribute("stroke", "#718096");
+                }
+            });
+
+            const svgSourceDataString = new XMLSerializer().serializeToString(svgClone);
+
+            let total = appState.items.reduce((s,i)=>s+i.frequency, 0);
+            let rolling = 0;
+            let rowsHTML = "";
+            
+            appState.items
+                .map(i => ({ category: i.category.trim() || "Unnamed Node", frequency: i.frequency }))
+                .sort((a,b)=>b.frequency-a.frequency)
+                .forEach((item, idx) => {
+                    rolling += item.frequency;
+                    const cumPct = total > 0 ? (rolling / total) * 100 : 0;
+                    const contrPct = total > 0 ? (item.frequency / total) * 100 : 0;
+                    rowsHTML += `
+                        <tr>
+                            <td><strong>${idx+1}</strong></td>
+                            <td>${escapeHtml(item.category)}</td>
+                            <td>${item.frequency}</td>
+                            <td>${contrPct.toFixed(1)}%</td>
+                            <td>${cumPct.toFixed(2)}%</td>
+                        </tr>
+                    `;
+                });
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Pareto Prioritisation Summary Ledger</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #1A202C; max-width: 1050px; margin: 30px auto; padding: 20px; background: #FFFFFF; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #006837; padding-bottom: 10px; text-transform: uppercase; font-size: 24px; margin-bottom: 5px;}
+                    .meta-subtitle { color: #4A5568; font-style: italic; margin-bottom: 25px; font-size: 13px; font-weight: bold; border-bottom: 1px dashed #CBD5E0; padding-bottom: 10px;}
+                    h2 { color: #C05621; margin-top: 35px; border-bottom: 1px solid #E2E8F0; padding-bottom: 4px; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px;}
+                    table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 30px; }
+                    th, td { padding: 10px; border: 1px solid #CBD5E0; text-align: left; font-size: 13px; }
+                    th { background: #F8FAFC; text-transform: uppercase; color: #0D1B2A; font-weight: bold; }
+                    .logo { max-width: 240px; margin-bottom: 15px; display: block; }
+                    .report-scope-callout { background: #F8FAFC; border-left: 4px solid #006837; padding: 15px; border-radius: 0 4px 4px 0; margin-bottom: 30px; font-size: 15px; border: 1px solid #E2E8F0; border-left-width: 4px; }
+                    .report-scope-callout strong { color: #006837; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 4px; }
+                    .diagram-large-view-frame { width: 100%; padding: 10px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 6px; margin-bottom: 40px; }
+                    .footer { margin-top: 60px; font-size: 11px; color: #718096; border-top: 1px dashed #CBD5E0; padding-top: 15px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+                    @media print { 
+                        body { margin: 0; padding: 10px; max-width: 100%; } 
+                        .diagram-large-view-frame { border: 1px solid #CBD5E0 !important; page-break-inside: avoid; }
+                        table { page-break-inside: auto; }
+                        tr { page-break-inside: avoid; page-break-after: auto; }
+                    }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Pareto Prioritisation Assessment</h1>
+                <div class="meta-subtitle">Analytical Subsystem Track: Weighted Data Diagnostics Matrix // Process Compiled: ${new Date().toLocaleDateString('en-GB')}</div>
+                
+                <div class="report-scope-callout">
+                    <strong>Target Audit Boundary Scope Context:</strong>
+                    "${escapeHtml(appState.scope || 'Not defined.')}"
+                </div>
+
+                <div class="diagram-large-view-frame">
+                    ${svgSourceDataString}
+                </div>
+
+                <div style="page-break-before: always;">
+                    <h1>Sorted Failure Attribute Breakdown Registry</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">Rank</th>
+                                <th>Defect Category / Non-Conformance Descriptor</th>
+                                <th style="width: 120px;">Frequency Value</th>
+                                <th style="width: 120px;">Contribution %</th>
+                                <th style="width: 150px;">Cumulative Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHTML || '<tr><td colspan="5" style="text-align:center; font-style:italic; color:#A0AEC0;">No data matrix layers registered.</td></tr>'}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="footer">
+                    Secured via Zero-Knowledge Verification Infrastructure - Empowering Engineers UK Matrix Core
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        function escapeHtml(str) {
+            if(!str) return "";
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

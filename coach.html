@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="The Master Engineering Management & Strategy Command Hub. Centralise, monitor, and audit your SWOT, DMAIC, Monte Carlo, OKRs, GROW, and STAR sub-framework arrays to satisfy UK-SPEC Competence C requirements.">
+    <meta name="keywords" content="Engineering Management, Strategy Hub, Business Planning, Process Improvement, Decision Risk, Goal Setting, Leadership Feedback, UK-SPEC Competence C, CEng, IEng">
+    <meta property="og:title" content="Engineering Management & Strategy Hub | Empowering Engineers UK">
+    <meta property="og:description" content="The master executive gateway and diagnostic milestone tracking cockpit for advanced engineering business execution frameworks under UK-SPEC guidelines.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/coach.html">
+    <meta property="og:type" content="website">
+    
+    <title>Management & Strategy Command Hub | Empowering Engineers UK</title>    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/coach.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Management & Strategy Command Hub",
+      "url": "https://www.empoweringengineers.uk/coach.html",
+      "description": "The unified entry cockpit and diagnostic tracking index for professional engineering leadership, strategy execution, and process validation modules under Engineering Council UK-SPEC standards.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+        
+        .thick-content {
+            padding: 25px 5% 45px 5%;
+            color: var(--cloud-white);
+            line-height: 1.75;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .thick-content a {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .thick-content a:hover {
+            color: var(--terminal-green);
+            text-decoration: underline;
+        }
+
+        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 14px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 6px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Programmatic Metric Indicators */
+        .branch-count-badge {
+            font-size: 0.75rem;
+            background: var(--midnight-navy);
+            color: var(--cloud-white);
+            padding: 2px 6px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-left: 6px;
+            font-family: monospace;
+        }
+
+        /* High Contrast Square Status Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: var(--dark-card);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 20px;
+            height: 20px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 12px;
+        }
+        
+        /* Command Center Cockpit Layout Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hub-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-top-color: var(--terminal-green);
+        }
+
+        .hub-card-title {
+            color: var(--terminal-green);
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-card-desc {
+            color: var(--slate-grey);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* High Density Sub-Link List Module */
+        .sub-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .sub-link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: var(--midnight-navy);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.88rem;
+            text-decoration: none;
+            color: var(--cloud-white);
+            font-weight: 700;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .sub-link-item:hover {
+            border-color: var(--terminal-green);
+            background-color: var(--hover-green);
+        }
+
+        .sub-link-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .master-cta-box {
+            background: rgba(3, 247, 160, 0.04);
+            border: 2px solid var(--ee-terminal-green);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(3, 247, 160, 0.05);
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Purge corrupted repository navigation cache layers instantly before content binding loops -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Engineering Management, Strategy Alignment & Organizational Operational Excellence</h1>
+            <p>Welcome to the master operational directory and diagnostic command cockpit for orchestrating corporate strategies, continuous process optimization programs, and multi-disciplinary project workflows. Progressing into senior technical ranks, corporate directorships, or principal consultant tracks necessitates far more than siloed calculations, software programming literacy, or basic asset design parameters. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC), candidates seeking Chartership (CEng) or Incorporated (IEng) registration are subjected to strict evaluations regarding operational management. Specifically, <strong>Competence C (Responsibility, management, or leadership)</strong> mandates that professionals demonstrate systemic control over capital resource distributions, quality assurance gates, regulatory safety liabilities, and high-performance team coaching networks.</p>
+            
+            <h2>Decoupling Technical Leadership: Structural Moats and Value Innovation</h2>
+            <p>True technical leadership does not separate engineered designs from commercial context. A sudden geopolitical shift, an inflationary adjustment in procurement indexes, or a regulatory tightening of health, safety, and environmental registers will instantly transform first-principles engineering mathematics. For example, fluctuations in global steel or raw polymer pricing indices will immediately alter the lifecycle cost calculations (CapEx vs. OpEx) of major capital infrastructure layouts. Technical directors who operate without strategic foresight risk building systems that are non-viable before commissioning.</p>
+            <p>By executing rigorous, continuous audits across our six integrated management branches, engineering leads can map exact vulnerability vectors. This structured approach allows teams to align macro-environmental constraints directly with internal asset reserves, using the <strong>Resource-Based View (RBV)</strong> to isolate corporate competencies that are valuable, rare, and inimitable. This holistic documentation provides robust, audit-ready evidence arrays for institutional portfolios, proving to professional review panels that your engineering leadership is backed by absolute commercial command and lifecycle structural resiliency.</p>
+
+            <h2>Continuous Optimization, Risk Mitigation, and Performance Tracking</h2>
+            <p>Modern engineering operations are structurally vulnerable to schedule expansion, supply chain volatility, and scope drift. Mitigating these risks mandates the strict integration of advanced metrics—including lean manufacturing tools, statistical risk variations, and structured developmental scorecards. Leveraging these tools enables technical leads to transcend low-margin commodity competition, systematically driving value innovation that elevates performance parameters while containing operational overheads. Furthermore, structuring documentation across these distinct diagnostic fields establishes comprehensive compliance with the Construction (Design and Management) Regulations 2015, reinforcing active asset safety while maintaining precise alignment with corporate financial targets.</p>
+
+            <h2>Absolute Data Sovereignty via Zero-Knowledge Architecture</h2>
+            <p>Acknowledging that lead engineers, management consultants, and project directors regularly process highly classified financial baselines, proprietary layout schematics, and sensitive client-side parameters, this cockpit enforces a strict, zero-knowledge local browser architecture. Every strategy matrix text block, process improvement map step, and behavioral feedback transcript you develop is handled entirely within your local machine's memory boundaries. No corporate data ever traverses external network layers or remote server systems. This provides absolute data sovereignty and complete compliance with corporate non-disclosure agreements (NDAs). Use our **Live Strategic Command Subsystem** below to verify completion metrics across all fifty-seven dedicated workbenches in real-time.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Management Framework Breadcrumb with Programmatic Completion Badges -->
+        <nav class="ee-horizontal-nav" id="managementMasterNav" aria-label="Management Framework Hub Pathway">
+			<a href="coach.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach Hub</span>
+			</a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_strategy"></div>
+                <span class="tab-label">Strategy <span class="branch-count-badge" id="lbl_cnt_strategy">0/12</span></span>
+            </a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_quality"></div>
+                <span class="tab-label">Quality <span class="branch-count-badge" id="lbl_cnt_quality">0/9</span></span>
+            </a>
+            <a href="decisions.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_decisions"></div>
+                <span class="tab-label">Decisions <span class="branch-count-badge" id="lbl_cnt_decisions">0/7</span></span>
+            </a>
+            <a href="goals.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_goals"></div>
+                <span class="tab-label">Goals <span class="branch-count-badge" id="lbl_cnt_goals">0/13</span></span>
+            </a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_feedback"></div>
+                <span class="tab-label">Feedback <span class="branch-count-badge" id="lbl_cnt_feedback">0/6</span></span>
+            </a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_communication"></div>
+                <span class="tab-label">Comms <span class="branch-count-badge" id="lbl_cnt_communication">0/10</span></span>
+            </a>
+        </nav>
+
+        <!-- Global Master Dashboard Actions -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">COACH COMMAND</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Management & Leadership Cockpit Matrix</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
+                <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Focus Context:</label>
+                <select class="ee-select" id="hubContextSelect" style="min-width: 240px; min-height: 48px; background: var(--input-bg);" onchange="switchHubContext()">
+                    <option value="corporate">Enterprise Strategy Configuration</option>
+                    <option value="process">Continuous Process Optimisation</option>
+                    <option value="risk">Risk Mitigation & Governance</option>
+                </select>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterCoachReport()">📸 Compile Management Audit Report</button>
+            </div>
+        </div>
+
+        <!-- Master Portfolio Routing Component Box -->
+        <div class="master-cta-box">
+            <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.4rem; margin-top: 0; margin-bottom: 12px;">Active Management Execution Alignment</h2>
+            <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 780px; margin-left: auto; margin-right: auto;">
+                Select your target focus layout mode via the context selector block above to instantly route your session directly into the primary optimized workspace engine.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="btnLaunchContextWorkspace" class="action-btn" style="min-height: 52px; font-size: 1rem; padding: 0 25px;" onclick="routeToContextWorkspace()">Launch Target Workspace Framework →</button>
+            </div>
+        </div>
+
+        <!-- High-Density Systems Command Layout Grid Matrix -->
+        <div class="hub-grid">
+            
+            <!-- Category Card 1: Strategy & Business Planning -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>1. Strategy & Planning</span>
+                    <span id="check_branch_strategy"></span>
+                </div>
+                <p class="hub-card-desc">Evaluate industrial competitive boundaries, project lifecycle positions, value differentiators, and macro commercial risk factors.</p>
+                <div class="sub-link-list">
+                    <a href="strategy-swot.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_strategy_swot"></span> SWOT Analysis</span> <span>&rarr;</span></a>
+                    <a href="strategy-pestle.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_strategy_pestle"></span> PESTLE Structure</span> <span>&rarr;</span></a>
+                    <a href="strategy-porters.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_strategy_porters"></span> Porter's 5 Forces</span> <span>&rarr;</span></a>
+                    <a href="strategy-blue-ocean.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_strategy_blue-ocean"></span> Blue Ocean Strategy</span> <span>&rarr;</span></a>
+                </div>
+                <a href="strategy.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 12 Strategy Tools</a>
+            </div>
+            
+            <!-- Category Card 2: Process & Quality Improvement -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>2. Process & Quality</span>
+                    <span id="check_branch_quality"></span>
+                </div>
+                <p class="hub-card-desc">Isolate root-cause operational defect variations, map high-density process flows, and configure lean manufacturing gates.</p>
+                <div class="sub-link-list">
+                    <a href="quality-pdca.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_quality_pdca"></span> PDCA Cycle</span> <span>&rarr;</span></a>
+                    <a href="quality-dmaic.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_quality_dmaic"></span> DMAIC Problem Solving</span> <span>&rarr;</span></a>
+                    <a href="quality-vsm.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_quality_vsm"></span> Value Stream Mapping</span> <span>&rarr;</span></a>
+                    <a href="quality-5whys.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_quality_5whys"></span> 5 Whys Root Cause</span> <span>&rarr;</span></a>
+                </div>
+                <a href="quality.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 9 Quality Tools</a>
+            </div>
+
+            <!-- Category Card 3: Decision Making & Risk Management -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>3. Decisions & Risk</span>
+                    <span id="check_branch_decisions"></span>
+                </div>
+                <p class="hub-card-desc">Quantify structural project risk models, establish cost-benefit vectors, and navigate shifting tactical layouts.</p>
+                <div class="sub-link-list">
+                    <a href="decisions-monte-carlo.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_decisions_monte-carlo"></span> Monte Carlo Inputs</span> <span>&rarr;</span></a>
+                    <a href="decisions-tree.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_decisions_tree"></span> Decision Tree Graph</span> <span>&rarr;</span></a>
+                    <a href="decisions-cba.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_decisions_cba"></span> Cost-Benefit Analysis</span> <span>&rarr;</span></a>
+                    <a href="decisions-risk-matrix.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_decisions_risk-matrix"></span> Risk Assessment Matrix</span> <span>&rarr;</span></a>
+                </div>
+                <a href="decisions.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 7 Risk Tools</a>
+            </div>
+
+            <!-- Category Card 4: Goal Setting & Performance -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>4. Goals & Performance</span>
+                    <span id="check_branch_goals"></span>
+                </div>
+                <p class="hub-card-desc">Configure engineering target scorecards, establish clear milestone dependencies, and map organizational deployment vectors.</p>
+                <div class="sub-link-list">
+                    <a href="goals-smart.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_goals_smart"></span> SMART Metrics</span> <span>&rarr;</span></a>
+                    <a href="goals-okrs.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_goals_okrs"></span> Objectives & Key Results</span> <span>&rarr;</span></a>
+                    <a href="goals-scorecard.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_goals_scorecard"></span> Balanced Scorecard</span> <span>&rarr;</span></a>
+                    <a href="goals-woop.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_goals_woop"></span> WOOP Action Plan</span> <span>&rarr;</span></a>
+                </div>
+                <a href="goals.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 13 Performance Tools</a>
+            </div>
+
+            <!-- Category Card 5: Feedback & Coaching -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>5. Feedback & Coaching</span>
+                    <span id="check_branch_feedback"></span>
+                </div>
+                <p class="hub-card-desc">Architect professional mentorship tracking loops, analyze communication failures, and manage behavioral development teams.</p>
+                <div class="sub-link-list">
+                    <a href="feedback-grow.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_feedback_grow"></span> GROW Model Guide</span> <span>&rarr;</span></a>
+                    <a href="feedback-sbi.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_feedback_sbi"></span> Situation-Behaviour-Impact</span> <span>&rarr;</span></a>
+                    <a href="feedback-cedar.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_feedback_cedar"></span> CEDAR Dialogue</span> <span>&rarr;</span></a>
+                    <a href="feedback-coin.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_feedback_coin"></span> COIN Integration</span> <span>&rarr;</span></a>
+                </div>
+                <a href="feedback.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 6 Feedback Tools</a>
+            </div>
+
+            <!-- Category Card 6: Interview & Communication -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>6. Professional Comms</span>
+                    <span id="check_branch_communication"></span>
+                </div>
+                <p class="hub-card-desc">Translate complex technical parameters into actionable data summaries for commercial stakeholders and review boards.</p>
+                <div class="sub-link-list">
+                    <a href="communication-storytelling.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_comm_storytelling"></span> Technical Storytelling</span> <span>&rarr;</span></a>
+                    <a href="communication-star.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_comm_star"></span> STAR Narrative Builder</span> <span>&rarr;</span></a>
+                    <a href="communication-car.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_comm_car"></span> CAR Focus Framework</span> <span>&rarr;</span></a>
+                    <a href="communication-fab.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_comm_fab"></span> FAB Value Pitch</span> <span>&rarr;</span></a>
+                </div>
+                <a href="communication.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">All 10 Comms Tools</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        // Unique operational module namespace string
+        const EE_TOOL_ID = "ee_management_master_hub";
+        let targetedWorkspaceUrl = "strategy.html";
+
+        // --- HUB WORKSPACE CONTEXT NAVIGATION SUBSYSTEM ---
+        function switchHubContext() {
+            const contextFlag = document.getElementById('hubContextSelect').value;
+            const actionBtnDOM = document.getElementById('btnLaunchContextWorkspace');
+            
+            // Map context variables to primary active file endpoints logically
+            if (contextFlag === "corporate") {
+                targetedWorkspaceUrl = "strategy.html";
+                actionBtnDOM.innerText = "Launch Strategy Command Portal →";
+            } else if (contextFlag === "process") {
+                targetedWorkspaceUrl = "quality.html";
+                actionBtnDOM.innerText = "Launch Quality & Process Portal →";
+            } else if (contextFlag === "risk") {
+                targetedWorkspaceUrl = "decisions.html";
+                actionBtnDOM.innerText = "Launch Risk & Decisions Portal →";
+            }
+            
+            // Retain choice parameters within standard sandbox memory string to guarantee state resilience
+            localStorage.setItem(EE_TOOL_ID + '_active_context', contextFlag);
+        }
+
+        function routeToContextWorkspace() {
+            window.location.href = targetedWorkspaceUrl;
+        }
+
+        // --- PROGRAMMATIC LOCAL DATA LAYER SCRAPER ---
+        // Zero-knowledge engine audits local browser buffers without transmitting proprietary corporate data grids
+        function parseToolTextLog(toolKeyStr) {
+            const structuralString = localStorage.getItem(toolKeyStr);
+            if (!structuralString) return false;
+            try {
+                const parsedJSON = JSON.parse(structuralString);
+                return Object.values(parsedJSON).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (err) {
+                // Secondary fallback evaluation for unformatted string storage entries
+                return structuralString.trim().length > 0;
+            }
+        }
+
+        function buildTickUI(isCompleteFlag) {
+            return isCompleteFlag ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateSubpageDiagnosticBadges() {
+            // Mapping the complete 57 sub-framework local registry keys across the COACH taxonomy space
+            const taxonomyMasterRegistry = {
+                strategy: [
+                    { id: 'swot', key: 'ee_strategy_swot' },
+                    { id: 'pestle', key: 'ee_strategy_pestle' },
+                    { id: 'porters', key: 'ee_strategy_porters' },
+                    { id: 'vrio', key: 'ee_strategy_vrio' },
+                    { id: 'bcg', key: 'ee_strategy_bcg' },
+                    { id: 'ansoff', key: 'ee_strategy_ansoff' },
+                    { id: 'scenarios', key: 'ee_strategy_scenarios' },
+                    { id: 'value-chain', key: 'ee_strategy_value-chain' },
+                    { id: 'blue-ocean', key: 'ee_strategy_blue-ocean' },
+                    { id: 'bmc', key: 'ee_strategy_bmc' },
+                    { id: 'soar', key: 'ee_strategy_soar' },
+                    { id: 'map', key: 'ee_strategy_map' }
+                ],
+                quality: [
+                    { id: 'pdca', key: 'ee_quality_pdca' },
+                    { id: 'dmaic', key: 'ee_quality_dmaic' },
+                    { id: 'vsm', key: 'ee_quality_vsm' },
+                    { id: '5whys', key: 'ee_quality_5whys' },
+                    { id: 'fishbone', key: 'ee_quality_fishbone' },
+                    { id: 'pareto', key: 'ee_quality_pareto' },
+                    { id: 'kanban', key: 'ee_quality_kanban' },
+                    { id: 'poka-yoke', key: 'ee_quality_poka-yoke' },
+                    { id: 'sipoc', key: 'ee_quality_sipoc' }
+                ],
+                decisions: [
+                    { id: 'monte-carlo', key: 'ee_decisions_monte-carlo' },
+                    { id: 'tree', key: 'ee_decisions_tree' },
+                    { id: 'cba', key: 'ee_decisions_cba' },
+                    { id: 'risk-matrix', key: 'ee_decisions_risk-matrix' },
+                    { id: 'force-field', key: 'ee_decisions_force-field' },
+                    { id: 'ooda', key: 'ee_decisions_ooda' },
+                    { id: 'wrap', key: 'ee_decisions_wrap' }
+                ],
+                goals: [
+                    { id: 'smart', key: 'ee_goals_smart' },
+                    { id: 'okrs', key: 'ee_goals_okrs' },
+                    { id: 'scorecard', key: 'ee_goals_scorecard' },
+                    { id: 'bhag', key: 'ee_goals_bhag' },
+                    { id: 'backward', key: 'ee_goals_backward' },
+                    { id: 'golden-circle', key: 'ee_goals_golden-circle' },
+                    { id: 'pyramid', key: 'ee_goals_pyramid' },
+                    { id: 'tiered', key: 'ee_goals_tiered' },
+                    { id: 'hard', key: 'ee_goals_hard' },
+                    { id: 'gsm', key: 'ee_goals_gsm' },
+                    { id: 'woop', key: 'ee_goals_woop' },
+                    { id: 'five-principles', key: 'ee_goals_five-principles' },
+                    { id: 'one-word', key: 'ee_goals_one-word' }
+                ],
+                feedback: [
+                    { id: 'grow', key: 'ee_feedback_grow' },
+                    { id: 'sbi', key: 'ee_feedback_sbi' },
+                    { id: 'cedar', key: 'ee_feedback_cedar' },
+                    { id: 'pendletons', key: 'ee_feedback_pendletons' },
+                    { id: 'coin', key: 'ee_feedback_coin' },
+                    { id: 'bsq', key: 'ee_feedback_bsq' }
+                ],
+                communication: [
+                    { id: 'storytelling', key: 'ee_comm_storytelling' },
+                    { id: 'star', key: 'ee_comm_star' },
+                    { id: 'car', key: 'ee_comm_car' },
+                    { id: 'soar', key: 'ee_comm_soar' },
+                    { id: 'parla', key: 'ee_comm_parla' },
+                    { id: 'fab', key: 'ee_comm_fab' },
+                    { id: 'sao', key: 'ee_comm_sao' },
+                    { id: 'share', key: 'ee_comm_share' },
+                    { id: 'dare', key: 'ee_comm_dare' },
+                    { id: 'caps', key: 'ee_comm_caps' }
+                ]
+            };
+
+            let globalCoachHasContent = false;
+
+            // Iterate through every category branch to run completion analytics checks
+            Object.keys(taxonomyMasterRegistry).forEach(branchKey => {
+                const subfileArray = taxonomyMasterRegistry[branchKey];
+                let completedCounter = 0;
+
+                subfileArray.forEach(item => {
+                    const statusVal = parseToolTextLog(item.key);
+                    if (statusVal) {
+                        completedCounter++;
+                        globalCoachHasContent = true;
+                    }
+
+                    // Attempt dynamic verification update for UI elements rendered in preview list columns
+                    const linkTickDOM = document.getElementById(`tick_${branchKey}_${item.id}`) || document.getElementById(`tick_comm_${item.id}`);
+                    if (linkTickDOM) {
+                        linkTickDOM.innerHTML = buildTickUI(statusVal);
+                    }
+                });
+
+                // Render programmatic count metrics into horizontal navigation bar loops
+                const countBadgeDOM = document.getElementById(`lbl_cnt_${branchKey}`);
+                if (countBadgeDOM) {
+                    countBadgeDOM.innerText = `${completedCounter}/${subfileArray.length}`;
+                }
+
+                // Update structural header markers for main overview folders
+                const branchTitleTickDOM = document.getElementById(`check_branch_${branchKey}`);
+                if (branchTitleTickDOM) {
+                    branchTitleTickDOM.innerHTML = buildTickUI(completedCounter > 0);
+                }
+                const branchNavBadgeDOM = document.getElementById(`badge_nav_${branchKey}`);
+                if (branchNavBadgeDOM) {
+                    branchNavBadgeDOM.innerHTML = buildTickUI(completedCounter === subfileArray.length);
+                }
+            });
+
+            // Master level checklist indicator mapping for coach.html landing node
+            document.getElementById('badge_coach').innerHTML = buildTickUI(globalCoachHasContent);
+        }
+
+        // --- CONSOLIDATED MASTER REPORT COMPILER ---
+        // Automatically aggregates active local storage records across all management streams into a single clean printable view sheet
+        function generateMasterCoachReport() {
+            const targetedScope = document.getElementById('hubContextSelect').value.toUpperCase();
+            
+            // Comprehensive structural translation mapping containing every sub-workbench configuration string
+            const masterReportRegistry = {
+                'SWOT Analysis Matrix': 'ee_strategy_swot',
+                'PESTLE Strategic Structure': 'ee_strategy_pestle',
+                'Porter\'s Five Forces Framework': 'ee_strategy_porters',
+                'VRIO Resource Checklist': 'ee_strategy_vrio',
+                'BCG Matrix Portfolio Log': 'ee_strategy_bcg',
+                'Ansoff Growth Expansion Grid': 'ee_strategy_ansoff',
+                'Scenario Foresight Planning': 'ee_strategy_scenarios',
+                'Value Chain Activity Architecture': 'ee_strategy_value-chain',
+                'Blue Ocean Value Innovation ERRC': 'ee_strategy_blue-ocean',
+                'Business Model Canvas Blueprint': 'ee_strategy_bmc',
+                'SOAR Strategy Assessment Profile': 'ee_strategy_soar',
+                'Balanced Scorecard Strategy Map': 'ee_strategy_map',
+                'PDCA Continuous Improvement Loop': 'ee_quality_pdca',
+                'DMAIC Problem Solving Architecture': 'ee_quality_dmaic',
+                'Value Stream Map Operational Analysis': 'ee_quality_vsm',
+                '5 Whys Root Cause Diagnosis Chain': 'ee_quality_5whys',
+                'Ishikawa Fishbone Structural Vector': 'ee_quality_fishbone',
+                'Pareto Analysis Disruption Filter': 'ee_quality_pareto',
+                'Kanban Workflow Operational Board': 'ee_quality_kanban',
+                'Poka-Yoke Mistake Proofing Registry': 'ee_quality_poka-yoke',
+                'SIPOC Process Topography Map': 'ee_quality_sipoc',
+                'Monte Carlo Simulation Parameter Set': 'ee_decisions_monte-carlo',
+                'Decision Tree Optimization Graph': 'ee_decisions_tree',
+                'Cost-Benefit Analysis Financial Model': 'ee_decisions_cba',
+                'Risk Assessment Governance Matrix': 'ee_decisions_risk-matrix',
+                'Force Field Change Barrier Audit': 'ee_decisions_force-field',
+                'OODA Loop Tactical Action Tracker': 'ee_decisions_ooda',
+                'WRAP Alternative Decision Filter': 'ee_decisions_wrap',
+                'SMART Goal Structural Target Sheet': 'ee_goals_smart',
+                'Objectives & Key Results (OKRs) Scorecard': 'ee_goals_okrs',
+                'Balanced Scorecard Performance Map': 'ee_goals_scorecard',
+                'Big Hairy Audacious Goal (BHAG) Vision': 'ee_goals_bhag',
+                'Backward Goal Sequence Path': 'ee_goals_backward',
+                'The Golden Circle Purpose Outline': 'ee_goals_golden-circle',
+                'Goals Structural Execution Pyramid': 'ee_goals_pyramid',
+                'Tiered Functional Milestone Matrix': 'ee_goals_tiered',
+                'HARD Performance Commitment Profile': 'ee_goals_hard',
+                'Goals, Signals, Measures (GSM) Tracker': 'ee_goals_gsm',
+                'WOOP Behavioral Aspiration Framework': 'ee_goals_woop',
+                'Locke & Latham 5 Principles Audit': 'ee_goals_five-principles',
+                'One Word Team Goal Focus Node': 'ee_goals_one-word',
+                'GROW Coaching Iteration Protocol': 'ee_feedback_grow',
+                'Situation-Behaviour-Impact (SBI) Log': 'ee_feedback_sbi',
+                'CEDAR Performance Dialogue Model': 'ee_feedback_cedar',
+                'Pendleton Rules Reflective Review': 'ee_feedback_pendletons',
+                'COIN Interpersonal Feedback Array': 'ee_feedback_coin',
+                'Big Small Quick (BSQ) Coaching Track': 'ee_feedback_bsq',
+                'Technical Storytelling Architecture': 'ee_comm_storytelling',
+                'STAR Performance Interview Blueprint': 'ee_comm_star',
+                'CAR Operational Competence Script': 'ee_comm_car',
+                'SOAR Competency Interview Model': 'ee_comm_soar',
+                'PARLA Reflective Learning Review': 'ee_comm_parla',
+                'FAB PERSUASIVE PITCH MODEL': 'ee_comm_fab',
+                'SAO Structural Situation Summary': 'ee_comm_sao',
+                'SHARE Operational Management Directive': 'ee_comm_share',
+                'DARE Conflict Resolution Paradigm': 'ee_comm_dare',
+                'CAPS Technical Assessment Review': 'ee_comm_caps'
+            };
+
+            let compilationHTML = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>Master Engineering Management Audit Sheet</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #2D3748; max-width: 960px; margin: 40px auto; padding: 20px; background: #FFF; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 12px; text-transform: uppercase; font-size: 24px; margin-bottom: 25px;}
+                    h2 { color: #006837; margin-top: 40px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; text-transform: uppercase; font-size: 18px; padding-left: 2px;}
+                    h3 { color: #C05621; font-size: 14px; margin-top: 18px; font-weight: bold; text-transform: uppercase; }
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F7FAFC; padding: 14px; border-radius: 4px; border: 1px solid #E2E8F0; color: #2D3748; }
+                    .logo-box { max-width: 260px; margin-bottom: 25px; }
+                    .meta-card { background: #0D1B2A; color: #FFF; padding: 22px; border-radius: 6px; margin-bottom: 35px; font-size: 14px; line-height: 1.6; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+                    .meta-card strong { color: #03F7A0; }
+                    .footer-tag { margin-top: 60px; font-size: 0.85rem; color: #A0AEC0; border-top: 1px dashed #E2E8F0; padding-top: 25px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+                    @media print { body { margin: 0; padding: 0; max-width: 100%; } .meta-card { background: #F7FAFC; color: #000; border: 1px solid #CBD5E0; } .meta-card strong { color: #000; } p { background: none; border: 1px solid #CBD5E0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo-box" alt="Empowering Engineers UK Master Emblem">
+                <h1>Master Engineering Management Audit Sheet</h1>
+                <div class="meta-card">
+                    <strong>Operational Alignment Focus:</strong> ${targetedScope} Matrix Configuration Tracking<br>
+                    <strong>Extraction Generation Timestamp:</strong> ${new Date().toLocaleString('en-GB')}<br>
+                    <strong>Sovereignty Protocol:</strong> Client-Side Cryptographic Local Cache Extraction Layer<br>
+                </div>`;
+
+            let capturedRecordsCounter = 0;
+
+            Object.keys(masterReportRegistry).forEach(titleStr => {
+                const storedPayload = localStorage.getItem(masterReportRegistry[titleStr]);
+                if (storedPayload) {
+                    try {
+                        const parsedFields = JSON.parse(storedPayload);
+                        let moduleHasValidStrings = false;
+                        let fieldHTMLCollector = "";
+
+                        Object.keys(parsedFields).forEach(fieldKey => {
+                            const valueString = parsedFields[fieldKey];
+                            if (valueString && typeof valueString === 'string' && valueString.trim().length > 0) {
+                                moduleHasValidStrings = true;
+                                fieldHTMLCollector += `<h3>Dimension: ${fieldKey.toUpperCase().replace(/_/g, ' ')}</h3>`;
+                                fieldHTMLCollector += `<p>${valueString.trim()}</p>`;
+                            }
+                        });
+
+                        if (moduleHasValidStrings) {
+                            compilationHTML += `<h2>${titleStr}</h2>`;
+                            compilationHTML += fieldHTMLCollector;
+                            capturedRecordsCounter++;
+                        }
+                    } catch (err) {
+                        // Attempt flat content parsing if JSON mapping format encounters anomalies
+                        if (typeof storedPayload === 'string' && storedPayload.trim().length > 0) {
+                            compilationHTML += `<h2>${titleStr}</h2>`;
+                            compilationHTML += `<p>${storedPayload.trim()}</p>`;
+                            capturedRecordsCounter++;
+                        }
+                    }
+                }
+            });
+
+            if (capturedRecordsCounter === 0) {
+                compilationHTML += `<div style="padding: 40px; border: 2px dashed #CBD5E0; border-radius: 6px; text-align: center; color: #718096; font-style: italic; margin-top: 20px; font-weight: 700; background: #F7FAFC;">
+                    No operational text data arrays identified across your local browser storage profiles. Complete individual framework modules within the COACH hierarchy to compile audit evidence summaries.
+                </div>`;
+            }
+
+            compilationHTML += `
+                <div class="footer-tag">
+                    Generated Natively via Empowering Engineers UK - Executive COACH Subsystem Master Compiler Engine
+                </div>
+            </body>
+            </html>`;
+
+            const printFrameWindow = window.open('', '_blank');
+            if (printFrameWindow) {
+                printFrameWindow.document.write(compilationHTML);
+                printFrameWindow.document.close();
+            } else {
+                alert("Viewport extraction blocked! Please unlock popup execution permissions within your browser software to enable master document compilation sheets.");
+            }
+        }
+
+        // --- SUBSYSTEM INITIALISATION ---
+        function initApp() {
+            // Restore chosen context path parameters seamlessly across page refreshes
+            const cachedContext = localStorage.getItem(EE_TOOL_ID + '_active_context');
+            if (cachedContext) {
+                document.getElementById('hubContextSelect').value = cachedContext;
+            }
+            switchHubContext();
+            updateSubpageDiagnosticBadges();
+            console.log("System Status: Operational Leadership Command Cockpit synchronised. Cache diagnostic matrix active.");
+        }
+    </script>
+</body>
+</html>

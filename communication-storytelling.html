@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Technical Storytelling architecture workbench. Systematically structure complex project narratives using Context, Conflict, Climax, and Resolution metrics to secure professional institutional sign-offs and satisfy UK-SPEC Competence D. Secure client-side memory engine.">
+    <meta name="keywords" content="Technical Storytelling, Engineering Narratives, Narrative Arc, UK-SPEC Competence D, Professional Communication, Executive Briefings, PRI Preparation, CEng, IEng">
+    <meta property="og:title" content="Technical Storytelling Architecture Workbench | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, high-density client-side professional evidence development portal engineered specifically for principal engineers, project leads, and chartered candidates.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-storytelling.html">
+    <meta property="og:type" content="website">
+    
+    <title>Technical Storytelling Arc | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Technical Storytelling Architecture Workbench",
+      "url": "https://www.empoweringengineers.uk/communication-storytelling.html",
+      "description": "An interactive framework enabling engineering professionals to construct data-driven narrative arcs that explicitly translate complex designs into clear stakeholder value.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- STORYTELLING GRID STYLING --- */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .story-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .story-card.context-card { border-top: 4px solid var(--burnt-orange); }
+        .story-card.conflict-card { border-top: 4px solid var(--burnt-orange); }
+        .story-card.climax-card { border-top: 4px solid var(--terminal-green); }
+        .story-card.resolution-card { border-top: 4px solid var(--terminal-green); }
+
+        .story-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .context-label { color: var(--burnt-orange) !important; }
+        .conflict-label { color: var(--burnt-orange) !important; }
+        .climax-label { color: var(--terminal-green) !important; }
+        .resolution-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Technical Storytelling Architecture: Elevating Communication under UK-SPEC</h1>
+            <p>
+                In the delivery of modern multi-million-pound engineering programs, raw data and mathematical calculations are rarely sufficient to secure systemic buy-in. Across complex sectors such as civil transport infrastructure, high-hazard process engineering, and aerospace asset lifecycles, senior technical professionals are increasingly required to translate dense computational matrices into compelling, actionable strategic value. The Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) acknowledges this imperative explicitly within **Competence D (Communication and Interpersonal Skills)**. To achieve registration as a Chartered Engineer (CEng) or Incorporated Engineer (IEng), candidates must prove they can lead multi-disciplinary reviews and communicate critical data structures transparently to non-technical financial stakeholders and executive boards.
+            </p>
+            <p>
+                The **Technical Storytelling Architecture** utilizes classic dramatic composition theory—adapting the structural narrative arc into an objective, data-focused engineering delivery matrix. Instead of presenting flat chronological logs of site events, which often obscure individual accountability and dilute impact, this framework guides technical leaders through four distinct phases: **Context**, **Conflict**, **Climax**, and **Resolution**. By organizing project case studies into this structured flow, candidates ensure that professional review panels can instantly identify the severity of the operational problem, the sophistication of the engineering methodologies applied, and the empirical commercial value delivered by the candidate's independent decisions.
+            </p>
+
+            <h2>Analyzing the Four Phases of the Technical Narrative Arc</h2>
+            <p>
+                Constructing a compliant technical narrative requires an author to separate high-level background parameters from granular, action-oriented problem-solving gates:
+            </p>
+            <p>
+                <strong>Context [Co]:</strong> This initial block establishes the baseline project boundary rules, asset parameters, regulatory criteria, and commercial operating constraints. Technical leaders must outline the operational environment clearly, including financial baselines, material limits, and standard compliance specifications (such as Eurocodes, ASME, or ISO 9001). This phase anchors the narrative, defining what was running successfully before the emergence of the systemic bottleneck or asset failure.
+            </p>
+            <p>
+                <strong>Conflict [Cf]:</strong> The conflict represents the sudden emergence of a technical defect, material anomaly, safety risk, or macro supply chain vulnerability that threatens project viability. Authors must isolate the exact stress parameters of the crisis: e.g., how an unexpected soil degradation profile threatens structural load tolerances, or how a severe instrumentation lag violates strict hazard and operability (HAZOP) safety criteria. This phase establishes the critical need for advanced engineering intervention.
+            </p>
+            <p>
+                <strong>Climax [Cl]:</strong> This is the operational turning point and the core evidence field for your portfolio. The climax captures the high-intensity diagnostic period where *you* personally took command to resolve the conflict. Candidates must detail the specific first-principles mathematics applied, the structural finite element models executed, the script code optimized, or the engineering design reviews orchestrated. This phase eliminates ambiguous team descriptions, highlighting your specific professional accountability.
+            </p>
+            <p>
+                <strong>Resolution [Re]:</strong> The final phase documents the data-driven project outcomes resulting from your engineering actions. Review boards require clear empirical proof of success. Entries must quantify optimized performance parameters, validated safety clearances, capital expenditure containment, lifecycle carbon footprint drops, or formal regulatory sign-offs under the Construction (Design and Management) Regulations 2015.
+            </p>
+
+            <h2>Interactive Client-Side Storytelling Workbench</h2>
+            <p>
+                The interactive Technical Storytelling Workbench below is engineered to help engineering professionals systematically organize and refine their evidence narratives. To safeguard commercially sensitive strategy plans and protect proprietary corporate data matrices, our platform operates on a zero-knowledge client-side local browser architecture. Your descriptive text blocks are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever transmitted to remote networks. Use this toolkit to compile comprehensive narrative paths, export clean JSON data, or generate advanced AI prompts to optimize your interview preparations.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Technical Storytelling</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Narrative Structure & Professional Briefing Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="story-grid">
+                    
+                    <!-- Context Card -->
+                    <div class="story-card context-card">
+                        <label class="story-label context-label">Context</label>
+                        <span class="form-hint">What asset properties, design metrics, financial boundaries, regulatory standards, or baseline parameters formed the project scope? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Managing a high-pressure maritime pipeline link operating under strict DNV-ST-F101 safety criteria.</span></span>
+                        <textarea id="st_Context" class="form-input" placeholder="Define background constraints and asset parameters here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Conflict Card -->
+                    <div class="story-card conflict-card">
+                        <label class="story-label conflict-label">Conflict</label>
+                        <span class="form-hint">What structural failure, instrumentation breakdown, cost variance, or risk threshold threatened project viability? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Ultrasonic arrays discovered sudden stress-corrosion cracks, risking an immediate containment breach.</span></span>
+                        <textarea id="st_Conflict" class="form-input" placeholder="Define the technical flaw, breakdown, or risk criteria here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Climax Card -->
+                    <div class="story-card climax-card">
+                        <label class="story-label climax-label">Climax</label>
+                        <span class="form-hint">What first-principles calculations, custom models, script updates, or design interventions did you personally execute to resolve the crisis? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Formulated transient hydrodynamic models and personally authorized customized structural reinforcement wraps.</span></span>
+                        <textarea id="st_Climax" class="form-input" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Resolution Card -->
+                    <div class="story-card resolution-card">
+                        <label class="story-label resolution-label">Resolution</label>
+                        <span class="form-hint">What data-driven results, performance improvements, carbon metrics, capital optimization, or sign-offs proved your intervention's success? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Restored 100% capacity safely, compressed project downtime by 5 days, and secured regulatory compliance.</span></span>
+                        <textarea id="st_Resolution" class="form-input" placeholder="State quantifiable engineering outcomes and standard sign-offs here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live narrative preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_comm_storytelling";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('st_Context').value = data.Context || '';
+                    document.getElementById('st_Conflict').value = data.Conflict || '';
+                    document.getElementById('st_Climax').value = data.Climax || '';
+                    document.getElementById('st_Resolution').value = data.Resolution || '';
+                } catch (e) {
+                    console.error("Failed to parse stored Storytelling state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const context = document.getElementById('st_Context').value.trim();
+            const conflict = document.getElementById('st_Conflict').value.trim();
+            const climax = document.getElementById('st_Climax').value.trim();
+            const resolution = document.getElementById('st_Resolution').value.trim();
+
+            let output = `=== TECHNICAL STORYTELLING: NARRATIVE ARC ===\n\n`;
+            output += `[CONTEXT]:\n${context ? context : '...\n'}\n`;
+            output += `[CONFLICT]:\n${conflict ? conflict : '...\n'}\n`;
+            output += `[CLIMAX]:\n${climax ? climax : '...\n'}\n`;
+            output += `[RESOLUTION]:\n${resolution ? resolution : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = context || conflict || climax || resolution;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Context: context, Conflict: conflict, Climax: climax, Resolution: resolution };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Technical Storytelling architecture state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const context = document.getElementById('st_Context').value.trim();
+            const conflict = document.getElementById('st_Conflict').value.trim();
+            const climax = document.getElementById('st_Climax').value.trim();
+            const resolution = document.getElementById('st_Resolution').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = context || conflict || climax || resolution;
+
+            if (hasUserData) {
+                script += `[CONTEXT PARAMETERS]\n${context ? context : 'Not defined.'}\n\n`;
+                script += `[CONFLICT & OPERATIONAL CRISIS]\n${conflict ? conflict : 'Not defined.'}\n\n`;
+                script += `[CLIMAX & PERSONAL INTERVENTION]\n${climax ? climax : 'Not defined.'}\n\n`;
+                script += `[RESOLUTION & QUANTIFIABLE IMPACT]\n${resolution ? resolution : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[CONTEXT PARAMETERS]\ne.g., Directing structural integrity sign-offs across a commercial data cooling block operating under strict ISO 50001 thermal criteria.\n\n`;
+                script += `[CONFLICT & OPERATIONAL CRISIS]\ne.g., Computational loads surged, exceeding localized chiller tolerances by 22% and creating an immediate risk of a catastrophic localized hardware meltdown.\n\n`;
+                script += `[CLIMAX & PERSONAL INTERVENTION]\ne.g., Formulated finite element thermal dissipation scripts and restructured primary fluid loop sequencing to optimize flow distributions without downtime.\n\n`;
+                script += `[RESOLUTION & QUANTIFIABLE IMPACT]\ne.g., Arrested thermal spikes within 40 minutes, contained operational budgets by avoiding emergency component procurement, and validated long-term capacity lines.\n\n`;
+            }
+
+            const role = "Technical Narrative Consultant & UK-SPEC Review Panel Auditor";
+            const action = "Analyse this Technical Storytelling framework outline. 1. Identify structural blind spots, logic leaps, or text imbalances across the arc. 2. Critique if the climax section explicitly defines personal technical contribution vs generic team choices. 3. Evaluate if the resolution block offers data-driven, empirical proof of success to fully satisfy institutional review standards.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is an engineering professional validating documentation against UK-SPEC competence requirements (specifically Competence D). The format used is a Technical Storytelling Arc (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or rewrite sections for the user. Evaluate the layout text critically. Isolate structural vulnerabilities, ask targeted technical questions, and present a concise section-by-section audit report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the Storytelling canvas?")) {
+                document.getElementById('st_Context').value = '';
+                document.getElementById('st_Conflict').value = '';
+                document.getElementById('st_Climax').value = '';
+                document.getElementById('st_Resolution').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const context = document.getElementById('st_Context').value.trim();
+            const conflict = document.getElementById('st_Conflict').value.trim();
+            const climax = document.getElementById('st_Climax').value.trim();
+            const resolution = document.getElementById('st_Resolution').value.trim();
+
+            const state = { Context: context, Conflict: conflict, Climax: climax, Resolution: resolution };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Technical_Storytelling_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Context !== undefined || data.Conflict !== undefined || data.Climax !== undefined || data.Resolution !== undefined) {
+                        document.getElementById('st_Context').value = data.Context || '';
+                        document.getElementById('st_Conflict').value = data.Conflict || '';
+                        document.getElementById('st_Climax').value = data.Climax || '';
+                        document.getElementById('st_Resolution').value = data.Resolution || '';
+                        updatePreview();
+                        alert("Technical Storytelling dataset imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Technical Storytelling arc parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const context = document.getElementById('st_Context').value.trim();
+            const conflict = document.getElementById('st_Conflict').value.trim();
+            const climax = document.getElementById('st_Climax').value.trim();
+            const resolution = document.getElementById('st_Resolution').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Technical Storytelling Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .context { border-top: 4px solid #C05621; }
+                    .conflict { border-top: 4px solid #C05621; }
+                    .climax { border-top: 4px solid #006837; }
+                    .resolution { border-top: 4px solid #006837; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Technical Storytelling Case Report</h1>
+                <p><em>Framework: Interview & Professional Communication Arc // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card context">
+                        <h2>Context</h2>
+                        <p>${context ? context : 'Not defined.'}</p>
+                    </div>
+                    <div class="card conflict">
+                        <h2>Conflict</h2>
+                        <p>${conflict ? conflict : 'Not defined.'}</p>
+                    </div>
+                    <div class="card climax">
+                        <h2>Climax</h2>
+                        <p>${climax ? climax : 'Not defined.'}</p>
+                    </div>
+                    <div class="card resolution">
+                        <h2>Resolution</h2>
+                        <p>${resolution ? resolution : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Professional Communication Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

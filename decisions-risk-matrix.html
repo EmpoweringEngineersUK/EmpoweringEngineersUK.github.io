@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Risk Assessment Matrix (Impact vs Probability) interactive design studio. Map unmitigated hazards, establish engineering controls to ALARP thresholds, and satisfy UK-SPEC Competence C. Secure client-side storage.">
+    <meta name="keywords" content="Risk Assessment Matrix, Hazard Identification, Risk Mitigation, ALARP, CDM Regulations, Process Safety, Engineering Controls, Impact vs Probability, UK-SPEC Competence C, Operations Governance">
+    <meta property="og:title" content="Bespoke Risk Assessment Matrix Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side hazard mapping and risk mitigation engine designed to evaluate residual variations and ensure complete process safety compliance.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/decisions-risk-matrix.html">
+    <meta property="og:type" content="website">
+    
+    <title>Risk Assessment Matrix Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bespoke Engineering Risk Matrix Analysis Studio",
+      "url": "https://www.empoweringengineers.uk/decisions-risk-matrix.html",
+      "description": "An interactive digital studio designed to construct quantitative hazard mitigation frameworks and residual risk tracking lists for complex industrial pipelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        .framework-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        /* --- STUNNING HIGH-LEGIBILITY 5x5 GRID CONTROLS --- */
+        .matrix-visualization-frame {
+            background: #000;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+        .matrix-axis-label-row {
+            display: block;
+            text-align: center;
+            color: #E6EDF3 !important;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #30363D;
+            padding-bottom: 8px;
+        }
+        .matrix-layout-split {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        .matrix-axis-label-sidebar {
+            color: #E6EDF3 !important;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+            border-right: 1px dashed #30363D;
+            padding-right: 15px;
+            line-height: 1.4;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 6px;
+        }
+        .matrix-cell {
+            text-align: center;
+            vertical-align: middle;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 1rem;
+            color: #000 !important;
+            padding: 16px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+        }
+        .matrix-th {
+            color: #8899A6 !important;
+            font-family: monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* --- SCORE COLOUR LEGEND STYLING --- */
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            font-weight: bold;
+            color: var(--cloud-white);
+        }
+        .legend-color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: inline-block;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+
+        /* --- MATRIX COLOR ENFORCEMENT LAYERS --- */
+        .risk-bg-extreme  { background-color: #FF4C4C !important; color: #FFF !important; } /* 20-25 */
+        .risk-bg-high     { background-color: #FFA500 !important; color: #000 !important; } /* 16-19 */
+        .risk-bg-moderate { background-color: #8CE88C !important; color: #000 !important; } /* 10-15 */
+        .risk-bg-raised   { background-color: #FFFF82 !important; color: #000 !important; } /* 5-9 */
+        .risk-bg-low      { background-color: #8CBEFF !important; color: #000 !important; } /* 1-4 */
+
+        /* --- INTERACTIVE LEDGER SPREADSHEET TABLE --- */
+        .ledger-scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--input-bg);
+        }
+        .ledger-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1650px;
+        }
+        .ledger-th {
+            background: var(--ee-dark-blue);
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 14px 10px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+        .ledger-td {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+        
+        .form-input-inline {
+            width: 100%;
+            min-height: 42px !important;
+            padding: 8px 12px;
+            background: var(--midnight-navy);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: inherit;
+        }
+        .form-input-inline:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+        }
+        textarea.form-input-inline {
+            min-height: 70px !important;
+            resize: vertical;
+        }
+
+        .rating-badge {
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .action-bar-flex {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .action-bar-flex button {
+            flex: 1;
+            min-width: 220px;
+        }
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 180px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 350px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content" id="aeoThickContentBlock">
+            <h1>Quantitative Risk Governance and Asset Protection: Mastering the Risk Assessment Matrix</h1>
+            <p>
+                In the design, structural engineering, and operational lifecycle management of process facilities, manufacturing plants, and public infrastructure linkages, managing hazard vectors is a primary legal and technical duty. Technical leads operating within high-consequence environments recognize that physical assets are continuously exposed to failure triggers. These triggers range from mechanical wear and electrical control faults to human operational errors and extreme weather events. Leaving these hazards unaddressed compromises team safety margins and creates significant corporate liabilities under the Health and Safety at Work etc. Act 1974 and the Construction (Design and Management) Regulations 2015 (CDM). To replace subjective safety guesses with an objective framework, engineers deploy a structured **Risk Assessment Matrix**. This tool combines probability and impact metrics to evaluate hazards systematically, guiding teams to target mitigation outlays precisely where they will most effectively shield system assets.
+            </p>
+            <p>
+                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, establishing systematic hazard tracking systems provides applicants with robust evidence for **Competence C (Technical and Commercial Leadership)**. Criterion C dictates that professional engineering candidates lead continuous improvement loops, manage asset risk factors safely, and reduce commercial liabilities across large-scale programs. Documenting your direct architectural ownership of a Risk Matrix log—proving that you have systematically evaluated unmitigated hazards, deployed hardcoded engineering controls, and driven residual risk down to **ALARP (As Low As Reasonably Practicable)** thresholds—presents professional review boards with unvarnished evidence of systemic risk governance, regulatory compliance, and asset leadership.
+            </p>
+            <h2>Principles of Hazard Control and the ALARP Framework</h2>
+            <p>
+                Constructing an audit-ready risk governance log requires a disciplined linear analysis that balances raw danger markers against practical engineering boundaries. This digital studio maps metrics across a standardised taxonomy based on the **Archives Risk Assessment Scales and Descriptors** configuration. By matching Likelihood parameters (1 to 5) with Consequence severity scales (1 to 5), the engine computes a discrete score linked to an explicit **Action Timeline** profile. This system covers diverse environments, including standard operations, STEM volunteering activities, HSE audits, Leadership tours, and non-standard assembly loops. It effectively differentiates between minor concerns and extreme risks requiring immediate project shutdown triggers. Use the cards below to configure your spreadsheet entries, manage control criteria, and compile validated portfolios ready for review panel submission.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="decisionsPathNav" aria-label="Risk Management Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="decisions.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_decisions"></div>
+                <span class="tab-label">Decisions Hub</span>
+            </a>
+            <a href="decisions-monte-carlo.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_monte"></div>
+                <span class="tab-label">Monte Carlo</span>
+            </a>
+            <a href="decisions-tree.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_tree"></div>
+                <span class="tab-label">Decision Tree</span>
+            </a>
+            <a href="decisions-cba.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cba"></div>
+                <span class="tab-label">CBA</span>
+            </a>
+            <a href="decisions-risk-matrix.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_risk"></div>
+                <span class="tab-label">Risk Matrix</span>
+            </a>
+            <a href="decisions-force-field.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_force"></div>
+                <span class="tab-label">Force Field</span>
+            </a>
+            <a href="decisions-ooda.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ooda"></div>
+                <span class="tab-label">OODA Loop</span>
+            </a>
+            <a href="decisions-wrap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_wrap"></div>
+                <span class="tab-label">WRAP</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Risk Assessment Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">5x5 Archives Model & Operational Hazard Ledger System</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                
+                <!-- Preloaded Configuration Switcher Deck -->
+                <div class="framework-card" style="border-left: 6px solid var(--burnt-orange);">
+                    <label class="ee-label" style="margin-bottom:8px;">Load Preloaded Case Scenario Template</label>
+                    <span class="form-hint" style="margin-bottom:12px;">Instantly populate the active ledger with standard cross-functional validation parameters.</span>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:40px;" onclick="loadPredefinedScenario('mfg')">Components Manufacturing</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:40px;" onclick="loadPredefinedScenario('stem')">STEM Volunteering Outings</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:40px;" onclick="loadPredefinedScenario('hse')">HSE Facility Safety Audit</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:40px;" onclick="loadPredefinedScenario('tour')">Executive Leadership Site Tour</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:40px; border-color:var(--slate-grey)!important; color:var(--slate-grey)!important;" onclick="loadPredefinedScenario('blank')">✨ Initialize Blank Canvas</button>
+                    </div>
+                </div>
+
+                <!-- Interactive Spreadsheet Matrix Table -->
+                <div class="framework-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                        <label class="framework-label" style="color:var(--terminal-green)!important;">Active Hazard Registration Ledger</label>
+                        <button type="button" class="action-btn" style="min-height:38px;" onclick="addNewHazardRow()">+ Insert Hazard Node</button>
+                    </div>
+
+                    <div class="ledger-scroll-container">
+                        <table class="ledger-table">
+                            <thead>
+                                <tr>
+                                    <th class="ledger-th" style="width:280px;">Potential Hazard</th>
+                                    <th class="ledger-th" style="width:170px;">Who is at Risk?</th>
+                                    <th class="ledger-th" style="width:105px; text-align:center;">Likelihood</th>
+                                    <th class="ledger-th" style="width:105px; text-align:center;">Consequence</th>
+                                    <th class="ledger-th" style="width:175px; text-align:center;">Computed Rating</th>
+                                    <th class="ledger-th" style="width:280px;">What actions have been taken?</th>
+                                    <th class="ledger-th" style="width:280px;">What further actions are necessary?</th>
+                                    <th class="ledger-th" style="width:160px;">Person Responsible</th>
+                                    <th class="ledger-th" style="width:90px; text-align:center;">Actioned</th>
+                                    <th class="ledger-th" style="width:60px; text-align:center;">Purge</th>
+                                </tr>
+                            </thead>
+                            <tbody id="riskLedgerBody">
+                                <!-- Dynamic spreadsheet elements loaded on app state loop -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="action-bar-flex">
+                        <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                        <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                        <button class="action-btn action-btn-ghost" onclick="clearData()">🗑️ CLEAR MATRIX CANVAS</button>
+                    </div>
+
+                    <div id="previewArea" class="preview-box">Awaiting metric logging parameters...</div>
+                </div>
+
+                <!-- Reference Static Scale Visualization Box - Positioned Explicitly at Base -->
+                <div class="framework-card">
+                    <h3 style="font-size:1.1rem; text-transform:uppercase; margin-bottom:15px; letter-spacing:0.5px; text-align:center;">Standard 5x5 Risk Matrix Reference Mapping</h3>
+                    <div class="matrix-visualization-frame">
+                        <div class="matrix-axis-label-row">Consequences / Severity (1 - 5)</div>
+                        <div class="matrix-layout-split">
+                            <div class="matrix-axis-label-sidebar">Likelihood<br>(1 - 5)</div>
+                            <table class="matrix-table">
+                                <tr>
+                                    <td class="matrix-th">L5 (Common)</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L5 x C1 = 5 (Raised)">5</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L5 x C2 = 10 (Moderate)">10</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L5 x C3 = 15 (Moderate)">15</td>
+                                    <td class="matrix-cell risk-bg-high" title="L5 x C4 = 20 (High)">20</td>
+                                    <td class="matrix-cell risk-bg-extreme" title="L5 x C5 = 25 (Extreme)">25</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-th">L4 (Frequent)</td>
+                                    <td class="matrix-cell risk-bg-low" title="L4 x C1 = 4 (Low)">4</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L4 x C2 = 8 (Raised)">8</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L4 x C3 = 12 (Moderate)">12</td>
+                                    <td class="matrix-cell risk-bg-high" title="L4 x C4 = 16 (High)">16</td>
+                                    <td class="matrix-cell risk-bg-high" title="L4 x C5 = 20 (High)">20</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-th">L3 (Occasional)</td>
+                                    <td class="matrix-cell risk-bg-low" title="L3 x C1 = 3 (Low)">3</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L3 x C2 = 6 (Raised)">6</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L3 x C3 = 9 (Raised)">9</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L3 x C4 = 12 (Moderate)">12</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L3 x C5 = 15 (Moderate)">15</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-th">L2 (Possible)</td>
+                                    <td class="matrix-cell risk-bg-low" title="L2 x C1 = 2 (Low)">2</td>
+                                    <td class="matrix-cell risk-bg-low" title="L2 x C2 = 4 (Low)">4</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L2 x C3 = 6 (Raised)">6</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L2 x C4 = 8 (Raised)">8</td>
+                                    <td class="matrix-cell risk-bg-moderate" title="L2 x C5 = 10 (Moderate)">10</td>
+                                </tr>
+                                <tr>
+                                    <td class="matrix-th">L1 (Negligible)</td>
+                                    <td class="matrix-cell risk-bg-low" title="L1 x C1 = 1 (Low)">1</td>
+                                    <td class="matrix-cell risk-bg-low" title="L1 x C2 = 2 (Low)">2</td>
+                                    <td class="matrix-cell risk-bg-low" title="L1 x C3 = 3 (Low)">3</td>
+                                    <td class="matrix-cell risk-bg-low" title="L1 x C4 = 4 (Low)">4</td>
+                                    <td class="matrix-cell risk-bg-raised" title="L1 x C5 = 5 (Raised)">5</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="matrix-th">C1 (Trivial)</td>
+                                    <td class="matrix-th">C2 (Minor)</td>
+                                    <td class="matrix-th">C3 (Major)</td>
+                                    <td class="matrix-th">C4 (Fatal)</td>
+                                    <td class="matrix-th">C5 (Multiple)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Unified Colour Legend Row Block -->
+                    <div class="legend-container">
+                        <div class="legend-item"><span class="legend-color-box risk-bg-extreme"></span> Extreme (20-25): Immediate Action</div>
+                        <div class="legend-item"><span class="legend-color-box risk-bg-high"></span> High (16-19): Urgent Mitigation</div>
+                        <div class="legend-item"><span class="legend-color-box risk-bg-moderate"></span> Moderate (10-15): As Soon As Possible</div>
+                        <div class="legend-item"><span class="legend-color-box risk-bg-raised"></span> Raised (5-9): When Possible</div>
+                        <div class="legend-item"><span class="legend-color-box risk-bg-low"></span> Low (1-4): Accept Risk Boundary</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. CONFIGURATION & STATE REGISTRY ---
+        const EE_TOOL_ID = "ee_decisions_risk";
+        let autosaveTimer;
+
+        // Anonymised/Generic System Scenarios Configuration Dataset
+        const predefinedScenarios = {
+            mfg: [
+                {
+                    hazard: "High pressure compression pump manifold hose fracture loop",
+                    atRisk: "Floor technicians, layout operators",
+                    likelihood: 3,
+                    consequence: 4,
+                    taken: "Fitted heavy steel mesh shielding components over baseline coupling channels.",
+                    necessary: "Incorporate remote isolation valve cut-off blocks and deploy secondary relief layout streams.",
+                    responsible: "Lead Systems Engineer",
+                    actioned: false
+                },
+                {
+                    hazard: "Manual mechanical rearrangement of deep tooling blocks on stamping lines",
+                    atRisk: "Changeover crew, setup personnel",
+                    likelihood: 4,
+                    consequence: 2,
+                    taken: "Heavy loading risk sheets updated and logged across regional folders.",
+                    necessary: "Procure an overhead electric balancing hoist track crane module.",
+                    responsible: "Production Supervisor",
+                    actioned: true
+                }
+            ],
+            stem: [
+                {
+                    hazard: "Sharp raw material edge contact during active student assembly tracking trial",
+                    atRisk: "Student workshop groups, event marshalls",
+                    likelihood: 3,
+                    consequence: 2,
+                    taken: "Distributed safety instructions verbally before initialising tracking loops.",
+                    necessary: "Pre-sand and buffer structural column edge layers prior to public workshop dispatch.",
+                    responsible: "STEM Activity Coordinator",
+                    actioned: true
+                },
+                {
+                    hazard: "Trailing low-voltage extension power lines along entrance access walkway",
+                    atRisk: "Public visitors, presentation groups",
+                    likelihood: 4,
+                    consequence: 1,
+                    taken: "Instructed floor marshalls to maintain steady visual checks.",
+                    necessary: "Secure high-visibility rubber bridge tracking thresholds over floor surfaces.",
+                    responsible: "Safety Warden",
+                    actioned: false
+                }
+            ],
+            hse: [
+                {
+                    hazard: "Corrosion under insulation (CUI) leading to structural thinning on acid line",
+                    atRisk: "Plant operators, inspection staff",
+                    likelihood: 2,
+                    consequence: 5,
+                    taken: "Ultrasonic spot checks managed across standard timeline blocks.",
+                    necessary: "Execute full strip insulation audits and grit-blast re-coating paths across Section 12.",
+                    responsible: "Asset Integrity Manager",
+                    actioned: false
+                }
+            ],
+            tour: [
+                {
+                    hazard: "Unsecured high level scaffold platform handrail link on main structure",
+                    atRisk: "Executive visit entourage, field personnel",
+                    likelihood: 2,
+                    consequence: 4,
+                    taken: "Red safety exclusion tape wrapped around baseline ladder ladder frames.",
+                    necessary: "Instruct contract scaffolding cell to re-torque and lock dual toe-board rails.",
+                    responsible: "Construction Manager",
+                    actioned: true
+                }
+            ],
+            blank: []
+        };
+
+        let appState = {
+            hazards: []
+        };
+
+        // --- 2. INITIALISATION ENGINE ---
+        function initApp() {
+            loadInitialState();
+            renderLedger();
+            updatePreview();
+        }
+
+        function loadInitialState() {
+            const cached = localStorage.getItem(EE_TOOL_ID);
+            if (cached) {
+                try {
+                    const parsed = JSON.parse(cached);
+                    if (Array.isArray(parsed.hazards)) {
+                        appState = parsed;
+                        return;
+                    }
+                } catch(e) { console.error("Risk state profiles broken. Re-initializing memory maps."); }
+            }
+            // Populate defaults on initial system boot cycles
+            appState.hazards = predefinedScenarios.mfg.map(h => ({ ...h }));
+            localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+        }
+
+        function loadPredefinedScenario(key) {
+            if (predefinedScenarios[key]) {
+                if (key === 'blank' || confirm(`Replace active spreadsheet with selected case scenario metrics? Current unsaved entries will be overridden.`)) {
+                    appState.hazards = predefinedScenarios[key].map(h => ({ ...h }));
+                    renderLedger();
+                    updatePreview();
+                }
+            }
+        }
+
+        // --- 3. RENDERING & MATRIX ALGORITHMS ---
+        function calculateRiskRating(likelihood, consequence) {
+            const score = likelihood * consequence;
+            let rating = "Low";
+            let timeline = "Accept risk";
+            let cssClass = "risk-bg-low";
+
+            if (score >= 20) {
+                rating = "Extreme";
+                timeline = "Immediate";
+                cssClass = "risk-bg-extreme";
+            } else if (score >= 16) {
+                rating = "High";
+                timeline = "Urgent";
+                cssClass = "risk-bg-high";
+            } else if (score >= 10) {
+                rating = "Moderate";
+                timeline = "As soon as possible";
+                cssClass = "risk-bg-moderate";
+            } else if (score >= 5) {
+                rating = "Raised";
+                timeline = "When possible";
+                cssClass = "risk-bg-raised";
+            }
+
+            return { score, rating, timeline, cssClass };
+        }
+
+        function renderLedger() {
+            const tbody = document.getElementById('riskLedgerBody');
+            tbody.innerHTML = "";
+
+            if (appState.hazards.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:25px; color:var(--slate-grey); font-style:italic;">No active hazard items registered. Click top right button to insert tracking nodes.</td></tr>`;
+                return;
+            }
+
+            appState.hazards.forEach((h, index) => {
+                const metrics = calculateRiskRating(h.likelihood, h.consequence);
+                const tr = document.createElement('tr');
+                
+                tr.innerHTML = `
+                    <td class="ledger-td">
+                        <textarea class="form-input-inline" oninput="updateCell(${index}, 'hazard', this.value)" placeholder="Describe potential hazard trigger...">${escapeHtml(h.hazard)}</textarea>
+                    </td>
+                    <td class="ledger-td">
+                        <input type="text" class="form-input-inline" value="${escapeHtml(h.atRisk)}" oninput="updateCell(${index}, 'atRisk', this.value)" placeholder="Personnel groups...">
+                    </td>
+                    <td class="ledger-td" style="text-align:center;">
+                        <select class="form-input-inline" style="text-align:center;" onchange="updateCell(${index}, 'likelihood', this.value)">
+                            ${[1,2,3,4,5].map(v => `<option value="${v}" ${h.likelihood == v ? 'selected' : ''}>${v}</option>`).join('')}
+                        </select>
+                    </td>
+                    <td class="ledger-td" style="text-align:center;">
+                        <select class="form-input-inline" style="text-align:center;" onchange="updateCell(${index}, 'consequence', this.value)">
+                            ${[1,2,3,4,5].map(v => `<option value="${v}" ${h.consequence == v ? 'selected' : ''}>${v}</option>`).join('')}
+                        </select>
+                    </td>
+                    <td class="ledger-td" style="vertical-align:middle; padding:10px 5px;">
+                        <span class="rating-badge ${metrics.cssClass}">
+                            Score: ${metrics.score}<br>${metrics.rating.toUpperCase()}<br>(${metrics.timeline})
+                        </span>
+                    </td>
+                    <td class="ledger-td">
+                        <textarea class="form-input-inline" oninput="updateCell(${index}, 'taken', this.value)" placeholder="Current controls active...">${escapeHtml(h.taken)}</textarea>
+                    </td>
+                    <td class="ledger-td">
+                        <textarea class="form-input-inline" oninput="updateCell(${index}, 'necessary', this.value)" placeholder="Further structural split mitigations...">${escapeHtml(h.necessary)}</textarea>
+                    </td>
+                    <td class="ledger-td">
+                        <input type="text" class="form-input-inline" value="${escapeHtml(h.responsible)}" oninput="updateCell(${index}, 'responsible', this.value)" placeholder="Owner role...">
+                    </td>
+                    <td class="ledger-td" style="text-align:center; vertical-align:middle;">
+                        <input type="checkbox" style="width:20px; height:20px; cursor:pointer;" ${h.actioned ? 'checked' : ''} onchange="updateCell(${index}, 'actioned', this.checked)">
+                    </td>
+                    <td class="ledger-td" style="text-align:center; vertical-align:middle;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height:36px; min-width:36px; color:#FF4C4C!important; border-color:#FF4C4C!important;" onclick="removeHazardRow(${index})">✖</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateCell(index, field, value) {
+            if (field === 'likelihood' || field === 'consequence') {
+                appState.hazards[index][field] = parseInt(value);
+                const metrics = calculateRiskRating(appState.hazards[index].likelihood, appState.hazards[index].consequence);
+                const badge = document.querySelectorAll('.rating-badge')[index];
+                if(badge) {
+                    badge.className = `rating-badge ${metrics.cssClass}`;
+                    badge.innerHTML = `Score: ${metrics.score}<br>${metrics.rating.toUpperCase()}<br>(${metrics.timeline})`;
+                }
+            } else {
+                appState.hazards[index][field] = value;
+            }
+            updatePreview();
+        }
+
+        function addNewHazardRow() {
+            appState.hazards.push({
+                hazard: "",
+                atRisk: "",
+                likelihood: 1,
+                consequence: 1,
+                taken: "",
+                necessary: "",
+                responsible: "",
+                actioned: false
+            });
+            renderLedger();
+            updatePreview();
+        }
+
+        function removeHazardRow(index) {
+            appState.hazards.splice(index, 1);
+            renderLedger();
+            updatePreview();
+        }
+
+        // --- 4. COMPILER & TEXT MIRROR LOGIC ---
+        function updatePreview() {
+            let out = `=== RISK ASSESSMENT LEDGER PROTOCOL ARCHIVE ===\n\n`;
+            out += `Active Hazard Nodes Registered: ${appState.hazards.length}\n`;
+            out += `------------------------------------------------------------\n\n`;
+
+            appState.hazards.forEach((h, i) => {
+                const metrics = calculateRiskRating(h.likelihood, h.consequence);
+                out += `Hazard Token [${i+1}]: ${h.hazard || "Not specified."}\n`;
+                out += `  ├── Target Risk Group: ${h.atRisk || "General Site Personnel"}\n`;
+                out += `  ├── Risk Equation Score: L[${h.likelihood}] x C[${h.consequence}] = ${metrics.score} -> [${metrics.rating.toUpperCase()}]\n`;
+                out += `  ├── Timeline Priority Flag: ${metrics.timeline.toUpperCase()}\n`;
+                out += `  ├── Actions Taken Natively: ${h.taken || "None logged."}\n`;
+                out += `  ├── Further Actions Necessary: ${h.necessary || "None logged."}\n`;
+                out += `  └── Person Responsible: ${h.responsible || "Unassigned"} // Verified Completed: [${h.actioned ? 'YES' : 'NO'}]\n\n`;
+            });
+
+            document.getElementById('previewArea').innerText = out;
+
+            // Delayed real-time serialization script execution
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+                updateNavigationBadges();
+                console.log("System Risk Ledger state tracing metrics auto-saved.");
+            }, 3000);
+        }
+
+        // --- 5. VERIFICATION BADGE ENGINE ---
+        function updateNavigationBadges() {
+            const decisionsRegistry = {
+                'coach': 'ee_management_master_hub',
+                'decisions': 'ee_decisions_master_hub',
+                'monte': 'ee_decisions_monte',
+                'tree': 'ee_decisions_tree',
+                'cba': 'ee_decisions_cba',
+                'risk': 'ee_decisions_risk',
+                'force': 'ee_decisions_force',
+                'ooda': 'ee_decisions_ooda',
+                'wrap': 'ee_decisions_wrap'
+            };
+
+            Object.keys(decisionsRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const status = checkToolContent(decisionsRegistry[key]);
+                    badgeEl.innerHTML = status ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+                }
+            });
+        }
+
+        function checkToolContent(key) {
+            const stored = localStorage.getItem(key);
+            if (!stored) return false;
+            try {
+                const parsed = JSON.parse(stored);
+                if(Array.isArray(parsed.hazards)) return parsed.hazards.some(h => h.hazard.trim().length > 0);
+                return Object.values(parsed).some(v => typeof v === 'string' && v.trim().length > 0);
+            } catch(e) { return false; }
+        }
+
+        // --- 6. AI INTERFACE COGNITIVE GENERATOR ---
+        function generatePrompt() {
+            let script = "";
+            appState.hazards.forEach((h, i) => {
+                const metrics = calculateRiskRating(h.likelihood, h.consequence);
+                script += `[NODE ${i+1}]\nHazard: ${h.hazard}\nScope Group: ${h.atRisk}\nScore Matrix: ${metrics.score} [${metrics.rating}]\nTimeline Rule: ${metrics.timeline}\nControls Active: ${h.taken}\nPending Loop Action: ${h.necessary}\nOwner: ${h.responsible}\nStatus: ${h.actioned}\n\n`;
+            });
+
+            const role = "Director of Corporate Systems Safety & Principal CDM Risk Integrity Auditor";
+            const actionText = "Analyse this 5x5 Archives Model Risk Assessment ledger. 1. Evaluate whether logged failure vectors isolate empirical mechanical or structural triggers safely. 2. Critique if the actions taken represent true engineering controls rather than superficial paperwork warnings. 3. Assess if further necessary actions effectively drive risk down to ALARP limits to satisfy UK-SPEC Competency C safety leadership criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior systems engineer building a formal risk matrix log to validate safety engineering competence for a professional engineering board. The format used is a Risk Assessment Matrix Ledger.
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 7. UTILITY & DATA TRANSACTION CHANNELS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "COPIED TO TERMINAL BUFFERS! ✔️";
+                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+            });
+        }
+
+        function clearData() {
+            if(confirm(`Permanently scrub all hazard nodes from the active matrix spreadsheet?`)) {
+                appState.hazards = [];
+                renderLedger();
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const blob = new Blob([JSON.stringify(appState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Archives_Risk_Ledger_${new Date().toISOString().slice(0, 10)}.json`;
+            link.click();
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (Array.isArray(parsed.hazards)) {
+                        appState = parsed;
+                        renderLedger();
+                        updatePreview();
+                        alert("Risk matrix assessment ledger metrics parsed and loaded.");
+                    } else { alert("Invalid data layout profile detected."); }
+                } catch (err) { alert("Failed to parse file as valid JSON structural configurations."); }
+            };
+            reader.readAsText(file);
+        }
+
+        // --- 8. WHITE PRINT REPORT MATRIX COMPILER (ANONYMISED & COLOUR ACCURATE STANDARD) ---
+        function generateReport() {
+            let tableRowsHTML = "";
+            appState.hazards.forEach((h, idx) => {
+                const m = calculateRiskRating(h.likelihood, h.consequence);
+                
+                // Color hex values mapping explicitly to match screen rendering state profiles inside printed document grids
+                let printHexColor = "#8CBEFF"; // low default
+                if(m.rating === "Extreme") printHexColor = "#FF4C4C";
+                else if(m.rating === "High") printHexColor = "#FFA500";
+                else if(m.rating === "Moderate") printHexColor = "#8CE88C";
+                else if(m.rating === "Raised") printHexColor = "#FFFF82";
+
+                tableRowsHTML += `
+                    <tr>
+                        <td style="text-align:center; vertical-align:middle;"><strong>${idx+1}</strong></td>
+                        <td>${escapeHtml(h.hazard)}</td>
+                        <td>${escapeHtml(h.atRisk)}</td>
+                        <td style="text-align:center; vertical-align:middle; font-weight:bold;">${h.likelihood}</td>
+                        <td style="text-align:center; vertical-align:middle; font-weight:bold;">${h.consequence}</td>
+                        <td style="text-align:center; vertical-align:middle; font-weight:bold; background-color:${printHexColor} !important; color:#000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;">Score: ${m.score}<br>${m.rating.toUpperCase()}<br><small>(${m.timeline})</small></td>
+                        <td>${escapeHtml(h.taken)}</td>
+                        <td>${escapeHtml(h.necessary)}</td>
+                        <td>${escapeHtml(h.responsible || "Unassigned")}</td>
+                        <td style="text-align:center; vertical-align:middle; font-weight:bold;">${h.actioned ? 'YES' : 'NO'}</td>
+                    </tr>
+                `;
+            });
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Hazard Management System Report Sheet</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.4; color: #1A202C; max-width: 1400px; margin: 30px auto; padding: 20px; background: #FFFFFF; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #006837; padding-bottom: 10px; text-transform: uppercase; font-size: 22px; }
+                    .subtitle { color: #718096; font-style: italic; margin-bottom: 25px; font-size: 13px; font-weight: bold; border-bottom: 1px dashed #CBD5E0; padding-top: 5px; padding-bottom: 10px;}
+                    
+                    /* Color Legend for print/reporting */
+                    .print-legend { display: flex; gap: 15px; margin-bottom: 25px; padding: 12px; border: 1px solid #CBD5E0; border-radius: 4px; background: #F8FAFC; font-family: monospace; font-size: 11px; font-weight:bold; justify-content: center; }
+                    .print-legend-box { width: 14px; height: 12px; display: inline-block; border: 1px solid #000; margin-right: 6px; vertical-align: middle; border-radius:2px; }
+
+                    table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 30px; table-layout: fixed; }
+                    th, td { padding: 10px 8px; border: 1px solid #CBD5E0; text-align: left; font-size: 12px; word-break: break-word; vertical-align: top; }
+                    th { background: #F8FAFC; text-transform: uppercase; color: #0D1B2A; font-weight: bold; }
+                    .logo { max-width: 240px; margin-bottom: 15px; display: block; }
+                    .footer { margin-top: 50px; font-size: 11px; color: #718096; border-top: 1px dashed #CBD5E0; padding-top: 15px; text-align: center; text-transform: uppercase; }
+                    @media print { 
+                        body { margin: 0; padding: 10px; max-width: 100%; } 
+                        table { page-break-inside: auto; }
+                        tr { page-break-inside: avoid; page-break-after: auto; }
+                        * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+                    }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Risk Assessment Matrix Balance Sheet Log</h1>
+                <div class="subtitle">System Safety Track: ALARP Audit Compliance Protocol // Compiled: ${new Date().toLocaleDateString('en-GB')}</div>
+                
+                <!-- Print Report Explicit Color Legend Integration -->
+                <div class="print-legend">
+                    <div><span class="print-legend-box" style="background-color:#FF4C4C !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;"></span> Extreme (20-25): Immediate</div>
+                    <div><span class="print-legend-box" style="background-color:#FFA500 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;"></span> High (16-19): Urgent</div>
+                    <div><span class="print-legend-box" style="background-color:#8CE88C !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;"></span> Moderate (10-15): As soon as possible</div>
+                    <div><span class="print-legend-box" style="background-color:#FFFF82 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;"></span> Raised (5-9): When possible</div>
+                    <div><span class="print-legend-box" style="background-color:#8CBEFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;"></span> Low (1-4): Accept risk</div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:40px; text-align:center;">#</th>
+                            <th style="width:250px;">Potential Hazard</th>
+                            <th style="width:150px;">Who is at Risk?</th>
+                            <th style="width:45px; text-align:center;">L</th>
+                            <th style="width:45px; text-align:center;">C</th>
+                            <th style="width:155px; text-align:center;">Risk Rating</th>
+                            <th style="width:250px;">What actions have been taken?</th>
+                            <th style="width:250px;">What further actions are necessary?</th>
+                            <th style="width:140px;">Person Responsible</th>
+                            <th style="width:70px; text-align:center;">Actioned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRowsHTML || '<tr><td colspan="10" style="text-align:center; font-style:italic;">No logged hazard profiles captured.</td></tr>'}
+                    </tbody>
+                </table>
+
+                <div class="footer">
+                    Secured via Zero-Knowledge Verification Infrastructure - Empowering Engineers UK Safety Core Matrix
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        function escapeHtml(str) {
+            if(!str) return "";
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

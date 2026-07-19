@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Big Hairy Audacious Goal (BHAG) Calibration Studio. Formulate long-range, standard-setting visionary technical targets across passion, competency, and resource engine axes to fulfill UK-SPEC Competence C guidelines. Secure client-side storage.">
+    <meta name="keywords" content="BHAG, Big Hairy Audacious Goal, Strategy Formulation, Long-Range Scoping, Engineering Council, UK-SPEC Competence C, Strategic Direction, Technical Vision">
+    <meta property="og:title" content="BHAG Calibration Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side target architecture workspace engineered to construct ultra-long-range technical milestones and strategic organizational focus profiles.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/goals-bhag.html">
+    <meta property="og:type" content="website">
+    
+    <title>BHAG Calibration Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering BHAG Calibration Studio",
+      "url": "https://www.empoweringengineers.uk/goals-bhag.html",
+      "description": "An interactive digital workbook designed for technical architects to formulate, evaluate, and record ultra-long-range visionary goals using the BHAG framework.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- BHAG STACK STYLING --- */
+        .bhag-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bhag-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .bhag-card.passion-card { border-left-color: var(--burnt-orange); }
+        .bhag-card.best-card { border-left-color: var(--burnt-orange); }
+        .bhag-card.engine-card { border-left-color: var(--ee-terminal-green); }
+        .bhag-card.target-card { border-left-color: #00b894; }
+
+        .bhag-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .passion-label { color: var(--burnt-orange) !important; }
+        .best-label { color: var(--burnt-orange) !important; }
+        .engine-label { color: var(--terminal-green) !important; }
+        .target-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 95px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Long-Range Horizons: Engineering Strategy via the BHAG Framework</h1>
+            <p>
+                In the execution of major aerospace programs, national infrastructure turnarounds, or grid-scale renewable energy rollouts, technical departments frequently lose clear direction due to everyday operational demands. While immediate tasks can be resolved via agile methodologies or quarterly target cycles, establishing generational market dominance and technology leadership requires a broader strategic horizon. To maintain organizational focus and drive breakthrough engineering innovation over a 10-to-30-year window, technical directors implement the <strong>Big Hairy Audacious Goal (BHAG)</strong> framework. Originally formulated by Jim Collins and Jerry Porras, this model forces companies to shift past minor incremental improvements. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, defining long-term strategic targets maps directly to <strong>Competence C (Technical and Commercial Leadership)</strong>, requiring candidates for registration (CEng, IEng) to illustrate clear personal ownership of strategic direction, risk scoping, and macro resource optimization.
+            </p>
+            <p>
+                A structurally sound BHAG exists at the intersection of three critical strategic dimensions, known as the Hedgehog Concept: <strong>Core Organizational Passion</strong>, <strong>Unique Technical Competence (Best-in-World Focus)</strong>, and the <strong>Resource/Economic Engine</strong>. By finding the sweet spot where these three circles overlap, engineering directors avoid launching risky projects that have no long-term commercial support or exceed team technical limits. Utilizing this interactive workspace enables engineering leads to calibrate their vision against known market variables, creating a solid record of long-term planning evidence. To safeguard your competitive advantage and protect sensitive corporate data, this studio enforces an absolute client-side local browser architecture. No strategic parameters or technological research objectives are ever transmitted to external web networks, guaranteeing absolute information security while you build your professional leadership portfolio.
+            </p>
+
+            <h2>The Three Pillars of BHAG Calibration</h2>
+            <p>
+                Structuring a long-range strategic engineering vision using this calibration engine requires technical managers to critically map out each phase of the framework step-by-step:
+            </p>
+            <p>
+                <strong>Core Passion & Purpose:</strong> Define the deep, long-term technical value or foundational purpose driving your engineering organization. Isolate the core mission that motivates your technical groups past short-term financial cycles—such as engineering zero-emission heavy transit machinery or setting the standard for automated industrial safety parameters.
+            </p>
+            <p>
+                <strong>Best-In-World Focus:</strong> Interrogate your team’s technical capabilities, localized patents, or process methodologies to find what your organization can become uniquely standard-setting at. Avoid general statements; instead, specify the exact technical capability, such as mastering high-integrity composite materials testing or developing high-precision fluid simulation models.
+            </p>
+            <p>
+                <strong>Economic/Resource Engine:</strong> Identify the primary operational metric or commercial denominator that funds your strategic growth loop. Hardcode a precise, trackable ratio—such as profit per custom software deployment, operational cost reduction per megawatt hour generated, or lifecycle asset yield per site footprint area.
+            </p>
+            <p>
+                <strong>The Audacious Target Landscape:</strong> Formulate the final, highly visible 10-to-30-year technical milestone that unifies your entire workforce. This target should serve as a powerful organizing focus, forcing your department to adapt its internal research pipelines, build new supply chain partnerships, and establish permanent engineering authority within your sector.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="goalsPathNav" aria-label="Goal Setting Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="goals.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goals"></div>
+                <span class="tab-label">Goals Hub</span>
+            </a>
+            <a href="goals-smart.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_smart"></div>
+                <span class="tab-label">SMART</span>
+            </a>
+            <a href="goals-okrs.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_okrs"></div>
+                <span class="tab-label">OKRs</span>
+            </a>
+            <a href="goals-scorecard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scorecard"></div>
+                <span class="tab-label">Scorecard</span>
+            </a>
+            <a href="goals-bhag.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bhag"></div>
+                <span class="tab-label">BHAG</span>
+            </a>
+            <a href="goals-backward.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_backward"></div>
+                <span class="tab-label">Backward</span>
+            </a>
+            <a href="goals-golden-circle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goldencircle"></div>
+                <span class="tab-label">Golden Circle</span>
+            </a>
+            <a href="goals-pyramid.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pyramid"></div>
+                <span class="tab-label">Pyramid</span>
+            </a>
+            <a href="goals-tiered.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_tiered"></div>
+                <span class="tab-label">Tiered</span>
+            </a>
+            <a href="goals-hard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hard"></div>
+                <span class="tab-label">HARD</span>
+            </a>
+            <a href="goals-gsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gsm"></div>
+                <span class="tab-label">GSM</span>
+            </a>
+            <a href="goals-woop.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_woop"></div>
+                <span class="tab-label">WOOP</span>
+            </a>
+            <a href="goals-five-principles.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fiveprinciples"></div>
+                <span class="tab-label">5 Principles</span>
+            </a>
+            <a href="goals-one-word.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_oneword"></div>
+                <span class="tab-label">One Word</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">BHAG Calibration Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Ultra-Long-Range Target Architecture & Vision Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="bhag-stack">
+                    
+                    <!-- Core Passion Card -->
+                    <div class="bhag-card passion-card">
+                        <label class="bhag-label passion-label">Core Passion & Purpose</label>
+                        <span class="form-hint">What foundational engineering mission or technical purpose drives your organization's commitment? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Setting the global benchmark for carbon-neutral maritime propulsion system designs.</span></span>
+                        <textarea id="bhag_Passion" class="form-input" placeholder="Script the core technological passion and underlying corporate mission here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Best-In-World Focus Card -->
+                    <div class="bhag-card best-card">
+                        <label class="bhag-label best-label">Best-In-World Focus Competency</label>
+                        <span class="form-hint">What distinct technical skill, patent portfolio, or design process can your team perform better than any competitor? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. High-integrity autonomous stress-testing simulations across safety-critical infrastructure loops.</span></span>
+                        <textarea id="bhag_Best" class="form-input" placeholder="Define unique technical competencies and specialized focus parameters here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Economic Engine Card -->
+                    <div class="bhag-card engine-card">
+                        <label class="bhag-label engine-label">Economic & Resource Engine Denominator</label>
+                        <span class="form-hint">What key resource metric or commercial denominator funds your strategic growth cycle? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Total asset operational cost reduction achieved per megawatt-hour generated.</span></span>
+                        <textarea id="bhag_Engine" class="form-input" placeholder="Hardcode the core resource denominator and economic efficiency ratios here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Audacious Target Card -->
+                    <div class="bhag-card target-card">
+                        <label class="bhag-label target-label">The 10-30 Year Audacious Target (BHAG)</label>
+                        <span class="form-hint">Formulate the final clear, quantitative, ultra-long-range technical milestone that aligns your entire workforce. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Deploy fully autonomous grid automation layouts across 50 separate municipal sub-stations by 2045.</span></span>
+                        <textarea id="bhag_Target" class="form-input" placeholder="Formulate the macro audacious milestone and long-range technical horizon here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to build the ultra-long-range BHAG strategic roadmap...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_goals_bhag";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('bhag_Passion').value = data.Passion || '';
+                    document.getElementById('bhag_Best').value = data.Best || '';
+                    document.getElementById('bhag_Engine').value = data.Engine || '';
+                    document.getElementById('bhag_Target').value = data.Target || '';
+                } catch (e) {
+                    console.error("Failed to parse stored BHAG layout parameters:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsRegistry = {
+                'coach': 'ee_management_master_hub',
+                'goals': 'ee_goals_master_hub',
+                'smart': 'ee_goals_smart',
+                'okrs': 'ee_goals_okrs',
+                'scorecard': 'ee_goals_scorecard',
+                'bhag': 'ee_goals_bhag',
+                'backward': 'ee_goals_backward',
+                'goldencircle': 'ee_goals_goldencircle',
+                'pyramid': 'ee_goals_pyramid',
+                'tiered': 'ee_goals_tiered',
+                'hard': 'ee_goals_hard',
+                'gsm': 'ee_goals_gsm',
+                'woop': 'ee_goals_woop',
+                'fiveprinciples': 'ee_goals_fiveprinciples',
+                'oneword': 'ee_goals_oneword'
+            };
+
+            Object.keys(toolsRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const passion = document.getElementById('bhag_Passion').value.trim();
+            const best = document.getElementById('bhag_Best').value.trim();
+            const engine = document.getElementById('bhag_Engine').value.trim();
+            const target = document.getElementById('bhag_Target').value.trim();
+
+            let output = `=== BIG HAIRY AUDACIOUS GOAL (BHAG): CALIBRATION PROFILE ===\n\n`;
+            output += `[CORE PASSION & PURPOSE]:\n${passion ? passion : '...\n'}\n`;
+            output += `[BEST-IN-WORLD FOCUS]:\n${best ? best : '...\n'}\n`;
+            output += `[RESOURCE & ECONOMIC ENGINE]:\n${engine ? engine : '...\n'}\n`;
+            output += `[10-30 YEAR AUDACIOUS TARGET]:\n${target ? target : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = passion || best || engine || target;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Passion: passion, Best: best, Engine: engine, Target: target };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("BHAG technical roadmap state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const passion = document.getElementById('bhag_Passion').value.trim();
+            const best = document.getElementById('bhag_Best').value.trim();
+            const engine = document.getElementById('bhag_Engine').value.trim();
+            const target = document.getElementById('bhag_Target').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = passion || best || engine || target;
+
+            if (hasUserData) {
+                script += `[CORE PASSION & PURPOSE]\n${passion ? passion : 'Not defined.'}\n\n`;
+                script += `[BEST-IN-WORLD FOCUS]\n${best ? best : 'Not defined.'}\n\n`;
+                script += `[RESOURCE & ECONOMIC ENGINE]\n${engine ? engine : 'Not defined.'}\n\n`;
+                script += `[10-30 YEAR AUDACIOUS TARGET]\n${target ? target : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering corporate frameworks.\n\n";
+                script += `[CORE PASSION & PURPOSE]\ne.g., Spearheading total automation architectures within high-hazard chemical manufacturing environments globally.\n\n`;
+                script += `[BEST-IN-WORLD FOCUS]\ne.g., Developing high-integrity, zero-fault control script models under extreme temperature process loops.\n\n`;
+                script += `[RESOURCE & ECONOMIC ENGINE]\ne.g., Minimising structural processing rework costs accumulated per active plant layout section.\n\n`;
+                script += `[10-30 YEAR AUDACIOUS TARGET]\ne.g., Completely replace human physical interventions across 200 high-hazard offshore production platforms by 2050.\n\n`;
+            }
+
+            const role = "Principal Enterprise Architect & Chartered Engineering Review Chair";
+            const actionText = "Analyse this calibrated Big Hairy Audacious Goal (BHAG) user draft. 1. Evaluate if the core passion and best-in-world sections successfully isolate genuine technical strengths from generic marketing buzzwords. 2. Critique whether the economic engine denominator establishes an objective, data-driven parameter to fund growth. 3. Assess if the 10-30 year audacious target represents the strict strategic scoping, risk awareness, and commercial vision required to validate leadership portfolios under UK-SPEC Competency C registers.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior engineering professional detailing an ultra-long-range strategic vision to validate executive competencies for a professional registration review board. The format is a BHAG Strategy Calibration Document (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not execute or pre-write text for the user. Interrogate the structural data fields critically. Expose narrative vulnerabilities, ask targeted strategic questions, and deliver a concise section-by-section audit report report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the BHAG calibration studio?")) {
+                document.getElementById('bhag_Passion').value = '';
+                document.getElementById('bhag_Best').value = '';
+                document.getElementById('bhag_Engine').value = '';
+                document.getElementById('bhag_Target').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const passion = document.getElementById('bhag_Passion').value.trim();
+            const best = document.getElementById('bhag_Best').value.trim();
+            const engine = document.getElementById('bhag_Engine').value.trim();
+            const target = document.getElementById('bhag_Target').value.trim();
+
+            const state = { Passion: passion, Best: best, Engine: engine, Target: target };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_BHAG_Strategy_Calibration_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Passion !== undefined || data.Best !== undefined || data.Engine !== undefined || data.Target !== undefined) {
+                        document.getElementById('bhag_Passion').value = data.Passion || '';
+                        document.getElementById('bhag_Best').value = data.Best || '';
+                        document.getElementById('bhag_Engine').value = data.Engine || '';
+                        document.getElementById('bhag_Target').value = data.Target || '';
+                        updatePreview();
+                        alert("BHAG strategic framework parameters imported successfully!");
+                    } else {
+                        alert("Invalid JSON data layout. Expected Passion, Best, Engine, and Target criteria.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON formatting structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const passion = document.getElementById('bhag_Passion').value.trim();
+            const best = document.getElementById('bhag_Best').value.trim();
+            const engine = document.getElementById('bhag_Engine').value.trim();
+            const target = document.getElementById('bhag_Target').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE BHAG Strategic Calibration Briefing Document</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Big Hairy Audacious Goal (BHAG) Strategic Analysis</h1>
+                <p><em>Framework Branch: Horizon Mapping & Target Architecture // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Core Passion & Purpose</h2>
+                <p>${passion ? passion : 'Not defined.'}</p>
+                
+                <h2>Best-In-World Focus Competency</h2>
+                <p>${best ? best : 'Not defined.'}</p>
+                
+                <h2>Economic & Resource Engine Denominator</h2>
+                <p>${engine ? engine : 'Not defined.'}</p>
+                
+                <h2>The 10-30 Year Audacious Target</h2>
+                <p>${target ? target : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Professional Strategy Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

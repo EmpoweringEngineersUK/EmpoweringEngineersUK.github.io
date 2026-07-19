@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Kanban Board workflow coordination studio. Enforce strict Work-In-Progress (WIP) limits, calculate pipeline throughput metrics, and visually govern multi-disciplinary infrastructure projects to satisfy UK-SPEC Competence C. Secure client-side memory.">
+    <meta name="keywords" content="Kanban Board, Agile Workflow, Work-In-Progress Limit, WIP Constraint, Lean Management, Process Bottlenecks, Engineering Task Board, UK-SPEC Competence C, Operations Control">
+    <meta property="og:title" content="Bespoke Process Kanban Control Panel | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side task scheduling and workflow routing dashboard designed to isolate system dependencies under a bounded WIP architecture.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality-kanban.html">
+    <meta property="og:type" content="website">
+    
+    <title>Visual Kanban Workflow Governance Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bespoke Engineering Kanban Governance Panel",
+      "url": "https://www.empoweringengineers.uk/quality-kanban.html",
+      "description": "An interactive digital task matrix enabling project leads to organize work strings, inject tasks dynamically, and enforce strict WIP parameters under a sandboxed architecture.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 350px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1200px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- CONTROL CONSOLE ARCHITECTURE --- */
+        .control-panel-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-left: 6px solid var(--burnt-orange);
+        }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .control-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 150px auto;
+            gap: 15px;
+            align-items: flex-end;
+        }
+        @media (max-width: 768px) {
+            .control-row-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-input-inline {
+            width: 100%;
+            min-height: 48px !important;
+            padding: 8px 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }
+        .form-input-inline:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+        }
+
+        /* --- THE KANBAN FLOW BOARD GRID --- */
+        .kanban-pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 992px) {
+            .kanban-pipeline-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kanban-column-bin {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--slate-grey);
+            transition: all 0.3s ease;
+        }
+        .kanban-column-bin.col-todo { border-top-color: var(--slate-grey); }
+        .kanban-column-bin.col-inprogress { border-top-color: var(--burnt-orange); }
+        .kanban-column-bin.col-done { border-top-color: var(--ee-terminal-green); }
+
+        /* WIP Exceeded visual overload state trigger rules */
+        .kanban-column-bin.wip-exceeded-alert {
+            border-color: var(--burnt-orange) !important;
+            background: rgba(192, 86, 33, 0.04) !important;
+            animation: pulseWipLimit 2s infinite ease-in-out;
+        }
+        @keyframes pulseWipLimit {
+            0%, 100% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+            50% { box-shadow: 0 0 16px rgba(192, 86, 33, 0.3); }
+        }
+
+        .column-header-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--cloud-white);
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .task-card-node {
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: border-color 0.2s;
+        }
+        .task-card-node:hover {
+            border-color: var(--terminal-green);
+        }
+
+        .task-text-string {
+            font-size: 0.9rem;
+            color: var(--cloud-white);
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .card-utility-dock {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            padding-top: 8px;
+        }
+
+        /* Enforcing strict finger touch targets layout rules */
+        .card-utility-dock button {
+            min-height: 36px !important;
+            min-width: 36px !important;
+            height: 36px;
+            padding: 0 8px;
+            font-size: 0.75rem;
+            margin: 0;
+            box-shadow: none !important;
+            border-top: none !important;
+            background: var(--ee-dark-blue);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 220px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 350px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content" id="aeoThickContentBlock">
+            <h1>Agile Workflow Governance in Critical Infrastructure Operations: Deploying Visual Kanban Arrays</h1>
+            <p>
+                In the modern execution of multi-disciplinary infrastructure programmes, systems engineering deployment phases, and heavy civil construction modules, workflow control cannot safely rely on disconnected linear Gantt tracking sheets alone. When an engineering cell is inundated with urgent, concurrent workflow parameters—such as component stress calibrations, localized safety risk audits, permit sign-off workflows, and fabrication assembly drawings—the absence of active bottleneck transparency generates localized resource overloading. This operational vulnerability directly produces prolonged lead times, communication gaps, and human fatigue errors that compromise corporate safety margins. To counteract these failure loops, project directors implement a visual **Kanban Board System**, an agile management framework derived from the automotive scheduling methods pioneered by Taiichi Ohno within Toyota and adapted globally for complex knowledge architectures. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, establishing structured work-in-progress (WIP) constraints to stabilize throughput metrics directly supports the parameters for **Competence C (Technical and Commercial Leadership)**, proving an applicant's skill in governing operational timelines, maximizing project margins, and leading team actions safely.
+            </p>
+            <p>
+                The architecture of a Kanban system treats process management as a dynamic pull pipeline rather than an arbitrary push schedule. By establishing an explicit three-tiered linear taxonomy—consisting of the **To Do backlog queue**, the **In Progress active workstation**, and the **Done verified baseline**—technical leads capture the live state of every operational parameter at a single glance. Crucially, the system enforces a rigid Work-In-Progress (WIP) Limit on the active column. By restricting the maximum number of items permitted in development simultaneously, the framework forces engineering cells to complete open tasks before introducing new liabilities. This process layout exposes systemic bottlenecks immediately, protects personnel from fatigue overloads, and allows management consultants to calculate precise workflow cycle times to maintain complete alignment with customer delivery milestones.
+            </p>
+            <h2>Optimising Task Velocity and Shielding Process Integrity</h2>
+            <p>
+                Documenting your day-to-day command of visual Kanban pipelines proves your capacity for strategic operations management during professional evaluation cycles. A detailed Kanban log provides real review boards with unvarnished evidence of your leadership and technical governance skills under high-pressure conditions. Use the dynamic control dashboard below to configure your team's task parameters, assign operational tracking codes, enforce strict WIP thresholds, and extract print-ready summary profiles. All entries are cached client-side using localized browser storage matrices, safeguarding your project information from external network exposures while keeping your engineering portfolio completely audit-ready.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Kanban Control Panel</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Agile Operations Scheduling Subsystem & WIP Governor</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                
+                <!-- Task Entry and WIP Configuration Console -->
+                <div class="control-panel-card">
+                    <div>
+                        <label class="framework-label" style="color: var(--burnt-orange) !important;">1. Adjust In-Progress WIP Bottleneck Threshold</label>
+                        <span class="form-hint" style="margin-bottom: 8px;">Enforces engineering pipeline limits to control resource overload safety.</span>
+                        <input type="number" id="input_WipLimit" class="form-input-inline" style="max-width: 150px;" min="1" value="3" oninput="updateWIPLimit(this.value)">
+                    </div>
+                    
+                    <div style="border-top: 1px dashed var(--border-color); padding-top: 15px;">
+                        <label class="framework-label">2. Inject New Operational Task Node</label>
+                        <span class="form-hint" style="margin-bottom: 8px;">Describe target milestones or documentation checking dependencies clearly.</span>
+                        
+                        <div class="control-row-grid">
+                            <div>
+                                <input type="text" id="input_TaskText" class="form-input-inline" placeholder="Specify task objective description...">
+                            </div>
+                            <div>
+                                <select id="select_TargetColumn" class="form-input-inline">
+                                    <option value="todo">To Do (Backlog)</option>
+                                    <option value="inprogress">In Progress</option>
+                                    <option value="done">Done (Verified)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="action-btn" style="min-height:48px;" onclick="createNewTask()">+ Inject Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Three Columns Kanban Interactive Pipeline Grid -->
+                <div class="kanban-pipeline-grid">
+                    
+                    <!-- To Do Column -->
+                    <div class="kanban-column-bin col-todo" id="bin_todo">
+                        <div class="column-header-title">
+                            <span>To Do (Backlog)</span>
+                            <span id="count_todo">[0]</span>
+                        </div>
+                        <div id="tasks_todo" style="display:flex; flex-direction:column; gap:10px;"></div>
+                    </div>
+
+                    <!-- In Progress Column with Adaptive WIP Warning styling constraints -->
+                    <div class="kanban-column-bin col-inprogress" id="bin_inprogress">
+                        <div class="column-header-title">
+                            <span>In Progress</span>
+                            <span id="count_inprogress">[0 / WIP: 3]</span>
+                        </div>
+                        <div id="tasks_inprogress" style="display:flex; flex-direction:column; gap:10px;"></div>
+                    </div>
+
+                    <!-- Done Column -->
+                    <div class="kanban-column-bin col-done" id="bin_done">
+                        <div class="column-header-title">
+                            <span>Done (Verified)</span>
+                            <span id="count_done">[0]</span>
+                        </div>
+                        <div id="tasks_done" style="display:flex; flex-direction:column; gap:10px;"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel & Dynamic Markdown Mirror Console -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting task initialization matrices...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. CONFIGURATION & STATE REGISTRY ---
+        const EE_TOOL_ID = "ee_quality_kanban";
+        let autosaveTimer;
+
+        let appState = {
+            wipLimit: 3,
+            columns: {
+                todo: [
+                    { id: "task_1", text: "Draft structural specification layout for Pump Skid A" },
+                    { id: "task_2", text: "Execute vendor technical selection matrix for Motor B" }
+                ],
+                inprogress: [
+                    { id: "task_3", text: "Finite Element Stress Simulation on manifold nodes" }
+                ],
+                done: [
+                    { id: "task_4", text: "Phase 2 Capital Expenditure Authorization Form completed and locked" }
+                ]
+            }
+        };
+
+        // --- 2. INITIALISATION ENGINE ---
+        function initApp() {
+            loadInitialState();
+            updatePreview();
+        }
+
+        function loadInitialState() {
+            const cached = localStorage.getItem(EE_TOOL_ID);
+            if (cached) {
+                try {
+                    const parsed = JSON.parse(cached);
+                    if (typeof parsed.wipLimit === 'number' && parsed.columns) {
+                        appState = parsed;
+                        return;
+                    }
+                } catch(e) { console.error("Cached state corrupted. Restting Kanban database parameters."); }
+            }
+            // Retain hardcoded defaults on clean local initialize setups
+            localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+        }
+
+        function updateWIPLimit(val) {
+            const parsed = parseInt(val);
+            appState.wipLimit = isNaN(parsed) || parsed < 1 ? 1 : parsed;
+            updatePreview();
+        }
+
+        function createNewTask() {
+            const input = document.getElementById('input_TaskText');
+            const colSelect = document.getElementById('select_TargetColumn');
+            const text = input.value.trim();
+            const colId = colSelect.value;
+
+            if(!text) { alert("Please input structured text description metrics before dispatching."); return; }
+            
+            const newTask = {
+                id: "task_" + Date.now() + Math.floor(Math.random()*100),
+                text: text
+            };
+
+            appState.columns[colId].push(newTask);
+            input.value = "";
+            updatePreview();
+        }
+
+        function routeTask(taskId, currentColumn, direction) {
+            const list = appState.columns[currentColumn];
+            const taskIdx = list.findIndex(t => t.id === taskId);
+            if(taskIdx === -1) return;
+
+            const task = list.splice(taskIdx, 1)[0];
+            
+            let targetColumn = currentColumn;
+            if (currentColumn === 'todo' && direction === 'right') targetColumn = 'inprogress';
+            else if (currentColumn === 'inprogress' && direction === 'left') targetColumn = 'todo';
+            else if (currentColumn === 'inprogress' && direction === 'right') targetColumn = 'done';
+            else if (currentColumn === 'done' && direction === 'left') targetColumn = 'inprogress';
+
+            appState.columns[targetColumn].push(task);
+            updatePreview();
+        }
+
+        function purgeTaskNode(taskId, colId) {
+            appState.columns[colId] = appState.columns[colId].filter(t => t.id !== taskId);
+            updatePreview();
+        }
+
+        // --- 3. COMPILER & LIVE INTERFACE INJECTION LOOP ---
+        function updatePreview() {
+            document.getElementById('input_WipLimit').value = appState.wipLimit;
+            
+            const todoList = appState.columns.todo || [];
+            const inprogressList = appState.columns.inprogress || [];
+            const doneList = appState.columns.done || [];
+
+            // Audit the active WIP limit constraints for safety violations
+            const inprogressBin = document.getElementById('bin_inprogress');
+            const wipViolated = inprogressList.length > appState.wipLimit;
+            
+            if (wipViolated) {
+                inprogressBin.classList.add('wip-exceeded-alert');
+            } else {
+                inprogressBin.classList.remove('wip-exceeded-alert');
+            }
+
+            // Sync Header Counters Text
+            document.getElementById('count_todo').innerText = `[${todoList.length}]`;
+            document.getElementById('count_inprogress').innerText = `[${inprogressList.length} / Limit: ${appState.wipLimit}]`;
+            document.getElementById('count_done').innerText = `[${doneList.length}]`;
+
+            // Clear and Render Column Bins dynamically
+            renderColumnCards('todo', todoList);
+            renderColumnCards('inprogress', inprogressList);
+            renderColumnCards('done', doneList);
+
+            // Compile Structural Text Summary Outline Console
+            let textOutput = `=== KANBAN PIPELINE OPERATION STATUS RECORD ===\n\n`;
+            textOutput += `[WIP THRESHOLD CONSTRAINT VALUE]: ${appState.wipLimit}\n`;
+            textOutput += `[INTEGRITY AUDIT PROFILE]: ${wipViolated ? "OVERLOAD WARNING (ACTION MANDATORY)" : "SAFE WORKFLOW BOUNDS"}\n`;
+            textOutput += `--------------------------------------------------\n\n`;
+
+            textOutput += `>> TO DO COLUMN STRING [${todoList.length} Tasks]:\n`;
+            if(todoList.length > 0) todoList.forEach((t,i) => textOutput += `  ├── ${i+1}. ${t.text}\n`);
+            else textOutput += "  └── Column currently empty.\n";
+
+            textOutput += `\n>> IN PROGRESS COLUMN STRING [${inprogressList.length} Tasks]:\n`;
+            if(inprogressList.length > 0) inprogressList.forEach((t,i) => textOutput += `  ├── ${i+1}. ${t.text}\n`);
+            else textOutput += "  └── Column currently empty.\n";
+
+            textOutput += `\n>> DONE VERIFIED COLUMN STRING [${doneList.length} Tasks]:\n`;
+            if(doneList.length > 0) doneList.forEach((t,i) => textOutput += `  ├── ${i+1}. ${t.text}\n`);
+            else textOutput += "  └── Column currently empty.\n";
+
+            document.getElementById('previewArea').innerText = textOutput;
+
+            // Micro-save sequence tracking with delay buffers
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(appState));
+                updateNavigationBadges();
+                console.log("Kanban pipeline project layout metrics auto-saved.");
+            }, 3000);
+        }
+
+        function renderColumnCards(colId, taskList) {
+            const container = document.getElementById(`tasks_${colId}`);
+            container.innerHTML = "";
+
+            taskList.forEach(task => {
+                const card = document.createElement('div');
+                card.className = "task-card-node";
+                
+                let leftButton = colId !== 'todo' ? `<button type="button" class="action-btn action-btn-ghost" onclick="routeTask('${task.id}', '${colId}', 'left')" title="Shift Left">◀</button>` : '';
+                let rightButton = colId !== 'done' ? `<button type="button" class="action-btn" onclick="routeTask('${task.id}', '${colId}', 'right')" title="Shift Right">▶</button>` : '';
+                
+                card.innerHTML = `
+                    <div class="task-text-string">${escapeHtml(task.text)}</div>
+                    <div class="card-utility-dock">
+                        ${leftButton}
+                        ${rightButton}
+                        <button type="button" class="action-btn action-btn-ghost" style="border-color:#FF4C4C !important; color:#FF4C4C !important;" 
+                                onclick="purgeTaskNode('${task.id}', '${colId}')" title="Purge Task Node">✖</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // --- 4. VERIFICATION BADGE ENGINE ---
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const status = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(status);
+                }
+            });
+        }
+
+        function checkToolContent(toolLocalStorageKey) {
+            const stored = localStorage.getItem(toolLocalStorageKey);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data.columns || {}).some(arr => Array.isArray(arr) && arr.length > 0);
+            } catch (e) { return false; }
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            let script = `[WIP CONSTRAINT LIMIT METRIC]: ${appState.wipLimit}\n\n`;
+            
+            ['todo', 'inprogress', 'done'].forEach(col => {
+                script += `[COLUMN SECTION: ${col.toUpperCase()}]\n`;
+                const tasks = appState.columns[col] || [];
+                tasks.forEach(t => script += `- Task Element: "${t.text}"\n`);
+                script += `\n`;
+            });
+
+            const role = "Director of Infrastructure Programmes & Agile Operations Governance Consultant";
+            const actionText = "Analyse this Kanban workflow schedule user draft. 1. Evaluate whether the current task parameters reflect technical precision or suffer from vague operational definitions. 2. Critique if the distribution of work strings reveals poor pipeline health or systemic blockage patterns. 3. Assess if this workflow coordination layout displays the structural governance and resource balancing required to satisfy UK-SPEC Competency C portfolio guidelines.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is an engineering lead tracking system operations tasks to compile leadership logs for review panels. The format used is a visual Kanban workflow studio document.
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "COPIED TO TERMINAL LOG! ✔️";
+                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm(`Confirm action: permanently wipe all task cards from the Kanban tracking grid?`)) {
+                appState.columns.todo = [];
+                appState.columns.inprogress = [];
+                appState.columns.done = [];
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(appState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Kanban_Workflow_Matrix_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (typeof parsed.wipLimit === 'number' && parsed.columns) {
+                        appState = parsed;
+                        updatePreview();
+                        alert("Kanban task configuration variables successfully imported.");
+                    } else {
+                        alert("Invalid JSON data schema. Missing expected column array structures.");
+                    }
+                } catch (err) { alert("Failed to parse file as a valid configuration layout."); }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            let todoHTML = "", ipHTML = "", doneHTML = "";
+            
+            (appState.columns.todo || []).forEach(t => todoHTML += `<li>${escapeHtml(t.text)}</li>`);
+            (appState.columns.inprogress || []).forEach(t => ipHTML += `<li>${escapeHtml(t.text)}</li>`);
+            (appState.columns.done || []).forEach(t => doneHTML += `<li>${escapeHtml(t.text)}</li>`);
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Kanban Pipeline Operational Ledger</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #1A202C; max-width: 900px; margin: 40px auto; padding: 20px; background: #FFFFFF; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #006837; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    .meta-subtitle { color: #4A5568; font-style: italic; margin-bottom: 30px; font-size: 13px; font-weight: bold; border-bottom: 1px dashed #CBD5E0; padding-top: 5px; padding-bottom: 10px;}
+                    h2 { color: #C05621; margin-top: 25px; border-bottom: 1px solid #E2E8F0; padding-bottom: 5px; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px;}
+                    .col-done-header { color: #006837 !important; }
+                    ul { padding-left: 20px; margin-bottom: 20px; }
+                    li { font-size: 13.5px; margin-bottom: 6px; color: #2D3748; }
+                    .logo { max-width: 240px; margin-bottom: 15px; display: block; }
+                    .wip-callout-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 4px solid #C05621; padding: 15px; border-radius: 0 4px 4px 0; margin-bottom: 25px; font-size: 14px;}
+                    .wip-callout-box strong { color: #C05621; }
+                    .footer { margin-top: 60px; font-size: 11px; color: #718096; border-top: 1px dashed #CBD5E0; padding-top: 15px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+                    @media print { 
+                        body { margin: 0; padding: 10px; max-width: 100%; } 
+                        h2 { page-break-after: avoid; }
+                        .wip-callout-box { background: transparent; border: 1px solid #CBD5E0; }
+                    }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Kanban Workflow Operational Status Report</h1>
+                <div class="meta-subtitle">Workflow Management Subsystem: Active Task Routing Manifest // Compiled: ${new Date().toLocaleDateString('en-GB')}</div>
+                
+                <div class="wip-callout-box">
+                    <strong>Operational Pipeline Constraints:</strong> Work-in-Progress (WIP) Threshold is capped at <strong>${appState.wipLimit}</strong> active elements concurrently.
+                </div>
+
+                <h2>1. To Do Column (Backlog Queue)</h2>
+                <ul>${todoHTML || '<li style="list-style:none; color:#A0AEC0; font-style:italic; margin-left:-20px;">No pending task nodes logged.</li>'}</ul>
+
+                <h2>2. In Progress Column (Active Workstations)</h2>
+                <ul>${ipHTML || '<li style="list-style:none; color:#A0AEC0; font-style:italic; margin-left:-20px;">No active task nodes logged.</li>'}</ul>
+
+                <h2 class="col-done-header">3. Done Column (Verified Baseline)</h2>
+                <ul>${doneHTML || '<li style="list-style:none; color:#A0AEC0; font-style:italic; margin-left:-20px;">No completed task nodes logged.</li>'}</ul>
+
+                <div class="footer">
+                    Secured via Zero-Knowledge Verification Infrastructure - Empowering Engineers UK Matrix Core
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        function escapeHtml(str) {
+            if(!str) return "";
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

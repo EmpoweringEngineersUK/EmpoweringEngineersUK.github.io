@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="The Master Process & Quality Improvement Command Hub. Systematically structure, audit, and deploy Lean Six Sigma, DMAIC, PDCA, and Value Stream Mapping tools to satisfy UK-SPEC Competence C requirements. Secure client-side memory.">
+    <meta name="keywords" content="Process Improvement, Quality Engineering, Lean Six Sigma, DMAIC, PDCA, Value Stream Mapping, 5 Whys, Fishbone Diagram, UK-SPEC Competence C, Engineering Management">
+    <meta property="og:title" content="Process & Quality Improvement Hub | Empowering Engineers UK">
+    <meta property="og:description" content="The master entryway and diagnostic tracking dashboard for professional engineering quality frameworks and process optimisation matrices.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality.html">
+    <meta property="og:type" content="website">
+    
+    <title>Process & Quality Hub | Empowering Engineers UK</title>    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/quality.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Process & Quality Improvement Hub",
+      "url": "https://www.empoweringengineers.uk/quality.html",
+      "description": "The master entry portal and diagnostic tracking dashboard for engineering quality management and continuous improvement frameworks under UK-SPEC guidelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .thick-content a {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .thick-content a:hover {
+            color: var(--terminal-green);
+            text-decoration: underline;
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
+        
+        /* Interactive Hub Dashboard Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hub-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-top-color: var(--terminal-green);
+        }
+
+        .hub-card-title {
+            color: var(--terminal-green);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-card-desc {
+            color: var(--cloud-white);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .master-cta-box {
+            background: rgba(3, 247, 160, 0.05);
+            border: 2px solid var(--ee-terminal-green);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Process & Quality Improvement Architecture: Driving Continuous Optimisation Systems</h1>
+            <p>In contemporary industrial operations and complex asset life-cycle management, process safety, quality assurance, and systemic continuous optimisation are mandatory pillars of operational engineering. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) explicitly isolates these requirements within <strong>Competence C (Technical and Commercial Leadership)</strong>. Specifically, registered professionals (CEng, IEng) must demonstrate absolute ownership of continuous improvement strategies, managing risk vectors, mitigating operational variations, and executing technical changes without causing down-time or introducing health and safety hazards under the Construction (Design and Management) Regulations 2015 (CDM).</p>
+            
+            <h2>Systematising Technical Workflows via Lean Six Sigma Frameworks</h2>
+            <p>Engineering processes cannot safely depend on qualitative guesswork or ad-hoc adjustments. To successfully optimise production outputs, eliminate manufacturing waste layers, and control tolerances within micrometre precision boundaries, engineers must implement structured, data-driven frameworks. Utilising foundational methodologies like the <strong>DMAIC</strong> (Define, Measure, Analyse, Improve, Control) problem-solving matrix or the cyclic <strong>PDCA</strong> (Plan, Do, Check, Act) loop ensures that variations are mathematically evaluated and baseline capabilities are empirically stabilised. By deploying high-density tools such as Value Stream Mapping (VSM), engineering leaders can visually isolate non-value-adding pipeline delays, driving systemic cost reductions while simultaneously elevating mechanical integrity benchmarks across multi-disciplinary capital programmes.</p>
+            
+            <h2>Root-Cause Auditing and Zero-Defect Error Prevention</h2>
+            <p>When engineering failures manifest—whether as a structural fatigue dropout, an unexpected thermodynamic instability, or an automated control network dropout—engineers must immediately localise the core error mechanism before initiating corrective adjustments. Frameworks such as the <strong>5 Whys Cause & Effect Analysis</strong> and <strong>Fishbone (Ishikawa) Diagrams</strong> allow technical teams to separate superficial failure symptoms from underlying systemic vulnerabilities. Furthermore, introducing structural error-proofing mechanisms via <strong>Poka-Yoke</strong> methods ensures that physical assembly operations are geometrically constrained to prevent human error factors entirely. Integrating these diagnostic tools within a standardised <strong>SIPOC</strong> matrix maps material inflows and operational constraints cleanly across multi-tiered supplier supply chains.</p>
+
+            <h2>Data Sovereignty Compliance for Critical Operations Analysis</h2>
+            <p>We explicitly acknowledge that executing internal process improvement audits routinely involves interacting with highly sensitive operational datasets, proprietary production cycle parameters, or classified asset designs protected under strict non-disclosure frameworks. To maintain complete information sovereignty and safeguard corporate competitive advantages, this optimisation studio operates under a strict client-side sandboxed architecture. Every process variable, root-cause map, or Kanban sprint task you input is compiled and cached exclusively within your localised web storage space. No project telemetry or calculation matrices are ever transmitted to external cloud systems. Utilise the interactive dashboard below to initialise your process optimisation portfolio and compile audit-ready evidence arrays.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Process & Quality Command</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Continuous Improvement Assessment Dashboard</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
+                <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Optimisation Context:</label>
+                <select class="ee-select" id="qualityContextSelect" style="min-width: 220px; min-height: 48px; background: var(--input-bg);" onchange="switchQualityContext()">
+                    <option value="manufacturing">Manufacturing & Assembly Operations</option>
+                    <option value="infrastructure">Capital Infrastructure Programmes</option>
+                    <option value="software">Systems Engineering & Automation Control</option>
+                </select>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterQualityReport()">📸 Compile Master Quality Audit</button>
+            </div>
+        </div>
+
+        <!-- Master Portfolio CTA Component Box -->
+        <div class="master-cta-box" style="margin-top: 30px;">
+            <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem; margin-top: 0; margin-bottom: 12px;">Active Improvement Subpage Routing</h2>
+            <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 750px; margin-left: auto; margin-right: auto;">
+                Select a target process optimisation workspace below to dynamically record parameters, engineer solutions, and preserve client-side evidence tokens.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="btnEnterQualityWorkspace" class="action-btn" style="min-height: 52px; font-size: 1rem; padding: 0 25px;" onclick="routeToActiveQuality()">Launch Target Optimisation Workspace Framework →</button>
+            </div>
+        </div>
+
+        <!-- Interactive Hub Grid Overlays -->
+        <div class="hub-grid">
+            <!-- Card 1: Foundational Lean Optimisation -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>1. Continuous Cycles</span>
+                    <div style="display: flex; gap: 6px;" id="check_cycles"></div>
+                </div>
+                <div class="hub-card-desc">Implement iterative improvement architectures. Deploy PDCA matrices alongside full DMAIC toolsets to stabilise baseline process execution.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="quality-pdca.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">PDCA</a>
+                    <a href="quality-dmaic.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">DMAIC</a>
+                </div>
+            </div>
+            
+            <!-- Card 2: Value Stream & Supply Chain Architecture -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>2. Value Mapping</span>
+                    <div style="display: flex; gap: 6px;" id="check_mapping"></div>
+                </div>
+                <div class="hub-card-desc">Expose non-value-adding delay blocks. Architect complete Value Stream Maps and control material supplier metrics cleanly using SIPOC schemas.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="quality-vsm.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">VSM</a>
+                    <a href="quality-sipoc.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">SIPOC</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Diagnostic Root Cause Auditing -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>3. Diagnostics & Root Cause</span>
+                    <div style="display: flex; gap: 6px;" id="check_diagnostics"></div>
+                </div>
+                <div class="hub-card-desc">Isolate latent design errors from superficial system issues. Map complex problems using 5 Whys analysis metrics and structured Fishbone layouts.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="quality-5whys.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">5 Whys</a>
+                    <a href="quality-fishbone.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Fishbone</a>
+                </div>
+                <a href="quality-pareto.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Pareto Analysis Matrix</a>
+            </div>
+
+            <!-- Card 4: Error Proofing & Workflow Coordination -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>4. Operations Control</span>
+                    <div style="display: flex; gap: 6px;" id="check_control"></div>
+                </div>
+                <div class="hub-card-desc">Drive visual task execution and remove defect opportunities entirely via geometric Poka-Yoke rules and dynamic Kanban arrays.</div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <a href="quality-kanban.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Kanban</a>
+                    <a href="quality-poka-yoke.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Poka-Yoke</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        const EE_TOOL_ID = "ee_quality_master_hub";
+        let targetQualityUrl = "quality-dmaic.html";
+
+        // --- QUALITY CONTEXT MANAGEMENT ---
+        function switchQualityContext() {
+            const context = document.getElementById('qualityContextSelect').value;
+            const btn = document.getElementById('btnEnterQualityWorkspace');
+            
+            if (context === "manufacturing") {
+                targetQualityUrl = "quality-dmaic.html";
+                btn.innerText = "Launch DMAIC Optimisation Studio →";
+            } else if (context === "infrastructure") {
+                targetQualityUrl = "quality-vsm.html";
+                btn.innerText = "Launch Value Stream Map Workspace →";
+            } else if (context === "software") {
+                targetQualityUrl = "quality-pdca.html";
+                btn.innerText = "Launch Systems PDCA Cycle Engine →";
+            }
+            
+            localStorage.setItem(EE_TOOL_ID + '_context', context);
+        }
+
+        function routeToActiveQuality() {
+            window.location.href = targetQualityUrl;
+        }
+
+        // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
+        function checkToolContent(toolLocalStorageKey) {
+            const stored = localStorage.getItem(toolLocalStorageKey);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const status = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(status);
+                }
+            });
+
+            // Compound Dashboard Validation Loops
+            const pdcaStatus = checkToolContent(qualityRegistry.pdca);
+            const dmaicStatus = checkToolContent(qualityRegistry.dmaic);
+            document.getElementById('check_cycles').innerHTML = `${getTickHTML(pdcaStatus)} ${getTickHTML(dmaicStatus)}`;
+
+            const vsmStatus = checkToolContent(qualityRegistry.vsm);
+            const sipocStatus = checkToolContent(qualityRegistry.sipoc);
+            document.getElementById('check_mapping').innerHTML = `${getTickHTML(vsmStatus)} ${getTickHTML(sipocStatus)}`;
+
+            const whysStatus = checkToolContent(qualityRegistry['5whys']);
+            const fishboneStatus = checkToolContent(qualityRegistry.fishbone);
+            const paretoStatus = checkToolContent(qualityRegistry.pareto);
+            document.getElementById('check_diagnostics').innerHTML = `${getTickHTML(whysStatus)} ${getTickHTML(fishboneStatus)} ${getTickHTML(paretoStatus)}`;
+
+            const kanbanStatus = checkToolContent(qualityRegistry.kanban);
+            const pokaStatus = checkToolContent(qualityRegistry.pokayoke);
+            document.getElementById('check_control').innerHTML = `${getTickHTML(kanbanStatus)} ${getTickHTML(pokaStatus)}`;
+        }
+
+        // --- MASTER QUALITY REPORT CONCATENATOR ---
+        function generateMasterQualityReport() {
+            const contextType = document.getElementById('qualityContextSelect').value.toUpperCase();
+            
+            const qualityMap = {
+                'PDCA Continuous Improvement': 'ee_quality_pdca',
+                'DMAIC Problem Solving Model': 'ee_quality_dmaic',
+                'Value Stream Mapping Layout': 'ee_quality_vsm',
+                '5 Whys Cause & Effect Review': 'ee_quality_5whys',
+                'Ishikawa Fishbone Structural Diagnostic': 'ee_quality_fishbone',
+                'Pareto Analysis Matrix Data': 'ee_quality_pareto',
+                'Kanban Workflow Operational Status': 'ee_quality_kanban',
+                'Poka-Yoke Error Proofing Bounds': 'ee_quality_pokayoke',
+                'SIPOC Process Interface Specification': 'ee_quality_sipoc'
+            };
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>Master Consolidated Process & Quality Audit Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 26px; margin-bottom: 25px;}
+                    h2 { color: #006837; margin-top: 35px; border-bottom: 2px solid #edf2f7; padding-bottom: 5px; text-transform: uppercase; font-size: 18px; padding-left: 5px;}
+                    h3 { color: #0D1B2A; font-size: 14px; margin-top: 15px; font-weight: bold; text-transform: uppercase; color: #C05621; }
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #f8fafc; padding: 12px; border-radius: 4px; border: 1px solid #e2e8f0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .meta-block { background: #0D1B2A; color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 30px; font-size: 14px; line-height: 1.5; }
+                    .meta-block strong { color: #03F7A0; }
+                    .footer { margin-top: 60px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; max-width: 100%; } .meta-block { background: #f4f7f9; color: #000; border: 1px solid #ccc; } .meta-block strong { color: #000; } p { background: none; border: 1px solid #ddd; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Master Consolidated Process Optimisation Audit</h1>
+                <div class="meta-block">
+                    <strong>Target Sector Alignment:</strong> ${contextType} Management Structure<br>
+                    <strong>Report Generation Timestamp:</strong> ${new Date().toLocaleString('en-GB')}<br>
+                    <strong>Data Sovereignty Standard:</strong> Localised Storage Verification Deployed<br>
+                </div>`;
+
+            let extractedRecordsCount = 0;
+
+            Object.keys(qualityMap).forEach(title => {
+                const storedData = localStorage.getItem(qualityMap[title]);
+                if (storedData) {
+                    try {
+                        const parsedFields = JSON.parse(storedData);
+                        let moduleHasText = false;
+                        let innerHTMLBlock = "";
+
+                        Object.keys(parsedFields).forEach(fieldKey => {
+                            const valueString = parsedFields[fieldKey];
+                            if (valueString && valueString.trim().length > 0) {
+                                moduleHasText = true;
+                                innerHTMLBlock += `<h3>Framework Parameter: ${fieldKey.toUpperCase()}</h3>`;
+                                innerHTMLBlock += `<p>${valueString.trim()}</p>`;
+                            }
+                        });
+
+                        if (moduleHasText) {
+                            html += `<h2>${title}</h2>`;
+                            html += innerHTMLBlock;
+                            extractedRecordsCount++;
+                        }
+                    } catch (e) {
+                        console.error("Failed to parse dynamic quality payload segment:", title);
+                    }
+                }
+            });
+
+            if (extractedRecordsCount === 0) {
+                html += `<div style="padding: 30px; border: 1px dashed #ccc; border-radius: 6px; text-align: center; color: #718096; font-style: italic; margin-top: 20px;">
+                    No operational text inputs or process improvement metrics discovered within your machine's local browser memory. Complete individual dashboards to aggregate report items.
+                </div>`;
+            }
+
+            html += `
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Process Optimisation & Quality Hub Compiler Engine
+                </div>
+            </body>
+            </html>`;
+
+            const printFrameWindow = window.open('', '_blank');
+            if (printFrameWindow) {
+                printFrameWindow.document.write(html);
+                printFrameWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock browser popup restrictions to permit master file configuration transfers.");
+            }
+        }
+
+        // --- INITIALISATION ---
+        function initApp() {
+            const storedContext = localStorage.getItem(EE_TOOL_ID + '_context');
+            if (storedContext) {
+                document.getElementById('qualityContextSelect').value = storedContext;
+            }
+            switchQualityContext();
+            updateNavigationBadges();
+            console.log("System Subsystem Active: Quality Command Core fully synced.");
+        }
+    </script>
+</body>
+</html>

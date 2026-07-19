@@ -2,53 +2,62 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-	<meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="description" content="Free engineering tools for EngTech, IEng, and CEng registration. AI-powered writers, UK-SPEC competency trackers, and CPD planners. Secure, browser-based, and open access.">
-    <meta name="keywords" content="EngTech, IEng, CEng, UK-SPEC, Engineering Council, CPD Log, STAR Technique, Professional Review, Interview">
-    <meta property="og:title" content="Empowering Engineers UK | Professional Registration Tools">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free, open-access engineering tools to accelerate your UK-SPEC professional registration. Master STAR methodology, log CPD, and prepare for CEng, IEng, and EngTech interviews.">
+    <meta name="keywords" content="EngTech, IEng, CEng, UK-SPEC, Engineering Council, CPD Log, STAR Technique, Professional Review, Interview, Engineering Management">
+    <meta property="og:title" content="System Hub Home | Empowering Engineers UK">
     <meta property="og:description" content="Accelerate your journey to Engineering Technician (EngTech), Incorporated Engineer (IEng) or Chartered Engineer (CEng) status with our high-trust technical toolset.">
-    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/">
     <meta property="og:type" content="website">
+    
     <title>Home | Empowering Engineers UK</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
     <link rel="canonical" href="https://www.empoweringengineers.uk/" />
-    <link rel="stylesheet" href="layout.css?v=12">
-	<script type="application/ld+json">
-	{
-	  "@context": "https://schema.org",
-	  "@type": "WebSite",
-	  "name": "Empowering Engineers UK",
-	  "url": "https://www.empoweringengineers.uk/",
-	  "description": "A free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.",
-	  "publisher": {
-		"@type": "Organization",
-		"name": "Empowering Engineers UK",
-		"logo": {
-		  "@type": "ImageObject",
-		  "url": "https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png"
-		}
-	  }
-	}
-	</script>
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Empowering Engineers UK",
+      "url": "https://www.empoweringengineers.uk/",
+      "description": "A free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
     <style>
-        /* --- FONT ENFORCEMENT --- */
-        body, button, input, select, textarea, .hero-text, .tool-title, .tool-desc, .tool-arrow, h2, h3, h4, h5, p, a {
+        /* --- MASTER UI ENFORCEMENT --- */
+        body, button, input, select, textarea, .hero-text, .tool-title, .tool-desc, .tool-arrow, h1, h2, h3, h4, h5, p, a {
             font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
         }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         /* HERO SECTION */
         .hero-section {
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 40px 5%;
+            margin-bottom: 20px;
         }
 
         .hero-logo { max-width: 650px; width: 90%; height: auto; display: block; margin: 0 auto 20px auto; }
@@ -61,24 +70,52 @@
             line-height: 1.6;
         }
 
+        /* Fat-Finger Accessible Buttons (Min-Width 48px compliant) */
         .hero-btn {
-            display: inline-block;
-            padding: 12px 30px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            min-width: 48px;
+            padding: 4px 16px;
             text-decoration: none;
             background-color: transparent;
-            border: 1px solid #fff;
-            color: #fff;
+            border: 2px solid var(--cloud-white);
+            color: var(--cloud-white);
             border-radius: 4px;
             font-weight: bold;
             transition: all 0.2s ease;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.0rem;
+            text-transform: uppercase;
         }
 
-        .hero-btn:hover {
+        .hero-btn:hover, .hero-btn:focus {
             background-color: var(--terminal-green);
-            color: #000;
+            color: var(--midnight-navy);
             border-color: var(--terminal-green);
+            outline: none;
+        }
+
+        /* THICK CONTENT NARRATIVE */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .thick-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
 
         /* TOOL GRID */
@@ -86,6 +123,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
+            align-items: stretch;
+            margin-bottom: 40px;
         }
 
         .tool-card {
@@ -97,11 +136,19 @@
             transition: transform 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            height: auto; 
+            min-height: 100%; 
             box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
         }
 
-        .tool-card:hover { transform: translateY(-5px); border-color: var(--terminal-green); }
+        .tool-card:hover, .tool-card:focus-within { 
+            transform: translateY(-5px); 
+            border-color: var(--terminal-green); 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
 
         .tool-title {
             color: var(--terminal-green);
@@ -112,128 +159,179 @@
             letter-spacing: 0.5px;
         }
 
-        .tool-desc { color: var(--cloud-white); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
-        .tool-arrow { text-align: right; color: var(--burnt-orange); margin-top: 20px; font-weight: bold; font-size: 1.2rem; }
+        .tool-desc { 
+            color: var(--cloud-white); 
+            font-size: 0.95rem; 
+            line-height: 1.5; 
+            flex-grow: 1; 
+            white-space: normal; 
+        }
+        
+        .tool-arrow { 
+            text-align: right; 
+            color: var(--burnt-orange); 
+            margin-top: 20px; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+        }
+        
+        .section-header {
+            color: var(--cloud-white);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--terminal-green);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            margin-top: 50px;
+        }
     </style>
 </head>
-<body onload="initApp()">
+<body>
+    <!-- Purge corrupt cache before layout load -->
+    <script>localStorage.removeItem('ee_cached_sitemap_tree');</script>
     
-    <script defer src="header_nav.js?v=12"></script>
-    <script defer src="tools_data.js?v=12"></script>
+    <!-- Injection of system standard navigation and logic modules -->
+    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="footer.js?v=21.7" defer></script>
 
-    <div class="container">
+    <main class="container">
 
-        <div class="hero-section">
-            <img src="EE_Logo_rect_Solid.png" alt="Empowering Engineers UK" class="hero-logo">
+        <section class="hero-section">
+            <img src="assets/EE_Logo_rect_Solid.webp" alt="Empowering Engineers UK®" class="hero-logo" fetchpriority="high">
             <p class="hero-text">
-                Free, privacy-focused AI tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration through the Engineering Council.
+                Empowering Engineers UK® are providing you free, privacy-focused analytical tools to accelerate your journey to CEng, IEng, and EngTech Professional Registration through the Engineering Council.
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="guide.html" class="hero-btn">VIEW USER MANUAL & SOP</a>
-                <button id="a11y-btn" class="hero-btn js-theme-toggle" onclick="if(window.ThemeManager) window.ThemeManager.toggle()">
-                    &#128065; VIEW: DEFAULT DARK
-                </button>
             </div>
+        </section>
+
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>The Strategic Pathway to Engineering Professional Registration</h1>
+            <p>Achieving professional registration as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) represents a critical milestone within the British engineering sector. The UK Standard for Professional Engineering Competence (UK-SPEC), published by the Engineering Council, dictates a rigorous set of criteria that candidates must satisfy to demonstrate their technical acumen, leadership capabilities, and commitment to commercial safety. However, the journey toward professional accreditation is often obscured by a lack of structured mentorship, complex documentation requirements, and the demanding nature of day-to-day engineering operations.</p>
+            <p>Empowering Engineers UK was initialised to bridge this precise gap. By democratising access to high-tier professional development frameworks, we empower engineers to take absolute ownership of their career trajectories. Our platform replaces fragmented spreadsheets and ad-hoc word processing documents with a unified, browser-based ecosystem engineered specifically for the systematic capture and optimisation of engineering evidence.</p>
+
+            <h2>Systematising the UK-SPEC Application Programme</h2>
+            <p>The core philosophy of our toolkit revolves around standardisation and information density. When preparing for your Professional Review Interview (PRI) or drafting your initial competence report, narrative structure is paramount. We advocate heavily for the deployment of the STAR methodology (Situation, Task, Action, Result) across all engineering communications. By framing your technical problem-solving through this specific lens, you ensure that assessing panels can explicitly extract your individual contributions from broader team achievements.</p>
+            <p>Furthermore, our UK-SPEC Competency Trackers meticulously break down the A to E criteria into digestible, actionable targets. Whether you are demonstrating the theoretical application of advanced mathematical principles (Criterion A) or providing evidence of your commitment to sustainable development and ethical conduct (Criterion E), our interactive trackers ensure no gap is left unaddressed prior to your submission deadline.</p>
+
+            <h2>Continuous Professional Development (CPD) and Strategic Execution</h2>
+            <p>Professional registration is not a finite destination; it is an ongoing commitment to excellence. The Engineering Council mandates the continuous logging of professional development activities. To facilitate this, our CPD Smart-Planner integrates the 70/20/10 learning model, allowing you to categorise on-the-job experiential learning, social coaching, and formal educational programmes into a highly structured Development Action Plan (DAP).</p>
+            <p>Beyond personal development, modern engineering leadership requires a robust understanding of business strategy and operational quality. Engineers transitioning into management roles must be equipped to analyse market forces and optimise process flows. Our platform integrates elite business strategy frameworks—including SWOT, PESTLE, Porter’s Five Forces, and Value Stream Mapping (VSM)—directly into your daily workflow. By mastering these tools, you elevate your profile from a purely technical specialist to a commercially astute engineering leader capable of driving systemic organisational improvements.</p>
+
+            <h2>Architectural Integrity and Client-Side Data Security</h2>
+            <p>We recognise that engineering candidates frequently process highly sensitive, commercially confidential project data when drafting their portfolios. To guarantee absolute data integrity and compliance with non-disclosure agreements, this platform is built upon a rigid, dual-persistence Local Storage architecture. All textual inputs, strategic matrices, and CPD logs are processed entirely client-side. Your intellectual property remains securely sandbox-isolated within your local browser cache. At no point is your professional data transmitted to external servers, ensuring you can draft your CEng, IEng, or EngTech applications with total peace of mind.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <nav class="tool-grid">
-			<a href="assets/Application_Tool_Manual_EEUK.pdf" download class="tool-card" style="grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none;">
-                
+        <h2 class="section-header">Core Engineering Hub</h2>
+        <nav class="tool-grid" aria-label="Core Tools Directory">
+            <a href="assets/Application_Tool_Manual_EEUK.pdf" download class="tool-card" style="grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none;">
                 <div style="margin: -25px -25px 15px -25px; border-bottom: 1px solid var(--border-color);">
-                    <img src="assets/app_tool_preview.png" 
-                         alt="Preview of the Application Tool Manual Logic Map" 
-                         style="width: 100%; height: auto; display: block; border-radius: 8px 8px 0 0;">
+                    <img src="assets/app_tool_preview.png" alt="Preview schematic of the Application Tool Manual Logic Map" style="width: 100%; height: auto; display: block; border-radius: 8px 8px 0 0;" loading="lazy">
                 </div>
-
                 <div>
                     <div class="tool-title" style="color: var(--terminal-green);">Application Manual</div>
                     <div class="tool-desc" style="margin-bottom: 15px;">
-                        The official operating procedure. Includes full logic maps, UK-SPEC scoring criteria, and step-by-step architectural guides.
+                        The official Standard Operating Procedure. Includes full logic maps, UK-SPEC scoring criteria, and step-by-step architectural guides.
                     </div>
                 </div>
-
                 <div class="tool-arrow" style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; font-size: 0.9rem;">
                    <span>Download PDF (5.8 MB)</span>
                    <span>&darr;</span>
                 </div>
-
             </a>
-            <a href="application_tool.html" class="tool-card">
-                <div class="tool-title">Application Architect</div>
-                <div class="tool-desc">The all-in-one workspace. Draft, audit, and export your entire EngTech, IEng or CEng application with real-time scoring.</div>
+            
+            <a href="career.html" class="tool-card">
+                <div class="tool-title">Professional Registration Workbench</div>
+                <div class="tool-desc">The master workspace. Draft, audit, and export your entire EngTech, IEng or CEng application with real-time scoring.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
-            <a href="cpd_tool.html" class="tool-card">
+            
+            <a href="ceng-a.html" class="tool-card">
+                <div class="tool-title">UK-SPEC Competency Trackers</div>
+                <div class="tool-desc">Systematically map your engineering evidence against specific UK-SPEC A-E requirements for CEng, IEng, or EngTech status.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+            
+            <a href="planner.html" class="tool-card">
                 <div class="tool-title">CPD Smart-Planner</div>
-                <div class="tool-desc">Audit your skills against UK-SPEC A-E and build a strategic 70/20/10 Development Action Plan.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="raci_tool.html" class="tool-card">
-                <div class="tool-title">RACI Matrix</div>
-                <div class="tool-desc">Define clear team roles (Responsible, Accountable, Consulted, Informed) for complex engineering projects.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="STAR_engine.html" class="tool-card">
-                <div class="tool-title">STAR Engine</div>
-                <div class="tool-desc">Structure your competency evidence using the Situation-Task-Action-Result format.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="ethics_tool.html" class="tool-card">
-                <div class="tool-title">Ethics Compass</div>
-                <div class="tool-desc">Navigate ethical dilemmas using RAEng principles and generate conflict resolution scripts.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="feedback_tool.html" class="tool-card">
-                <div class="tool-title">Management Coach</div>
-                <div class="tool-desc">Apply strategic frameworks (SWOT, PESTLE, GROW) to demonstrate leadership competence.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="glossary_tool.html" class="tool-card">
-                <div class="tool-title">Decoder</div>
-                <div class="tool-desc">Search 15,000+ engineering acronyms from Nuclear, Rail, Aerospace, and Civil sectors.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="hardware_tool.html" class="tool-card">
-                <div class="tool-title">Component Atlas</div>
-                <div class="tool-desc">Interactive database for hardware, including failure modes and design parameters.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="reference_tool.html" class="tool-card">
-                <div class="tool-title">Library</div>
-                <div class="tool-desc">Curated collection of formulas, ISO standards, and trusted technical references.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="report_tool.html" class="tool-card">
-                <div class="tool-title">Report Architect</div>
-                <div class="tool-desc">Structure your Professional Review Report with proven templates for Failure Analysis and Design.</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="dap_tool.html" class="tool-card">
-                <div class="tool-title">DAP Architect</div>
-                <div class="tool-desc">Build a long-term strategic Development Action Plan to maintain your registration (Obligation 4).</div>
-                <div class="tool-arrow">&rarr;</div>
-            </a>
-            <a href="interview_tool.html" class="tool-card">
-                <div class="tool-title">Virtual Interviewer</div>
-                <div class="tool-desc">Practice timed UK-SPEC questions with AI critique to prepare for your Professional Review Interview.</div>
+                <div class="tool-desc">Audit your technical skills against UK-SPEC criteria and systematically build a comprehensive 70/20/10 Development Action Plan.</div>
                 <div class="tool-arrow">&rarr;</div>
             </a>
         </nav>
 
-        <article class="card" style="margin-top: 40px; border-top: 2px solid var(--terminal-green);">
-            <h3>Professional Engineering Standards</h3>
-            <p>Empowering Engineers UK is an open-access platform designed to democratise professional registration. We believe that lack of formal mentorship should not be a barrier to achieving <strong>Engineering Technician (EngTech)</strong>, <strong>Incorporated Engineer (IEng)</strong> or <strong>Chartered Engineer (CEng)</strong> status.</p>
-            <h4>Privacy & Data Integrity</h4>
-            <p>We utilise <strong>Local Storage</strong> technology. This ensures your sensitive project data never leave your browser. No data is stored on our servers.</p>
-        </article>
-    </div>
+        <h2 class="section-header">Management & Strategy Coaching</h2>
+        <nav class="tool-grid" aria-label="Coaching Directory">
+            <a href="strategy-swot.html" class="tool-card">
+                <div class="tool-title">Business Strategy Analysis</div>
+                <div class="tool-desc">Deploy elite business strategy tools including SWOT, PESTLE, Porter's Five Forces, and the BCG Matrix.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+            
+            <a href="quality-dmaic.html" class="tool-card">
+                <div class="tool-title">Process & Quality Improvement</div>
+                <div class="tool-desc">Drive operational excellence utilising DMAIC Problem Solving, Value Stream Mapping, and PDCA Continuous Improvement frameworks.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+            
+            <a href="decisions-monte-carlo.html" class="tool-card">
+                <div class="tool-title">Risk & Decision Management</div>
+                <div class="tool-desc">Quantify engineering project risks and navigate complex operational decisions using Force Field Analysis and Decision Trees.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+            
+            <a href="goals-smart.html" class="tool-card">
+                <div class="tool-title">Performance & Goal Setting</div>
+                <div class="tool-desc">Establish robust engineering objectives using SMART Goals, OKRs, and the Balanced Scorecard methodology.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+        </nav>
+
+        <h2 class="section-header">Communication & Interview Preparation</h2>
+        <nav class="tool-grid" aria-label="Interview Directory">
+            <a href="communication-star.html" class="tool-card">
+                <div class="tool-title">STAR Methodology Architect</div>
+                <div class="tool-desc">Structure your engineering narratives perfectly using the globally recognised Situation, Task, Action, Result framework.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="interview-registration-ceng.html" class="tool-card">
+                <div class="tool-title">Virtual PRI Simulator (CEng)</div>
+                <div class="tool-desc">Conduct timed simulations of UK-SPEC questions with structured AI critique to prepare for your Chartered Professional Review Interview.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+            
+            <a href="interview-career-external-jobs.html" class="tool-card">
+                <div class="tool-title">External Career Interviews</div>
+                <div class="tool-desc">Prepare for complex external engineering job interviews by mapping your technical capabilities to specific corporate requirements.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+
+            <a href="decoder.html" class="tool-card">
+                <div class="tool-title">The Engineering Decoder</div>
+                <div class="tool-desc">Master the language of professional engineering. Search an integrated database of over 15,000+ industry acronyms.</div>
+                <div class="tool-arrow">&rarr;</div>
+            </a>
+        </nav>
+
+    </main>
 
     <script>
+        // LocalStorage cache layer deployed here to purge corrupted sitemaps and ensure a clean environment string for the user session
         function initApp() {
-            // Check for theme persistence if needed, though header_nav.js handles most of it.
-            console.log("System Status: Index Initialised.");
+            console.log("System Status: Index Initialised. Core systems online. Grid overflow resolved and corrupted cache purged.");
         }
+        initApp();
     </script>
-    <script defer src="footer.js?v=12"></script>
 </body>
 </html>

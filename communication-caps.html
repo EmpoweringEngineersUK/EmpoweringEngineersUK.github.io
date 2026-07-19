@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering CAPS Technical Review portal. Systematically structure technical document evaluations, data summaries, and reports using Content, Audience, Purpose, and Structure matrices to comply with UK-SPEC Competence D requirements. Secure client-side memory.">
+    <meta name="keywords" content="CAPS Framework, Technical Review, Engineering Reports, UK-SPEC Competence D, Report Synthesis, Executive Briefing, Documentation Control, Information Density">
+    <meta property="og:title" content="CAPS Technical Assessment Review Suite | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, zero-knowledge technical report structure and synthesis dashboard developed specifically for principal engineers and project leads.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-caps.html">
+    <meta property="og:type" content="website">
+    
+    <title>CAPS Technical Review | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering CAPS Technical Review Suite",
+      "url": "https://www.empoweringengineers.uk/communication-caps.html",
+      "description": "An interactive technical documentation layout auditor enabling lead engineers to structure summaries according to the CAPS parameters.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- CAPS MATRIX GRID --- */
+        .caps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .caps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .caps-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .caps-card.context-card { border-top: 4px solid var(--burnt-orange); }
+        .caps-card.audience-card { border-top: 4px solid var(--burnt-orange); }
+        .caps-card.purpose-card { border-top: 4px solid var(--terminal-green); }
+        .caps-card.structure-card { border-top: 4px solid var(--terminal-green); }
+
+        .caps-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .context-label { color: var(--burnt-orange) !important; }
+        .audience-label { color: var(--burnt-orange) !important; }
+        .purpose-label { color: var(--terminal-green) !important; }
+        .structure-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Technical Document Architecture: Optimising Communications via the CAPS Framework</h1>
+            <p>
+                In multi-disciplinary engineering infrastructure programmes, the precise management of technical documentation is a critical safety parameter. Whether preparing a safety-critical Basis of Design (BoD), authoring an environmental impact register, or drafting a summary for a corporate investment board, engineers routinely face the "Context Trap." This hazard occurs when identical jargon or raw analytical datasets hold differing interpretations across separate project control circles. To address this risk, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) under **Competence D (Communication and Interpersonal Skills)** mandates that registered professionals plan and execute communications with structured clarity.
+            </p>
+            <p>
+                The **CAPS Technical Review Framework (Content, Audience, Purpose, Structure)** delivers an objective method to pre-audit and configure critical documentation workflows before distribution. By segregating the document planning stage into four scannable fields, lead engineers can guarantee that information density serves corporate governance requirements without introducing operational error vectors. This method supports absolute compliance with the Construction (Design and Management) (CDM) Regulations 2015, ensuring safety-critical design margins are clearly understood by site installers, financial directors, and external regulatory bodies.
+            </p>
+
+            <h2>Analyzing the Four Structural Pillars of CAPS</h2>
+            <p>
+                Mastering the CAPS review framework requires technical professionals to methodically analyze the core delivery layout of their document packages:
+            </p>
+            <p>
+                <strong>Context & Content [C]:</strong> This dimension defines the technical dataset, baseline engineering parameters, calculation matrices, or risk registers that form the substance of the report. Authors must establish what parameters are being transferred, ensuring that all assumptions—such as finite element analysis constraints, material corrosion tolerances, and lifecycle boundary metrics—are empirically validated and fully expanded upon first mention.
+            </p>
+            <p>
+                <strong>Audience Mapping [A]:</strong> Technical data is fundamentally useless if it ignores the stakeholder's baseline literacy. This pillar demands a comprehensive profile analysis of the readers. A computational fluid dynamics (CFD) graph that satisfies a peer review panel will completely confuse a commercial investor holding financial allocation authority. Engineers must map out the specific risk appetites, commercial requirements, and technical capabilities of their audience, adapting terminology parameters accordingly.
+            </p>
+            <p>
+                <strong>Purpose Definition [P]:</strong> Every engineering document must drive a specific, traceable action. The purpose dimension forces the author to explicitly define the objective of the report. This involves clarifying whether the package is engineered to win a B2B project bid, secure a statutory regulatory sign-off, request a major CapEx variation, or authorize a deviation from a standard site layout.
+            </p>
+            <p>
+                <strong>Structural Delivery [S]:</strong> This final field determines the layout typography, data visualization parameters, and document control tracking loops. Modern scannability requires heavy use of hierarchical headers, bold key milestones, comparative tables, and transparent data charts. Front-loading the document with a 600-word executive summary ensures maximum informational utility while appendices protect mathematical depth.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">CAPS Technical Review</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Document Quality & Layout Synthesis Suite</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="caps-grid">
+                    
+                    <!-- Context/Content Card -->
+                    <div class="caps-card context-card">
+                        <label class="caps-label context-label">Context & Content [C]</label>
+                        <span class="form-hint">What core data layers, equations, tolerances, or design criteria form the baseline substance of this communication package? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Finite element modeling metrics for a next-generation high-pressure composite housing assembly.</span></span>
+                        <textarea id="caps_Context" class="form-input" placeholder="Define the document context and core engineering technical data sets..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Audience Mapping Card -->
+                    <div class="caps-card audience-card">
+                        <label class="caps-label audience-label">Audience Mapping [A]</label>
+                        <span class="form-hint">Who are the key stakeholders consuming this text? Map out their specific technical literacy baselines and risk tolerances. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Non-technical senior corporate vice-presidents alongside HSE hazardous environment site auditors.</span></span>
+                        <textarea id="caps_Audience" class="form-input" placeholder="Map stakeholder profiles, technical assumptions, and expectations..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Purpose Definition Card -->
+                    <div class="caps-card purpose-card">
+                        <label class="caps-label purpose-label">Purpose Definition [P]</label>
+                        <span class="form-hint">What explicit organizational authorization, budget sign-off, or regulatory safety clearance is this document built to achieve? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Securing formal executive approval for a £1.8M specialized materials procurement framework.</span></span>
+                        <textarea id="caps_Purpose" class="form-input" placeholder="Define the core objective, targeted business decision, or standard action items..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Structural Delivery Card -->
+                    <div class="caps-card structure-card">
+                        <label class="caps-label structure-label">Structural Delivery [S]</label>
+                        <span class="form-hint">How is the information partitioned, cross-referenced, and controlled to ensure absolute scannability? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Main report text limited to executive findings, utilizing multi-variable charts with raw telemetry mapped to Appendix D.</span></span>
+                        <textarea id="caps_Structure" class="form-input" placeholder="Outline layout hierarchy, headers, visual charts, and documentation logs..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_comm_caps";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('caps_Context').value = data.Context || '';
+                    document.getElementById('caps_Audience').value = data.Audience || '';
+                    document.getElementById('caps_Purpose').value = data.Purpose || '';
+                    document.getElementById('caps_Structure').value = data.Structure || '';
+                } catch (e) {
+                    console.error("Failed to parse stored CAPS state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const context = document.getElementById('caps_Context').value.trim();
+            const audience = document.getElementById('caps_Audience').value.trim();
+            const purpose = document.getElementById('caps_Purpose').value.trim();
+            const structure = document.getElementById('caps_Structure').value.trim();
+
+            let output = `=== CAPS FRAMEWORK: TECHNICAL AUDIT ===\n\n`;
+            output += `[CONTEXT & CONTENT]:\n${context ? context : '...\n'}\n`;
+            output += `[AUDIENCE]:\n${audience ? audience : '...\n'}\n`;
+            output += `[PURPOSE]:\n${purpose ? purpose : '...\n'}\n`;
+            output += `[STRUCTURE]:\n${structure ? structure : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = context || audience || purpose || structure;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Context: context, Audience: audience, Purpose: purpose, Structure: structure };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("CAPS report optimization layout auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const context = document.getElementById('caps_Context').value.trim();
+            const audience = document.getElementById('caps_Audience').value.trim();
+            const purpose = document.getElementById('caps_Purpose').value.trim();
+            const structure = document.getElementById('caps_Structure').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = context || audience || purpose || structure;
+
+            if (hasUserData) {
+                script += `[CONTEXT & CONTENT PARAMETERS]\n${context ? context : 'Not defined.'}\n\n`;
+                script += `[AUDIENCE ANALYSIS PROFILE]\n${audience ? audience : 'Not defined.'}\n\n`;
+                script += `[EXPLICIT DOCUMENT PURPOSE]\n${purpose ? purpose : 'Not defined.'}\n\n`;
+                script += `[STRUCTURAL FORMATTING MAP]\n${structure ? structure : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[CONTEXT & CONTENT PARAMETERS]\ne.g., Multi-variable transient thermal breakdown data grid mapping maximum cooling matrix thresholds.\n\n`;
+                script += `[AUDIENCE ANALYSIS PROFILE]\ne.g., Independent nuclear installations inspectorate safety panel and non-technical asset delivery partners.\n\n`;
+                script += `[EXPLICIT DOCUMENT PURPOSE]\ne.g., Achieving formal compliance clearance for structural configuration changes across an operational fuel cell block.\n\n`;
+                script += `[STRUCTURAL FORMATTING MAP]\ne.g., Double-spaced executive findings summary package, utilizing standardized index labels, with raw formula blocks isolated inside Appendix B.\n\n`;
+            }
+
+            const role = "Principal Communications Architect & Senior Documentation Auditor";
+            const actions = "Review this CAPS technical documentation review blueprint. 1. Evaluate if the described content configuration adequately handles data density parameters safely. 2. Critique if the audience mapping successfully addresses potential language traps and risk thresholds between technical and commercial roles. 3. Assess if the structural plan maximizes user readability and documentation control loops.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actions}
+[CONTEXT] The user is an engineering leader planning a high-density documentation release package to satisfy professional review rules (specifically UK-SPEC Competence D). The format used is a CAPS Technical Review Sheet (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not complete or write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the CAPS assessment canvas?")) {
+                document.getElementById('caps_Context').value = '';
+                document.getElementById('caps_Audience').value = '';
+                document.getElementById('caps_Purpose').value = '';
+                document.getElementById('caps_Structure').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const context = document.getElementById('caps_Context').value.trim();
+            const audience = document.getElementById('caps_Audience').value.trim();
+            const purpose = document.getElementById('caps_Purpose').value.trim();
+            const structure = document.getElementById('caps_Structure').value.trim();
+
+            const state = { Context: context, Audience: audience, Purpose: purpose, Structure: structure };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_CAPS_Technical_Review_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Context !== undefined || data.Audience !== undefined || data.Purpose !== undefined || data.Structure !== undefined) {
+                        document.getElementById('caps_Context').value = data.Context || '';
+                        document.getElementById('caps_Audience').value = data.Audience || '';
+                        document.getElementById('caps_Purpose').value = data.Purpose || '';
+                        document.getElementById('caps_Structure').value = data.Structure || '';
+                        updatePreview();
+                        alert("CAPS technical review blueprint parameters imported successfully!");
+                    } else {
+                        alert("Invalid JSON data layout. Expected Context, Audience, Purpose, and Structure metrics.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const context = document.getElementById('caps_Context').value.trim();
+            const audience = document.getElementById('caps_Audience').value.trim();
+            const purpose = document.getElementById('caps_Purpose').value.trim();
+            const structure = document.getElementById('caps_Structure').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE CAPS Technical Documentation Pre-Audit Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>CAPS Technical Review Report</h1>
+                <p><em>Framework Cluster: Interview & Professional Communication System // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid-2">
+                    <div>
+                        <h2>Context & Content</h2>
+                        <p>${context ? context : 'Not defined.'}</p>
+                    </div>
+                    <div>
+                        <h2>Audience Mapping</h2>
+                        <p>${audience ? audience : 'Not defined.'}</p>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div>
+                        <h2>Purpose Definition</h2>
+                        <p>${purpose ? purpose : 'Not defined.'}</p>
+                    </div>
+                    <div>
+                        <h2>Structural Delivery</h2>
+                        <p>${structure ? structure : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated via Empowering Engineers UK - Documentation Layout & Synthesis Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering STAR Method Studio portal. Systematically structure competency interview narratives into Situation, Task, Action, and Result vectors to comply with UK-SPEC Competence D requirements for CEng, IEng, and EngTech registration. Secure client-side memory.">
+    <meta name="keywords" content="STAR Method, Engineering Interview, UK-SPEC Competence D, Professional Review Interview, PRI, Competency Narrative, Technical Leadership, Project Controls">
+    <meta property="og:title" content="STAR Method Evidence Architecture Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, zero-knowledge professional review story architect developed specifically for lead engineers compiling UK-SPEC evidence frameworks.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-star.html">
+    <meta property="og:type" content="website">
+    
+    <title>STAR Method Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering STAR Method Architecture Studio",
+      "url": "https://www.empoweringengineers.uk/communication-star.html",
+      "description": "An interactive evidence layout editor enabling engineering leaders to structure professional review competencies according to the STAR technique parameters.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- STAR PARAMETERS GRID --- */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .star-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 22px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .star-card.situation-card { border-top: 4px solid var(--burnt-orange); }
+        .star-card.task-card { border-top: 4px solid var(--burnt-orange); }
+        .star-card.action-card { border-top: 4px solid var(--terminal-green); }
+        .star-card.result-card { border-top: 4px solid var(--terminal-green); }
+
+        .star-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .situation-label { color: var(--burnt-orange) !important; }
+        .task-label { color: var(--burnt-orange) !important; }
+        .action-label { color: var(--terminal-green) !important; }
+        .result-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--slate-grey);
+            line-height: 1.5;
+        }
+
+        .example-block {
+            font-size: 0.82rem;
+            color: var(--cloud-white);
+            background: var(--input-bg);
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .example-block ul {
+            margin: 6px 0 0 0;
+            padding-left: 18px;
+        }
+        .example-block li {
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 130px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        /* Auto-save status feedback line */
+        #saveIndicator {
+            font-size: 0.8rem;
+            color: var(--terminal-green);
+            font-weight: 700;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: block;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Structural Breakdown of the STAR Technique for Engineering Reviews</h1>
+            <p>
+                The STAR methodology (Situation, Task, Action, Result) represents a critical qualitative communication framework for modern technical leaders. When an engineering candidate undergoes a Professional Review Interview (PRI) with premier licensing bodies such as the Institution of Mechanical Engineers (IMechE), the Institution of Civil Engineers (ICE), or the Institution of Engineering and Technology (IET), the assessment board does not grade theoretical capability alone. Rather, they require robust, verifiable evidence of past professional performance evaluated directly against the UK Standard for Professional Engineering Competence (UK-SPEC). Specifically, **Competence D (Communication and Interpersonal Skills)** dictates that engineers must demonstrate the ability to plan, execute, and control complex technical language loops cleanly.
+            </p>
+            <p>
+                A common failure vector in professional registration interviews is the "Collective Narrative Trap." This hazard occurs when highly skilled candidates rely heavily on plural pronouns (e.g., "we initialised the feasibility study," "our team optimised the compressor layout alignment"). Assessors cannot allocate competence scores to a collective department; they are legally bound to grade the individual applicant's engineering accountability. The STAR framework systematically solves this by enforcing an explicit narrative structure that isolates background context from direct personal actions. This structural discipline ensures compliance with standard documentation control protocols and helps professionals cleanly bridge the communication gap between technical and corporate management loops.
+            </p>
+
+            <h2>Maximising Impact Across Each Narrative Quadrant</h2>
+            <p>
+                To successfully construct a high-density, audit-ready evidence block within your professional development portfolio, the technical author must understand the specific requirements governing each separate parameter:
+            </p>
+            <p>
+                <strong>Situation [S]:</strong> Establishes the baseline operational environment, timeline parameters, and project controls. This field should introduce the specific engineering crisis, asset degradation event, or structural design limitation (e.g., a sudden 25% spike in transient bearing vibration velocities or an environmental non-compliance boundary). Keep this boundary highly compressed, utilizing around 15% of your total text space.
+            </p>
+            <p>
+                <strong>Task [T]:</strong> Defines the exact engineering mandate and regulatory constraints. Here, the professional must explicitly state their personal engineering assignment or the scope of authority they were authorised to command. This involves clarifying the targeted technical criteria, safety considerations under the Construction (Design and Management) Regulations 2015 (CDM), or financial limits that governed the solution path.
+            </p>
+            <p>
+                <strong>Action [A]:</strong> This is the core engine of your technical evidence and must consume at least 60% of the entire narrative block. The candidate must exhaustively document the analytical procedures, mathematical models, diagnostic calculations, software configurations (such as Ansys, ETAP, or MATLAB), and physical modifications they individually orchestrated. It is vital to use strong British English active verbs—such as *initialised*, *analysed*, *optimised*, *formulated*, and *quantified*—to explicitly capture personal technical leadership.
+            </p>
+            <p>
+                <strong>Result [R]:</strong> Provides empirical verification of success. An engineering story without data is an assertion, not evidence. This section must culminate in tangible, quantitative metrics. Candidates must explicitly list how their intervention impacted project delivery timelines, CapEx reductions, carbon footprint margins, or asset lifecycle parameters (e.g., "reducing total harmonic distortion from 8% to 2.4%, avoiding a £100k grid delay penalty").
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">STAR Method Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Evidence Layout & Narrative Architecture Suite</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="star-grid">
+                    
+                    <!-- Situation Card -->
+                    <div class="star-card situation-card">
+                        <label class="star-label situation-label">S: Situation</label>
+                        <span class="form-hint">Set the context and background for the engineering challenge. What was the operational scenario?</span>
+                        <div class="example-block">
+                            <strong>Contextual Reference Anchors:</strong>
+                            <ul>
+                                <li><strong>Mechanical:</strong> During endurance testing of a high-speed centrifugal pump package, the outboard bearing housing recorded a sudden 25% spike in vibration velocity thresholds.</li>
+                                <li><strong>Chemical:</strong> A continuous distillation column experienced a severe differential pressure drop spike, threatening an immediate process upset.</li>
+                                <li><strong>Electrical:</strong> During the final commissioning phase of a 50MW solar farm substation, grid energisation was blocked due to G99 harmonic distortion compliance failures.</li>
+                            </ul>
+                        </div>
+                        <textarea id="star_Situation" class="form-input" placeholder="Describe the background context, timeline baselines, and root incident markers..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Task Card -->
+                    <div class="star-card task-card">
+                        <label class="star-label task-label">T: Task</label>
+                        <span class="form-hint">What was your specific individual responsibility, authorized objective, or scope of duty within this situation?</span>
+                        <div class="example-block">
+                            <strong>Contextual Reference Anchors:</strong>
+                            <ul>
+                                <li><strong>Mechanical:</strong> My responsibility was to localise the mechanical root cause, perform stress checks, and prevent shaft seizing without halting the test loop schedule.</li>
+                                <li><strong>Chemical:</strong> I was tasked with diagnosing the hydraulic column instability, adjusting mass-balance parameters, and stabilising the equilibrium within a tight window.</li>
+                                <li><strong>Electrical:</strong> I was tasked with redesigning the harmonic filter circuits within 48 hours to secure formal compliance clearance.</li>
+                            </ul>
+                        </div>
+                        <textarea id="star_Task" class="form-input" placeholder="Define your explicit assignment bounds, commercial metrics, and regulatory constraints..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Action Card -->
+                    <div class="star-card action-card">
+                        <label class="star-label action-label">A: Action</label>
+                        <span class="form-hint">What detailed technical actions, calculations, modeling sequences, or engineering steps did YOU individually take?</span>
+                        <div class="example-block">
+                            <strong>Contextual Reference Anchors:</strong>
+                            <ul>
+                                <li><strong>Mechanical:</strong> I halted the drive motor, executed a fast Fourier transform (FFT) spectrum analysis, isolated an angular misalignment defect, and re-shimmed the coupling elements to exact laser tolerances.</li>
+                                <li><strong>Chemical:</strong> I analysed the distributed control system (DCS) trend log arrays, identified a localized flooding bottleneck, throttled the reflux rate, and adjusted reboiler steam duty.</li>
+                                <li><strong>Electrical:</strong> I modelled the substation interface loop in ETAP, simulated load network profiles, and recalculated tuning inductor values for the filter banks.</li>
+                            </ul>
+                        </div>
+                        <textarea id="star_Action" class="form-input" placeholder="Exhaustively list the engineering procedures, software applications, calculations, and leadership steps you personally implemented..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Result Card -->
+                    <div class="star-card result-card">
+                        <label class="star-label result-label">R: Result</label>
+                        <span class="form-hint">What was the measurable outcome, commercial impact, data metric, or formal sign-off achieved by your intervention?</span>
+                        <div class="example-block">
+                            <strong>Contextual Reference Anchors:</strong>
+                            <ul>
+                                <li><strong>Mechanical:</strong> Vibration velocities dropped down below ISO 10816 thresholds, allowing the pump package to pass its 24-hour witness test safely and preventing a £35k rebuild cost.</li>
+                                <li><strong>Chemical:</strong> Column pressure normalised in 15 minutes, preserving continuous product purity at 99.8% and preventing a costly column shutdown and chemical dump event.</li>
+                                <li><strong>Electrical:</strong> Total harmonic distortion (THD) dropped from 8% to 2.4%, achieving formal DNO sign-off on the first re-test and avoiding a £100k grid delay penalty.</li>
+                            </ul>
+                        </div>
+                        <textarea id="star_Result" class="form-input" placeholder="Quantify the results using empirical metrics, financial parameters, structural data tolerances, or safety sign-off references..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+                <span id="saveIndicator">Data Synced ✔</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_comm_star";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('star_Situation').value = data.Situation || '';
+                    document.getElementById('star_Task').value = data.Task || '';
+                    document.getElementById('star_Action').value = data.Action || '';
+                    document.getElementById('star_Result').value = data.Result || '';
+                } catch (e) {
+                    console.error("Failed to parse stored STAR state array:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = (toolsMap[key] === EE_TOOL_ID) ? checkCurrentContent() : checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        function checkCurrentContent() {
+            const sit = document.getElementById('star_Situation').value.trim();
+            const tsk = document.getElementById('star_Task').value.trim();
+            const act = document.getElementById('star_Action').value.trim();
+            const res = document.getElementById('star_Result').value.trim();
+            return (sit || tsk || act || res) ? true : false;
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const situation = document.getElementById('star_Situation').value.trim();
+            const task = document.getElementById('star_Task').value.trim();
+            const action = document.getElementById('star_Action').value.trim();
+            const result = document.getElementById('star_Result').value.trim();
+
+            let output = `=== STAR METHOD: COMPETENCY ARCHITECT ===\n\n`;
+            output += `[SITUATION]:\n${situation ? situation : '...\n'}\n`;
+            output += `[TASK]:\n${task ? task : '...\n'}\n`;
+            output += `[ACTION]:\n${action ? action : '...\n'}\n`;
+            output += `[RESULT]:\n${result ? result : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = situation || task || action || result;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Hide sync indicator until save completes
+            document.getElementById('saveIndicator').style.opacity = '0';
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Situation: situation, Task: task, Action: action, Result: result };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                
+                // Additive Merge targeting the Unified Master Engine Object
+                let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+                if (!masterData.ee_tools) masterData.ee_tools = {};
+                masterData.ee_tools[EE_TOOL_ID] = data;
+                localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+
+                updateNavigationBadges();
+                document.getElementById('saveIndicator').style.opacity = '1';
+                console.log("STAR matrix compilation narrative layout auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const situation = document.getElementById('star_Situation').value.trim();
+            const task = document.getElementById('star_Task').value.trim();
+            const action = document.getElementById('star_Action').value.trim();
+            const result = document.getElementById('star_Result').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = situation || task || action || result;
+
+            if (hasUserData) {
+                script += `[SITUATION CONTEXT]\n${situation ? situation : 'Not defined.'}\n\n`;
+                script += `[TASK OBJECTIVE]\n${task ? task : 'Not defined.'}\n\n`;
+                script += `[INDIVIDUAL ACTION EVIDENCE]\n${action ? action : 'Not defined.'}\n\n`;
+                script += `[QUANTIFIABLE RESULT IMPACT]\n${result ? result : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[SITUATION CONTEXT]\ne.g., During endurance running of a high-speed centrifugal pump package, bearing vibration velocities spiked 25% above baseline tolerances.\n\n`;
+                script += `[TASK OBJECTIVE]\ne.g., Isolate the mechanical root cause and re-align coupling tracks without compromising the site testing window.\n\n`;
+                script += `[INDIVIDUAL ACTION EVIDENCE]\ne.g., Initialised drive system shutdown, executed FFT frequency spectrum maps, discovered angular structural misalignment, and re-shimmed assembly to exact laser tolerances.\n\n`;
+                script += `[QUANTIFIABLE RESULT IMPACT]\ne.g., Normalized asset vibration thresholds below ISO 10816, successfully passing 24-hour witness testing and mitigating a £35k replacement variation.\n\n`;
+            }
+
+            const role = "Technical Interview Coach and Engineering Council Competency Panellist";
+            const actions = "Critique this competency interview response formulated via the STAR method. 1. Evaluate if the described action layer is strong, technical, and strictly isolated to individual contribution. 2. Critique if the narrative profile successfully targets professional review metrics. 3. Assess if the result segment provides concrete data-driven metrics and suggest optimization fixes section-by-section using British English spelling conventions.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actions}
+[CONTEXT] The user is an engineering professional planning an interview response block to satisfy professional review rules (specifically UK-SPEC Competence D). The format used is a STAR Method Evidence Architecture Sheet (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and demand clear technical verification metrics using British English terminology (e.g., analyse, organise, initialise).`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the STAR competency canvas?")) {
+                document.getElementById('star_Situation').value = '';
+                document.getElementById('star_Task').value = '';
+                document.getElementById('star_Action').value = '';
+                document.getElementById('star_Result').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const situation = document.getElementById('star_Situation').value.trim();
+            const task = document.getElementById('star_Task').value.trim();
+            const action = document.getElementById('star_Action').value.trim();
+            const result = document.getElementById('star_Result').value.trim();
+
+            const state = { Situation: situation, Task: task, Action: action, Result: result };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_STAR_Architect_Blueprint_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Situation !== undefined || data.Task !== undefined || data.Action !== undefined || data.Result !== undefined) {
+                        document.getElementById('star_Situation').value = data.Situation || '';
+                        document.getElementById('star_Task').value = data.Task || '';
+                        document.getElementById('star_Action').value = data.Action || '';
+                        document.getElementById('star_Result').value = data.Result || '';
+                        updatePreview();
+                        alert("STAR method competency parameters imported successfully!");
+                    } else {
+                        alert("Invalid JSON data layout. Expected Situation, Task, Action, and Result parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const situation = document.getElementById('star_Situation').value.trim();
+            const task = document.getElementById('star_Task').value.trim();
+            const action = document.getElementById('star_Action').value.trim();
+            const result = document.getElementById('star_Result').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE STAR Technical Review Pre-Audit Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>STAR Competency Assessment Report</h1>
+                <p><em>Framework Cluster: Interview & Professional Communication System // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid-2">
+                    <div>
+                        <h2>S: Situation Background</h2>
+                        <p>${situation ? situation : 'Not defined.'}</p>
+                    </div>
+                    <div>
+                        <h2>T: Task Mandate</h2>
+                        <p>${task ? task : 'Not defined.'}</p>
+                    </div>
+                    <div>
+                        <h2>A: Action Individual Steps</h2>
+                        <p>${action ? action : 'Not defined.'}</p>
+                    </div>
+                    <div>
+                        <h2>R: Quantifiable Result</h2>
+                        <p>${result ? result : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated via Empowering Engineers UK - Professional Review Interview Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

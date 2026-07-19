@@ -2,21 +2,74 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+    <!-- Strict fluid viewport bounds to prevent mobile scaling anomalies -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Empowering Engineers UK. Get support for our engineering tools or suggest new features for CEng/IEng registration.">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Contact Empowering Engineers UK. Submit technical feedback, request new coaching frameworks, or get support for your CEng/IEng UK-SPEC applications.">
+    <meta name="keywords" content="Contact, Feedback, Engineering Council, UK-SPEC, CEng Support, Engineering Tools, Continuous Improvement, Process Industries">
     <meta property="og:title" content="Contact Us | Empowering Engineers UK">
-    <meta property="og:description" content="Contact Empowering Engineers UK. Get support for our engineering tools or suggest new features.">
-    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:description" content="Contact Empowering Engineers UK. Submit technical feedback, request new coaching frameworks, or get support for your professional registration.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/contact.html">
     <meta property="og:type" content="website">
+    
     <title>Contact Us | Empowering Engineers UK</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css?v=12">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Central layout engine connection strictly enforced to immutable root filenames -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
     
     <style>
+        /* PAGE SPECIFIC STYLES: Enforcing high information density and structural boundaries */
+        body, button, input, select, textarea, h1, h2, h3, h4, h5, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        .thick-content {
+            padding: 40px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        .thick-content h1 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .thick-content h2, .thick-content h3 {
+            color: var(--burnt-orange);
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .thick-content p, .thick-content li { 
+            margin-bottom: 15px; 
+            font-size: 1.05rem;
+        }
+
+        /* Interactive Grid Array */
         .contact-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -24,145 +77,337 @@
             margin-bottom: 50px;
         }
 
-        .contact-form {
+        @media (max-width: 992px) {
+            .contact-grid { 
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        /* Input Form & Card Architecture */
+        .contact-panel {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
-            padding: 30px;
+            padding: 35px;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
 
-        .form-group { margin-bottom: 20px; }
-        
-        label {
-            display: block;
-            color: var(--burnt-orange);
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-family: inherit;
+        .contact-panel h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
-        input, textarea {
+        /* Iframe Integration Container */
+        .form-iframe-wrapper {
             width: 100%;
-            padding: 12px;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border-color);
-            color: white;
+            background: #FFFFFF; /* Bright white fallback for Google Forms */
             border-radius: 4px;
-            font-family: inherit;
-            box-sizing: border-box;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-iframe-wrapper iframe {
+            width: 100%;
+            max-width: 700px;
+            min-height: 600px;
+            border: none;
+        }
+
+        .form-group { 
+            margin-bottom: 20px; 
         }
         
-        input:focus, textarea:focus {
-            border-color: var(--terminal-green);
-            outline: none;
+        .form-group label {
+            display: block;
+            color: var(--ee-dark-blue);
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        textarea { height: 150px; resize: vertical; }
+        /* Enforcing layout variables dynamically for dark/contrast themes */
+        .body[data-theme="dark"] .form-group label, 
+        .body[data-theme="contrast"] .form-group label {
+            color: var(--cloud-white);
+        }
 
-        .sidebar-card {
-            background: var(--dark-card);
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px;
+            background-color: var(--input-bg);
             border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 8px;
+            color: var(--cloud-white);
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        .form-group textarea { 
+            height: 120px; 
+            resize: vertical; 
+        }
+
+        .alert-box {
+            background: rgba(192, 86, 33, 0.1);
+            border-left: 4px solid var(--burnt-orange);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            border-radius: 0 4px 4px 0;
+            font-weight: 700;
+            color: var(--cloud-white);
+        }
+
+        .info-box {
+            background: rgba(3, 247, 160, 0.05);
+            border-left: 4px solid var(--terminal-green);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            border-radius: 0 4px 4px 0;
+            color: var(--cloud-white);
+            line-height: 1.5;
+        }
+
+        .warning-text {
+            color: var(--burnt-orange);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 10px;
+            display: block;
             text-align: center;
         }
 
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-        
-        .btn-linkedin {
-            background-color: #0077b5;
-            color: white;
-            border: 1px solid #0077b5;
-        }
-        .btn-linkedin:hover {
-            background-color: #005e93;
-            transform: translateY(-2px);
+        /* Email Directory Styling */
+        .email-directory {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        @media (max-width: 800px) {
-            .contact-grid { grid-template-columns: 1fr; }
+        .email-directory li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
+
+        .email-directory li:last-child {
+            border-bottom: none;
+        }
+
+        .dir-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--burnt-orange);
+            font-weight: 700;
+        }
+
+        .dir-address {
+            font-size: 1rem;
+            color: var(--cloud-white);
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .dir-address a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .dir-address a:hover {
+            color: var(--terminal-green);
+        }
+
     </style>
 </head>
-<body onload="initApp()">
-    <script defer src="header_nav.js?v=12"></script>
-    <script defer src="tools_data.js?v=12"></script>
-	
-    <div class="container">
+<body onload="if(typeof initApp === 'function') initApp();">
+    
+    <!-- Injection of core navigation and persistent memory tools strictly locked to root filenames -->
+    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="tools_data.js?v=21.7"></script>
+    
+    <main class="container">
         
-        <div style="text-align:center; margin-bottom: 40px;">
-            <h1 style="color:var(--terminal-green);">Get in Touch</h1>
-            <p style="color:var(--slate-grey); max-width: 600px; margin: 0 auto;">
-                Have feedback on our tools or a suggestion for a new feature? We'd love to hear from you.
-            </p>
+        <!-- Thick Content Boundary for Google AdSense SEO/AEO Contextual Parsing -->
+        <article class="thick-content">
+            <h1>Strategic Collaboration and Platform Optimisation</h1>
+            
+            <p>Welcome to the primary communications terminal for Empowering Engineers UK. While our digital toolkits (spanning the STAR Methodology Architect to our comprehensive CPD Smart-Planner) are engineered to operate as secure, zero-knowledge ecosystems, continuous improvement remains at the core of our development philosophy. Achieving professional registration as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) is a dynamic, evolving process. The Engineering Council's UK-SPEC framework is regularly updated, and as such, the structural matrices we provide must continuously calibrate to meet the rigorous demands of assessing panels across institutions such as the IMechE, IET, and ICE.</p>
+
+            <h2>Crowdsourcing Operational Excellence</h2>
+            <p>Your operational feedback is an invaluable asset in this iterative development cycle (PDCA). We heavily encourage engineering candidates, licensed mentors, and Professional Review Interview (PRI) assessors to submit structural recommendations and feature requests. By crowdsourcing knowledge from active professionals operating within safety-critical British industries (with a primary focus on the Process Industries, alongside the Nuclear, Aerospace, Civil Infrastructure, and Rail sectors), we can directly optimise our prompt structures and analytical algorithms.</p>
+            
+            <p>As an active advocate and technical authority within the IMechE Process Division Board, this platform acknowledges the uniquely complex operational hazards and rigorous continuous improvement demands of process engineering. Process engineering demands a profound understanding of thermodynamics, fluid mechanics, and systemic risk management (including HAZOP and SIL assessments). By tailoring our tools to these intense specifications, we inherently elevate the standard for all engineering disciplines. Whether you operate within chemical processing, energy generation, or advanced manufacturing, your empirical feedback drives the evolution of this digital workspace.</p>
+
+            <h2>Direct Development Terminal</h2>
+            <p>Whether you have identified a complex software anomaly, wish to suggest a new strategic matrix (such as an extension to our PESTLE or Value Stream Mapping templates), or require clarification regarding our local storage architecture, this terminal is your direct link to our lead developers and chartered consultants. Submitting detailed, empirical feedback not only improves the platform for future candidates but actively demonstrates your own professional commitment to engineering leadership and clear technical communication (UK-SPEC Competences C and D).</p>
+            
+            <p>To ensure rapid triage and deployment of system patches, please utilise the preferred web-based feedback portal below. Our engineering team processes all inbound enquiries with strict confidentiality, maintaining the same rigorous data sovereignty standards outlined in our Privacy Protection Document. Connect with us, share your strategic insights, and help us democratise the pathway to professional engineering excellence.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
+        <!-- Interactive Grid Array -->
         <div class="contact-grid">
-            <div class="contact-form">
-                <form action="mailto:hello@empoweringengineers.uk" method="post" enctype="text/plain">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="Your Name">
+            
+            <!-- Left Column: Feedback Portals -->
+            <div>
+                <!-- Primary Web Feedback Portal (Embedded) -->
+                <div class="contact-panel">
+                    <h3>System Feedback & Testimonials</h3>
+                    <div class="info-box">
+                        <strong>Preferred Method:</strong> Use the secure form below to submit structured feedback, request new framework features, or provide a public testimonial. 
+                        <br><br>
+                        <em>Estimated completion time: <strong>Under 2 minutes</strong> (Utilising intelligent conditional logic).</em>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="your@email.com">
+                    
+                    <div class="form-iframe-wrapper">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8g6JE5pn6R-XtRND7NuUkPG0l2LQTuPQnJw4NrBNNecoWgA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" title="Empowering Engineers UK Feedback Form">Loading Platform Interface...</iframe>
                     </div>
-                    <div class="form-group">
-                        <label>Subject</label>
-                        <select name="subject" style="width:100%; padding:12px; background:rgba(0,0,0,0.3); border:1px solid var(--border-color); color:white; border-radius:4px;">
-                            <option value="Feedback">Tool Feedback</option>
-                            <option value="Feature Request">Feature Request</option>
-                            <option value="Bug Report">Bug Report</option>
-                            <option value="Other">Other Inquiry</option>
-                        </select>
+                </div>
+
+                <!-- Secondary Transmission Form Node (Draft Generator) -->
+                <div class="contact-panel">
+                    <h3>Email Draft Generator</h3>
+                    <div class="alert-box">
+                        <strong>Operational Note:</strong> This form does NOT send a message directly. Clicking the compilation button below will simply package your text and open your device's default email application (e.g., Outlook, Apple Mail) with a pre-written draft.
                     </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea name="message" placeholder="How can we help?"></textarea>
-                    </div>
-                    <button type="submit" class="action-btn" style="width:100%;">SEND MESSAGE</button>
-                </form>
+                    <form id="draftGeneratorForm" action="mailto:info@empoweringengineers.uk" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label>Candidate Name / Designation</label>
+                            <input type="text" name="name" placeholder="Enter your full name..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Transmission Category & Department</label>
+                            <!-- Dynamic Routing Dropdown -->
+                            <select id="transmissionCategory" name="subject" onchange="updateMailtoAction()" required>
+                                <option value="General Platform Feedback" data-email="info@empoweringengineers.uk">General Platform Feedback</option>
+                                <option value="Strategic Feature Request" data-email="support@empoweringengineers.uk">Strategic Feature Request</option>
+                                <option value="System Bug / Anomaly Report" data-email="support@empoweringengineers.uk">System Bug / Anomaly Report</option>
+                                <option value="Corporate Sponsorship Enquiry" data-email="billing@empoweringengineers.uk">Corporate Sponsorship / B2B</option>
+                                <option value="Mentoring Programmes" data-email="mentoring@empoweringengineers.uk">Mentoring Programmes</option>
+                                <option value="Schedule an Appointment" data-email="appointments@empoweringengineers.uk">Schedule an Appointment</option>
+                                <option value="Press & Media Enquiries" data-email="media@empoweringengineers.uk">Press & Media Enquiries</option>
+                                <option value="Administrative Support" data-email="admin@empoweringengineers.uk">Administrative Support</option>
+                                <option value="Direct Consultation" data-email="murat.islam@empoweringengineers.uk">Direct Consultation (M. Islam)</option>
+                                <option value="Other Enquiry" data-email="hello@empoweringengineers.uk">Other Enquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data Payload / Message</label>
+                            <textarea name="message" placeholder="Detail your feedback or operational parameters here..." required></textarea>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="action-btn action-btn-ghost" aria-label="Compile Email Draft" style="width: 100%;">
+                                COMPILE LOCAL EMAIL DRAFT
+                            </button>
+                            <span class="warning-text">Your default mail client will open to complete transmission.</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Right Column: Contextual Sidebar Hub -->
+            <div style="display: flex; flex-direction: column; gap: 30px;">
                 
-                <div class="sidebar-card">
-                    <h3 style="color:white; margin-top:0;">Connect with Us</h3>
-                    <p style="color:var(--slate-grey); font-size:0.9rem;">
-                        Follow our company page for updates on new tools, engineering news, and professional registration tips.
-                    </p>
-                    <a href="https://www.linkedin.com/company/empoweringengineersuk/" target="_blank" class="social-btn btn-linkedin">
-                        <span>Follow on LinkedIn</span>
-                        <span>&#8599;</span>
+                <div class="contact-panel">
+                    <h3>Departmental Routing Directory</h3>
+                    <p style="color: var(--slate-grey); font-size: 0.9rem; margin-bottom: 15px;">For direct communication or specific administrative queries, bypass the general portal and target the specific network node below.</p>
+                    
+                    <ul class="email-directory">
+                        <li>
+                            <span class="dir-label">General Enquiries</span>
+                            <span class="dir-address"><a href="mailto:info@empoweringengineers.uk">info@empoweringengineers.uk</a></span>
+                            <span class="dir-address"><a href="mailto:hello@empoweringengineers.uk">hello@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Mentoring & Appointments</span>
+                            <span class="dir-address"><a href="mailto:mentoring@empoweringengineers.uk">mentoring@empoweringengineers.uk</a></span>
+                            <span class="dir-address"><a href="mailto:appointments@empoweringengineers.uk">appointments@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Technical Support</span>
+                            <span class="dir-address"><a href="mailto:support@empoweringengineers.uk">support@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Commercial & Billing</span>
+                            <span class="dir-address"><a href="mailto:billing@empoweringengineers.uk">billing@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Press & Media</span>
+                            <span class="dir-address"><a href="mailto:media@empoweringengineers.uk">media@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Administration</span>
+                            <span class="dir-address"><a href="mailto:admin@empoweringengineers.uk">admin@empoweringengineers.uk</a></span>
+                        </li>
+                        <li>
+                            <span class="dir-label">Direct Consulting</span>
+                            <span class="dir-address"><a href="mailto:murat.islam@empoweringengineers.uk">murat.islam@empoweringengineers.uk</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-panel" style="text-align: center;">
+                    <h3>Corporate Network</h3>
+                    <p style="color: var(--slate-grey); font-size: 0.95rem; margin-bottom: 25px;">Follow our platform nodes for real-time updates on new engineering tools, strategic frameworks, and professional registration coaching.</p>
+                    <a href="https://www.linkedin.com/company/empoweringengineersuk/" target="_blank" rel="noopener noreferrer" class="action-btn action-btn-ghost" aria-label="Follow Empowering Engineers UK on LinkedIn" style="width: 100%;">
+                        in Connect on LinkedIn
                     </a>
                 </div>
 
-                <div class="ad-slot ad-mpu">
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:300px;height:250px"
-                         data-ad-client="ca-pub-7071036534151105"
-                         data-ad-slot="4413012282"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-
             </div>
         </div>
 
-    </div>
+    </main>
 
-    <script defer src="footer.js?v=11.1"></script>
+    <!-- Master Footer Injection strictly locked to root filename -->
+    <script defer src="footer.js?v=21.7"></script>
+
+    <!-- Dynamic Routing Script -->
+    <script>
+        function updateMailtoAction() {
+            const selectElement = document.getElementById('transmissionCategory');
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const targetEmail = selectedOption.getAttribute('data-email');
+            
+            const formElement = document.getElementById('draftGeneratorForm');
+            if (formElement && targetEmail) {
+                formElement.action = 'mailto:' + targetEmail;
+            }
+        }
+        
+        // Initialise the correct mailto link securely on document load
+        document.addEventListener('DOMContentLoaded', updateMailtoAction);
+    </script>
 </body>
 </html>

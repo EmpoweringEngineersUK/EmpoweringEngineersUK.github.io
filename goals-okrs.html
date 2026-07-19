@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Objectives & Key Results (OKRs) deployment matrix workbench. Cascading macro enterprise strategies into trackable technical key results to satisfy UK-SPEC Competence C leadership requirements. Secure client-side memory.">
+    <meta name="keywords" content="OKRs, Objectives and Key Results, Engineering Leadership, Target Cascading, Performance Metrics, Project Management, UK-SPEC Competence C, Continuous Optimization">
+    <meta property="og:title" content="Objectives & Key Results (OKRs) Matrix | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, client-side architectural workspace engineered to align corporate growth goals with technical delivery frameworks.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/goals-okrs.html">
+    <meta property="og:type" content="website">
+    
+    <title>Objectives & Key Results (OKRs) Matrix | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Objectives & Key Results (OKRs) Matrix Workspace",
+      "url": "https://www.empoweringengineers.uk/goals-okrs.html",
+      "description": "An interactive digital workbook designed for engineering leaders to cascade high-level corporate strategies into measurable, technical targets using the OKR method.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- OKR STACK STYLING --- */
+        .okr-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .okr-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .okr-card.objective-card { border-left-color: var(--burnt-orange); }
+        .okr-card.kr1-card { border-left-color: var(--ee-terminal-green); }
+        .okr-card.kr2-card { border-left-color: var(--ee-terminal-green); }
+        .okr-card.kr3-card { border-left-color: var(--ee-terminal-green); }
+        .okr-card.alignment-card { border-left-color: #00b894; }
+
+        .okr-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .objective-label { color: var(--burnt-orange) !important; }
+        .kr1-label { color: var(--terminal-green) !important; }
+        .kr2-label { color: var(--terminal-green) !important; }
+        .kr3-label { color: var(--terminal-green) !important; }
+        .alignment-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 85px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Cascading Technical Targets: Engineering Alignment via the OKR Matrix</h1>
+            <p>
+                In the management of corporate engineering groups, high-value asset infrastructure operations, and rapid research frameworks, the breakdown between high-level company strategy and day-to-day engineering output causes severe operational friction. While top executives focus on commercial metrics, localized field layout teams often struggle to connect their engineering tasks to corporate business health. To merge this communication gap and guarantee operational safety, the deployment of the <strong>Objectives & Key Results (OKRs)</strong> matrix is critical. Under the Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC), this target cascading capability maps directly to <strong>Competence C (Technical and Commercial Leadership)</strong>, demanding that senior engineering professionals demonstrate a clear, repeatable capacity to direct teams and allocate system resources against defined corporate priorities.
+            </p>
+            <p>
+                The OKR framework provides a clear method to link high-level goals directly with measurable technical indicators. An **Objective** outlines a clear, qualitative statement of direction designed to drive localized team focus—such as upgrading plant reliability parameters. This intention is then backed by multiple quantitative **Key Results** that serve as explicit, data-driven check gates to measure success without ambiguity. Utilizing this digital canvas allows engineering candidate leads to build clear proof of performance alignment. It shows institutional review boards that you execute your human resource and operational management duties with maximum commercial awareness and strict adherence to modern corporate governance frameworks.
+            </p>
+
+            <h2>Deconstructing the Four Dimensions of an Engineering OKR Layout</h2>
+            <p>
+                Structuring a high-density, UK-SPEC compliant performance log requires engineering leads to critically map out each phase of the framework step-by-step:
+            </p>
+            <p>
+                <strong>The Objective [O]:</strong> Establish a high-impact, qualitative focus statement designed to guide the localized engineering cell. Avoid generic metrics in this section; instead, state an ambitious, actionable target: "Substantially improve the structural reliability profile and operating uptime margins of the Sector 2 robotic assembly conveyor tracks."
+            </p>
+            <p>
+                <strong>Key Result 1 [KR1]:</strong> Formulate the primary quantitative tracking metric to verify objective compliance. This milestone must be concrete and numeric—such as reducing mean time to failure (MTTF) parameters from 120 hours up to a minimum threshold of 350 hours, or removing specific sub-system structural friction points entirely.
+            </p>
+            <p>
+                <strong>Key Result 2 [KR2]:</strong> Construct a secondary numeric check gate targeting resource efficiency or quality assurance variables. For example, hardcode precise constraints requiring your site engineering team to execute all preventive maintenance tasks within a maximum 45-minute window, or restricting total part scrap metrics below a tight 1.5% margin.
+            </p>
+            <p>
+                <strong>Key Result 3 [KR3]:</strong> Define a final data-driven milestone focused on regulatory alignment, training compliance, or physical deployment. This could include ensuring that 100% of line technicians complete certified safety modules, or finishing the structural deployment of automated vibration sensors across all key asset nodes by a specific calendar date.
+            </p>
+            <p>
+                <strong>Strategic Alignment Matrix:</strong> Explicitly document the structural connection linking this specific engineering objective back to your company's high-level business goals. For example, explain how optimizing conveyor reliability directly prevents broader supply chain bottlenecks, decreases capital expenditure on replacement parts, and fulfills carbon reduction obligations under corporate ESG policies.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="goalsPathNav" aria-label="Goal Setting Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="goals.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goals"></div>
+                <span class="tab-label">Goals Hub</span>
+            </a>
+            <a href="goals-smart.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_smart"></div>
+                <span class="tab-label">SMART</span>
+            </a>
+            <a href="goals-okrs.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_okrs"></div>
+                <span class="tab-label">OKRs</span>
+            </a>
+            <a href="goals-scorecard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scorecard"></div>
+                <span class="tab-label">Scorecard</span>
+            </a>
+            <a href="goals-bhag.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bhag"></div>
+                <span class="tab-label">BHAG</span>
+            </a>
+            <a href="goals-backward.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_backward"></div>
+                <span class="tab-label">Backward</span>
+            </a>
+            <a href="goals-golden-circle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goldencircle"></div>
+                <span class="tab-label">Golden Circle</span>
+            </a>
+            <a href="goals-pyramid.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pyramid"></div>
+                <span class="tab-label">Pyramid</span>
+            </a>
+            <a href="goals-tiered.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_tiered"></div>
+                <span class="tab-label">Tiered</span>
+            </a>
+            <a href="goals-hard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hard"></div>
+                <span class="tab-label">HARD</span>
+            </a>
+            <a href="goals-gsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gsm"></div>
+                <span class="tab-label">GSM</span>
+            </a>
+            <a href="goals-woop.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_woop"></div>
+                <span class="tab-label">WOOP</span>
+            </a>
+            <a href="goals-five-principles.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fiveprinciples"></div>
+                <span class="tab-label">5 Principles</span>
+            </a>
+            <a href="goals-one-word.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_oneword"></div>
+                <span class="tab-label">One Word</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">OKR Deployment Matrix</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Corporate Cascade & Technical Target Workspace</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="okr-stack">
+                    
+                    <!-- Objective Card -->
+                    <div class="okr-card objective-card">
+                        <label class="okr-label objective-label">The Objective [O]</label>
+                        <span class="form-hint">State an ambitious, qualitative focus statement designed to guide your technical engineering cell. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Significantly elevate the operational reliability and lifecycles of the Sector 2 structural valve manifolds.</span></span>
+                        <textarea id="okr_Objective" class="form-input" placeholder="Define high-impact qualitative objectives here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Key Result 1 Card -->
+                    <div class="okr-card kr1-card">
+                        <label class="okr-label kr1-label">Key Result 1 [KR1]</label>
+                        <span class="form-hint">Formulate your primary numeric metric to measure success without subjective ambiguity. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Increase mean time between failures (MTBF) limits from 140 hours to a minimum of 400 operating hours.</span></span>
+                        <textarea id="okr_KR1" class="form-input" placeholder="Hardcode precise quantitative indicators here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Key Result 2 Card -->
+                    <div class="okr-card kr2-card">
+                        <label class="okr-label kr2-label">Key Result 2 [KR2]</label>
+                        <span class="form-hint">Construct a secondary data-driven check gate targeting quality control or resource efficiencies. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Restrict fluid leakage metrics under a tight 0.02% variance threshold during standard peak pressure loops.</span></span>
+                        <textarea id="okr_KR2" class="form-input" placeholder="Establish secondary quantitative quality parameters here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Key Result 3 Card -->
+                    <div class="okr-card kr3-card">
+                        <label class="okr-label kr3-label">Key Result 3 [KR3]</label>
+                        <span class="form-hint">Define a final quantitative milestone focused on team training compliance, safety, or physical asset deployment. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Guarantee 100% of shift technicians complete the advanced pressure valve configuration training module.</span></span>
+                        <textarea id="okr_KR3" class="form-input" placeholder="Outline compliance milestones or deployment data targets here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Strategic Alignment Matrix Card -->
+                    <div class="okr-card alignment-card">
+                        <label class="okr-label alignment-label">Strategic Alignment Matrix</label>
+                        <span class="form-hint">Explicitly document how optimizing this specific engineering target drives broader corporate business strategies. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Eliminates structural downtime liabilities, preventing downstream supply line log-jams and reducing maintenance spend.</span></span>
+                        <textarea id="okr_Alignment" class="form-input" placeholder="Map technical objectives to macro enterprise growth goals and corporate strategy metrics here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to cascade targets across the OKR performance registry...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_goals_okrs";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('okr_Objective').value = data.Objective || '';
+                    document.getElementById('okr_KR1').value = data.KR1 || '';
+                    document.getElementById('okr_KR2').value = data.KR2 || '';
+                    document.getElementById('okr_KR3').value = data.KR3 || '';
+                    document.getElementById('okr_Alignment').value = data.Alignment || '';
+                } catch (e) {
+                    console.error("Failed to parse stored OKR registry structures:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsRegistry = {
+                'coach': 'ee_management_master_hub',
+                'goals': 'ee_goals_master_hub',
+                'smart': 'ee_goals_smart',
+                'okrs': 'ee_goals_okrs',
+                'scorecard': 'ee_goals_scorecard',
+                'bhag': 'ee_goals_bhag',
+                'backward': 'ee_goals_backward',
+                'goldencircle': 'ee_goals_goldencircle',
+                'pyramid': 'ee_goals_pyramid',
+                'tiered': 'ee_goals_tiered',
+                'hard': 'ee_goals_hard',
+                'gsm': 'ee_goals_gsm',
+                'woop': 'ee_goals_woop',
+                'fiveprinciples': 'ee_goals_fiveprinciples',
+                'oneword': 'ee_goals_oneword'
+            };
+
+            Object.keys(toolsRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const objective = document.getElementById('okr_Objective').value.trim();
+            const kr1 = document.getElementById('okr_KR1').value.trim();
+            const kr2 = document.getElementById('okr_KR2').value.trim();
+            const kr3 = document.getElementById('okr_KR3').value.trim();
+            const alignment = document.getElementById('okr_Alignment').value.trim();
+
+            let output = `=== OBJECTIVES & KEY RESULTS: TARGET ACCELERATION LOG ===\n\n`;
+            output += `[QUALITATIVE OBJECTIVE]:\n${objective ? objective : '...\n'}\n`;
+            output += `[KEY RESULT 1]:\n${kr1 ? kr1 : '...\n'}\n`;
+            output += `[KEY RESULT 2]:\n${kr2 ? kr2 : '...\n'}\n`;
+            output += `[KEY RESULT 3]:\n${kr3 ? kr3 : '...\n'}\n`;
+            output += `[STRATEGIC ALIGNMENT MATRIX]:\n${alignment ? alignment : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = objective || kr1 || kr2 || kr3 || alignment;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Objective: objective, KR1: kr1, KR2: kr2, KR3: kr3, Alignment: alignment };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Objectives & Key Results (OKRs) workbench state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const objective = document.getElementById('okr_Objective').value.trim();
+            const kr1 = document.getElementById('okr_KR1').value.trim();
+            const kr2 = document.getElementById('okr_KR2').value.trim();
+            const kr3 = document.getElementById('okr_KR3').value.trim();
+            const alignment = document.getElementById('okr_Alignment').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = objective || kr1 || kr2 || kr3 || alignment;
+
+            if (hasUserData) {
+                script += `[QUALITATIVE OBJECTIVE]\n${objective ? objective : 'Not defined.'}\n\n`;
+                script += `[KEY RESULT 1]\n${kr1 ? kr1 : 'Not defined.'}\n\n`;
+                script += `[KEY RESULT 2]\n${kr2 ? kr2 : 'Not defined.'}\n\n`;
+                script += `[KEY RESULT 3]\n${kr3 ? kr3 : 'Not defined.'}\n\n`;
+                script += `[STRATEGIC ALIGNMENT MATRIX]\n${alignment ? alignment : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[QUALITATIVE OBJECTIVE]\ne.g., Systematically reinforce electrical safety baselines and grid asset performance profiles inside the Sub-Station 4 distribution sector.\n\n`;
+                script += `[KEY RESULT 1]\ne.g., Suppress unexplained electrical grid surge failures from an average of 14 down to an absolute target of 0 errors over the next fiscal quarter.\n\n`;
+                script += `[KEY RESULT 2]\ne.g., Restructure physical preventative maintenance workflows to reduce average breaker switch testing times from 90 minutes down to 35 minutes.\n\n`;
+                script += `[KEY RESULT 3]\ne.g., Ensure 100% of substation engineers pass the high-voltage statutory safety verification audit before 30 November.\n\n`;
+                script += `[STRATEGIC ALIGNMENT MATRIX]\ne.g., Directly guarantees asset compliance loops under local regulatory criteria, shields company infrastructure from capital expenditure losses, and prevents local grid dropouts.\n\n`;
+            }
+
+            const role = "Director of Engineering Operations & Senior Portfolio Auditor";
+            const actionText = "Analyse this Objectives & Key Results (OKR) technical layout user draft. 1. Evaluate if the qualitative objective section articulates a high-impact focus statement clearly. 2. Critique whether each distinct Key Result sets rigid, numeric parameters that eliminate subjective bias. 3. Assess if the strategic alignment matrix establishes the corporate cascade links, workflow tracking, and resource governance required under UK-SPEC Competency C leadership criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior technical lead building an OKR matrix to document managerial capability for an engineering council professional assessment. The format used is an Objectives & Key Results Configuration Workspace (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any structural field for the user. Interrogate the target indicators aggressively. Expose formatting vulnerabilities, flag ambiguous milestones, and deliver a comprehensive section-by-section analysis report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the OKR workspace canvas?")) {
+                document.getElementById('okr_Objective').value = '';
+                document.getElementById('okr_KR1').value = '';
+                document.getElementById('okr_KR2').value = '';
+                document.getElementById('okr_KR3').value = '';
+                document.getElementById('okr_Alignment').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const objective = document.getElementById('okr_Objective').value.trim();
+            const kr1 = document.getElementById('okr_KR1').value.trim();
+            const kr2 = document.getElementById('okr_KR2').value.trim();
+            const kr3 = document.getElementById('okr_KR3').value.trim();
+            const alignment = document.getElementById('okr_Alignment').value.trim();
+
+            const state = { Objective: objective, KR1: kr1, KR2: kr2, KR3: kr3, Alignment: alignment };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Engineering_OKRs_Matrix_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Objective !== undefined || data.KR1 !== undefined || data.KR2 !== undefined || data.KR3 !== undefined || data.Alignment !== undefined) {
+                        document.getElementById('okr_Objective').value = data.Objective || '';
+                        document.getElementById('okr_KR1').value = data.KR1 || '';
+                        document.getElementById('okr_KR2').value = data.KR2 || '';
+                        document.getElementById('okr_KR3').value = data.KR3 || '';
+                        document.getElementById('okr_Alignment').value = data.Alignment || '';
+                        updatePreview();
+                        alert("Engineering OKRs matrix target values imported successfully!");
+                    } else {
+                        alert("Invalid JSON configuration footprint. Expected Objective, KR1, KR2, KR3, and Alignment data fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file structure as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const objective = document.getElementById('okr_Objective').value.trim();
+            const kr1 = document.getElementById('okr_KR1').value.trim();
+            const kr2 = document.getElementById('okr_KR2').value.trim();
+            const kr3 = document.getElementById('okr_KR3').value.trim();
+            const alignment = document.getElementById('okr_Alignment').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Objectives & Key Results (OKRs) Assessment Summary</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Objectives & Key Results (OKRs) Performance Summary</h1>
+                <p><em>Framework Branch: Cascade Deployment & Governance Matrix // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Calibrated Objective Statement</h2>
+                <p>${objective ? objective : 'Not defined.'}</p>
+                
+                <h2>Key Result 1 (Primary Tracking Indicator)</h2>
+                <p>${kr1 ? kr1 : 'Not defined.'}</p>
+                
+                <h2>Key Result 2 (Quality Assurance Metric)</h2>
+                <p>${kr2 ? kr2 : 'Not defined.'}</p>
+                
+                <h2>Key Result 3 (Compliance & Deployment Milestone)</h2>
+                <p>${kr3 ? kr3 : 'Not defined.'}</p>
+                
+                <h2>Strategic Alignment Matrix</h2>
+                <p>${alignment ? alignment : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Professional Leadership Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

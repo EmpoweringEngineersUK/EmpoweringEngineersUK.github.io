@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering 5 Whys Root Cause Analysis configuration studio. Systematically isolate underlying structural faults, separate mechanical failure symptoms from procedural omissions, and satisfy UK-SPEC Competence C leadership criteria. Secure client-side memory.">
+    <meta name="keywords" content="5 Whys, Root Cause Analysis, RCA, Ishikawa, Process Improvement, Engineering Failures, Systemic Failure, Asset Integrity, UK-SPEC Competence C">
+    <meta property="og:title" content="5 Whys Root Cause Analysis Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side diagnostic auditing engine designed to trace technical failures down to underlying governance and procedural root causes.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality-5whys.html">
+    <meta property="og:type" content="website">
+    
+    <title>5 Whys Root Cause Analysis Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering 5 Whys Root Cause Analysis Studio",
+      "url": "https://www.empoweringengineers.uk/quality-5whys.html",
+      "description": "An interactive digital workbench enabling lead engineers to execute structured root cause investigations from direct physical failure symptoms down to systemic management omissions.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        .framework-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .framework-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .framework-card.p-card { border-left-color: var(--burnt-orange); }
+        .framework-card.w1-card { border-left-color: var(--slate-grey); }
+        .framework-card.w2-card { border-left-color: var(--slate-grey); }
+        .framework-card.w3-card { border-left-color: var(--slate-grey); }
+        .framework-card.w4-card { border-left-color: var(--slate-grey); }
+        .framework-card.w5-card { border-left-color: var(--ee-terminal-green); }
+
+        .framework-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .p-label { color: var(--burnt-orange) !important; }
+        .w1-label, .w2-label, .w3-label, .w4-label { color: var(--slate-grey) !important; }
+        .w5-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .example-text {
+            color: var(--terminal-green);
+            opacity: 0.85;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 80px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Diagnostic Root Cause Analysis: Mastering the 5 Whys Methodology</h1>
+            <p>
+                In the operation, asset lifecycle management, and maintenance of high-integrity industrial installations, mechanical power grids, and complex manufacturing networks, treating superficial equipment failures can introduce hidden operational risks. When an asset experiences a critical breakdown, engineering teams often rush to perform localised repairs without interrogating the underlying process factors. To resolve these recurring execution defects, technical leads execute a systematic **5 Whys Root Cause Analysis (RCA)**. Developed originally by Sakichi Toyoda and standardised globally within the Toyota Production System, this iterative interrogative methodology forces engineers to look past superficial failure symptoms and trace cause-and-effect paths down to the true systemic defect. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, documenting a rigorous root-cause path directly meets the requirements of **Competence C (Technical and Commercial Leadership)**, proving a candidate's personal ownership of process governance, risk mitigation, and systemic quality control.
+            </p>
+            <p>
+                The execution of a 5 Whys analysis breaks down a complex problem into an unvarnished linear taxonomy. By forcing the engineering cell to ask "Why" a specific state manifested five distinct times consecutively, the investigation transitions from direct mechanical physics into organisational governance. This sequence traces a clear line through six specific phases: the **Problem Statement**, followed by **Why 1** through **Why 5 (The Root Cause)**. This disciplined approach ensures that capital outlays are targeted at changing systemic processes or design parameters permanently, rather than cycling through endless maintenance loops on short-lived component overhauls. Providing an audit-ready 5 Whys ledger proves to professional registration panels that your engineering approach is commercially aware and structurally optimised.
+            </p>
+
+            <h2>Deconstructing the Linear Taxonomy of the 5 Whys Interface</h2>
+            <p>
+                Calibrating a root cause analysis ledger using this digital studio requires candidate leads to methodically trace and document parameters across each distinct level:
+            </p>
+            <p>
+                <strong>Problem Statement:</strong> State the empirical performance failure, component defect, or operational anomaly concisely. Avoid qualitative assumptions; record explicit metrics such as specific system fault codes, temperature drops, or exact component tracking references (e.g., 'The high-pressure hydraulic fluid line burst, causing an immediate shutdown loop on assembly Line 3').
+            </p>
+            <p>
+                <strong>Why 1 (Immediate Physical Cause):</strong> Determine the direct, immediate physical trigger or mechanical state that directly produced the problem statement.
+            </p>
+            <p>
+                <strong>Why 2 (Downstream Material Cause):</strong> Interrogate the previous state to isolate what specific stress, electrical fluctuation, or component wear caused the state in Why 1.
+            </p>
+            <p>
+                <strong>Why 3 (Operational Constraint Cause):</strong> Move beyond immediate physics and evaluate what local process boundary, calibration interval, or tool performance setting allowed the state in Why 2 to occur.
+            </p>
+            <p>
+                <strong>Why 4 (Procedural/Maintenance Cause):</strong> Determine the underlying standard operating procedure (SOP) omission, technician training gap, or preventive maintenance checklist latency that failed to prevent the state in Why 3.
+            </p>
+            <p>
+                <strong>Why 5 (Systemic Root Cause Governance):</strong> Isolate the ultimate organisational, corporate, or financial management framework omission that underpins the entire failure chain. This root cause requires a permanent modification to corporate policy or asset strategy to prevent repetition.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">5 Whys Analysis Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Linear Root Cause Investigation Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div id="dynamicFieldsContainer" class="framework-stack">
+                    <!-- Fields dynamically loaded from frameworks.js on initApp() -->
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting analytical failure tracking inputs to construct the root cause linear path...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_quality_5whys";
+        const FW_KEY = "5WHYS";
+        let autosaveTimer;
+
+        // --- Defensive Fallback configuration data architecture injection layer ---
+        if (typeof frameworks === 'undefined') { window.frameworks = {}; }
+        if (!frameworks[FW_KEY]) {
+            frameworks[FW_KEY] = {
+                name: "5 Whys (Root Cause Analysis)",
+                cat: "process",
+                fields: [
+                    { id: "P", label: "PROBLEM STATEMENT", hint: "State the empirical performance failure or structural anomaly concisely.", example: "e.g. 'The primary hydraulic motor overheating interlock tripped, shutting down production line tracking loops.'" },
+                    { id: "W1", label: "WHY 1", hint: "What direct, immediate physical cause produced the stated problem?", example: "e.g. 'Because the volume of cooling oil flowing through the internal manifold was severely insufficient.'" },
+                    { id: "W2", label: "WHY 2", hint: "What cause produced the physical state recorded in Why 1?", example: "e.g. 'Because the primary pump fluid intake filter mesh was completely clogged with metallic particle debris.'" },
+                    { id: "W3", label: "WHY 3", hint: "What cause produced the condition recorded in Why 2?", example: "e.g. 'Because the internal system oil had become heavily contaminated with abrasive structural shavings.'" },
+                    { id: "W4", label: "WHY 4", hint: "What cause produced the contamination recorded in Why 3?", example: "e.g. 'Because the main reservoir access cap safety gasket had degraded, fragmented, and shed particulate into the tank.'" },
+                    { id: "W5", label: "WHY 5 (ROOT CAUSE)", hint: "Expose the underlying systemic, procedural, or management framework omission.", example: "e.g. 'Because the active preventive maintenance schedule does not include mandatory inspection or replacement intervals for tank access gaskets.'" }
+                ]
+            };
+        }
+
+        // --- 2. INITIALISATION & INHERITANCE ENGINE ---
+        function initApp() {
+            loadFrameworkFields();
+        }
+
+        function loadFrameworkFields() {
+            const data = frameworks[FW_KEY];
+            const container = document.getElementById('dynamicFieldsContainer');
+            container.innerHTML = "";
+            
+            let savedState = {};
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try { savedState = JSON.parse(stored); } catch(e) { console.error("Failed to parse local JSON state object."); }
+            }
+            
+            data.fields.forEach(f => {
+                const val = savedState[f.id] || "";
+                const card = document.createElement('div');
+                const lowerId = f.id.toLowerCase();
+                card.className = `framework-card 5whys-card ${lowerId}-card`;
+                card.innerHTML = `
+                    <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
+                    <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
+                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localised logical dependency parameters here..." oninput="updatePreview()">${val}</textarea>
+                `;
+                container.appendChild(card);
+            });
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const data = frameworks[FW_KEY];
+            let output = `=== 5 WHYS METHODOLOGY: ROOT CAUSE ANALYSIS LOG ===\n\n`;
+            let hasData = false;
+            let stateData = {};
+            
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                const val = el ? el.value.trim() : "";
+                stateData[f.id] = val;
+                
+                if (val) {
+                    hasData = true;
+                    output += `[${f.label.toUpperCase()}]:\n${val}\n\n`;
+                } else {
+                    output += `[${f.label.toUpperCase()}]:\n...\n\n`;
+                }
+            });
+            
+            document.getElementById('previewArea').innerText = output;
+            
+            const aiBtn = document.getElementById('aiBtn');
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with 3-second delay logic
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(stateData));
+                updateNavigationBadges();
+                console.log("5 Whys framework logical state metrics auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const data = frameworks[FW_KEY];
+            let script = "";
+            let promptType = "User Draft";
+            
+            let hasUserData = data.fields.some(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                return el && el.value.trim() !== "";
+            });
+
+            if (hasUserData) {
+                data.fields.forEach(f => {
+                    const el = document.getElementById(`input_${f.id}`);
+                    const val = el ? el.value.trim() : "Not defined.";
+                    script += `[${f.label.toUpperCase()}]\n${val}\n\n`;
+                });
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                data.fields.forEach(f => {
+                    script += `[${f.label.toUpperCase()}]\n${f.example}\n\n`;
+                });
+            }
+
+            const role = "Director of Asset Integrity & Chief Technical Incident Reviewer";
+            const actionText = "Analyse this 5 Whys Root Cause Analysis (RCA) log user draft. 1. Evaluate whether the problem statement establishes an empirical, metric-driven failure baseline safely. 2. Critique if the linear progression across steps 1 through 5 presents an unbroken logical deduction from direct physics down to management frameworks. 3. Assess if the final root cause highlights the systemic process modifications, procedural controls, and management governance required to satisfy UK-SPEC Competency C leadership portfolio criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a lead engineer structuring a technical failure analysis to validate engineering governance skills for a professional registration review panel. The format used is a 5 Whys Root Cause Analysis Studio Document (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm(`Confirm action: permanently purge all text inputs from the 5 Whys studio canvas?`)) {
+                const data = frameworks[FW_KEY];
+                data.fields.forEach(f => {
+                    const el = document.getElementById(`input_${f.id}`);
+                    if (el) el.value = '';
+                });
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            let savedState = {};
+            const data = frameworks[FW_KEY];
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                savedState[f.id] = el ? el.value.trim() : "";
+            });
+            
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(savedState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_5Whys_Failure_Analysis_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    const data = frameworks[FW_KEY];
+                    const isValid = data.fields.some(f => parsed[f.id] !== undefined);
+                    
+                    if (isValid) {
+                        data.fields.forEach(f => {
+                            const el = document.getElementById(`input_${f.id}`);
+                            if (el) el.value = parsed[f.id] || "";
+                        });
+                        updatePreview();
+                        alert("5 Whys root cause parameters imported successfully!");
+                    } else {
+                        alert("Invalid JSON data layout. Missing expected 5 Whys structural fields.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON formatting structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const data = frameworks[FW_KEY];
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE 5 Whys Root Cause Analysis Ledger</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>5 Whys Root Cause Investigation Report</h1>
+                <p><em>Framework Branch: Process Quality Diagnostics & RCA Governance // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
+
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                const val = el ? el.value.trim() : "";
+                html += `<h2>${f.label}</h2>`;
+                html += `<p>${val ? val : 'Not defined.'}</p>`;
+            });
+
+            html += `
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Incident Diagnostics & Quality Management Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

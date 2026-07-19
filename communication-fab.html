@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering FAB Approach value pitch portal. Format technical attributes into Features, Advantages, and Benefits to justify capital expenditures, pass board reviews, and prove UK-SPEC Competence C and D leadership. Secure client-side memory engine.">
+    <meta name="keywords" content="FAB Approach, Features Advantages Benefits, CapEx Justification, Technical Proposal, Engineering Management, Corporate Board Pitching, UK-SPEC Competence C, UK-SPEC Competence D">
+    <meta property="og:title" content="FAB Value Pitch Architecture Canvas | Empowering Engineers UK">
+    <meta property="og:description" content="A premium, zero-knowledge client-side strategic development workspace engineered for principal engineers, technical directors, and project managers.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-fab.html">
+    <meta property="og:type" content="website">
+    
+    <title>FAB Value Pitch Canvas | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering FAB Approach Value Pitch Canvas",
+      "url": "https://www.empoweringengineers.uk/communication-fab.html",
+      "description": "An interactive digital grid built for engineers to convert structural parameters into strategic business advantages and measurable commercial value.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- FAB CANVAS STYLING --- */
+        .fab-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .fab-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .fab-card.feature-card { border-left-color: var(--burnt-orange); }
+        .fab-card.advantage-card { border-left-color: var(--ee-terminal-green); }
+        .fab-card.benefit-card { border-left-color: #00b894; }
+
+        .fab-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .feature-label { color: var(--burnt-orange) !important; }
+        .advantage-label { color: var(--terminal-green) !important; }
+        .benefit-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 110px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Commercial Pitching for Engineers: Executing the FAB Approach</h1>
+            <p>
+                A common challenge during technical project reviews and executive board briefings is the "Features Trap." Less experienced technical teams often spend hours detailing low-level physical attributes, sub-assembly geometric constraints, and mathematical software parameters. However, corporate executives holding financial sign-off authority operate on a different frequency. To pass major capital expenditure (CapEx) reviews, secure multi-million-pound project bids, and satisfy **UK-SPEC Competence C (Management/Leadership)** and **Competence D (Communication)**, technical professionals must master the art of value translation.
+            </p>
+            <p>
+                The **FAB Approach (Features, Advantages, Benefits)** provides a rigorous framework to translate raw engineering properties into clear business value. By separating a design or upgrade proposal into three distinct fields, this methodology ensures engineering leaders lead with strategic utility rather than descriptive data. It structures technical data so that non-technical corporate vice-presidents, procurement managers, and external financial directors can instantly understand how a specific component choice directly helps contain operational overheads (OpEx), minimize lifecycle maintenance risk, and protect bottom-line corporate profitability.
+            </p>
+
+            <h2>Analyzing the Three Strands of the FAB Value Pitch</h2>
+            <p>
+                Constructing a professional engineering pitch using the FAB grid requires transforming cold material specifications into high-impact commercial justifications:
+            </p>
+            <p>
+                <strong>Features [F]:</strong> This strand identifies the core technical attributes, specifications, material selections, and physical parameters of the asset or software upgrade. This information is purely descriptive and represents first-principles facts. Examples include specifying a high-performance titanium alloy, a cloud-based Building Information Modeling (BIM) data link, an automated script algorithm, or a customized double-seal layout config.
+            </p>
+            <p>
+                <strong>Advantages [A]:</strong> The advantages dimension defines why the feature matters technically. It answers how this design choice outperforms traditional alternatives or industry baselines. For example, a titanium alloy feature provides an advantage of "superior resistance to localized electrochemical corrosion loop propagation within severe marine environments compared to standard grade carbon steels." This bridges the gap between cold specifications and ultimate performance.
+            </p>
+            <p>
+                <strong>Benefits [B]:</strong> The benefits section is the most critical element for securing executive approval. It translates technical advantages directly into hard business results. Corporate review boards focus heavily on this box. Here, candidates must hardcode quantifiable data markers, such as a 20% drop in annual lifecycle maintenance downtime, a total elimination of recurring inspection costs, a £650,000 optimization in CapEx procurement allocation, or complete insulation from statutory regulatory non-compliance risks under relevant CDM provisions.
+            </p>
+
+            <h2>Interactive Client-Side FAB Architecture Grid</h2>
+            <p>
+                The interactive FAB Value Pitch Canvas below is engineered specifically to help engineering professionals quickly convert technical specs into high-impact business proposals. To guarantee total data privacy and preserve absolute intellectual property security, this system operates on a zero-knowledge local browser framework. Your text entries are processed and cached exclusively within your device's local memory partition—nothing is ever shared with external networks or servers. Use this system to generate pristine outlines, export secure JSON data arrays, or compile elite AI consultant prompts.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">FAB Pitch Architecture</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategic Value Engineering Canvas</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="fab-stack">
+                    
+                    <!-- Features Card -->
+                    <div class="fab-card feature-card">
+                        <label class="fab-label feature-label">Features [F]</label>
+                        <span class="form-hint">What are the technical specs, material selections, and physical attributes of the design? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Implementation of an automated cloud-based predictive telemetry macro suite within secondary structural housings.</span></span>
+                        <textarea id="fab_Features" class="form-input" placeholder="List technical specifications and material properties here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Advantages Card -->
+                    <div class="fab-card advantage-card">
+                        <label class="fab-label advantage-label">Advantages [A]</label>
+                        <span class="form-hint">Why is this parameter superior to standard methods or market baselines? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Facilitates real-time vibration calculation loops, bypass-ing manual multi-tier spreadsheet auditing delay.</span></span>
+                        <textarea id="fab_Advantages" class="form-input" placeholder="State operational advantages and functional advancements here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Benefits Card -->
+                    <div class="fab-card benefit-card">
+                        <label class="fab-label benefit-label">Benefits [B]</label>
+                        <span class="form-hint">What is the hard commercial, financial, safety, or lifecycle value generated for executive buyers? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Lowers recurrent maintenance team field exposure risks by 35% and avoids a potential £180,000 monthly output failure cost.</span></span>
+                        <textarea id="fab_Benefits" class="form-input" placeholder="Define quantifiable commercial savings and corporate benefits here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile value-pitch preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_comm_fab";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('fab_Features').value = data.Features || '';
+                    document.getElementById('fab_Advantages').value = data.Advantages || '';
+                    document.getElementById('fab_Benefits').value = data.Benefits || '';
+                } catch (e) {
+                    console.error("Failed to parse stored FAB state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const features = document.getElementById('fab_Features').value.trim();
+            const advantages = document.getElementById('fab_Advantages').value.trim();
+            const benefits = document.getElementById('fab_Benefits').value.trim();
+
+            let output = `=== FAB VALUE PITCH: ANALYSIS BLOCKS ===\n\n`;
+            output += `[FEATURES]:\n${features ? features : '...\n'}\n`;
+            output += `[ADVANTAGES]:\n${advantages ? advantages : '...\n'}\n`;
+            output += `[BENEFITS]:\n${benefits ? benefits : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = features || advantages || benefits;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Features: features, Advantages: advantages, Benefits: benefits };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("FAB value pitch canvas layout auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const features = document.getElementById('fab_Features').value.trim();
+            const advantages = document.getElementById('fab_Advantages').value.trim();
+            const benefits = document.getElementById('fab_Benefits').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = features || advantages || benefits;
+
+            if (hasUserData) {
+                script += `[TECHNICAL FEATURES]\n${features ? features : 'Not defined.'}\n\n`;
+                script += `[OPERATIONAL ADVANTAGES]\n${advantages ? advantages : 'Not defined.'}\n\n`;
+                script += `[COMMERCIAL BENEFITS]\n${benefits ? benefits : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[TECHNICAL FEATURES]\ne.g., Integrated continuous telemetry loop logging structural stress fluctuations across a distribution pump block.\n\n`;
+                script += `[OPERATIONAL ADVANTAGES]\ne.g., Captures failure markers 14 days before a complete system failure happens, surpassing traditional monthly testing profiles.\n\n`;
+                script += `[COMMERCIAL BENEFITS]\ne.g., Completely eliminates unscheduled asset downtime, reducing OpEx overhead cost exposures by £240,000 annually.\n\n`;
+            }
+
+            const role = "Chief Technical Officer & Strategic Commercial Pitch Consultant";
+            const actionText = "Analyse this FAB (Features, Advantages, Benefits) commercial pitch canvas user draft. 1. Assess if the features are cleanly separated from the commercial advantages. 2. Critique whether the benefits section translates technical attributes into hard, quantifiable business value matrices (CapEx, OpEx, safety risk mitigations). 3. Identify strategic gaps or blind spots that could weaken this value pitch during executive board reviews.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is an engineering manager planning a commercial proposal to secure capital funding against UK-SPEC competence benchmarks (specifically C and D). The format used is a FAB Pitch Architecture Canvas (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not execute or write out text sections for the user. Interrogate the provided data framework critically. Expose narrative flaws, highlight vague assertions, and present a structured section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the FAB canvas?")) {
+                document.getElementById('fab_Features').value = '';
+                document.getElementById('fab_Advantages').value = '';
+                document.getElementById('fab_Benefits').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const features = document.getElementById('fab_Features').value.trim();
+            const advantages = document.getElementById('fab_Advantages').value.trim();
+            const benefits = document.getElementById('fab_Benefits').value.trim();
+
+            const state = { Features: features, Advantages: advantages, Benefits: benefits };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_FAB_Value_Pitch_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Features !== undefined || data.Advantages !== undefined || data.Benefits !== undefined) {
+                        document.getElementById('fab_Features').value = data.Features || '';
+                        document.getElementById('fab_Advantages').value = data.Advantages || '';
+                        document.getElementById('fab_Benefits').value = data.Benefits || '';
+                        updatePreview();
+                        alert("FAB pitch architecture dataset successfully loaded!");
+                    } else {
+                        alert("Invalid JSON format. Expected Features, Advantages, and Benefits criteria.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const features = document.getElementById('fab_Features').value.trim();
+            const advantages = document.getElementById('fab_Advantages').value.trim();
+            const benefits = document.getElementById('fab_Benefits').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE FAB Commercial Strategic Justification Briefing</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>FAB Value Pitch Justification Briefing</h1>
+                <p><em>Framework Area: Professional Communication & Strategic Pitching // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Technical Features</h2>
+                <p>${features ? features : 'Not defined.'}</p>
+                
+                <h2>Operational Advantages</h2>
+                <p>${advantages ? advantages : 'Not defined.'}</p>
+                
+                <h2>Commercial Benefits</h2>
+                <p>${benefits ? benefits : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated via Empowering Engineers UK - Professional Value Pitch Framework System
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

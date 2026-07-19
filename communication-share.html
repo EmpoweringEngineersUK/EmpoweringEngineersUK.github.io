@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering SHARE Model narrative builder. Structure complex project evidence using Situation, Hindrance, Action, Results, and Evaluation matrices to fulfill UK-SPEC Competence D and professional institutional audit guidelines. Secure client-side memory.">
+    <meta name="keywords" content="SHARE Model, Situation Hindrance Action Results Evaluation, UK-SPEC Competence D, Engineering Communication, Technical Leadership, Professional Review Interview, CEng Portfolio">
+    <meta property="og:title" content="SHARE Model Narrative Builder | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, zero-knowledge client-side structural development portal optimized for principal engineers, technical coordinators, and institutional candidates.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-share.html">
+    <meta property="og:type" content="website">
+    
+    <title>SHARE Model | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering SHARE Model Narrative Builder",
+      "url": "https://www.empoweringengineers.uk/communication-share.html",
+      "description": "An interactive digital grid built for engineers to convert complex project crises and structural barriers into highly optimized, reflective professional narratives.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- SHARE STACK STYLING --- */
+        .share-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .share-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .share-card.situation-card { border-left-color: var(--burnt-orange); }
+        .share-card.hindrance-card { border-left-color: var(--burnt-orange); }
+        .share-card.action-card { border-left-color: var(--ee-terminal-green); }
+        .share-card.results-card { border-left-color: var(--ee-terminal-green); }
+        .share-card.evaluation-card { border-left-color: #00b894; }
+
+        .share-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .situation-label { color: var(--burnt-orange) !important; }
+        .hindrance-label { color: var(--burnt-orange) !important; }
+        .action-label { color: var(--terminal-green) !important; }
+        .results-label { color: var(--terminal-green) !important; }
+        .evaluation-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 100px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Reflective Leadership and Project Recovery: The SHARE Model</h1>
+            <p>
+                As technical candidates advance into principal engineering, program management, or corporate operations roles, their day-to-day challenges shift away from siloed mathematics. Senior leadership requires navigating unpredictable project bottlenecks, managing vendor resource shortages, and mitigating geopolitical supply chain delays. While basic behavioral tools like STAR map simple operations well, they frequently omit the specific external frictions that disrupt execution. The **SHARE Model (Situation, Hindrance, Action, Results, Evaluation)** expands on standard behavioral reporting. It introduces formal barrier tracking and retrospective loops, satisfying **UK-SPEC Competence D (Communication)** and **Competence E (Commitment)**.
+            </p>
+            <p>
+                The primary benefit of utilizing the SHARE methodology lies in the explicit mapping of the **Hindrance** phase. Review panels from professional institutions look for proof of resilience and adaptive risk management. By clearly separating a baseline project environment from unexpected commercial or physical barriers, candidates can document exactly how they recovered a failing asset program. Furthermore, the framework integrates a comprehensive **Evaluation** block. This guarantees that your technical portfolio goes beyond simple, passive event logging to present deep reflective learning, helping you secure professional accreditation.
+            </p>
+
+            <h2>Analyzing the Five Strategic Core Tiers of SHARE</h2>
+            <p>
+                Constructing an audit-ready, compliant SHARE evidence record requires engineers to critically analyze project recoveries step-by-step:
+            </p>
+            <p>
+                <strong>Situation [S]:</strong> This initial tier establishes the project environment, initial design parameters, scheduling thresholds, or asset requirements. Candidates must define the scope cleanly, embedding financial baselines, resource parameters, and standard compliance specifications (such as Eurocodes, ASME, or ISO guidelines) to provide solid commercial context.
+            </p>
+            <p>
+                <strong>Hindrance [H]:</strong> The hindrance quadrant identifies the sudden commercial barrier, technical defect, or supply chain bottleneck that disrupted execution. Rather than stating "the project was delayed," define the specific risk parameters: e.g. "An international vendor declared insolvencies, blocking the delivery of specialized cast turbine housings, threatening a 14-week program expansion, and risking a £2M late-delivery contractual penalty."
+            </p>
+            <p>
+                <strong>Action [A]:</strong> The action segment captures your personal technical and leadership contributions during the crisis. Explain what alternative first-principles calculations you ran, what script parameters you modified, what compliance frameworks you deployed, and how you managed cross-functional team networks to isolate or bypass the identified hindrance safely.
+            </p>
+            <p>
+                <strong>Results [R]:</strong> This section documents the data-driven milestones achieved through your technical actions. Review boards require clear empirical proof of project recovery. Entries must quantify optimized performance parameters, validated safety clearances, minimized expenditure losses, or formal regulatory sign-offs under relevant CDM governance frameworks.
+            </p>
+            <p>
+                <strong>Evaluation [E]:</strong> The final tier represents the reflective analysis required for professional registration. Authors must evaluate what the crisis revealed about system vulnerabilities. This involves documenting how this experience optimized subsequent engineering workflows, updated material procurement criteria, or revised institutional codes of practice to prevent recurrent liabilities.
+            </p>
+
+            <h2>Interactive Client-Side SHARE Architecture Builder</h2>
+            <p>
+                The interactive builder below is engineered to help senior technical professionals rapidly organize and refine their project recovery evidence blocks. To safeguard highly sensitive commercial strategies and protect proprietary corporate datasets, our platform uses a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks. Use this toolkit to compile robust outlines, export clean JSON databases, or generate sophisticated AI prompts to verify your interview readiness.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">SHARE Model</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Project Recovery & Reflective Narrative Builder</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="share-stack">
+                    
+                    <!-- Situation Card -->
+                    <div class="share-card situation-card">
+                        <label class="share-label situation-label">Situation [S]</label>
+                        <span class="form-hint">What primary baseline scope, project parameters, or scheduling metrics defined the program environment? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Managing the structural commissioning of a multi-disciplinary automotive manufacturing facility layout.</span></span>
+                        <textarea id="share_Situation" class="form-input" placeholder="Define background boundaries and project scope criteria here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Hindrance Card -->
+                    <div class="share-card hindrance-card">
+                        <label class="share-label hindrance-label">Hindrance [H]</label>
+                        <span class="form-hint">What technical defect, material limit, vendor bottleneck, or risk barrier threatened execution? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Sudden component allocation lockouts halted the delivery of automated hardware lines, risking a major project overrun.</span></span>
+                        <textarea id="share_Hindrance" class="form-input" placeholder="Isolate the specific structural barrier or commercial hindrance here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Action Card -->
+                    <div class="share-card action-card">
+                        <label class="share-label action-label">Action [A]</label>
+                        <span class="form-hint">What calculations, alternative design reviews, script re-writes, or team networks did you command to resolve the issue? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Structured an alternative hardware map layout, updated baseline logic scripts, and coordinated emergency verification loops.</span></span>
+                        <textarea id="share_Action" class="form-input" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Results Card -->
+                    <div class="share-card results-card">
+                        <label class="share-label results-label">Results [R]</label>
+                        <span class="form-hint">What data-driven milestones, financial containment, or standard clearances proved the success of your recovery actions? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Compressed the schedule delay by 11 days, protected operational output targets, and secured formal system verification.</span></span>
+                        <textarea id="share_Results" class="form-input" placeholder="State quantifiable project outcomes and professional sign-offs here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Evaluation Card -->
+                    <div class="share-card evaluation-card">
+                        <label class="share-label evaluation-label">Evaluation [E]</label>
+                        <span class="form-hint">What did this recovery reveal about workflow gaps? How was this applied to update design guides or code specifications? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Realised that legacy component specs lacked multi-vendor design fallbacks; revised internal procurement guidelines.</span></span>
+                        <textarea id="share_Evaluation" class="form-input" placeholder="Detail your reflective analysis and subsequent systemic optimizations here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_comm_share";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('share_Situation').value = data.Situation || '';
+                    document.getElementById('share_Hindrance').value = data.Hindrance || '';
+                    document.getElementById('share_Action').value = data.Action || '';
+                    document.getElementById('share_Results').value = data.Results || '';
+                    document.getElementById('share_Evaluation').value = data.Evaluation || '';
+                } catch (e) {
+                    console.error("Failed to parse stored SHARE state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const situation = document.getElementById('share_Situation').value.trim();
+            const hindrance = document.getElementById('share_Hindrance').value.trim();
+            const action = document.getElementById('share_Action').value.trim();
+            const results = document.getElementById('share_Results').value.trim();
+            const evaluation = document.getElementById('share_Evaluation').value.trim();
+
+            let output = `=== SHARE MODEL: PROJECT RECOVERY BRIEFING ===\n\n`;
+            output += `[SITUATION]:\n${situation ? situation : '...\n'}\n`;
+            output += `[HINDRANCE]:\n${hindrance ? hindrance : '...\n'}\n`;
+            output += `[ACTION]:\n${action ? action : '...\n'}\n`;
+            output += `[RESULTS]:\n${results ? results : '...\n'}\n`;
+            output += `[EVALUATION]:\n${evaluation ? evaluation : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = situation || hindrance || action || results || evaluation;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Situation: situation, Hindrance: hindrance, Action: action, Results: results, Evaluation: evaluation };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("SHARE framework layout state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const situation = document.getElementById('share_Situation').value.trim();
+            const hindrance = document.getElementById('share_Hindrance').value.trim();
+            const action = document.getElementById('share_Action').value.trim();
+            const results = document.getElementById('share_Results').value.trim();
+            const evaluation = document.getElementById('share_Evaluation').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = situation || hindrance || action || results || evaluation;
+
+            if (hasUserData) {
+                script += `[PROJECT ENVIRONMENT]\n${situation ? situation : 'Not defined.'}\n\n`;
+                script += `[CRITICAL HINDRANCE BARRIER]\n${hindrance ? hindrance : 'Not defined.'}\n\n`;
+                script += `[PERSONAL RECOVERY ACTIONS]\n${action ? action : 'Not defined.'}\n\n`;
+                script += `[DATA-DRIVEN PROJECT RESULTS]\n${results ? results : 'Not defined.'}\n\n`;
+                script += `[SYSTEMIC WORKFLOW EVALUATION]\n${evaluation ? evaluation : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[PROJECT ENVIRONMENT]\ne.g., Directing structural layout modifications for a large-scale data storage infrastructure pipeline.\n\n`;
+                script += `[CRITICAL HINDRANCE BARRIER]\ne.g., Secondary sub-grade surveys identified unexpected localized liquefaction risks, halting heavy structural excavation procedures.\n\n`;
+                script += `[PERSONAL RECOVERY ACTIONS]\ne.g., Recalculated structural mass distributions, designed specialized deep grout-injection foundations, and updated site hazard controls.\n\n`;
+                script += `[DATA-DRIVEN PROJECT RESULTS]\ne.g., Stabilised structural load limits, compressed potential delay variables by 18 days, and secured independent safety approval.\n\n`;
+                script += `[SYSTEMIC WORKFLOW EVALUATION]\ne.g., Identified that preliminary archival borehole data grids failed to capture shifting water tables; implemented deep-core acoustic scans as a mandatory pre-design specification.\n\n`;
+            }
+
+            const role = "Senior Engineering Management Consultant & UK-SPEC Professional Auditor";
+            const actionText = "Analyse this SHARE behavioral project recovery plan. 1. Evaluate if the hindrance section establishes clear project risks and technical parameters. 2. Critique whether the engineering actions isolate the candidate's independent professional accountability vs general group descriptions. 3. Assess if the evaluation field provides deep, reflective insights that satisfy UK-SPEC Competence D and E criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is an engineering leader planning a high-density documentation release package to satisfy professional review rules (specifically UK-SPEC Competence D and E). The format used is a SHARE Model Technical Review Sheet (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not complete or write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the SHARE framework canvas?")) {
+                document.getElementById('share_Situation').value = '';
+                document.getElementById('share_Hindrance').value = '';
+                document.getElementById('share_Action').value = '';
+                document.getElementById('share_Results').value = '';
+                document.getElementById('share_Evaluation').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const situation = document.getElementById('share_Situation').value.trim();
+            const hindrance = document.getElementById('share_Hindrance').value.trim();
+            const action = document.getElementById('share_Action').value.trim();
+            const results = document.getElementById('share_Results').value.trim();
+            const evaluation = document.getElementById('share_Evaluation').value.trim();
+
+            const state = { Situation: situation, Hindrance: hindrance, Action: action, Results: results, Evaluation: evaluation };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_SHARE_Narrative_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Situation !== undefined || data.Hindrance !== undefined || data.Action !== undefined || data.Results !== undefined || data.Evaluation !== undefined) {
+                        document.getElementById('share_Situation').value = data.Situation || '';
+                        document.getElementById('share_Hindrance').value = data.Hindrance || '';
+                        document.getElementById('share_Action').value = data.Action || '';
+                        document.getElementById('share_Results').value = data.Results || '';
+                        document.getElementById('share_Evaluation').value = data.Evaluation || '';
+                        updatePreview();
+                        alert("SHARE model narrative parameters imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected SHARE parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const situation = document.getElementById('share_Situation').value.trim();
+            const hindrance = document.getElementById('share_Hindrance').value.trim();
+            const action = document.getElementById('share_Action').value.trim();
+            const results = document.getElementById('share_Results').value.trim();
+            const evaluation = document.getElementById('share_Evaluation').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE SHARE Reflective Learning Summary</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>SHARE Reflective Record Report</h1>
+                <p><em>Framework: Professional Communication & Recovery Audit // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Situation Parameters</h2>
+                <p>${situation ? situation : 'Not defined.'}</p>
+                
+                <h2>Critical Hindrance / Barrier</h2>
+                <p>${hindrance ? hindrance : 'Not defined.'}</p>
+                
+                <h2>Recovery Action</h2>
+                <p>${action ? action : 'Not defined.'}</p>
+                
+                <h2>Measurable Results</h2>
+                <p>${results ? results : 'Not defined.'}</p>
+                
+                <h2>Systemic Evaluation</h2>
+                <p>${evaluation ? evaluation : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Professional Communication Framework System
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

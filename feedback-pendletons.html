@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Pendleton's Rules reflective review portal. Structure performance assessments utilizing balanced feedback steps to fulfill UK-SPEC Competencies C, D, and E requirements. Secure client-side memory engine.">
+    <meta name="keywords" content="Pendleton's Rules, Reflective Review, Engineering Feedback, UK-SPEC Competence C, UK-SPEC Competence D, Balanced Assessment, Personnel Coaching, Performance Interventions">
+    <meta property="og:title" content="Pendleton's Rules Reflective Review Suite | Empowering Engineers UK">
+    <meta property="og:description" content="A premium, zero-knowledge client-side personnel review workspace engineered to enforce strict separation of positive reinforcement and actionable insights.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-pendletons.html">
+    <meta property="og:type" content="website">
+    
+    <title>Pendleton's Rules | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Pendleton's Rules Reflective Review Suite",
+      "url": "https://www.empoweringengineers.uk/feedback-pendletons.html",
+      "description": "An interactive coaching workbook allowing engineering managers to execute balanced performance reviews using Pendleton's structural protocol.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- PENDLETONS MATRIX GRID --- */
+        .pendletons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .pendletons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pendletons-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .pendletons-card.coachee-positive { border-top: 4px solid var(--ee-terminal-green); }
+        .pendletons-card.coach-positive { border-top: 4px solid var(--ee-terminal-green); }
+        .pendletons-card.coachee-improvement { border-top: 4px solid var(--burnt-orange); }
+        .pendletons-card.coach-improvement { border-top: 4px solid var(--burnt-orange); }
+
+        .pendletons-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .positive-label { color: var(--terminal-green) !important; }
+        .improvement-label { color: var(--burnt-orange) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Reflective Review Governance: Mastering Pendleton's Rules for Feedback</h1>
+            <p>
+                In highly regulated engineering sectors—including offshore petrochemical installations, rail systems signaling, and nuclear decommissioning operations—the safety of project execution relies heavily on the reflective practice of technical staff. Vague, unscripted evaluation loops often create defensive friction, break professional confidence, and mask operational errors. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) explicitly checks this within **Competence C (Management)** and **Competence D (Communication)**, demanding that technical leads prove an absolute capability to orchestrate development loops, lead structural reviews, and mentor the next generation of engineers.
+            </p>
+            <p>
+                Originally structured for medical training fields and perfectly adapted here for high-hazard technical programs, **Pendleton's Rules for Reflective Review** enforce a strict, conversational protocol to manage feedback safely. Traditional performance reviews often fail because positive reinforcement and critical feedback are jumbled together, diluting their impact. Pendleton's rules resolve this by separating the feedback process into four distinct steps. First, the coachee states what went well; second, the coach reinforces those observations; third, the coachee identifies what could be improved; and fourth, the coach provides actionable guidance. This structure prevents defensiveness, builds psychological safety, and satisfies your professional commitment to continuous quality optimization.
+            </p>
+
+            <h2>Analyzing the Four Quadrants of Pendleton's Protocol</h2>
+            <p>
+                Conducting a balanced personnel evaluation utilizing the interactive Pendleton's Rules canvas requires engineers to critically guide conversations across four specific steps:
+            </p>
+            <p>
+                <strong>Coachee Self-Assessment - Positive [CP]:</strong> The dialogue begins by giving full autonomy to the team member being reviewed. The coachee must independently state what they believe went well during the project phase, design execution, or statutory audit. This forces active reflection, helping candidates satisfy UK-SPEC Competence E (Professional Commitment) by proving they can self-evaluate performance metrics accurately.
+            </p>
+            <p>
+                <strong>Coach Observation - Positive [MP]:</strong> Next, the technical manager or director reinforces the coachee's positive observations, adding further professional insights. This step focuses strictly on positive outcomes. It allows the coach to highlight strong technical behaviors, exceptional drawing accuracy, or efficient calculation workflows, anchoring these comments to facts to ensure genuine reinforcement.
+            </p>
+            <p>
+                <strong>Coachee Actionable Insights - Improvement [CI]:</strong> The coachee then identifies what could be done differently or improved. This step requires the team member to independently point out design vulnerabilities, script errors, or project delays. Shifting the focus to self-identified improvements reduces defensive reactions, helping coachees take personal accountability for technical gaps.
+            </p>
+            <p>
+                <strong>Coach Strategic Guidance - Improvement [MI]:</strong> The final step allows the coach to provide strategic guidance. The technical lead addresses the self-identified improvements and introduces targeted corrections. This includes establishing updated script templates, arranging advanced training modules, or setting new verification check gates, ensuring the review wraps up with a clear, compliant action plan.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_feedback"></div>
+                <span class="tab-label">Feedback</span>
+            </a>
+            <a href="feedback-grow.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_grow"></div>
+                <span class="tab-label">GROW</span>
+            </a>
+            <a href="feedback-sbi.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sbi"></div>
+                <span class="tab-label">SBI</span>
+            </a>
+            <a href="feedback-cedar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cedar"></div>
+                <span class="tab-label">CEDAR</span>
+            </a>
+            <a href="feedback-pendletons.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pendletons"></div>
+                <span class="tab-label">Pendleton's</span>
+            </a>
+            <a href="feedback-coin.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coin"></div>
+                <span class="tab-label">COIN</span>
+            </a>
+            <a href="feedback-bsq.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bsq"></div>
+                <span class="tab-label">BSQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Pendleton's Rules</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Balanced Reflective Assessment System</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="pendletons-grid">
+                    
+                    <!-- Coachee Positive -->
+                    <div class="pendletons-card coachee-positive">
+                        <label class="pendletons-label positive-label">1. Coachee Self-Assessment [Positive]</label>
+                        <span class="form-hint">What did the team member identify as successful during the design phase or project step? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Delivered the site layout drawings 48 hours before the key milestone date.</span></span>
+                        <textarea id="pr_CoacheePositive" class="form-input" placeholder="Record what the coachee observed went well here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Coach Positive -->
+                    <div class="pendletons-card coach-positive">
+                        <label class="pendletons-label positive-label">2. Coach Factual Reinforcement [Positive]</label>
+                        <span class="form-hint">What further positive observations or technical behaviors can you reinforce with facts? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Verified that drawing control accuracy was maintained perfectly, with zero cross-referencing deviations.</span></span>
+                        <textarea id="pr_CoachPositive" class="form-input" placeholder="Record your factual positive reinforcements here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Coachee Improvement -->
+                    <div class="pendletons-card coachee-improvement">
+                        <label class="pendletons-label improvement-label">3. Coachee Actionable Gaps [Improvement]</label>
+                        <span class="form-hint">What design shortfalls, script bottlenecks, or errors did the team member self-identify? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Noted a calculation delay because they lacked experience with transient hydrodynamic modeling scripts.</span></span>
+                        <textarea id="pr_CoacheeImprovement" class="form-input" placeholder="Record the coachee's self-identified improvements here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Coach Improvement -->
+                    <div class="pendletons-card coach-improvement">
+                        <label class="pendletons-label improvement-label">4. Coach Strategic Direction [Improvement]</label>
+                        <span class="form-hint">What targeted actions, training modules, or check gates will you establish to resolve the gap? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Arranged 1-on-1 script training sessions and set up a secondary layout audit gate.</span></span>
+                        <textarea id="pr_CoachImprovement" class="form-input" placeholder="Document your strategic guidance and governance steps here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_feedback_pendletons";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('pr_CoacheePositive').value = data.CoacheePositive || '';
+                    document.getElementById('pr_CoachPositive').value = data.CoachPositive || '';
+                    document.getElementById('pr_CoacheeImprovement').value = data.CoacheeImprovement || '';
+                    document.getElementById('pr_CoachImprovement').value = data.CoachImprovement || '';
+                } catch (e) {
+                    console.error("Failed to parse stored Pendleton's state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'feedback': 'ee_feedback_master_hub',
+                'grow': 'ee_feedback_grow',
+                'sbi': 'ee_feedback_sbi',
+                'cedar': 'ee_feedback_cedar',
+                'pendletons': 'ee_feedback_pendletons',
+                'coin': 'ee_feedback_coin',
+                'bsq': 'ee_feedback_bsq'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const coacheePos = document.getElementById('pr_CoacheePositive').value.trim();
+            const coachPos = document.getElementById('pr_CoachPositive').value.trim();
+            const coacheeImp = document.getElementById('pr_CoacheeImprovement').value.trim();
+            const coachImp = document.getElementById('pr_CoachImprovement').value.trim();
+
+            let output = `=== PENDLETON'S RULES: REFLECTIVE ASSESSMENT LOG ===\n\n`;
+            output += `[1. COACHEE SELF-ASSESSMENT - POSITIVE]:\n${coacheePos ? coacheePos : '...\n'}\n`;
+            output += `[2. COACH OBSERVATION - POSITIVE]:\n${coachPos ? coachPos : '...\n'}\n`;
+            output += `[3. COACHEE ACTIONABLE INSIGHTS - IMPROVEMENT]:\n${coacheeImp ? coacheeImp : '...\n'}\n`;
+            output += `[4. COACH STRATEGIC GUIDANCE - IMPROVEMENT]:\n${coachImp ? coachImp : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = coacheePos || coachPos || coacheeImp || coachImp;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { CoacheePositive: coacheePos, CoachPositive: coachPos, CoacheeImprovement: coacheeImp, CoachImprovement: coachImp };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("Pendleton's rules assessment state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const coacheePos = document.getElementById('pr_CoacheePositive').value.trim();
+            const coachPos = document.getElementById('pr_CoachPositive').value.trim();
+            const coacheeImp = document.getElementById('pr_CoacheeImprovement').value.trim();
+            const coachImp = document.getElementById('pr_CoachImprovement').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = coacheePos || coachPos || coacheeImp || coachImp;
+
+            if (hasUserData) {
+                script += `[COACHEE SELF-ASSESSMENT - POSITIVE]\n${coacheePos ? coacheePos : 'Not defined.'}\n\n`;
+                script += `[COACH FACTUAL REINFORCEMENT - POSITIVE]\n${coachPos ? coachPos : 'Not defined.'}\n\n`;
+                script += `[COACHEE self-identified IMPROVEMENTS]\n${coacheeImp ? coacheeImp : 'Not defined.'}\n\n`;
+                script += `[COACH STRATEGIC DIRECTION - IMPROVEMENT]\n${coachImp ? coachImp : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[COACHEE SELF-ASSESSMENT - POSITIVE]\ne.g., Successfully coordinated the physical site team to execute the structural foundation pour on schedule.\n\n`;
+                script += `[COACH FACTUAL REINFORCEMENT - POSITIVE]\ne.g., Confirmed that concrete slump testing logs were maintained accurately, satisfying British Standard specifications.\n\n`;
+                script += `[COACHEE self-identified IMPROVEMENTS]\ne.g., Stalled excavation metrics on day 2 because they miscalculated soil moisture absorption limits during bad weather.\n\n`;
+                script += `[COACH STRATEGIC DIRECTION - IMPROVEMENT]\ne.g., Guided the engineer to run localized pre-pour water table simulations and update the baseline risk register guidelines.\n\n`;
+            }
+
+            const role = "Expert Performance Consultant & Senior Engineering Leadership Auditor";
+            const action = "Analyse this performance review log mapped to Pendleton's Rules. 1. Verify if the framework's strict separation between positive findings and improvements is maintained perfectly. 2. Critique whether the coachee's inputs prove deep professional self-analysis capabilities. 3. Assess if the coach's directional guidance establishes the clear check gates, training tracks, and process governance needed to fulfill UK-SPEC Competencies C and D.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is a senior engineering director evaluating personnel development records to satisfy professional institutional review standards. The format used is Pendleton's Rules for Reflective Review (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the Pendleton's canvas?")) {
+                document.getElementById('pr_CoacheePositive').value = '';
+                document.getElementById('pr_CoachPositive').value = '';
+                document.getElementById('pr_CoacheeImprovement').value = '';
+                document.getElementById('pr_CoachImprovement').value = '';
+                updatePreview();
+            }
+        }
+
+        window.exportJSON = function() {
+            const coacheePos = document.getElementById('pr_CoacheePositive').value.trim();
+            const coachPos = document.getElementById('pr_CoachPositive').value.trim();
+            const coacheeImp = document.getElementById('pr_CoacheeImprovement').value.trim();
+            const coachImp = document.getElementById('pr_CoachImprovement').value.trim();
+
+            const state = { CoacheePositive: coacheePos, CoachPositive: coachPos, CoacheeImprovement: coacheeImp, CoachImprovement: coachImp };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Pendletons_Reflective_Review_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.importJSON = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.CoacheePositive !== undefined || data.CoachPositive !== undefined || data.CoacheeImprovement !== undefined || data.CoachImprovement !== undefined) {
+                        document.getElementById('pr_CoacheePositive').value = data.CoacheePositive || '';
+                        document.getElementById('pr_CoachPositive').value = data.CoachPositive || '';
+                        document.getElementById('pr_CoacheeImprovement').value = data.CoacheeImprovement || '';
+                        document.getElementById('pr_CoachImprovement').value = data.CoachImprovement || '';
+                        updatePreview();
+                        alert("Pendleton's rules reflective review data imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Pendleton's review criteria.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const coacheePos = document.getElementById('pr_CoacheePositive').value.trim();
+            const coachPos = document.getElementById('pr_CoachPositive').value.trim();
+            const coacheeImp = document.getElementById('pr_CoacheeImprovement').value.trim();
+            const coachImp = document.getElementById('pr_CoachImprovement').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Pendleton's Reflective Review Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .positive-card { border-top: 4px solid #006837; }
+                    .improvement-card { border-top: 4px solid #C05621; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Pendleton's Rules Reflective Review Report</h1>
+                <p><em>Framework: Performance Tracking // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card positive-card">
+                        <h2>1. Coachee Self-Assessment (Positive)</h2>
+                        <p>${coacheePos ? coacheePos : 'Not defined.'}</p>
+                    </div>
+                    <div class="card positive-card">
+                        <h2>2. Coach Reinforcement (Positive)</h2>
+                        <p>${coachPos ? coachPos : 'Not defined.'}</p>
+                    </div>
+                    <div class="card improvement-card">
+                        <h2>3. Coachee Insights (Improvement)</h2>
+                        <p>${coacheeImp ? coacheeImp : 'Not defined.'}</p>
+                    </div>
+                    <div class="card improvement-card">
+                        <h2>4. Coach Strategic Direction (Improvement)</h2>
+                        <p>${coachImp ? coachImp : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Personnel Performance Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

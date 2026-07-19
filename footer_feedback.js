@@ -10,26 +10,18 @@
         // 2. PAGE MAPPING
         const pageMap = {
             "index.html": "General",
-            "career_tool.html": "Career",
-            "cpd_tool.html": "CPD",
-            "raci_tool.html": "RACI",
-            "STAR_engine.html": "STAR-Gen",
-            "ethics_tool.html": "Ethics",
-            "feedback_tool.html": "Coach",
-            "glossary_tool.html": "Decoder",
-            "report_tool.html": "Report",
-            "reference_tool.html": "Library",
-            "dap_tool.html": "DAP",
-			"application_tool.html": "AppBuilder",
-            "interview_tool.html": "Interview",
-            "guide.html": "Manual",
+            "cpd.html": "CPD",
+            "raci.html": "RACI",
+            "feedback.html": "Coach",
+            "glossary.html": "Decoder",
+            "library.html": "Library",
+			"application.html": "Professional Registration",
+            "interview.html": "Interview",
+            "guide.html": "Guide",
             "about.html": "General",
             "contact.html": "General",
             "terms.html": "General",
-            "privacy.html": "General",
-            "hardware_tool.html": "Atlas",
-            "linkedin_banner_gen.html": "Banner",
-            "logo_tool.html": "Logo"
+            "privacy.html": "General"
         };
 
         // 3. DETECT CURRENT PAGE

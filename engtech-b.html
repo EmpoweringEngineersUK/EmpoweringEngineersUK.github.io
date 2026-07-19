@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering tools for EngTech registration. AI-powered writers, UK-SPEC competency trackers for Competence B. Secure, browser-based, and open access.">
+    <meta name="keywords" content="Engineering Technician, EngTech, UK-SPEC, Engineering Council, STAR Technique, Professional Review, Competence B, Execution">
+    <meta property="og:title" content="Empowering Engineers UK | EngTech B Professional Registration Tools">
+    <meta property="og:description" content="Accelerate your journey to Engineering Technician (EngTech) status with our high-trust technical toolset for Competence B.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/engtech-b.html">
+    <meta property="og:type" content="website">
+    
+    <title>EngTech Competence B | Empowering Engineers UK</title>    
+    <link type="image/png" rel="icon" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/engtech-b.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Empowering Engineers UK",
+      "url": "https://www.empoweringengineers.uk/engtech-b.html",
+      "description": "A free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
+
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES --- */
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        
+        .sub-container { display: none; animation: fadeIn 0.3s ease; }
+        .sub-container.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* THE COACH PANEL */
+        .coach-panel {
+            background-color: var(--ee-dark-blue); color: var(--ee-white);
+            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
+            position: sticky; top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        }
+        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
+        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
+        
+        /* Strict Levelling Badges */
+        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
+        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
+        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
+        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
+        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+
+        .verb-chip {
+            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
+            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
+            cursor: pointer; transition: all 0.2s; font-weight: 700;
+        }
+        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
+        
+        .guidance-box {
+            background-color: var(--input-bg); border: 1px solid var(--border-color);
+            padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
+            color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
+        }
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
+        
+        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Engineering Technician (EngTech) Competence B: Practical Product &amp; Process Engineering</h1>
+            <p>Engineering Technician (EngTech) Competence B centres on the practical application of engineering methods and techniques to design, develop, manufacture, construct, commission, operate, or maintain products, equipment, processes, systems, or services. At the EngTech tier, institutional reviewing panels look for a hands-on technical footprint where you actively identify operational anomalies, diagnose faults, and apply verified methods to solve practical problems. Unlike the Chartered (CEng) tier, which looks for original designs from first principles, the EngTech standard highlights technical competence in the direct execution of practical solutions.</p>
+            
+            <h2>B1: Identification, Diagnosis, and Formulation of Solutions</h2>
+            <p>Sub-competence B1 evaluates your capability to identify problems and apply diagnostic techniques to discover underpinning issues and formulate practical solutions. Assessors require concrete examples where you didn't simply observe a failure, but active technical investigation was undertaken. You should detail your use of technical data, calibration equipment, fault-finding trees, or non-destructive testing (NDT) to isolate root causes. Your narratives should clearly show how you compiled your findings to propose or execute a verified modification or repair.</p>
+            
+            <h2>B2: Technical Execution, Method Selection, and Task Completion</h2>
+            <p>Sub-competence B2 focuses on your ability to select and use appropriate techniques, procedures, and methods to undertake tasks or solve problems. This is about operational execution. You must demonstrate proficiency in selecting the correct tooling, machinery, materials, or software required for a given engineering task. Whether you are executing a precision machining cycle, constructing a structural weldment, commissioning an HVAC system, or performing an industrial maintenance schedule, you must show you follow technical drawings, risk assessments, and compliance codes to achieve a high-quality, compliant engineering outcome.</p>
+            
+            <h2>Evidence Framing via the STAR Methodology</h2>
+            <p>Framing your practical achievements requires absolute narrative clarity. We mandate the deployment of the STAR methodology (Situation, Task, Action, Result) across all engineering competence modules. This universally accepted framework separates your specific technical contributions from generic team efforts. When drafting your Competence B reports, ensure your 'Action' phase details the specific equipment, technical drawings, and diagnostic methods you personally used. Use the first-person singular pronoun ('I') to show your direct impact on keeping systems online.</p>
+            
+            <h2>Secure Zero-Knowledge Local Sandbox Architecture</h2>
+            <p>To protect your corporate intellectual property, site fault records, and sensitive technical schematics, this platform is fortified by a zero-knowledge client-side local storage framework. No text inputs or corporate data payloads are ever transmitted to an external server. Your work remains fully sandbox-isolated within your local browser cache, ensuring total data sovereignty and complete compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="EngTech Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="engtech.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">EngTech Hub</span>
+            </a>
+            <a href="career.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cv"></div>
+                <span class="tab-label">CV Builder</span>
+            </a>
+            <a href="engtech-a.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_a"></div>
+                <span class="tab-label">Comp A</span>
+            </a>
+            <a href="engtech-b.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_b"></div>
+                <span class="tab-label">Comp B</span>
+            </a>
+            <a href="engtech-c.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_c"></div>
+                <span class="tab-label">Comp C</span>
+            </a>
+            <a href="engtech-d.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_d"></div>
+                <span class="tab-label">Comp D</span>
+            </a>
+            <a href="engtech-e.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_e"></div>
+                <span class="tab-label">Comp E</span>
+            </a>
+            <a href="dap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dap"></div>
+                <span class="tab-label">DAP</span>
+            </a>
+            <a href="sponsors.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sponsors"></div>
+                <span class="tab-label">Sponsors</span>
+            </a>
+        </nav>
+
+        <div class="header-actions">
+            <div>
+                <h1 id="comp_header" style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Competence B</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Engineering Technician (EngTech) UK-SPEC Tracker</p>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
+            </div>
+        </div>
+
+        <div style="background-color: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin-bottom: 30px; border-left: 4px solid var(--terminal-green); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+            <h3 style="color: var(--terminal-green); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Institutional Requirement</h3>
+            <p id="comp_requirement" style="font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: var(--cloud-white);">Loading standard...</p>
+            <h3 style="color: var(--terminal-green); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Guidance Notes</h3>
+            <p id="comp_about" style="font-size: 0.95rem; color: var(--slate-grey);">Loading details...</p>
+        </div>
+
+        <!-- Globally Standardised Horizontal Tab Navigation with Badges -->
+        <nav id="internal-competence-nav" class="ee-horizontal-nav" aria-label="Main Competencies">
+            <button type="button" class="ee-horizontal-tab active" onclick="switchMainTab('B1')" id="tab_B1">
+                <div class="tab-badge-container" id="badge_internal_B1"></div>
+                <span class="tab-label">B1: Identify Problems</span>
+            </button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchMainTab('B2')" id="tab_B2">
+                <div class="tab-badge-container" id="badge_internal_B2"></div>
+                <span class="tab-label">B2: Select Methods</span>
+            </button>
+        </nav>
+
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <!-- B1 SUB-CONTAINER -->
+                <div id="container_B1" class="sub-container active">
+                    <div class="guidance-box" id="guide_B1"><strong>B1 Requirements:</strong> Loading from UK-SPEC...</div>
+                    
+                    <nav class="ee-sub-nav" aria-label="B1 Scenarios">
+                        <button type="button" class="ee-sub-tab active" onclick="switchScenario('B1', 1)" id="B1_scen_1">Scenario 1</button>
+                        <button type="button" class="ee-sub-tab" onclick="switchScenario('B1', 2)" id="B1_scen_2">Scenario 2</button>
+                        <button type="button" class="ee-sub-tab" onclick="switchScenario('B1', 3)" id="B1_scen_3">Scenario 3</button>
+                    </nav>
+
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">1. Situation (Context)</label>
+                            <textarea id="B1_S" class="ee-textarea" oninput="compileSTAR('B1')"></textarea>
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">2. Task (Your Responsibility)</label>
+                            <textarea id="B1_T" class="ee-textarea" oninput="compileSTAR('B1')"></textarea>
+                        </div>
+                    </div>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">3. Action (What YOU did)</label>
+                            <textarea id="B1_A" class="ee-textarea" oninput="compileSTAR('B1')"></textarea>
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">4. Result (Impact & Outcome)</label>
+                            <textarea id="B1_R" class="ee-textarea" oninput="compileSTAR('B1')"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="ee-form-group" style="margin-top: 20px;">
+                        <label style="color: var(--ee-terminal-green); background: var(--ee-dark-blue); padding: 8px 16px; border-radius: 4px 4px 0 0; display: inline-block; margin-bottom: 0; font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">Compiled B1 Draft Submission</label>
+                        <textarea id="B1_compiled" class="ee-textarea" style="min-height: 250px; border-radius: 0 4px 4px 4px; border-color: var(--ee-dark-blue); font-size: 1rem;" oninput="analyzeText('B1')"></textarea>
+                    </div>
+                </div>
+
+                <!-- B2 SUB-CONTAINER -->
+                <div id="container_B2" class="sub-container">
+                    <div class="guidance-box" id="guide_B2"><strong>B2 Requirements:</strong> Loading from UK-SPEC...</div>
+                    
+                    <nav class="ee-sub-nav" aria-label="B2 Scenarios">
+                        <button type="button" class="ee-sub-tab active" onclick="switchScenario('B2', 1)" id="B2_scen_1">Scenario 1</button>
+                        <button type="button" class="ee-sub-tab" onclick="switchScenario('B2', 2)" id="B2_scen_2">Scenario 2</button>
+                        <button type="button" class="ee-sub-tab" onclick="switchScenario('B2', 3)" id="B2_scen_3">Scenario 3</button>
+                    </nav>
+
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">1. Situation (Context)</label>
+                            <textarea id="B2_S" class="ee-textarea" oninput="compileSTAR('B2')"></textarea>
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">2. Task (Your Responsibility)</label>
+                            <textarea id="B2_T" class="ee-textarea" oninput="compileSTAR('B2')"></textarea>
+                        </div>
+                    </div>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">3. Action (What YOU did)</label>
+                            <textarea id="B2_A" class="ee-textarea" oninput="compileSTAR('B2')"></textarea>
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">4. Result (Impact & Outcome)</label>
+                            <textarea id="B2_R" class="ee-textarea" oninput="compileSTAR('B2')"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="ee-form-group" style="margin-top: 20px;">
+                        <label style="color: var(--ee-terminal-green); background: var(--ee-dark-blue); padding: 8px 16px; border-radius: 4px 4px 0 0; display: inline-block; margin-bottom: 0; font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">Compiled B2 Draft Submission</label>
+                        <textarea id="B2_compiled" class="ee-textarea" style="min-height: 250px; border-radius: 0 4px 4px 4px; border-color: var(--ee-dark-blue); font-size: 1rem;" oninput="analyzeText('B2')"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COACH SIDEBAR -->
+            <div class="coach-panel">
+                <div class="coach-header" id="coach_title">>> THE COACH: B1</div>
+                
+                <div class="coach-card">
+                    <span class="coach-title">COMPETENCE CHECK</span>
+                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - AWARE</span></div>
+                </div>
+                
+                <div class="coach-card">
+                    <span class="coach-title">LIVE AUDIT</span>
+                    <div id="coach_wc" class="coach-text" style="font-weight:900; font-size:1.4rem; margin-bottom: 10px; color: var(--ee-white);">0 Words</div>
+                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 15px;">Target: ~150-200 Words per sub-competence.</div>
+                    
+                    <div id="coach_verbs" class="coach-text" style="margin-top:10px; border-top:1px dashed rgba(255,255,255,0.2); padding-top:15px;"></div>
+                    <div id="coach_recs" class="coach-text" style="margin-top:10px; border-top:1px dashed var(--burnt-orange); padding-top:15px; display:none;"></div>
+                </div>
+
+                <div class="coach-card">
+                    <span class="coach-title">JARGON WATCH</span>
+                    <div id="coach_acronyms" class="coach-text" style="margin-bottom:15px;">No acronyms detected.</div>
+                    <button type="button" class="action-btn action-btn-ghost" style="width: 100%; border-color: rgba(255,255,255,0.3); color: var(--ee-white);" onclick="expandAcronyms()">EXPAND ACRONYMS</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        const EE_TOOL_ID = "ee_engtech_b"; 
+        let currentMainTab = 'B1';
+
+        // --- INTERNAL STATE MANAGEMENT ---
+        let appState = {
+            B1: { activeScenario: 1, scenarios: { 1:{s:'',t:'',a:'',r:''}, 2:{s:'',t:'',a:'',r:''}, 3:{s:'',t:'',a:'',r:''} }, compiled: '' },
+            B2: { activeScenario: 1, scenarios: { 1:{s:'',t:'',a:'',r:''}, 2:{s:'',t:'',a:'',r:''}, 3:{s:'',t:'',a:'',r:''} }, compiled: '' }
+        };
+
+        // --- NAVIGATION BADGE ENGINE ---
+        function calculateScoreForBadge(text, subId) {
+            if (!text || text.trim() === "") return 1; 
+            const wordCount = text.trim().split(/\s+/).length;
+            if (wordCount < 40) return 1; 
+
+            let score = 1;
+            if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap['EngTech']) {
+                const allowedVerbs = verbDb.strongVerbMap['EngTech'][subId] || [];
+                let foundVerbs = 0;
+                
+                allowedVerbs.forEach(v => {
+                    if (text.toLowerCase().includes(v)) foundVerbs++;
+                });
+
+                if (foundVerbs >= 4) score = 4;
+                else if (foundVerbs >= 2) score = 3;
+                else if (foundVerbs >= 1) score = 2;
+            }
+            return score;
+        }
+
+        function getBadgeHTML(score) {
+            const safeScore = (score && score >= 1 && score <= 4) ? score : 1;
+            const levels = ["L1 - AWARE", "L2 - FAMILIAR", "L3 - SKILLED", "L4 - EXPERT"];
+            const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
+            return `<span class="level-badge ${badges[safeScore-1]}">${levels[safeScore-1]}</span>`;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const tools = masterData.ee_tools || {};
+
+            // 1. Evaluate External Hub Tools
+            const hasCV = tools['ee_career_builder_state'] && Object.keys(tools['ee_career_builder_state']).length > 0;
+            document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
+
+            const hasDAP = tools['ee_dap'] && tools['ee_dap'].compiled && tools['ee_dap'].compiled.trim() !== '';
+            document.getElementById('badge_dap').innerHTML = getTickHTML(hasDAP);
+
+            const hasSponsors = tools['ee_sponsors'] && tools['ee_sponsors'].s1 && tools['ee_sponsors'].s1.n;
+            document.getElementById('badge_sponsors').innerHTML = getTickHTML(hasSponsors);
+
+            // 2. Evaluate Global Competency Badges (A to E) Using Minimum Sub-Score Logic
+            const competences = ['a', 'b', 'c', 'd', 'e'];
+            let compScores = [];
+
+            const subMap = {
+                'a': ['A1', 'A2'],
+                'b': ['B1', 'B2'],
+                'c': ['C1', 'C2', 'C3'],
+                'd': ['D1', 'D2'],
+                'e': ['E1', 'E2', 'E3', 'E4', 'E5']
+            };
+
+            competences.forEach(comp => {
+                const toolId = `ee_engtech_${comp}`;
+                let minScore = 1; 
+                
+                const expectedSubs = subMap[comp] || [];
+                let subScores = [];
+
+                expectedSubs.forEach(sub => {
+                    let score = 1;
+                    if (comp === 'b' && appState[sub]) {
+                        score = calculateScoreForBadge(appState[sub].compiled || '', sub);
+                    } else if (tools[toolId] && tools[toolId][sub]) {
+                        score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub);
+                    }
+                    subScores.push(score);
+                });
+
+                if (subScores.length > 0) {
+                    minScore = Math.min(...subScores);
+                }
+                compScores.push(minScore);
+
+                const badgeEl = document.getElementById(`badge_comp_${comp}`);
+                if (badgeEl) {
+                    badgeEl.innerHTML = getBadgeHTML(minScore);
+                }
+            });
+
+            // 3. Evaluate Hub Master Readiness Tick
+            let countL3Plus = 0;
+            let countL2Plus = 0;
+            compScores.forEach(s => {
+                if (s >= 3) countL3Plus++;
+                if (s >= 2) countL2Plus++;
+            });
+
+            const isHubReady = (countL3Plus >= 3 && countL2Plus === 5 && hasCV && hasDAP && hasSponsors);
+            document.getElementById('badge_hub').innerHTML = getTickHTML(isHubReady);
+
+            // 4. Evaluate Internal Scoped Badges (B1, B2) for Current Page
+            ['B1', 'B2'].forEach(sub => {
+                const badgeEl = document.getElementById(`badge_internal_${sub}`);
+                if (badgeEl) {
+                    let score = 1;
+                    if (appState[sub] && appState[sub].compiled) {
+                        score = calculateScoreForBadge(appState[sub].compiled, sub);
+                    }
+                    badgeEl.innerHTML = getBadgeHTML(score);
+                }
+            });
+        }
+
+        // --- HTML PREVIEW & REPORT GENERATOR ---
+        function generateReport() {
+            saveToLocalTemp(); 
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (!masterData || !masterData.ee_tools) {
+                alert("No structural data found. Please Initialise a draft to preview.");
+                return;
+            }
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Application Preview</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 2px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 35px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 20px;}
+                    h3 { color: #555; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px;}
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Application Draft Preview</h1>
+                <p><em>Candidate: ${masterData.username || "Not Provided"}</em></p>`;
+
+            if (masterData.ee_tools['ee_career_builder_state']) {
+                html += `<h2>Career Summary</h2>`;
+                const cs = masterData.ee_tools['ee_career_builder_state'];
+                if(cs.p_summary) html += `<p>${cs.p_summary}</p>`;
+                else html += `<p><em>Career data logged but no explicit summary text identified.</em></p>`;
+            }
+
+            const competences = ['a', 'b', 'c', 'd', 'e'];
+            competences.forEach(comp => {
+                const toolId = `ee_engtech_${comp}`;
+                if (masterData.ee_tools[toolId]) {
+                    html += `<h2>Competence ${comp.toUpperCase()}</h2>`;
+                    const compData = masterData.ee_tools[toolId];
+                    
+                    let hasData = false;
+                    Object.keys(compData).forEach(sub => {
+                        if (compData[sub] && compData[sub].compiled && compData[sub].compiled.trim() !== "") {
+                            hasData = true;
+                            html += `<h3>${sub}</h3>`;
+                            html += `<p>${compData[sub].compiled}</p>`;
+                        }
+                    });
+                    if (!hasData) html += `<p><em>No data entered yet.</em></p>`;
+                }
+            });
+
+            html += `
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Application Architect
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        // --- UI & TAB LOGIC ---
+        function switchMainTab(tabId) {
+            saveCurrentInputsToState(); 
+            currentMainTab = tabId;
+
+            document.querySelectorAll('#internal-competence-nav .ee-horizontal-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.sub-container').forEach(c => c.classList.remove('active'));
+            
+            document.getElementById(`tab_${tabId}`).classList.add('active');
+            document.getElementById(`container_${tabId}`).classList.add('active');
+            
+            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            
+            loadPlaceholders(tabId);
+            populateInputsFromState(tabId, appState[tabId].activeScenario);
+            updateScenarioTabVisuals(tabId, appState[tabId].activeScenario);
+            analyzeText(tabId);
+        }
+
+        function switchScenario(subId, scenNum) {
+            saveCurrentInputsToState(); 
+            appState[subId].activeScenario = scenNum;
+            populateInputsFromState(subId, scenNum);
+            updateScenarioTabVisuals(subId, scenNum);
+        }
+
+        function updateScenarioTabVisuals(subId, scenNum) {
+            for(let i=1; i<=3; i++) {
+                const btn = document.getElementById(`${subId}_scen_${i}`);
+                if (btn) btn.classList.toggle('active', i === scenNum);
+            }
+        }
+
+        function saveCurrentInputsToState() {
+            const subId = currentMainTab;
+            const scenNum = appState[subId].activeScenario;
+            
+            appState[subId].scenarios[scenNum].s = document.getElementById(`${subId}_S`).value;
+            appState[subId].scenarios[scenNum].t = document.getElementById(`${subId}_T`).value;
+            appState[subId].scenarios[scenNum].a = document.getElementById(`${subId}_A`).value;
+            appState[subId].scenarios[scenNum].r = document.getElementById(`${subId}_R`).value;
+            appState[subId].compiled = document.getElementById(`${subId}_compiled`).value;
+        }
+
+        function populateInputsFromState(subId, scenNum) {
+            document.getElementById(`${subId}_S`).value = appState[subId].scenarios[scenNum].s;
+            document.getElementById(`${subId}_T`).value = appState[subId].scenarios[scenNum].t;
+            document.getElementById(`${subId}_A`).value = appState[subId].scenarios[scenNum].a;
+            document.getElementById(`${subId}_R`).value = appState[subId].scenarios[scenNum].r;
+            document.getElementById(`${subId}_compiled`).value = appState[subId].compiled;
+        }
+
+        function loadPlaceholders(subId) {
+            if (typeof sampleDb !== 'undefined' && sampleDb[subId]) {
+                const s = sampleDb[subId];
+                document.getElementById(`${subId}_S`).placeholder = s.s || "Context of the technical problem...";
+                document.getElementById(`${subId}_T`).placeholder = s.t || "Your baseline deployment responsibility...";
+                document.getElementById(`${subId}_A`).placeholder = s.a || "What technical actions YOU performed...";
+                document.getElementById(`${subId}_R`).placeholder = s.r || "The outcome and equipment optimization...";
+            }
+        }
+
+        // --- COMPILER & COACH ---
+        function compileSTAR(subId) {
+            saveCurrentInputsToState(); 
+            
+            let draft = "";
+            for(let i=1; i<=3; i++) {
+                const scen = appState[subId].scenarios[i];
+                let scenText = "";
+                if(scen.s) scenText += scen.s + " ";
+                if(scen.t) scenText += scen.t + " ";
+                if(scen.a) scenText += scen.a + " ";
+                if(scen.r) scenText += scen.r;
+                
+                if (scenText.trim() !== "") {
+                    draft += scenText.trim() + "\n\n";
+                }
+            }
+
+            appState[subId].compiled = draft.trim();
+            document.getElementById(`${subId}_compiled`).value = appState[subId].compiled;
+            analyzeText(subId);
+        }
+
+        function insertVerb(word) {
+            const box = document.getElementById(`${currentMainTab}_compiled`);
+            box.value += " " + word;
+            box.focus();
+            analyzeText(currentMainTab);
+            saveToLocalTemp();
+        }
+
+        function analyzeText(subId) {
+            if (subId !== currentMainTab) return; 
+            
+            const text = document.getElementById(`${subId}_compiled`).value;
+            const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+            
+            const wcElement = document.getElementById('coach_wc');
+            wcElement.innerText = `${wordCount} Words`;
+            if (wordCount === 0 || wordCount < 80 || wordCount > 220) wcElement.style.color = "var(--burnt-orange)";
+            else if (wordCount >= 120 && wordCount <= 180) wcElement.style.color = "var(--ee-terminal-green)";
+            else wcElement.style.color = "#E1B12C";
+
+            let score = calculateScoreForBadge(text, subId);
+
+            if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap['EngTech']) {
+                const allowedVerbs = verbDb.strongVerbMap['EngTech'][subId] || [];
+                let foundVerbs = [];
+                let unusedVerbs = [];
+                
+                allowedVerbs.forEach(v => {
+                    if (text.toLowerCase().includes(v)) foundVerbs.push(v);
+                    else unusedVerbs.push(v);
+                });
+
+                if (foundVerbs.length > 0) {
+                    document.getElementById('coach_verbs').innerHTML = `<strong>Detected Verbs:</strong><br>${foundVerbs.map(v => `<span class="detected-verb">${v}</span>`).join(", ")}`;
+                } else {
+                    document.getElementById('coach_verbs').innerHTML = "<span style='color:var(--burnt-orange);'>No relevant performance verbs detected.</span>";
+                }
+
+                const recsEl = document.getElementById('coach_recs');
+                if (score < 3 && unusedVerbs.length > 0) {
+                    recsEl.innerHTML = `<strong>RECOMMENDATIONS:</strong><br><span style="font-size:0.8rem; color:#ccc;">Click a verb to insert it:</span><br><div style="margin-top:8px;">${unusedVerbs.map(v => `<span class="verb-chip" onclick="insertVerb('${v}')">${v}</span>`).join(" ")}</div>`;
+                    recsEl.style.display = 'block';
+                    recsEl.style.color = "var(--burnt-orange)";
+                } else {
+                    recsEl.style.display = 'none';
+                }
+            }
+
+            document.getElementById('coach_score').innerHTML = getBadgeHTML(score);
+
+            if (typeof acronymDb !== 'undefined') {
+                const matches = text.match(/\b[A-Z]{3,}\b/g) || [];
+                const found = [...new Set(matches.filter(w => acronymDb.some(a => a.a === w)))];
+                if (found.length > 0) document.getElementById('coach_acronyms').innerHTML = `<strong style="color:var(--ee-terminal-green);">Found:</strong> ${found.join(", ")}`;
+                else document.getElementById('coach_acronyms').innerText = "No known acronyms detected.";
+            }
+
+            saveToLocalTemp();
+        }
+
+        // --- ACRONYMS ---
+        function getExpandedText(text) {
+            if (!text || typeof acronymDb === 'undefined') return { text: text, count: 0 };
+            const matches = [...new Set(text.match(/\b[A-Za-z]*[A-Z][a-z]*[A-Z][A-Za-z]*\b/g) || [])];
+            let count = 0;
+            let newText = text;
+            
+            matches.forEach(word => {
+                const entry = acronymDb.find(item => item.a === word);
+                if (entry) {
+                    const regex = new RegExp(`\\b${word}\\b(?!\\s*\\()`);
+                    if (regex.test(newText)) { newText = newText.replace(regex, `${entry.m} (${word})`); count++; }
+                }
+            });
+            return { text: newText, count: count };
+        }
+
+        function expandAcronyms() {
+            let totalCount = 0;
+            const subId = currentMainTab;
+            
+            ['S', 'T', 'A', 'R'].forEach(field => {
+                const el = document.getElementById(`${subId}_${field}`);
+                if (el && el.value) {
+                    const res = getExpandedText(el.value);
+                    if (res.count > 0) { el.value = res.text; totalCount += res.count; }
+                }
+            });
+
+            if (totalCount > 0) {
+                compileSTAR(subId); 
+                alert(`Expanded ${totalCount} acronyms in the STAR Builder.`);
+                return;
+            }
+
+            const main = document.getElementById(`${subId}_compiled`);
+            const res = getExpandedText(main.value);
+            if (res.count > 0) {
+                main.value = res.text;
+                appState[subId].compiled = main.value;
+                analyzeText(subId); 
+                alert(`Expanded ${res.count} acronyms in compiled text.`);
+            } else { 
+                alert("No undefined known acronyms found."); 
+            }
+        }
+
+        // --- MASTER BACKUP ENGINE ---
+        function getEETimestamp() {
+            const d = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+        }
+
+        function loadToolStateFromMaster() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (masterData && masterData.ee_tools && masterData.ee_tools[EE_TOOL_ID]) {
+                const savedState = masterData.ee_tools[EE_TOOL_ID];
+                if (savedState.B1) appState.B1 = savedState.B1;
+                if (savedState.B2) appState.B2 = savedState.B2;
+            }
+            switchMainTab('B1');
+            updateNavigationBadges(); 
+        }
+
+        function saveToLocalTemp() {
+            saveCurrentInputsToState(); 
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            masterData.ee_tools[EE_TOOL_ID] = appState; 
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+            updateNavigationBadges(); 
+        }
+
+        // Isolated Extraction backup engine 
+        function exportEEData() {
+            saveToLocalTemp();
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            masterData.lastUpdated = getEETimestamp();
+            
+            const prefix = masterData.username !== "EE_User" ? masterData.username.replace(/\s+/g, '') : EE_TOOL_ID;
+            const filename = `${prefix}_${masterData.lastUpdated}.json`;
+
+            const blob = new Blob([JSON.stringify(masterData, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importEEData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (!importedData.ee_tools) throw new Error("Invalid");
+                    
+                    localStorage.setItem('ee_master_state', JSON.stringify(importedData));
+                    loadToolStateFromMaster(); 
+                    alert("EE Backup imported successfully!");
+                } catch (err) {
+                    alert("Error importing file. Please ensure it is a valid EE Backup JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- INIT ---
+        window.addEventListener('load', () => {
+            if (typeof ukSpecDb !== 'undefined' && ukSpecDb['EngTech'] && ukSpecDb['EngTech'].competencies['B']) {
+                const compB = ukSpecDb['EngTech'].competencies['B'];
+                document.getElementById('comp_header').innerText = compB.title || "Competence B";
+                document.getElementById('comp_requirement').innerText = compB.requirement || "Requirement loaded.";
+                document.getElementById('comp_about').innerText = compB.about || "About data loaded.";
+
+                const bSub = compB.sub;
+                ['B1', 'B2'].forEach(subKey => {
+                    if (bSub && bSub[subKey]) {
+                        let html = `<strong style="color:var(--cloud-white);">${subKey}: ${bSub[subKey].text}</strong><ul style="margin-left:20px; margin-top:10px;">`;
+                        bSub[subKey].bullets.forEach(b => html += `<li style="margin-bottom:6px;">${b}</li>`);
+                        const guideEl = document.getElementById(`guide_${subKey}`);
+                        if (guideEl) guideEl.innerHTML = html + "</ul>";
+                    }
+                });
+            }
+            loadToolStateFromMaster();
+        });
+    </script>
+	
+	<script>
+        function initApp() {
+            console.log("System Status: Index Initialised. Core systems online. Grid overflow resolved and corrupted cache purged.");
+        }
+    </script>
+</body>
+</html>

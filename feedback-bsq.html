@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering Big Small Quick (BSQ) coaching framework tool. Formulate structured, target-driven talent acceleration paths to satisfy UK-SPEC Competencies C and D. Secure client-side local cache storage.">
+    <meta name="keywords" content="BSQ Framework, Big Small Quick, Engineering Feedback, UK-SPEC Competence C, UK-SPEC Competence D, Personnel Management, Performance Interventions, Mentorship Tracking">
+    <meta property="og:title" content="BSQ Feedback Model Workspace | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, zero-knowledge client-side workspace engineered for technical leaders, chartered engineering candidates, and line managers.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-bsq.html">
+    <meta property="og:type" content="website">
+    
+    <title>BSQ Feedback Model | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering BSQ Feedback Model Workspace",
+      "url": "https://www.empoweringengineers.uk/feedback-bsq.html",
+      "description": "An interactive digital grid enabling engineering candidates to script precise Big Small Quick performance development logs against UK-SPEC criteria.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- BSQ STACK STYLING --- */
+        .bsq-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bsq-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .bsq-card.big-card { border-left-color: var(--burnt-orange); }
+        .bsq-card.small-card { border-left-color: var(--ee-terminal-green); }
+        .bsq-card.quick-card { border-left-color: #00b894; }
+
+        .bsq-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .big-label { color: var(--burnt-orange) !important; }
+        .small-label { color: var(--terminal-green) !important; }
+        .quick-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 110px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Goal-Driven Talent Acceleration: Implementing the BSQ Coaching Framework</h1>
+            <p>
+                In senior engineering positions, consulting practices, and corporate operations, long-term technical targets often lose momentum due to everyday project distractions. While macro methodologies such as the GROW framework offer valuable guidance for high-level personal alignment, they sometimes struggle to maintain weekly execution focus. To bridge this gap, technical leads deploy the **BSQ Model (Big Goal, Small Steps, Quick Wins)**. This model functions as a practical, target-driven pipeline accelerator that converts complex personal capability benchmarks into structured milestones, perfectly matching **UK-SPEC Competence C (Leadership)** and **Competence D (Communication)**.
+            </p>
+            <p>
+                The fundamental value of the BSQ architecture lies in its structured method of parsing massive professional goals into manageable, low-risk operational increments. For example, guiding a graduate engineer toward achieving full professional registration loops or independent calculation authority can overwhelm them if handled as a single, un-itemized target. BSQ fixes this breakdown by chunking the developmental timeline into three specific dimensions: first, establish a clear, data-driven **Big Goal**; second, map out the precise sequential **Small Steps** required to build capability; and third, identify immediate **Quick Wins** to build early traction. This scannable path creates a solid audit trail for your corporate continuous professional development (CPD) logs, proving to review boards that your mentorship is backed by structured personnel tracking.
+            </p>
+
+            <h2>Deconstructing the Three Dimensions of a BSQ Performance Log</h2>
+            <p>
+                Structuring a personnel development plan using the interactive BSQ workspace requires technical managers to critically map out goals and validation gates step-by-step:
+            </p>
+            <p>
+                <strong>Big Goal [B]:</strong> Define the targeted professional development milestone or technical capability metric. Hardcode clear parameters, such as mastering finite element modeling scripts under BS EN guidelines, independently authorizing high-hazard permit-to-work systems, or achieving full professional registration loops within a 6-month window.
+            </p>
+            <p>
+                <strong>Small Steps [S]:</strong> Map out the technical progression path and capability milestones required to reach the primary target safely. This includes specifying required software training modules, code review routines, material specification audits, or cross-functional team placements that the coachee must execute sequentially.
+            </p>
+            <p>
+                <strong>Quick Wins [Q]:</strong> Identify low-risk, high-probability validation targets that can be completed within the first 14 to 30 days. Securing these early wins builds professional confidence, maintains momentum, and creates immediate evidence lines for internal and external quality review boards.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_feedback"></div>
+                <span class="tab-label">Feedback</span>
+            </a>
+            <a href="feedback-grow.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_grow"></div>
+                <span class="tab-label">GROW</span>
+            </a>
+            <a href="feedback-sbi.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sbi"></div>
+                <span class="tab-label">SBI</span>
+            </a>
+            <a href="feedback-cedar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cedar"></div>
+                <span class="tab-label">CEDAR</span>
+            </a>
+            <a href="feedback-pendletons.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pendletons"></div>
+                <span class="tab-label">Pendleton's</span>
+            </a>
+            <a href="feedback-coin.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coin"></div>
+                <span class="tab-label">COIN</span>
+            </a>
+            <a href="feedback-bsq.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bsq"></div>
+                <span class="tab-label">BSQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">BSQ Coaching Roadmap</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Performance Management Workspace System</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="bsq-stack">
+                    
+                    <!-- Big Goal Card -->
+                    <div class="bsq-card big-card">
+                        <label class="bsq-label big-label">Big Goal [B]</label>
+                        <span class="form-hint">What primary technical milestone or long-term capability parameter defines the macro target? Enforce rigid metrics. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Attain independent engineering sign-off authority on non-standard steel pressure vessel calculations within 6 months.</span></span>
+                        <textarea id="bsq_Big" class="form-input" placeholder="Define measurable long-term development targets and engineering milestones here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Small Steps Card -->
+                    <div class="bsq-card small-card">
+                        <label class="bsq-label small-label">Small Steps [S]</label>
+                        <span class="form-hint">What sequential training modules, code reviews, or design checks form the capability progression path? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Complete specialized ASME training modules, and shadow the principal analyst during weekly code calculation sweeps.</span></span>
+                        <textarea id="bsq_Small" class="form-input" placeholder="Map out the required development steps, validation check gates, and technical criteria here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Quick Wins Card -->
+                    <div class="bsq-card quick-card">
+                        <label class="bsq-label quick-label">Quick Wins [Q]</label>
+                        <span class="form-hint">What low-risk, high-probability validation targets can be achieved within the first 14 to 30 days to build momentum? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Correctly audit legacy calculation templates and optimize 3 basic pipeline layout script blocks.</span></span>
+                        <textarea id="bsq_Quick" class="form-input" placeholder="Identify immediate high-probability validation targets and early win criteria here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile feedback tracking log...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_feedback_bsq";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('bsq_Big').value = data.Big || '';
+                    document.getElementById('bsq_Small').value = data.Small || '';
+                    document.getElementById('bsq_Quick').value = data.Quick || '';
+                } catch (e) {
+                    console.error("Failed to parse stored BSQ state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'feedback': 'ee_feedback_master_hub',
+                'grow': 'ee_feedback_grow',
+                'sbi': 'ee_feedback_sbi',
+                'cedar': 'ee_feedback_cedar',
+                'pendletons': 'ee_feedback_pendletons',
+                'coin': 'ee_feedback_coin',
+                'bsq': 'ee_feedback_bsq'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const big = document.getElementById('bsq_Big').value.trim();
+            const small = document.getElementById('bsq_Small').value.trim();
+            const quick = document.getElementById('bsq_Quick').value.trim();
+
+            let output = `=== BSQ MODEL: COACHING ACCELERATION PLAN ===\n\n`;
+            output += `[BIG GOAL]:\n${big ? big : '...\n'}\n`;
+            output += `[SMALL STEPS]:\n${small ? small : '...\n'}\n`;
+            output += `[QUICK WINS]:\n${quick ? quick : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = big || small || quick;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Big: big, Small: small, Quick: quick };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("BSQ framework configuration state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const big = document.getElementById('bsq_Big').value.trim();
+            const small = document.getElementById('bsq_Small').value.trim();
+            const quick = document.getElementById('bsq_Quick').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = big || small || quick;
+
+            if (hasUserData) {
+                script += `[MACRO BIG GOAL]\n${big ? big : 'Not defined.'}\n\n`;
+                script += `[SEQUENTIAL SMALL STEPS]\n${small ? small : 'Not defined.'}\n\n`;
+                script += `[IMMEDIATE QUICK WINS]\n${quick ? quick : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[MACRO BIG GOAL]\ne.g., Mastering localized stress-testing software parameters under BS EN 1993 standard frameworks within 4 months.\n\n`;
+                script += `[SEQUENTIAL SMALL STEPS]\ne.g., Subscribe to corporate design modules, and initialize weekly 1-on-1 code calculation reviews with the principal structural analyst.\n\n`;
+                script += `[IMMEDIATE QUICK WINS]\ne.g., Auditing legacy calculation templates and setting up a secondary layout check gate by week 2.\n\n`;
+            }
+
+            const role = "Expert Leadership Consultant & Senior Engineering Management Coach";
+            const actionText = "Analyse this Big-Small-Quick (BSQ) coaching plan blueprint user draft. 1. Critique if the macro big goal section establishes sufficiently rigid, data-driven targets safely. 2. Evaluate whether the sequential small steps phase considers operational realities and standard training routes realistically. 3. Assess if the immediate quick wins block establishes the strict accountability structures and short-term verification loops needed to satisfy UK-SPEC Competencies C and D mentorship registers.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior engineering leader structuring a performance development plan to validate leadership capabilities against UK-SPEC Competence C and D registers. The format used is a BSQ Coaching Canvas (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite the script for the user. Evaluate the provided framework criteria critically. Expose narrative vulnerabilities, ask targeted managerial questions, and deliver a clean section-by-section audit report report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the BSQ feedback canvas?")) {
+                document.getElementById('bsq_Big').value = '';
+                document.getElementById('bsq_Small').value = '';
+                document.getElementById('bsq_Quick').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const big = document.getElementById('bsq_Big').value.trim();
+            const small = document.getElementById('bsq_Small').value.trim();
+            const quick = document.getElementById('bsq_Quick').value.trim();
+
+            const state = { Big: big, Small: small, Quick: quick };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_BSQ_Feedback_Log_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Big !== undefined || data.Small !== undefined || data.Quick !== undefined) {
+                        document.getElementById('bsq_Big').value = data.Big || '';
+                        document.getElementById('bsq_Small').value = data.Small || '';
+                        document.getElementById('bsq_Quick').value = data.Quick || '';
+                        updatePreview();
+                        alert("BSQ feedback log metrics imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Big, Small, and Quick parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const big = document.getElementById('bsq_Big').value.trim();
+            const small = document.getElementById('bsq_Small').value.trim();
+            const quick = document.getElementById('bsq_Quick').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE BSQ Performance Feedback Summary Briefing</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0;}
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc;} }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>BSQ Performance Acceleration Plan</h1>
+                <p><em>Framework Branch: Feedback & Management Coaching // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Big Goal</h2>
+                <p>${big ? big : 'Not defined.'}</p>
+                
+                <h2>Small Steps</h2>
+                <p>${small ? small : 'Not defined.'}</p>
+                
+                <h2>Quick Wins</h2>
+                <p>${quick ? quick : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated via Empowering Engineers UK - Management & Leadership Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

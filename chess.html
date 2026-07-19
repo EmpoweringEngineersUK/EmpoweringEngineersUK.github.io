@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO / GEO Metadata Architecture -->
+    <meta name="description" content="Master engineering systems thinking through interactive chess. Practise essential opening theory (Nimzo-Indian, Sicilian, Ruy Lopez) to enhance your UK-SPEC Competence B analytical skills.">
+    <meta property="og:title" content="Chess Strategic Analysis | Empowering Engineers UK">
+    <meta property="og:description" content="Cultivate engineering excellence and spatial analysis by mastering complex chess opening theories using our interactive digital boards.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/chess.html">
+    <meta property="og:type" content="website">
+    
+    <title>Chess Strategic Analysis | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Global Layout Core Linkage with Active Cache-Busting -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <!-- Deferred Database Scripts -->
+    <script defer src="tools_data.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Chess Strategic Analysis Framework",
+      "url": "https://www.empoweringengineers.uk/chess.html",
+      "description": "Interactive chess boards designed to cultivate engineering systems thinking and risk management capabilities.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- PAGE SPECIFIC STRUCTURE --- */
+        body, button, input, select, textarea, h1, h2, h3, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
+
+        /* Thick Content Insulation Layer */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .thick-content p, .thick-content li { 
+            margin-bottom: 15px; 
+            font-size: 1.05rem; 
+        }
+        .thick-content ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 14px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 6px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* High Contrast Square Status Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: var(--dark-card);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 20px;
+            height: 20px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* Responsive Chess Board Grid Architecture */
+        .chess-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 800px) { 
+            .chess-grid { grid-template-columns: 1fr; } 
+        }
+
+        .chess-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .chess-card:hover {
+            border-color: var(--terminal-green);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .chess-card-header {
+            color: var(--terminal-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .chess-iframe-container {
+            position: relative;
+            width: 100%;
+            height: 550px; /* Standardised height to accommodate the external engine GUI */
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+        }
+
+        .chess-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    
+    <!-- Injection of system standard navigation -->
+    <script defer src="header_nav.js?v=21.7"></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Chess Openings & Systems Strategy: Cultivating Analytical Engineering Leadership</h1>
+            <p>While chess is widely recognised as a classic board game, playing and rigorously studying it serves as a phenomenal exercise in systems thinking, spatial analysis, and strategic planning. For developing engineering professionals working towards professional registration under the Engineering Council’s UK-SPEC (4th Edition), the stringent mental discipline required for chess directly reinforces several core analytical competences and operational habits.</p>
+            
+            <h2>Aligning with UK-SPEC Engineering Standards</h2>
+            <p><strong>Competence A (Knowledge and Understanding):</strong> Chess requires the continuous study of geometrical patterns, theoretical systems, and underlying tactical principles. Learning to accurately identify these patterns and apply established theories to novel, high-pressure situations perfectly mirrors how engineers must apply fundamental technical and mathematical knowledge to solve complex, real-world operational problems.</p>
+            <p><strong>Competence B (Design and Development of Processes and Systems):</strong> Formulating a robust game plan from the opening through to the endgame is an exercise in pure systems design. Anticipating an opponent’s responses, evaluating positional risks, calculating probability variations, and dynamically adjusting your strategy on the fly are the exact cognitive skills engineers utilise during the iterative design and development phases of a project. Just as an engineer constructs a Failure Mode and Effects Analysis (FMEA) to mitigate project hazards, a chess player must rigorously calculate the consequences of every structural pawn shift or piece sacrifice.</p>
+
+            <h2>The Critical Importance of the Opening Phase</h2>
+            <p>Welcome to the interactive chess study suite. Whether you are a casual player looking to break past a rating plateau or a complete beginner, mastering your opening repertoire is the most critical step you can take to elevate your overall game. In chess, your mid-game tactical opportunities and late-game survivability rely almost entirely on the structural accuracy of your opening sequence. A strong opening secures central board control, develops your pieces efficiently, and ensures the absolute safety of your king. Without this solid architectural foundation, even the most brilliant tactical players will find themselves constantly defending from severely disadvantaged positions.</p>
+
+            <h2>Overcoming the Beginner's Knowledge Plateau</h2>
+            <p>The sheer volume of opening theory is the single biggest operational barrier preventing beginners from improving their game. Attempting to memorise countless variations from static textbooks or lengthy, passive video lectures can quickly become overwhelming. This pedagogical friction makes it incredibly difficult to remember and actively practise the correct theoretical moves over the physical board.</p>
+
+            <h2>Step-by-Step Interactive Practice Workbenches</h2>
+            <p>To permanently remove this barrier, this page utilises interactive chess boards powered by the Chess.com engine framework. Rather than passively reading about an opening, these embedded analytical tools allow you to actively engage with the theoretical data.</p>
+            <ul>
+                <li><strong>Learn Step-by-Step:</strong> Move through complex opening lines one turn at a time, understanding the logic and structural purpose behind every pawn push and piece development.</li>
+                <li><strong>Practise Variations:</strong> Safely explore different opponent responses and learn how to adapt your strategy without the high-stakes pressure of a live ranked match.</li>
+                <li><strong>Build Muscle Memory:</strong> By physically playing the moves on the digital board, you will commit these essential geometrical patterns to your working memory significantly faster than by reading alone.</li>
+            </ul>
+            <p>Get started by selecting an opening from the interactive grid below. Play through the guided operational steps, reset the board as many times as you require, and start building a watertight strategic repertoire for your next competitive match.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" id="monetisationBlock" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Hobbies Framework Pathway with Programmatic Completion Badges -->
+        <nav class="ee-horizontal-nav" id="hobbiesMasterNav" aria-label="Hobbies & Extracurricular Pathway">
+			<a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_cpd_hub"></div>
+				<span class="tab-label">CPD Hub</span>
+			</a>
+            <a href="hobbies.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hobbies_hub"></div>
+                <span class="tab-label">Hobbies Hub</span>
+            </a>
+            <a href="stem.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_stem"></div>
+                <span class="tab-label">STEM</span>
+            </a>
+            <a href="chess.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_chess"></div>
+                <span class="tab-label">Chess</span>
+            </a>
+            <a href="poetry.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_poetry"></div>
+                <span class="tab-label">Poetry</span>
+            </a>
+            <a href="calisthenics.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_calisthenics"></div>
+                <span class="tab-label">Calisthenics</span>
+            </a>
+            <a href="blitz.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_blitz"></div>
+                <span class="tab-label">Blitz</span>
+            </a>
+        </nav>
+
+        <div id="tool-header-target"></div>
+
+        <section class="chess-grid" aria-label="Interactive Chess Opening Boards">
+            
+            <!-- Opening 1: Nimzo-Indian Defense -->
+            <div class="chess-card">
+                <div class="chess-card-header">Nimzo-Indian Defense: Gligoric-Bronstein</div>
+                <div class="chess-iframe-container">1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.Nf3 c5 7.O-O dxc4 8.Bxc4 Nbd7
+                    <iframe id="15337364" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337364"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337364"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Nimzo-Indian')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 2: King's Indian Defense -->
+            <div class="chess-card">
+                <div class="chess-card-header">King's Indian Defense: Fianchetto, Debrecen Classical</div>
+                <div class="chess-iframe-container">1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.Nf3 d6 5.g3 O-O 6.Bg2 Nbd7 7.O-O e5 8.e4 Re8 9.h3 exd4 10.Nxd4 Nc5 11.Re1 a5
+                    <iframe id="15337346" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337346"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337346"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Kings-Indian')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 3: Sicilian Defense -->
+            <div class="chess-card">
+                <div class="chess-card-header">Sicilian Defense: Open, Pelikan & Sveshnikov Bird</div>
+                <div class="chess-iframe-container">1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e5 6.Ndb5 d6 7.Bg5 a6 8.Na3 Be6
+                    <iframe id="15337354" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337354"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337354"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Sicilian')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 4: Ruy Lopez Opening -->
+            <div class="chess-card">
+                <div class="chess-card-header">Ruy Lopez Opening: Morphy Defense, Keres</div>
+                <div class="chess-iframe-container">1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 d6 8.c3 O-O 9.h3 Na5 10.Bc2 c5 11.d4 Nd7<br>
+                    <iframe id="15337342" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337342"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337342"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Ruy-Lopez')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 5: English Opening -->
+            <div class="chess-card">
+                <div class="chess-card-header">English Opening: Fianchetto, Ultra-Symmetrical Mecking</div>
+                <div class="chess-iframe-container">1.c4 c5 2.Nc3 Nc6 3.g3 g6 4.Bg2 Bg7 5.Nf3 Nf6 6.O-O O-O 7.d4
+                    <iframe id="15337396" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337396"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337396"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('English')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 6: Catalan Opening -->
+            <div class="chess-card">
+                <div class="chess-card-header">Catalan Opening: Closed, Traditional</div>
+                <div class="chess-iframe-container">1.d4 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Be7 5.Nf3 O-O 6.O-O Nbd7 7.Qc2 c6 8.Nbd2 b6
+                    <iframe id="15337384" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337384"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337384"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Catalan')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 7: Petrov's Defense -->
+            <div class="chess-card">
+                <div class="chess-card-header">Petrov's Defense: Classical Attack, Mason-Showalter</div>
+                <div class="chess-iframe-container">1.e4 e5 2.Nf3 Nf6 3.Nxe5 d6 4.Nf3 Nxe4 5.d4 d5 6.Bd3 Nc6 7.O-O Be7 8.c4 Nb4 9.Be2
+                    <iframe id="15337380" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337380"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337380"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Petrovs')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+            <!-- Opening 8: Tarrasch Defense -->
+            <div class="chess-card">
+                <div class="chess-card-header">Tarrasch Defense: Two Knights, Rubinstein-Prague-Carlsbad</div>
+                <div class="chess-iframe-container">1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 exd5 5.Nf3 Nc6 6.g3 Nf6 7.Bg2 Be7 8.O-O O-O 9.Bg5
+                    <iframe id="15337368" class="chess-iframe" allowtransparency="true" frameborder="0" src="https://www.chess.com/emboard?id=15337368"></iframe>
+                    <script nonce="chesscom-diagram">window.addEventListener("message",e=>{e['data']&&"15337368"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+37}px`)});</script>
+                </div>
+                <button type="button" class="action-btn action-btn-ghost" style="width:100%; min-height:40px; margin-top:12px; font-size:12px;" onclick="markOpeningStudied('Tarrasch')">✔ Mark Opening as Reviewed</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Programmatic Local Cache Parsing Subsystem -->
+    <script>
+        function parseToolTextLog(toolKeyStr) {
+            const structuralString = localStorage.getItem(toolKeyStr);
+            if (!structuralString) return false;
+            try {
+                const parsedJSON = JSON.parse(structuralString);
+                if (toolKeyStr === 'ee_master_state') {
+                    return parsedJSON.ee_tools && Object.keys(parsedJSON.ee_tools).length > 0;
+                }
+                if (typeof parsedJSON === 'object' && parsedJSON !== null) {
+                    return Object.values(parsedJSON).some(val => typeof val === 'string' && val.trim().length > 0 || typeof val === 'number' && val > 0 || typeof val === 'boolean' && val);
+                }
+                if (typeof parsedJSON === 'number') return parsedJSON > 0;
+                if (typeof parsedJSON === 'boolean') return parsedJSON;
+                return String(parsedJSON).trim().length > 0;
+            } catch (err) {
+                return structuralString.trim().length > 0;
+            }
+        }
+
+        function buildTickUI(isCompleteFlag) {
+            return isCompleteFlag ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateSubpageDiagnosticBadges() {
+            const taxonomyMasterRegistry = {
+                stem: [{ id: 'stem', key: 'ee_hobby_stem_state' }],
+                chess: [{ id: 'chess', key: 'ee_hobby_chess_state' }],
+                poetry: [{ id: 'poetry', key: 'ee_master_state' }],
+                calisthenics: [{ id: 'calisthenics', key: 'ee_hobby_calisthenics_state' }],
+                blitz: [{ id: 'blitz', key: 'EE_BLITZ_BLITZ_SCORE' }, { id: 'blitz_hm', key: 'EE_BLITZ_HANGMAN_SCORE' }]
+            };
+
+            let globalHobbiesHasContent = false;
+
+            Object.keys(taxonomyMasterRegistry).forEach(branchKey => {
+                const subfileArray = taxonomyMasterRegistry[branchKey];
+                let hasContent = false;
+
+                subfileArray.forEach(item => {
+                    if (parseToolTextLog(item.key)) {
+                        hasContent = true;
+                        globalHobbiesHasContent = true;
+                    }
+                });
+
+                const branchNavBadgeDOM = document.getElementById(`badge_nav_${branchKey}`);
+                if (branchNavBadgeDOM) {
+                    branchNavBadgeDOM.innerHTML = buildTickUI(hasContent);
+                }
+            });
+
+            if (document.getElementById('badge_hobbies_hub')) {
+                document.getElementById('badge_hobbies_hub').innerHTML = buildTickUI(globalHobbiesHasContent);
+            }
+            
+            const cpdCachedStatus = parseToolTextLog('ee_cpd_planner_state') || parseToolTextLog('EE_ACRONYM_DECODER') || parseToolTextLog('ee_raci_matrix_state') || parseToolTextLog('ee_resources_bookmarks');
+            if (document.getElementById('badge_cpd_hub')) {
+                document.getElementById('badge_cpd_hub').innerHTML = buildTickUI(cpdCachedStatus || globalHobbiesHasContent);
+            }
+        }
+
+        function markOpeningStudied(openingName) {
+            let state = {};
+            const stored = localStorage.getItem('ee_hobby_chess_state');
+            if (stored) {
+                try { state = JSON.parse(stored); } catch(e) {}
+            }
+            state[openingName] = { studied: true, timestamp: Date.now() };
+            localStorage.setItem('ee_hobby_chess_state', JSON.stringify(state));
+            updateSubpageDiagnosticBadges();
+            alert(`✔ Opening [${openingName}] recorded in your client-side portfolio log.`);
+        }
+
+        // System Initialisation Engine
+        function initApp() {
+            if(typeof renderToolHeader === 'function') {
+                renderToolHeader('chess');
+            }
+            updateSubpageDiagnosticBadges();
+            console.log("System Status: Chess interactive nodes loaded securely.");
+        }
+    </script>
+    
+    <!-- Injection of system standard persistence and footer layouts -->
+    <script defer src="footer.js?v=21.7"></script>
+</body>
+</html>

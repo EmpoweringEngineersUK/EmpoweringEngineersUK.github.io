@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering CEDAR Feedback Model workbench. Systematically structure personnel reviews and performance dialogues across Clarify, Explain, Demonstrate, Agree, and Review loops to fulfill UK-SPEC Competencies C and D requirements. Secure client-side memory.">
+    <meta name="keywords" content="CEDAR Feedback Model, Engineering Leadership, Performance Dialogue, Personnel Development, UK-SPEC Competence C, UK-SPEC Competence D, Professional Mentorship, Technical Management">
+    <meta property="og:title" content="CEDAR Feedback Architecture Suite | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, zero-knowledge client-side personnel development workspace engineered to transform engineering reviews into structured action plans.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-cedar.html">
+    <meta property="og:type" content="website">
+    
+    <title>CEDAR Feedback Model | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering CEDAR Feedback Model Workspace",
+      "url": "https://www.empoweringengineers.uk/feedback-cedar.html",
+      "description": "An interactive digital workbook designed for technical engineering leaders to plan, script, and log performance reviews using the CEDAR framework.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- CEDAR STACK STYLING --- */
+        .cedar-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .cedar-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .cedar-card.clarify-card { border-left-color: var(--burnt-orange); }
+        .cedar-card.explain-card { border-left-color: var(--burnt-orange); }
+        .cedar-card.demonstrate-card { border-left-color: var(--ee-terminal-green); }
+        .cedar-card.agree-card { border-left-color: var(--ee-terminal-green); }
+        .cedar-card.review-card { border-left-color: #00b894; }
+
+        .cedar-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .clarify-label { color: var(--burnt-orange) !important; }
+        .explain-label { color: var(--burnt-orange) !important; }
+        .demonstrate-label { color: var(--terminal-green) !important; }
+        .agree-label { color: var(--terminal-green) !important; }
+        .review-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 100px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Structured Engineering Dialogue: Mastering the CEDAR Feedback Model</h1>
+            <p>
+                In complex engineering infrastructure programs and high-tier manufacturing operations, continuous professional alignment is a primary metric of success. Engineering leads, technical managers, and directors frequently face challenges when correcting project drift, structural design errors, or workflow inefficiencies. Vague, unstructured feedback loops often trigger defensiveness, hide systemic liabilities, and compromise long-term team performance. To counter this operational hazard, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) establishes clear requirements under **Competence C (Responsibility, management, or leadership)** and **Competence D (Communication and interpersonal skills)**, demanding that registered professionals demonstrate a structured, repeatable capability to lead teams and guide professional development.
+            </p>
+            <p>
+                The **CEDAR Feedback Model** provides a rigorous, collaborative framework engineered to transform corrective feedback sessions into objective, action-oriented personnel roadmaps. Rather than delivering a top-down critique, CEDAR guides technical leaders through a collaborative five-stage dialogue: **Clarify**, **Explain**, **Demonstrate**, **Agree**, and **Review**. By beginning with a mutual clarification of background boundaries and progressing toward data-driven impact statements, this framework ensures coachees take personal ownership of their developmental growth. Documenting these structural interventions provides institutional review panels with robust proof that you execute your personnel management duties with commercial awareness and a commitment to operational excellence.
+            </p>
+
+            <h2>Deconstructing the Five Dimensions of the CEDAR Model</h2>
+            <p>
+                Structuring an advanced engineering coaching script utilizing the interactive CEDAR canvas requires technical leads to methodically analyze each stage of the dialogue:
+            </p>
+            <p>
+                <strong>Clarify [C]:</strong> This opening phase establishes mutual understanding and anchors the conversation. Technical leads must encourage the coachee to analyze the specific situation or performance anomaly independently. Rather than leading with a direct accusation, ask targeted open questions to determine if the team member understands the baseline parameters, compliance guidelines, or design constraints where the variance happened.
+            </p>
+            <p>
+                <strong>Explain [E]:</strong> The explanation phase presents the factual illustration of the performance shortfall. It is vital to isolate individual character judgements from empirical observations. Technical managers must point out the explicit actions, omissions, or drawing deviations that occurred. Ground this description in hard facts—such as missed calculation targets or non-compliance with ISO or British Standards.
+            </p>
+            <p>
+                <strong>Demonstrate [D]:</strong> This segment highlights the real-world operational and commercial consequences of the observed behavior. To satisfy UK-SPEC criteria, you must connect the performance gap directly to broader project impacts. For example, explain how an unchecked calculation script or delayed drawing approval caused schedule drift, introduced capital expenditure liabilities, or expanded safety risks under CDM 2015 regulations.
+            </p>
+            <p>
+                <strong>Agree [A]:</strong> The agreement phase shifts the conversation toward solutions and future behavior. The lead engineer and coachee must collaboratively construct a clear, targeted action plan. This involves documenting explicit steps, additional training modules, revised design workflows, or new script validation checks that the coachee commits to execute to close the capability gap.
+            </p>
+            <p>
+                <strong>Review [R]:</strong> The final stage closes the loop, establishing long-term process governance. Technical leads must define specific monitoring timelines and verification gates. This involves setting bi-weekly audit meetings, target dates for final authority reviews, and clear performance indicators to track compliance, turning a corrective meeting into a permanent continuous professional development (CPD) log.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_feedback"></div>
+                <span class="tab-label">Feedback</span>
+            </a>
+            <a href="feedback-grow.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_grow"></div>
+                <span class="tab-label">GROW</span>
+            </a>
+            <a href="feedback-sbi.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sbi"></div>
+                <span class="tab-label">SBI</span>
+            </a>
+            <a href="feedback-cedar.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cedar"></div>
+                <span class="tab-label">CEDAR</span>
+            </a>
+            <a href="feedback-pendletons.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pendletons"></div>
+                <span class="tab-label">Pendleton's</span>
+            </a>
+            <a href="feedback-coin.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coin"></div>
+                <span class="tab-label">COIN</span>
+            </a>
+            <a href="feedback-bsq.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bsq"></div>
+                <span class="tab-label">BSQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">CEDAR Feedback System</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Performance Dialogue & Management Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="cedar-stack">
+                    
+                    <!-- Clarify Card -->
+                    <div class="cedar-card clarify-card">
+                        <label class="cedar-label clarify-label">Clarify Context [C]</label>
+                        <span class="form-hint">How did you encourage the coachee to self-analyse the situation? Document your initial open-ended questions. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Requested the engineer walk through their validation process for the pipe anchor structural stress calculations.</span></span>
+                        <textarea id="cedar_Clarify" class="form-input" placeholder="Script the clarification dialogue and initial coachee self-analysis here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Explain Card -->
+                    <div class="cedar-card explain-card">
+                        <label class="cedar-label explain-label">Explain Illustrations [E]</label>
+                        <span class="form-hint">What explicit, observable actions or data discrepancies did you present? Keep it objective and fact-based. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Pointed out that the finite element model omitted the dynamic wind load parameters mandated by Eurocode 3.</span></span>
+                        <textarea id="cedar_Explain" class="form-input" placeholder="Document the factual, unvarnished observations and illustrations here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Demonstrate Card -->
+                    <div class="cedar-card demonstrate-card">
+                        <label class="cedar-label demonstrate-label">Demonstrate Impact [D]</label>
+                        <span class="form-hint">What were the direct project, commercial, or safety impacts? Connect the gap to broader engineering risks. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This structural omission risked a fatigue failure, delayed client drawing submittal by 5 days, and caused a £20k rework liability.</span></span>
+                        <textarea id="cedar_Demonstrate" class="form-input" placeholder="State the quantifiable consequences and systemic engineering impacts here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Agree Card -->
+                    <div class="cedar-card agree-card">
+                        <label class="cedar-label agree-label">Agree Actions [A]</label>
+                        <span class="form-hint">What clear, collaborative steps or training tracks were committed to? Define explicit criteria. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Coachee will complete the advanced Eurocode structural loading module and re-verify calculation sheets.</span></span>
+                        <textarea id="cedar_Agree" class="form-input" placeholder="Record the agreed solution roadmap and technical criteria here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Review Card -->
+                    <div class="cedar-card review-card">
+                        <label class="cedar-label review-label">Review Progress [R]</label>
+                        <span class="form-hint">What monitoring timeline, check-hierarchies, or verification gates were established to track compliance? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Set up weekly check-ins every Friday at 10:00 to review calculation scripts prior to principal sign-off.</span></span>
+                        <textarea id="cedar_Review" class="form-input" placeholder="Outline layout check schedules, audit timelines, and verification gates here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live dialogue logs...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_feedback_cedar";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('cedar_Clarify').value = data.Clarify || '';
+                    document.getElementById('cedar_Explain').value = data.Explain || '';
+                    document.getElementById('cedar_Demonstrate').value = data.Demonstrate || '';
+                    document.getElementById('cedar_Agree').value = data.Agree || '';
+                    document.getElementById('cedar_Review').value = data.Review || '';
+                } catch (e) {
+                    console.error("Failed to parse stored CEDAR state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Sync dynamically with the coach and feedback hubs mapping architecture
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'feedback': 'ee_feedback_master_hub',
+                'grow': 'ee_feedback_grow',
+                'sbi': 'ee_feedback_sbi',
+                'cedar': 'ee_feedback_cedar',
+                'pendletons': 'ee_feedback_pendletons',
+                'coin': 'ee_feedback_coin',
+                'bsq': 'ee_feedback_bsq'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const clarify = document.getElementById('cedar_Clarify').value.trim();
+            const explain = document.getElementById('cedar_Explain').value.trim();
+            const demonstrate = document.getElementById('cedar_Demonstrate').value.trim();
+            const agree = document.getElementById('cedar_Agree').value.trim();
+            const review = document.getElementById('cedar_Review').value.trim();
+
+            let output = `=== CEDAR MODEL: PERFORMANCE DIALOGUE LOG ===\n\n`;
+            output += `[CLARIFY CONTEXT]:\n${clarify ? clarify : '...\n'}\n`;
+            output += `[EXPLAIN ILLUSTRATIONS]:\n${explain ? explain : '...\n'}\n`;
+            output += `[DEMONSTRATE IMPACT]:\n${demonstrate ? demonstrate : '...\n'}\n`;
+            output += `[AGREE ACTIONS]:\n${agree ? agree : '...\n'}\n`;
+            output += `[REVIEW PROGRESS]:\n${review ? review : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = clarify || explain || demonstrate || agree || review;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Clarify: clarify, Explain: explain, Demonstrate: demonstrate, Agree: agree, Review: review };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("CEDAR performance dialogue state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const clarify = document.getElementById('cedar_Clarify').value.trim();
+            const explain = document.getElementById('cedar_Explain').value.trim();
+            const demonstrate = document.getElementById('cedar_Demonstrate').value.trim();
+            const agree = document.getElementById('cedar_Agree').value.trim();
+            const review = document.getElementById('cedar_Review').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = clarify || explain || demonstrate || agree || review;
+
+            if (hasUserData) {
+                script += `[CLARIFYING OPEN QUESTIONS]\n${clarify ? clarify : 'Not defined.'}\n\n`;
+                script += `[FACTUAL EXPLANATION ILLUSTRATION]\n${explain ? explain : 'Not defined.'}\n\n`;
+                script += `[DEMONSTRATED SYSTEMIC IMPACT]\n${demonstrate ? demonstrate : 'Not defined.'}\n\n`;
+                script += `[AGREED SOLUTION ACTIONS]\n${agree ? agree : 'Not defined.'}\n\n`;
+                script += `[ESTABLISHED REVIEW GOVERNANCE]\n${review ? review : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[CLARIFYING OPEN QUESTIONS]\ne.g., Prompted the team lead to review their process mapping workflow for checking vendor material certification entries.\n\n`;
+                script += `[FACTUAL EXPLANATION ILLUSTRATION]\ne.g., Noted that three separate structural steel delivery packages lacked verified Mill Test Reports, skipping standard quality control protocols.\n\n`;
+                script += `[DEMONSTRATED SYSTEMIC IMPACT]\ne.g., Stalled the primary assembly line for 72 hours, expanding client risk thresholds and creating potential regulatory compliance non-conformances.\n\n`;
+                script += `[AGREED SOLUTION ACTIONS]\ne.g., Team lead will establish a mandatory secondary material verification database check before authorizing any dock handovers.\n\n`;
+                script += `[ESTABLISHED REVIEW GOVERNANCE]\ne.g., Scheduled a localized progress check every Tuesday morning to review compliance metrics prior to engineering sign-off.\n\n`;
+            }
+
+            const role = "Senior Engineering Operations Director & Executive Leadership Coach";
+            const actionText = "Analyse this CEDAR feedback dialogue map. 1. Evaluate if the clarify section successfully establishes a collaborative, open self-analysis path. 2. Critique if the explanation and impact sections isolate personal character judgements and explicitly hardcode data-driven consequences. 3. Assess if the agree and review fields present the rigid process governance, check schedules, and verification loops required under UK-SPEC Competencies C and D.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a technical manager refining a performance feedback intervention script to satisfy professional Institutional Review portfolios (specifically UK-SPEC Competency C and D). The format used is a CEDAR Feedback Matrix (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not execute or write out text sections for the user. Interrogate the provided data framework critically. Expose narrative flaws, highlight vague assertions, and present a structured section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the CEDAR feedback canvas?")) {
+                document.getElementById('cedar_Clarify').value = '';
+                document.getElementById('cedar_Explain').value = '';
+                document.getElementById('cedar_Demonstrate').value = '';
+                document.getElementById('cedar_Agree').value = '';
+                document.getElementById('cedar_Review').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const clarify = document.getElementById('cedar_Clarify').value.trim();
+            const explain = document.getElementById('cedar_Explain').value.trim();
+            const demonstrate = document.getElementById('cedar_Demonstrate').value.trim();
+            const agree = document.getElementById('cedar_Agree').value.trim();
+            const review = document.getElementById('cedar_Review').value.trim();
+
+            const state = { Clarify: clarify, Explain: explain, Demonstrate: demonstrate, Agree: agree, Review: review };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_CEDAR_Feedback_Dialogue_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Clarify !== undefined || data.Explain !== undefined || data.Demonstrate !== undefined || data.Agree !== undefined || data.Review !== undefined) {
+                        document.getElementById('cedar_Clarify').value = data.Clarify || '';
+                        document.getElementById('cedar_Explain').value = data.Explain || '';
+                        document.getElementById('cedar_Demonstrate').value = data.Demonstrate || '';
+                        document.getElementById('cedar_Agree').value = data.Agree || '';
+                        document.getElementById('cedar_Review').value = data.Review || '';
+                        updatePreview();
+                        alert("CEDAR feedback framework dialogue metrics imported successfully!");
+                    } else {
+                        alert("Invalid JSON data layout. Expected Clarify, Explain, Demonstrate, Agree, and Review criteria.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const clarify = document.getElementById('cedar_Clarify').value.trim();
+            const explain = document.getElementById('cedar_Explain').value.trim();
+            const demonstrate = document.getElementById('cedar_Demonstrate').value.trim();
+            const agree = document.getElementById('cedar_Agree').value.trim();
+            const review = document.getElementById('cedar_Review').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE CEDAR Performance Dialogue Summary</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>CEDAR Performance Dialogue Summary Report</h1>
+                <p><em>Framework Branch: Feedback & Leadership Coaching // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Clarify Context</h2>
+                <p>${clarify ? clarify : 'Not defined.'}</p>
+                
+                <h2>Factual Illustrations</h2>
+                <p>${explain ? explain : 'Not defined.'}</p>
+                
+                <h2>Demonstrated Systemic Impact</h2>
+                <p>${demonstrate ? demonstrate : 'Not defined.'}</p>
+                
+                <h2>Agreed Solution Actions</h2>
+                <p>${agree ? agree : 'Not defined.'}</p>
+                
+                <h2>Established Review Governance</h2>
+                <p>${review ? review : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Personnel Performance Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

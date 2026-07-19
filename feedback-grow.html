@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering GROW Model performance coaching workbench. Systematically structure development goals, target baseline gaps, alternative designs, and will protocols to satisfy UK-SPEC Competence C and D requirements. Secure client-side memory.">
+    <meta name="keywords" content="GROW Model, Performance Coaching, Engineering Leadership, UK-SPEC Competence C, UK-SPEC Competence D, Professional Feedback, Mentorship Tracking, Continuous Improvement">
+    <meta property="og:title" content="GROW Model Performance Coaching Canvas | Empowering Engineers UK">
+    <meta property="og:description" content="A highly secure, zero-knowledge client-side talent development workbench engineered specifically for principal engineers, line managers, and chartered candidates.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-grow.html">
+    <meta property="og:type" content="website">
+    
+    <title>GROW Model | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering GROW Model Performance Coaching Workbench",
+      "url": "https://www.empoweringengineers.uk/feedback-grow.html",
+      "description": "An interactive coaching workbook mapped directly to the UK-SPEC strategic personnel development guidelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- GROW GRID STYLING --- */
+        .grow-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .grow-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .grow-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .grow-card.goal-card { border-top: 4px solid var(--burnt-orange); }
+        .grow-card.reality-card { border-top: 4px solid var(--burnt-orange); }
+        .grow-card.options-card { border-top: 4px solid var(--terminal-green); }
+        .grow-card.will-card { border-top: 4px solid var(--terminal-green); }
+
+        .grow-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .goal-label { color: var(--burnt-orange) !important; }
+        .reality-label { color: var(--burnt-orange) !important; }
+        .options-label { color: var(--terminal-green) !important; }
+        .will-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Leadership Development: Structuring Performance via the GROW Model</h1>
+            <p>
+                In the progression toward senior technical positions, corporate directorships, or principal consultant tracks, engineering professionals must transition from direct execution to strategic talent development. Leading complex, multidisciplinary engineering programs requires cultivating a high-performance team network that can dynamically adapt to schedule expansion, supply chain volatility, and shifting regulatory registers. The Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) targets this capability explicitly within **Competence C (Responsibility, management, or leadership)** and **Competence D (Communication and Interpersonal Skills)**. Candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration must provide robust, audit-ready evidence arrays proving they can mentor junior staff, manage team performance, and optimize technical capabilities.
+            </p>
+            <p>
+                The **GROW Model (Goal, Reality, Options, Will)** serves as an elite framework to systematize this developmental coaching process. In technical operations, ad-hoc performance coaching loops often degrade into ambiguous conversations that lack measurable output. GROW solves this problem by structuring feedback sessions into a clear, four-stage objective matrix. By progressing through Goal, Reality, Options, and Will, technical leaders can help their team members bridge the gap between initial capability states and advanced technical delivery. Furthermore, documenting these developmental interventions creates a robust record for institutional portfolios, proving to professional review panels that your leadership is backed by structured coaching and lifecycle structural resiliency.
+            </p>
+
+            <h2>Analyzing the Four Quadrants of GROW</h2>
+            <p>
+                Conducting an engineering development loop using the GROW interactive grid requires a methodical analysis of capabilities, milestones, and governance steps:
+            </p>
+            <p>
+                <strong>Goal [G]:</strong> Define the targeted professional development milestone or technical capability metric. Hardcode clear parameters, such as mastering finite element modeling scripts under BS EN guidelines, independently authorizing high-hazard permit-to-work systems, or achieving full professional registration loops within a 6-month window.
+            </p>
+            <p>
+                <strong>Reality [R]:</strong> Establish the current baseline capability status and isolate existing operational variances. Technical leads must guide the coachee to analyze their performance gaps objectively: e.g. "The engineer is proficient in basic 3D geometry manipulation but lacks formal training on transient CFD flow simulations, extending design timelines by 25%."
+            </p>
+            <p>
+                <strong>Options [O]:</strong> Map the alternative design tracks, script templates, mentoring networks, or process maps that can bridge the identified capability gap. Assess the relative cost, timeline, and risk profiles of different choices, allowing the coachee to compare technical routes independently.
+            </p>
+            <p>
+                <strong>Will / Way Forward [W]:</strong> Formalize the execution roadmap and document future personnel behaviors. Establish an explicit timeline, check-hierarchies, and verification gates. Close the loop by defining the metrics used to track compliance, thereby transforming a developmental conversation into a compliant continuous professional development (CPD) log.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_feedback"></div>
+                <span class="tab-label">Feedback</span>
+            </a>
+            <a href="feedback-grow.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_grow"></div>
+                <span class="tab-label">GROW</span>
+            </a>
+            <a href="feedback-sbi.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sbi"></div>
+                <span class="tab-label">SBI</span>
+            </a>
+            <a href="feedback-cedar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cedar"></div>
+                <span class="tab-label">CEDAR</span>
+            </a>
+            <a href="feedback-pendletons.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pendletons"></div>
+                <span class="tab-label">Pendleton's</span>
+            </a>
+            <a href="feedback-coin.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coin"></div>
+                <span class="tab-label">COIN</span>
+            </a>
+            <a href="feedback-bsq.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bsq"></div>
+                <span class="tab-label">BSQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">GROW Coaching Canvas</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Feedback & Personnel Development Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="grow-grid">
+                    
+                    <!-- Goal Card -->
+                    <div class="grow-card goal-card">
+                        <label class="grow-label goal-label">Goal [G]</label>
+                        <span class="form-hint">What is the targeted technical capability, milestone, or performance parameter? Enforce clear metrics. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Attaining independent engineering sign-off on non-standard steel pressure vessel calculations within 3 months.</span></span>
+                        <textarea id="grow_Goal" class="form-input" placeholder="Define measurable development targets and engineering milestones here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Reality Card -->
+                    <div class="grow-card reality-card">
+                        <label class="grow-label reality-label">Reality [R]</label>
+                        <span class="form-hint">What is the current operational baseline or measured capability gap? Keep tracking statements objective. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Currently requires senior engineer review for any calculation loop exceeding 50 bar operating thresholds.</span></span>
+                        <textarea id="grow_Reality" class="form-input" placeholder="Analyze current performance data and technical capability gaps here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Options Card -->
+                    <div class="grow-card options-card">
+                        <label class="grow-label options-label">Options [O]</label>
+                        <span class="form-hint">What alternative training, design modules, code courses, or mentoring paths exist to bridge the gap? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Deploying localized ASME Section VIII training, or pairing with a principal structural analyst for joint code sweeps.</span></span>
+                        <textarea id="grow_Options" class="form-input" placeholder="Map development options, training tools, and alternative tracks here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Will Card -->
+                    <div class="grow-card will-card">
+                        <label class="grow-label will-label">Will / Way Forward [W]</label>
+                        <span class="form-hint">What concrete timeline, review loops, check-hierarchies, and accountability measures are committed to? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Scheduled bi-weekly design script review audits and set a formal verification date for final sign-off authority.</span></span>
+                        <textarea id="grow_Will" class="form-input" placeholder="Document the committed action timeline, review gates, and verification loops here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_feedback_grow";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('grow_Goal').value = data.Goal || '';
+                    document.getElementById('grow_Reality').value = data.Reality || '';
+                    document.getElementById('grow_Options').value = data.Options || '';
+                    document.getElementById('grow_Will').value = data.Will || '';
+                } catch (e) {
+                    console.error("Failed to parse stored GROW state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'feedback': 'ee_feedback_master_hub',
+                'grow': 'ee_feedback_grow',
+                'sbi': 'ee_feedback_sbi',
+                'cedar': 'ee_feedback_cedar',
+                'pendletons': 'ee_feedback_pendletons',
+                'coin': 'ee_feedback_coin',
+                'bsq': 'ee_feedback_bsq'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const goal = document.getElementById('grow_Goal').value.trim();
+            const reality = document.getElementById('grow_Reality').value.trim();
+            const options = document.getElementById('grow_Options').value.trim();
+            const will = document.getElementById('grow_Will').value.trim();
+
+            let output = `=== GROW MODEL: PERSONNEL DEVELOPMENT MATRIX ===\n\n`;
+            output += `[GOAL]:\n${goal ? goal : '...\n'}\n`;
+            output += `[REALITY]:\n${reality ? reality : '...\n'}\n`;
+            output += `[OPTIONS]:\n${options ? options : '...\n'}\n`;
+            output += `[WILL / WAY FORWARD]:\n${will ? will : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = goal || reality || options || will;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Goal: goal, Reality: reality, Options: options, Will: will };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("GROW coaching framework layout state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const goal = document.getElementById('grow_Goal').value.trim();
+            const reality = document.getElementById('grow_Reality').value.trim();
+            const options = document.getElementById('grow_Options').value.trim();
+            const will = document.getElementById('grow_Will').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = goal || reality || options || will;
+
+            if (hasUserData) {
+                script += `[TARGETED DEVELOPMENT GOAL]\n${goal ? goal : 'Not defined.'}\n\n`;
+                script += `[CURRENT PERFORMANCE REALITY]\n${reality ? reality : 'Not defined.'}\n\n`;
+                script += `[EXPLORED DEVELOPMENT OPTIONS]\n${options ? options : 'Not defined.'}\n\n`;
+                script += `[COMMITTED WAY FORWARD PROTOCOLS]\n${will ? will : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[TARGETED DEVELOPMENT GOAL]\ne.g., Mastering localized stress-testing software parameters under BS EN 1993 standard frameworks within 4 months.\n\n`;
+                script += `[CURRENT PERFORMANCE REALITY]\ne.g., Relies heavily on static analytical template spreadsheets, causing schedule drift whenever custom geometric structures are processed.\n\n`;
+                script += `[EXPLORED DEVELOPMENT OPTIONS]\ne.g., Subscribing to corporate design modules, or initializing weekly 1-on-1 code calculation reviews with the principal structural analyst.\n\n`;
+                script += `[COMMITTED WAY FORWARD PROTOCOLS]\ne.g., Committing to 3 dedicated workflow training hours weekly, with a structured code validation assessment scheduled on week 12.\n\n`;
+            }
+
+            const role = "Senior Technical Performance Director & Executive Engineering Coach";
+            const action = "Analyse this GROW coaching framework matrix user draft. 1. Critique if the goal section establishes sufficiently rigid, data-driven targets safely. 2. Evaluate whether the options phase considers operational realities and standard training routes realistically. 3. Assess if the way forward block establishes the strict accountability structures and review loops needed to satisfy UK-SPEC Competence C and D mentorship registers.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${action}
+[CONTEXT] The user is a senior engineering professional reviewing personnel development plans to satisfy professional institutional portfolios (specifically UK-SPEC Competence C and D). The format used is a GROW Model Coaching Canvas (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not complete or write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the GROW coaching canvas?")) {
+                document.getElementById('grow_Goal').value = '';
+                document.getElementById('grow_Reality').value = '';
+                document.getElementById('grow_Options').value = '';
+                document.getElementById('grow_Will').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const goal = document.getElementById('grow_Goal').value.trim();
+            const reality = document.getElementById('grow_Reality').value.trim();
+            const options = document.getElementById('grow_Options').value.trim();
+            const will = document.getElementById('grow_Will').value.trim();
+
+            const state = { Goal: goal, Reality: reality, Options: options, Will: will };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_GROW_Coaching_Canvas_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Goal !== undefined || data.Reality !== undefined || data.Options !== undefined || data.Will !== undefined) {
+                        document.getElementById('grow_Goal').value = data.Goal || '';
+                        document.getElementById('grow_Reality').value = data.Reality || '';
+                        document.getElementById('grow_Options').value = data.Options || '';
+                        document.getElementById('grow_Will').value = data.Will || '';
+                        updatePreview();
+                        alert("GROW coaching matrix data layers imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected GROW coaching parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const goal = document.getElementById('grow_Goal').value.trim();
+            const reality = document.getElementById('grow_Reality').value.trim();
+            const options = document.getElementById('grow_Options').value.trim();
+            const will = document.getElementById('grow_Will').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE GROW Personnel Development Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
+                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .goal { border-top: 4px solid #C05621; }
+                    .reality { border-top: 4px solid #C05621; }
+                    .options { border-top: 4px solid #006837; }
+                    .will { border-top: 4px solid #006837; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>GROW Coaching Performance Report</h1>
+                <p><em>Framework: Leadership Feedback & Personnel Development // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <div class="grid">
+                    <div class="card goal">
+                        <h2>Goal</h2>
+                        <p>${goal ? goal : 'Not defined.'}</p>
+                    </div>
+                    <div class="card reality">
+                        <h2>Reality</h2>
+                        <p>${reality ? reality : 'Not defined.'}</p>
+                    </div>
+                    <div class="card options">
+                        <h2>Options</h2>
+                        <p>${options ? options : 'Not defined.'}</p>
+                    </div>
+                    <div class="card will">
+                        <h2>Will / Way Forward</h2>
+                        <p>${will ? will : 'Not defined.'}</p>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Personnel Performance Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

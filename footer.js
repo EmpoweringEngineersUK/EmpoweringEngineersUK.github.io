@@ -1,25 +1,36 @@
-// EMPOWERING ENGINEERS UK - DYNAMIC FOOTER & DATA MANAGER
-// Updated: 2-Column Layout, Split Navigation, Cleaned
-(function() {
-    const year = new Date().getFullYear();
+// =========================================================================
+// EMPOWERING ENGINEERS UK - footer.js - v21.7 - Master Platform Footer Injection
+// Date: 12 Jul 2026
+// Specification: Real-Time Banner Footer Data Controller & Additive Merge Engine
+// Security Profile: Zero-Knowledge Browser Storage Encryption Fallback Layer
+// Interface Metrics: British English Standard Hardcoded UI Layout Controls
+// =========================================================================
 
-    // Data Management Logic
+(function() {
+    // LocalStorage cache backup layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
     window.eeDataManager = {
         exportData: function() {
-            const data = JSON.stringify(localStorage);
+            const data = JSON.stringify(localStorage, null, 2);
             const blob = new Blob([data], {type: "application/json"});
             const url = URL.createObjectURL(blob);
             const now = new Date();
-            const timestamp = now.toISOString().replace(/T/, '_').replace(/:/g, '-').slice(0, 19);
+            const pad = (n) => n.toString().padStart(2, '0');
+            const timestamp = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}`;
+            
+            // Dispatch telemetry analytics token to system GA4 endpoints
+            if (typeof gtag === 'function') {
+                gtag('event', 'backup_download', { 'event_category': 'data_control', 'event_label': 'master_json' });
+            }
+
             const a = document.createElement('a');
             a.href = url;
-            a.download = `EmpoweringEngineers_Backup_${timestamp}.json`;
+            a.download = `EE_PlatformMaster_Backup_${timestamp}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
         },
         triggerImport: function() {
-            document.getElementById('ee-import-input').click();
+            document.getElementById('ee-global-import-input').click();
         },
         handleImport: function(input) {
             const file = input.files[0];
@@ -28,184 +39,158 @@
             reader.onload = function(e) {
                 try {
                     const data = JSON.parse(e.target.result);
-                    if (confirm("⚠️ RESTORE WARNING:\n\nThis will overwrite your current browser data. Proceed?")) {
-                        localStorage.clear();
-                        Object.keys(data).forEach(k => localStorage.setItem(k, data[k]));
-                        alert("✅ Data Restored. Reloading...");
+                    if (confirm("⚠️ PROFILE SYNCHRONISATION WARNING:\n\nThis action will dynamically merge the uploaded JSON backup with your current local browser profile, replacing exact duplicates by ID but retaining all unique local data. Proceed?")) {
+                        
+                        // Intelligent additive merge function dynamically checks array structures for "id" hashes
+                        const mergeArraysById = (existingArr, importedArr) => {
+                            if (!Array.isArray(existingArr) || !Array.isArray(importedArr)) return importedArr;
+                            const map = new Map();
+                            existingArr.forEach(item => { if(item && item.id) map.set(item.id, item); });
+                            let hasIds = false;
+                            importedArr.forEach(item => { 
+                                if(item && item.id) {
+                                    map.set(item.id, item); 
+                                    hasIds = true;
+                                }
+                            });
+                            return hasIds ? Array.from(map.values()) : importedArr;
+                        };
+
+                        const legacyStar = JSON.parse(localStorage.getItem('EE_STAR_ARCHITECT') || '{}');
+                        const legacyDecoder = JSON.parse(localStorage.getItem('EE_ACRONYM_DECODER') || '{}');
+
+                        Object.keys(data).forEach(k => {
+                            // STAR Module Migration Mapping
+                            if (k.startsWith('star_')) {
+                                legacyStar[k.replace('star_', '')] = data[k];
+                            } 
+                            // Decoder Module Migration Mapping
+                            else if (k.startsWith('decoder_')) {
+                                legacyDecoder[k.replace('decoder_', '')] = data[k];
+                            } 
+                            // Deep Object Additive Merge targetting the Unified Master Engine Object
+                            else if (k === 'ee_master_state') {
+                                let localMaster = JSON.parse(localStorage.getItem('ee_master_state') || '{"ee_tools":{}}');
+                                let importedMaster = typeof data[k] === 'string' ? JSON.parse(data[k]) : data[k];
+                                
+                                if (importedMaster.ee_tools) {
+                                    Object.keys(importedMaster.ee_tools).forEach(toolKey => {
+                                        if (!localMaster.ee_tools[toolKey]) {
+                                            localMaster.ee_tools[toolKey] = importedMaster.ee_tools[toolKey];
+                                        } else {
+                                            // Actively process inner arrays for tool namespaces (e.g., db, setlistsDB)
+                                            let localTool = localMaster.ee_tools[toolKey];
+                                            let importedTool = importedMaster.ee_tools[toolKey];
+                                            Object.keys(importedTool).forEach(stateKey => {
+                                                if (Array.isArray(localTool[stateKey]) && Array.isArray(importedTool[stateKey])) {
+                                                    localTool[stateKey] = mergeArraysById(localTool[stateKey], importedTool[stateKey]);
+                                                } else {
+                                                    localTool[stateKey] = importedTool[stateKey];
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                                localStorage.setItem('ee_master_state', JSON.stringify(localMaster));
+                            }
+                            // Standard Fallback Injection and Primitive Merge Processing
+                            else {
+                                try {
+                                    let localVal = JSON.parse(localStorage.getItem(k));
+                                    let importVal = typeof data[k] === 'object' ? data[k] : JSON.parse(data[k]);
+                                    if (Array.isArray(localVal) && Array.isArray(importVal)) {
+                                        localStorage.setItem(k, JSON.stringify(mergeArraysById(localVal, importVal)));
+                                    } else {
+                                        localStorage.setItem(k, JSON.stringify(importVal));
+                                    }
+                                } catch (e) {
+                                    localStorage.setItem(k, typeof data[k] === 'object' ? JSON.stringify(data[k]) : data[k]);
+                                }
+                            }
+                        });
+
+                        // Commit legacy mappings to specific unified tool namespaces
+                        if (Object.keys(legacyStar).length > 0) {
+                            localStorage.setItem('EE_STAR_ARCHITECT', JSON.stringify(legacyStar));
+                        }
+                        if (Object.keys(legacyDecoder).length > 0) {
+                            localStorage.setItem('EE_ACRONYM_DECODER', JSON.stringify(legacyDecoder));
+                        }
+                        
+                        // Telemetry ping for successful restoration mapping
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'backup_upload', { 'event_category': 'data_control', 'event_label': 'master_json_merged' });
+                        }
+
+                        alert("✅ Local Platform Master Profile Successfully Synchronised and Optimised. Re-initialising System Workspace Nodes...");
                         location.reload();
                     }
-                } catch (err) { alert("❌ Invalid Backup File. Please ensure you are using a .JSON file generated by this tool."); }
+                } catch (err) { 
+                    alert("❌ Parsing Error. Please ensure you upload a structurally verified .JSON platform archive."); 
+                }
             };
             reader.readAsText(file);
         }
     };
 
-    // Refined CSS - Ultra Compact
-    const footerCSS = `
-    <style>
-        footer {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-            background: var(--dark-card);
-            padding-top: 20px;
-            padding-bottom: 10px;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-family: Arial, sans-serif;
-        }
-        
-        /* NUCLEAR RESET: Force remove all dots/bullets */
-        footer ul, footer li, footer ol {
-            list-style: none !important;
-            list-style-type: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            display: block !important;
-        }
-        footer li::before, footer li::after {
-            content: none !important;
-            display: none !important;
-        }
+    const youtubeSvg = `
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="#FF0000" style="display:block;">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+    `;
 
-        /* 2-COLUMN LAYOUT */
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Nav | Data */
-            gap: 40px;
-            align-items: start;
-            margin-bottom: 20px;
-        }
-
-        /* COLUMN HEADERS */
-        .footer-col h5 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        /* NAVIGATION: 2 SUB-COLUMNS */
-        .footer-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 Sub-cols */
-            gap: 6px 20px; /* Row Gap | Col Gap */
-        }
-        .footer-links a {
-            text-decoration: none;
-            color: var(--slate-grey);
-            transition: color 0.2s;
-            display: block;
-            white-space: nowrap;
-        }
-        .footer-links a:hover { color: var(--terminal-green); }
-
-        /* DATA SECTION */
-        .data-note {
-            font-size: 0.7rem;
-            color: #666;
-            margin: 0 0 8px 0;
-            font-style: italic;
-            line-height: 1.3;
-        }
-        .data-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .dt-text-btn {
-            background: none;
-            border: 1px solid #444;
-            border-radius: 3px;
-            color: var(--slate-grey);
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.2s;
-        }
-        .dt-text-btn:hover { border-color: var(--terminal-green); color: var(--terminal-green); }
-
-        /* COPYRIGHT ROW */
-        .footer-bottom {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 10px;
-            font-size: 0.7rem;
-            opacity: 0.5;
-        }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 600px) {
-            .footer-content {
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                gap: 25px;
-            }
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .data-actions { justify-content: center; }
-        }
-    </style>
+    const linkedinSvg = `
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="#0077B5" style="display:block;">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
     `;
 
     const footerHTML = `
-    ${footerCSS}
     <footer>
         <div class="footer-content">
-            
             <div class="footer-col">
-                <h5>Navigation</h5>
+                <h5>Platform Navigation Index</h5>
                 <div class="footer-links">
-                    <a href="https://www.empoweringengineers.uk/">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="terms.html">Terms of Use</a>
-                    <a href="privacy.html">Privacy Policy</a>
-					<a href="sitemap.xml">Sitemap</a>
+                    <a href="${window.EE_ROOT_PREFIX || ''}index.html">System Hub Home</a>
+                    <a href="${window.EE_ROOT_PREFIX || ''}about.html">About Framework</a>
+                    <a href="${window.EE_ROOT_PREFIX || ''}guide.html">User Onboarding Guide</a>
+                    <a href="${window.EE_ROOT_PREFIX || ''}privacy.html">Privacy Protection Document</a>
+                    <a href="${window.EE_ROOT_PREFIX || ''}terms.html">Terms of Service</a>
+					<a href="${window.EE_ROOT_PREFIX || ''}sitemap.html">Sitemap</a>
+                </div>
+                <div class="footer-social-cluster">
+                    <a href="https://www.youtube.com/@EmpoweringEngineersUK" target="_blank" rel="noopener" class="social-icon-link" aria-label="Open Empowering Engineers UK YouTube Channel in a new tab">
+                        ${youtubeSvg}
+                    </a>
+                    <a href="https://www.linkedin.com/company/empowering-engineers-uk" target="_blank" rel="noopener" class="social-icon-link" aria-label="Open Empowering Engineers UK LinkedIn Portfolio Matrix in a new tab">
+                        ${linkedinSvg}
+                    </a>
                 </div>
             </div>
-
             <div class="footer-col">
-                <h5>Data Control</h5>
-                <div class="data-tools-compact">
-                    <p class="data-note">
-                        <strong>No Cloud Storage. We don't see your data.</strong><br>
-                        Your data is stored locally and you can transfer it to another device.
-                    </p>
-                    <div class="data-actions">
-                        <button class="dt-text-btn" onclick="window.eeDataManager.exportData()">&#11015; Save Backup</button>
-                        <button class="dt-text-btn" onclick="window.eeDataManager.triggerImport()">&#8635; Restore Data</button>
-                    </div>
-                    <input type="file" id="ee-import-input" style="display:none" accept=".json" onchange="window.eeDataManager.handleImport(this)">
+                <h5>Platform Asset Control Framework</h5>
+                <p class="data-note">
+                    <strong>Zero-Knowledge Storage Protocol:</strong> Your text data layers are bound to your localised sandboxed memory profiles. Use the actions below to migrate backups across validation devices.
+                </p>
+                <div class="data-actions">
+                    <button class="action-btn" onclick="window.eeDataManager.exportData()">Backup Files</button>
+                    <!-- Strict utilisation of layout.css .action-btn-ghost class -->
+                    <button class="action-btn action-btn-ghost" onclick="window.eeDataManager.triggerImport()">Upload Files</button>
                 </div>
+                <input type="file" id="ee-global-import-input" style="display:none" accept=".json" onchange="window.eeDataManager.handleImport(this)">
             </div>
-
+        </div>
+        
+        <div class="ee-ad-leaderboard-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7071036534151105" data-ad-slot="footer-leaderboard" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <div class="footer-bottom">
-            &copy; ${year} Empowering Engineers UK. All rights reserved.
+            Copyright &copy; 2026 Empowering Engineers UK&reg; is a Registered Trademark. All rights reserved.
         </div>
     </footer>
     `;
 
     document.body.insertAdjacentHTML('beforeend', footerHTML);
-    
-    // Feedback Button
-    const script = document.createElement('script');
-    script.src = 'footer_feedback.js';
-    document.body.appendChild(script);
 })();

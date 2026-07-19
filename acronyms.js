@@ -108,6 +108,7 @@ const acronymDb = [
     { a: "OPEX", m: "Operational Expenditure", c: "Business" },
     { a: "P&ID", m: "Piping and Instrumentation Diagram", c: "Process" },
     { a: "PLC", m: "Programmable Logic Controller", c: "Electrical" },
+    { a: "POC", m: "Point of Contact", c: "Project" },
     { a: "PPE", m: "Personal Protective Equipment", c: "Safety" },
     { a: "PRINCE2", m: "Projects in Controlled Environments", c: "Project" },
     { a: "QA/QC", m: "Quality Assurance / Quality Control", c: "Quality" },

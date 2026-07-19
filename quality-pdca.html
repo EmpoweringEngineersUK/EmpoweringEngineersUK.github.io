@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering PDCA Cycle (Plan-Do-Check-Act) configuration studio. Standardise continuous process improvements, monitor loop iterations, and track metrics to satisfy UK-SPEC Competence C leadership criteria. Secure client-side memory.">
+    <meta name="keywords" content="PDCA Cycle, Plan Do Check Act, Deming Cycle, Quality Improvement, Process Optimisation, Lean Engineering, UK-SPEC Competence C, Infrastructure Control">
+    <meta property="og:title" content="PDCA Cycle Process Optimisation Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side continuous process control engine engineered to track Plan-Do-Check-Act quality cycles across infrastructure assets.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality-pdca.html">
+    <meta property="og:type" content="website">
+    
+    <title>PDCA Cycle Optimisation Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering PDCA Cycle Optimisation Studio",
+      "url": "https://www.empoweringengineers.uk/quality-pdca.html",
+      "description": "An interactive digital studio designed to map, track, and standardise continuous quality improvement loops under UK-SPEC guidelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        .framework-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .framework-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .framework-card.p-card { border-left-color: var(--burnt-orange); }
+        .framework-card.d-card { border-left-color: var(--burnt-orange); }
+        .framework-card.c-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.a-card { border-left-color: #00b894; }
+
+        .framework-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .p-label { color: var(--burnt-orange) !important; }
+        .d-label { color: var(--burnt-orange) !important; }
+        .c-label { color: var(--terminal-green) !important; }
+        .a-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .example-text {
+            color: var(--terminal-green);
+            opacity: 0.85;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 100px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Continuous Process Engineering: Mastering the PDCA Cycle</h1>
+            <p>
+                In the design, capital delivery, and operation of safety-critical engineering installations, infrastructure grids, and complex manufacturing networks, establishing standard forward-looking timelines can introduce significant blind spots. Traditional planning maps milestones forward from current capabilities, often leading project teams to accept existing system constraints or overlook hidden critical path dependencies. To resolve these execution errors, senior project directors deploy the **PDCA Cycle** (Plan-Do-Check-Act), also known as the Deming Wheel or Shewhart Cycle. This iterative quality management methodology forces technical managers to establish an empirical optimisation loop, test process adjustments on a limited scale, check performance against rigorous baselines, and standardise successful modifications permanently. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, this process directly meets the requirements of **Competence C (Technical and Commercial Leadership)**, which mandates that professionals show clear personal ownership of strategic scoping, process governance, and continuous quality control.
+            </p>
+            <p>
+                The execution of systematic PDCA loops removes common cognitive errors from large-scale project scoping. By dividing optimisation tasks into four distinct phases, engineers expose hidden process variables and bottleneck dependencies that traditional forward planning tools might miss. This structural taxonomy breaks down a continuous quality workflow into four connected layers: **Plan**, **Do**, **Check**, and **Act**. This clean path ensures that current technical adjustments explicitly support long-term corporate goals without inflating capital budgets or breaking regulatory standards. Documenting these iterative verification loops creates a comprehensive record of technical leadership, proving to professional review boards that your process management is commercially aware and structurally optimised.
+            </p>
+
+            <h2>Deconstructing the Four Dimensions of the PDCA Loop Interface</h2>
+            <p>
+                Calibrating a process improvement cycle using this digital studio requires candidate leads to methodically configure and balance targets across each distinct axis:
+            </p>
+            <p>
+                <strong>Plan (Isolate Deficiencies & Model Loops):</strong> Identify the specific process deficiency, document historical baseline fluctuations, isolate underlying root variables, and configure your target optimisation plan. Hardcode clear performance goals, such as minimising drawing approval cycle latencies or suppressing assembly reject boundaries.
+            </p>
+            <p>
+                <strong>Do (Deploy & Monitor on Restricted Tracks):</strong> Deploy the newly configured optimisation changes on a restricted, low-risk testing track or pilot line loop. Document all live processing adjustments, telemetry drops, and workforce feedback points carefully to safeguard system margins from unexpected failures during the trial phase.
+            </p>
+            <p>
+                <strong>Check (Audit Outputs Against Legacy Baselines):</strong> Rigorously audit the collected trial output datasets against your pre-defined baseline performance parameters. Expose remaining process anomalies, evaluate variance trends using mathematical models, and determine if the pilot execution satisfies your target bounds securely.
+            </p>
+            <p>
+                <strong>Act (Standardise Workflow or Refine Criteria):</strong> Permanently standardise the successful process changes into your standard operating procedures (SOP), or refine the control script parameters if targets were missed. Initialise the next iteration of the loop to drive continuous asset optimisation and maintain quality control.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">PDCA Cycle Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Continuous Quality Improvement & Loop Verification Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div id="dynamicFieldsContainer" class="framework-stack">
+                    <!-- Fields dynamically loaded from frameworks.js on initApp() -->
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting process control inputs to compile the iterative optimisation loop...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACE ---
+        const EE_TOOL_ID = "ee_quality_pdca";
+        const FW_KEY = "PDCA";
+        let autosaveTimer;
+
+        // --- Defensive Fallback configuration data architecture injection layer ---
+        if (typeof frameworks === 'undefined') { window.frameworks = {}; }
+        if (!frameworks[FW_KEY]) {
+            frameworks[FW_KEY] = {
+                name: "PDCA Cycle (Plan-Do-Check-Act)",
+                cat: "process",
+                fields: [
+                    { id: "P", label: "PLAN", hint: "Identify the process deficiency, isolate root variables, and configure the optimisation loop.", example: "e.g. 'Objective: Minimise drawing approval cycle times. Plan: Run parallel script checking routines on Project Alpha.'" },
+                    { id: "D", label: "DO", hint: "Deploy the newly configured optimisation plan on a restricted testing track.", example: "e.g. 'Executed the updated parallel loop across 4 separate engineering documentation packages over a 30-day window.'" },
+                    { id: "C", label: "CHECK", hint: "Rigorously audit the output datasets against legacy baseline performance parameters.", example: "e.g. 'Average validation cycle dropped to 6 days. Target reached, but the final authorisation phase is still a resource bottleneck.'" },
+                    { id: "A", label: "ACT", hint: "Permanently standardise the successful workflow changes or refine the metrics array.", example: "e.g. 'Adopt parallel script reviews as standard operating procedure. Initialise a new internal optimisation loop targeting authorisation latency.'" }
+                ]
+            };
+        }
+
+        // --- 2. INITIALISATION & INHERITANCE ENGINE ---
+        function initApp() {
+            loadFrameworkFields();
+        }
+
+        function loadFrameworkFields() {
+            const data = frameworks[FW_KEY];
+            const container = document.getElementById('dynamicFieldsContainer');
+            container.innerHTML = "";
+            
+            let savedState = {};
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try { savedState = JSON.parse(stored); } catch(e) { console.error("Failed to parse local JSON state object."); }
+            }
+            
+            data.fields.forEach(f => {
+                const val = savedState[f.id] || "";
+                const card = document.createElement('div');
+                const lowerId = f.id.toLowerCase();
+                card.className = `framework-card pdca-card ${lowerId}-card`;
+                card.innerHTML = `
+                    <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
+                    <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
+                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localised loop boundaries here..." oninput="updatePreview()">${val}</textarea>
+                `;
+                container.appendChild(card);
+            });
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const data = frameworks[FW_KEY];
+            let output = `=== PDCA CYCLE: PROCESS OPTIMISATION OVERVIEW ===\n\n`;
+            let hasData = false;
+            let stateData = {};
+            
+            data.fields.forEach(f => {
+                const el = document.getElementById('input_' + f.id);
+                const val = el ? el.value.trim() : "";
+                stateData[f.id] = val;
+                
+                if (val) {
+                    hasData = true;
+                    output += `[${f.label.toUpperCase()}]:\n${val}\n\n`;
+                } else {
+                    output += `[${f.label.toUpperCase()}]:\n...\n\n`;
+                }
+            });
+            
+            document.getElementById('previewArea').innerText = output;
+            
+            const aiBtn = document.getElementById('aiBtn');
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with 3-second delay debounce logic
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(stateData));
+                updateNavigationBadges();
+                console.log("PDCA framework loop execution parameters state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const data = frameworks[FW_KEY];
+            let script = "";
+            let promptType = "User Draft";
+            
+            let hasUserData = data.fields.some(f => {
+                const el = document.getElementById('input_' + f.id);
+                return el && el.value.trim() !== "";
+            });
+
+            if (hasUserData) {
+                data.fields.forEach(f => {
+                    const el = document.getElementById('input_' + f.id);
+                    const val = el ? el.value.trim() : "Not defined.";
+                    script += `[${f.label.toUpperCase()}]\n${val}\n\n`;
+                });
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                data.fields.forEach(f => {
+                    script += `[${f.label.toUpperCase()}]\n${f.example}\n\n`;
+                });
+            }
+
+            const role = "Director of Corporate Quality Assurance & Chief Systems Optimisation Auditor";
+            const actionText = "Analyse this PDCA continuous process improvement loop user draft. 1. Evaluate whether the Plan phase isolates specific variables with clear baseline tracking. 2. Critique if the Check phase establishes a rigorous, data-driven audit routine against target limits. 3. Assess if the Act phase provides the concrete workflow standardisation, standard operating procedure controls, and process governance required to satisfy UK-SPEC Competency C leadership portfolio review criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a lead engineer structuring an iterative continuous quality optimisation cycle to validate technical leadership skills for a professional registration review panel. The format used is a PDCA Optimisation Studio Document (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm(`Confirm action: permanently purge all text inputs from the ${FW_KEY} studio canvas?`)) {
+                const data = frameworks[FW_KEY];
+                data.fields.forEach(f => {
+                    const el = document.getElementById('input_' + f.id);
+                    if (el) el.value = '';
+                });
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            let savedState = {};
+            const data = frameworks[FW_KEY];
+            data.fields.forEach(f => {
+                const el = document.getElementById('input_' + f.id);
+                savedState[f.id] = el ? el.value.trim() : "";
+            });
+            
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(savedState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_PDCA_Quality_Loop_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    const data = frameworks[FW_KEY];
+                    const isValid = data.fields.some(f => parsed[f.id] !== undefined);
+                    
+                    if (isValid) {
+                        data.fields.forEach(f => {
+                            const el = document.getElementById('input_' + f.id);
+                            if (el) el.value = parsed[f.id] || "";
+                        });
+                        updatePreview();
+                        alert("PDCA continuous improvement data matrix successfully imported!");
+                    } else {
+                        alert("Invalid JSON data layout. Missing expected PDCA Framework structural variables.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON formatting structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const data = frameworks[FW_KEY];
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE PDCA Framework Loop Summary</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>PDCA Continuous Optimisation Audit Briefing</h1>
+                <p><em>Framework Branch: Process Quality Assurance & Loop Governance // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
+
+            data.fields.forEach(f => {
+                const el = document.getElementById('input_' + f.id);
+                const val = el ? el.value.trim() : "";
+                html += `<h2>${f.label}</h2>`;
+                html += `<p>${val ? val : 'Not defined.'}</p>`;
+            });
+
+            html += `
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Process Management & Optimisation Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

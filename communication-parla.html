@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering PARLA Method workspace. Structure your technical reflective learning narratives across Problem, Action, Result, Learning, and Application parameters to secure UK-SPEC Competence D and E approval. Secure client-side memory engine.">
+    <meta name="keywords" content="PARLA Method, Reflective Learning, Engineering Communication, UK-SPEC Competence D, UK-SPEC Competence E, Continuing Professional Development, PRI Interview Preparation, Chartered Engineer Portfolio">
+    <meta property="og:title" content="PARLA Reflective Learning Narrative Architect | Empowering Engineers UK">
+    <meta property="og:description" content="A highly secure, zero-knowledge client-side platform engineered to format technical incident logs and professional development reflections for institutional review boards.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/communication-parla.html">
+    <meta property="og:type" content="website">
+    
+    <title>PARLA Reflective Framework | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering PARLA Reflective Framework Narrative Architect",
+      "url": "https://www.empoweringengineers.uk/communication-parla.html",
+      "description": "An interactive workbook designed for technical engineering candidates to structure and audit reflective learning narratives against UK-SPEC criteria.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- PARLA GRID STYLING --- */
+        .parla-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .parla-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .parla-card.problem-card { border-left-color: var(--burnt-orange); }
+        .parla-card.action-card { border-left-color: var(--burnt-orange); }
+        .parla-card.result-card { border-left-color: var(--ee-terminal-green); }
+        .parla-card.learning-card { border-left-color: var(--ee-terminal-green); }
+        .parla-card.application-card { border-left-color: #00b894; }
+
+        .parla-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .problem-label { color: var(--burnt-orange) !important; }
+        .action-label { color: var(--burnt-orange) !important; }
+        .result-label { color: var(--terminal-green) !important; }
+        .learning-label { color: var(--terminal-green) !important; }
+        .application-label { color: #00b894 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 100px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Reflective Practice in Engineering: Mastering the PARLA Method</h1>
+            <p>
+                In advanced industrial sectors governed by tight safety parameters and rigorous statutory regulations, raw project execution is only half the battle. Professional assessment panels from licensed institutions do not merely look for technical output; they actively search for proof of continuous self-directed development and professional growth. While traditional frameworks like STAR focus heavily on descriptive execution, the **PARLA Method (Problem, Action, Result, Learning, Application)** expands this narrative structure by introducing continuous improvement mechanics. This makes it an ideal framework for documenting evidence required under **UK-SPEC Competence D (Communication)** and **Competence E (Professional Commitment)**.
+            </p>
+            <p>
+                The distinguishing feature of a PARLA evidence entry is its focus on continuous learning. In senior consulting engineering or asset lifecycle management, a technical error or design discrepancy represents a critical opportunity to update institutional workflows. The PARLA framework splits a typical narrative arc into five clear milestones. Rather than finishing with the "Result" field, it forces the engineer to complete a thorough retrospective evaluation. This involves documenting exactly what was **Learned** from the technical constraints of the project, and detailing how that new knowledge was systematically **Applied** to insulate subsequent engineering designs from similar risk parameters.
+            </p>
+
+            <h2>Deconstructing the Five Core Dimensions of PARLA</h2>
+            <p>
+                Structuring a compliant PARLA reflective record requires technical leads to meticulously evaluate project workflows from problem isolation through to long-term operational application:
+            </p>
+            <p>
+                <strong>Problem [P]:</strong> This dimension defines the technical boundary conditions, baseline failure state, or project bottleneck. Candidates must document the exact boundaries of the crisis, incorporating data metrics, material parameters, and commercial exposure thresholds. For instance, rather than simply identifying an equipment malfunction, outline the specific risk: e.g. "Fatigue propagation cracks were detected along a critical high-pressure hydraulic assembly during statutory testing, threatening a total plant lockout and violating strict ISO 4413 system standards."
+            </p>
+            <p>
+                <strong>Action [A]:</strong> The action block captures your personal engineering execution and technical decision-making. Explain what first-principles calculations you ran, what validation software scripts you modified, what standard compliance matrices you deployed, and how you coordinated the multi-disciplinary asset engineering teams to mitigate the problem safely.
+            </p>
+            <p>
+                <strong>Result [R]:</strong> This phase documents the quantitative, empirical project milestones achieved. You must present verifiable data—including percentage performance improvements, certified safety clearances, compressed project timelines, or direct financial optimizations—to prove the absolute success of your structural engineering actions.
+            </p>
+            <p>
+                <strong>Learning [L]:</strong> The learning dimension moves beyond technical descriptions into independent reflection. Authors must critique what the operational failure or design bottleneck revealed about systemic workflow gaps. This includes analyzing limitations in standard material specifications, hidden logic errors in baseline calculation tools, or gaps in standard asset control processes.
+            </p>
+            <p>
+                <strong>Application [A]:</strong> The final phase documents how you closed the continuous professional development (CPD) loop. Candidates must provide concrete evidence of how this new insight was used to optimize subsequent programs. Examples include authoring an updated corporate engineering code of practice, modifying procurement specifications, updating standard design workflows, or training the engineering team.
+            </p>
+
+            <h2>Interactive Client-Side PARLA Architecture Workbench</h2>
+            <p>
+                The interactive PARLA workbench below is engineered specifically to help engineering professionals quickly structure, audit, and refine their reflective technical records. To ensure total compliance with corporate non-disclosure agreements (NDAs) and preserve absolute data sovereignty, this system uses a zero-knowledge client-side architecture. All inputs are handled entirely within your local browser partition—nothing is ever transmitted to remote network servers. Use this toolkit to compile robust portfolios, export verified JSON databases, or generate sophisticated AI coach prompts.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="communication.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_communication"></div>
+                <span class="tab-label">Communication</span>
+            </a>
+            <a href="communication-storytelling.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_storytelling"></div>
+                <span class="tab-label">Storytelling</span>
+            </a>
+            <a href="communication-star.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_star"></div>
+                <span class="tab-label">STAR</span>
+            </a>
+            <a href="communication-car.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_car"></div>
+                <span class="tab-label">CAR</span>
+            </a>
+            <a href="communication-soar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_soar"></div>
+                <span class="tab-label">SOAR</span>
+            </a>
+            <a href="communication-parla.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_parla"></div>
+                <span class="tab-label">PARLA</span>
+            </a>
+            <a href="communication-fab.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fab"></div>
+                <span class="tab-label">FAB</span>
+            </a>
+            <a href="communication-sao.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sao"></div>
+                <span class="tab-label">SAO</span>
+            </a>
+            <a href="communication-share.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_share"></div>
+                <span class="tab-label">SHARE</span>
+            </a>
+            <a href="communication-dare.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dare"></div>
+                <span class="tab-label">DARE</span>
+            </a>
+            <a href="communication-caps.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_caps"></div>
+                <span class="tab-label">CAPS</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">PARLA Framework</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Reflective Practice & CPD Interface</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="parla-stack">
+                    
+                    <!-- Problem Card -->
+                    <div class="parla-card problem-card">
+                        <label class="parla-label problem-label">Problem [P]</label>
+                        <span class="form-hint">What design flaw, mechanical bottleneck, safety anomaly, or resource constraint emerged? Set exact boundaries. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Transducers captured structural cavitation loops inside a main processing valve, threatening a complete refinery pipeline lockout.</span></span>
+                        <textarea id="parla_Problem" class="form-input" placeholder="Define technical challenge boundaries and system risks here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Action Card -->
+                    <div class="parla-card action-card">
+                        <label class="parla-label action-label">Action [A]</label>
+                        <span class="form-hint">What calculations, validations, script re-writes, or team coordination did you personally command? Use strong engineering verbs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Executed transient flow models, modified core logic configurations, and directed field repairs under ISO standards.</span></span>
+                        <textarea id="parla_Action" class="form-input" placeholder="Document your personal technical intervention and choices here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Result Card -->
+                    <div class="parla-card result-card">
+                        <label class="parla-label result-label">Result [R]</label>
+                        <span class="form-hint">What data-driven milestones, financial containment, or standard clearances proved the success of your actions? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Completely eliminated cavitation, optimized runtime safety blocks, and compressed downtime losses by £450,000.</span></span>
+                        <textarea id="parla_Result" class="form-input" placeholder="State quantifiable project outcomes and standard sign-offs here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Learning Card -->
+                    <div class="parla-card learning-card">
+                        <label class="parla-label learning-label">Learning [L]</label>
+                        <span class="form-hint">What did this asset incident reveal about structural gaps in standard material codes, calculation tools, or corporate control workflows? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Realised that legacy fluid calculation algorithms failed to account for variable viscosity thresholds at low operating temperatures.</span></span>
+                        <textarea id="parla_Learning" class="form-input" placeholder="Detail your reflective analysis and technical insights captured here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Application Card -->
+                    <div class="parla-card application-card">
+                        <label class="parla-label application-label">Application [A]</label>
+                        <span class="form-hint">How did you use this insight to update design guides, update procurement specifications, or train team networks? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Authored an updated calculation code of practice, delivered team training, and revised material procurement gates.</span></span>
+                        <textarea id="parla_Application" class="form-input" placeholder="Document how you closed the loop and optimized subsequent engineering systems here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_comm_parla";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('parla_Problem').value = data.Problem || '';
+                    document.getElementById('parla_Action').value = data.Action || '';
+                    document.getElementById('parla_Result').value = data.Result || '';
+                    document.getElementById('parla_Learning').value = data.Learning || '';
+                    document.getElementById('parla_Application').value = data.Application || '';
+                } catch (e) {
+                    console.error("Failed to parse stored PARLA state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
+                'storytelling': 'ee_comm_storytelling',
+                'star': 'ee_comm_star',
+                'car': 'ee_comm_car',
+                'soar': 'ee_comm_soar',
+                'parla': 'ee_comm_parla',
+                'fab': 'ee_comm_fab',
+                'sao': 'ee_comm_sao',
+                'share': 'ee_comm_share',
+                'dare': 'ee_comm_dare',
+                'caps': 'ee_comm_caps'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const problem = document.getElementById('parla_Problem').value.trim();
+            const action = document.getElementById('parla_Action').value.trim();
+            const result = document.getElementById('parla_Result').value.trim();
+            const learning = document.getElementById('parla_Learning').value.trim();
+            const application = document.getElementById('parla_Application').value.trim();
+
+            let output = `=== PARLA FRAMEWORK: REFLECTIVE ANALYSIS ===\n\n`;
+            output += `[PROBLEM]:\n${problem ? problem : '...\n'}\n`;
+            output += `[ACTION]:\n${action ? action : '...\n'}\n`;
+            output += `[RESULT]:\n${result ? result : '...\n'}\n`;
+            output += `[LEARNING]:\n${learning ? learning : '...\n'}\n`;
+            output += `[APPLICATION]:\n${application ? application : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = problem || action || result || learning || application;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Problem: problem, Action: action, Result: result, Learning: learning, Application: application };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("PARLA framework layout auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const problem = document.getElementById('parla_Problem').value.trim();
+            const action = document.getElementById('parla_Action').value.trim();
+            const result = document.getElementById('parla_Result').value.trim();
+            const learning = document.getElementById('parla_Learning').value.trim();
+            const application = document.getElementById('parla_Application').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = problem || action || result || learning || application;
+
+            if (hasUserData) {
+                script += `[PROBLEM STATEMENT]\n${problem ? problem : 'Not defined.'}\n\n`;
+                script += `[TECHNICAL ACTIONS]\n${action ? action : 'Not defined.'}\n\n`;
+                script += `[MEASURABLE RESULTS]\n${result ? result : 'Not defined.'}\n\n`;
+                script += `[REFLECTIVE LEARNING]\n${learning ? learning : 'Not defined.'}\n\n`;
+                script += `[SYSTEMIC APPLICATION]\n${application ? application : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[PROBLEM STATEMENT]\ne.g., Thermographic tracking identified severe localized overheating along an infrastructure power coupling layout.\n\n`;
+                script += `[TECHNICAL ACTIONS]\ne.g., Recalculated structural harmonic vibration variables and directed retrofitting procedures using dampening shims.\n\n`;
+                script += `[MEASURABLE RESULTS]\ne.g., Restored baseline operating temperatures, preventing an unplanned structural disruption across a critical automated line.\n\n`;
+                script += `[REFLECTIVE LEARNING]\ne.g., Determined that legacy maintenance protocols overlooked micro-frictional variances induced by high cyclic torque stresses.\n\n`;
+                script += `[SYSTEMIC APPLICATION]\ne.g., Authored an updated corporate preventative condition monitoring specification and re-trained field asset engineers.\n\n`;
+            }
+
+            const role = "Senior Engineering Assessor & Professional Review Panel Chair";
+            const actionText = "Analyse this PARLA reflective framework matrix user draft. 1. Evaluate if the described engineering challenge contains clear technical boundaries. 2. Critique whether the action text explicitly isolates the candidate's personal technical contribution. 3. Validate if the learning and application phases successfully demonstrate the deep professional reflection required under UK-SPEC Competence D and E metrics.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is an engineering leader planning a high-density documentation package to satisfy professional review rules (specifically UK-SPEC Competence D and E). The format used is a PARLA Technical Review Sheet (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not complete or write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the PARLA canvas?")) {
+                document.getElementById('parla_Problem').value = '';
+                document.getElementById('parla_Action').value = '';
+                document.getElementById('parla_Result').value = '';
+                document.getElementById('parla_Learning').value = '';
+                document.getElementById('parla_Application').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const problem = document.getElementById('parla_Problem').value.trim();
+            const action = document.getElementById('parla_Action').value.trim();
+            const result = document.getElementById('parla_Result').value.trim();
+            const learning = document.getElementById('parla_Learning').value.trim();
+            const application = document.getElementById('parla_Application').value.trim();
+
+            const state = { Problem: problem, Action: action, Result: result, Learning: learning, Application: application };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_PARLA_Reflection_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Problem !== undefined || data.Action !== undefined || data.Result !== undefined || data.Learning !== undefined || data.Application !== undefined) {
+                        document.getElementById('parla_Problem').value = data.Problem || '';
+                        document.getElementById('parla_Action').value = data.Action || '';
+                        document.getElementById('parla_Result').value = data.Result || '';
+                        document.getElementById('parla_Learning').value = data.Learning || '';
+                        document.getElementById('parla_Application').value = data.Application || '';
+                        updatePreview();
+                        alert("PARLA reflective framework layout metrics imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected PARLA parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const problem = document.getElementById('parla_Problem').value.trim();
+            const action = document.getElementById('parla_Action').value.trim();
+            const result = document.getElementById('parla_Result').value.trim();
+            const learning = document.getElementById('parla_Learning').value.trim();
+            const application = document.getElementById('parla_Application').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE PARLA Reflective Summary Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>PARLA Reflective Summary Report</h1>
+                <p><em>Framework: Professional Communication & CPD Alignment // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Problem Statement</h2>
+                <p>${problem ? problem : 'Not defined.'}</p>
+                
+                <h2>Engineering Action</h2>
+                <p>${action ? action : 'Not defined.'}</p>
+                
+                <h2>Measurable Result</h2>
+                <p>${result ? result : 'Not defined.'}</p>
+                
+                <h2>Reflective Learning</h2>
+                <p>${learning ? learning : 'Not defined.'}</p>
+                
+                <h2>Systemic Application</h2>
+                <p>${application ? application : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Documentation Layout & Synthesis Architecture Suite
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

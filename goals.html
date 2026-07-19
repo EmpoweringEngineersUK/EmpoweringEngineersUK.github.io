@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="The Master Goal Setting & Performance Management Command Hub. Systematically align your engineering targets via SMART goals, OKRs, Balanced Scorecards, and BHAG architectures to satisfy UK-SPEC Competence C leadership requirements. Secure client-side storage.">
+    <meta name="keywords" content="Goal Setting, Engineering Management, SMART Goals, OKRs, Objectives and Key Results, Balanced Scorecard, BHAG, Locke and Latham, WOOP Framework, UK-SPEC Competence C">
+    <meta property="og:title" content="Performance & Goal Setting Command Hub | Empowering Engineers UK">
+    <meta property="og:description" content="The centralised entrance directory and diagnostic validation framework for setting professional engineering milestones and enterprise performance targets.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/goals.html">
+    <meta property="og:type" content="website">
+    
+    <title>Performance & Goal Hub | Empowering Engineers UK</title>    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/goals.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Performance & Goal Setting Command Hub",
+      "url": "https://www.empoweringengineers.uk/goals.html",
+      "description": "The master entry portal and interactive directory for professional engineering execution systems, performance metrics, and goal setting under UK-SPEC guidelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .thick-content a {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .thick-content a:hover {
+            color: var(--terminal-green);
+            text-decoration: underline;
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
+        
+        /* Interactive Hub Dashboard Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hub-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-top-color: var(--terminal-green);
+        }
+
+        .hub-card-title {
+            color: var(--terminal-green);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-card-desc {
+            color: var(--cloud-white);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .master-cta-box {
+            background: rgba(3, 247, 160, 0.05);
+            border: 2px solid var(--ee-terminal-green);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Engineering Performance Architecture: Engineering High-Density Executive Target Systems</h1>
+            <p>In highly technical enterprise matrices, heavy engineering infrastructures, and volatile research and development spaces, the implementation of objective execution structures is vital to corporate survival and process continuity. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these planning and execution capabilities directly under <strong>Competence C (Technical and Commercial Leadership)</strong>. Specifically, registered professionals (CEng, IEng) must demonstrate total personal ownership of objective deployment loops, tracking technical key results, managing system resources, and establishing operational targets without sacrificing reliability margins or compromising commercial safety standards under corporate governance policies.</p>
+            
+            <h2>De-risking Strategic Milestones via Structural Target Frameworks</h2>
+            <p>Professional engineering performance cannot be safely optimised using ambiguous goals or generic output indicators. To guarantee absolute project control, eliminate operational drag layers, and establish clear delivery accountability, engineers must deploy rigorous goal-setting structures. Implementing foundational methodologies like the <strong>SMART Goals</strong> blueprint or the enterprise-wide <strong>Objectives & Key Results (OKRs)</strong> matrix ensures that engineering tasks are quantified, time-bounded, and transparently measured. By integrating high-density performance systems such as the <strong>Balanced Scorecard</strong>, leadership teams can visually track operational efficiencies, financial constraints, and customer value indicators alongside internal technological research milestones.</p>
+            
+            <h2>Strategic Execution Models and Psychological Performance Auditing</h2>
+            <p>When translating long-term corporate ambitions into localised technical execution—whether orchestrating a factory automation turnaround or executing a grid-scale asset delivery—engineers must bridge the gap between high-level vision and granular action. Frameworks such as the <strong>Big Hairy Audacious Goal (BHAG)</strong> model and the <strong>Backward Goal Framework</strong> allow technical directors to map out long-range timelines from future targets back to present capabilities. For localised task optimisation and team alignment, utilising the cyclic <strong>WOOP Framework</strong> (Wish, Outcome, Obstacle, Plan) or Locke & Latham's <strong>5 Principles of Goal Setting</strong> ensures that technical teams maintain maximum psychological alignment and execution resilience when facing unexpected structural engineering obstacles.</p>
+
+            <h2>Absolute Data Sovereignty for Proprietary Performance Portfolios</h2>
+            <p>We explicitly acknowledge that defining company performance metrics, structuring project key results, or tracking specific engineering deficiencies involves interacting with highly confidential corporate strategies or protected technological research data. To preserve information security parameters completely and maintain your professional standing under active Non-Disclosure Agreements (NDAs), this performance hub utilises a strict client-side sandbox architecture. Every objective, key result, or balanced metric you map out is handled and cached exclusively within your machine's local browser memory space. No performance tracking statistics or corporate growth vectors are ever transmitted to external cloud servers. Use the dashboard directory below to initialise your target planning sheets and compile audit-ready professional evidence.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="goalsPathNav" aria-label="Goal Setting Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="goals.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goals"></div>
+                <span class="tab-label">Goals Hub</span>
+            </a>
+            <a href="goals-smart.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_smart"></div>
+                <span class="tab-label">SMART</span>
+            </a>
+            <a href="goals-okrs.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_okrs"></div>
+                <span class="tab-label">OKRs</span>
+            </a>
+            <a href="goals-scorecard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_scorecard"></div>
+                <span class="tab-label">Scorecard</span>
+            </a>
+            <a href="goals-bhag.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bhag"></div>
+                <span class="tab-label">BHAG</span>
+            </a>
+            <a href="goals-backward.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_backward"></div>
+                <span class="tab-label">Backward</span>
+            </a>
+            <a href="goals-golden-circle.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_goldencircle"></div>
+                <span class="tab-label">Golden Circle</span>
+            </a>
+            <a href="goals-pyramid.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pyramid"></div>
+                <span class="tab-label">Pyramid</span>
+            </a>
+            <a href="goals-tiered.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_tiered"></div>
+                <span class="tab-label">Tiered</span>
+            </a>
+            <a href="goals-hard.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hard"></div>
+                <span class="tab-label">HARD</span>
+            </a>
+            <a href="goals-gsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gsm"></div>
+                <span class="tab-label">GSM</span>
+            </a>
+            <a href="goals-woop.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_woop"></div>
+                <span class="tab-label">WOOP</span>
+            </a>
+            <a href="goals-five-principles.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fiveprinciples"></div>
+                <span class="tab-label">5 Principles</span>
+            </a>
+            <a href="goals-one-word.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_oneword"></div>
+                <span class="tab-label">One Word</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Performance & Goals Command</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategic Metrics & Target Directory Subsystem</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
+                <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Execution Context:</label>
+                <select class="ee-select" id="goalsContextSelect" style="min-width: 220px; min-height: 48px; background: var(--input-bg);" onchange="switchGoalsContext()">
+                    <option value="individual">Personal Engineering Registration</option>
+                    <option value="project">Project Delivery Team Sprint</option>
+                    <option value="enterprise">Strategic Business Unit Growth</option>
+                </select>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterGoalsReport()">📸 Compile Master Goals Audit</button>
+            </div>
+        </div>
+
+        <!-- Master Portfolio CTA Component Box -->
+        <div class="master-cta-box" style="margin-top: 30px;">
+            <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem; margin-top: 0; margin-bottom: 12px;">Active Performance Matrix Navigation Routing</h2>
+            <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 750px; margin-left: auto; margin-right: auto;">
+                Select a target execution framework from the directory index below to establish trackable criteria, perform operational scoping, and maintain secure local growth records.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="btnEnterGoalsWorkspace" class="action-btn" style="min-height: 52px; font-size: 1rem; padding: 0 25px;" onclick="routeToActiveGoals()">Launch Target Performance Workspace Framework →</button>
+            </div>
+        </div>
+
+        <!-- Interactive Hub Grid Overlays -->
+        <div class="hub-grid">
+            <!-- Card 1: Precision Objective Frameworks -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>1. Quantitative Calibration</span>
+                    <div style="display: flex; gap: 6px;" id="check_calibration"></div>
+                </div>
+                <div class="hub-card-desc">Calibrate high-precision operational indicators. Deploy rigorous metrics using SMART parameters, OKR cascades, and complete Balanced Scorecard logs.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="goals-smart.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">SMART</a>
+                    <a href="goals-okrs.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">OKRs</a>
+                </div>
+                <a href="goals-scorecard.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Balanced Scorecard</a>
+            </div>
+            
+            <!-- Card 2: Long-Range Scoping & Architecture -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>2. Strategic Horizon Mapping</span>
+                    <div style="display: flex; gap: 6px;" id="check_horizons"></div>
+                </div>
+                <div class="hub-card-desc">Map out long-range technical timelines. Drive long-term execution using BHAG structures alongside future-to-present Backward Goal maps.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="goals-bhag.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">BHAG</a>
+                    <a href="goals-backward.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Backward</a>
+                </div>
+                <a href="goals-golden-circle.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">The Golden Circle</a>
+            </div>
+
+            <!-- Card 3: Hierarchical Structural Allocation -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>3. Structural Hierarchy</span>
+                    <div style="display: flex; gap: 6px;" id="check_hierarchy"></div>
+                </div>
+                <div class="hub-card-desc">Establish logical, top-down tactical targets. Allocate task criteria cleanly across hierarchical Goals Pyramids, Tiered layouts, and high-impact HARD profiles.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="goals-pyramid.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Pyramid</a>
+                    <a href="goals-tiered.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Tiered</a>
+                </div>
+                <a href="goals-hard.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">HARD Goals Model</a>
+            </div>
+
+            <!-- Card 4: Dynamic Psychological Management -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>4. Dynamic Execution Control</span>
+                    <div style="display: flex; gap: 6px;" id="check_execution"></div>
+                </div>
+                <div class="hub-card-desc">Maintain team resilience and clarity. Deploy GSM tracking parameters, WOOP obstacle plans, Locke & Latham's 5 Principles, or focused One Word targets.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="goals-gsm.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">GSM</a>
+                    <a href="goals-woop.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">WOOP</a>
+                </div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <a href="goals-five-principles.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">5 Principles</a>
+                    <a href="goals-one-word.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">One Word</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        const EE_TOOL_ID = "ee_goals_master_hub";
+        let targetGoalsUrl = "goals-smart.html";
+
+        // --- PERFORMANCE CONTEXT MANAGEMENT ---
+        function switchGoalsContext() {
+            const context = document.getElementById('goalsContextSelect').value;
+            const btn = document.getElementById('btnEnterGoalsWorkspace');
+            
+            if (context === "individual") {
+                targetGoalsUrl = "goals-smart.html";
+                btn.innerText = "Launch SMART Goals Calibration Studio →";
+            } else if (context === "project") {
+                targetGoalsUrl = "goals-okrs.html";
+                btn.innerText = "Launch Team OKR Integration Module →";
+            } else if (context === "enterprise") {
+                targetGoalsUrl = "goals-scorecard.html";
+                btn.innerText = "Launch Corporate Balanced Scorecard →";
+            }
+            
+            localStorage.setItem(EE_TOOL_ID + '_context', context);
+        }
+
+        function routeToActiveGoals() {
+            window.location.href = targetGoalsUrl;
+        }
+
+        // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
+        function checkToolContent(toolLocalStorageKey) {
+            const stored = localStorage.getItem(toolLocalStorageKey);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const goalsRegistry = {
+                'coach': 'ee_management_master_hub',
+                'goals': 'ee_goals_master_hub',
+                'smart': 'ee_goals_smart',
+                'okrs': 'ee_goals_okrs',
+                'scorecard': 'ee_goals_scorecard',
+                'bhag': 'ee_goals_bhag',
+                'backward': 'ee_goals_backward',
+                'goldencircle': 'ee_goals_goldencircle',
+                'pyramid': 'ee_goals_pyramid',
+                'tiered': 'ee_goals_tiered',
+                'hard': 'ee_goals_hard',
+                'gsm': 'ee_goals_gsm',
+                'woop': 'ee_goals_woop',
+                'fiveprinciples': 'ee_goals_fiveprinciples',
+                'oneword': 'ee_goals_oneword'
+            };
+
+            Object.keys(goalsRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const status = checkToolContent(goalsRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(status);
+                }
+            });
+
+            // Compound Dashboard Validation Loops
+            const smartStatus = checkToolContent(goalsRegistry.smart);
+            const okrStatus = checkToolContent(goalsRegistry.okrs);
+            const scorecardStatus = checkToolContent(goalsRegistry.scorecard);
+            document.getElementById('check_calibration').innerHTML = `${getTickHTML(smartStatus)} ${getTickHTML(okrStatus)} ${getTickHTML(scorecardStatus)}`;
+
+            const bhagStatus = checkToolContent(goalsRegistry.bhag);
+            const backwardStatus = checkToolContent(goalsRegistry.backward);
+            const goldenCircleStatus = checkToolContent(goalsRegistry.goldencircle);
+            document.getElementById('check_horizons').innerHTML = `${getTickHTML(bhagStatus)} ${getTickHTML(backwardStatus)} ${getTickHTML(goldenCircleStatus)}`;
+
+            const pyramidStatus = checkToolContent(goalsRegistry.pyramid);
+            const tieredStatus = checkToolContent(goalsRegistry.tiered);
+            const hardStatus = checkToolContent(goalsRegistry.hard);
+            document.getElementById('check_hierarchy').innerHTML = `${getTickHTML(pyramidStatus)} ${getTickHTML(tieredStatus)} ${getTickHTML(hardStatus)}`;
+
+            const gsmStatus = checkToolContent(goalsRegistry.gsm);
+            const woopStatus = checkToolContent(goalsRegistry.woop);
+            const fiveStatus = checkToolContent(goalsRegistry.fiveprinciples);
+            const wordStatus = checkToolContent(goalsRegistry.oneword);
+            document.getElementById('check_execution').innerHTML = `${getTickHTML(gsmStatus)} ${getTickHTML(woopStatus)} ${getTickHTML(fiveStatus)} ${getTickHTML(wordStatus)}`;
+        }
+
+        // --- MASTER GOALS REPORT CONCATENATOR ---
+        function generateMasterGoalsReport() {
+            const contextType = document.getElementById('goalsContextSelect').value.toUpperCase();
+            
+            const goalsMap = {
+                'SMART Technical Metrics': 'ee_goals_smart',
+                'Objectives & Key Results (OKRs)': 'ee_goals_okrs',
+                'Balanced Scorecard Governance Grid': 'ee_goals_scorecard',
+                'Big Hairy Audacious Goal (BHAG)': 'ee_goals_bhag',
+                'Backward Goal Roadmap Layout': 'ee_goals_backward',
+                'The Golden Circle Architecture': 'ee_goals_goldencircle',
+                'Hierarchical Goals Pyramid': 'ee_goals_pyramid',
+                'Tiered Objectives Allocation Map': 'ee_goals_tiered',
+                'HARD Performance Profile': 'ee_goals_hard',
+                'Goals, Signals, Measures (GSM) Tracking': 'ee_goals_gsm',
+                'WOOP Strategy & Obstacle Register': 'ee_goals_woop',
+                'Locke & Latham 5 Principles Calibration': 'ee_goals_fiveprinciples',
+                'One Word Strategic Intention Layout': 'ee_goals_oneword'
+            };
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>Master Consolidated Targets & Performance Audit Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 26px; margin-bottom: 25px;}
+                    h2 { color: #006837; margin-top: 35px; border-bottom: 2px solid #edf2f7; padding-bottom: 5px; text-transform: uppercase; font-size: 18px; padding-left: 5px;}
+                    h3 { color: #0D1B2A; font-size: 14px; margin-top: 15px; font-weight: bold; text-transform: uppercase; color: #C05621; }
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #f8fafc; padding: 12px; border-radius: 4px; border: 1px solid #e2e8f0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .meta-block { background: #0D1B2A; color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 30px; font-size: 14px; line-height: 1.5; }
+                    .meta-block strong { color: #03F7A0; }
+                    .footer { margin-top: 60px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; max-width: 100%; } .meta-block { background: #f4f7f9; color: #000; border: 1px solid #ccc; } .meta-block strong { color: #000; } p { background: none; border: 1px solid #ddd; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Master Consolidated Target Optimisation Audit</h1>
+                <div class="meta-block">
+                    <strong>Selected Allocation Model:</strong> ${contextType} Management Structure<br>
+                    <strong>Report Generation Timestamp:</strong> ${new Date().toLocaleString('en-GB')}<br>
+                    <strong>Data Sovereignty Level:</strong> Localised Browser Verification Matrix Synced<br>
+                </div>`;
+
+            let extractedRecordsCount = 0;
+
+            Object.keys(goalsMap).forEach(title => {
+                const storedData = localStorage.getItem(goalsMap[title]);
+                if (storedData) {
+                    try {
+                        const parsedFields = JSON.parse(storedData);
+                        let moduleHasText = false;
+                        let innerHTMLBlock = "";
+
+                        Object.keys(parsedFields).forEach(fieldKey => {
+                            const valueString = parsedFields[fieldKey];
+                            if (valueString && valueString.trim().length > 0) {
+                                moduleHasText = true;
+                                innerHTMLBlock += `<h3>Performance Parameter: ${fieldKey.toUpperCase()}</h3>`;
+                                innerHTMLBlock += `<p>${valueString.trim()}</p>`;
+                            }
+                        });
+
+                        if (moduleHasText) {
+                            html += `<h2>${title}</h2>`;
+                            html += innerHTMLBlock;
+                            extractedRecordsCount++;
+                        }
+                    } catch (e) {
+                        console.error("Failed to parse dynamic target alignment token:", title);
+                    }
+                }
+            });
+
+            if (extractedRecordsCount === 0) {
+                html += `<div style="padding: 30px; border: 1px dashed #ccc; border-radius: 6px; text-align: center; color: #718096; font-style: italic; margin-top: 20px;">
+                    No targets, key indicators, or strategic milestones established inside your local computer profile. Fill individual tracking subpages to populate this master file summary.
+                </div>`;
+            }
+
+            html += `
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Target Architecture & Goals Hub Compiler Engine
+                </div>
+            </body>
+            </html>`;
+
+            const printFrameWindow = window.open('', '_blank');
+            if (printFrameWindow) {
+                printFrameWindow.document.write(html);
+                printFrameWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to allow master performance document extractions.");
+            }
+        }
+
+        // --- INITIALISATION ---
+        function initApp() {
+            const storedContext = localStorage.getItem(EE_TOOL_ID + '_context');
+            if (storedContext) {
+                document.getElementById('goalsContextSelect').value = storedContext;
+            }
+            switchGoalsContext();
+            updateNavigationBadges();
+            console.log("Subsystem Active: Performance goals alignment hub fully initialised.");
+        }
+    </script>
+</body>
+</html>

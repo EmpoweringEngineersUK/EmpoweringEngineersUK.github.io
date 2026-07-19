@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering DMAIC Framework (Define, Measure, Analyse, Improve, Control) configuration studio. Drive Lean Six Sigma variations out of safety-critical manufacturing loops to satisfy UK-SPEC Competence C criteria. Secure client-side memory.">
+    <meta name="keywords" content="DMAIC Framework, Six Sigma Engineering, Process Variance, Root Cause Analysis, Operational Excellence, Performance Metrics, UK-SPEC Competence C, Quality Management">
+    <meta property="og:title" content="DMAIC Six Sigma Optimization Studio | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced client-side process variance engineering engine designed to execute rigorous Lean Six Sigma DMAIC optimization loops across technical assets.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/quality-dmaic.html">
+    <meta property="og:type" content="website">
+    
+    <title>DMAIC Six Sigma Optimization Studio | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="frameworks.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering DMAIC Process Optimization Studio",
+      "url": "https://www.empoweringengineers.uk/quality-dmaic.html",
+      "description": "An interactive digital workbench enabling quality engineers to execute structured Six Sigma optimization passes from definition down to automated control script parameters.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        .framework-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .framework-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 6px solid var(--border-color);
+        }
+        .framework-card.d-card { border-left-color: var(--burnt-orange); }
+        .framework-card.m-card { border-left-color: var(--burnt-orange); }
+        .framework-card.a-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.i-card { border-left-color: #00b894; }
+        .framework-card.c-card { border-left-color: #00d2d3; }
+
+        .framework-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .d-label { color: var(--burnt-orange) !important; }
+        .m-label { color: var(--burnt-orange) !important; }
+        .a-label { color: var(--terminal-green) !important; }
+        .i-label { color: #00b894 !important; }
+        .c-label { color: #00d2d3 !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .example-text {
+            color: var(--terminal-green);
+            opacity: 0.85;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 100px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Six Sigma Optimization Architecture: Mastering the DMAIC Framework</h1>
+            <p>
+                In high-density industrial assets, chemical manufacturing networks, and automated aerospace infrastructure systems, managing minor processing errors is critical to project lifecycles and physical safety parameters. Minor deviations from specified design parameters can expand exponentially across connected assembly chains, generating severe structural defects, extended down-time, or system containment dropouts. To resolve these vulnerabilities, senior quality engineering directors implement the **Lean Six Sigma DMAIC Framework** (Define, Measure, Analyse, Improve, Control). This data-driven, step-by-step methodology forces technical teams to move beyond superficial fixes and map out system performance metrics down to individual parts-per-million accuracy levels. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, executing a full DMAIC loop provides comprehensive evidence for **Competence C (Technical and Commercial Leadership)**, which requires candidates to lead process improvements, manage project finances, and deploy risk mitigations within active corporate workflows.
+            </p>
+            <p>
+                The deployment of a DMAIC optimization loop replaces ad-hoc troubleshooting loops with a mathematical, scannable taxonomy. Rather than applying superficial machinery modifications that treat the symptoms of a physical anomaly, the DMAIC pathway systematically isolates hidden root-cause variables through real-world process tracking. This sequence spans five connected operational layers: **Define**, **Measure**, **Analyse**, **Improve**, and **Control**. Tracing a performance failure through this structural path ensures that capital outlays are directed toward high-impact adjustments, preserving project budgets and satisfying ISO 9001 compliance standards completely. Documenting your personal ownership of these calibration loops produces clear validation data for professional registration review panels, proving your ability to command complex industrial systems safely.
+            </p>
+
+            <h2>Deconstructing the Five Dimensions of the Six Sigma Interface</h2>
+            <p>
+                Calibrating an industrial optimization cycle using this digital studio requires candidate leads to methodically configure and balance targets across each distinct axis:
+            </p>
+            <p>
+                <strong>Define (Isolate Defects & Commercial Impact):</strong> State the manufacturing defect, precision error, or assembly deviation clearly. Hardcode the quantitative boundaries of the project scope, identify primary project dependencies, and outline the target commercial payback timeline (e.g., restoring assembly yields from 92.4% back to a 98.8% baseline tolerance matrix safely).
+            </p>
+            <p>
+                <strong>Measure (Collect Unvarnished Baseline Telemetry):</strong> Collect unvarnished performance metrics directly from the active operational environment. Formulate a rigorous data collection plan that captures baseline variables, records raw process drift data, and logs instrumentation tolerance levels across standard running shifts.
+            </p>
+            <p>
+                <strong>Analyse (Isolate Hidden Root-Cause Variables):</strong> Deploy advanced diagnostic root-cause tools (such as Ishikawa charts, 5 Whys loops, or statistical variance analysis scripts) to expose hidden variables. Expose the exact physical mechanism or software logic failure causing system parameters to fall outside specified limits.
+            </p>
+            <p>
+                <strong>Improve (Design & Validate Engineering Solutions):</strong> Design, test, and implement targeted physical modifications or logic adjustments to neutralize the root cause completely. Run controlled trial tests on a restricted line branch to verify that yield performance values recover without introducing parallel safety risks.
+            </p>
+            <p>
+                <strong>Control (Hardcode Strict Process Safeguards):</strong> Hardcode automated monitoring rules, interlocking scripts, and regular quality assurance audits to preserve technical optimization gains. Ensure that any future process drift triggers an immediate system warning sequence or safety shutdown loop before defects manifest.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="qualityPathNav" aria-label="Process Improvement Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="quality.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_quality"></div>
+                <span class="tab-label">Quality Hub</span>
+            </a>
+            <a href="quality-pdca.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pdca"></div>
+                <span class="tab-label">PDCA</span>
+            </a>
+            <a href="quality-dmaic.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dmaic"></div>
+                <span class="tab-label">DMAIC</span>
+            </a>
+            <a href="quality-vsm.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_vsm"></div>
+                <span class="tab-label">VSM</span>
+            </a>
+            <a href="quality-5whys.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_5whys"></div>
+                <span class="tab-label">5 Whys</span>
+            </a>
+            <a href="quality-fishbone.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_fishbone"></div>
+                <span class="tab-label">Fishbone</span>
+            </a>
+            <a href="quality-pareto.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pareto"></div>
+                <span class="tab-label">Pareto</span>
+            </a>
+            <a href="quality-kanban.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_kanban"></div>
+                <span class="tab-label">Kanban</span>
+            </a>
+            <a href="quality-poka-yoke.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pokayoke"></div>
+                <span class="tab-label">Poka-Yoke</span>
+            </a>
+            <a href="quality-sipoc.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sipoc"></div>
+                <span class="tab-label">SIPOC</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">DMAIC Six Sigma Studio</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Variance Engineering & Precision Optimization Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div id="dynamicFieldsContainer" class="framework-stack">
+                    <!-- Fields dynamically loaded from frameworks.js on initApp() -->
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting baseline variation parameters to construct the Six Sigma tracking profile...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        const EE_TOOL_ID = "ee_quality_dmaic";
+        const FW_KEY = "DMAIC";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION & INHERITANCE ENGINE ---
+        function initApp() {
+            loadFrameworkFields();
+        }
+
+        function loadFrameworkFields() {
+            const data = frameworks[FW_KEY];
+            const container = document.getElementById('dynamicFieldsContainer');
+            container.innerHTML = "";
+            
+            let savedState = {};
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try { savedState = JSON.parse(stored); } catch(e) { console.error("Failed to parse local JSON state object."); }
+            }
+            
+            data.fields.forEach(f => {
+                const val = savedState[f.id] || "";
+                const card = document.createElement('div');
+                const lowerId = f.id.toLowerCase();
+                card.className = `framework-card dmaic-card ${lowerId}-card`;
+                card.innerHTML = `
+                    <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
+                    <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
+                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localized optimization boundaries here..." oninput="updatePreview()">${val}</textarea>
+                `;
+                container.appendChild(card);
+            });
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const qualityRegistry = {
+                'coach': 'ee_management_master_hub',
+                'quality': 'ee_quality_master_hub',
+                'pdca': 'ee_quality_pdca',
+                'dmaic': 'ee_quality_dmaic',
+                'vsm': 'ee_quality_vsm',
+                '5whys': 'ee_quality_5whys',
+                'fishbone': 'ee_quality_fishbone',
+                'pareto': 'ee_quality_pareto',
+                'kanban': 'ee_quality_kanban',
+                'pokayoke': 'ee_quality_pokayoke',
+                'sipoc': 'ee_quality_sipoc'
+            };
+
+            Object.keys(qualityRegistry).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(qualityRegistry[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const data = frameworks[FW_KEY];
+            let output = `=== DMAIC FRAMEWORK: PROCESS VARIANCE ENGINEERING RECORD ===\n\n`;
+            let hasData = false;
+            let stateData = {};
+            
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                const val = el ? el.value.trim() : "";
+                stateData[f.id] = val;
+                
+                if (val) {
+                    hasData = true;
+                    output += `[${f.label.toUpperCase()}]:\n${val}\n\n`;
+                } else {
+                    output += `[${f.label.toUpperCase()}]:\n...\n\n`;
+                }
+            });
+            
+            document.getElementById('previewArea').innerText = output;
+            
+            const aiBtn = document.getElementById('aiBtn');
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with 3-second delay debounce logic
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(stateData));
+                updateNavigationBadges();
+                console.log("DMAIC Six Sigma optimization parameters state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const data = frameworks[FW_KEY];
+            let script = "";
+            let promptType = "User Draft";
+            
+            let hasUserData = data.fields.some(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                return el && el.value.trim() !== "";
+            });
+
+            if (hasUserData) {
+                data.fields.forEach(f => {
+                    const el = document.getElementById(`input_${f.id}`);
+                    const val = el ? el.value.trim() : "Not defined.";
+                    script += `[${f.label.toUpperCase()}]\n${val}\n\n`;
+                });
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                data.fields.forEach(f => {
+                    script += `[${f.label.toUpperCase()}]\n${f.example}\n\n`;
+                });
+            }
+
+            const role = "Lean Six Sigma Master Black Belt & Senior Quality Governance Assessor";
+            const actionText = "Analyse this Six Sigma DMAIC optimization report user draft. 1. Evaluate whether the Define phase establishes clear quantitative defect thresholds and financial payback criteria. 2. Critique if the Analyze section logically identifies underlying mechanical or structural root mechanisms behind the variance data. 3. Assess if the Control phase provides the automated scripting, interlocking safeguards, and process governance required to satisfy UK-SPEC Competency C leadership portfolio review criteria.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a lead engineer structuring a data-driven process optimization pass to validate technical leadership skills for a professional registration review panel. The format used is a Six Sigma DMAIC Studio Document (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm(`Confirm action: permanently purge all text inputs from the ${FW_KEY} studio canvas?`)) {
+                const data = frameworks[FW_KEY];
+                data.fields.forEach(f => {
+                    const el = document.getElementById(`input_${f.id}`);
+                    if (el) el.value = '';
+                });
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            let savedState = {};
+            const data = frameworks[FW_KEY];
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                savedState[f.id] = el ? el.value.trim() : "";
+            });
+            
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(savedState, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_SixSigma_DMAIC_Report_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    const data = frameworks[FW_KEY];
+                    const isValid = data.fields.some(f => parsed[f.id] !== undefined);
+                    
+                    if (isValid) {
+                        data.fields.forEach(f => {
+                            const el = document.getElementById(`input_${f.id}`);
+                            if (el) el.value = parsed[f.id] || "";
+                        });
+                        updatePreview();
+                        alert("DMAIC process optimization matrix successfully imported!");
+                    } else {
+                        alert("Invalid JSON data layout. Missing expected DMAIC Framework structural variables.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON formatting structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const data = frameworks[FW_KEY];
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Six Sigma DMAIC Process Audit Summary</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>DMAIC Process Optimization Audit Report</h1>
+                <p><em>Framework Branch: Lean Six Sigma & Process Variance Governance // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
+
+            data.fields.forEach(f => {
+                const el = document.getElementById(`input_${f.id}`);
+                const val = el ? el.value.trim() : "";
+                html += `<h2>${f.label}</h2>`;
+                html += `<p>${val ? val : 'Not defined.'}</p>`;
+            });
+
+            html += `
+                <div class="footer">
+                    Generated by Empowering Engineers UK - Process Optimization & Quality Governance Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

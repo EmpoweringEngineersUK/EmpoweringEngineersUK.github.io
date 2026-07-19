@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering calisthenics programme. Maximise physical capability and manage operational stress using a structured 4-week bodyweight training tracker.">
+    <meta name="keywords" content="Calisthenics, Engineering Fitness, Stress Management, Bodyweight Training, UK-SPEC, Resilience, Minimal Effective Dose">
+    <meta property="og:title" content="EE Calisthenics Tracker | Empowering Engineers UK">
+    <meta property="og:description" content="Sculpt a highly functional, resilient physique with our 4-week engineering calisthenics protocol and interactive workbench.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/calisthenics.html">
+    <meta property="og:type" content="website">
+
+    <title>EE Calisthenics Tracker | Empowering Engineers UK</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Global Layout Core Linkage with Active Cache-Busting -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+
+    <style>
+        /* --- Tool Specific Micro-Overrides & UI Components --- */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .thick-content p { margin-bottom: 15px; font-size: 1.05rem; }
+        
+        .ee-card { 
+            background-color: var(--dark-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 25px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 14px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 6px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-nav .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* High Contrast Square Status Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: var(--dark-card);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 20px;
+            height: 20px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* Layout Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        /* Text Cards & Guidelines */
+        .guide-box { background: var(--input-bg); border-left: 4px solid var(--ee-dark-blue); padding: 15px; border-radius: 0 6px 6px 0; margin-bottom: 15px; border: 1px solid var(--border-color); border-left-width: 4px; }
+        .guide-box h4 { color: var(--terminal-green); margin-bottom: 5px; text-transform: uppercase; font-size: 0.9rem; }
+        .guide-box p { font-size: 0.85rem; color: var(--cloud-white); line-height: 1.5; margin-bottom: 0;}
+
+        /* Accordions (Collapsible UI) */
+        .accordion-btn {
+            background-color: var(--ee-dark-blue); color: var(--ee-white); cursor: pointer; padding: 15px 20px; width: 100%; text-align: left; border: none; outline: none; transition: 0.2s; font-size: 1rem; font-weight: 700; text-transform: uppercase; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-left: 4px solid var(--ee-terminal-green); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .accordion-btn:hover, .accordion-btn.active { background-color: #1A2E44; }
+        .accordion-btn::after { content: '+'; font-size: 1.5rem; color: var(--ee-terminal-green); font-weight: bold; }
+        .accordion-btn.active::after { content: '−'; }
+        .accordion-content { padding: 20px; background-color: var(--dark-card); display: none; overflow: hidden; border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 6px 6px; margin-top: -15px; margin-bottom: 15px; }
+
+        /* Exercise Glossary Inside Accordions */
+        .ex-info-grid { display: grid; grid-template-columns: 100px 1fr; gap: 10px; margin-bottom: 15px; font-size: 0.9rem; background: var(--input-bg); padding: 15px; border-radius: 6px; border: 1px solid var(--border-color);}
+        .ex-label { font-weight: 700; color: var(--terminal-green); text-transform: uppercase; font-size: 0.8rem;}
+        .ex-text { color: var(--cloud-white); }
+
+        .ex-section-title { font-weight: 700; color: var(--cloud-white); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 2px;}
+        .ex-section-title { font-weight: 700; color: var(--cloud-white); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 2px;}
+        .ex-list { padding-left: 20px; font-size: 0.85rem; color: var(--cloud-white); margin-bottom: 10px;}
+        .ex-list li { margin-bottom: 6px; }
+        
+        .mindfulness-box { background: rgba(3, 247, 160, 0.05); border-left: 3px solid var(--ee-terminal-green); padding: 15px; margin-top: 20px; font-size: 0.9rem; font-style: italic; color: var(--cloud-white);}
+
+        /* 4-Week Tracker (Inside Accordion) */
+        .week-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .day-col { text-align: center; background: var(--input-bg); padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;}
+        .day-title { font-size: 1.1rem; font-weight: 700; color: var(--cloud-white); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 4px;}
+        .day-routine { font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; color: var(--cloud-white);}
+        
+        .play-btn { width: 100%; background: var(--ee-dark-blue); color: var(--ee-terminal-green); border: none; padding: 15px; font-weight: bold; cursor: pointer; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; transition: 0.2s; box-shadow: inset 0 0 0 1px var(--ee-terminal-green);}
+        .play-btn:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+
+        .ee-checkbox-wrap { display: flex; align-items: center; justify-content: center; cursor: pointer; margin-top: 10px; font-size: 0.8rem; font-weight: 700; gap: 8px; color: var(--cloud-white);}
+        .ee-checkbox-wrap input { display: none; }
+        .ee-checkmark { width: 24px; height: 24px; border: 2px solid var(--slate-grey); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .ee-checkbox-wrap input:checked + .ee-checkmark { background: var(--ee-terminal-green); border-color: var(--ee-terminal-green); }
+        .ee-checkbox-wrap input:checked + .ee-checkmark::after { content: '✓'; color: var(--ee-dark-blue); font-weight: bold; font-size: 1rem;}
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: space-between; align-items: center;}
+
+        @media (max-width: 768px) {
+            .grid-2, .week-body { grid-template-columns: 1fr; }
+            .header-actions { flex-direction: column; align-items: stretch;}
+            .ex-info-grid { grid-template-columns: 1fr; gap: 2px;}
+            .ex-label { margin-top: 10px; }
+        }
+
+        @media print {
+            #hobbiesMasterNav { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Injection of system standard navigation and logic modules -->
+    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="footer.js?v=21.7" defer></script>
+
+    <main class="container">
+
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content" id="aeoThickContentBlock">
+            <h1>Engineering the Human Machine: A Systemic Approach to Calisthenics</h1>
+            <p>As an engineering professional, you are routinely tasked with managing complex systems, predicting failure modes, and optimising operational lifecycles. Yet, the most critical and complex system you will ever command is your own biological machine. Physical fitness is fundamentally the body's ability to withstand, recover from, and adapt to applied stress. In a demanding career characterised by long hours at a workstation, high-stakes project delivery, and cognitive fatigue, maintaining absolute physical resilience is not a luxury—it is an operational necessity.</p>
+
+            <h2>The Biomechanics of Bodyweight Training</h2>
+            <p>Calisthenics is the rigorous practice of utilising your own body weight to maximise physical capability, mobility, and natural aesthetics. Unlike traditional weightlifting, which often isolates muscle groups and enforces rigid, linear movement patterns, calisthenics requires the integration of your entire central nervous system. Every push-up, row, and squat demands profound core stabilisation, spatial awareness, and joint integrity.</p>
+            <p>By eliminating external weights, the resistance applied to your joints is never greater than what your body can naturally stabilise. This acts as an inherent safety mechanism, drastically reducing the probability of connective tissue injuries while promoting functional longevity. We refer to this as the <strong>Minimum Effective Dose</strong>: sculpting a highly resilient, functional physique at home with just two to three focused sessions a week, without the need for extensive equipment or gym commutes.</p>
+
+            <h2>Achieving the Grecian Ideal</h2>
+            <p>The core philosophy of this programme is rooted in the "Grecian Ideal"—a standard of physical development that champions perfect proportionality. Rather than pursuing hypertrophy in isolated muscle bellies, this systemic approach ensures that your strength, mobility, and cardiovascular endurance are developed in total harmony. You are training your musculoskeletal system to operate as a unified matrix, optimising postural alignment and counteracting the biomechanical degradation associated with chronic desk work.</p>
+
+            <h2>Implementing the 4-Week Foundation Programme</h2>
+            <p>This 4-week interactive workbench provides a structured, progressive overload protocol designed specifically for time-poor professionals. The programme systematically cycles through foundational movements, ensuring adequate central nervous system recovery between sessions. To utilise this tool: expand the weekly accordion tabs below, review the prescribed sets and repetitions, and initiate the interactive workout player. The player features a built-in stopwatch to rigorously control your rest periods, ensuring maximum metabolic efficiency.</p>
+            <p><em>Disclaimer: The physiological information provided within this document is for educational purposes only and does not constitute professional medical advice. Always consult with a qualified healthcare provider before initiating any new exercise programme. By participating in these physical exercises, you assume all inherent risks and agree to terminate the activity immediately upon experiencing any sharp pain or severe discomfort.</em></p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" id="monetisationBlock" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Hobbies Framework Pathway with Programmatic Completion Badges -->
+        <nav class="ee-horizontal-nav" id="hobbiesMasterNav" aria-label="Hobbies & Extracurricular Pathway">
+			<a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_cpd_hub"></div>
+				<span class="tab-label">CPD Hub</span>
+			</a>
+            <a href="hobbies.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hobbies_hub"></div>
+                <span class="tab-label">Hobbies Hub</span>
+            </a>
+            <a href="stem.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_stem"></div>
+                <span class="tab-label">STEM</span>
+            </a>
+            <a href="chess.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_chess"></div>
+                <span class="tab-label">Chess</span>
+            </a>
+            <a href="poetry.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_poetry"></div>
+                <span class="tab-label">Poetry</span>
+            </a>
+            <a href="calisthenics.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_calisthenics"></div>
+                <span class="tab-label">Calisthenics</span>
+            </a>
+            <a href="blitz.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_nav_blitz"></div>
+                <span class="tab-label">Blitz</span>
+            </a>
+        </nav>
+
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.5rem; text-transform: uppercase; color: var(--cloud-white); margin-bottom: 5px;">Calisthenics Initiation</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700;">4-Week Foundation Programme</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap: wrap;">
+                <button class="action-btn action-btn-ghost" onclick="generateReport()">📄 Preview & Print Plan</button>
+                <button class="action-btn" onclick="exportEEData()">💾 Save Progress</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
+                <button class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()" style="padding: 0 15px;" title="Import JSON">📥 Upload</button>
+            </div>
+        </div>
+
+        <div class="ee-card">
+            <h3 style="color: var(--cloud-white); margin-bottom: 20px; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 5px; text-transform: uppercase;">Training Guidelines</h3>
+            
+            <div class="grid-2">
+                <div class="guide-box">
+                    <h4>Why Only 3 Days A Week?</h4>
+                    <p>Muscles do not grow while you are working out; they grow while you rest. A 3-day split allows ~48 hours of recovery between sessions, which is the optimal window for central nervous system recovery and injury prevention.</p>
+                </div>
+                <div class="guide-box">
+                    <h4>How To Space Your Workouts</h4>
+                    <p>Never train on consecutive days. A standard schedule is <strong>Mon, Wed, and Fri</strong>, utilising the weekend for active recovery (walking, stretching). Consistency beats intensity.</p>
+                </div>
+            </div>
+
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Warm-Up & Recovery Protocol</button>
+            <div class="accordion-content">
+                <div class="ex-section-title">Phase 1: The Warm-Up (5 Mins)</div>
+                <p style="font-size: 0.85rem; color: var(--cloud-white);">Do not skip this. Cold muscles and stiff joints are prone to injury. The goal is to raise your core body temperature and lubricate the joints.</p>
+                <ul class="ex-list">
+                    <li><strong>Light Cardio (2 mins):</strong> Jog lightly in place, or perform slow jumping jacks. Just get the blood flowing.</li>
+                    <li><strong>Dynamic Stretching (3 mins):</strong> Perform arm circles (forward and backward), torso twists, and high knee marches. Avoid holding static stretches here; keep your body moving.</li>
+                </ul>
+
+                <div class="ex-section-title">Phase 2: The Cool-Down (5 Mins)</div>
+                <p style="font-size: 0.85rem; color: var(--cloud-white);">Your nervous system is highly stimulated after a workout. You must down-regulate it to kickstart the recovery and muscle-building process.</p>
+                <ul class="ex-list">
+                    <li><strong>Static Stretching:</strong> Hold a gentle chest stretch against a doorframe, a standing quad stretch, and a toe-touch stretch for your hamstrings. Hold each for 30 seconds.</li>
+                    <li><strong>Breathwork:</strong> Lie flat on your back or sit comfortably. Breathe in through your nose for 4 seconds, hold for 4 seconds, and exhale slowly for 6 seconds. Repeat 5 times.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ee-card">
+            <h3 style="color: var(--cloud-white); margin-bottom: 20px; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 5px; text-transform: uppercase;">The Core Movements</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 15px; color: var(--slate-grey);">Expand the tabs below to read the precise mechanics, safety tips, and beginner scaling options for each core movement.</p>
+            
+            <button class="accordion-btn" onclick="toggleAccordion(this)">1. The Push-Up</button>
+            <div class="accordion-content">
+                <div class="ex-info-grid">
+                    <div class="ex-label">Target:</div><div class="ex-text">Chest (Pectorals), Shoulders (Deltoids), Triceps.</div>
+                    <div class="ex-label">Breathing:</div><div class="ex-text">Inhale deeply as you lower; exhale powerfully as you push up.</div>
+                    <div class="ex-label">Feeling:</div><div class="ex-text">A stretch across your chest at the bottom, and a tight squeeze in your triceps at the top.</div>
+                </div>
+                
+                <div class="ex-section-title">The Step-by-Step Technique</div>
+                <ol class="ex-list">
+                    <li><strong>Set the base:</strong> Get on all fours, placing your hands flat on the floor slightly wider than shoulder-width.</li>
+                    <li><strong>Lock your plank:</strong> Step your feet back. Your body should form a straight, unbroken line from your head to your heels.</li>
+                    <li><strong>Engage your core:</strong> Squeeze your glutes and brace your abs (as if expecting a punch).</li>
+                    <li><strong>Lower with control:</strong> Bend your elbows. Keep them tucked at a 45-degree angle to your torso (forming an arrow shape, not a T).</li>
+                    <li><strong>Push up:</strong> Descend until your chest nearly touches the ground, then explosively push through your hands to drive back up.</li>
+                </ol>
+
+                <div class="ex-section-title">Common Mistakes to Avoid</div>
+                <ul class="ex-list">
+                    <li><strong>Sagging hips:</strong> Puts stress on your lower back. Squeeze your glutes to stay rigid.</li>
+                    <li><strong>Flared elbows:</strong> Pointing elbows straight out to the sides puts stress on your rotator cuffs. Tuck them closer to your ribs.</li>
+                </ul>
+
+                <div class="ex-section-title">How to Scale for Beginners</div>
+                <ul class="ex-list">
+                    <li><strong>Wall Push-Ups:</strong> Stand an arm’s length from a wall, place your hands on it, and perform the motion.</li>
+                    <li><strong>Incline Push-Ups:</strong> Place your hands on an elevated, stable surface like a countertop or a sturdy chair.</li>
+                    <li><strong>Knee Push-Ups:</strong> Perform from a kneeling position.</li>
+                </ul>
+                <div class="mindfulness-box">Mindfulness: Focus purely on the contraction. Imagine pushing away your stress and mental fatigue as you push away the floor.</div>
+            </div>
+            
+            <button class="accordion-btn" onclick="toggleAccordion(this)">2. The Bodyweight Squat</button>
+            <div class="accordion-content">
+                <div class="ex-info-grid">
+                    <div class="ex-label">Target:</div><div class="ex-text">Quads, Hamstrings, Glutes.</div>
+                    <div class="ex-label">Breathing:</div><div class="ex-text">Inhale as you sit back and down; exhale as you drive up.</div>
+                    <div class="ex-label">Feeling:</div><div class="ex-text">Your glutes and thighs engaging. Your weight should be evenly distributed across your feet.</div>
+                </div>
+
+                <div class="ex-section-title">The Step-by-Step Technique</div>
+                <ol class="ex-list">
+                    <li><strong>Stance:</strong> Stand with your feet shoulder-width apart, toes pointed slightly outward.</li>
+                    <li><strong>Initiate:</strong> Begin by pushing your hips back and down, exactly as if you were sitting into a chair.</li>
+                    <li><strong>Depth:</strong> Lower yourself until your thighs are at least parallel to the floor, keeping your chest tall.</li>
+                    <li><strong>Drive:</strong> Push firmly through your heels and squeeze your glutes to return to standing.</li>
+                </ol>
+
+                <div class="ex-section-title">Common Mistakes to Avoid</div>
+                <ul class="ex-list">
+                    <li><strong>Heels lifting:</strong> Pushing through your toes shifts strain to the knees. Keep heels glued to the floor.</li>
+                    <li><strong>Knees caving inward:</strong> Actively push your knees outward so they track in line with your toes.</li>
+                </ul>
+
+                <div class="ex-section-title">How to Scale for Beginners</div>
+                <ul class="ex-list">
+                    <li><strong>Box Squats:</strong> Place a chair behind you. Squat down until you sit on it, pause, then stand back up.</li>
+                    <li><strong>Assisted Squats:</strong> Hold onto a doorframe or the back of a sturdy chair for balance.</li>
+                    <li><em>Weight Up:</em> Hold a heavy water jug or rucksack tightly against your chest.</li>
+                </ul>
+                <div class="mindfulness-box">Mindfulness: Ground your feet into the floor. Feel the stability and connection to your foundation. Breathe into the tension.</div>
+            </div>
+
+            <button class="accordion-btn" onclick="toggleAccordion(this)">3. The Bodyweight Row</button>
+            <div class="accordion-content">
+                <div class="ex-info-grid">
+                    <div class="ex-label">Target:</div><div class="ex-text">Back (Latissimus Dorsi, Rhomboids), Biceps.</div>
+                    <div class="ex-label">Breathing:</div><div class="ex-text">Inhale on the pull (up); exhale on the controlled release (down).</div>
+                    <div class="ex-label">Feeling:</div><div class="ex-text">Your shoulder blades pinching firmly together at the top of the movement.</div>
+                </div>
+
+                <div class="ex-section-title">The Step-by-Step Technique</div>
+                <ol class="ex-list">
+                    <li><strong>Position:</strong> Find a sturdy table edge, a low outdoor bar, or TRX bands. Lie underneath and grab the edge with an overhand grip.</li>
+                    <li><strong>Body Line:</strong> Extend your legs so your body forms a straight line.</li>
+                    <li><strong>Pull:</strong> Pull your chest up toward the bar/table by driving your elbows down and back.</li>
+                    <li><strong>Squeeze:</strong> Retract your scapula (pinch your shoulder blades together) at the top.</li>
+                    <li><strong>Lower:</strong> Slowly lower yourself back to the starting position with control.</li>
+                </ol>
+
+                <div class="ex-section-title">Common Mistakes to Avoid</div>
+                <ul class="ex-list">
+                    <li><strong>Shrugging shoulders:</strong> Do not pull your shoulders up to your ears; keep them packed down and back.</li>
+                    <li><strong>Sagging hips:</strong> Keep your glutes and core engaged to prevent bending in the middle.</li>
+                </ul>
+
+                <div class="ex-section-title">How to Scale for Beginners</div>
+                <ul class="ex-list">
+                    <li><strong>Change the angle:</strong> The more vertical you stand, the easier it is. Walk your feet further back to reduce resistance.</li>
+                    <li><strong>Bent Knees:</strong> Plant your feet flat on the floor with your knees bent at 90 degrees to offload weight.</li>
+                </ul>
+                <div class="mindfulness-box">Mindfulness: Imagine pulling your goals toward you. Focus on releasing tension from your upper back and neck on the downward phase.</div>
+            </div>
+
+            <button class="accordion-btn" onclick="toggleAccordion(this)">4. The Plank</button>
+            <div class="accordion-content">
+                <div class="ex-info-grid">
+                    <div class="ex-label">Target:</div><div class="ex-text">Core (Rectus & Transverse Abdominis).</div>
+                    <div class="ex-label">Breathing:</div><div class="ex-text">Breathe slowly and steadily into your belly. Do not hold your breath.</div>
+                    <div class="ex-label">Feeling:</div><div class="ex-text">Deep core engagement and full-body tension.</div>
+                </div>
+
+                <div class="ex-section-title">The Step-by-Step Technique</div>
+                <ol class="ex-list">
+                    <li><strong>Position:</strong> Rest on your forearms with your elbows directly beneath your shoulders.</li>
+                    <li><strong>Body Line:</strong> Step your feet back so your body forms a straight line from head to heels.</li>
+                    <li><strong>Tension:</strong> Squeeze your glutes tightly and brace your core as if expecting a punch to the stomach.</li>
+                    <li><strong>Hold:</strong> Maintain perfect rigidity. Look down at your hands to keep your neck neutral.</li>
+                </ol>
+
+                <div class="ex-section-title">Common Mistakes to Avoid</div>
+                <ul class="ex-list">
+                    <li><strong>Hips sagging:</strong> Puts dangerous pressure on the lumbar spine.</li>
+                    <li><strong>Piked hips:</strong> Sticking your butt in the air removes the tension from the core.</li>
+                </ul>
+
+                <div class="ex-section-title">How to Scale for Beginners</div>
+                <ul class="ex-list">
+                    <li><strong>Knee Planks:</strong> Drop your knees to the floor while maintaining the rigid core brace.</li>
+                    <li><strong>Incline Planks:</strong> Place your forearms on an elevated surface like a bench or sturdy chair.</li>
+                </ul>
+                <div class="mindfulness-box">Mindfulness: The lunge is a mental battle. Embrace the physical discomfort, stay completely still, and observe your thoughts without reacting to them.</div>
+            </div>
+
+            <button class="accordion-btn" onclick="toggleAccordion(this)">5. The Lunge</button>
+            <div class="accordion-content">
+                <div class="ex-info-grid">
+                    <div class="ex-label">Target:</div><div class="ex-text">Quads, Glutes, Core Stability.</div>
+                    <div class="ex-label">Breathing:</div><div class="ex-text">Inhale as you step and drop down; exhale as you push back up.</div>
+                    <div class="ex-label">Feeling:</div><div class="ex-text">Intense single-leg muscle work and a challenge to your balance.</div>
+                </div>
+
+                <div class="ex-section-title">The Step-by-Step Technique</div>
+                <ol class="ex-list">
+                    <li><strong>Stance:</strong> Stand tall with feet hip-width apart.</li>
+                    <li><strong>Step forward:</strong> Take a controlled step forward with one leg.</li>
+                    <li><strong>Drop down:</strong> Lower your hips so your back knee drops straight down, hovering just an inch above the floor.</li>
+                    <li><strong>Push back:</strong> Drive forcefully off your front foot to return to the starting position. Alternate legs.</li>
+                </ol>
+
+                <div class="ex-section-title">Common Mistakes to Avoid</div>
+                <ul class="ex-list">
+                    <li><strong>Tightrope walking:</strong> Do not step directly in front of your back foot; maintain hip-width distance to keep your balance.</li>
+                    <li><strong>Leaning forward:</strong> Keep your torso upright and your chest proud.</li>
+                </ul>
+
+                <div class="ex-section-title">How to Scale for Beginners</div>
+                <ul class="ex-list">
+                    <li><strong>Reverse Lunges:</strong> Step backward instead of forward. This is often much easier on the knee joints.</li>
+                    <li><strong>Assisted Lunges:</strong> Keep one hand resting lightly on a wall or chair for balance.</li>
+                    <li><em>Weight Up:</em> Hold water bottles, dumbbells, or heavy bags in each hand.</li>
+                </ul>
+                <div class="mindfulness-box">Mindfulness: Focus entirely on your centre of gravity. Physical balance requires a calm, clear mind. Clear the noise and focus on a single point in front of you.</div>
+            </div>
+        </div>
+
+        <div class="ee-card">
+            <h3 style="color: var(--cloud-white); margin-bottom: 20px; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 5px; text-transform: uppercase;">The Training Plan</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 20px; color: var(--slate-grey);">Expand the weeks below. Click <strong>"Run Workout"</strong> to open your interactive session tracker in a new tab. It includes a built-in stopwatch so you can time your rest periods and tick off sets at your own pace.</p>
+
+            <div id="calendar-container">
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_calisthenics_tracker"; 
+
+        // --- ACCORDION LOGIC ---
+        function toggleAccordion(btn) {
+            btn.classList.toggle("active");
+            var content = btn.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        // --- WORKOUT DATABASE ---
+        const routineDb = {
+            "w1_d1": [ {n:"Wall Push-Ups", s:3, r:10, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:10, t:'Reps'}, {n:"The Plank", s:3, r:20, t:'Secs'} ],
+            "w1_d2": [ {n:"Bodyweight Rows", s:3, r:8, t:'Reps'}, {n:"Lunges (Per Leg)", s:3, r:12, t:'Reps'}, {n:"The Plank", s:3, r:20, t:'Secs'} ],
+            "w1_d3": [ {n:"Wall Push-Ups", s:3, r:10, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:10, t:'Reps'}, {n:"Bodyweight Rows", s:3, r:8, t:'Reps'} ],
+            
+            "w2_d1": [ {n:"Knee Push-Ups", s:3, r:8, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:15, t:'Reps'}, {n:"The Plank", s:3, r:30, t:'Secs'} ],
+            "w2_d2": [ {n:"Bodyweight Rows", s:3, r:10, t:'Reps'}, {n:"Lunges (Per Leg)", s:3, r:16, t:'Reps'}, {n:"The Plank", s:3, r:30, t:'Secs'} ],
+            "w2_d3": [ {n:"Knee Push-Ups", s:3, r:8, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:15, t:'Reps'}, {n:"Bodyweight Rows", s:3, r:10, t:'Reps'} ],
+            
+            "w3_d1": [ {n:"Full Push-Ups", s:3, r:5, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:20, t:'Reps'}, {n:"The Plank", s:3, r:40, t:'Secs'} ],
+            "w3_d2": [ {n:"Bodyweight Rows", s:3, r:12, t:'Reps'}, {n:"Lunges (Per Leg)", s:3, r:20, t:'Reps'}, {n:"The Plank", s:3, r:40, t:'Secs'} ],
+            "w3_d3": [ {n:"Full Push-Ups", s:3, r:5, t:'Reps'}, {n:"Bodyweight Squats", s:3, r:20, t:'Reps'}, {n:"Bodyweight Rows", s:3, r:12, t:'Reps'} ],
+            
+            "w4_d1": [ {n:"Full Push-Ups", s:3, r:10, t:'Reps'}, {n:"Bodyweight Squats", s:4, r:20, t:'Reps'}, {n:"The Plank", s:3, r:60, t:'Secs'} ],
+            "w4_d2": [ {n:"Bodyweight Rows", s:4, r:10, t:'Reps'}, {n:"Lunges (Per Leg)", s:4, r:20, t:'Reps'}, {n:"The Plank", s:3, r:60, t:'Secs'} ],
+            "w4_d3": [ {n:"Full Push-Ups", s:3, r:10, t:'Reps'}, {n:"Bodyweight Squats", s:4, r:20, t:'Reps'}, {n:"Bodyweight Rows", s:4, r:10, t:'Reps'} ]
+        };
+
+        const weekTitles = ["Foundation", "Progression", "Intensity", "The Crucible"];
+
+        // --- PROGRAMMATIC LOCAL CACHE PARSING ENGINE ---
+        function parseToolTextLog(toolKeyStr) {
+            if (toolKeyStr === 'ee_master_state_calisthenics') {
+                const master = localStorage.getItem('ee_master_state');
+                if (!master) return false;
+                try {
+                    const parsed = JSON.parse(master);
+                    const cal = parsed?.ee_tools?.['ee_calisthenics_tracker'];
+                    if (!cal) return false;
+                    return Object.values(cal).some(v => v === true);
+                } catch(e) { return false; }
+            }
+            if (toolKeyStr === 'ee_master_state_poetry') {
+                const master = localStorage.getItem('ee_master_state');
+                if (!master) return false;
+                try {
+                    const parsed = JSON.parse(master);
+                    return !!(parsed?.ee_tools?.['ee_poetry_suite']?.db?.length);
+                } catch(e) { return false; }
+            }
+
+            const structuralString = localStorage.getItem(toolKeyStr);
+            if (!structuralString) return false;
+            try {
+                const parsedJSON = JSON.parse(structuralString);
+                if (toolKeyStr === 'ee_master_state') {
+                    return parsedJSON.ee_tools && Object.keys(parsedJSON.ee_tools).length > 0;
+                }
+                if (typeof parsedJSON === 'object' && parsedJSON !== null) {
+                    return Object.values(parsedJSON).some(val => typeof val === 'string' && val.trim().length > 0 || typeof val === 'number' && val > 0 || typeof val === 'boolean' && val);
+                }
+                if (typeof parsedJSON === 'number') return parsedJSON > 0;
+                if (typeof parsedJSON === 'boolean') return parsedJSON;
+                return String(parsedJSON).trim().length > 0;
+            } catch (err) {
+                return structuralString.trim().length > 0;
+            }
+        }
+
+        function buildTickUI(isCompleteFlag) {
+            return isCompleteFlag ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateSubpageDiagnosticBadges() {
+            const taxonomyMasterRegistry = {
+                stem: [{ id: 'stem', key: 'ee_hobby_stem_state' }],
+                chess: [{ id: 'chess', key: 'ee_hobby_chess_state' }],
+                poetry: [{ id: 'poetry', key: 'ee_master_state_poetry' }, { id: 'poetry_fallback', key: 'ee_master_state' }],
+                calisthenics: [{ id: 'calisthenics', key: 'ee_master_state_calisthenics' }, { id: 'calisthenics_fallback', key: 'ee_hobby_calisthenics_state' }],
+                blitz: [{ id: 'blitz', key: 'EE_BLITZ_BLITZ_SCORE' }, { id: 'blitz_hm', key: 'EE_BLITZ_HANGMAN_SCORE' }]
+            };
+
+            let globalHobbiesHasContent = false;
+
+            Object.keys(taxonomyMasterRegistry).forEach(branchKey => {
+                const subfileArray = taxonomyMasterRegistry[branchKey];
+                let hasContent = false;
+
+                subfileArray.forEach(item => {
+                    if (parseToolTextLog(item.key)) {
+                        hasContent = true;
+                        globalHobbiesHasContent = true;
+                    }
+                });
+
+                const branchNavBadgeDOM = document.getElementById(`badge_nav_${branchKey}`);
+                if (branchNavBadgeDOM) {
+                    branchNavBadgeDOM.innerHTML = buildTickUI(hasContent);
+                }
+            });
+
+            if (document.getElementById('badge_hobbies_hub')) {
+                document.getElementById('badge_hobbies_hub').innerHTML = buildTickUI(globalHobbiesHasContent);
+            }
+            
+            const cpdCachedStatus = parseToolTextLog('ee_cpd_planner_state') || parseToolTextLog('EE_ACRONYM_DECODER') || parseToolTextLog('ee_raci_matrix_state') || parseToolTextLog('ee_resources_bookmarks');
+            if (document.getElementById('badge_cpd_hub')) {
+                document.getElementById('badge_cpd_hub').innerHTML = buildTickUI(cpdCachedStatus || globalHobbiesHasContent);
+            }
+        }
+
+        // --- RENDER CALENDAR ---
+        function renderCalendar() {
+            const container = document.getElementById('calendar-container');
+            container.innerHTML = "";
+            const state = JSON.parse(localStorage.getItem('ee_master_state'))?.ee_tools[EE_TOOL_ID] || {};
+
+            for(let w=1; w<=4; w++) {
+                let wCount = 0;
+                for(let d=1; d<=3; d++) { if(state[`w${w}_d${d}`] === true) wCount++; }
+
+                // Default open Week 1, closed for others
+                const activeClass = w === 1 ? "active" : "";
+                const displayStyle = w === 1 ? "block" : "none";
+                const badgeColor = wCount === 3 ? "var(--ee-terminal-green)" : "var(--ee-white)";
+
+                let html = `
+                    <button class="accordion-btn ${activeClass}" onclick="toggleAccordion(this)">
+                        WEEK ${w}: ${weekTitles[w-1]} 
+                        <span id="stat_w${w}" style="font-size:0.9rem; margin-left:auto; margin-right:15px; color:${badgeColor}; font-weight:normal;">${wCount}/3 Done</span>
+                    </button>
+                    <div class="accordion-content" style="display:${displayStyle};">
+                        <div class="week-body">
+                `;
+                
+                for(let d=1; d<=3; d++) {
+                    const id = `w${w}_d${d}`;
+                    const isDone = state[id] === true;
+                    
+                    const exercises = routineDb[id].map(ex => `<span style="color:var(--terminal-green); font-weight:bold;">${ex.n}</span><br>${ex.s} sets x ${ex.r} ${ex.t}`).join('<br><br>');
+                    
+                    html += `
+                        <div class="day-col">
+                            <div class="day-title">Day ${d}</div>
+                            <div class="day-routine">${exercises}</div>
+                            <button class="play-btn" onclick="openWorkoutTab('${id}', 'Week ${w} - Day ${d}')">▶️ Run Workout</button>
+                            <label class="ee-checkbox-wrap">
+                                <input type="checkbox" id="${id}" ${isDone ? 'checked' : ''} onchange="updateProgress()">
+                                <div class="ee-checkmark"></div> Day Complete
+                            </label>
+                        </div>
+                    `;
+                }
+                html += `</div></div>`;
+                container.innerHTML += html;
+            }
+        }
+
+        function updateProgress() {
+            for(let w=1; w<=4; w++) {
+                let count = 0;
+                for(let d=1; d<=3; d++) {
+                    if(document.getElementById(`w${w}_d${d}`).checked) count++;
+                }
+                const statEl = document.getElementById(`stat_w${w}`);
+                statEl.innerText = `${count}/3 Done`;
+                if(count === 3) statEl.style.color = "var(--ee-terminal-green)";
+                else statEl.style.color = "var(--ee-white)";
+            }
+            saveToLocalTemp();
+            updateSubpageDiagnosticBadges();
+        }
+
+        // --- NEW TAB WORKOUT PLAYER ---
+        function openWorkoutTab(dayId, title) {
+            const plan = routineDb[dayId];
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>${title} - EE Workout</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="https://empoweringengineersuk.github.io/favicon-32x32.png">
+                <style>
+                    body { font-family: 'Arial', sans-serif; background-color: #0D1B2A; color: #FFFFFF; margin: 0; padding: 0; text-align: center;}
+                    
+                    /* Sticky Top Header & Timer */
+                    .sticky-header {
+                        position: sticky; top: 0; background: #0D1B2A; z-index: 100;
+                        padding: 15px 20px; border-bottom: 2px solid #03F7A0;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+                    }
+                    .header-top { display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 15px auto;}
+                    .brand-title { font-size: 1.1rem; font-weight: bold; color: #03F7A0; text-transform: uppercase; display: flex; align-items: center;}
+                    .close-btn { background: transparent; color: #fff; border: 1px solid #fff; padding: 8px 15px; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-weight: bold; transition: 0.2s;}
+                    .close-btn:hover { background: #D63031; border-color: #D63031;}
+                    
+                    /* Compact Timer Bar */
+                    .timer-bar {
+                        display: flex; justify-content: center; align-items: center; gap: 20px;
+                        max-width: 500px; margin: 0 auto; background: #1A2E44; padding: 10px 20px;
+                        border-radius: 50px; border: 1px solid #03F7A0;
+                    }
+                    .time-display { font-size: 2.5rem; font-weight: bold; font-variant-numeric: tabular-nums; line-height: 1; color: #fff; min-width: 100px;}
+                    .timer-btn { background: #03F7A0; color: #0D1B2A; border: none; padding: 10px 20px; font-weight: bold; border-radius: 25px; cursor: pointer; text-transform: uppercase; font-size: 0.9rem; min-width: 90px;}
+                    .timer-btn.stop { background: transparent; color: #03F7A0; border: 1px solid #03F7A0;}
+                    
+                    /* Workout List - Fat Finger Buttons */
+                    .workout-list { max-width: 600px; margin: 0 auto; text-align: left; padding: 30px 20px; }
+                    .ex-card { background: #111E2E; color: #FFFFFF; border: 1px solid #30363D; border-radius: 8px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
+                    .ex-title { font-size: 1.4rem; font-weight: bold; text-transform: uppercase; color: #03F7A0; margin-bottom: 5px; border-bottom: 2px solid #03F7A0; display: inline-block; padding-bottom: 4px;}
+                    .ex-meta { font-size: 1rem; color: #8899A6; margin-bottom: 20px; font-weight: bold; }
+                    
+                    .fat-finger-btn { display: block; width: 100%; padding: 20px; font-size: 1.2rem; font-weight: bold; background: #1A2E44; color: #fff; border: 2px solid #03F7A0; border-radius: 8px; margin-bottom: 15px; cursor: pointer; transition: 0.2s; text-align: center; text-transform: uppercase;}
+                    .fat-finger-btn.completed { background: #03F7A0; color: #0D1B2A; text-decoration: line-through; border-color: #03F7A0; opacity: 0.8;}
+                    
+                    .complete-msg { margin-top: 20px; padding: 30px; background: rgba(3, 247, 160, 0.1); border: 2px dashed #03F7A0; border-radius: 8px; display: none; text-align: center;}
+                </style>
+            </head>
+            <body>
+                
+                <div class="sticky-header">
+                    <div class="header-top">
+                        <div class="brand-title">
+                            <img src="https://empoweringengineersuk.github.io/EE_150_150.jpg" alt="EE Logo" style="height:24px; border-radius:4px; margin-right:10px;">
+                            ${title}
+                        </div>
+                        <button class="close-btn" onclick="window.close()">X CLOSE</button>
+                    </div>
+
+                    <div class="timer-bar">
+                        <button id="startBtn" class="timer-btn" onclick="toggleTimer()">Start</button>
+                        <div id="display" class="time-display">00:00</div>
+                        <button class="timer-btn stop" onclick="resetTimer()">Reset</button>
+                    </div>
+                    <div style="font-size:0.75rem; color:#03F7A0; text-transform:uppercase; font-weight:bold; margin-top:8px;">Manual Rest Timer (60s Recommended)</div>
+                </div>
+
+                <div class="workout-list">`;
+
+            plan.forEach((ex, exIndex) => {
+                html += `<div class="ex-card">
+                            <div class="ex-title">${ex.n}</div>
+                            <div class="ex-meta">Goal: ${ex.s} Sets of ${ex.r} ${ex.t}</div>`;
+                
+                for(let i=1; i<=ex.s; i++) {
+                    const btnId = `set_${exIndex}_${i}`;
+                    html += `<button id="${btnId}" class="fat-finger-btn" onclick="toggleSet('${btnId}')">Set ${i}: ${ex.r} ${ex.t}</button>`;
+                }
+                html += `</div>`;
+            });
+
+            html += `
+                    <div id="finishMsg" class="complete-msg">
+                        <h2 style="color:#03F7A0; margin:0 0 10px 0; font-size:2rem;">WORKOUT COMPLETE!</h2>
+                        <p style="margin:0; font-size:1.1rem; color:#fff;">Great job building your resilience today. You may now close this tab.</p>
+                        <button class="timer-btn" style="margin-top:20px; width:200px; padding:15px; border-radius:6px;" onclick="window.close()">CLOSE TAB</button>
+                    </div>
+                </div>
+
+                <script>
+                    // Stopwatch Logic
+                    let timerInterval;
+                    let seconds = 0;
+                    let isRunning = false;
+
+                    function updateDisplay() {
+                        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+                        const s = (seconds % 60).toString().padStart(2, '0');
+                        document.getElementById('display').innerText = m + ':' + s;
+                    }
+
+                    function toggleTimer() {
+                        if (isRunning) {
+                            clearInterval(timerInterval);
+                            document.getElementById('startBtn').innerText = 'Start';
+                            document.getElementById('startBtn').style.background = '#03F7A0';
+                            document.getElementById('startBtn').style.color = '#0D1B2A';
+                        } else {
+                            timerInterval = setInterval(() => { seconds++; updateDisplay(); }, 1000);
+                            document.getElementById('startBtn').innerText = 'Pause';
+                            document.getElementById('startBtn').style.background = '#E1B12C';
+                            document.getElementById('startBtn').style.color = '#000';
+                        }
+                        isRunning = !isRunning;
+                    }
+
+                    function resetTimer() {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        seconds = 0;
+                        updateDisplay();
+                        document.getElementById('startBtn').innerText = 'Start';
+                        document.getElementById('startBtn').style.background = '#03F7A0';
+                        document.getElementById('startBtn').style.color = '#0D1B2A';
+                    }
+
+                    // Completion Logic
+                    function toggleSet(btnId) {
+                        const btn = document.getElementById(btnId);
+                        const isCompleted = btn.classList.contains('completed');
+                        
+                        if(!isCompleted) {
+                            btn.classList.add('completed');
+                            btn.innerText = "✓ " + btn.innerText + " (DONE)";
+                        } else {
+                            btn.classList.remove('completed');
+                            btn.innerText = btn.innerText.replace("✓ ", "").replace(" (DONE)", "");
+                        }
+                        checkCompletion();
+                    }
+
+                    function checkCompletion() {
+                        const total = document.querySelectorAll('.fat-finger-btn').length;
+                        const completed = document.querySelectorAll('.fat-finger-btn.completed').length;
+                        
+                        if(total === completed) {
+                            document.getElementById('finishMsg').style.display = 'block';
+                            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                        } else {
+                            document.getElementById('finishMsg').style.display = 'none';
+                        }
+                    }
+                <\/script>
+            </body>
+            </html>`;
+
+            const win = window.open('', '_blank');
+            win.document.write(html);
+            win.document.close();
+        }
+
+        // --- MASTER BACKUP ENGINE ---
+        function getEETimestamp() {
+            const d = new Date(); const pad = (n) => n.toString().padStart(2, '0');
+            return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+        }
+
+        function getLocalToolState() {
+            let state = {};
+            for(let w=1; w<=4; w++) {
+                for(let d=1; d<=3; d++) {
+                    const el = document.getElementById(`w${w}_d${d}`);
+                    if (el) state[`w${w}_d${d}`] = el.checked;
+                }
+            }
+            return state;
+        }
+
+        function loadToolStateFromMaster() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (masterData && masterData.ee_tools && masterData.ee_tools[EE_TOOL_ID]) {
+                const s = masterData.ee_tools[EE_TOOL_ID];
+                for(let w=1; w<=4; w++) {
+                    for(let d=1; d<=3; d++) {
+                        if(s[`w${w}_d${d}`] !== undefined && document.getElementById(`w${w}_d${d}`)) {
+                            document.getElementById(`w${w}_d${d}`).checked = s[`w${w}_d${d}`];
+                        }
+                    }
+                }
+            }
+            updateProgress();
+        }
+
+        function saveToLocalTemp() {
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            masterData.ee_tools[EE_TOOL_ID] = getLocalToolState(); 
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+        }
+
+        function exportEEData() {
+            saveToLocalTemp();
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            masterData.lastUpdated = getEETimestamp();
+            const prefix = masterData.username !== "EE_User" ? masterData.username.replace(/\s+/g, '') : EE_TOOL_ID;
+            const filename = `${prefix}_${masterData.lastUpdated}.json`;
+
+            const blob = new Blob([JSON.stringify(masterData, null, 2)], { type: "application/json" });
+            const link = document.createElement('a'); link.href = URL.createObjectURL(blob);
+            link.download = filename; document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        }
+
+        function importEEData(event) {
+            const file = event.target.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (!importedData.ee_tools) throw new Error("Invalid");
+                    localStorage.setItem('ee_master_state', JSON.stringify(importedData));
+                    loadToolStateFromMaster(); 
+                    updateSubpageDiagnosticBadges();
+                    alert("EE Backup imported successfully! System initialised.");
+                } catch (err) { alert("Error importing file. Please ensure it is a valid EE Backup JSON."); }
+            };
+            reader.readAsText(file); event.target.value = ''; 
+        }
+
+        // --- HTML PREVIEW (PRINTABLE PLAN) ---
+        function generateReport() {
+            saveToLocalTemp(); 
+            let html = `<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><title>EE Calisthenics Plan</title>
+            <style>
+                body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+                h1 { color: #0D1B2A; border-bottom: 2px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; }
+                h2 { color: #0D1B2A; margin-top: 30px; background: #eee; padding: 10px; border-radius: 4px;}
+                table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+                th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+                th { background: #0D1B2A; color: #fff; }
+                .checkbox { width: 24px; height: 24px; border: 2px solid #333; display: inline-block; border-radius: 3px;}
+            </style>
+            </head><body>
+            <h1>4-Week Calisthenics Foundation</h1>
+            <p>Perform workouts 3 days a week (e.g., Mon, Wed, Fri). Rest 60 seconds between sets.</p>`;
+
+            for(let w=1; w<=4; w++) {
+                html += `<h2>Week ${w}: ${weekTitles[w-1]}</h2><table><tr><th>Day</th><th>Routine</th><th>Sets Complete</th></tr>`;
+                for(let d=1; d<=3; d++) {
+                    const plan = routineDb[`w${w}_d${d}`];
+                    
+                    let exercisesHtml = "";
+                    let checkboxesHtml = "";
+                    
+                    plan.forEach(ex => {
+                        exercisesHtml += `<strong>${ex.n}</strong> (${ex.r} ${ex.t})<br>`;
+                        // Generate a checkbox square for each set for printing
+                        for(let s=0; s<ex.s; s++) checkboxesHtml += `<div class="checkbox" style="margin-right:8px; margin-bottom:8px;"></div>`;
+                        checkboxesHtml += `<br>`;
+                    });
+
+                    html += `<tr>
+                                <td style="width:80px; vertical-align:top;"><strong>Day ${d}</strong></td>
+                                <td style="vertical-align:top;">${exercisesHtml}</td>
+                                <td style="width:160px; vertical-align:top;">${checkboxesHtml}</td>
+                             </tr>`;
+                }
+                html += `</table>`;
+            }
+
+            html += `
+                <h2 style="margin-top:40px;">Beyond Week 4: The Leadership Routine</h2>
+                <p>As a developing engineering leader, your priority is stamina, longevity, and mental clarity. Repeating Week 4 indefinitely is a fantastic way to maintain a highly functional, aesthetic physique without burning out your central nervous system. If you want a slight challenge, simply increase the weight (using a loaded backpack) or slow down the tempo.</p>
+            </body></html>`;
+            
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        // --- INIT ---
+        window.addEventListener('load', () => { 
+            renderCalendar(); 
+            loadToolStateFromMaster();
+            updateSubpageDiagnosticBadges();
+        });
+    </script>
+</body>
+</html>

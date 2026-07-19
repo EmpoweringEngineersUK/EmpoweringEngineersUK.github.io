@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering COIN Feedback Model workbench. Systematically structure constructive performance interventions across Context, Observation, Impact, and Next steps to satisfy UK-SPEC Competencies C and D requirements. Secure client-side memory engine.">
+    <meta name="keywords" content="COIN Feedback Model, Engineering Leadership, Performance Interventions, Personnel Development, UK-SPEC Competence C, UK-SPEC Competence D, Professional Mentorship, Technical Management">
+    <meta property="og:title" content="COIN Feedback Architecture Canvas | Empowering Engineers UK">
+    <meta property="og:description" content="An advanced, zero-knowledge client-side personnel development workspace engineered to transform corrective feedback sessions into objective, action-oriented personnel roadmaps.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-coin.html">
+    <meta property="og:type" content="website">
+    
+    <title>COIN Feedback Model | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering COIN Feedback Model Workspace",
+      "url": "https://www.empoweringengineers.uk/feedback-coin.html",
+      "description": "An interactive digital workbook designed for technical engineering leaders to plan, script, and log performance reviews using the COIN framework.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+
+        /* Thick Content AEO/SEO Information Density Block Styling */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 15px;
+        }
+
+        .workbench-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 340px; 
+            gap: 30px; 
+            align-items: start; 
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) { 
+            .workbench-layout { 
+                grid-template-columns: 1fr; 
+            } 
+            .coach-panel { 
+                position: relative; 
+                top: 0; 
+            } 
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
+        .ee-horizontal-tab {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 12px 10px 12px !important;
+            gap: 8px;
+        }
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Fixed Square Checkboxes for Verification Badge Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* --- COIN MATRIX GRID --- */
+        .coin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .coin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .coin-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .coin-card.context-card { border-top: 4px solid var(--burnt-orange); }
+        .coin-card.observation-card { border-top: 4px solid var(--burnt-orange); }
+        .coin-card.impact-card { border-top: 4px solid var(--terminal-green); }
+        .coin-card.nextsteps-card { border-top: 4px solid var(--terminal-green); }
+
+        .coin-label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .context-label { color: var(--burnt-orange) !important; }
+        .observation-label { color: var(--burnt-orange) !important; }
+        .impact-label { color: var(--terminal-green) !important; }
+        .nextsteps-label { color: var(--terminal-green) !important; }
+
+        .form-hint {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--slate-grey);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--cloud-white);
+            border-radius: 4px;
+            min-height: 140px;
+            resize: vertical;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--terminal-green);
+            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+        }
+
+        /* --- COACH/LIVE OUTPUT PANEL --- */
+        .coach-panel {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--burnt-orange);
+            position: sticky;
+            top: 85px;
+            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coach-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ai {
+            background-color: var(--ee-dark-blue);
+            background-image: var(--ee-header-gradient);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-box {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            color: #03F7A0;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-height: 250px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Constructive Performance Management: Applying the COIN Feedback Model</h1>
+            <p>
+                In high-pressure engineering infrastructure programmes and sophisticated asset development environments, executing an objective performance alignment framework is essential to preserve continuous operational velocity. Engineering leads, technical coordinators, and directors routinely manage personnel variances, drawing deviations, and process bottlenecks. If handled using ad-hoc emotional remarks, corrective feedback can cause defensiveness, increase team turnover, and compromise safety gates. To address this risk, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) subjects candidates to strict evaluation regarding **Competence C (Responsibility, management, or leadership)** and **Competence D (Communication and interpersonal skills)**.
+            </p>
+            <p>
+                The **COIN Feedback Model (Context, Observation, Impact, Next steps)** delivers an objective method to pre-script and implement professional development conversations safely. By separating personal identity from operational shortcomings, this framework helps technical leads ground their discussions in unvarnished facts rather than character judgements. The COIN structure operates across four distinct fields: anchoring the issue to a verifiable timeline and location (**Context**); defining the explicit, observable action or omission cleanly (**Observation**); illustrating the real-world operational, commercial, or safety consequences of that action (**Impact**); and collaboratively establishing clear corrective actions and check gates (**Next steps**). Using this tool to document feedback sessions builds a compliant record for institutional review portfolios, proving to assessing panels that your leadership directly optimizes workforce capability and protects asset lifecycle integrity.
+            </p>
+
+            <h2>Analyzing the Four Strategic Dimensions of the COIN Framework</h2>
+            <p>
+                Constructing an advanced engineering coaching script utilizing the interactive COIN canvas requires technical managers to critically parse workplace events step-by-step:
+            </p>
+            <p>
+                <strong>Context [C]:</strong> Define the exact date, location, meeting, or project phase where the performance variance happened. Grounding the conversation in a specific context ensures both parties align on the background boundaries immediately, preventing historical or subjective arguments about the timeline.
+            </p>
+            <p>
+                <strong>Observation [O]:</strong> Document the unvarnished, observable facts, actions, or data discrepancies that occurred. Technical leaders must completely eliminate emotional adjectives and character judgements. Avoid character-based assertions like "you are being careless" or "unfocused," and instead specify raw parameters—such as missing a calculation checklist or omitting required structural loading margins.
+            </p>
+            <p>
+                <strong>Impact [I]:</strong> Translate the observed behavior directly into real-world project, commercial, or safety consequences. To satisfy UK-SPEC criteria, candidates must demonstrate clear commercial awareness. This involves explaining how a design omission caused schedule drift, expanded capital expenditure liabilities, triggered rework costs, or introduced safety risks violating CDM 2015 regulations.
+            </p>
+            <p>
+                <strong>Next Steps [N]:</strong> Formalize the corrective roadmap, updated training modules, and verification gates. Technical managers must establish explicit action criteria and review timelines with the coachee. This turns the corrective conversation into a permanent, audit-ready continuous professional development (CPD) log with clear future accountability.
+            </p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+				<div class="tab-badge-container" id="badge_coach"></div>
+				<span class="tab-label">Coach</span>
+			</a>
+            <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_feedback"></div>
+                <span class="tab-label">Feedback</span>
+            </a>
+            <a href="feedback-grow.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_grow"></div>
+                <span class="tab-label">GROW</span>
+            </a>
+            <a href="feedback-sbi.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sbi"></div>
+                <span class="tab-label">SBI</span>
+            </a>
+            <a href="feedback-cedar.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cedar"></div>
+                <span class="tab-label">CEDAR</span>
+            </a>
+            <a href="feedback-pendletons.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pendletons"></div>
+                <span class="tab-label">Pendleton's</span>
+            </a>
+            <a href="feedback-coin.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coin"></div>
+                <span class="tab-label">COIN</span>
+            </a>
+            <a href="feedback-bsq.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_bsq"></div>
+                <span class="tab-label">BSQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">COIN Feedback Matrix</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Performance Intervention & Leadership Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="workbench-layout">
+            <div class="editor-col">
+                <div class="coin-grid">
+                    
+                    <!-- Context Card -->
+                    <div class="coin-card context-card">
+                        <label class="coin-label context-label">Context [C]</label>
+                        <span class="form-hint">When and where did this performance event take place? Anchor your entry to a specific time, place, or meeting context. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. During yesterday's 10:00 design review session for the high-pressure pipeline module...</span></span>
+                        <textarea id="coin_Context" class="form-input" placeholder="Define the factual time, date, and workplace location context..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Observation Card -->
+                    <div class="coin-card observation-card">
+                        <label class="coin-label observation-label">Observation [O]</label>
+                        <span class="form-hint">What were the explicit, observable actions or omissions? Eliminate all personality judgements and emotional adjectives. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. You did not supply the updated transient flow calculation sheets before the review meeting began.</span></span>
+                        <textarea id="coin_Observation" class="form-input" placeholder="Document the unvarnished, observable facts and metrics here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Impact Card -->
+                    <div class="coin-card impact-card">
+                        <label class="coin-label impact-label">Impact [I]</label>
+                        <span class="form-hint">What were the direct, measurable project outcomes, safety risks, or cost liabilities caused by this behavior? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This omission stalled the hazard review loop, causing a 48-hour delay in our design submittal.</span></span>
+                        <textarea id="coin_Impact" class="form-input" placeholder="State the quantifiable consequences regarding cost, safety, or schedule limits..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Next Steps Card -->
+                    <div class="coin-card nextsteps-card">
+                        <label class="coin-label nextsteps-label">Next Steps [N]</label>
+                        <span class="form-hint">What explicit action criteria, training modules, or verification check gates were collaboratively committed to? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Arrange bi-weekly check-ins to review calculation scripts prior to final principal sign-off.</span></span>
+                        <textarea id="coin_Nextsteps" class="form-input" placeholder="Document the agreed solution roadmap, check schedules, and compliance metrics..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategic Review Coach Panel -->
+            <div class="coach-panel">
+                <div class="coach-header">>> LIVE OUTPUT</div>
+                
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                </div>
+
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile feedback tracking log...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_feedback_coin";
+        let autosaveTimer;
+
+        // --- 2. INITIALISATION ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    document.getElementById('coin_Context').value = data.Context || '';
+                    document.getElementById('coin_Observation').value = data.Observation || '';
+                    document.getElementById('coin_Impact').value = data.Impact || '';
+                    document.getElementById('coin_Nextsteps').value = data.Nextsteps || '';
+                } catch (e) {
+                    console.error("Failed to parse stored COIN state:", e);
+                }
+            }
+            updatePreview();
+        }
+
+        // --- 3. VERIFICATION BADGE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function checkToolContent(toolId) {
+            const stored = localStorage.getItem(toolId);
+            if (!stored) return false;
+            try {
+                const data = JSON.parse(stored);
+                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateNavigationBadges() {
+            const toolsMap = {
+                'coach': 'ee_management_master_hub',
+                'feedback': 'ee_feedback_master_hub',
+                'grow': 'ee_feedback_grow',
+                'sbi': 'ee_feedback_sbi',
+                'cedar': 'ee_feedback_cedar',
+                'pendletons': 'ee_feedback_pendletons',
+                'coin': 'ee_feedback_coin',
+                'bsq': 'ee_feedback_bsq'
+            };
+
+            Object.keys(toolsMap).forEach(key => {
+                const badgeEl = document.getElementById(`badge_${key}`);
+                if (badgeEl) {
+                    const isComplete = checkToolContent(toolsMap[key]);
+                    badgeEl.innerHTML = getTickHTML(isComplete);
+                }
+            });
+        }
+
+        // --- 4. COMPILER ENGINE ---
+        function updatePreview() {
+            const context = document.getElementById('coin_Context').value.trim();
+            const observation = document.getElementById('coin_Observation').value.trim();
+            const impact = document.getElementById('coin_Impact').value.trim();
+            const nextsteps = document.getElementById('coin_Nextsteps').value.trim();
+
+            let output = `=== COIN MODEL: PERFORMANCE INTERVENTION SCRIPT ===\n\n`;
+            output += `[CONTEXT]:\n${context ? context : '...\n'}\n`;
+            output += `[OBSERVATION]:\n${observation ? observation : '...\n'}\n`;
+            output += `[IMPACT]:\n${impact ? impact : '...\n'}\n`;
+            output += `[NEXT STEPS]:\n${nextsteps ? nextsteps : '...\n'}\n`;
+
+            document.getElementById('previewArea').innerText = output;
+
+            const aiBtn = document.getElementById('aiBtn');
+            const hasData = context || observation || impact || nextsteps;
+            aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+
+            // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                const data = { Context: context, Observation: observation, Impact: impact, Nextsteps: nextsteps };
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
+                updateNavigationBadges();
+                console.log("COIN framework configuration state auto-saved.");
+            }, 3000); 
+        }
+
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        function generatePrompt() {
+            const context = document.getElementById('coin_Context').value.trim();
+            const observation = document.getElementById('coin_Observation').value.trim();
+            const impact = document.getElementById('coin_Impact').value.trim();
+            const nextsteps = document.getElementById('coin_Nextsteps').value.trim();
+
+            let script = "";
+            let promptType = "User Draft";
+            const hasUserData = context || observation || impact || nextsteps;
+
+            if (hasUserData) {
+                script += `[FACTUAL SITUATION CONTEXT]\n${context ? context : 'Not defined.'}\n\n`;
+                script += `[OBSERVABLE BEHAVIOUR DETAILS]\n${observation ? observation : 'Not defined.'}\n\n`;
+                script += `[MEASURABLE SYSTEM IMPACT]\n${impact ? impact : 'Not defined.'}\n\n`;
+                script += `[AGREED SOLUTION NEXT STEPS]\n${nextsteps ? nextsteps : 'Not defined.'}\n\n`;
+            } else {
+                promptType = "Hypothetical Example";
+                script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
+                script += `[FACTUAL SITUATION CONTEXT]\ne.g., During the Thursday morning 09:00 system commissioning stand-up session for the offshore telemetry module...\n\n`;
+                script += `[OBSERVABLE BEHAVIOUR DETAILS]\ne.g., You did not provide the required calibration data logs before the audit sweep started.\n\n`;
+                script += `[MEASURABLE SYSTEM IMPACT]\ne.g., This meant we could not clear the safety gate checklist, delaying the field installation loop by 24 hours.\n\n`;
+                script += `[AGREED SOLUTION NEXT STEPS]\ne.g., Pair with a principal software engineer to complete the scripting validation courses next week.\n\n`;
+            }
+
+            const role = "Expert Leadership Consultant & Senior Engineering Management Coach";
+            const actionText = "Analyse this Context-Observation-Impact-Nextsteps (COIN) feedback outline. 1. Identify any subjective language leaks, personality descriptions, or emotional biases within the observation section. 2. Critique whether the impact section successfully maps to hard engineering, safety, or financial consequences rather than generic team complaints. 3. Assess if the next steps field establishes the strict accountability structures and review loops needed to satisfy UK-SPEC Competency C and D registers.";
+
+            const metaPrompt = `[ROLE] You are acting as a ${role}. 
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior engineering leader structuring a performance feedback log to validate leadership capabilities against UK-SPEC Competence C and D registers. The format used is a COIN Feedback Canvas (${promptType}).
+[SOURCE]
+"""
+${script}
+"""
+[EXPECTATION] Do not rewrite the script for the user. Evaluate the provided framework criteria critically. Expose narrative vulnerabilities, ask targeted managerial questions, and deliver a clean section-by-section audit report.`;
+
+            navigator.clipboard.writeText(metaPrompt).then(() => {
+                const btn = document.getElementById('aiBtn');
+                btn.innerText = ">> COPIED! PASTE INTO LLM";
+                setTimeout(() => { updatePreview(); }, 3000);
+            });
+        }
+
+        // --- 6. CLIPBOARD MECHANICS ---
+        function copyOutline() {
+            const text = document.getElementById('previewArea').innerText;
+            navigator.clipboard.writeText(text).then(() => { 
+                const btn = document.querySelector('.btn-primary');
+                btn.innerText = "✔️ COPIED!";
+                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+            });
+        }
+
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        function clearData() {
+            if(confirm("Confirm action: permanently purge all text inputs from the COIN feedback canvas?")) {
+                document.getElementById('coin_Context').value = '';
+                document.getElementById('coin_Observation').value = '';
+                document.getElementById('coin_Impact').value = '';
+                document.getElementById('coin_Nextsteps').value = '';
+                updatePreview();
+            }
+        }
+
+        function exportJSON() {
+            const context = document.getElementById('coin_Context').value.trim();
+            const observation = document.getElementById('coin_Observation').value.trim();
+            const impact = document.getElementById('coin_Impact').value.trim();
+            const nextsteps = document.getElementById('coin_Nextsteps').value.trim();
+
+            const state = { Context: context, Observation: observation, Impact: impact, Nextsteps: nextsteps };
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_COIN_Feedback_Log_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.Context !== undefined || data.Observation !== undefined || data.Impact !== undefined || data.Nextsteps !== undefined) {
+                        document.getElementById('coin_Context').value = data.Context || '';
+                        document.getElementById('coin_Observation').value = data.Observation || '';
+                        document.getElementById('coin_Impact').value = data.Impact || '';
+                        document.getElementById('coin_Nextsteps').value = data.Nextsteps || '';
+                        updatePreview();
+                        alert("COIN feedback log metrics imported successfully!");
+                    } else {
+                        alert("Invalid JSON format. Expected Context, Observation, Impact, and Next steps parameters.");
+                    }
+                } catch (err) {
+                    alert("Failed to parse file as valid JSON.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. HTML REPORT COMPILER ---
+        function generateReport() {
+            const context = document.getElementById('coin_Context').value.trim();
+            const observation = document.getElementById('coin_Observation').value.trim();
+            const impact = document.getElementById('coin_Impact').value.trim();
+            const nextsteps = document.getElementById('coin_Nextsteps').value.trim();
+            
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE COIN Performance Feedback Summary Briefing</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0;}
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc;} }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>COIN Performance Intervention Record</h1>
+                <p><em>Framework Branch: Feedback & Management Coaching // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                
+                <h2>Context</h2>
+                <p>${context ? context : 'Not defined.'}</p>
+                
+                <h2>Observation</h2>
+                <p>${observation ? observation : 'Not defined.'}</p>
+                
+                <h2>Impact</h2>
+                <p>${impact ? impact : 'Not defined.'}</p>
+
+                <h2>Next Steps</h2>
+                <p>${nextsteps ? nextsteps : 'Not defined.'}</p>
+
+                <div class="footer">
+                    Generated via Empowering Engineers UK - Management & Leadership Subsystem
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+    </script>
+    
+    <script src="footer.js?v=21.7" defer></script>
+</body>
+</html>

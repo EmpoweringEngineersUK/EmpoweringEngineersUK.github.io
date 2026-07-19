@@ -1,11 +1,17 @@
-// EMPOWERING ENGINEERS UK - FRAMEWORK DATABASE (v2.2 - FIXED)
-// Fixed syntax errors (unescaped quotes). Comprehensive list.
+// =========================================================================
+// EMPOWERING ENGINEERS UK - frameworks.js - v21.7 - Master Framework Database
+// Date: 19 Jul 2026
+// Specification: Unified Strategic Analytics & Goal Optimization Registry
+// Security Profile: Zero-Knowledge Browser Storage Isolation Architecture
+// Language Metric: British English Hardcoded UI Layout Controls
+// =========================================================================
 
 const frameworks = {
     // =========================================================================
     // 1. STRATEGIC ANALYSIS (For Direction & Planning)
     // =========================================================================
     SWOT: {
+        name: "SWOT Analysis (Strengths, Weaknesses, Opps, Threats)",
         cat: "strategy",
         fields: [
             { id: "S", label: "STRENGTHS (Internal)", hint: "What advantages does your team or technology have right now?", example: "e.g. 'We have an in-house proprietary algorithm for load balancing that reduces server costs by 20%.'" },
@@ -15,6 +21,7 @@ const frameworks = {
         ]
     },
     PESTLE: {
+        name: "PESTLE Analysis (External Market Factors)",
         cat: "strategy",
         fields: [
             { id: "P", label: "POLITICAL", hint: "Government stability, tax policy, trade restrictions.", example: "e.g. 'Upcoming general elections may freeze decision-making on major infrastructure projects for 6 months.'" },
@@ -26,6 +33,7 @@ const frameworks = {
         ]
     },
     PORTER5: {
+        name: "Porter's Five Forces (Industry Competition)",
         cat: "strategy",
         fields: [
             { id: "SUP", label: "SUPPLIER POWER", hint: "How easy is it for suppliers to drive up prices?", example: "e.g. 'High. There are only two certified vendors globally for aerospace-grade titanium.'" },
@@ -36,6 +44,7 @@ const frameworks = {
         ]
     },
     VRIO: {
+        name: "VRIO Framework (Resource Capability)",
         cat: "strategy",
         fields: [
             { id: "V", label: "VALUE", hint: "Does this resource allow you to exploit an opportunity?", example: "e.g. 'Yes. Our patent allows us to reduce energy consumption by 15%, which is a key client demand.'" },
@@ -45,6 +54,7 @@ const frameworks = {
         ]
     },
     BCG: {
+        name: "BCG Matrix (Product Portfolio/Market Share)",
         cat: "strategy",
         fields: [
             { id: "ST", label: "STARS (High Growth, High Share)", hint: "Market leaders in high-growth sectors.", example: "e.g. 'Our new EV Battery division. Revenue is doubling annually, but it requires heavy CAPEX for new factories.'" },
@@ -54,65 +64,72 @@ const frameworks = {
         ]
     },
     ANSOFF: {
+        name: "Ansoff Matrix (Growth Strategy Risks)",
         cat: "strategy",
         fields: [
             { id: "MP", label: "MARKET PENETRATION", hint: "Sell MORE of existing products to existing markets.", example: "e.g. 'Launch a Summer Service Discount campaign to get current utility clients to book more maintenance.'" },
             { id: "PD", label: "PRODUCT DEVELOPMENT", hint: "Create NEW products for existing markets.", example: "e.g. 'Develop an IoT-enabled remote monitoring sensor to sell to our existing installed base of pumps.'" },
-            { id: "MD", label: "MARKET DEVELOPMENT", hint: "Sell EXISTING products to NEW markets.", example: "e.g. 'Take our proven water filtration skid (used in municipal water) and market it to the brewing industry.'" },
+            { id: "MD", label: "MARKET DEVELOPMENT", hint: "Sell EXISTING products to NEW markets.", example: "e.g. 'Take our proxy water filtration skid (used in municipal water) and market it to the brewing industry.'" },
             { id: "DIV", label: "DIVERSIFICATION", hint: "Sell NEW products to NEW markets (Highest Risk).", example: "e.g. 'Leverage our gearbox expertise to start manufacturing wind turbine transmissions for the renewable sector.'" }
         ]
     },
     BALANCED: {
+        name: "Balanced Scorecard (Performance Metrics)",
         cat: "strategy",
         fields: [
-            { id: "FIN", label: "FINANCIAL", hint: "To succeed financially, how should we appear to shareholders?", example: "e.g. 'Objective: Increase gross margin on projects to 15% by reducing waste.'" },
-            { id: "CUST", label: "CUSTOMER", hint: "To achieve our vision, how should we appear to customers?", example: "e.g. 'Objective: Reduce average technical support response time to <4 hours.'" },
-            { id: "PROC", label: "INTERNAL PROCESSES", hint: "What processes must we excel at?", example: "e.g. 'Objective: Achieve ISO 9001 recertification with zero non-conformances.'" },
-            { id: "LEARN", label: "LEARNING & GROWTH", hint: "How will we sustain our ability to change?", example: "e.g. 'Objective: Train 50% of engineering staff in Python/Data Analytics.'" }
+            { id: "FIN", label: "FINANCIAL PERSPECTIVE", hint: "To succeed financially, how should we appear to shareholders?", example: "e.g. 'Objective: Increase gross margin on infrastructure deliverables to 15% by reducing material scrap overheads.'" },
+            { id: "CUST", label: "CUSTOMER PERSPECTIVE", hint: "To achieve our vision, how should we appear to customers?", example: "e.g. 'Objective: Suppress client-reported engineering drawing non-conformances down to zero occurrences.'" },
+            { id: "PROC", label: "INTERNAL BUSINESS PROCESSES", hint: "What tactical operational processes must we excel at?", example: "e.g. 'Objective: Achieve complete ISO 9001 recertification loop compliance with zero major omissions.'" },
+            { id: "LEARN", label: "LEARNING & GROWTH", hint: "How will we sustain our strategic ability to adapt and innovate?", example: "e.g. 'Objective: Standardise continuous professional development (CPD) metrics across 100% of junior staff.'" }
         ]
     },
     SCENARIO: {
+        name: "Scenario Planning (Future Forecasting)",
         cat: "strategy",
         fields: [
-            { id: "S1", label: "SCENARIO A (Optimistic)", hint: "Best case future.", example: "e.g. 'Supply chain stabilizes, steel prices drop 10%, we win the HS2 tender.'" },
-            { id: "S2", label: "SCENARIO B (Status Quo)", hint: "Trends continue as they are now.", example: "e.g. 'Prices remain volatile but manageable. We maintain current market share.'" },
-            { id: "S3", label: "SCENARIO C (Pessimistic)", hint: "Worst case future. Major disruption.", example: "e.g. 'Key supplier goes bust, new regulatory fine imposed, project delayed 6 months.'" },
-            { id: "IMP", label: "STRATEGIC IMPLICATIONS", hint: "Common strategy for all scenarios.", example: "e.g. 'We must diversify our supplier base immediately regardless of the outcome to mitigate risk.'" }
+            { id: "S1", label: "SCENARIO A (Optimistic)", hint: "Best case future projection.", example: "e.g. 'Supply chain fully stabilises, asset raw material prices drop 10%, we secure the primary framework tender.'" },
+            { id: "S2", label: "SCENARIO B (Status Quo)", hint: "Trends continue seamlessly as they are configured now.", example: "e.g. 'Market pressures remain volatile but manageable. We maintain standard regional utility layout margins.'" },
+            { id: "S3", label: "SCENARIO C (Pessimistic)", hint: "Worst case disruption matrix.", example: "e.g. 'Key component vendor defaults on delivery, new statutory penalties imposed, asset installation delayed 6 months.'" },
+            { id: "IMP", label: "STRATEGIC IMPLICATIONS", hint: "Common mitigation strategy across all scenarios.", example: "e.g. 'We must diversify our supplier allocation index immediately to de-risk baseline technical execution.'" }
         ]
     },
     VALUECHAIN: {
+        name: "Value Chain Analysis (Internal Activities)",
         cat: "strategy",
         fields: [
-            { id: "PRI", label: "PRIMARY ACTIVITIES", hint: "Inbound logistics, Ops, Outbound, Marketing, Service.", example: "e.g. 'Bottleneck identified in Outbound Logistics: Warehousing layout causes 20% delay in picking.'" },
-            { id: "SUP", label: "SUPPORT ACTIVITIES", hint: "Procurement, HR, Tech Dev, Infrastructure.", example: "e.g. 'Procurement system is outdated, causing delays in raw material ordering.'" },
-            { id: "VAL", label: "VALUE CREATION", hint: "Where is the most margin made?", example: "e.g. 'Our bespoke design service commands the highest premium, not the manufacturing itself.'" }
+            { id: "PRI", label: "PRIMARY ACTIVITIES", hint: "Inbound logistics, operations, outbound logistics, marketing, support services.", example: "e.g. 'Bottleneck identified in outbound validation checks: tracking database latency expands processing cycles by 20%.'" },
+            { id: "SUP", label: "SUPPORT ACTIVITIES", hint: "Procurement parameters, human resources, technological updates, heavy infrastructure.", example: "e.g. 'Legacy script verification mechanisms are outdated, expanding calculation review times by 48 hours.'" },
+            { id: "VAL", label: "VALUE CREATION", hint: "Where is the maximum commercial margin safely isolated?", example: "e.g. 'Our bespoke computational design scripts command the highest market premium, not standard fabrication cycles.'" }
         ]
     },
     BLUEOCEAN: {
+        name: "Blue Ocean Strategy (Market Innovation Canvas)",
         cat: "strategy",
         fields: [
-            { id: "EL", label: "ELIMINATE", hint: "Which factors should be eliminated?", example: "e.g. 'Eliminate on-site paper documentation completely. Go 100% digital.'" },
-            { id: "RD", label: "REDUCE", hint: "Which factors should be reduced well below industry standard?", example: "e.g. 'Reduce complexity of the user manual. Make it a simple 1-page guide.'" },
-            { id: "RS", label: "RAISE", hint: "Which factors should be raised well above industry standard?", example: "e.g. 'Raise the durability/lifespan of the component from 5 to 10 years.'" },
-            { id: "CR", label: "CREATE", hint: "Which factors should be created that the industry has never offered?", example: "e.g. 'Create a subscription model for predictive maintenance alerts.'" }
+            { id: "EL", label: "ELIMINATE", hint: "Which systemic industry variables should be eliminated completely?", example: "e.g. 'Eliminate local physical engineering paper trails entirely. Enforce 100% digital trace compliance.'" },
+            { id: "RD", label: "REDUCE", hint: "Which operational parameters should be reduced well below baseline market constraints?", example: "e.g. 'Reduce the complexity layers of final drawing sign-off approvals down to a single automated verification check.'" },
+            { id: "RS", label: "RAISE", hint: "Which configuration factors must be elevated far above standard performance averages?", example: "e.g. 'Elevate structural design lifespan parameters on component stress tests from 5 to 12 years.'" },
+            { id: "CR", label: "CREATE", hint: "Which elements should be built that the market sector has never offered?", example: "e.g. 'Create an automated, subscription-driven remote telemetry alert system for predictive failure tracking.'" }
         ]
     },
     BUSCANVAS: {
+        name: "Business Model Canvas (Value Proposition Matrix)",
         cat: "strategy",
         fields: [
-            { id: "VP", label: "VALUE PROPOSITION", hint: "What problem are we solving?", example: "e.g. 'A zero-emission, silent urban logistics solution for night deliveries.'" },
-            { id: "CS", label: "CUSTOMER SEGMENTS", hint: "Who are we solving it for?", example: "e.g. 'Last-mile delivery firms in London and Paris LEZ zones.'" },
-            { id: "RS", label: "REVENUE STREAMS", hint: "How do we make money?", example: "e.g. 'Leasing hardware + Monthly software subscription for tracking.'" },
-            { id: "KS", label: "KEY RESOURCES/ACTIVITIES", hint: "What do we need to deliver it?", example: "e.g. 'Fleet of electric vans, Charging hubs, proprietary Routing software.'" }
+            { id: "VP", label: "VALUE PROPOSITION", hint: "What core structural problem are we resolving for the sector?", example: "e.g. 'An insulated, zero-emission, completely silent urban fluid delivery skid for restricted industrial zones.'" },
+            { id: "CS", label: "CUSTOMER SEGMENTS", hint: "Who are we optimizing this specific technology solution for?", example: "e.g. 'Tier-1 infrastructure asset developers and local municipality utility networks in high-density locations.'" },
+            { id: "RS", label: "REVENUE STREAMS", hint: "How does this asset configuration actively yield commercial revenue?", example: "e.g. 'Natively leasing structural hardware modules combined with a monthly software licensing metric for analytics access.'" },
+            { id: "KS", label: "KEY RESOURCES & ACTIVITIES", hint: "What critical inputs and validation cycles are mandatory to execute delivery?", example: "e.g. 'A verified fleet of automated transport assets, local charging grids, and proprietary route optimisation control scripts.'" }
         ]
     },
     SOAR: {
+        name: "SOAR Analysis (Strengths, Aspirations, Results)",
         cat: "strategy",
         fields: [
-            { id: "S", label: "STRENGTHS", hint: "What are we great at?", example: "e.g. 'Technical expertise in complex hydraulic modelling.'" },
-            { id: "O", label: "OPPORTUNITIES", hint: "What are the possibilities in the market?", example: "e.g. 'Expand into flood defense consulting due to climate change demand.'" },
-            { id: "A", label: "ASPIRATIONS", hint: "What do we care about deeply?", example: "e.g. 'To be the UK leader in sustainable urban drainage systems (SuDS).'" },
-            { id: "R", label: "RESULTS", hint: "How will we know we succeeded?", example: "e.g. 'Win 3 major framework contracts with Water Companies by 2025.'" }
+            { id: "S", label: "STRENGTHS", hint: "What advantages does your technical group control right now?", example: "e.g. 'Extensive internal expertise in high-fidelity finite element analysis and thermodynamic modelling scripts.'" },
+            { id: "O", label: "OPPORTUNITIES", hint: "What market trends or regulatory changes can be safely leveraged?", example: "e.g. 'Expand our structural engineering consulting footprint due to updated government flood defense mandates.'" },
+            { id: "A", label: "ASPIRATIONS", hint: "What long-term visionary status defines your technical purpose?", example: "e.g. 'To become the premier UK partner for sustainable, climate-resilient urban drainage systems (SuDS).'" },
+            { id: "R", label: "RESULTS", hint: "What quantitative data points confirm full operational success?", example: "e.g. 'Secure three independent long-term framework allocation contracts with major water authorities by Q4.'" }
         ]
     },
 
@@ -120,86 +137,95 @@ const frameworks = {
     // 2. PROCESS & QUALITY (For Optimization & Defects)
     // =========================================================================
     PDCA: {
+        name: "PDCA Cycle (Plan-Do-Check-Act)",
         cat: "process",
         fields: [
-            { id: "P", label: "PLAN", hint: "Identify problem, analyze root causes, plan fix.", example: "e.g. 'Objective: Reduce drawing approval time. Plan: Trial a parallel review workflow on Project X.'" },
-            { id: "D", label: "DO", hint: "Implement plan on a small scale.", example: "e.g. 'Executed the parallel workflow for 4 weeks on the Minor Mods package.'" },
-            { id: "C", label: "CHECK", hint: "Analyze results.", example: "e.g. 'Average time dropped to 6 days. Improvement achieved, but Checking phase is still a bottleneck.'" },
-            { id: "A", label: "ACT", hint: "Standardize solution or adjust.", example: "e.g. 'Adopt parallel review as standard SOP. Launch new PDCA cycle targeting the Checking phase.'" }
+            { id: "P", label: "PLAN", hint: "Identify the process deficiency, isolate root variables, and configure the optimization loop.", example: "e.g. 'Objective: Minimize drawing approval cycle times. Plan: Run parallel script checking routines on Project Alpha.'" },
+            { id: "D", label: "DO", hint: "Deploy the newly configured optimization plan on a restricted testing track.", example: "e.g. 'Executed the updated parallel loop across 4 separate engineering documentation packages over a 30-day window.'" },
+            { id: "C", label: "CHECK", hint: "Rigorously audit the output datasets against legacy baseline performance parameters.", example: "e.g. 'Average validation cycle dropped to 6 days. Target reached, but the final authorization phase is still a resource bottleneck.'" },
+            { id: "A", label: "ACT", hint: "Permanently standardize the successful workflow changes or refine the metrics array.", example: "e.g. 'Adopt parallel script reviews as standard operating procedure. Initialise a new internal optimization loop targeting authorization latency.'" }
         ]
     },
     DMAIC: {
+        name: "DMAIC (Six Sigma Process Optimization)",
         cat: "process",
         fields: [
-            { id: "D", label: "DEFINE", hint: "Define the problem statement and goal.", example: "e.g. 'PCB assembly yield has dropped to 92%. Goal: Return to 98% yield within 3 months.'" },
-            { id: "M", label: "MEASURE", hint: "Collect baseline data.", example: "e.g. 'Collected 2 weeks of data. 80% of failures are Cold Solder Joints.'" },
-            { id: "A", label: "ANALYZE", hint: "Identify root cause.", example: "e.g. 'Fishbone analysis revealed reflow oven temperature fluctuates by +/- 10C on the night shift.'" },
-            { id: "I", label: "IMPROVE", hint: "Implement solution.", example: "e.g. 'Installed a voltage stabilizer on the oven. Calibrated profile. Yield improved to 97%.'" },
-            { id: "C", label: "CONTROL", hint: "Controls to sustain gains.", example: "e.g. 'Implemented continuous thermal monitoring with auto-shutdown if temp deviates by >2C.'" }
+            { id: "D", label: "DEFINE", hint: "Clearly articulate the manufacturing defect, process deviation, and commercial target.", example: "e.g. 'PCB assembly yields have degraded down to 92%. Operational Target: Restore yield bounds back to 98% within a 90-day window.'" },
+            { id: "M", label: "MEASURE", hint: "Collect unvarnished baseline performance metrics across the active operations track.", example: "e.g. 'Logged 14 days of live production tracking metrics. Data indicates 80% of component anomalies trace to cold solder joints.'" },
+            { id: "A", label: "ANALYZE", hint: "Deploy rigorous root-cause analysis loops to expose hidden process dependencies.", example: "e.g. 'Ishikawa and thermal monitoring revealed reflow oven temperature profiles fluctuate by +/-10C on late-night manufacturing shifts.'" },
+            { id: "I", label: "IMPROVE", hint: "Design, validate, and execute targeted engineering modifications to eliminate the root cause.", example: "e.g. 'Installed an insulated voltage stabilizer on the oven control panel and recalibrated the profile. Yield performance recovered to 97%.'" },
+            { id: "C", label: "CONTROL", hint: "Hardcode strict monitoring rules, automated safety checks, and compliance audits to safeguard the gains.", example: "e.g. 'Implemented continuous digital thermal tracking nodes with automated interlock cut-offs if temperature varies by >2C.'" }
         ]
     },
     VSM: {
+        name: "Value Stream Mapping (Lean Flow Optimization)",
         cat: "process",
         fields: [
-            { id: "CS", label: "CURRENT STATE", hint: "Map current flow and waste.", example: "e.g. 'Raw material sits for 4 days before cutting. WIP sits for 2 days between Welding and Painting.'" },
-            { id: "FS", label: "FUTURE STATE", hint: "Map ideal flow.", example: "e.g. 'Continuous flow from Weld to Paint via conveyor. Reduce total WIP to 4 hours.'" },
-            { id: "KA", label: "KAIZEN EVENTS", hint: "Projects to bridge the gap.", example: "e.g. '1. Move painting booth closer to weld shop. 2. Balance line speed to eliminate buffers.'" }
+            { id: "CS", label: "CURRENT STATE MAP", hint: "Map the current material and information flows, explicitly noting non-value-added waste cycles.", example: "e.g. 'Raw steel beams store for 4 days before cutting loops. Work-in-progress components queue for 48 hours between welding and coating areas.'" },
+            { id: "FS", label: "FUTURE STATE VISION", hint: "Design the streamlined, idealized workflow environment to minimize process lead times safely.", example: "e.g. 'Establish continuous manufacturing flow from welding to coating via an automated line. Compress maximum WIP storage bounds down to 4 hours.'" },
+            { id: "KA", label: "KAIZEN OPTIMIZATION EVENTS", hint: "Isolate immediate, low-risk engineering deployment actions to close the process performance gap.", example: "e.g. '1. Physically reposition the coating installation cell closer to the welding layout. 2. Synchronise line step speeds to eliminate internal queues.'" }
         ]
     },
     "5WHYS": {
+        name: "5 Whys (Root Cause Analysis)",
         cat: "process",
         fields: [
-            { id: "P", label: "PROBLEM STATEMENT", hint: "Describe the issue.", example: "e.g. 'The hydraulic motor overheated and failed.'" },
-            { id: "W1", label: "WHY 1", hint: "Direct cause.", example: "e.g. 'Because the cooling oil flow was insufficient.'" },
-            { id: "W2", label: "WHY 2", hint: "Cause of W1.", example: "e.g. 'Because the intake filter was clogged with debris.'" },
-            { id: "W3", label: "WHY 3", hint: "Cause of W2.", example: "e.g. 'Because the oil was contaminated with metal shavings.'" },
-            { id: "W4", label: "WHY 4", hint: "Cause of W3.", example: "e.g. 'Because the reservoir cap gasket degraded and fell in.'" },
-            { id: "W5", label: "WHY 5 (ROOT CAUSE)", hint: "Systemic cause.", example: "e.g. 'Because the maintenance schedule does not include checking or replacing reservoir gaskets.'" }
+            { id: "P", label: "PROBLEM STATEMENT", hint: "State the empirical performance failure or structural anomaly concisely.", example: "e.g. 'The primary hydraulic motor overheating interlock tripped, shutting down production line tracking loops.'" },
+            { id: "W1", label: "WHY 1", hint: "What direct, immediate physical cause produced the stated problem?", example: "e.g. 'Because the volume of cooling oil flowing through the internal manifold was severely insufficient.'" },
+            { id: "W2", label: "WHY 2", hint: "What cause produced the physical state recorded in Why 1?", example: "e.g. 'Because the primary pump fluid intake filter mesh was completely clogged with metallic particle debris.'" },
+            { id: "W3", label: "WHY 3", hint: "What cause produced the condition recorded in Why 2?", example: "e.g. 'Because the internal system oil had become heavily contaminated with abrasive structural shavings.'" },
+            { id: "W4", label: "WHY 4", hint: "What cause produced the contamination recorded in Why 3?", example: "e.g. 'Because the main reservoir access cap safety gasket had degraded, fragmented, and shed particulate into the tank.'" },
+            { id: "W5", label: "WHY 5 (ROOT CAUSE)", hint: "Expose the underlying systemic, procedural, or management framework omission.", example: "e.g. 'Because the active preventive maintenance schedule does not include mandatory inspection or replacement intervals for tank access gaskets.'" }
         ]
     },
     FISHBONE: {
+        name: "Fishbone Diagram (Ishikawa Cause & Effect Matrix)",
         cat: "process",
         fields: [
-            { id: "PR", label: "PROBLEM (HEAD)", hint: "The defect being analyzed.", example: "e.g. 'High reject rate on Injection Molding Line #2.'" },
-            { id: "M1", label: "MAN (People)", hint: "Training, fatigue.", example: "e.g. 'New operators not trained on temperature profile setup. Shift fatigue.'" },
-            { id: "M2", label: "MACHINE (Equipment)", hint: "Maintenance, calibration.", example: "e.g. 'Nozzle heater band fluctuating. Mold clamp pressure inconsistent.'" },
-            { id: "M3", label: "METHOD (Process)", hint: "SOPs, workflow.", example: "e.g. 'Cooling cycle time set too short to meet quota. SOP allows too much variance.'" },
-            { id: "M4", label: "MATERIAL (Inputs)", hint: "Quality, variability.", example: "e.g. 'Batch 405 polymer has higher moisture content than spec.'" },
-            { id: "M5", label: "ENVIRONMENT", hint: "Conditions.", example: "e.g. 'High humidity in factory floor is affecting polymer drying.'" }
+            { id: "PR", label: "PROCESS DEFECT (HEAD)", hint: "The structural non-conformance or mechanical failure under analysis.", example: "e.g. 'High reject rates and component deformation on high-pressure injection molding Line 2.'" },
+            { id: "M1", label: "MANPOWER (Personnel Roles)", hint: "Training metrics, personnel fatigue variables, shift change procedures.", example: "e.g. 'Newly onboarded operators lacking certified training on thermal profile configuration loops. Shift changeover fatigue.'" },
+            { id: "M2", label: "MACHINERY (Equipment Conditions)", hint: "Asset maintenance logs, component wear factors, instrumentation calibration tolerances.", example: "e.g. 'Primary nozzle heater band output fluctuating wildly. Clamp pressure metrics indicating severe cylinder seal leakage.'" },
+            { id: "M3", label: "METHODOLOGY (Process Workflow)", hint: "Standard operating procedures, quality assurance guidelines, cycle time targets.", example: "e.g. 'Cooling cycle duration compressed too short to satisfy unrealistic production quotas. SOP allows too much manual variance.'" },
+            { id: "M4", label: "MATERIALS (System Inputs)", hint: "Raw material consistency, specification tracking, supplier variation variables.", example: "e.g. 'Recent batch of raw polymer granules exhibits significantly higher moisture absorption parameters than the engineering spec allows.'" },
+            { id: "M5", label: "ENVIRONMENT (Site Conditions)", hint: "Ambient temperature, local relative humidity metrics, physical workspace constraints.", example: "e.g. 'High ambient humidity levels on the factory floor are exceeding the drying capacity of the existing hopper layout.'" }
         ]
     },
     PARETO: {
+        name: "Pareto Analysis (80/20 Prioritization Loop)",
         cat: "process",
         fields: [
-            { id: "D", label: "DATA COLLECTION", hint: "List defects/costs and frequency.", example: "e.g. 'Defects: Scratch (50), Dent (10), Paint (5), Dimension (2). Total: 67.'" },
-            { id: "A", label: "ANALYSIS (80/20)", hint: "Which few causes produce most effects?", example: "e.g. 'Scratches alone account for 75% of total defects. Dents are 15%.'" },
-            { id: "ACT", label: "ACTION", hint: "Where to focus?", example: "e.g. 'Focus entirely on handling procedures to prevent scratches. Ignore dimensional issues for now.'" }
+            { id: "D", label: "DATA COLLECTION LEDGER", hint: "Categorise and record individual non-conformances, component defects, or loss costs along with their frequency over a tracking window.", example: "e.g. 'Defect Tracking Log: Surface Scratch (50 occurrences), Body Dent (10), Paint Run (5), Dimensional Warp (2). Total Outages = 67.'" },
+            { id: "A", label: "ANALYSIS (80/20 Breakdown)", hint: "Determine which vital few defect categories generate the vast majority of your operational quality losses.", example: "e.g. 'Surface scratches alone represent 74.6% of total quality rejects. Scratches combined with body dents account for 89.5% of total site rework costs.'" },
+            { id: "ACT", label: "TARGETED CORRECTIVE ACTION", hint: "Isolate exactly where to focus capital resources and team engineering hours to maximize process recovery.", example: "e.g. 'Direct 100% of current quality hours to overhauling component handling procedures and protective transit packaging. Ignore minor dimensional warps for now.'" }
         ]
     },
     KANBAN: {
+        name: "Kanban Board (WIP Workflow Control)",
         cat: "process",
         fields: [
-            { id: "TD", label: "TO DO (Backlog)", hint: "Pending items, prioritized.", example: "e.g. 'Draft Spec for Pump A, Vendor Selection for Motor B, CAD Layout for Skid.'" },
-            { id: "IP", label: "IN PROGRESS (WIP)", hint: "Active items (Limit number).", example: "e.g. 'FEA Simulation (WIP), Hydraulic Calcs (WIP - Blocked by material data).'" },
-            { id: "DN", label: "DONE", hint: "Completed items.", example: "e.g. 'Concept Review Meeting, Budget Approval Form.'" }
+            { id: "TD", label: "TO DO (Backlog Queue)", hint: "Pending engineering tasks, strictly prioritized by strategic value and dependency tracking.", example: "e.g. 'Draft structural specification for Pump Skid A, execute vendor technical selection matrix for Motor B, complete initial CAD routing.'" },
+            { id: "IP", label: "IN PROGRESS (Active WIP Constraints)", hint: "Tasks currently undergoing active execution. Enforce a strict work-in-progress limit to optimize line throughput.", example: "e.g. 'Finite Element Stress Simulation (WIP), Hydraulic Validation Calculations (WIP - Blocked by lack of verified supplier material data sheets).'" },
+            { id: "DN", label: "DONE (Verified Baseline)", hint: "Tasks that have successfully cleared all quality controls, checking scripts, and principal engineer sign-offs.", example: "e.g. 'Multi-disciplinary Concept Review Meeting Minutes signed, Phase 2 Capital Expenditure Authorization Form completed and locked.'" }
         ]
     },
     POKAYOKE: {
+        name: "Poka-Yoke (Mistake Proofing Architecture)",
         cat: "process",
         fields: [
-            { id: "ERR", label: "POTENTIAL ERROR", hint: "What mistake is likely?", example: "e.g. 'Operator connects the positive cable to the negative terminal.'" },
-            { id: "MECH", label: "MECHANISM", hint: "Physical stop/guide.", example: "e.g. 'Design the connectors with different shapes (Keyed) so they physically cannot fit incorrectly.'" },
-            { id: "RES", label: "RESULT", hint: "Outcome.", example: "e.g. 'Zero polarity faults in assembly. Reduced rework time.'" }
+            { id: "ERR", label: "POTENTIAL REPEATABLE ERROR", hint: "What human operational error, assembly mistake, or data omission is highly probable?", example: "e.g. 'Field operators connecting the primary high-voltage direct current input cables to the negative terminals in low-visibility site conditions.'" },
+            { id: "MECH", label: "PROOFING MECHANICAL METHOD", hint: "What physical configuration, geometric block, or automated control script can prevent the error?", example: "e.g. 'Redesign the component terminal sockets with asymmetric geometric slots (Keyed plugs) so they physically cannot interface incorrectly.'" },
+            { id: "RES", label: "SYSTEMIC RISK REDUCTION", hint: "What is the direct outcome regarding process safety margins and rework costs?", example: "e.g. 'Zero polarity failure risks during field assembly. Complete elimination of downstream fuse blowouts and circuit component rework liabilities.'" }
         ]
     },
     SIPOC: {
+        name: "SIPOC (Process Boundary Definition)",
         cat: "process",
         fields: [
-            { id: "S", label: "SUPPLIERS", hint: "Who provides inputs?", example: "e.g. 'Steel Vendor, Structural Design Team, Client.'" },
-            { id: "I", label: "INPUTS", hint: "Materials/data needed.", example: "e.g. 'Raw Steel Beams, Approved CAD Drawings, Welding Consumables.'" },
-            { id: "P", label: "PROCESS", hint: "High-level steps (5-7).", example: "e.g. 'Cut -> Fit Up -> Weld -> NDT Inspect -> Paint -> Dispatch.'" },
-            { id: "O", label: "OUTPUTS", hint: "What is produced?", example: "e.g. 'Fabricated Steel Column, QA Inspection Report, Delivery Note.'" },
-            { id: "C", label: "CUSTOMERS", hint: "Who receives outputs?", example: "e.g. 'Site Installation Team, Quality Manager, Client Representative.'" }
+            { id: "S", label: "SUPPLIERS", hint: "Who provides the critical data layers, materials, or permissions needed to initialize the process?", example: "e.g. 'Certified Steel Stockholders, Internal Structural Systems Analysts, Client Lead Systems Architect.'" },
+            { id: "I", label: "INPUTS", hint: "What exact physical raw materials, design specifications, or digital records are required?", example: "e.g. 'Raw Structural Steel Sections, Approved CAD Assembly Files, Low-Hydrogen Welding Consumables, Quality Control Manifests.'" },
+            { id: "P", label: "PROCESS CORE STEPS", hint: "Map the 5 to 7 high-level operational actions that transform the inputs into final deliverables.", example: "e.g. '1. Component Laser Cutting -> 2. Geometric Fit-Up -> 3. Automated Weld Cycle -> 4. NDT Ultrasonic Inspection -> 5. Protective Coating Application -> 6. Logistics Dispatch.'" },
+            { id: "O", label: "OUTPUTS", hint: "What physical structures, quality records, or verified datasets are produced by the process?", example: "e.g. 'Fabricated Heavy Structural Column Assembly, Non-Destructive Testing Quality Sign-Off Certificate, Shipping Manifest.'" },
+            { id: "C", label: "CUSTOMERS", hint: "Who is the direct downstream recipient or internal stakeholder utilizing the output block?", example: "e.g. 'Site Structural Erection Crew, Corporate Principal Quality Auditor, Client Operations Representative.'" }
         ]
     },
 
@@ -207,64 +233,71 @@ const frameworks = {
     // 3. DECISION MAKING (For Risk & Options)
     // =========================================================================
     MONTE: {
+        name: "Monte Carlo Simulation (Probabilistic Risk Modeler)",
         cat: "decision",
         fields: [
-            { id: "VAR", label: "VARIABLES", hint: "Uncertain inputs.", example: "e.g. 'Steel Price (£/ton), Installation Time (days), Weather delay risk (days).'" },
-            { id: "DIS", label: "DISTRIBUTIONS", hint: "Range (Min/Max/Likely).", example: "e.g. 'Steel: £500-£700 (Normal). Time: 10-20 days (Triangular).'" },
-            { id: "OUT", label: "DESIRED OUTPUT", hint: "What to forecast?", example: "e.g. 'The probability of the total project cost exceeding £1M.'" }
+            { id: "VAR", label: "STOCHASTIC SYSTEM VARIABLES", hint: "List the uncertain project elements, raw material cost ranges, or timeline durations exhibiting high variability.", example: "e.g. 'Fluctuating Steel Material Surcharge (£/tonne), Field Installation Duration (days), Adverse Weather Event Windows (days).'" },
+            { id: "DIS", label: "PROBABILITY DISTRIBUTIONS", hint: "Assign statistical boundaries (Minimum, Maximum, Most Likely) and distribution curves (Normal, Triangular, Uniform) to each variable.", example: "e.g. 'Steel Cost: £550 to £750/tonne (Normal Distribution curve). Installation Phase: 12 to 24 days (Triangular skew: 14 days likely).'" },
+            { id: "OUT", label: "SIMULATION ACCURACY FORECAST", hint: "Define the specific target probability threshold or confidence interval required for capital investment authorization.", example: "e.g. 'Calculate the precise mathematical probability of total infrastructure project execution exceeding a strict £1.2M capital threshold.'" }
         ]
     },
     DECTREE: {
+        name: "Decision Tree Analysis (Logic Vector Modeling)",
         cat: "decision",
         fields: [
-            { id: "DEC", label: "DECISION POINT", hint: "The choice.", example: "e.g. 'Repair vs Replace the old centrifugal pump.'" },
-            { id: "OPA", label: "OPTION A (Repair)", hint: "Costs and Probabilities.", example: "e.g. 'Cost £5k. 60% chance it fails again in 1 year (Costing another £5k).'" },
-            { id: "OPB", label: "OPTION B (Replace)", hint: "Costs and Probabilities.", example: "e.g. 'Cost £20k. 99% reliability for 10 years. Zero maintenance cost for Year 1.'" },
-            { id: "CON", label: "CONCLUSION", hint: "Expected Value (EV).", example: "e.g. 'EV of Repair is poor due to downtime risk. Strategic decision: Replace.'" }
+            { id: "DEC", label: "CRITICAL DECISION NODE", hint: "State the primary technical choice or strategic option currently requiring engineering resolution.", example: "e.g. 'Determine whether to execute an extensive overhaul on legacy Centrifugal Pump Array 4 or purchase a complete replacement system.'" },
+            { id: "OPA", label: "LOGIC BRANCH A (System Overhaul)", hint: "Detail the initial capital outlays, probability metrics for downstream failure modes, and subsequent penalty costs.", example: "e.g. 'Immediate Overhaul Cost: £15k. 40% probability of secondary seal failure within 18 months, generating £25k in downstream production losses.'" },
+            { id: "OPB", label: "LOGIC BRANCH B (Full Replacement)", hint: "Detail the high capital outlays, expected energy efficiency gains, and high reliability thresholds.", example: "e.g. 'Immediate Purchase Cost: £45k. 99.8% confirmed reliability rating over a 5-year operating window. Zero maintenance overhead liabilities for Year 1.'" },
+            { id: "CON", label: "EXPECTED VALUE CONCLUSION", hint: "Compute the statistical Expected Value (EV) to determine the path of maximum financial and operational resilience.", example: "e.g. 'The EV of Branch A reveals severe long-term downtime risk liabilities. Strategic engineering justification dictates selecting Branch B to secure long-term asset continuity.'" }
         ]
     },
     CBA: {
+        name: "Cost-Benefit Analysis (Commercial Viability Ledger)",
         cat: "decision",
         fields: [
-            { id: "COST", label: "COSTS (Direct & Indirect)", hint: "CAPEX and OPEX.", example: "e.g. 'New Software License: £50k. Staff Training: £10k. Server Upgrades: £5k. TOTAL: £65k.'" },
-            { id: "BEN", label: "BENEFITS (Tangible & Intangible)", hint: "Savings/Revenue.", example: "e.g. 'Saves 500 engineer hours/year @ £50/hr = £25k/year saving. Reduces data error risk.'" },
-            { id: "ROI", label: "ROI / PAYBACK", hint: "Compare Costs vs Benefits.", example: "e.g. 'Year 1 Saving: £25k. Payback Period = £65k / £25k = 2.6 Years. 5-Year ROI is positive.'" }
+            { id: "COST", label: "TOTAL EXPENDITURE OVERHEADS (CapEx & OpEx)", hint: "Quantify all direct capital costs, software procurement fees, employee training loops, and ongoing operational maintenance liabilities.", example: "e.g. 'Advanced Control Software License: £60k. Staff Transition Modules: £12k. Server Infrastructure Upgrades: £8k. Total Immediate Investment = £80k.'" },
+            { id: "BEN", label: "QUANTIFIABLE SYSTEM BENEFITS", hint: "Identify and calculate all direct engineering hour reductions, process waste elimination gains, and safety risk mitigations.", example: "e.g. 'Saves an audited 650 design engineering hours annually @ £60/hr = £39k/year commercial savings. Completely removes manual input data entry errors.'" },
+            { id: "ROI", label: "FINANCIAL EXPRUPT METRICS & PAYBACK", hint: "Compare overall expenditures against project benefits to establish the formal Return on Investment timeline.", example: "e.g. 'Year 1 Savings: £39k. System Payback Horizon achieved at exactly 2.05 Years. Estimated 5-Year net commercial yield remains deeply positive.'" }
         ]
     },
     RISKMAT: {
+        name: "Risk Assessment Matrix (Impact vs Probability)",
         cat: "decision",
         fields: [
-            { id: "HAZ", label: "HAZARD IDENTIFICATION", hint: "What could go wrong?", example: "e.g. 'Scaffolding collapse during high winds on site.'" },
-            { id: "INIT", label: "INITIAL RISK (Probability x Impact)", hint: "Score before controls.", example: "e.g. 'Probability (3 - Possible) x Impact (5 - Catastrophic) = Risk Score 15 (High).'" },
-            { id: "MIT", label: "MITIGATION / CONTROLS", hint: "How to reduce risk?", example: "e.g. 'Stop work if wind > 20mph. Daily scaffold tag inspections. Netting removal.'" },
-            { id: "RES", label: "RESIDUAL RISK", hint: "Score after controls.", example: "e.g. 'Probability (1 - Rare) x Impact (5 - Catastrophic) = Risk Score 5 (Medium/ALARP).'" }
+            { id: "HAZ", label: "HAZARD SPECIFICATION", hint: "Identify the technical breakdown mode, onsite safety liability, or structural hazard.", example: "e.g. 'Heavy lifting crane outrigger collapse during high-velocity wind gusts during sector assembly operations on site.'" },
+            { id: "INIT", label: "UNMITIGATED RISK SCORE", hint: "Evaluate baseline risk prior to control implementation using standard metrics: Probability (1-5) x Impact (1-5).", example: "e.g. 'Probability (3 - Likely/Possible) x Impact (5 - Critical/Catastrophic) = Initial Risk Factor 15 (Severe Hazard Boundary).'" },
+            { id: "MIT", label: "ENGINEERING CONTROLS & MITIGATION", hint: "Hardcode specific safety procedures, physical constraints, automated interlocks, or monitoring regimes.", example: "e.g. 'Enforce immediate stop-work parameters if site wind velocities exceed 22 knots. Implement daily ultrasonic outrigger pad alignment logs.'" },
+            { id: "RES", label: "RESIDUAL RISK MATRIX MARGINS", hint: "Re-evaluate the risk level after verifying control performance to guarantee alignment with ALARP principles.", example: "e.g. 'Probability (1 - Highly Improbable/Rare) x Impact (5 - Critical/Catastrophic) = Residual Risk Factor 5 (Medium Asset Margin - Safe to Proceed).'" }
         ]
     },
     FORCEFIELD: {
+        name: "Force Field Analysis (Change Management Strategy)",
         cat: "decision",
         fields: [
-            { id: "CHANGE", label: "PROPOSED CHANGE", hint: "Goal or decision.", example: "e.g. 'Move to 100% remote working for the design team.'" },
-            { id: "FOR", label: "DRIVING FORCES (For)", hint: "Pushing change.", example: "e.g. 'Reduced office rent (£50k/yr), happier staff, access to wider talent pool.'" },
-            { id: "AG", label: "RESTRAINING FORCES (Against)", hint: "Resisting change.", example: "e.g. 'Collaboration difficulties, IT security risks, management fear of lost productivity.'" },
-            { id: "STRAT", label: "STRATEGY", hint: "How to tip the balance?", example: "e.g. 'Invest in better collaboration tools (Slack/Teams) to mitigate the resistance.'" }
+            { id: "CHANGE", label: "PROPOSED ENGINEERING CONIGURATION", hint: "State the target workflow modification, tooling transition, or structural platform update.", example: "e.g. 'Transition 100% of internal piping stress calculation reviews from manual templates to a cloud-based automated check script.'" },
+            { id: "FOR", label: "DRIVING ENFORCEMENT FORCES (+)", hint: "List the operational advantages, cost-saving vectors, compliance mandates, and efficiency gains pushing the change forward.", example: "e.g. 'Reduces engineering validation loops by 70%, standardises document control archives, eliminates single-point verification bottlenecks.'" },
+            { id: "AG", label: "RESTRAINING RESISTANCE FORCES (-)", hint: "List the cultural blockages, legacy habits, training gaps, and software transition risks pushing against execution.", example: "e.g. 'Senior staff resistance to trusting automated script outputs, immediate project timeline disruption during onboarding, integration lag with old CAD files.'" },
+            { id: "STRAT", label: "EQUILIBRIUM BALANCING STRATEGY", hint: "Formulate precise leadership interventions to safely reinforce driving forces while neutralizing restraining elements.", example: "e.g. 'Deploy a parallel verification period where legacy methods validate the code output for 30 days. Establish 1-on-1 peer optimization mentorship tracks.'" }
         ]
     },
     OODA: {
+        name: "OODA Loop (Tactical Incident Response Cycle)",
         cat: "decision",
         fields: [
-            { id: "OBS", label: "OBSERVE", hint: "Gather raw data.", example: "e.g. 'Server latency has suddenly spiked by 300%. Customer complaints are flooding in.'" },
-            { id: "ORI", label: "ORIENT", hint: "Contextualize data.", example: "e.g. 'This coincides exactly with the new patch release 10 mins ago. It looks like a memory leak.'" },
-            { id: "DEC", label: "DECIDE", hint: "Choose action.", example: "e.g. 'We cannot debug live. The decision is to Rollback the patch immediately to restore service.'" },
-            { id: "ACT", label: "ACT", hint: "Execute.", example: "e.g. 'Executed rollback script. Observing server metrics to confirm latency returns to normal.'" }
+            { id: "OBS", label: "OBSERVE SYSTEM DATA", hint: "Monitor and capture raw operational diagnostics, telemetry drops, sensor spikes, or field anomaly manifests.", example: "e.g. 'Primary cooling loop telemetry monitors suddenly signal a massive 4.2 bar pressure drop. Field alerts verify fluid leakage flags.'" },
+            { id: "ORI", label: "ORIENT INFRASTRUCTURE CONTEXT", hint: "Filter raw data through engineering principles, system schematics, local asset layouts, and operational physics.", example: "e.g. 'Pressure drop matches lines downstream of Valve Matrix 2. Correlating this layout with recent maintenance logs indicates a potential primary seal failure.'" },
+            { id: "DEC", label: "DECIDE CORRECTIVE ROUTE", hint: "Formulate options rapidly and select the optimal mitigation action to protect process margins and preserve life safety.", example: "e.g. 'We cannot risk cavitation loops inside the main pumps. Decision: Isolate the Sector 3 line and reroute flow via Bypass Loop B instantly.'" },
+            { id: "ACT", label: "ACT ON COMMAND SCRIPTS", hint: "Execute the selected command sequence, engage physical interlocks, run manual isolation, and audit the feedback loops.", example: "e.g. 'Fired automated close commands to pneumatic valve nodes V-203. Diverted pump outputs across Bypass B. Monitoring sensor logs to verify backpressure stabilization.'" }
         ]
     },
     WRAP: {
+        name: "WRAP Technique (Advanced Decision Process Architecture)",
         cat: "decision",
         fields: [
-            { id: "W", label: "WIDEN OPTIONS", hint: "What else is possible?", example: "e.g. 'Instead of just Hire vs Dont Hire, consider Outsourcing, Interns, or Automation.'" },
-            { id: "R", label: "REALITY TEST", hint: "Test assumptions.", example: "e.g. 'Ask the freelancer to do a paid trial task before signing the full contract.'" },
-            { id: "A", label: "ATTAIN DISTANCE", hint: "Emotion check.", example: "e.g. 'If I was fired today, the new manager would likely cancel this project immediately.'" },
-            { id: "P", label: "PREPARE TO BE WRONG", hint: "Set tripwire.", example: "e.g. 'If the freelancer misses the first deadline by >2 days, we terminate the contract immediately.'" }
+            { id: "W", label: "WIDEN EXPLICIT OPTIONS", hint: "Avoid binary choice frameworks ('X or Y'). Force the group to consider multiple alternative configuration paths.", example: "e.g. 'Instead of just Outsource Software vs Develop Internally, evaluate: 1. Purchase open-access baseline scripts. 2. Jointly fund custom code with an infrastructure partner.'" },
+            { id: "R", label: "REALITY-TEST ASSUMPTIONS", hint: "Design a limited, low-risk simulation, prototype track, or field test to verify theoretical performance claims.", example: "e.g. 'Run a limited 14-day field evaluation loop using a single beta license on a non-critical infrastructure node to audit real-world processing latency.'" },
+            { id: "A", label: "ATTAIN COGNITIVE DISTANCE", hint: "Remove short-term emotional bias, corporate deadline panic, and career self-preservation fears from the logic loop.", example: "e.g. 'Evaluate the option strictly through a 10-year asset lifecycle perspective: if we were onboarded as external consulting engineers today, we would immediately cancel this legacy code track.'" },
+            { id: "P", label: "PREPARE TO BE WRONG (Tripwires)", hint: "Hardcode explicit, quantitative operational metrics and deadline boundaries that instantly trigger termination or recovery procedures if missed.", example: "e.g. 'Set a firm performance tripwire: if software integration logic overruns our scheduled critical path by >7 days, terminate the contract immediately and revert to the baseline configuration.'" }
         ]
     },
 
@@ -272,15 +305,17 @@ const frameworks = {
     // 4. FEEDBACK & COACHING (For Leadership & People)
     // =========================================================================
     GROW: {
+        name: "GROW Model (Personnel Performance Development)",
         cat: "feedback",
         fields: [
-            { id: "G", label: "GOAL", hint: "What do they want to achieve?", example: "e.g. 'I want to lead the Hydraulic Pump package design for the next project phase.'" },
-            { id: "R", label: "REALITY", hint: "Current skill/situation.", example: "e.g. 'You handle component-level designs well, but you have not managed a supplier interface or a budget before.'" },
-            { id: "O", label: "OPTIONS", hint: "How to bridge gap?", example: "e.g. 'Could you shadow the Senior Engineer on the upcoming tender? Or take a short course on NEC3 contracts?'" },
-            { id: "W", label: "WILL / WAY FORWARD", hint: "Actions/Timeline.", example: "e.g. 'I will schedule a weekly 30-min catch-up with the Project Manager starting this Monday to review the specs.'" }
+            { id: "G", label: "GOAL SPECIFICATION", hint: "What explicit technical milestone, standard tracking capability, or professional credential does the coachee intend to reach?", example: "e.g. 'Achieve independent design validation authority on high-integrity piping stress analysis scripts within a 6-month window.'" },
+            { id: "R", label: "REALITY VERIFICATION", hint: "What is the coachee's current baseline skill tier, audited error rate, and operational performance constraint?", example: "e.g. 'You execute basic structural checks accurately, but you currently require principal supervision on calculations involving dynamic fatigue loads under Eurocode 3.'" },
+            { id: "O", label: "OPTIONS CONFIGURATION", hint: "What distinct capability progression paths, mentoring loops, or technical training blocks can close the professional gap safely?", example: "e.g. '1. Shadow the Principal Analyst during weekly complex code review sweeps. 2. Complete the institution-certified advanced finite element analysis masterclass.'" },
+            { id: "W", label: "WAY FORWARD & WILL ACTIONS", hint: "Hardcode the explicit task milestones, regular review intervals, and tracking metrics the coachee commits to execute.", example: "e.g. 'Commit to complete the FEA masterclass modules by Week 8. Initialise a weekly 30-minute progress audit every Thursday to review your dynamic load calculation drafts.'" }
         ]
     },
     SBI: {
+        name: "SBI (Situation-Behaviour-Impact Feedback)",
         cat: "feedback",
         fields: [
             { id: "S", label: "SITUATION", hint: "When/where?", example: "e.g. 'During the client design review meeting yesterday afternoon...'" },
@@ -289,6 +324,7 @@ const frameworks = {
         ]
     },
     SBIBI: {
+        name: "SBIBI (SBI + Desired Behavior)",
         cat: "feedback",
         fields: [
             { id: "S", label: "SITUATION", hint: "Context.", example: "e.g. 'During the client design review meeting yesterday afternoon...'" },
@@ -299,6 +335,7 @@ const frameworks = {
         ]
     },
     SBII: {
+        name: "SBII (SBI + Intent Clarification)",
         cat: "feedback",
         fields: [
             { id: "S", label: "SITUATION", hint: "Context.", example: "e.g. 'During the code review this morning.'" },
@@ -308,6 +345,7 @@ const frameworks = {
         ]
     },
     CEDAR: {
+        name: "CEDAR (Collaborative Performance Review)",
         cat: "feedback",
         fields: [
             { id: "C", label: "CONTEXT", hint: "Why is this important?", example: "e.g. 'We need to discuss the site safety audit schedule. Compliance is our license to operate.'" },
@@ -318,6 +356,7 @@ const frameworks = {
         ]
     },
     PENDLETON: {
+        name: "Pendleton's Rules (Balanced Dialogue)",
         cat: "feedback",
         fields: [
             { id: "P1", label: "WHAT WENT WELL? (Ask Receiver)", hint: "Positives.", example: "e.g. 'The logic behind your FEA analysis was robust and the mesh quality was excellent.'" },
@@ -326,6 +365,7 @@ const frameworks = {
         ]
     },
     COIN: {
+        name: "COIN Model (Context-Observation-Impact-Next)",
         cat: "feedback",
         fields: [
             { id: "C", label: "CONTEXT", hint: "Circumstance.", example: "e.g. 'When we are close to a deadline like yesterday...'" },
@@ -335,12 +375,36 @@ const frameworks = {
         ]
     },
     OKRS: {
+        name: "OKRs (Objectives & Key Results)",
         cat: "feedback",
         fields: [
             { id: "OBJ", label: "OBJECTIVE", hint: "Ambitious goal.", example: "e.g. 'Become the safest and most reliable manufacturing site in the region.'" },
             { id: "KR1", label: "KEY RESULT 1", hint: "Measurable outcome.", example: "e.g. 'Reduce Lost Time Injury Frequency Rate (LTIFR) from 1.5 to 0.0 by Q4.'" },
             { id: "KR2", label: "KEY RESULT 2", hint: "Measurable outcome.", example: "e.g. 'Achieve 100% staff training completion on the new Machinery Safety Standard.'" },
             { id: "KR3", label: "KEY RESULT 3", hint: "Measurable outcome.", example: "e.g. 'Conduct 50 leadership safety walks per month.'" }
+        ]
+    },
+
+    // =========================================================================
+    // 5. GOAL SETTING CORE INJECTIONS (For Calibration & Scoping)
+    // =========================================================================
+    BACKWARD: {
+        name: "Backward Goal Framework (Reverse Milestone Induction)",
+        cat: "goals",
+        fields: [
+            { id: "DEST", label: "Ultimate Long-Term Destination", hint: "Define the final high-integrity engineering state or technical capability goal (e.g., 3-5 years out).", example: "e.g. Establish a fully carbon-neutral manufacturing line layout across Sector 4, compliant with ISO 14001 guidelines." },
+            { id: "INT", label: "Intermediate Phase Milestones", hint: "What major steps or asset changes must happen right before reaching the final goal? (e.g., 1-2 years out).", example: "e.g. Complete multi-site integration tests for electric heat pump blocks and finish secondary validation loops." },
+            { id: "FOUND", label: "Foundational Phase Triggers", hint: "What core capabilities, equipment installations, or team certifications are needed to start? (e.g., 6 months out).", example: "e.g. Procure high-spec telemetry sensors and ensure 100% of staff pass advanced safety calibration modules." },
+            { id: "IMM", label: "Immediate Operational Actions", hint: "What specific engineering tasks or calculation checks must be executed within the next 14-30 days?", example: "e.g. Audit legacy flow calculation templates and wireframe a draft schematic for the updated bypass valve loop." }
+        ]
+    },
+    GOLDENCIRCLE: {
+        name: "The Golden Circle (Why, How, What Purpose Alignment)",
+        cat: "goals",
+        fields: [
+            { id: "WHY", label: "The Why (Core Purpose)", hint: "What is the baseline purpose, safety mission, or commercial necessity driving this project cell?", example: "e.g. Protect national grid assets from unexpected thermal surges, ensuring zero down-time for regional utilities." },
+            { id: "HOW", label: "The How (Process & Principles)", hint: "What unique engineering workflows, testing routines, or quality standards ensure safe delivery?", example: "e.g. Deploying automated thermal monitoring scripts and checking all code against strict ISO 9001 frameworks." },
+            { id: "WHAT", label: "The What (Outputs & Deliverables)", hint: "What physical assets, data logs, structural drawings, or software modules are produced?", example: "e.g. A verified network layout schematic, automated stress-testing logs, and 12 calibrated telemetry nodes." }
         ]
     }
 };

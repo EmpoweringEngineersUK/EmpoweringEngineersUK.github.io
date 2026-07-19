@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build your UK-SPEC compliant Engineering Career Summary and Professional CV. Structure your responsibilities, achievements, and autonomy for CEng, IEng, and EngTech registration.">
+    <meta name="keywords" content="Career Summary, CV Builder, Curriculum Vitae, Chartered Engineer, CEng, IEng, EngTech, Engineering Council, UK-SPEC, Professional Review, Interview">
+    <meta property="og:title" content="Career Summary & CV Builder | Empowering Engineers UK">
+    <meta property="og:description" content="Generate a 600-word UK-SPEC career summary or preview a full professional engineering CV in multiple high-impact layouts.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/career.html">
+    <meta property="og:type" content="website">
+    
+    <title>Career Summary & CV Builder | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- References Version 21.7 to strictly bind with the active master cache baseline -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & STANDARDISED TAB ENGINE --- */
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Strict Levelling Badges matching the master framework template */
+        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
+        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
+        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
+        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
+        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        /* Workspace Panels */
+        .form-section { display: none; animation: fadeIn 0.3s ease; }
+        .form-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        .word-count {
+            font-size: 0.75rem;
+            color: var(--slate-grey);
+            text-align: right;
+            margin-top: 4px;
+        }
+
+        .theme-panel {
+            background: rgba(0, 0, 0, 0.02);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .header-actions { 
+            display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; 
+            justify-content: space-between; align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Engineering Career Summary & Professional CV Architect</h1>
+            <p>The foundation of any successful application for professional engineering registration—whether targeting Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status—is a meticulously structured chronological career summary. The Engineering Council and associated licensed professional institutions (such as the IMechE, IET, and ICE) mandate that candidates submit a highly concentrated, verified report detailing their past engineering experience. This summary is not merely an amorphous list of historical job titles; it is a strategic reference document engineered specifically to highlight your expanding level of management authority, technical autonomy, and measurable commercial impact over time.</p>
+            
+            <h2>Structuring the UK-SPEC Career Report</h2>
+            <p>Institutional guidelines typically restrict this baseline career overview to a tight parameter of a maximum of 600 words, focusing acutely on the past five years of professional practice or your three most recent technical roles. Within this strict structural constraint, engineers must distinctly and authoritatively articulate the specific parameters of their responsibilities and the direct, data-driven outcomes of their achievements. The institutional assessing panel utilises this foundational document to establish an initial benchmark of your professional maturity and tier alignment before diving into the granular sub-competency evidence blocks spanning Sections A through E.</p>
+            
+            <h2>From Registration Mapping to Commercial Positioning</h2>
+            <p>To maximise the operational utility of your technical data compilation, this architectural platform features a dual-purpose compilation and preview engine. While the primary function aggregates your structured inputs into the rigid, narrative text blocks required for your formal UK-SPEC Professional Review Interview (PRI) application forms, the secondary generation engine leverages this exact dataset to construct a full-scale professional Curriculum Vitae (CV). The system offers three distinct scannable layout topologies—Executive Classic, Modern Sidebar, and Dense Academic—allowing you to instantly preview, optimise, and deploy your updated professional history to external hiring managers and review boards. Our integrated visual settings engine also allows you to customise typography parameters, text scaling, and brand accent colours to cleanly align with your personal identity.</p>
+            <p>Acknowledging the absolute confidentiality of engineering career records, internal safety data audits, and sensitive project histories, this system is fortified by a zero-knowledge local storage architecture. Your personal identifiable information (PII) and corporate project backgrounds are never transmitted to external processing servers. All typed characters are secured natively within your local machine's browser cache, ensuring total data sovereignty and strict compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="ceng.html" id="link_hub" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">Hub Overview</span>
+            </a>
+            <a href="career.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cv"></div>
+                <span class="tab-label">CV Builder</span>
+            </a>
+            <a href="ceng-a.html" id="link_comp_a" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_a"></div>
+                <span class="tab-label">Comp A</span>
+            </a>
+            <a href="ceng-b.html" id="link_comp_b" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_b"></div>
+                <span class="tab-label">Comp B</span>
+            </a>
+            <a href="ceng-c.html" id="link_comp_c" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_c"></div>
+                <span class="tab-label">Comp C</span>
+            </a>
+            <a href="ceng-d.html" id="link_comp_d" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_d"></div>
+                <span class="tab-label">Comp D</span>
+            </a>
+            <a href="ceng-e.html" id="link_comp_e" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_e"></div>
+                <span class="tab-label">Comp E</span>
+            </a>
+            <a href="dap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dap"></div>
+                <span class="tab-label">DAP</span>
+            </a>
+            <a href="sponsors.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sponsors"></div>
+                <span class="tab-label">Sponsors</span>
+            </a>
+        </nav>
+
+        <!-- Global Tool Header Actions -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; margin: 0; color: var(--cloud-white); text-transform: uppercase;">CV Architect</h1>
+                <div id="saveStatus" style="font-size: 0.85rem; color: var(--terminal-green); font-weight: bold; margin-top: 5px;">System Ready</div>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="importCVData()">📥 Import Data</button>
+                <button type="button" class="action-btn" onclick="exportCVData()">💾 Export JSON</button>
+                <input type="file" id="cvDataImport" style="display: none;" accept=".json" onchange="handleImportCVData(event)">
+            </div>
+        </div>
+
+        <!-- Unified Horizontal Navigation for Build Phases -->
+        <nav id="internal-tool-nav" class="ee-horizontal-nav" aria-label="Build Phases" style="border-bottom: 1px solid var(--border-color); margin-bottom: 20px;">
+            <button type="button" class="ee-horizontal-tab active" onclick="switchSection('sec-personal', this)">1. Personal Summary</button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-role1', this)">2. Current Role</button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-role2', this)">3. Previous Role</button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-role3', this)">4. Historical Role</button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-extra', this)">5. Extra Credentials</button>
+            <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-export', this)" style="color: var(--burnt-orange) !important;">▶ Theme & Preview</button>
+        </nav>
+
+        <!-- Main Editor Pane -->
+        <div class="ee-workbench-editor">
+            <form id="careerForm" onsubmit="return false;">
+                <!-- SECTION: PERSONAL -->
+                <div id="sec-personal" class="form-section active">
+                    <h2 class="ee-section-header">Personal Information</h2>
+                    <p class="ee-section-desc">Define your core contact details and professional summary.</p>
+                    
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">Full Name</label>
+                            <input type="text" class="ee-input" id="p_name" placeholder="e.g. Jane Doe" oninput="triggerAutoSave()">
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">Post-Nominals / Titles</label>
+                            <input type="text" class="ee-input" id="p_titles" placeholder="e.g. EUR ING, CEng FIMechE" oninput="triggerAutoSave()">
+                        </div>
+                    </div>
+                    
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">Location</label>
+                            <input type="text" class="ee-input" id="p_location" placeholder="e.g. Manchester, UK" oninput="triggerAutoSave()">
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">Phone Number</label>
+                            <input type="tel" class="ee-input" id="p_phone" placeholder="e.g. +44 7123 456789" oninput="triggerAutoSave()">
+                        </div>
+                    </div>
+
+                    <div class="ee-form-row">
+                        <div class="ee-form-group">
+                            <label class="ee-label">Email Address</label>
+                            <input type="email" class="ee-input" id="p_email" placeholder="e.g. jane.doe@engineering.com" oninput="triggerAutoSave()">
+                        </div>
+                        <div class="ee-form-group">
+                            <label class="ee-label">LinkedIn URL</label>
+                            <input type="text" class="ee-input" id="p_linkedin" placeholder="e.g. linkedin.com/in/janedoe" oninput="triggerAutoSave()">
+                        </div>
+                    </div>
+
+                    <div class="ee-form-group">
+                        <label class="ee-label">Professional Summary (CV Only)</label>
+                        <textarea class="ee-textarea" id="p_summary" placeholder="Strategic Engineering Leader with over 15 years experience..." oninput="triggerAutoSave()"></textarea>
+                    </div>
+                    
+                    <div class="ee-form-group">
+                        <label class="ee-label">Core Competencies (CV Only - Comma Separated)</label>
+                        <textarea class="ee-textarea" id="p_competencies" placeholder="Engineering Analysis, Project Management, Fluid Dynamics..." oninput="triggerAutoSave()" style="min-height: 60px;"></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION: ROLE 1 -->
+                <div id="sec-role1" class="form-section">
+                    <h2 class="ee-section-header">Current / Most Recent Role</h2>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Job Title</label><input type="text" class="ee-input" id="r1_title" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">Company Name</label><input type="text" class="ee-input" id="r1_company" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Start Date</label><input type="text" class="ee-input" id="r1_start" placeholder="MMM YYYY" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">End Date</label><input type="text" class="ee-input" id="r1_end" placeholder="Present or MMM YYYY" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">Responsibilities</label>
+                        <textarea class="ee-textarea" id="r1_resp" oninput="triggerAutoSave(); updateWordCount('r1_resp', 'wc_r1_resp')"></textarea>
+                        <div class="word-count" id="wc_r1_resp">0 words</div>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">List of Achievements</label>
+                        <textarea class="ee-textarea" id="r1_achieve" oninput="triggerAutoSave(); updateWordCount('r1_achieve', 'wc_r1_ach')"></textarea>
+                        <div class="word-count" id="wc_r1_ach">0 words</div>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">Level of Authority & Autonomy</label>
+                        <textarea class="ee-textarea" id="r1_auth" oninput="triggerAutoSave(); updateWordCount('r1_auth', 'wc_r1_auth')"></textarea>
+                        <div class="word-count" id="wc_r1_auth">0 words</div>
+                    </div>
+                </div>
+
+                <!-- SECTION: ROLE 2 -->
+                <div id="sec-role2" class="form-section">
+                    <h2 class="ee-section-header">Previous Role</h2>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Job Title</label><input type="text" class="ee-input" id="r2_title" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">Company Name</label><input type="text" class="ee-input" id="r2_company" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Start Date</label><input type="text" class="ee-input" id="r2_start" placeholder="MMM YYYY" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">End Date</label><input type="text" class="ee-input" id="r2_end" placeholder="MMM YYYY" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-group"><label class="ee-label">Responsibilities</label><textarea class="ee-textarea" id="r2_resp" oninput="triggerAutoSave()"></textarea></div>
+                    <div class="ee-form-group"><label class="ee-label">List of Achievements</label><textarea class="ee-textarea" id="r2_achieve" oninput="triggerAutoSave()"></textarea></div>
+                    <div class="ee-form-group"><label class="ee-label">Level of Authority & Autonomy</label><textarea class="ee-textarea" id="r2_auth" oninput="triggerAutoSave()"></textarea></div>
+                </div>
+
+                <!-- SECTION: ROLE 3 -->
+                <div id="sec-role3" class="form-section">
+                    <h2 class="ee-section-header">Historical Role</h2>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Job Title</label><input type="text" class="ee-input" id="r3_title" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">Company Name</label><input type="text" class="ee-input" id="r3_company" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-row">
+                        <div class="ee-form-group"><label class="ee-label">Start Date</label><input type="text" class="ee-input" id="r3_start" placeholder="MMM YYYY" oninput="triggerAutoSave()"></div>
+                        <div class="ee-form-group"><label class="ee-label">End Date</label><input type="text" class="ee-input" id="r3_end" placeholder="MMM YYYY" oninput="triggerAutoSave()"></div>
+                    </div>
+                    <div class="ee-form-group"><label class="ee-label">Responsibilities</label><textarea class="ee-textarea" id="r3_resp" oninput="triggerAutoSave()"></textarea></div>
+                    <div class="ee-form-group"><label class="ee-label">List of Achievements</label><textarea class="ee-textarea" id="r3_achieve" oninput="triggerAutoSave()"></textarea></div>
+                    <div class="ee-form-group"><label class="ee-label">Level of Authority & Autonomy</label><textarea class="ee-textarea" id="r3_auth" oninput="triggerAutoSave()"></textarea></div>
+                </div>
+
+                <!-- SECTION: EXTRA -->
+                <div id="sec-extra" class="form-section">
+                    <h2 class="ee-section-header">Extra Credentials</h2>
+                    <p class="ee-section-desc">Use plain text or simple bullet points (dash '-') for these sections.</p>
+                    
+                    <div class="ee-form-group">
+                        <label class="ee-label">Additional Older Experience (Optional)</label>
+                        <textarea class="ee-textarea" id="e_older" placeholder="- Design Engineer at TechCorp (2012-2015)..." oninput="triggerAutoSave()"></textarea>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">Education & Qualifications</label>
+                        <textarea class="ee-textarea" id="e_edu" placeholder="- MSc Mechanical Engineering (Distinction), University of Engineering, 2012..." oninput="triggerAutoSave()"></textarea>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">Leadership & Volunteering</label>
+                        <textarea class="ee-textarea" id="e_lead" placeholder="- STEM Ambassador (2020-Present)..." oninput="triggerAutoSave()"></textarea>
+                    </div>
+                    <div class="ee-form-group">
+                        <label class="ee-label">Awards, Patents & Training</label>
+                        <textarea class="ee-textarea" id="e_awards" placeholder="- Granted Patent GB123456A..." oninput="triggerAutoSave()"></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION: EXPORT & THEME -->
+                <div id="sec-export" class="form-section">
+                    <h2 class="ee-section-header">Theme & Preview Generation</h2>
+                    <p class="ee-section-desc">Customise your typography and preview a print-ready HTML document. Save as PDF from your browser's print dialog.</p>
+                    
+                    <!-- Visual Engine -->
+                    <div class="theme-panel">
+                        <label style="color: var(--cloud-white); font-size: 1.1rem; border-bottom: 1px dashed var(--slate-grey); padding-bottom: 5px; margin-bottom: 20px; font-weight: bold; display: block;">Visual Settings Engine</label>
+                        <div class="ee-form-row">
+                            <div class="ee-form-group">
+                                <label class="ee-label">Global Font Family</label>
+                                <select class="ee-select" id="t_font" onchange="triggerAutoSave()">
+                                    <option value="Arial, sans-serif" style="font-family: Arial, sans-serif;">Font: Standard Arial</option>
+                                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" style="font-family: 'Segoe UI', sans-serif;">Font: Modern Segoe UI</option>
+                                    <option value="'Helvetica Neue', Helvetica, Arial, sans-serif" style="font-family: 'Helvetica Neue', sans-serif;">Font: Clean Helvetica</option>
+                                    <option value="'Times New Roman', Times, serif" style="font-family: 'Times New Roman', serif;">Font: Academic Times</option>
+                                    <option value="'Georgia', serif" style="font-family: 'Georgia', serif;">Font: Literary Georgia</option>
+                                </select>
+                            </div>
+                            <div class="ee-form-group">
+                                <label class="ee-label">Base Text Size</label>
+                                <select class="ee-select" id="t_bodySize" onchange="triggerAutoSave()">
+                                    <option value="13px">Size: 13px (Compact)</option>
+                                    <option value="14px" selected>Size: 14px (Standard)</option>
+                                    <option value="15px">Size: 15px (Readable)</option>
+                                    <option value="16px">Size: 16px (Large)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ee-form-row">
+                            <div class="ee-form-group">
+                                <label class="ee-label">Header 1 (Name) Size</label>
+                                <select class="ee-select" id="t_h1Size" onchange="triggerAutoSave()">
+                                    <option value="24px">Size: 24px</option>
+                                    <option value="28px" selected>Size: 28px</option>
+                                    <option value="32px">Size: 32px</option>
+                                </select>
+                            </div>
+                            <div class="ee-form-group">
+                                <label class="ee-label">Header 2 (Sections) Size</label>
+                                <select class="ee-select" id="t_h2Size" onchange="triggerAutoSave()">
+                                    <option value="16px">Size: 16px</option>
+                                    <option value="18px">Size: 18px</option>
+                                    <option value="20px" selected>Size: 20px</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ee-form-row">
+                            <div class="ee-form-group">
+                                <label class="ee-label">Header 3 (Job Titles) Size</label>
+                                <select class="ee-select" id="t_h3Size" onchange="triggerAutoSave()">
+                                    <option value="14px">Size: 14px</option>
+                                    <option value="16px" selected>Size: 16px</option>
+                                    <option value="18px">Size: 18px</option>
+                                </select>
+                            </div>
+                            <div class="ee-form-group">
+                                <label class="ee-label">Bullet Point Text Size</label>
+                                <select class="ee-select" id="t_bulletSize" onchange="triggerAutoSave()">
+                                    <option value="13px">Size: 13px</option>
+                                    <option value="14px" selected>Size: 14px</option>
+                                    <option value="15px">Size: 15px</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ee-form-row">
+                            <div class="ee-form-group">
+                                <label class="ee-label">Primary Brand Colour</label>
+                                <input type="color" class="ee-input" id="t_primary" value="#002c5f" onchange="triggerAutoSave()">
+                            </div>
+                            <div class="ee-form-group">
+                                <label class="ee-label">Accent Tone Colour</label>
+                                <input type="color" class="ee-input" id="t_accent" value="#005a9c" onchange="triggerAutoSave()">
+                            </div>
+                        </div>
+                        <div class="ee-form-row">
+                            <div class="ee-form-group">
+                                <label class="ee-label">Standard Text Colour</label>
+                                <input type="color" class="ee-input" id="t_textColor" value="#333333" onchange="triggerAutoSave()">
+                            </div>
+                            <div class="ee-form-group">
+                                <label class="ee-label">Reset Theme</label>
+                                <button type="button" class="action-btn action-btn-ghost" style="width: 100%; min-height: 48px;" onclick="resetTheme()">↺ Reset Defaults</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Export Panel -->
+                    <div class="ee-form-group" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color);">
+                        <label style="font-size: 1.1rem; color: var(--cloud-white);">Total Career Summary Word Count</label>
+                        <div id="totalWordCount" style="font-size: 2.2rem; font-weight: bold; color: var(--terminal-green); line-height: 1.1;">0</div>
+                        <div style="font-size: 0.85rem; color: var(--slate-grey); margin-top: 5px;">Target: Maximum 600 words for IMechE/Engineering Council submission.</div>
+                    </div>
+                    
+                    <div class="ee-form-row">
+                        <!-- Left Column: User Data Previews -->
+                        <div style="padding: 25px; border: 2px solid var(--terminal-green); border-radius: 6px; background: rgba(0, 104, 55, 0.05);">
+                            <h3 style="color: var(--terminal-green); margin-top: 0; margin-bottom: 10px; font-size: 1.2rem; text-transform: uppercase;">Preview Your Data</h3>
+                            <p style="color: var(--cloud-white); font-size: 0.85rem; margin-bottom: 20px;">Generate a document populated entirely with your active form inputs.</p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <button type="button" class="action-btn" onclick="exportReport('summary', false)">📄 IMechE Summary</button>
+                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-classic', false)">📄 CV: Executive Classic</button>
+                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-modern', false)">📄 CV: Modern Sidebar</button>
+                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-dense', false)">📄 CV: Dense Academic</button>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Sample Data Previews -->
+                        <div style="padding: 25px; border: 1px dashed var(--slate-grey); border-radius: 6px; background: rgba(0, 0, 0, 0.03);">
+                            <h3 style="color: var(--cloud-white); margin-top: 0; margin-bottom: 10px; font-size: 1.2rem; text-transform: uppercase;">Preview Sample Profile</h3>
+                            <p style="color: var(--slate-grey); font-size: 0.85rem; margin-bottom: 20px;">Test visual theme aesthetics with a fully populated engineering profile.</p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('summary', true)">🔍 Sample Summary</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-classic', true)">🔍 Sample CV: Classic</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-modern', true)">🔍 Sample CV: Modern</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-dense', true)">🔍 Sample CV: Dense</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="footer.js?v=21.7" defer></script>
+
+    <script>
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        const EE_TOOL_ID = "ee_career_builder_state";
+        let autoSaveTimer;
+
+        // --- PATHWAY ROUTING DETECTION ---
+        // Dynamically detects whether candidate is using CEng or IEng pathway layout context
+        function getActivePathwayPrefix() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || {};
+            if (masterData.ee_tools && masterData.ee_tools['ee_dap']) {
+                const targetLvl = masterData.ee_tools['ee_dap'].level || 'CEng';
+                return targetLvl === 'IEng' ? 'ieng' : 'ceng';
+            }
+            return 'ceng'; // Default fallback path standard
+        }
+
+        function reRouteBreadcrumbs() {
+            const prefix = getActivePathwayPrefix();
+            document.getElementById('link_hub').href = `${prefix}.html`;
+            document.getElementById('link_comp_a').href = `${prefix}-a.html`;
+            document.getElementById('link_comp_b').href = `${prefix}-b.html`;
+            document.getElementById('link_comp_c').href = `${prefix}-c.html`;
+            document.getElementById('link_comp_d').href = `${prefix}-d.html`;
+            document.getElementById('link_comp_e').href = `${prefix}-e.html`;
+            
+            const labelText = prefix.toUpperCase();
+            document.querySelector('#link_hub span.tab-label').innerText = `${labelText} Hub`;
+        }
+
+        // --- NAVIGATION LOGIC ---
+        function switchSection(secId, btn) {
+            document.querySelectorAll('.form-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#internal-tool-nav .ee-horizontal-tab').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(secId).classList.add('active');
+            btn.classList.add('active');
+            
+            if(secId === 'sec-export') {
+                calculateTotalSummaryWords();
+            }
+        }
+
+        // --- AUTOSAVE LOGIC ---
+        function triggerAutoSave() {
+            document.getElementById('saveStatus').innerText = "Saving changes...";
+            document.getElementById('saveStatus').style.color = "var(--burnt-orange)";
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(saveData, 3000);
+        }
+
+        function saveData() {
+            const data = {};
+            const inputs = document.querySelectorAll('#careerForm input[type="text"], #careerForm input[type="email"], #careerForm input[type="tel"], #careerForm input[type="color"], #careerForm textarea, #careerForm select');
+            inputs.forEach(input => {
+                data[input.id] = input.value;
+            });
+
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            masterData.ee_tools[EE_TOOL_ID] = data;
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+
+            document.getElementById('saveStatus').innerText = "All changes synced locally.";
+            document.getElementById('saveStatus').style.color = "var(--terminal-green)";
+            updateNavigationBadges();
+        }
+
+        function loadData() {
+            reRouteBreadcrumbs();
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if (masterData && masterData.ee_tools && masterData.ee_tools[EE_TOOL_ID]) {
+                const data = masterData.ee_tools[EE_TOOL_ID];
+                for (const key in data) {
+                    const el = document.getElementById(key);
+                    if (el) el.value = data[key];
+                }
+                
+                ['r1_resp', 'r1_achieve', 'r1_auth'].forEach(id => {
+                    const wcId = 'wc_' + (id === 'r1_achieve' ? 'r1_ach' : id);
+                    if(document.getElementById(id)) updateWordCount(id, wcId);
+                });
+            }
+            updateNavigationBadges();
+        }
+
+        // --- PLATFORM DIAGNOSTIC STATE ENGINE ---
+        function calculateScoreForBadge(text, subId, pathway) {
+            if (!text || text.trim() === "") return 1;
+            const wordCount = text.trim().split(/\s+/).length;
+            if (wordCount < 50) return 1;
+
+            let score = 1;
+            if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap[pathway]) {
+                const allowedVerbs = verbDb.strongVerbMap[pathway][subId] || [];
+                let foundVerbs = 0;
+                allowedVerbs.forEach(v => {
+                    if (text.toLowerCase().includes(v)) foundVerbs++;
+                });
+                if (foundVerbs >= 4) score = 4;
+                else if (foundVerbs >= 2) score = 3;
+                else if (foundVerbs >= 1) score = 2;
+            }
+            return score;
+        }
+
+        function getBadgeHTML(score) {
+            const levels = ["L1 - AWARE", "L2 - FAMILIAR", "L3 - SKILLED", "L4 - EXPERT"];
+            const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
+            return `<span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>`;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const tools = masterData.ee_tools || {};
+            const pathType = getActivePathwayPrefix().toUpperCase(); // CENG or IENG
+
+            // CV Builder Checkbox status calculations
+            const hasCV = tools[EE_TOOL_ID] && tools[EE_TOOL_ID].p_name && tools[EE_TOOL_ID].p_name.trim() !== '';
+            document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
+
+            // DAP Checkbox status calculations
+            const hasDAP = tools['ee_dap'] && tools['ee_dap'].compiled && tools['ee_dap'].compiled.trim() !== '';
+            document.getElementById('badge_dap').innerHTML = getTickHTML(hasDAP);
+
+            // Sponsors Checkbox status calculations
+            const hasSponsors = tools['ee_sponsors'] && tools['ee_sponsors'].s1 && tools['ee_sponsors'].s1.n && tools['ee_sponsors'].s1.n.trim() !== '';
+            document.getElementById('badge_sponsors').innerHTML = getTickHTML(hasSponsors);
+
+            // Evaluation arrays mapping to local framework standard parameters
+            const competencies = ['a', 'b', 'c', 'd', 'e'];
+            let compScores = [];
+            const subMap = {
+                'a': ['A1', 'A2'],
+                'b': ['B1', 'B2', 'B3'],
+                'c': ['C1', 'C2', 'C3', 'C4'],
+                'd': ['D1', 'D2', 'D3'],
+                'e': ['E1', 'E2', 'E3', 'E4', 'E5']
+            };
+
+            competencies.forEach(comp => {
+                const toolId = `ee_${pathType.toLowerCase()}_${comp}`;
+                const expectedSubs = subMap[comp] || [];
+                let subScores = [];
+
+                expectedSubs.forEach(sub => {
+                    let score = 1;
+                    if (tools[toolId] && tools[toolId][sub]) {
+                        score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub, pathType);
+                    }
+                    subScores.push(score);
+                });
+
+                let minScore = subScores.length > 0 ? Math.min(...subScores) : 1;
+                compScores.push(minScore);
+
+                const badgeEl = document.getElementById(`badge_comp_${comp}`);
+                if (badgeEl) badgeEl.innerHTML = getBadgeHTML(minScore);
+            });
+
+            // Master Hub Overview Diagnostic Validation
+            let countL3Plus = 0, countL2Plus = 0;
+            compScores.forEach(s => {
+                if (s >= 3) countL3Plus++;
+                if (s >= 2) countL2Plus++;
+            });
+            const isHubReady = (countL3Plus >= 3 && countL2Plus === 5 && hasCV && hasDAP && hasSponsors);
+            document.getElementById('badge_hub').innerHTML = getTickHTML(isHubReady);
+        }
+
+        // --- THEME ENGINE ---
+        function resetTheme() {
+            document.getElementById('t_font').value = "Arial, sans-serif";
+            document.getElementById('t_bodySize').value = "14px";
+            document.getElementById('t_h1Size').value = "28px";
+            document.getElementById('t_h2Size').value = "20px";
+            document.getElementById('t_h3Size').value = "16px";
+            document.getElementById('t_bulletSize').value = "14px";
+            document.getElementById('t_primary').value = "#002c5f";
+            document.getElementById('t_accent').value = "#005a9c";
+            document.getElementById('t_textColor').value = "#333333";
+            triggerAutoSave();
+        }
+
+        // --- EXPORT / IMPORT DATA ---
+        function exportCVData() {
+            saveData();
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state'));
+            if(!masterData || !masterData.ee_tools[EE_TOOL_ID]) { alert("No data layer logs discovered to export."); return; }
+            const blob = new Blob([JSON.stringify(masterData, null, 2)], { type: "application/json" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_CV_DataMatrix_${new Date().toISOString().slice(0,10)}.json`;
+            link.click();
+        }
+
+        function importCVData() {
+            document.getElementById('cvDataImport').click();
+        }
+
+        function handleImportCVData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.ee_tools) {
+                        localStorage.setItem('ee_master_state', JSON.stringify(data));
+                    } else {
+                        let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+                        masterData.ee_tools[EE_TOOL_ID] = data;
+                        localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+                    }
+                    loadData();
+                    alert("Profile package imported successfully!");
+                } catch (err) {
+                    alert("Error checking JSON configuration formatting file structure.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // --- WORD COUNT ENGINE ---
+        function updateWordCount(inputId, displayId) {
+            const text = document.getElementById(inputId).value.trim();
+            const count = text ? text.split(/\s+/).length : 0;
+            document.getElementById(displayId).innerText = `${count} words`;
+        }
+
+        function calculateTotalSummaryWords() {
+            let total = 0;
+            const textAreas = ['r1_resp', 'r1_achieve', 'r1_auth', 'r2_resp', 'r2_achieve', 'r2_auth', 'r3_resp', 'r3_achieve', 'r3_auth'];
+            textAreas.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const text = el.value.trim();
+                    total += text ? text.split(/\s+/).length : 0;
+                }
+            });
+            const wcEl = document.getElementById('totalWordCount');
+            wcEl.innerText = total;
+            if (total > 600) {
+                wcEl.style.color = "#d63031";
+            } else if (total > 500) {
+                wcEl.style.color = "var(--burnt-orange)";
+            } else {
+                wcEl.style.color = "var(--terminal-green)";
+            }
+        }
+
+        function formatBullets(text) {
+            if (!text) return "";
+            const lines = text.split('\n');
+            let html = '<ul>';
+            lines.forEach(line => {
+                let clean = line.trim();
+                if (clean) {
+                    if (clean.startsWith('-') || clean.startsWith('•')) clean = clean.substring(1).trim();
+                    html += `<li>${clean}</li>`;
+                }
+            });
+            html += '</ul>';
+            return html;
+        }
+
+        function getSampleData() {
+            return {
+                p_name: "John Doe", p_titles: "EUR ING, CEng FIMechE", p_location: "Manchester, UK", p_phone: "+44 7900 123456", p_email: "john.doe@engineering.com", p_linkedin: "linkedin.com/in/johndoe",
+                p_summary: "Strategic Engineering Leader with over 15 years of progressive experience in the design, development, and validation of complex mechanical systems. Proven track record delivering within highly regulated frameworks.",
+                p_competencies: "Engineering Analysis, Project Management, Fluid Dynamics, Root Cause Analysis",
+                r1_title: "Engineering Team Leader", r1_company: "TechCorp UK Ltd", r1_start: "Oct 2021", r1_end: "Present", r1_resp: "- Supervise Detail Design Engineers\n- Rigorously review technical drawings", r1_achieve: "- Completed critical FEA analysis saving £1.2M\n- Reduced design engineering lead times by 80%", r1_auth: "- Managed a multi-disciplinary team of 15 engineers\n- £5M budget sign-off authority",
+                r2_title: "Senior Design Engineer", r2_company: "BuildIt Offshore", r2_start: "Jan 2017", r2_end: "Sep 2021", r2_resp: "- Led the detailed design of bespoke mechanical equipment", r2_achieve: "- Took complex product concepts through to FAT with zero non-conformances", r2_auth: "- Technical lead on structural compliance",
+                e_older: "- Design Engineer at Trelleborg (2012-2016)", e_edu: "- MSc Mechanical Engineering (Distinction), University of Manchester, 2012", e_lead: "- IMechE Board Member", e_awards: "- Granted Patent GB123456A"
+            };
+        }
+
+        function getDataObject(useSample) {
+            if (useSample) return getSampleData();
+            
+            const val = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            };
+            return {
+                p_name: val('p_name') || 'Candidate Name', p_titles: val('p_titles'), p_location: val('p_location'), p_phone: val('p_phone'), p_email: val('p_email'), p_linkedin: val('p_linkedin'), p_summary: val('p_summary'), p_competencies: val('p_competencies'),
+                r1_title: val('r1_title'), r1_company: val('r1_company'), r1_start: val('r1_start'), r1_end: val('r1_end'), r1_resp: val('r1_resp'), r1_achieve: val('r1_achieve'), r1_auth: val('r1_auth'),
+                r2_title: val('r2_title'), r2_company: val('r2_company'), r2_start: val('r2_start'), r2_end: val('r2_end'), r2_resp: val('r2_resp'), r2_achieve: val('r2_achieve'), r2_auth: val('r2_auth'),
+                r3_title: val('r3_title'), r3_company: val('r3_company'), r3_start: val('r3_start'), r3_end: val('r3_end'), r3_resp: val('r3_resp'), r3_achieve: val('r3_achieve'), r3_auth: val('r3_auth'),
+                e_older: val('e_older'), e_edu: val('e_edu'), e_lead: val('e_lead'), e_awards: val('e_awards')
+            };
+        }
+
+        function getThemeObject() {
+            return {
+                font: document.getElementById('t_font').value || "Arial, sans-serif",
+                bodySize: document.getElementById('t_bodySize').value || "14px",
+                h1Size: document.getElementById('t_h1Size').value || "28px",
+                h2Size: document.getElementById('t_h2Size').value || "20px",
+                h3Size: document.getElementById('t_h3Size').value || "16px",
+                bulletSize: document.getElementById('t_bulletSize').value || "14px",
+                primary: document.getElementById('t_primary').value || "#002c5f",
+                accent: document.getElementById('t_accent').value || "#005a9c",
+                textColor: document.getElementById('t_textColor').value || "#333333"
+            };
+        }
+
+        function exportReport(type, isSample) {
+            saveData();
+            const data = getDataObject(isSample);
+            const theme = getThemeObject();
+            let htmlContent = "";
+
+            if (type === 'summary') {
+                htmlContent = buildSummaryHTML(data, theme);
+            } else if (type === 'cv-classic') {
+                htmlContent = buildCVClassic(data, theme);
+            } else if (type === 'cv-modern') {
+                htmlContent = buildCVModern(data, theme);
+            } else if (type === 'cv-dense') {
+                htmlContent = buildCVDense(data, theme);
+            }
+
+            const newWindow = window.open('', '_blank');
+            if (newWindow) {
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Please allow system popups to review output sheets.");
+            }
+        }
+
+        function buildSummaryHTML(data, theme) {
+            return `<!DOCTYPE html><html lang="en-GB"><head><title>Career Summary - ${data.p_name}</title>
+            <style>
+                body { font-family: ${theme.font}; font-size: ${theme.bodySize}; line-height: 1.6; color: ${theme.textColor}; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+                h1 { color: ${theme.primary}; font-size: ${theme.h1Size}; text-transform: uppercase; border-bottom: 2px solid ${theme.accent}; }
+                h2 { color: ${theme.accent}; font-size: ${theme.h2Size}; margin-top: 25px; }
+                p { white-space: pre-wrap; margin-bottom: 15px; }
+                .meta { color: #666; font-style: italic; margin-bottom: 10px; }
+            </style></head><body>
+            <h1>Engineering Career Summary</h1>
+            <p><strong>Candidate:</strong> ${data.p_name} ${data.p_titles ? ', ' + data.p_titles : ''}</p>
+            <hr>
+            <h2>Current Role: ${data.r1_title} at ${data.r1_company}</h2>
+            <div class="meta">${data.r1_start} - ${data.r1_end || 'Present'}</div>
+            <strong>Responsibilities:</strong><p>${data.r1_resp}</p>
+            <strong>Achievements:</strong><p>${data.r1_achieve}</p>
+            <strong>Authority & Autonomy:</strong><p>${data.r1_auth}</p>
+            ${data.r2_title ? `<h2>Previous Role: ${data.r2_title} at ${data.r2_company}</h2>
+            <div class="meta">${data.r2_start} - ${data.r2_end}</div>
+            <strong>Responsibilities:</strong><p>${data.r2_resp}</p>
+            <strong>Achievements:</strong><p>${data.r2_achieve}</p>
+            <strong>Authority & Autonomy:</strong><p>${data.r2_auth}</p>` : ''}
+            </body></html>`;
+        }
+
+        function buildCVClassic(data, theme) {
+            const comps = data.p_competencies ? data.p_competencies.split(',').map(s => `<li>${s.trim()}</li>`).join('') : '';
+            return `<!DOCTYPE html><html lang="en-GB"><head><title>CV - ${data.p_name}</title>
+            <style>
+                :root { --primary: ${theme.primary}; --accent: ${theme.accent}; --text: ${theme.textColor}; --light: #666; }
+                body { font-family: ${theme.font}; font-size: ${theme.bodySize}; line-height: 1.6; color: var(--text); background: #f4f6f8; margin:0; padding:0; }
+                .container { max-width: 850px; margin: 40px auto; background: #fff; padding: 50px 60px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+                h1 { color: var(--primary); margin-bottom: 5px; font-size: ${theme.h1Size}; text-transform: uppercase; letter-spacing: 1px; }
+                h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 30px; margin-bottom: 15px; font-size: ${theme.h2Size}; }
+                .header-block { border-bottom: 2px solid #e6edf5; padding-bottom: 20px; margin-bottom: 20px; }
+                .contact-info { display: flex; flex-wrap: wrap; gap: 15px; color: var(--light); font-weight: 500; margin-top:10px; }
+                .contact-item { display: flex; align-items: center; }
+                .contact-item::before { content: "•"; color: var(--accent); margin-right: 8px; }
+                .contact-item:first-child::before { display: none; }
+                .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+                .job-title { font-weight: bold; font-size: ${theme.h3Size}; }
+                .job-date { color: var(--light); font-style: italic; }
+                .company-name { font-weight: 600; color: var(--accent); margin-bottom: 10px; display: block; }
+                ul { margin-top: 5px; margin-bottom: 15px; padding-left: 25px; font-size: ${theme.bulletSize}; }
+                li { margin-bottom: 8px; }
+                @media print { body { background: none; } .container { box-shadow:none; margin:0; padding:0; max-width:100%; } }
+            </style></head><body>
+            <div class="container">
+                <div class="header-block">
+                    <h1>${data.p_name}</h1>
+                    ${data.p_titles ? `<div style="color:var(--light); font-weight:500;">${data.p_titles}</div>` : ''}
+                    <div class="contact-info">
+                        ${data.p_location ? `<div class="contact-item">${data.p_location}</div>` : ''}
+                        ${data.p_phone ? `<div class="contact-item">${data.p_phone}</div>` : ''}
+                        ${data.p_email ? `<div class="contact-item">${data.p_email}</div>` : ''}
+                        ${data.p_linkedin ? `<div class="contact-item">${data.p_linkedin}</div>` : ''}
+                    </div>
+                </div>
+                <h2>Professional Summary</h2><p>${data.p_summary.replace(/\n/g, '<br>')}</p>
+                ${comps ? `<h2>Core Competencies</h2><ul style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">${comps}</ul>` : ''}
+                <h2>Professional Experience</h2>
+                <div class="job-header"><div class="job-title">${data.r1_title}</div><div class="job-date">${data.r1_start} - ${data.r1_end || 'Present'}</div></div>
+                <div class="company-name">${data.r1_company}</div>
+                ${data.r1_resp ? `<strong>Responsibilities:</strong> ${formatBullets(data.r1_resp)}` : ''}
+                ${data.r1_achieve ? `<strong>Achievements:</strong> ${formatBullets(data.r1_achieve)}` : ''}
+                ${data.r1_auth ? `<strong>Authority & Autonomy:</strong> ${formatBullets(data.r1_auth)}` : ''}
+                ${data.e_edu ? `<h2>Education</h2>${formatBullets(data.e_edu)}` : ''}
+            </div></body></html>`;
+        }
+
+        function buildCVModern(data, theme) {
+            const comps = data.p_competencies ? data.p_competencies.split(',').map(s => `<span style="display:inline-block; background:rgba(255,255,255,0.15); padding:4px 8px; margin:4px 4px 0 0; font-size:${theme.bulletSize}; border-radius:3px;">${s.trim()}</span>`).join('') : '';
+            return `<!DOCTYPE html><html lang="en-GB"><head><title>CV - ${data.p_name}</title>
+            <style>
+                :root { --dark: ${theme.primary}; --light: #f7fafc; --accent: ${theme.accent}; --text: ${theme.textColor}; }
+                body { font-family: ${theme.font}; font-size: ${theme.bodySize}; line-height: 1.5; color: var(--text); margin:0; padding:0; background:#e2e8f0; }
+                .container { display:grid; grid-template-columns: 300px 1fr; max-width: 950px; margin: 40px auto; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); min-height:1050px; }
+                .sidebar { background: var(--dark); color: #fff; padding: 40px 30px; }
+                .main { padding: 40px 50px; }
+                h1 { margin:0 0 10px 0; font-size: ${theme.h1Size}; letter-spacing: 1px; color:#fff;}
+                h2 { color: var(--accent); font-size: ${theme.h2Size}; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #edf2f7; padding-bottom: 8px; margin-top: 30px; }
+                .sidebar h2 { color: #fff; border-bottom-color: rgba(255,255,255,0.2); margin-top:40px; }
+                .contact p { margin-bottom: 10px; color: #cbd5e0; }
+                .job { margin-bottom: 25px; }
+                .j-title { font-weight: bold; font-size: ${theme.h3Size}; color: var(--dark); }
+                .j-meta { color: #718096; margin-bottom: 10px; font-weight:500; }
+                ul { padding-left: 20px; margin: 10px 0; font-size: ${theme.bulletSize}; }
+                li { margin-bottom: 6px; }
+                @media print { html, body { background: #fff !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } .container { box-shadow:none; margin:0; width: 100%; grid-template-columns: 280px 1fr; } }
+            </style></head><body>
+            <div class="container">
+                <div class="sidebar">
+                    <h1>${data.p_name}</h1>
+                    <div class="contact">
+                        <p>${data.p_location}</p><p>${data.p_phone}</p><p>${data.p_email}</p>
+                    </div>
+                    ${comps ? `<h2>Expertise</h2><div>${comps}</div>` : ''}
+                    <h2>Education</h2><div>${formatBullets(data.e_edu)}</div>
+                </div>
+                <div class="main">
+                    <h2>Profile</h2><p>${data.p_summary.replace(/\n/g, '<br>')}</p>
+                    <h2>Experience</h2>
+                    <div class="job"><div class="j-title">${data.r1_title}</div><div class="j-meta">${data.r1_company} | ${data.r1_start} - ${data.r1_end || 'Present'}</div>
+                    ${formatBullets(data.r1_resp)}</div>
+                </div>
+            </div></body></html>`;
+        }
+
+        function buildCVDense(data, theme) {
+            return `<!DOCTYPE html><html lang="en-GB"><head><title>CV - ${data.p_name}</title>
+            <style>
+                body { font-family: ${theme.font}; font-size: ${theme.bodySize}; line-height: 1.3; color: ${theme.textColor}; max-width: 750px; margin: 20px auto; padding: 0 15px; }
+                h1 { text-align: center; margin: 0 0 5px 0; font-size: ${theme.h1Size}; text-transform: uppercase; color: ${theme.primary}; }
+                .meta-center { text-align: center; margin-bottom: 15px; font-size: 0.9em; border-bottom: 1px solid ${theme.primary}; padding-bottom: 10px; color: ${theme.textColor}; }
+                h2 { font-size: ${theme.h2Size}; text-transform: uppercase; border-bottom: 1px solid ${theme.accent}; margin: 15px 0 5px 0; padding-bottom:2px; color: ${theme.primary}; }
+                .job-block { margin-bottom: 10px; }
+                .job-head { display: flex; justify-content: space-between; font-weight: bold; font-size: ${theme.h3Size}; }
+                ul { margin: 0 0 10px 0; padding-left: 20px; font-size: ${theme.bulletSize}; }
+                li { margin-bottom: 2px; }
+            </style></head><body>
+            <h1>${data.p_name}</h1>
+            <div class="meta-center">${data.p_location} | ${data.p_phone} | ${data.p_email}</div>
+            <h2>Experience</h2>
+            <div class="job-block"><div class="job-head"><span>${data.r1_title}</span><span>${data.r1_start} - ${data.r1_end || 'Present'}</span></div>
+            <div><i>${data.r1_company}</i></div>${formatBullets(data.r1_resp)}</div>
+            <h2>Education</h2>${formatBullets(data.e_edu)}
+            </body></html>`;
+        }
+
+        window.addEventListener('load', loadData);
+    </script>
+</body>
+</html>

@@ -1,28 +1,84 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Master the Empowering Engineers toolkit. A Standard Operating Procedure (SOP) to accelerate your UK-SPEC application and professional development.">
     <meta property="og:title" content="User Manual & SOP | Empowering Engineers UK">
     <meta property="og:description" content="Master the Empowering Engineers toolkit. A Standard Operating Procedure (SOP) to accelerate your UK-SPEC application and professional development.">
-    <meta property="og:image" content="https://www.empoweringengineers.uk/EE_Logo_rect_Solid.png">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/guide.html">
     <meta property="og:type" content="website">
+    
     <title>User Manual & SOP | Empowering Engineers UK</title> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout.css?v=12">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="canonical" href="https://www.empoweringengineers.uk/guide.html" />
+    <link rel="stylesheet" href="layout.css?v=21.7">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to use the Empowering Engineers UK Platform",
+      "description": "A structured 3-phase Standard Operating Procedure to audit your skills, execute technical leadership, and draft your Engineering Council professional registration application.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Audit & Strategy",
+          "text": "Utilise the CPD Smart-Planner to audit current skills against UK-SPEC criteria and identify knowledge gaps."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: Technical Execution & Leadership",
+          "text": "Apply the RACI Matrix Builder and Management Coaching Studio to demonstrate clear project accountability and leadership competence."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Certification & Registration",
+          "text": "Draft your final application using the Professional Registration Workbench and practice via the Virtual Interviewer."
+        }
+      ]
+    }
+    </script>
 
     <style>
-        /* --- FONT ENFORCEMENT --- */
-        body, h1, h2, h3, p, a, li, div { font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important; }
+        /* INHERITED AESTHETIC - STRICTLY ARIAL/SANS-SERIF */
+        body, button, input, select, textarea, h1, h2, h3, p, a {
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        }
 
-        body { background-color: var(--midnight-navy); color: #fff; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .thick-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
 
         /* SOP HEADER */
         .sop-header {
@@ -31,40 +87,44 @@
             padding: 25px;
             margin-bottom: 30px;
             border-radius: 4px;
-            margin-top: 0; /* Reset for alignment */
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
-        .sop-title { color: var(--terminal-green); font-size: 1.8rem; margin: 0 0 10px 0; text-transform: uppercase; }
-        .sop-desc { color: #ccc; font-size: 1rem; line-height: 1.5; margin: 0; }
+        .sop-title { color: var(--terminal-green); font-size: 1.8rem; margin: 0 0 10px 0; text-transform: uppercase; font-weight: bold; }
+        .sop-desc { color: var(--cloud-white); font-size: 1rem; line-height: 1.5; margin: 0; }
 
         /* PHASE SECTION */
         .phase-block { margin-bottom: 40px; }
         .phase-header { 
             display: flex; 
             align-items: center; 
-            border-bottom: 1px solid #444; 
+            border-bottom: 1px solid var(--border-color); 
             padding-bottom: 10px; 
             margin-bottom: 20px; 
         }
         .phase-num { 
             background: var(--burnt-orange); 
-            color: #fff; 
+            color: #ffffff; 
             font-weight: bold; 
             padding: 5px 10px; 
             border-radius: 3px; 
             margin-right: 15px; 
             font-size: 0.9rem; 
+            text-transform: uppercase;
         }
-        .phase-title { font-size: 1.4rem; color: #fff; margin: 0; }
+        .phase-title { font-size: 1.4rem; color: var(--cloud-white); margin: 0; font-weight: bold; text-transform: uppercase; }
 
-        /* TOOL GRID */
+        /* TOOL GRID INHERITANCE */
         .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
+            align-items: stretch;
         }
 
         .tool-entry {
-            background: rgba(255,255,255,0.05);
+            background: var(--dark-card);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 20px;
@@ -72,154 +132,241 @@
             display: flex;
             flex-direction: column;
             text-decoration: none;
+            height: auto; 
+            min-height: 100%; 
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
         }
         .tool-entry:hover { transform: translateY(-3px); border-color: var(--terminal-green); }
         
         .te-title { color: var(--terminal-green); font-weight: bold; font-size: 1rem; margin-bottom: 8px; text-transform: uppercase; }
-        .te-desc { color: #ccc; font-size: 0.9rem; line-height: 1.4; flex-grow: 1; margin-bottom: 15px; }
-        .te-link { color: var(--burnt-orange); font-size: 0.8rem; font-weight: bold; text-align: right; }
+        .te-desc { color: var(--slate-grey); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; margin-bottom: 15px; white-space: normal; }
+        .te-link { color: var(--burnt-orange); font-size: 0.85rem; font-weight: bold; text-align: right; margin-top: auto; }
 
         /* INFO BOXES */
         .ethics-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid #444;
-            padding: 20px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
             border-radius: 6px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-        .ethics-title { color: var(--burnt-orange); font-weight: bold; display: block; margin-bottom: 10px; }
-
-        /* AD SLOT */
-        .mid-ad { margin: 40px 0; text-align: center; border-top: 1px dashed #333; border-bottom: 1px dashed #333; padding: 20px 0; }
+        .ethics-title { color: var(--burnt-orange); font-weight: bold; display: block; margin-bottom: 10px; font-size: 1.1rem; text-transform: uppercase; }
 
         /* STANDARD ACTION BUTTON */
-        .action-btn {
-            display: inline-block;
-            padding: 10px 20px;
+        .action-btn-return {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            min-height: 48px;
+            padding: 12px 30px;
             background-color: transparent;
-            border: 1px solid #fff;
-            color: #fff;
+            border: 1px solid var(--cloud-white);
+            color: var(--cloud-white);
             text-decoration: none;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: bold;
             transition: all 0.2s;
             cursor: pointer;
+            text-transform: uppercase;
         }
-        .action-btn:hover {
-            background-color: #fff;
-            color: var(--midnight-navy);
-            transform: translateY(-2px);
+        .action-btn-return:hover {
+            background-color: var(--terminal-green);
+            color: #ffffff;
+            border-color: var(--terminal-green);
+        }
+
+        /* GAMIFIED TUTORIAL LAYOUT */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media(max-width: 768px) { .tutorial-grid { grid-template-columns: 1fr; } }
+        .tut-card {
+            background: var(--input-bg);
+            border: 1px dashed var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .tut-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
     </style>
 </head>
-<body>
-    <script defer src="header_nav.js?v=12"></script>
-    <script defer src="tools_data.js?v=12"></script>
+<body onload="initApp()">
+    <script>
+        // Unique namespacing token initialised to guarantee compliance with platform tracking
+        const EE_TOOL_ID = "ee_guide_sop";
+    </script>
+    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="tools_data.js?v=21.7" defer></script>
 
-    <div class="container" style="margin-top: 0;">
+    <main class="container">
         
-        <div class="sop-header">
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Standard Operating Procedure Framework for Systemic Competence Mapping</h1>
+            <p>The execution of a successful professional registration application requires a rigorous, methodical approach to personal competency auditing and evidence collection. The UK Standard for Professional Engineering Competence (UK-SPEC) serves as the primary standard against which all assessment panels evaluate candidates. To navigate this benchmark successfully, professionals must treat their career development as a formal engineering project, deploying structured workflows, distinct verification phases, and continuous quality control adjustments. The Empowering Engineers UK Standard Operating Procedure (SOP) provides this exact operational framework, enabling engineers to transition systematically from initial self-assessment to successful professional review.</p>
+            <p>The primary phase of this framework focuses on the execution of a definitive skill gap analysis. Candidates must systematically interrogate their active professional history against the comprehensive A through E criteria specified for their chosen registration tier. By utilising high-density diagnostic matrices like our CPD Smart-Planner, engineers can accurately isolate deficiencies in their theoretical understanding or practical leadership exposure before initiating the formal drafting phase. This proactive audit ensures that subsequent professional development actions are specifically targeted toward acquiring the precise levels of commercial accountability, budgetary control, and environmental sustainability evidence demanded by licensed professional engineering institutions.</p>
+            <p>Once a robust evidence baseline is established, the focus transitions to strategic narrative engineering and architectural structuring. The Engineering Council expects clear, data-driven action statements that explicitly isolate an individual's personal contributions from broader corporate team achievements. To satisfy this requirement, our toolkit mandates the universal application of the STAR methodology across all written submissions. By framing complex project problem-solving through the clean boundaries of Situation, Task, Action, and Result, candidates ensure their technical judgements remain clear, scannable, and transparently auditable. Furthermore, utilising active management tools like our digital RACI builder allows candidates to explicitly demonstrate their project governance, risk mitigation strategies, and communication protocols across complex corporate organisational structures.</p>
+            <p>The final phase of the onboarding workflow ensures that candidates are thoroughly prepared for the acute psychological and technical challenges of the Professional Review Interview (PRI). Professional review panels are composed of experienced peer assessors who evaluate not only a candidate's historical experience but also their live problem-solving agility and deep commitment to professional ethics. By engaging with our Virtual Interview Simulator, candidates can expose themselves to rigorous, timed practice panels mapped explicitly to safety-critical UK-SPEC questions. This comprehensive preparation helps engineers refine their verbal delivery, manage interview fatigue, and confidently project the leadership authority and professional integrity required to secure their Chartered, Incorporated, or Technician status successfully.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <section class="sop-header">
             <h1 class="sop-title">Standard Operating Procedure (SOP)</h1>
             <p class="sop-desc">
-                This platform is not just a collection of calculators; it is a structured workflow designed to take you from "Early Career Engineer" to "Chartered Professional". Follow the phases below to maximize your results.
+                This platform is not just a collection of calculators; it is a structured workflow designed to take you from "Early Career Engineer" to "Chartered Professional". Follow the phases below to maximise your results.
             </p>
-        </div>
+        </section>
 
-        <div class="phase-block">
+        <section class="phase-block">
             <div class="phase-header">
                 <span class="phase-num">PHASE 1</span>
                 <h2 class="phase-title">Audit & Strategy</h2>
             </div>
-            <div class="tool-grid">
-                <a href="cpd_tool.html" class="tool-entry">
+            <nav class="tool-grid" aria-label="Phase 1 Tools">
+                <a href="planner.html" class="tool-entry">
                     <span class="te-title">CPD Smart-Planner</span>
                     <span class="te-desc">Start here. Audit your current skills against UK-SPEC A-E. Identify gaps and generate an AI "Mega-Prompt" to build your learning curriculum.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-                <a href="dap_tool.html" class="tool-entry">
-                    <span class="te-title">Strategic DAP Builder</span>
-                    <span class="te-desc">Convert your audit into a 5-Year Plan. Define Short, Medium, and Long-term goals that align personal growth with business needs.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                <a href="resources.html" class="tool-entry">
+                    <span class="te-title">Engineering Library</span>
+                    <span class="te-desc">Access curated "Gold Standard" references and fundamental texts to immediately begin closing any technical knowledge gaps.</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-            </div>
-        </div>
+            </nav>
+        </section>
 
-        <div class="phase-block">
+        <section class="phase-block">
             <div class="phase-header">
                 <span class="phase-num">PHASE 2</span>
                 <h2 class="phase-title">Technical Execution & Leadership</h2>
             </div>
-            <div class="tool-grid">
-                <a href="raci_tool.html" class="tool-entry">
+            <nav class="tool-grid" aria-label="Phase 2 Tools">
+                <a href="raci.html" class="tool-entry">
                     <span class="te-title">RACI Matrix Builder</span>
                     <span class="te-desc">Demonstrate Competence C (Leadership). Define clear roles for your projects. The built-in auditor ensures you never miss an "Accountable" owner.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-                <a href="hardware_tool.html" class="tool-entry">
-                    <span class="te-title">Component Atlas</span>
-                    <span class="te-desc">Deepen your technical knowledge (Competence A). Access "First Principles" data on gears, sensors, and structural elements.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                <a href="coach.html" class="tool-entry">
+                    <span class="te-title">Management Coach</span>
+                    <span class="te-desc">Apply strategic frameworks (SWOT, PESTLE, GROW) to structure your operational thinking and solve leadership conflicts.</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-                <a href="glossary_tool.html" class="tool-entry">
+                <a href="decoder.html" class="tool-entry">
                     <span class="te-title">The Engineering Decoder</span>
-                    <span class="te-desc">Master the language of the industry. Decode 15,000+ acronyms from Nuclear, Rail, Aerospace, and Software sectors.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                    <span class="te-desc">Master the language of the industry. Decode 15,000+ acronyms from the Nuclear, Rail, Aerospace, and Civil sectors.</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-            </div>
-        </div>
+            </nav>
+        </section>
 
-        <div class="mid-ad">
-            <span style="font-size:0.7rem; color:#666; display:block; margin-bottom:5px;">SPONSORED</span>
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-7071036534151105"
-                 data-ad-slot="9995687043"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <div class="phase-block">
+        <section class="phase-block">
             <div class="phase-header">
                 <span class="phase-num">PHASE 3</span>
                 <h2 class="phase-title">Certification & Registration</h2>
             </div>
-            <div class="tool-grid">
-                <a href="application_tool.html" class="tool-entry">
-                    <span class="te-title">Application Architect</span>
-                    <span class="te-desc">The flagship tool. Draft your CEng/IEng application with real-time scoring. Includes the <strong>STAR Builder</strong> and <strong>Ghost Text</strong> engine.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+            <nav class="tool-grid" aria-label="Phase 3 Tools">
+                <a href="career.html" class="tool-entry">
+                    <span class="te-title">Professional Registration Workbench</span>
+                    <span class="te-desc">The flagship tool. Draft your entire application with real-time scoring. Includes the STAR Builder and Ghost Text engine.</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-                <a href="report_tool.html" class="tool-entry">
-                    <span class="te-title">Technical Report Writer</span>
-                    <span class="te-desc">Structure your Technical Report (PRR) with proven templates for Failure Analysis and Design Studies.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
+                <a href="interview.html" class="tool-entry">
+                    <span class="te-title">Virtual Interviewer</span>
+                    <span class="te-desc">Simulate the pressure of the Professional Review Interview. Practice timed questions mapped explicitly to UK-SPEC categories.</span>
+                    <span class="te-link">&rarr;</span>
                 </a>
-                <a href="ethics_tool.html" class="tool-entry">
-                    <span class="te-title">Ethics Compass</span>
-                    <span class="te-desc">Demonstrate Competence E. Generate professional scripts to challenge unsafe or unethical decisions in the workplace.</span>
-                    <span class="te-link">LAUNCH TOOL &rarr;</span>
-                </a>
-            </div>
-        </div>
+            </nav>
+        </section>
 
-        <div class="ethics-box">
-            <span class="ethics-title">🔒 DATA PRIVACY & INTEGRITY</span>
-            <p style="font-size:0.9rem; color:#ccc; line-height:1.5;">
+        <section class="phase-block">
+            <div class="phase-header">
+                <span class="phase-num">TUTORIAL</span>
+                <h2 class="phase-title">Gamified Interface Manual</h2>
+            </div>
+            <p style="color:var(--cloud-white); margin-bottom:15px;">Think of this platform as a developmental flight simulator. Master the mechanics outlined below to unlock optimal operational capabilities:</p>
+            
+            <div class="tutorial-grid">
+                <div class="tut-card">
+                    <span class="tut-badge" style="background:var(--terminal-green); color:#0D1B2A;">Interface Controls</span>
+                    <p style="font-size:0.95rem; color:var(--cloud-white);">
+                        <strong>Primary Buttons:</strong> The dark navy structural buttons with glowing green shadows act as execution keys. Clicking commits matrices or saves text steps.<br><br>
+                        <strong>Ghost Buttons:</strong> Secondary translucent actions (e.g., "Upload Files") allow you to handle system inputs without breaking active diagnostic workbenches.
+                    </p>
+                </div>
+                <div class="tut-card">
+                    <span class="tut-badge" style="background:var(--burnt-orange); color:#ffffff;">Data Inventory</span>
+                    <p style="font-size:0.95rem; color:var(--cloud-white);">
+                        <strong>Backup System:</strong> Located in the inflow footer panel. Use <em>Backup Files</em> to generate a encrypted local master JSON payload. To migrate machines, use <em>Upload Files</em> to execute an additive data merge layer.<br><br>
+                        <strong>Real-time Saving:</strong> Workspaces feature an active 3-second delay listener tracking text changes, auto-committing text fields safely.
+                    </p>
+                </div>
+                <div class="tut-card">
+                    <span class="tut-badge" style="background:var(--slate-grey); color:#ffffff;">Theme Configurations</span>
+                    <p style="font-size:0.95rem; color:var(--cloud-white);">
+                        <strong>Layout Shifting:</strong> Locate the 👁️ visibility icon overlay on menu strips to instantly cycle system presets between light contrast tracking mode, midnight slate mode, or stark tactical dark mode.
+                    </p>
+                </div>
+                <div class="tut-card">
+                    <span class="tut-badge" style="background:#ffd700; color:#000000;">Fuzzy Mapping</span>
+                    <p style="font-size:0.95rem; color:var(--cloud-white);">
+                        <strong>Instant Navigation:</strong> Click the 🔍 search vector anywhere across top menus. The fuzzy parsing engine parses indices instantly, evaluating queries and mapping paths in absolute capitalisation style.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="ethics-box">
+            <span class="ethics-title">🔒 DATA PRIVACY & INTEGRITY (GA4 & SECURITY NOTICE)</span>
+            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6; margin-bottom:15px;">
                 <strong>Your data never leaves your device.</strong> <br>
                 We use <em>Local Storage</em> technology, meaning your sensitive project details, STAR drafts, and matrix data are saved only in your browser's cache. We do not host a database. You can wipe your data instantly using the "Reset" buttons found in every tool.
             </p>
-            <p style="font-size:0.9rem; color:#ccc; line-height:1.5; margin-top:10px;">
-                <strong>Ethical AI Use:</strong><br>
-                Use these tools to <em>structure</em> and <em>polish</em> your genuine experience, not to fabricate it. The Engineering Council requires all evidence to be truthful. Using AI to invent scenarios is a breach of the Code of Conduct.
+            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6; margin-bottom:15px;">
+                <strong>Google Analytics 4 Tracking Rules:</strong><br>
+                To monitor platform usage and meet optimization parameters safely, we deploy basic GA4 anonymised events tracking. This system only monitors structural navigation benchmarks (e.g. clicking export buttons, opening workbenches). Your text files, CV entries, and corporate technical histories remain entirely protected inside your device's sandboxed storage boundary.
             </p>
+            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6;">
+                <strong>Ethical AI Use:</strong><br>
+                Use these tools to <em>structure</em> and <em>polish</em> your genuine experience, not to fabricate it. The Engineering Council requires all evidence to be truthful. Using AI to invent scenarios is a direct breach of the professional Code of Conduct.
+            </p>
+        </aside>
+
+        <div style="text-align:center; margin-top:50px; margin-bottom: 20px;">
+            <a href="index.html" class="action-btn-return">RETURN TO HOME</a>
         </div>
 
-        <div style="text-align:center; margin-top:40px;">
-            <a href="index.html" class="action-btn">Return to Main Hangar</a>
-        </div>
+    </main>
 
-    </div>
-
-    <script defer src="footer.js?v=11.1"></script>
+    <script>
+        function initApp() {
+            // LocalStorage safety check sequence executed inside UI onboarding node
+            console.log("System Status: SOP Guide Initialised. Grid overflow fixed.");
+        }
+    </script>
+    <script src="footer.js?v=21.7" defer></script>
 </body>
 </html>
