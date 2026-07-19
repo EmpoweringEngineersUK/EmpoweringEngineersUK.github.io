@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO / GEO Metadata Architecture -->
+    <meta name="description" content="Professional Review Interview (PRI) Hub. Simulate the Engineering Council assessment for CEng, IEng, and EngTech registration with timed UK-SPEC questions.">
+    <meta name="keywords" content="Professional Review Interview, PRI, CEng, IEng, EngTech, UK-SPEC, Engineering Council, Registration, STAR Technique">
+    <meta property="og:title" content="Professional Review Interview (PRI) Hub | Empowering Engineers UK">
+    <meta property="og:description" content="Master your Professional Review Interview (PRI) with our definitive CEng, IEng, and EngTech simulation engines.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/pri.html">
+    <meta property="og:type" content="website">
+    
+    <title>Professional Review Interview Hub | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Global Layout Core Linkage with Active Cache-Busting -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Professional Review Interview (PRI) Hub",
+      "url": "https://www.empoweringengineers.uk/pri.html",
+      "description": "The central directory for UK-SPEC aligned Professional Review Interview simulators for CEng, IEng, and EngTech candidates.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+
+    <style>
+        /* --- HUB SPECIFIC ARCHITECTURE & OVERRIDES --- */
+        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green) !important;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .thick-content a {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        
+        .thick-content a:hover {
+            color: var(--terminal-green);
+            text-decoration: underline;
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Fixed Square Checkboxes for Verification Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid var(--ee-terminal-green); 
+            padding-bottom: 10px;
+        }
+        
+        /* Interactive Hub Dashboard Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hub-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-top-color: var(--terminal-green);
+        }
+
+        .hub-card-title {
+            color: var(--terminal-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-card-desc {
+            color: var(--cloud-white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script defer src="header_nav.js?v=21.7"></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Professional Review Interview (PRI) Simulation Hub</h1>
+            <p>The Professional Review Interview (PRI) is the definitive, concluding gateway to achieving Engineering Technician (EngTech), Incorporated Engineer (IEng), or Chartered Engineer (CEng) registration through your licensed Professional Engineering Institution (PEI). Governed rigidly by the Engineering Council's UK-SPEC 4th Edition framework, this 45-to-60-minute panel assessment is not a conventional career interview. It is an intensive, peer-to-peer defence of your professional capability, ethical commitment, and technical authority, evaluated by two registered assessors.</p>
+
+            <h2>Navigating the Competency Matrix</h2>
+            <p>The panel does not seek a chronological recital of your curriculum vitae. Instead, they will aggressively probe your written submission to validate your alignment with Competencies A through E. You must seamlessly weave experiential narratives that demonstrate your foundational engineering knowledge (A), your evidence-based approach to design and problem-solving (B), your operational responsibility and budget management (C), your interpersonal communication skills (D), and your absolute adherence to statutory safety regulations and professional ethics (E).</p>
+            
+            <h2>Tier Distinctions and Institutional Expectations</h2>
+            <p>While the A-E framework is universal, the execution parameters differ dramatically across the registration tiers. The CEng pathway focuses heavily on pioneering first principles, strategic innovation, and managing significant commercial risk. The IEng standard rigorously demands proficiency in applied technology, process optimisation, and operational management. Conversely, the EngTech route prioritises hands-on practical execution, hazard isolation, and comprehensive toolkit literacy. A critical failure point across all tiers is the reliance on the "We" pronoun; the PRI strictly audits individual accountability. You must unequivocally articulate what *you* engineered, decided, and delivered.</p>
+
+            <h2>The Simulator Architecture</h2>
+            <p>To condition your cognitive reflexes for this environment, Empowering Engineers UK has developed a suite of targeted PRI simulators. These digital workbenches subject you to timed, UK-SPEC aligned question matrices, forcing your verbal reasoning to condense within standard presentation limits. By utilising local browser dictation tools, you can compile text transcripts of your spoken responses entirely client-side. This ensures absolute data sovereignty and NDA compliance while generating an optimised meta-prompt for AI-driven peer critique. Select your target registration pathway below to initiate the validation sequence.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="PRI Pathway">
+            <a href="interview.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">Interview Hub</span>
+            </a>
+            <a href="pri.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pri"></div>
+                <span class="tab-label">PRI Registration</span>
+            </a>
+            <a href="interview-registration-ceng.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ceng"></div>
+                <span class="tab-label">CEng PRI</span>
+            </a>
+            <a href="interview-registration-ieng.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_ieng"></div>
+                <span class="tab-label">IEng PRI</span>
+            </a>
+            <a href="interview-registration-engtech.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_engtech"></div>
+                <span class="tab-label">EngTech PRI</span>
+            </a>
+        </nav>
+
+        <!-- Global Master Dashboard Actions -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Professional Review Hub</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">UK-SPEC Validation Diagnostics</p>
+            </div>
+        </div>
+
+        <!-- Interactive Hub Grid Overlays -->
+        <div class="hub-grid">
+            <!-- Card 1: CEng Simulator -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>CEng PRI Simulator</span>
+                    <div id="check_ceng_card"></div>
+                </div>
+                <div class="hub-card-desc">
+                    Defend your Chartered Engineer application. This matrix evaluates your capability to pioneer first principles, manage complex commercial risk, and lead technological innovation.
+                </div>
+                <a href="interview-registration-ceng.html" class="action-btn" style="text-decoration: none; width: 100%; text-align: center;">Launch CEng Engine →</a>
+            </div>
+            
+            <!-- Card 2: IEng Simulator -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>IEng PRI Simulator</span>
+                    <div id="check_ieng_card"></div>
+                </div>
+                <div class="hub-card-desc">
+                    Validate your Incorporated Engineer submission. Focuses on your proficiency in applied technology, continuous process improvement, and operational resource management.
+                </div>
+                <a href="interview-registration-ieng.html" class="action-btn" style="text-decoration: none; width: 100%; text-align: center;">Launch IEng Engine →</a>
+            </div>
+
+            <!-- Card 3: EngTech Simulator -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>EngTech PRI Simulator</span>
+                    <div id="check_engtech_card"></div>
+                </div>
+                <div class="hub-card-desc">
+                    Verify your Engineering Technician credentials. Tests your practical execution, hands-on methodology selection, toolkit literacy, and strict hazard isolation compliance.
+                </div>
+                <a href="interview-registration-engtech.html" class="action-btn" style="text-decoration: none; width: 100%; text-align: center;">Launch EngTech Engine →</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        // Core System Tool Identifiers mapped to the respective simulator execution environments
+        const INTERNAL_TOOL_ID = "ee_corp_interview_simulation_internal";
+        const EXTERNAL_TOOL_ID = "ee_corp_interview_simulation_external";
+        const CENG_TOOL_ID = "ee_registration_interview_simulator_ceng";
+        const IENG_TOOL_ID = "ee_registration_interview_simulator_ieng";
+        const ENGTECH_TOOL_ID = "ee_registration_interview_simulator_engtech";
+
+        // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
+        function checkToolContent(toolKey) {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const cacheKey = toolKey + "_scratchpad_cache";
+            
+            if (masterData.ee_tools && masterData.ee_tools[cacheKey]) {
+                const dataStr = masterData.ee_tools[cacheKey];
+                if (typeof dataStr === 'string' && dataStr.trim().length > 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            // Assess active scratchpad memory strings to determine if the candidate has initiated simulations
+            const internalStatus = checkToolContent(INTERNAL_TOOL_ID);
+            const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
+            const cengStatus = checkToolContent(CENG_TOOL_ID);
+            const iengStatus = checkToolContent(IENG_TOOL_ID);
+            const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
+
+            const hasCareer = internalStatus || externalStatus;
+            const hasPRI = cengStatus || iengStatus || engtechStatus;
+
+            // Update Breadcrumb Badges
+            document.getElementById('badge_ceng').innerHTML = getTickHTML(cengStatus);
+            document.getElementById('badge_ieng').innerHTML = getTickHTML(iengStatus);
+            document.getElementById('badge_engtech').innerHTML = getTickHTML(engtechStatus);
+            
+            document.getElementById('badge_pri').innerHTML = getTickHTML(hasPRI);
+            document.getElementById('badge_hub').innerHTML = getTickHTML(hasCareer && hasPRI);
+
+            // Update Hub Card Badges
+            document.getElementById('check_ceng_card').innerHTML = getTickHTML(cengStatus);
+            document.getElementById('check_ieng_card').innerHTML = getTickHTML(iengStatus);
+            document.getElementById('check_engtech_card').innerHTML = getTickHTML(engtechStatus);
+        }
+
+        // --- INITIALISATION ---
+        function initApp() {
+            updateNavigationBadges();
+            console.log("System Status: PRI Command Hub operational. Diagnostic matrices synchronised.");
+        }
+    </script>
+</body>
+</html>
