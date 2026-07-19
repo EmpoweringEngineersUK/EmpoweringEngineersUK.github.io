@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="The Professional Engineering Registration Portal. Track, validate, and manage your entire application journey for CEng, IEng, and EngTech status.">
+    <meta name="keywords" content="Professional Registration, Mentor Hub, Chartered Engineer, CEng, Incorporated Engineer, IEng, Engineering Technician, EngTech, UK-SPEC, Engineering Council, Portfolio Review">
+    <meta property="og:title" content="Professional Registration Gateway Hub | Empowering Engineers UK">
+    <meta property="og:description" content="The central directory and live verification command dashboard for auditing your professional engineering portfolio.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/mentor.html">
+    <meta property="og:type" content="website">
+    
+    <title>Professional Registration Mentor Hub | Empowering Engineers UK</title>    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
+    <link rel="canonical" href="https://www.empoweringengineers.uk/mentor.html" />
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Professional Registration Hub",
+      "url": "https://www.empoweringengineers.uk/mentor.html",
+      "description": "The master entry portal and dynamic tracking cockpit for professional engineering registration paths under the UK-SPEC guidelines.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
+        
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .thick-content a {
+            color: var(--burnt-orange);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .thick-content a:hover {
+            color: var(--terminal-green);
+            text-decoration: underline;
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Strict Levelling Badges */
+        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
+        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
+        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
+        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
+        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+
+        /* Fixed Square Checkboxes */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+
+        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
+        
+        /* Interactive Hub Dashboard Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hub-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-top-color: var(--terminal-green);
+        }
+
+        .hub-card-title {
+            color: var(--terminal-green);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-card-desc {
+            color: var(--cloud-white);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .master-cta-box {
+            background: rgba(3, 247, 160, 0.05);
+            border: 2px solid var(--ee-terminal-green);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+	<script src="header_nav.js?v=21.7" defer></script>
+
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Professional Engineering Registration Gateway & Mentor Command Hub</h1>
+            <p>Welcome to the master gateway directory for validating and auditing your engineering credentials against the formal standard. Earning an internationally recognized title through the <a href="https://www.engc.org.uk/" target="_blank" rel="noopener">Engineering Council</a> stands as the definitive benchmark of technical competence, professional ethics, and operational leadership. The UK Standard for Professional Engineering Competence (UK-SPEC) establishes a strict regulatory framework that evaluates candidates across five core categories, mapping from theoretical knowledge parameters (Competence A) to unshakeable safety advocacy and institutional commitment (Competence E). This platform acts as your secure offline command cockpit, giving you the administrative tools required to manage, preview, and optimize your portfolio files before formal institutional submission handles are triggered.</p>
+            
+            <h2>Understanding the Multi-Tier Pathway Options</h2>
+            <p>Professional registration is explicitly divided into three target tiers, each tailored to your specific workplace autonomy and scope of design engineering accountability:</p>
+            <ul>
+                <li><strong>Chartered Engineer (CEng): Systemic Innovation.</strong> Tailored specifically for engineers who develop technological solutions to unusual or challenging problems using first principles. This standard demands authoritative management of advanced technologies, complex multi-disciplinary budgets, and system-wide design optimization risk arrays.</li>
+                <li><strong>Incorporated Engineer (IEng): Operational Excellence.</strong> Designed for technical leaders who manage and maintain applications of current and developing technologies. This pathway concentrates heavily on the continuous improvement, commissioning, construction, and optimization of established engineering paradigms.</li>
+                <li><strong>Engineering Technician (EngTech): Practical Execution.</strong> Aimed at front-line professionals who apply proven techniques and procedures to solve practical engineering challenges. This registration emphasizes absolute proficiency in safe field execution, asset troubleshooting, and strict adherence to process quality codes.</li>
+            </ul>
+            
+            <h2>Executing the Empowering Engineers UK Compilation Sequence</h2>
+            <p>To successfully pass your institutional Professional Review Interview (PRI), your portfolio must function as an integrated, highly quantitative document system. Our system relies on a sequential build architecture to maximize structural density: first, map your complete baseline background metrics within the CV Builder workspace. Second, input your detailed engineering narratives across your selected A-E Trackers using the STAR methodology (Situation, Task, Action, Result) to isolate your specific personal interventions. Third, establish your forward-looking 70/20/10 career timeline in the DAP Architect, and fourth, register your certified lead mentors within the Sponsors module to unlock final compilation tools.</p>
+
+            <h2>Secure Local Storage and Multi-Track Progress Verification</h2>
+            <p>To safeguard your professional metadata and shield confidential project reports from data intercept bugs or unexpected connection loss, the platform implements a secure, client-side, zero-knowledge local storage architecture. Your entries and personal profile metrics are compiled entirely within your browser cache, maintaining complete data sovereignty and absolute compliance with corporate Non-Disclosure Agreements (NDAs). Use our **Live Track Audit Dashboard** below to instantly select your target tier and evaluate your global compliance indicators in real-time.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" id="platformPathnav" aria-label="Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="ceng.html" id="link_hub" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">Hub Overview</span>
+            </a>
+            <a href="career.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cv"></div>
+                <span class="tab-label">CV Builder</span>
+            </a>
+            <a href="ceng-a.html" id="link_comp_a" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_a"></div>
+                <span class="tab-label">Comp A</span>
+            </a>
+            <a href="ceng-b.html" id="link_comp_b" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_b"></div>
+                <span class="tab-label">Comp B</span>
+            </a>
+            <a href="ceng-c.html" id="link_comp_c" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_c"></div>
+                <span class="tab-label">Comp C</span>
+            </a>
+            <a href="ceng-d.html" id="link_comp_d" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_d"></div>
+                <span class="tab-label">Comp D</span>
+            </a>
+            <a href="ceng-e.html" id="link_comp_e" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_comp_e"></div>
+                <span class="tab-label">Comp E</span>
+            </a>
+            <a href="dap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_dap"></div>
+                <span class="tab-label">DAP</span>
+            </a>
+            <a href="sponsors.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_sponsors"></div>
+                <span class="tab-label">Sponsors</span>
+            </a>
+        </nav>
+
+        <!-- Global Master Dashboard Actions -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Registration Gatekeeper</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Live Track Audit Dashboard Engine</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
+                <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Select Pathway Context:</label>
+                <select class="ee-select" id="pathwayContextSelect" style="min-width: 180px; min-height: 48px; background: var(--input-bg);" onchange="switchPathwayContext()">
+                    <option value="CEng">Chartered (CEng)</option>
+                    <option value="IEng">Incorporated (IEng)</option>
+                    <option value="EngTech">Technician (EngTech)</option>
+                </select>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterReport()">📸 Generate Global Report</button>
+            </div>
+        </div>
+
+        <!-- Master Portfolio CTA Component Box -->
+        <div class="master-cta-box" style="margin-top: 30px;">
+            <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem; margin-top: 0; margin-bottom: 12px;">Active Workspace Direct Routing</h2>
+            <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 750px; margin-left: auto; margin-right: auto;">
+                Select a target component panel from the grid directory below to directly manage, compile, and audit your text evidence sections against the required database criteria.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="btnEnterWorkspace" class="action-btn" style="min-height: 52px; font-size: 1rem; padding: 0 25px;" onclick="routeToActiveHub()">Enter Target Track Workspace Hub →</button>
+            </div>
+        </div>
+
+        <!-- Interactive Hub Grid Overlays -->
+        <div class="hub-grid">
+            <!-- Card 1: Chronological CV -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>1. Career Summary</span>
+                    <div id="check_cv"></div>
+                </div>
+                <div class="hub-card-desc">Compile your mandatory 600-word chronological summary mapping your management sign-off scope, role authorities, and financial autonomy values.</div>
+                <a href="career.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Open Builder Workspace</a>
+            </div>
+            
+            <!-- Card 2: Competency Group A & B -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>2. Competence A & B</span>
+                    <div style="display: flex; gap: 6px;" id="check_ab"></div>
+                </div>
+                <div class="hub-card-desc">Audit your technical background calculations, conceptual design modifications, first-principles evaluation models, and analytical continuous improvement arrays.</div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <a href="ceng-a.html" id="grid_comp_a" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Comp A</a>
+                    <a href="ceng-b.html" id="grid_comp_b" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Comp B</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Competency Group C, D & E -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>3. Competence C, D & E</span>
+                    <div style="display: flex; gap: 6px;" id="check_cde"></div>
+                </div>
+                <div class="hub-card-desc">Log your contract leadership metrics, cross-functional team presentations, health and safety risk mitigation protocols (RAMS), Net Zero sustainability designs, and ethical governance standards.</div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-bottom: 10px;">
+                    <a href="ceng-c.html" id="grid_comp_c" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Comp C</a>
+                    <a href="ceng-d.html" id="grid_comp_d" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Comp D</a>
+                </div>
+                <a href="ceng-e.html" id="grid_comp_e" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Comp E Workspace</a>
+            </div>
+
+            <!-- Card 4: Action Plans & Endorsements -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>4. DAP & Sponsors</span>
+                    <div style="display: flex; gap: 6px;" id="check_closing"></div>
+                </div>
+                <div class="hub-card-desc">Formulate your forward-looking 70/20/10 CPD roadmap matrix and register your endorsing Lead and Secondary Sponsor institutional details.</div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <a href="dap.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">DAP</a>
+                    <a href="sponsors.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Sponsors</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        const EE_TOOL_ID = "ee_mentor_gateway";
+        let targetTier = "CEng";
+
+        // --- PATHWAY PERSISTENCE DETECTION ---
+        function loadTierContext() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || {};
+            // Attempt to capture preexisting selection from the common shared DAP object structure
+            if (masterData.ee_tools && masterData.ee_tools['ee_dap'] && masterData.ee_tools['ee_dap'].level) {
+                targetTier = masterData.ee_tools['ee_dap'].level;
+            } else {
+                targetTier = "CEng"; // Clean baseline standard fallback
+            }
+            document.getElementById('pathwayContextSelect').value = targetTier;
+        }
+
+        function switchPathwayContext() {
+            targetTier = document.getElementById('pathwayContextSelect').value;
+            
+            // Sync choices down into the central memory structure to synchronize global layouts instantly
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            if (!masterData.ee_tools['ee_dap']) masterData.ee_tools['ee_dap'] = { level: targetTier, disc: 'Mech', weakness: 'Commercial', goal: '', compiled: '' };
+            else masterData.ee_tools['ee_dap'].level = targetTier;
+            
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+            
+            reRouteEcosystemBreadcrumbs();
+            updateNavigationBadges();
+        }
+
+        function reRouteEcosystemBreadcrumbs() {
+            const prefix = targetTier.toLowerCase();
+            document.getElementById('link_hub').href = `${prefix}.html`;
+            document.getElementById('link_comp_a').href = `${prefix}-a.html`;
+            document.getElementById('link_comp_b').href = `${prefix}-b.html`;
+            document.getElementById('link_comp_c').href = `${prefix}-c.html`;
+            document.getElementById('link_comp_d').href = `${prefix}-d.html`;
+            document.getElementById('link_comp_e').href = `${prefix}-e.html`;
+            
+            // Re-route localized grid anchor links
+            document.getElementById('grid_comp_a').href = `${prefix}-a.html`;
+            document.getElementById('grid_comp_b').href = `${prefix}-b.html`;
+            document.getElementById('grid_comp_c').href = `${prefix}-c.html`;
+            document.getElementById('grid_comp_d').href = `${prefix}-d.html`;
+            document.getElementById('grid_comp_e').href = `${prefix}-e.html`;
+
+            document.querySelector('#link_hub span.tab-label').innerText = `${targetTier} Hub`;
+            document.getElementById('btnEnterWorkspace').innerText = `Enter ${targetTier} Tracking Command Hub →`;
+        }
+
+        function routeToActiveHub() {
+            window.location.href = `${targetTier.toLowerCase()}.html`;
+        }
+
+        // --- PLATFORM DIAGNOSTIC AUDIT LOGIC ---
+        function calculateScoreForBadge(text, subId, pathway) {
+            if (!text || text.trim() === "") return 1;
+            const wordCount = text.trim().split(/\s+/).length;
+            if (wordCount < 40) return 1;
+
+            let score = 1;
+            if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap[pathway]) {
+                const allowedVerbs = verbDb.strongVerbMap[pathway][subId] || [];
+                let foundVerbs = 0;
+                allowedVerbs.forEach(v => {
+                    if (text.toLowerCase().includes(v)) foundVerbs++;
+                });
+                if (foundVerbs >= 4) score = 4;
+                else if (foundVerbs >= 2) score = 3;
+                else if (foundVerbs >= 1) score = 2;
+            }
+            return score;
+        }
+
+        function getBadgeHTML(score) {
+            const levels = ["L1 - AWARE", "L2 - FAMILIAR", "L3 - SKILLED", "L4 - EXPERT"];
+            const badges = ["nb-l1", "nb-l2", "nb-l3", "nb-l4"];
+            return `<span class="level-badge ${badges[score-1]}">${levels[score-1]}</span>`;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const tools = masterData.ee_tools || {};
+            const pathType = targetTier.toUpperCase(); // CENG, IENG, or ENGTECH
+
+            // 1. Evaluate External Hub Checkboxes (Ticks vs Empty Slots)
+            const hasCV = tools['ee_career_builder_state'] && tools['ee_career_builder_state'].p_name && tools['ee_career_builder_state'].p_name.trim() !== '';
+            document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
+            document.getElementById('check_cv').innerHTML = getTickHTML(hasCV);
+
+            const hasDAP = tools['ee_dap'] && tools['ee_dap'].compiled && tools['ee_dap'].compiled.trim() !== '' && !tools['ee_dap'].compiled.startsWith('Configure your profile');
+            document.getElementById('badge_dap').innerHTML = getTickHTML(hasDAP);
+
+            const hasSponsors = tools['ee_sponsors'] && tools['ee_sponsors'].s1 && tools['ee_sponsors'].s1.n && tools['ee_sponsors'].s1.n.trim() !== '';
+            document.getElementById('badge_sponsors').innerHTML = getTickHTML(hasSponsors);
+            document.getElementById('check_closing').innerHTML = getTickHTML(hasDAP && hasSponsors);
+
+            // 2. Evaluate Global Competency Badges Using Minimum Sub-Score Logic Matrices
+            const competences = ['a', 'b', 'c', 'd', 'e'];
+            let compScores = [];
+
+            const subMap = {
+                'a': ['A1', 'A2'],
+                'b': ['B1', 'B2', 'B3'],
+                'c': ['C1', 'C2', 'C3', 'C4'],
+                'd': ['D1', 'D2', 'D3'],
+                'e': ['E1', 'E2', 'E3', 'E4', 'E5']
+            };
+            
+            // Adjust the structural sub-maps specifically for lower technician path metrics
+            if (pathType === "ENGTECH") {
+                subMap['b'] = ['B1', 'B2'];
+                subMap['c'] = ['C1', 'C2', 'C3'];
+                subMap['d'] = ['D1', 'D2'];
+            }
+
+            let individualCardBadges = { a: [], b: [], c: [], d: [], e: [] };
+
+            competences.forEach(comp => {
+                const toolId = `ee_${pathType.toLowerCase()}_${comp}`;
+                const expectedSubs = subMap[comp] || [];
+                let subScores = [];
+
+                expectedSubs.forEach(sub => {
+                    let score = 1; 
+                    if (tools[toolId] && tools[toolId][sub]) {
+                        score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub, pathType);
+                    }
+                    subScores.push(score);
+                    individualCardBadges[comp].push(score);
+                });
+
+                let minScore = subScores.length > 0 ? Math.min(...subScores) : 1;
+                compScores.push(minScore);
+
+                const badgeEl = document.getElementById(`badge_comp_${comp}`);
+                if (badgeEl) badgeEl.innerHTML = getBadgeHTML(minScore);
+            });
+
+            // 3. Inject granular status icons directly into card title rows
+            const getMinScoreHTML = (arr) => getBadgeHTML(arr.length > 0 ? Math.min(...arr) : 1);
+            document.getElementById('check_ab').innerHTML = `${getMinScoreHTML(individualCardBadges.a)} ${getMinScoreHTML(individualCardBadges.b)}`;
+            document.getElementById('check_cde').innerHTML = `${getMinScoreHTML(individualCardBadges.c)} ${getMinScoreHTML(individualCardBadges.d)} ${getMinScoreHTML(individualCardBadges.e)}`;
+
+            // 4. Evaluate Hub Master Readiness Criteria
+            let countL3Plus = 0, countL2Plus = 0;
+            compScores.forEach(s => {
+                if (s >= 3) countL3Plus++;
+                if (s >= 2) countL2Plus++;
+            });
+            const isHubReady = (countL3Plus >= 3 && countL2Plus === 5 && hasCV && hasDAP && hasSponsors);
+            document.getElementById('badge_hub').innerHTML = getTickHTML(isHubReady);
+        }
+
+        // --- MASTER APPLICATION PREVIEW REPORT GENERATOR ---
+        function generateMasterReport() {
+            const careerDataRaw = localStorage.getItem('ee_career_builder_state');
+            const careerData = careerDataRaw ? JSON.parse(careerDataRaw) : null;
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const tools = masterData.ee_tools || {};
+            const prefix = targetTier.toLowerCase();
+
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>Master ${targetTier} Registration Portfolio Portfolio</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 40px auto; padding: 20px; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 26px; margin-bottom: 30px;}
+                    h2 { color: #006837; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 20px; background: #f4f7f9; padding: 10px;}
+                    h3 { color: #0D1B2A; font-size: 16px; margin-top: 20px; border-left: 3px solid #03F7A0; padding-left: 8px;}
+                    p { white-space: pre-wrap; margin-bottom: 15px;}
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 60px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    .meta-block { background: #0D1B2A; color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 30px; }
+                    .meta-block strong { color: #03F7A0; }
+                    @media print { body { margin: 0; padding: 0; max-width: 100%; } .meta-block { background: #f4f7f9; color: #000; border: 1px solid #ccc; } .meta-block strong { color: #000; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Master Application Portfolio Summary Sheet</h1>
+                <div class="meta-block">
+                    <strong>Target Registration Tier:</strong> ${targetTier.toUpperCase()} Guideline Path<br>
+                    <strong>Candidate Profile Name:</strong> ${careerData && careerData.p_name ? careerData.p_name : 'Not Configured'}<br>
+                    <strong>System Verification Time:</strong> ${new Date().toLocaleString('en-GB')}<br>
+                </div>`;
+
+            // 1. Career History Content
+            html += `<h2>1. Chronological Career History Summary</h2>`;
+            if (careerData && careerData.p_name) {
+                if (careerData.p_summary) html += `<p><strong>Professional Profile Summary:</strong><br>${careerData.p_summary}</p>`;
+                ['r1', 'r2', 'r3'].forEach((role, idx) => {
+                    if (careerData[`${role}_title`] || careerData[`${role}_company`]) {
+                        html += `<h3>Role History ${idx + 1}: ${careerData[`${role}_title`]} at ${careerData[`${role}_company`]}</h3>`;
+                        html += `<p style="font-style: italic; color: #555;">Duration bounds: ${careerData[`${role}_start`]} to ${careerData[`${role}_end`] || 'Present'}</p>`;
+                        if (careerData[`${role}_resp`]) html += `<p><strong>Core Responsibilities Managed:</strong><br>${careerData[`${role}_resp`]}</p>`;
+                        if (careerData[`${role}_achieve`]) html += `<p><strong>Measurable Achievements Logged:</strong><br>${careerData[`${role}_achieve`]}</p>`;
+                        if (careerData[`${role}_auth`]) html += `<p><strong>Level of Workspace Authority:</strong><br>${careerData[`${role}_auth`]}</p>`;
+                    }
+                });
+            } else {
+                html += `<p><em>No chronological summary data detected. Please complete the CV Builder module.</em></p>`;
+            }
+
+            // 2. Competencies Sections A-E
+            const competences = ['a', 'b', 'c', 'd', 'e'];
+            competences.forEach(comp => {
+                html += `<h2>2. UK-SPEC Competence Segment ${comp.toUpperCase()}</h2>`;
+                const toolId = `ee_${prefix}_${comp}`;
+                const compData = tools[toolId];
+                
+                if (compData) {
+                    let hasData = false;
+                    Object.keys(compData).forEach(sub => {
+                        if (sub.length === 2 && compData[sub] && compData[sub].compiled && compData[sub].compiled.trim() !== "") {
+                            hasData = true;
+                            html += `<h3>Sub-Section Text Block Reference ${sub.toUpperCase()}</h3>`;
+                            html += `<p>${compData[sub].compiled}</p>`;
+                        }
+                    });
+                    if (!hasData) html += `<p><em>No narrative text entered or compiled yet for Competence ${comp.toUpperCase()}.</em></p>`;
+                } else {
+                    html += `<p><em>No saved workspace files logged for Competence ${comp.toUpperCase()}.</em></p>`;
+                }
+            });
+
+            // 3. Development Plans (DAP)
+            html += `<h2>3. Forward-Looking Development Action Plan (DAP)</h2>`;
+            const dapData = tools['ee_dap'];
+            if (dapData && dapData.compiled && dapData.compiled.trim() !== "" && !dapData.compiled.startsWith('Configure your profile')) {
+                html += `<p style="font-family: monospace; background: #fafafa; padding: 15px; border: 1px solid #eee; border-radius:4px;">${dapData.compiled}</p>`;
+            } else {
+                html += `<p><em>No active strategic developmental goals discovered in cache files.</em></p>`;
+            }
+
+            // 4. Endorsing Sponsors
+            html += `<h2>4. Certified Verification Sponsors Matrix</h2>`;
+            const sponsorsData = tools['ee_sponsors'];
+            if (sponsorsData) {
+                if (sponsorsData.s1 && sponsorsData.s1.n) {
+                    html += `<h3>Lead Endorsing Sponsor</h3>`;
+                    html += `<p><strong>Name String:</strong> ${sponsorsData.s1.n}<br><strong>Corporate Role:</strong> ${sponsorsData.s1.j} at ${sponsorsData.s1.c}<br><strong>Institutional Tier:</strong> ${sponsorsData.s1.r || 'Unspecified'}</p>`;
+                }
+                if (sponsorsData.s2 && sponsorsData.s2.n) {
+                    html += `<h3>Secondary Operational Sponsor</h3>`;
+                    html += `<p><strong>Name String:</strong> ${sponsorsData.s2.n}<br><strong>Corporate Role:</strong> ${sponsorsData.s2.j} at ${sponsorsData.s2.c}<br><strong>Institutional Tier:</strong> ${sponsorsData.s2.r === 'None' ? 'Not Professionally Registered' : sponsorsData.s2.r}</p>`;
+                }
+                if (!sponsorsData.s1?.n && !sponsorsData.s2?.n) {
+                    html += `<p><em>No endorser identities registered in browser storage.</em></p>`;
+                }
+            } else {
+                html += `<p><em>No sponsor data layer logs discovered in cache files.</em></p>`;
+            }
+
+            html += `
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Gateway Command Center Architecture
+                </div>
+            </body>
+            </html>`;
+
+            const reportWindow = window.open('', '_blank');
+            if (reportWindow) {
+                reportWindow.document.write(html);
+                reportWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Please unlock popup permissions to extract your master preview sheet.");
+            }
+        }
+
+        // --- INITIALIZATION ---
+        function initApp() {
+            loadTierContext();
+            reRouteEcosystemBreadcrumbs();
+            updateNavigationBadges();
+            console.log("System Status: Mentor Gateway Pipeline Command Center initialised. Caches verified.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulate high-stakes internal promotion interviews for engineers. Timed strategic, leadership, and governance questions for Senior, Principal, and Director appointments with an integrated browser voice recorder and AI-ready prompt compiler.">
+    <meta name="keywords" content="Engineering Promotion Interview, Internal Progression, Technical Leadership, Engineering Governance, STAR Technique, Engineering Director, Career Growth, Voice Recorder">
+    <meta property="og:title" content="Internal Promotion Interviews | Empowering Engineers UK">
+    <meta property="og:description" content="Simulate high-stakes internal promotion interviews for engineers. Timed strategic, leadership, and governance questions for Senior, Principal, and Director appointments with an integrated browser voice recorder and AI-ready prompt compiler.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/interview-career-internal-promotion.html">
+    <meta property="og:type" content="website">
+    
+    <title>Internal Promotion Interviews | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="canonical" href="https://www.empoweringengineers.uk/interview-career-internal-promotion.html" />
+    
+    <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
+    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <!-- Central Question Pool Database Asset Linkage -->
+    <script src="questions.js?v=21.7"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Corporate Engineering Internal Promotion Simulator",
+      "url": "https://www.empoweringengineers.uk/interview-career-internal-promotion.html",
+      "description": "An interactive, client-side interview simulator evaluating engineers against technical leadership, capital efficiency, operational governance, and organisational change management benchmarks.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
+        .interview-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .screen-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .screen-card.recording-active {
+            border-color: var(--burnt-orange);
+            background: rgba(192, 86, 33, 0.03);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--ee-dark-blue);
+            color: var(--terminal-green);
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--slate-grey);
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .question-text {
+            font-size: 1.6rem;
+            line-height: 1.4;
+            color: var(--cloud-white);
+            margin: 30px 0 15px 0;
+            font-weight: bold;
+        }
+        
+        .paraphrase-text {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: var(--burnt-orange);
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            font-style: italic;
+            display: none;
+            animation: textFadeInEngine 0.5s ease-in;
+        }
+
+        @keyframes textFadeInEngine {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .helper-text {
+            font-size: 0.95rem;
+            color: var(--slate-grey);
+            margin-bottom: 20px;
+            max-width: 85%;
+            line-height: 1.6;
+        }
+
+        .coach-note {
+            color: var(--cloud-white);
+            background: var(--hover-green);
+            border: 1px dashed var(--border-color);
+            padding: 12px 18px;
+            border-radius: 6px;
+        }
+
+        /* --- VISUAL RECORDER DECK MODULE STYLES --- */
+        .recorder-deck {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .recorder-status-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--slate-grey);
+            transition: background 0.3s ease;
+        }
+
+        .status-dot.active-red {
+            background: #d63031;
+            animation: pulseRecordDot 1s infinite;
+        }
+
+        @keyframes pulseRecordDot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .status-text-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--slate-grey);
+        }
+
+        .status-text-label.active-red {
+            color: #d63031;
+        }
+
+        .timer-display {
+            font-family: monospace; 
+            font-size: 2.8rem;
+            color: var(--slate-grey);
+            margin-top: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .timer-display.recording { 
+            color: var(--burnt-orange); 
+            animation: pulseActiveTimer 1s infinite; 
+        }
+
+        @keyframes pulseActiveTimer { 
+            0% { opacity: 1; } 
+            50% { opacity: 0.4; } 
+            100% { opacity: 1; } 
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .workspace-area {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ai-text {
+            width: 100%;
+            background: var(--input-bg);
+            color: var(--cloud-white);
+            font-family: monospace;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+            line-height: 1.5;
+        }
+        
+        body[data-theme="dark"] .ai-text {
+            color: var(--terminal-green);
+        }
+
+        /* --- THEMATIC NARRATIVE LINKAGE COMPLIANCE --- */
+        .thick-content {
+            padding: 20px 5% 40px 5%;
+            color: var(--cloud-white);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            background: var(--dark-card);
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Heading colour bound to system adaptive variable to ensure high-contrast light-theme visibility */
+        .thick-content h1, .thick-content h2, .thick-content h3 {
+            color: var(--terminal-green);
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .thick-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .thick-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .thick-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Standardised Horizontal Navigation with Badge Integration */
+        .ee-horizontal-nav {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        .ee-horizontal-tab {
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            color: var(--slate-grey) !important;
+            padding: 10px 12px 10px 12px !important;
+            min-height: 58px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+            gap: 8px;
+        }
+
+        .ee-horizontal-tab span.tab-label {
+            display: block;
+            margin-top: auto;
+        }
+
+        .tab-badge-container {
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+            outline: none;
+        }
+
+        .ee-horizontal-tab.active {
+            background-color: var(--hover-green) !important;
+            color: var(--terminal-green) !important;
+            border-bottom-color: var(--terminal-green) !important;
+        }
+
+        /* Fixed Square Checkboxes for Verification Tracking */
+        .status-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--terminal-green);
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+            border: 2px solid var(--terminal-green);
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .status-tick.empty {
+            background: transparent;
+            color: transparent;
+            border: 2px solid var(--slate-grey);
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Automated System Navigation Injection Target -->
+    <script defer src="header_nav.js?v=21.7"></script>
+
+    <main class="container">
+
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Corporate Engineering Interviews: Strategic Internal Promotion Framework</h1>
+            <p>Vertical progression within premium engineering enterprises requires demonstrating skills beyond daily design tasks or tactical delivery matrices. Transitioning into higher-tier roles—such as Senior Lead Engineer, Principal Consultant, or Engineering Director—involves moving from personal task execution to systemic corporate stewardship, engineering governance, and commercial leadership. Internal technical promotion panels assess candidates' ability to handle increased accountability, minimise corporate risk, manage budgets, and lead multi-disciplinary teams through long-term asset life cycles. They look for professionals who can articulate long-term visions and drive structural alignment across diverse engineering workstreams.</p>
+            <p>This Advanced Internal Promotion Simulation Workspace helps engineers prepare for rigorous technical panel reviews. Unlike external recruitment processes that focus on general experience, internal promotion boards look for specific evidence of your contributions to the company's operational history. They evaluate your familiarity with the company's safety management systems (SMS), your readiness to assume greater legal and regulatory liability under Construction (Design and Management) regulations or specialised industry frameworks, and your ability to mentor early-career staff to build long-term talent benches. They test how your technical decisions have directly protected the business bottom line while preserving engineering integrity.</p>
+
+            <h2>Deconstructing the Promotion Review Dimensions</h2>
+            <p>To successfully pass an internal promotion panel, your technical narratives must be organised around key leadership quadrants. This workspace focuses questions around these precise institutional progression boundaries:</p>
+            <ul>
+                <li><strong>Leadership, Mentorship & Team Growth:</strong> Evaluates how effectively you train junior technicians, apprentices, and graduate engineers to scale internal competencies and reduce skill gaps.</li>
+                <li><strong>Operational Strategy & Governance:</strong> Probes your approach to updating company policies, leading engineering change management, and enforcing compliance parameters across high-exposure asset portfolios.</li>
+                <li><strong>Commercial Strategy & Capital Efficiency:</strong> Verifies your readiness to handle profit and loss (P&L) accountability, evaluate value-engineering schemes, and align project capital expenditures (CapEx) with corporate business plans.</li>
+                <li><strong>Change Management & Workplace Culture:</strong> Audits your experience leading change, resolving cross-departmental friction, and building an inclusive safety culture where staff feel empowered to flag hazards.</li>
+            </ul>
+
+            <h2>Maximising Performance in the Technical Stress Simulator</h2>
+            <p>This platform functions as a high-fidelity diagnostic sandbox. To maximise its value, we strongly recommend practicing under real interview constraints. Speaking under timed boundaries forces your verbal reasoning to condense, simulating the pressure of an executive board review. Use your device's built-in dictation tools to feed text directly into the live workspace box. This compiles your question history and responses into an optimised meta-prompt that can be used with artificial intelligence models for targeted feedback.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:300px;height:250px"
+                data-ad-client="ca-pub-7071036534151105"
+                data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="Career Interview Pathway">
+            <a href="interview.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_hub"></div>
+                <span class="tab-label">Interview Hub</span>
+            </a>
+            <a href="pri.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_pri"></div>
+                <span class="tab-label">PRI Registration</span>
+            </a>
+            <a href="career-interviews.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_career"></div>
+                <span class="tab-label">Career Interviews</span>
+            </a>
+            <a href="interview-career-internal-promotion.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_internal"></div>
+                <span class="tab-label">Internal Promotion</span>
+            </a>
+            <a href="interview-career-external-jobs.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_external"></div>
+                <span class="tab-label">External Jobs</span>
+            </a>
+        </nav>
+
+        <!-- Configuration Control Panel Grid -->
+        <div class="ee-workbench-editor" style="margin-bottom: 25px; padding: 25px;">
+            <div class="ee-form-row">
+                <div class="ee-form-group">
+                    <label class="ee-label">Target Promotion Seniority:</label>
+                    <select class="ee-select" id="modeSelect">
+                        <option value="Senior" selected>Senior / Lead Engineer Tier</option>
+                        <option value="Principal">Principal / Principal Consultant Tier</option>
+                        <option value="Director">Director / Head of Department Tier</option>
+                        <option value="All">All Advancement Tiers</option>
+                    </select>
+                </div>
+                <div class="ee-form-group">
+                    <label class="ee-label">Promotion Core Focus:</label>
+                    <select class="ee-select" id="compSelect">
+                        <option value="All" selected>All Performance Streams (Full Review Panel)</option>
+                        <option value="Lead">Leadership, Mentorship & Team Growth</option>
+                        <option value="Gov">Operational Strategy & Governance</option>
+                        <option value="Comm">Commercial Strategy & Capital Efficiency</option>
+                        <option value="Change">Change Management & Workplace Culture</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ee-form-row">
+                <div class="ee-form-group">
+                    <label class="ee-label">Simulation Recording Mode:</label>
+                    <select class="ee-select" id="recModeSelect" onchange="evaluateCaptureVisibility()">
+                        <option value="browser" selected>Local Browser Microphone Extraction</option>
+                        <option value="none">No Native Recording (Dictation Only)</option>
+                        <option value="external">Utilising External Capture Systems</option>
+                    </select>
+                </div>
+                <div class="ee-form-group">
+                    <label class="ee-label">Countdown Boundary Timer:</label>
+                    <select class="ee-select" id="timeSelect">
+                        <option value="120" selected>2 Minutes (Standard Board Query)</option>
+                        <option value="300">5 Minutes (Deep Case Defense)</option>
+                        <option value="60">1 Minute (Rapid Governance Fire)</option>
+                        <option value="0">Unlimited Execution (No Timer Override)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Core Screen Simulator Workspace Component -->
+        <div class="screen-card" id="questionCard">
+            <div class="category-badge" id="catBadge">READY FOR WORKSPACE INITIALISATION</div>
+            <div class="progress-badge" id="progBadge"></div>
+            
+            <div class="question-text" id="qText">Configure your promotion assessment parameters above and click 'Start Promotion Interview' to commence the internal simulation sequence.</div>
+            <div class="paraphrase-text" id="qParaphrase"></div>
+            
+            <div class="helper-text" id="qHelper">
+                <strong>💡 Architectural Directive:</strong> To evaluate your performance through artificial intelligence nodes, you require a text-based transcript of your technical narratives. Click inside the live input notes box below and activate your operating system's native voice dictation shortkeys (e.g., press <strong>Windows Key + H</strong> on Windows platforms, or double-press the <strong>Fn</strong> key on macOS configurations) to stream spoken metrics directly client-side.
+            </div>
+
+            <!-- High-Visibility Browser Voice Recorder Deck -->
+            <div class="recorder-deck" id="recorderDeck">
+                <div class="recorder-status-block">
+                    <div class="status-dot" id="recDot"></div>
+                    <span class="status-text-label" id="recLabel">Microphone Infrastructure Idle</span>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="action-btn" id="recPlayBtn" onclick="toggleManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">● Record Answer</button>
+                    <button type="button" class="action-btn action-btn-outline" id="recStopBtn" onclick="stopManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">■ Stop</button>
+                </div>
+            </div>
+
+            <div class="timer-display" id="timer">00:00</div>
+        </div>
+
+        <!-- Touch-Target Compliant Primary Execution Controls -->
+        <div class="controls">
+            <button class="action-btn" id="startBtn" onclick="startInterview()">Start Promotion Interview</button>
+            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important;">Halt Sequence</button>
+            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled>Advance Simulation &rarr;</button>
+        </div>
+
+        <!-- Data Capture Workspace Areas Layer -->
+        <div id="workspaceArea" class="workspace-area">
+            
+            <!-- Real-Time Text Input Dictation Container Card -->
+            <div class="ee-workbench-editor" style="padding: 25px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+                    <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Live Workspace Notes & Speech Dictation Stream</h4>
+                    <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="document.getElementById('scratchpad').value=''">Purge Current Pad Input</button>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Ensure your text cursor is positioned inside the active window below prior to triggering your system's speech-to-text shortkey arrays. Content recorded inside this block will auto-compile upon clicking the advance prompt key.</p>
+                <textarea id="scratchpad" class="ai-text" style="height: 130px;" placeholder="Awaiting verbal input stream data or text entries..."></textarea>
+            </div>
+
+            <!-- Full Analytical Prompt Compilation Output Card Component -->
+            <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+                    <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised Promotion AI Prompt Compiler</h4>
+                    <div style="display:flex; gap: 10px;">
+                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
+                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Your historical query record and matched verbal outputs are being continuously sequenced below. Copy this entire script block into advanced processing tools (ChatGPT, Claude, or internal engineering models) for expert assessment.</p>
+                <textarea id="compilerBox" class="ai-text" style="height: 380px;" readonly></textarea>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Platform Footer Element Injection Target -->
+    <script defer src="footer.js?v=21.7"></script>
+
+    <script>
+        // Unique Platform Identifier String Token
+        const EE_TOOL_ID = "ee_corp_interview_simulation_internal";
+
+        // Navigation Badge Validation Tokens
+        const INTERNAL_TOOL_ID = "ee_corp_interview_simulation_internal";
+        const EXTERNAL_TOOL_ID = "ee_corp_interview_simulation_external";
+        const CENG_TOOL_ID = "ee_registration_interview_simulator_ceng";
+        const IENG_TOOL_ID = "ee_registration_interview_simulator_ieng";
+        const ENGTECH_TOOL_ID = "ee_registration_interview_simulator_engtech";
+
+        let currentQ = null;
+        let timerInterval = null;
+        let setupInterval = null;
+        let isRecording = false;
+        let mediaRecorder = null;
+        let audioStreamInstance = null;
+        let audioChunks = [];
+        
+        // Internal Progression Control Arrays
+        const fullSequence = ["Promo_Intro", "Promo_Lead", "Promo_Gov", "Promo_Comm", "Promo_Change", "Promo_Closing"];
+        const compSequences = {
+            "All": fullSequence,
+            "Lead": ["Promo_Intro", "Promo_Lead", "Promo_Closing"],
+            "Gov": ["Promo_Intro", "Promo_Gov", "Promo_Closing"],
+            "Comm": ["Promo_Intro", "Promo_Comm", "Promo_Closing"],
+            "Change": ["Promo_Intro", "Promo_Change", "Promo_Closing"]
+        };
+        let currentSequence = [];
+        let sequenceIndex = 0;
+
+        // Hardcoded Corporate Local Fallback Array to secure script from breaking if questions.js fails to initialise
+        let db = [
+            { catCode: "Promo_Intro", catLabel: "Strategic Intent", mode: "All", text: "Why do you consider now the appropriate milestone to transition from a localised technical delivery role to a position of systemic corporate stewardship?", paraphrase: "What was the clear catalyst that made you decide you are ready for this internal promotion?" },
+            { catCode: "Promo_Lead", catLabel: "Leadership & Mentorship", mode: "Senior", text: "Detail how you have systematically engineered mentorship pathways within your current department to scale the capabilities of graduate engineers or apprentices.", paraphrase: "Give us an explicit example of a junior team member you coached to expand our internal competence bench." },
+            { catCode: "Promo_Gov", catLabel: "Operational Governance", mode: "Principal", text: "As you move into a position of high regulatory exposure, how will you audit and enforce our corporate Safety Management Systems (SMS) across multi-disciplinary assets?", paraphrase: "How will you handle your increased legal and safety liabilities under active regulatory environments?" },
+            { catCode: "Promo_Comm", catLabel: "Commercial Growth", mode: "Principal", text: "Explain how you plan to manage project capital expenditure (CapEx) and drive value-engineering efficiencies without introducing hidden operational risks.", paraphrase: "How will you optimise project budgets while strictly maintaining technical standards?" },
+            { catCode: "Promo_Change", catLabel: "Change Management", mode: "All", text: "Describe a scenario where you championed a major process change or technical modification and overcame resistance from internal stakeholders.", paraphrase: "How did you bring team members along when introducing a disruptive workflow change?" },
+            { catCode: "Promo_Closing", catLabel: "Strategic Vision", mode: "All", text: "In your first ninety days post-promotion, what specific bottleneck or asset performance deficit do you intend to audit and rectify?", paraphrase: "What is your immediate tactical priority once your promotion is confirmed?" }
+        ];
+
+        // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
+        function checkToolContent(toolKey) {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+            const cacheKey = toolKey + "_scratchpad_cache";
+            if (masterData.ee_tools && masterData.ee_tools[cacheKey]) {
+                const dataStr = masterData.ee_tools[cacheKey];
+                if (typeof dataStr === 'string' && dataStr.trim().length > 0) return true;
+            }
+            return false;
+        }
+
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const internalStatus = checkToolContent(INTERNAL_TOOL_ID);
+            const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
+            const cengStatus = checkToolContent(CENG_TOOL_ID);
+            const iengStatus = checkToolContent(IENG_TOOL_ID);
+            const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
+
+            const hasCareer = internalStatus || externalStatus;
+            const hasPRI = cengStatus || iengStatus || engtechStatus;
+
+            const bInternal = document.getElementById('badge_internal'); if(bInternal) bInternal.innerHTML = getTickHTML(internalStatus);
+            const bExternal = document.getElementById('badge_external'); if(bExternal) bExternal.innerHTML = getTickHTML(externalStatus);
+            const bCareer = document.getElementById('badge_career'); if(bCareer) bCareer.innerHTML = getTickHTML(hasCareer);
+            const bPri = document.getElementById('badge_pri'); if(bPri) bPri.innerHTML = getTickHTML(hasPRI);
+            const bHub = document.getElementById('badge_hub'); if(bHub) bHub.innerHTML = getTickHTML(hasCareer && hasPRI);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+             // LocalStorage cache memory layout restoration layer mapped to the central question database
+             if(typeof questions !== 'undefined') {
+                 db = questions;
+                 console.log("Central questions database successfully loaded and mapped.");
+             }
+             evaluateCaptureVisibility();
+             updateNavigationBadges();
+             
+             // Keystroke Real-Time Auto-Save layout interface mapping (3-second delay protection)
+             const scratchpadDOM = document.getElementById('scratchpad');
+             if(scratchpadDOM) {
+                 scratchpadDOM.addEventListener('input', () => {
+                     clearTimeout(window.eeSaveTimeout);
+                     window.eeSaveTimeout = setTimeout(() => {
+                         let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+                         if(!masterData.ee_tools) masterData.ee_tools = {};
+                         masterData.ee_tools[EE_TOOL_ID + "_scratchpad_cache"] = scratchpadDOM.value;
+                         localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+                         updateNavigationBadges();
+                     }, 3000);
+                 });
+             }
+        });
+
+        function evaluateCaptureVisibility() {
+            const mode = document.getElementById('recModeSelect').value;
+            const deck = document.getElementById('recorderDeck');
+            if (mode === 'browser') {
+                deck.style.display = 'flex';
+            } else {
+                deck.style.display = 'none';
+                stopInterviewAction();
+            }
+        }
+
+        function startInterview() {
+            const seniorityVal = document.getElementById('modeSelect').value;
+            const focusTarget = document.getElementById('compSelect').value;
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'start_internal_promotion_simulation', {
+                    'seniority_tier': seniorityVal,
+                    'competency_stream': focusTarget,
+                    'tool_id': EE_TOOL_ID
+                });
+            }
+
+            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('stopBtn').style.display = 'inline-block';
+            document.getElementById('qHelper').style.display = 'none';
+            document.getElementById('progBadge').style.display = 'none';
+            document.getElementById('qParaphrase').style.display = 'none';
+            
+            document.getElementById('workspaceArea').style.display = 'flex';
+            initCompiler();
+
+            currentSequence = compSequences[focusTarget] || compSequences["All"];
+            sequenceIndex = 0;
+            currentQ = null;
+
+            startSetupPhase();
+        }
+
+        function startSetupPhase() {
+            document.getElementById('catBadge').innerText = 'WORKSPACE INITIALISATION';
+            document.getElementById('qText').innerHTML = "Take a breath. Position your text cursor inside the dictation workspace below and initialise your system speech input tools.<br><br><strong>Ensure your structural logs utilise the STAR methodology frameworks:</strong><br><span style='color:var(--ee-terminal-green); font-weight:bold;'>Situation | Task | Action | Result</span><br><br><span style='font-size:1.1rem; color:var(--burnt-orange); font-weight:bold;'>First internal review criteria deploying shortly...</span>";
+            
+            // UX Engineering Fix: Force immediate activation of the advancement trigger so candidates can manually bypass setup phase blocks
+            document.getElementById('nextBtn').disabled = false;
+            disableRecorderInterfaceButtons();
+            
+            let phaseTimer = 15;
+            document.getElementById('timer').innerText = `00:${phaseTimer}`;
+            
+            setupInterval = setInterval(() => {
+                phaseTimer--;
+                document.getElementById('timer').innerText = `00:${phaseTimer.toString().padStart(2, '0')}`;
+                
+                if (phaseTimer <= 0) {
+                    clearInterval(setupInterval);
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        function stopInterview(isComplete = false) {
+            clearInterval(setupInterval); 
+            appendToCompiler(); 
+            stopInterviewAction(); 
+            
+            document.getElementById('startBtn').style.display = 'inline-block';
+            document.getElementById('stopBtn').style.display = 'none';
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('progBadge').style.display = 'none';
+            document.getElementById('qParaphrase').style.display = 'none';
+            disableRecorderInterfaceButtons();
+            
+            if (isComplete) {
+                document.getElementById('catBadge').innerText = 'PROMOTION REVIEW COMPLETE';
+                document.getElementById('qText').innerHTML = "<strong>Sequence finalised successfully.</strong> Completing an internal technical panel promotion simulation proves strong organisational insight and corporate governance alignment.";
+                document.getElementById('qHelper').innerHTML = "Review your structural text logs compiled below. Copy the full script output and parse it through your artificial intelligence interface nodes to obtain an elite objective grading matrix based on corporate advancement rules.";
+            } else {
+                document.getElementById('catBadge').innerText = 'SIMULATION PAUSED';
+                document.getElementById('qText').innerText = "Simulation halted safely. Review your inputs, modify your parameters, and re-initialise when prepared.";
+                document.getElementById('qHelper').innerHTML = "Mock technical checks can feel intensely demanding, but pushing through this stress envelope and reviewing your recorded data is exactly how you refine your commercial pitch.";
+            }
+            
+            document.getElementById('qHelper').style.display = 'block';
+            document.getElementById('timer').innerText = '00:00';
+            document.getElementById('timer').style.color = "var(--slate-grey)";
+            
+            currentQ = null;
+        }
+
+        function nextQuestion() {
+            // Cleanly interrupt setup interval tracking loops if advanced manually prior to index execution
+            clearInterval(setupInterval);
+
+            if (currentQ) {
+                appendToCompiler();
+            }
+
+            if (sequenceIndex >= currentSequence.length) {
+                stopInterview(true);
+                return;
+            }
+
+            stopInterviewAction();
+            
+            const paraTextNode = document.getElementById('qParaphrase');
+            paraTextNode.style.display = 'none';
+            paraTextNode.innerText = '';
+            
+            // Context Coach Reminders for Mid-Sequence Pacing Boundaries
+            const helperOverlay = document.getElementById('qHelper');
+            if (sequenceIndex === 2) {
+                helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Excellent momentum. For an internal promotion, ensure you speak directly about our specific corporate processes, software ecosystems, and internal asset boundaries.";
+                helperOverlay.className = "helper-text coach-note";
+                helperOverlay.style.display = "block";
+            } else if (sequenceIndex === 4) {
+                helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Executive review fatigue generally manifests at this index boundary. Keep your vocal energy up, highlight your stewardship over company risk logs, and define the financial efficiencies you unlocked.";
+                helperOverlay.className = "helper-text coach-note";
+                helperOverlay.style.display = "block";
+            } else {
+                helperOverlay.style.display = "none";
+            }
+
+            const targetSeniority = document.getElementById('modeSelect').value;
+            const targetCategoryBlock = currentSequence[sequenceIndex];
+
+            // Re-engineered Cascaded Fallback Layer: Eradicates empty arrays and script freezes if questions.js fails to initialise
+            let matchedRecords = db.filter(q => (q.mode === targetSeniority || q.mode === "All") && q.catCode === targetCategoryBlock);
+            
+            if (matchedRecords.length === 0) { 
+                // Fallback Phase 1: Match target block across any seniority configurations
+                matchedRecords = db.filter(q => q.catCode === targetCategoryBlock); 
+            } 
+            if (matchedRecords.length === 0) {
+                // Fallback Phase 2: Filter for general promotion scope items
+                matchedRecords = db.filter(q => q.catCode && q.catCode.startsWith("Promo_"));
+            }
+            if (matchedRecords.length === 0) {
+                // Fallback Phase 3: Broad recovery block mapping directly to universal array memory
+                matchedRecords = db;
+            }
+
+            const extractionIndex = Math.floor(Math.random() * matchedRecords.length);
+            currentQ = matchedRecords[extractionIndex];
+
+            if (currentQ) {
+                const displayModeString = (currentQ.mode || 'All').toUpperCase();
+                const displayLabelString = (currentQ.catLabel || 'Evaluation Matrix').toUpperCase();
+                
+                document.getElementById('catBadge').innerText = `Target: ${displayModeString} // ${displayLabelString}`;
+                document.getElementById('qText').innerText = currentQ.text || '';
+                
+                if (currentQ.paraphrase) {
+                    paraTextNode.innerText = currentQ.paraphrase;
+                }
+            }
+            
+            const progressBadgeNode = document.getElementById('progBadge');
+            progressBadgeNode.style.display = 'block';
+            progressBadgeNode.innerText = `SEQUENCE MATRIX: STEP ${sequenceIndex + 1} / ${currentSequence.length}`;
+
+            document.getElementById('nextBtn').disabled = false;
+
+            const audioCaptureSetting = document.getElementById('recModeSelect').value;
+            if (audioCaptureSetting === 'browser') {
+                initialiseRecorderHardware();
+            } else {
+                startTimer();
+            }
+
+            sequenceIndex++;
+        }
+
+        function initCompiler() {
+            const compilerWindow = document.getElementById('compilerBox');
+            const roleSelection = document.getElementById('modeSelect').value;
+            const textualSeniorityString = roleSelection === "All" ? "Strategic Corporate Engineering Advancement" : `Internal Promotion to ${roleSelection} Level`;
+            
+            const globalSystemMetaPromptText = `Act as an Elite Engineering Executive, Technical Director, and Chairman of the Internal Promotion Review Board for a premier global engineering enterprise. 
+
+I am simulating an intensive vertical progression assessment panel for a competitive ${textualSeniorityString}. Below is the raw textual transcript of my spoken answers.
+
+Please execute a rigorous, highly objective cross-examination critique of my responses against elite corporate expectations, capital risk isolation, policy-level governance, and change leadership methodologies.
+For each individual answer record, you must provide:
+1. An analytical evaluation of my systemic corporate stewardship, engineering policy alignment, and demonstrated level of commercial and safety accountability.
+2. An objective assessment of my narrative communication structure, verifying strict usage of the STAR framework (Situation, Task, Action, Result) and checking for concrete metrics over generic management platitudes.
+3. A severe, high-stress follow-up "probing question" designed to explicitly test my operational bounds, legal liabilities, and strategic engineering readiness.
+
+=========================================
+[RAW RUNTIME TRANSCRIPT LOGS INITIALISED]`;
+
+            compilerWindow.value = globalSystemMetaPromptText;
+        }
+
+        function appendToCompiler() {
+            if (!currentQ) return;
+            const scratchWindow = document.getElementById('scratchpad');
+            const compilerWindow = document.getElementById('compilerBox');
+            
+            const processedText = scratchWindow.value.trim() !== "" ? scratchWindow.value.trim() : "[Candidate provided no spoken transcript data or entries for this segment]";
+            
+            const structuralEntryString = `\n\n--- SIMULATION EVALUATION BLOCK: STEP ${sequenceIndex} (${currentQ.catCode}) ---\nInterviewer Board Query: "${currentQ.text}"\nCandidate Verbal Transcript: "${processedText}"`;
+            
+            compilerWindow.value += structuralEntryString;
+            scratchWindow.value = ''; 
+            compilerWindow.scrollTop = compilerWindow.scrollHeight;
+        }
+
+        function copyCompiler() {
+            const targetSelectionBox = document.getElementById("compilerBox");
+            targetSelectionBox.select();
+            targetSelectionBox.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(targetSelectionBox.value);
+            
+            const actionBtnNode = document.getElementById('copyCompBtn');
+            const placeholderOriginalTextString = actionBtnNode.innerText;
+            actionBtnNode.innerText = "CONTENT COPIED";
+            setTimeout(() => { actionBtnNode.innerText = placeholderOriginalTextString; }, 2000);
+        }
+
+        function initialiseRecorderHardware() {
+            updateRecorderUIDeck(false, "Awaiting Recording Trigger");
+            document.getElementById('recPlayBtn').disabled = false;
+            document.getElementById('recStopBtn').disabled = true;
+            startTimer();
+        }
+
+        function toggleManualAudioCapture() {
+            if (isRecording) return;
+
+            const timingLabelNode = document.getElementById('timer');
+            const parentCardDOMNode = document.getElementById('questionCard');
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    try {
+                        audioStreamInstance = stream;
+                        mediaRecorder = new MediaRecorder(stream);
+                        audioChunks = [];
+
+                        mediaRecorder.ondataavailable = ev => {
+                            audioChunks.push(ev.data);
+                        };
+
+                        mediaRecorder.onstop = () => {
+                            const localWavBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                            const generatedObjectLink = URL.createObjectURL(localWavBlob);
+                            
+                            const fileDownloadTriggerLink = document.createElement('a');
+                            fileDownloadTriggerLink.style.display = 'none';
+                            fileDownloadTriggerLink.href = generatedObjectLink;
+                            fileDownloadTriggerLink.download = `EE_InternalPromotion_Segment_Step${sequenceIndex}.wav`; 
+                            document.body.appendChild(fileDownloadTriggerLink);
+                            fileDownloadTriggerLink.click();
+                            document.body.removeChild(fileDownloadTriggerLink);
+                            
+                            URL.revokeObjectURL(generatedObjectLink);
+                        };
+
+                        mediaRecorder.start();
+                        isRecording = true;
+                        
+                        timingLabelNode.classList.add('recording');
+                        parentCardDOMNode.classList.add('recording-active');
+                        
+                        updateRecorderUIDeck(true, "● Native Recording On Air");
+                        document.getElementById('recPlayBtn').disabled = true;
+                        document.getElementById('recStopBtn').disabled = false;
+                    } catch(innerMediaError) {
+                        console.warn("MediaRecorder Framework Exception Intercepted: Reverting to fallback countdown execution.");
+                        startTimer();
+                    }
+                })
+                .catch(err => {
+                    console.warn("Hardware Access Intercepted: Microphone denied. Reverting to structural visual countdown matrices only.");
+                    updateRecorderUIDeck(false, "Microphone Denied / Offline");
+                });
+        }
+
+        function stopManualAudioCapture() {
+            if (!isRecording) return;
+            stopInterviewAction();
+        }
+
+        function updateRecorderUIDeck(isActiveState, statusTextString) {
+            const dot = document.getElementById('recDot');
+            const label = document.getElementById('recLabel');
+            
+            label.innerText = statusTextString;
+            if (isActiveState) {
+                dot.className = "status-dot active-red";
+                label.className = "status-text-label active-red";
+            } else {
+                dot.className = "status-dot";
+                label.className = "status-text-label";
+            }
+        }
+
+        function disableRecorderInterfaceButtons() {
+            document.getElementById('recPlayBtn').disabled = true;
+            document.getElementById('recStopBtn').disabled = true;
+            updateRecorderUIDeck(false, "Microphone Infrastructure Idle");
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let operationalSecondsLimit = parseInt(document.getElementById('timeSelect').value);
+            let rollingTimeCounter = operationalSecondsLimit;
+            
+            if (operationalSecondsLimit === 0) {
+                document.getElementById('timer').innerText = "--:--";
+                document.getElementById('timer').style.color = "var(--slate-grey)";
+                if(currentQ && currentQ.paraphrase) {
+                    document.getElementById('qParaphrase').style.display = 'block';
+                }
+                return; 
+            }
+
+            updateTimerDisplay(rollingTimeCounter);
+            
+            timerInterval = setInterval(() => {
+                rollingTimeCounter--;
+                updateTimerDisplay(rollingTimeCounter);
+
+                if(rollingTimeCounter === Math.floor(operationalSecondsLimit / 2)) {
+                    if(currentQ && currentQ.paraphrase) {
+                        document.getElementById('qParaphrase').style.display = 'block';
+                    }
+                }
+
+                if(rollingTimeCounter <= 20 && rollingTimeCounter > 0) {
+                    document.getElementById('timer').style.color = "var(--burnt-orange)";
+                } else {
+                    document.getElementById('timer').style.color = "var(--slate-grey)";
+                }
+
+                if(rollingTimeCounter <= 0) {
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSecondsValue) {
+            const calculatedMinutesBlock = Math.floor(totalSecondsValue / 60).toString().padStart(2, '0');
+            const calculatedSecondsBlock = (totalSecondsValue % 60).toString().padStart(2, '0');
+            document.getElementById('timer').innerText = `${calculatedMinutesBlock}:${calculatedSecondsBlock}`;
+        }
+
+        function stopInterviewAction() {
+            clearInterval(timerInterval);
+            document.getElementById('timer').style.color = "var(--slate-grey)";
+            
+            const parentCardDOMNode = document.getElementById('questionCard');
+            parentCardDOMNode.classList.remove('recording-active');
+            document.getElementById('timer').classList.remove('recording');
+            
+            updateRecorderUIDeck(false, "Recording Stopped / Idle");
+            document.getElementById('recPlayBtn').disabled = false;
+            document.getElementById('recStopBtn').disabled = true;
+            
+            if (isRecording && mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop(); 
+                if (mediaRecorder.stream) {
+                    mediaRecorder.stream.getTracks().forEach(track => track.stop());
+                }
+                isRecording = false;
+            }
+            if (audioStreamInstance) {
+                audioStreamInstance.getTracks().forEach(track => track.stop());
+                audioStreamInstance = null;
+            }
+        }
+    </script>
+</body>
+</html>
