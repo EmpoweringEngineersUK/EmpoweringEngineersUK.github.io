@@ -126,11 +126,12 @@
             border: 2px solid var(--slate-grey);
         }
 
-        .game-wrapper { max-width: 800px; margin: 0 auto; }
+        .game-wrapper { max-width: 850px; margin: 0 auto; }
 
         .game-area { 
             text-align: center; margin-bottom: 20px; background-color: var(--dark-card); 
-            padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); 
+            padding: 30px; border-radius: 6px; border: 1px solid var(--border-color); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         .game-container { position: relative; min-height: 400px; }
         
@@ -139,40 +140,87 @@
             margin-bottom: 20px; flex-wrap: wrap; 
         }
         
-        /* High Contrast Architecture for Light/Dark Theme Synergy */
+        /* OVERRIDE GLOBALS: High Contrast Architecture for Buttons */
         .mode-btn {
-            background: var(--ee-dark-blue); border: 8px solid var(--slate-grey);
-            color: var(--slate-grey); padding: 0 16px;
+            background-color: var(--dark-card) !important;
+            background-image: none !important;
+            border: 2px solid var(--slate-grey) !important;
+            color: var(--slate-grey) !important;
+            box-shadow: none !important;
+            padding: 0 20px;
             min-height: 48px; display: inline-flex;
             align-items: center; justify-content: center;
             font-size: 0.85rem; font-weight: 700; cursor: pointer;
             border-radius: 24px; text-transform: uppercase; transition: all 0.2s ease;
         }
-        .mode-btn:hover { border-color: var(--terminal-green); color: var(--slate-grey); }
+        .mode-btn:hover { border-color: var(--terminal-green) !important; color: var(--terminal-green) !important; }
         .mode-btn.active {
-            border-color: var(--terminal-green); color: var(--ee-dark-blue);
-            background: var(--ee-dark-blue); box-shadow: 0 0 10px var(--hover-green);
+            border-color: var(--terminal-green) !important; color: var(--ee-white) !important;
+            background-color: var(--terminal-green) !important; box-shadow: 0 0 10px var(--hover-green) !important;
+        }
+
+        /* Combined Q-Box and Context Hint for Vertical Space Reduction */
+        .q-box-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: var(--input-bg);
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .game-q-box { 
-            background: var(--input-bg); padding: 20px; border-radius: 8px; 
-            margin-bottom: 20px; font-size: 2.8rem; font-weight: 700; 
-            color: var(--burnt-orange); border: 1px dashed var(--border-color); 
+            font-size: 2.8rem; 
+            font-weight: 700; 
+            color: var(--burnt-orange); 
             letter-spacing: 2px;
-        }
-        .game-context-hint { 
-            font-size: 0.85rem; color: var(--slate-grey); display: block; 
-            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: transparent;
         }
         
-        .word-display {
-            display: flex; flex-direction: column; align-items: center;
-            gap: 12px; margin-bottom: 25px; min-height: 40px; transition: color 0.3s;
+        .game-context-hint { 
+            font-size: 0.85rem; 
+            color: var(--slate-grey); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 700;
+            margin: 0;
+            border-right: 2px solid var(--border-color);
+            padding-right: 15px;
         }
-        .word-line { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        
+        @media (max-width: 600px) {
+            .q-box-container { flex-direction: column; gap: 5px; text-align: center; }
+            .game-context-hint { border-right: none; border-bottom: 2px solid var(--border-color); padding-right: 0; padding-bottom: 10px; }
+        }
+
+        /* Overhauled Word Wrap Mechanics for Horizontal Layout */
+        .word-display {
+            display: flex;
+            flex-direction: row; 
+            flex-wrap: wrap; /* Wraps whole words to new line when width exceeded */
+            justify-content: center;
+            align-items: center;
+            gap: 15px 25px; /* 15px vertical, 25px horizontal gap between words */
+            margin-bottom: 30px; 
+            min-height: 40px; 
+            transition: color 0.3s;
+        }
+        .word-line { 
+            display: flex; 
+            gap: 8px; 
+            flex-wrap: nowrap; /* Prevents word from breaking internally */
+            justify-content: center; 
+        }
         .char-box {
-            font-size: 1.6rem; color: var(--slate-grey); border-bottom: 3px solid var(--slate-grey);
-            min-width: 30px; text-align: center; font-weight: 700; transition: color 0.3s; padding-bottom: 4px;
+            font-size: 1.8rem; color: var(--slate-grey); border-bottom: 4px solid var(--slate-grey);
+            min-width: 32px; text-align: center; font-weight: 700; transition: color 0.3s; padding-bottom: 6px;
         }
         .char-initial {
             color: var(--terminal-green) !important; border-bottom-color: var(--terminal-green) !important;
@@ -192,20 +240,37 @@
             display: flex; flex-wrap: wrap; justify-content: center;
             gap: 10px; max-width: 650px; margin: 0 auto;
         }
+        
+        /* OVERRIDE GLOBALS: Fat Finger Keyboard Target Buttons */
         .btn-fat-finger {
-            background: var(--input-bg); border: 2px solid var(--slate-grey);
-            color: var(--slate-grey); font-size: 1.1rem; font-weight: 700;
+            background-color: var(--dark-card) !important;
+            background-image: none !important;
+            border: 2px solid var(--terminal-green) !important;
+            color: var(--terminal-green) !important;
+            box-shadow: none !important;
+            font-size: 1.1rem; font-weight: 700;
             min-width: 48px; min-height: 48px; display: inline-flex;
             justify-content: center; align-items: center; border-radius: 4px;
-            cursor: pointer; transition: all 0.15s ease; box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+            cursor: pointer; transition: all 0.15s ease;
         }
         .btn-fat-finger:hover:not(:disabled) {
-            background: var(--hover-green); border-color: var(--terminal-green);
-            color: var(--terminal-green); transform: translateY(-2px); box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+            background-color: var(--terminal-green) !important;
+            color: var(--dark-card) !important;
+            transform: translateY(-2px);
         }
-        .btn-fat-finger:disabled { cursor: not-allowed; opacity: 0.5; box-shadow: none; transform: translateY(2px); }
-        .kb-correct { background: var(--terminal-green) !important; color: var(--ee-dark-blue) !important; border-color: var(--terminal-green) !important; opacity: 1 !important;}
-        .kb-wrong { background: var(--burnt-orange) !important; color: #fff !important; border-color: var(--burnt-orange) !important; opacity: 0.8 !important;}
+        .btn-fat-finger:disabled { cursor: not-allowed; opacity: 0.5; transform: translateY(2px); }
+        .btn-fat-finger.kb-correct { 
+            background-color: var(--terminal-green) !important; 
+            color: var(--dark-card) !important; 
+            border-color: var(--terminal-green) !important; 
+            opacity: 1 !important;
+        }
+        .btn-fat-finger.kb-wrong { 
+            background-color: var(--burnt-orange) !important; 
+            color: var(--ee-white) !important; 
+            border-color: var(--burnt-orange) !important; 
+            opacity: 0.8 !important;
+        }
 
         .timer-badge { 
             font-size: 1.2rem; font-weight: 700; color: var(--terminal-green); 
@@ -216,11 +281,15 @@
         }
 
         .action-btn-menu {
-            background: transparent; border: 2px solid var(--slate-grey); color: var(--slate-grey);
+            background-color: transparent !important;
+            background-image: none !important;
+            border: 2px solid var(--slate-grey) !important;
+            color: var(--slate-grey) !important;
+            box-shadow: none !important;
             font-weight: 700; text-transform: uppercase; cursor: pointer; padding: 6px 14px;
             border-radius: 4px; transition: all 0.2s; min-height: 48px; font-size: 0.85rem;
         }
-        .action-btn-menu:hover { background: var(--slate-grey); color: var(--input-bg); }
+        .action-btn-menu:hover { background-color: var(--slate-grey) !important; color: var(--input-bg) !important; }
 
         @keyframes pulse-orange {
             0%, 100% { color: var(--slate-grey); border-color: var(--slate-grey); }
@@ -350,7 +419,7 @@
                         <button class="action-btn" onclick="startGame()" style="width:100%; max-width: 250px;">INITIALISE SEQUENCE</button>
                         
                         <div style="margin-top:25px;">
-                            <button onclick="resetStats()" style="background:var(--ee-header-gradient); border:var(--burnt-orange); color:var(--burnt-orange); font-size:0.8rem; font-weight:700; cursor:pointer; text-decoration:underline; min-height: 48px;">RESET HIGH SCORES</button>
+                            <button onclick="resetStats()" style="background:transparent !important; background-image:none !important; border:none !important; box-shadow:none !important; color:var(--terminal-green) !important; font-size:0.8rem; font-weight:700; cursor:pointer; text-decoration:underline; min-height: 48px;">RESET HIGH SCORES</button>
                         </div>
                     </div>
 
@@ -373,9 +442,13 @@
                         </div>
                     </div>
 
-                    <span class="game-context-hint" id="qContext">CONTEXT: SYSTEM</span>
-                    <div class="game-q-box" id="qAbbr">???</div>
+                    <!-- Horizontally Compressed Context & Query Box -->
+                    <div class="q-box-container">
+                        <span class="game-context-hint" id="qContext">CONTEXT: SYSTEM</span>
+                        <div class="game-q-box" id="qAbbr">???</div>
+                    </div>
 
+                    <!-- Flowing Horizontal Word Display -->
                     <div id="wordDisplay" class="word-display"></div>
                     
                     <div id="healthBarWrapper" style="display:block;">
@@ -603,6 +676,7 @@
             setupHangmanRound(); 
         }
 
+        // Logic overhauled to ensure words flow horizontally and break purely on word thresholds
         function updateWordDisplay() {
             const container = document.getElementById('wordDisplay');
             container.innerHTML = ''; 
@@ -628,7 +702,7 @@
                     span.className = 'char-box';
                     span.innerText = char;
                     if(isWordStart && char !== '_') span.classList.add('char-initial');
-                    container.appendChild(span);
+                    currentLine.appendChild(span);
                     isWordStart = false;
                 }
             });
@@ -758,7 +832,9 @@
             if (adBlock) adBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
+        // Feature Injection: Global Physical Keyboard Integration for Desktop Candidates
         document.addEventListener('keydown', function(e) {
+            // Guard clauses to prevent keystrokes firing while on menu or paused
             if(gameIsPaused || document.getElementById('startOverlay').style.display !== 'none') return;
             
             const char = e.key.toUpperCase();
