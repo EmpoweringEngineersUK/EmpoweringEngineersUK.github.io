@@ -39,33 +39,26 @@
 
 /* --- 1. CORE ACCESSIBILITY THEME MANAGER --- */
 window.ThemeManager = {
-    // Explicitly mapping 'light' to intercept legacy data strings and prevent -1 index errors
     states: ['light', 'dark', 'contrast'],
     labels: ['light', 'dark', 'contrast'],
     
     init: function() {
         let savedTheme = localStorage.getItem('ee_theme');
-        
-        // Strict fallback sanitisation: Default to 'light' if the key is null, empty, or unrecognised
         if (!savedTheme || !this.states.includes(savedTheme)) {
             savedTheme = 'light';
             localStorage.setItem('ee_theme', 'light');
         }
-
-        // Apply visual document attributes
         if (savedTheme === 'light') {
             document.body.removeAttribute('data-theme');
         } else {
             document.body.setAttribute('data-theme', savedTheme);
         }
-        
         this.updateLabel();
     },
 
     toggle: function() {
         let currentTheme = localStorage.getItem('ee_theme') || 'light';
         let nextIndex = this.states.indexOf(currentTheme) + 1;
-        
         if (nextIndex >= this.states.length) nextIndex = 0;
         
         const nextTheme = this.states[nextIndex];
@@ -76,18 +69,14 @@ window.ThemeManager = {
         } else {
             document.body.setAttribute('data-theme', nextTheme);
         }
-        
         this.updateLabel();
     },
 
     updateLabel: function() {
         let currentTheme = localStorage.getItem('ee_theme') || 'light';
-        
-        // Final safety catch to ensure UI rendering never breaks on corrupted memory calls
         if (!this.states.includes(currentTheme)) {
             currentTheme = 'light';
         }
-        
         const index = this.states.indexOf(currentTheme);
         const currentLabel = this.labels[index];
         const svgUrl = `assets/EE_${currentLabel}-visibility.svg`;
@@ -100,16 +89,147 @@ window.ThemeManager = {
     }
 };
 
-// Initialise the theme sequence immediately upon script execution
 window.ThemeManager.init();
 
 /* --- 2. MULTI-LEVEL RESPONSIVE INJECTION ENGINE --- */
 (function() {
     const navStyles = `
     <style>
-        /* Drawer insulation layers resolve leakage bugs across parent content spaces completely */
+        /* Encapsulated Layout Controls to Prevent Live Server Rendering Collapse */
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            min-height: 180px;
+            padding: 10px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--ee-terminal-green, #03F7A0);
+            box-shadow: 0 4px 20px rgba(13, 27, 42, 0.2);
+            background-color: #0D1B2A;
+            background-image: url('assets/EE_banner.webp') !important;
+            background-position: center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            transition: min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .sticky-container.scrolled {
+            min-height: 65px !important;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+        .header-brand-row {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+        .header-title-row {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-grow: 1 !important;
+            width: 100% !important;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .sticky-container.scrolled .header-title-row {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            display: none !important;
+        }
+        .ee-nav-menu, .ee-nav-menu ul {
+            display: flex !important;
+            flex-direction: row !important;
+            list-style: none !important;
+            list-style-type: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 6px;
+            align-items: center;
+        }
+        .ee-nav-menu li {
+            list-style: none !important;
+            list-style-type: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .ee-nav-item { position: relative; }
+        .ee-dropdown {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: #0D1B2A !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-top: 3px solid #03F7A0 !important;
+            border-radius: 0 0 6px 6px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            min-width: 280px !important;
+            padding: 6px 0 !important;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(10px) !important;
+            transition: all 0.2s ease !important;
+            z-index: 2100 !important;
+        }
+        .ee-nav-item:hover > .ee-dropdown {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+        .ee-dropdown-sub { position: relative; }
+        .ee-dropdown-sub .ee-dropdown {
+            top: -7px !important;
+            left: 100% !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-left: 3px solid #03F7A0 !important;
+            border-radius: 0 6px 6px 0 !important;
+        }
+        .ee-mobile-trigger-bar {
+            display: none;
+            gap: 10px;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            .header-brand-row nav { display: none !important; }
+            .ee-mobile-trigger-bar { display: flex !important; }
+        }
+        /* Mobile Side-Drawer Insulation & Contrast Layer Rules */
+        .ee-mobile-drawer {
+            position: fixed !important;
+            top: 0 !important;
+            left: -340px !important;
+            width: 300px !important;
+            height: 100% !important;
+            background: #0D1B2A !important;
+            border-right: 2px solid #03F7A0 !important;
+            box-shadow: 8px 0 24px rgba(0,0,0,0.4) !important;
+            z-index: 3000 !important;
+            transition: left 0.3s cubic-bezier(0.77, 0, 0.175, 1) !important;
+            overflow-y: auto !important;
+            padding: 20px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            visibility: hidden !important;
+        }
+        .ee-mobile-drawer.open {
+            left: 0 !important;
+            visibility: visible !important;
+        }
+        .ee-accordion, .ee-accordion ul {
+            list-style: none !important;
+            list-style-type: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .ee-accordion li {
+            list-style: none !important;
+            list-style-type: none !important;
+        }
         .ee-accordion-link {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: rgba(255, 255, 255, 0.95) !important;
             text-decoration: none;
             padding: 10px 16px;
             display: flex;
@@ -119,7 +239,7 @@ window.ThemeManager.init();
             font-size: 0.95rem;
             font-weight: 700;
         }
-        .ee-accordion-link:hover {
+        .ee-accordion-link:hover, .ee-accordion-link:active {
             color: #03F7A0 !important;
         }
         .ee-accordion-sub-menu .ee-accordion-link {
@@ -129,14 +249,12 @@ window.ThemeManager.init();
         .ee-accordion-sub-menu .ee-accordion-link:hover {
             color: #FFFFFF !important;
         }
-        /* Desktop 3rd Tier Flyout Hover Fix & Viewport Leakage Prevention */
         @media (min-width: 993px) {
             .ee-dropdown-sub:hover > .ee-dropdown {
                 opacity: 1 !important;
                 visibility: visible !important;
                 transform: translateY(0) !important;
             }
-            /* UX Protection: Universally reverse flyout trajectory for all core navigation items past HOME to completely eliminate horizontal scrollbars */
             .ee-nav-item:not(:first-child) .ee-dropdown-sub .ee-dropdown {
                 left: auto !important;
                 right: 100% !important;
@@ -148,7 +266,6 @@ window.ThemeManager.init();
     </style>
     `;
 
-    // High Fidelity Architecture Sitemap mapped precisely to the local root directory rules and visual sitemap
     const menuTree = [
         {
             label: "HOME",
@@ -351,14 +468,11 @@ window.ThemeManager.init();
 
     let resolvedTitle = "Empowering Engineers UK®";
     if (page !== "index" && page !== "") {
-        // Dynamic Interception Layer: Strip standard branding suffix for header text extraction
         let cleanTitle = document.title.replace(/\s*\|\s*Empowering Engineers UK/gi, '').trim();
-        
         const matchedNode = menuTree.find(item => item.url.includes(page));
         if (matchedNode) {
             resolvedTitle = matchedNode.label;
         } else {
-            // Apply defensive fallback split arrays targeting pipes or hyphens cleanly
             resolvedTitle = cleanTitle.split(/[|\-]/)[0].trim();
         }
     } else {
@@ -423,9 +537,8 @@ window.ThemeManager.init();
                 html += `<button class="ee-accordion-toggle" onclick="toggleMobileAccordion(this)">${item.label} <span>▼</span></button>`;
                 html += `<ul class="ee-accordion-content">`;
                 
-                // UX Fix: If the parent tab contains an actual URL hub, inject it explicitly into the mobile dropdown so users can navigate to it.
                 if (item.url && item.url !== "#") {
-                    html += `<li><a href="${item.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: var(--ee-terminal-green) !important; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px;">${item.label} Overview</a></li>`;
+                    html += `<li><a href="${item.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: #03F7A0 !important; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px;">${item.label} Overview</a></li>`;
                 }
                 
                 item.children.forEach(child => {
@@ -436,9 +549,8 @@ window.ThemeManager.init();
                         html += `<button class="ee-accordion-toggle" style="font-size:0.9rem;" onclick="toggleMobileAccordion(this)">${child.label} <span>▼</span></button>`;
                         html += `<ul class="ee-accordion-sub-menu" style="display:none; list-style:none; padding-left:15px; background:rgba(0,0,0,0.15);">`;
                         
-                        // Apply the same hub overview logic to mid-level tiers (e.g. Coach -> Strategy.html)
                         if (child.url && child.url !== "#") {
-                            html += `<li><a href="${child.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: var(--ee-terminal-green) !important; font-style: italic;">${child.label} Overview</a></li>`;
+                            html += `<li><a href="${child.url}" class="ee-accordion-link" onclick="window.toggleMobileDrawer(false)" style="color: #03F7A0 !important; font-style: italic;">${child.label} Overview</a></li>`;
                         }
 
                         child.children.forEach(subChild => {
@@ -463,7 +575,7 @@ window.ThemeManager.init();
     }
 
     const desktopNavHTML = buildDesktopMenu(menuTree);
-    const mobileNavHTML = buildMobileMenu(menuTree);
+    const mobileNavHTML = buildMobileMenu(tree = menuTree);
 
     const headerHTML = `
         ${navStyles}
@@ -539,7 +651,6 @@ window.ThemeManager.init();
         }
     };
 
-    // Strict Restoration Listener: Clear lingering history cache states on page return flows
     window.addEventListener('pageshow', function(event) {
         window.toggleMobileDrawer(false);
     });
