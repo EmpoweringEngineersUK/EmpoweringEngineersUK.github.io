@@ -64,7 +64,6 @@
 		
 })();
 
-
 /* --- 1. CORE ACCESSIBILITY THEME MANAGER --- */
 window.ThemeManager = {
     states: ['light', 'dark', 'contrast'],
@@ -661,11 +660,51 @@ window.ThemeManager.init();
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
     /* --- 3. HIGH PERFORMANCE SCROLL ENGINE & LIFECYCLE CONTROLS --- */
-    window.addEventListener('scroll', function() {
+    let isTicking = false;
+    let dynamicCollapseTrigger = 220; // Fallback starting metric
+    const EXPAND_TRIGGER = 20;
+
+    // Dynamically calculate the accurate state boundaries based on current window formatting
+    function calculateDynamicHeaderMetrics() {
         const header = document.querySelector('.sticky-container');
-        if (header) {
-            if (window.scrollY > 15) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+        if (!header) return;
+        
+        // Prevent layout thrashing: Measure actual state ONLY when expanded
+        if (!header.classList.contains('scrolled')) {
+            const actualHeight = header.offsetHeight;
+            // Mathematical Deadzone Law: 
+            // The gap between collapse and expand triggers MUST exceed the maximum height shift.
+            // By setting the collapse trigger greater than the total expanded height itself, 
+            // the layout shift can NEVER bridge the gap and trigger a feedback loop.
+            dynamicCollapseTrigger = actualHeight + 60; 
+        }
+    }
+
+    // Initialise metrics on structural mount
+    window.addEventListener('DOMContentLoaded', calculateDynamicHeaderMetrics);
+    
+    // Recalculate safely on resize without thrashing active scroll states
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(calculateDynamicHeaderMetrics, 200);
+    });
+
+    window.addEventListener('scroll', function() {
+        if (!isTicking) {
+            window.requestAnimationFrame(function() {
+                const header = document.querySelector('.sticky-container');
+                if (header) {
+                    // Implement strict calculated boundaries to eliminate feedback loops
+                    if (window.scrollY > dynamicCollapseTrigger) {
+                        header.classList.add('scrolled');
+                    } else if (window.scrollY < EXPAND_TRIGGER) {
+                        header.classList.remove('scrolled');
+                    }
+                }
+                isTicking = false;
+            });
+            isTicking = true;
         }
     }, { passive: true });
 
