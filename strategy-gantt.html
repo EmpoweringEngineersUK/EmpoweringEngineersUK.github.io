@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Free engineering project management Gantt chart generator. Plan resources, map critical paths, and control capital budgets to satisfy UK-SPEC Competence C leadership targets.">
+    <meta name="keywords" content="Gantt Chart, Project Management, Critical Path Analysis, Engineering Roadmap, Resource Allocation, Project Budget, UK-SPEC Competence C, Scheduling">
+    <meta property="og:title" content="Engineering Gantt Chart & Project Roadmap | Empowering Engineers UK">
+    <meta property="og:description" content="A client-side interactive Gantt engine to map engineering schedules, automatically calculate critical paths, and track commercial project budgets.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/strategy-gantt.html">
+    <meta property="og:type" content="website">
+    
+    <title>Gantt Chart Project Roadmap | Empowering Engineers UK</title>
+    
+    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Engineering Gantt Chart Architecture Tool",
+      "url": "https://www.empoweringengineers.uk/strategy-gantt.html",
+      "description": "An interactive digital roadmap designed to sequence technical tasks, calculate critical dependencies, and manage commercial resources safely.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/"
+      }
+    }
+    </script>
+    
+    <style>
+        /* --- BESPOKE GANTT CHART ENGINE STYLES --- */
+        .gantt-workspace {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            border-top: 4px solid var(--terminal-green);
+        }
+
+        .gantt-toolbar {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background: var(--midnight-navy);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .gantt-project-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .gantt-core-layout {
+            display: flex;
+            width: 100%;
+            position: relative;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 400px;
+        }
+
+        /* Left Side: Data Grid */
+        .gantt-data-panel {
+            flex: 0 0 450px;
+            background: var(--dark-card);
+            border-right: 2px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        @media (max-width: 900px) {
+            .gantt-core-layout {
+                flex-direction: column;
+            }
+            .gantt-data-panel {
+                flex: 1 1 auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+                overflow-x: auto;
+            }
+        }
+
+        .gantt-grid-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+            background: var(--midnight-navy);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--cloud-white);
+            height: 40px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        .gantt-grid-header div {
+            padding: 0 10px;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            white-space: nowrap;
+        }
+
+        .gantt-data-rows {
+            flex-grow: 1;
+        }
+
+        .gantt-data-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+            border-bottom: 1px dashed var(--border-color);
+            height: 40px;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--cloud-white);
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .gantt-data-row:hover {
+            background-color: var(--hover-green);
+        }
+
+        .gantt-data-row div {
+            padding: 0 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row-phase { font-weight: 700; color: var(--terminal-green); }
+        .row-milestone { font-style: italic; color: var(--burnt-orange); }
+        .gantt-indent { padding-left: 20px !important; }
+
+        /* Right Side: Timeline Chart */
+        .gantt-chart-panel {
+            flex: 1 1 auto;
+            position: relative;
+            background-image: url('assets/EE_banner.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: local;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .gantt-timeline-header, .gantt-chart-rows, .gantt-svg-layer {
+            z-index: 2;
+            position: relative;
+        }
+
+        .gantt-timeline-header {
+            display: flex;
+            height: 40px;
+            background: var(--ee-dark-blue);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        .gantt-day-tick {
+            min-width: 45px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            white-space: nowrap;
+        }
+
+        .gantt-chart-rows {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .gantt-chart-row {
+            height: 40px;
+            border-bottom: 1px dashed rgba(255,255,255,0.15);
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: transparent;
+        }
+
+        /* Bar Renderers */
+        .gantt-bar {
+            position: absolute;
+            height: 20px;
+            border-radius: 3px;
+            top: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            z-index: 3;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            font-size: 0.7rem;
+            color: #101925;
+            font-weight: bold;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .bar-task { background-color: #03F7A0; }
+        .bar-critical { background-color: #ff4757; color: #fff; border: 1px solid #ff6b81; }
+        
+        .bar-phase {
+            background-color: #A0AEC0;
+            height: 12px;
+            top: 14px;
+            border-radius: 0;
+            color: transparent;
+        }
+        .bar-phase::before, .bar-phase::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 12px solid #A0AEC0;
+        }
+        .bar-phase::before { left: 0; }
+        .bar-phase::after { right: 0; }
+
+        .bar-milestone {
+            width: 20px;
+            height: 20px;
+            background-color: #C05621;
+            transform: rotate(45deg);
+            top: 10px;
+            border-radius: 2px;
+            display: block;
+            box-shadow: 0 0 8px rgba(0,0,0,0.5);
+        }
+
+        /* SVG Dependency Lines */
+        .gantt-svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Modal Overlay Mechanics */
+        .gantt-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 4000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gantt-modal {
+            background: var(--dark-card);
+            border: 2px solid var(--terminal-green);
+            border-radius: 6px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 25px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .gantt-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Diagnostic Tooltip Engine */
+        .gantt-tooltip {
+            position: fixed;
+            z-index: 9999;
+            background: rgba(13, 27, 42, 0.95);
+            border: 1px solid var(--terminal-green);
+            color: #FFFFFF;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            display: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            white-space: pre-wrap;
+            line-height: 1.5;
+            min-width: 250px;
+        }
+        .gantt-tooltip span.hl { color: var(--terminal-green); font-weight: 700; }
+        .gantt-tooltip span.hlor { color: var(--burnt-orange); font-weight: 700; }
+    </style>
+</head>
+<body onload="initApp()">
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=22.0" defer></script>
+    
+    <main class="container">
+        
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content" id="aeoThickContentBlock">
+            <h2>What is a Gantt Chart and Critical Path Analysis?</h2>
+            <p>A Gantt chart is a powerful visual engineering tool used to plan, programme, and control complex projects against a rigid timeline. Originally developed in the early 20th century, it maps out individual project tasks horizontally against a calendar grid. However, modern project management requires more than just a timeline. Real-world engineering tasks are heavily interconnected. For example, you cannot pour a concrete foundation until the groundworks excavation is fully completed. A modern Gantt chart engine automatically links these dependencies. Through mathematical scheduling logic, the system highlights the <strong>Critical Path</strong>—the exact sequence of tasks that possess zero schedule float. If a task on the critical path is delayed by a single day, the final delivery date of the entire project is instantly compromised.</p>
+            
+            <h2>Why Project Roadmaps Matter to Your Career</h2>
+            <p>When applying for professional registration as an Incorporated Engineer (<strong>IEng</strong>) or a Chartered Engineer (<strong>CEng</strong>), you will be heavily assessed against the Engineering Council’s <strong>UK-SPEC Competence C</strong>. This competence demands that candidates can direct teams, manage commercial resources safely, and control capital budgets. Relying on simple to-do lists or guessing task durations reveals a lack of commercial maturity to Review Panels. By actively deploying a dependency-aware Gantt chart, you prove that you possess advanced management capabilities. It shows you can isolate schedule bottlenecks, allocate financial resources logically, and protect your company’s profit margins from chaotic, disorganised delays.</p>
+            
+            <h2>How to Build Your Project Roadmap Cleanly</h2>
+            <p>We have engineered this interactive workspace to help you construct fully functional project roadmaps directly within your browser cache. Begin by using the command toolbar to create a new project matrix, or select an existing one from your local profile. You can set a definitive <strong>Project Start Date</strong> via the settings menu, and adjust your timescale resolution from multi-year macro tracking down to minute-by-minute shutdown blocks.</p>
+            <p>Use the configuration buttons to add a <strong>Summary Phase</strong> (e.g., "Phase 1: Civil Enabling Works"). Next, insert standard <strong>Tasks</strong> beneath it, setting their estimated duration. If a task relies on another finishing first, click on the task row to open the inspector module and add the dependency. If a task operates independently with slack, simply assign it an arbitrary <strong>Manual Start Constraint</strong> to float it freely on the timeline. Hovering your mouse over any task bar will instantly reveal a diagnostic tooltip loaded with commercial costs, operational risks, and precise calculated dates. </p>
+            <p>Our engine instantly recalculates timelines, draws physical connection vectors, and paints critical path items bright red. Crucially, the system features a rigid constraint protection layer. If you alter a dependency that forces a clash with a downstream manual start constraint, the software will throw a warning alert, forcing you to consciously override or reject the shift. <strong>Strategic Tip:</strong> If you are unsure how long a highly volatile task will take, we strongly recommend navigating to our <a href="decisions-monte-carlo.html">Monte Carlo Simulation</a> tool to mathematically calibrate your limits. Once your roadmap is fully sequenced, click the Preview Report button to extract a clean, tabular project management report encompassing a printable vector timeline graphic for your operational portfolio.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar -->
+        <nav class="ee-horizontal-nav" id="strategyPathNav" aria-label="Strategy Management Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
+            <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_strategy"></div>
+                <span class="tab-label">Strategy Hub</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt & Roadmap</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Project Roadmap Generator</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Gantt Chart & Critical Path Analysis Engine</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="generateReport()">📑 Preview Report</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="document.getElementById('ee_import_file').click()">📥 Import Project</button>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="exportJSON()">💾 Export Project</button>
+                <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
+            </div>
+        </div>
+
+        <!-- Workbench Main Interactive Layout -->
+        <div class="gantt-workspace">
+            
+            <div class="gantt-project-controls">
+                <label class="ee-label" style="margin:0; color:var(--cloud-white);">Active Project:</label>
+                <select id="projectSelector" class="ee-select" style="min-height: 38px; width: 250px; padding: 4px 10px;" onchange="switchProject()">
+                    <!-- Populated via JS -->
+                </select>
+                <button class="action-btn action-btn-ghost" style="min-height: 38px; padding: 0 12px; font-size: 0.8rem;" onclick="openProjectSettings()">⚙ Settings</button>
+                <button class="action-btn action-btn-ghost" style="min-height: 38px; padding: 0 12px; font-size: 0.8rem;" onclick="createNewProject()">➕ New</button>
+                <button class="action-btn action-btn-ghost" style="min-height: 38px; padding: 0 12px; font-size: 0.8rem; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;" onclick="deleteProject()">🗑️ Delete</button>
+                
+                <label class="ee-label" style="margin:0 0 0 auto; color:var(--cloud-white);">Timescale Resolution:</label>
+                <select id="timescaleSelector" class="ee-select" style="min-height: 38px; width: 140px; padding: 4px 10px;" onchange="updateProjectTimescale()">
+                    <option value="Unitless">Unitless (T+)</option>
+                    <option value="Minutes">Minutes</option>
+                    <option value="Hours">Hours</option>
+                    <option value="Days">Days</option>
+                    <option value="Weeks">Weeks</option>
+                    <option value="Months">Months</option>
+                    <option value="Years">Years</option>
+                </select>
+            </div>
+
+            <div class="gantt-toolbar">
+                <button class="action-btn action-btn-ghost" onclick="addNewItem('phase')">➕ Add Phase</button>
+                <button class="action-btn action-btn-ghost" onclick="addNewItem('task')">➕ Add Task</button>
+                <button class="action-btn action-btn-ghost" onclick="addNewItem('milestone')">♦ Add Milestone</button>
+                <button class="action-btn action-btn-ghost" onclick="loadDefaultTemplate()" style="margin-left: auto;">📊 Load Example</button>
+                <button class="action-btn action-btn-ghost" onclick="clearSchedule()" style="border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ Clear Schedule</button>
+            </div>
+            
+            <div class="gantt-core-layout">
+                <!-- Left Data Table -->
+                <div class="gantt-data-panel">
+                    <div class="gantt-grid-header">
+                        <div>Activity Name</div>
+                        <div style="text-align:center;">Start</div>
+                        <div style="text-align:center;">End</div>
+                        <div style="text-align:center;" id="headerDurationUnit">Dur</div>
+                        <div style="text-align:center;">⚙</div>
+                    </div>
+                    <div class="gantt-data-rows" id="ganttDataRows">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+                
+                <!-- Right Timeline Chart -->
+                <div class="gantt-chart-panel" id="ganttChartPanel" onscroll="syncScroll()">
+                    <div class="gantt-timeline-header" id="ganttTimelineHeader">
+                        <!-- Tick marks populated via JS -->
+                    </div>
+                    <div class="gantt-chart-rows" id="ganttChartRows">
+                        <!-- Bars populated via JS -->
+                        <svg class="gantt-svg-layer" id="ganttDependencies"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Hover Tooltip -->
+        <div id="ganttTooltip" class="gantt-tooltip"></div>
+
+        <!-- Master Task Configuration Modal -->
+        <div class="gantt-modal-overlay" id="taskModalOverlay">
+            <div class="gantt-modal">
+                <div class="gantt-modal-header">
+                    <h2 style="margin: 0; font-size: 1.25rem; color: var(--terminal-green); text-transform: uppercase;">Activity Configuration</h2>
+                    <button class="action-btn-ghost" style="min-width: 48px; min-height: 48px; border:none; font-size:1.5rem;" onclick="closeModal('taskModalOverlay')">✕</button>
+                </div>
+                
+                <input type="hidden" id="modalTaskId">
+                
+                <div class="ee-form-group">
+                    <label class="ee-label">Activity Description</label>
+                    <input type="text" id="modalTaskName" class="ee-input" placeholder="e.g. Civil Foundation Pour">
+                </div>
+                
+                <div class="ee-form-row">
+                    <div>
+                        <label class="ee-label">Type</label>
+                        <select id="modalTaskType" class="ee-select" disabled>
+                            <option value="phase">Summary Phase</option>
+                            <option value="task">Standard Task</option>
+                            <option value="milestone">Milestone</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="ee-label">Parent Phase</label>
+                        <select id="modalTaskParent" class="ee-select">
+                            <option value="">None (Root Level)</option>
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ee-form-row">
+                    <div>
+                        <label class="ee-label" id="labelModalDuration">Duration (Units)</label>
+                        <input type="number" id="modalTaskDuration" class="ee-input" min="0">
+                        <span class="form-hint" style="margin-top:4px;">Not applicable for phases.</span>
+                    </div>
+                    <div>
+                        <label class="ee-label">Depends On (ID)</label>
+                        <select id="modalTaskDepends" class="ee-select">
+                            <option value="">None (Arbitrary Start)</option>
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ee-form-group">
+                    <label class="ee-label" id="labelModalStart">Manual Start Constraint (Grid Offset Units)</label>
+                    <input type="number" id="modalTaskStart" class="ee-input" min="0" placeholder="e.g. 10">
+                    <span class="form-hint" style="margin-top:4px;">Locks the task to a specific start time. If a dependency exists, it will calculate from the dependency end + this offset (slack).</span>
+                </div>
+
+                <h3 style="color: var(--slate-grey); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; font-size: 0.95rem; text-transform: uppercase;">Commercial & Resource Parameters</h3>
+
+                <div class="ee-form-row">
+                    <div>
+                        <label class="ee-label">Assigned Resources</label>
+                        <input type="text" id="modalTaskResources" class="ee-input" placeholder="e.g. 2x Structural Eng, Crane">
+                    </div>
+                    <div>
+                        <label class="ee-label">Capital Cost (£)</label>
+                        <input type="number" id="modalTaskCost" class="ee-input" min="0" placeholder="e.g. 15000">
+                    </div>
+                </div>
+
+                <div class="ee-form-group">
+                    <label class="ee-label">Risk Notes & Mitigation</label>
+                    <textarea id="modalTaskRisk" class="ee-textarea" style="min-height: 60px;" placeholder="Identify schedule threats or dependencies here..."></textarea>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 25px;">
+                    <button class="action-btn action-btn-ghost" style="border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;" onclick="deleteActiveTask()">🗑️ Delete</button>
+                    <button class="action-btn" onclick="saveTaskConfiguration()">💾 Save Data</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Project Settings Modal -->
+        <div class="gantt-modal-overlay" id="projectModalOverlay">
+            <div class="gantt-modal">
+                <div class="gantt-modal-header">
+                    <h2 style="margin: 0; font-size: 1.25rem; color: var(--terminal-green); text-transform: uppercase;">Project Configurations</h2>
+                    <button class="action-btn-ghost" style="min-width: 48px; min-height: 48px; border:none; font-size:1.5rem;" onclick="closeModal('projectModalOverlay')">✕</button>
+                </div>
+                
+                <div class="ee-form-group">
+                    <label class="ee-label">Project Title</label>
+                    <input type="text" id="modalProjectName" class="ee-input" placeholder="e.g. Offshore Rig Expansion">
+                </div>
+                
+                <div class="ee-form-group">
+                    <label class="ee-label">Master Project Start Anchor (Date & Time)</label>
+                    <input type="datetime-local" id="modalProjectStartDate" class="ee-input">
+                    <span class="form-hint" style="margin-top:4px;">Defines the T+0 anchor point. If left blank, defaults to current local system time. Timescale calculations propagate outward from this origin.</span>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 25px;">
+                    <button class="action-btn" onclick="saveProjectConfiguration()">💾 Update Project Core</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. MEMORY NAMESPACING & STATE ---
+        const EE_TOOL_ID = "ee_strategy_gantt_projects";
+        let DAY_WIDTH = 45; // Enhanced pixel width per schedule unit to comfortably fit date text
+        const ROW_HEIGHT = 40; 
+        let autosaveTimer;
+        
+        let projectDatabase = {};
+        let currentProjectId = null;
+        let totalProjectDays = 30; // Dynamic timeline scaling boundary limit
+        let isCriticalPathActive = []; // Array tracking critical task IDs
+
+        // --- 2. TIME ALGEBRA & MULTIPLIERS ---
+        function getUnitMultiplier(timescale) {
+            switch(timescale) {
+                case "Minutes": return 60000;
+                case "Hours": return 3600000;
+                case "Days": return 86400000;
+                case "Weeks": return 604800000;
+                case "Months": return 2592000000; // Proxy ~30 days
+                case "Years": return 31536000000; // Proxy ~365 days
+                default: return 0; // Unitless fallback
+            }
+        }
+
+        function formatOffsetDate(baseDateString, offsetUnits, timescale) {
+            if (timescale === "Unitless") return `T+${offsetUnits}`;
+            
+            const baseTime = baseDateString ? new Date(baseDateString).getTime() : new Date().getTime();
+            const multiplier = getUnitMultiplier(timescale);
+            const targetDate = new Date(baseTime + (offsetUnits * multiplier));
+
+            const pad = (n) => n.toString().padStart(2, '0');
+            const DD = pad(targetDate.getDate());
+            const MM = pad(targetDate.getMonth() + 1);
+            const YYYY = targetDate.getFullYear();
+            const hh = pad(targetDate.getHours());
+            const mm = pad(targetDate.getMinutes());
+
+            if (timescale === "Minutes" || timescale === "Hours") return `${DD}/${MM} ${hh}:${mm}`;
+            if (timescale === "Years") return `${YYYY}`;
+            return `${DD}/${MM}/${YYYY}`;
+        }
+
+        function formatTickLabel(baseDateString, offsetUnits, timescale) {
+            if (timescale === "Unitless") return offsetUnits;
+            
+            const baseTime = baseDateString ? new Date(baseDateString).getTime() : new Date().getTime();
+            const multiplier = getUnitMultiplier(timescale);
+            const targetDate = new Date(baseTime + (offsetUnits * multiplier));
+            
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const DD = targetDate.getDate();
+            const MMM = monthNames[targetDate.getMonth()];
+            const YY = targetDate.getFullYear().toString().slice(-2);
+            const hh = targetDate.getHours().toString().padStart(2, '0');
+            const mm = targetDate.getMinutes().toString().padStart(2, '0');
+
+            if (timescale === "Minutes") return `${hh}:${mm}`;
+            if (timescale === "Hours") return `${hh}:00`;
+            if (timescale === "Days") return `${DD} ${MMM}`;
+            if (timescale === "Weeks") return `Wk ${Math.floor(offsetUnits)}`;
+            if (timescale === "Months") return `${MMM} '${YY}`;
+            if (timescale === "Years") return targetDate.getFullYear().toString();
+            return offsetUnits;
+        }
+
+        // --- 3. INITIALISATION & PROJECT MANAGER ---
+        function initApp() {
+            const stored = localStorage.getItem(EE_TOOL_ID);
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (parsed && Object.keys(parsed).length > 0) {
+                        projectDatabase = parsed;
+                        currentProjectId = Object.keys(projectDatabase)[0];
+                    }
+                } catch(e) { console.error("Cache parsing failure.", e); }
+            }
+            
+            if (Object.keys(projectDatabase).length === 0) {
+                const initId = generateId();
+                projectDatabase[initId] = { 
+                    name: "Default Master Schedule", 
+                    startDate: new Date().toISOString().slice(0,16), 
+                    timescale: 'Days', 
+                    tasks: [] 
+                };
+                currentProjectId = initId;
+                loadDefaultTemplate(false);
+            }
+            
+            updateProjectDropdown();
+            syncProjectControls();
+            refreshEngine();
+        }
+
+        function updateProjectDropdown() {
+            const select = document.getElementById('projectSelector');
+            select.innerHTML = '';
+            Object.keys(projectDatabase).forEach(key => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.innerText = projectDatabase[key].name;
+                if (key === currentProjectId) opt.selected = true;
+                select.appendChild(opt);
+            });
+        }
+
+        function syncProjectControls() {
+            const currentProj = projectDatabase[currentProjectId];
+            document.getElementById('timescaleSelector').value = currentProj.timescale || 'Days';
+        }
+
+        function switchProject() {
+            currentProjectId = document.getElementById('projectSelector').value;
+            syncProjectControls();
+            refreshEngine();
+        }
+
+        function createNewProject() {
+            const newId = generateId();
+            projectDatabase[newId] = { 
+                name: "Untitled Project", 
+                startDate: new Date().toISOString().slice(0,16),
+                timescale: 'Days',
+                tasks: [] 
+            };
+            currentProjectId = newId;
+            updateProjectDropdown();
+            syncProjectControls();
+            refreshEngine();
+            openProjectSettings(); // Immediately deploy settings screen per architectural requirements
+        }
+
+        function deleteProject() {
+            if (Object.keys(projectDatabase).length <= 1) {
+                alert("⚠️ System Boundary Constraint: You must maintain at least one active project block.");
+                return;
+            }
+            if(confirm(`Permanently purge '${projectDatabase[currentProjectId].name}'? This action cannot be undone.`)) {
+                delete projectDatabase[currentProjectId];
+                currentProjectId = Object.keys(projectDatabase)[0];
+                updateProjectDropdown();
+                syncProjectControls();
+                refreshEngine();
+            }
+        }
+
+        function updateProjectTimescale() {
+            projectDatabase[currentProjectId].timescale = document.getElementById('timescaleSelector').value;
+            refreshEngine();
+        }
+
+        function openProjectSettings() {
+            document.getElementById('modalProjectName').value = projectDatabase[currentProjectId].name;
+            document.getElementById('modalProjectStartDate').value = projectDatabase[currentProjectId].startDate || '';
+            document.getElementById('projectModalOverlay').style.display = 'flex';
+        }
+
+        function saveProjectConfiguration() {
+            projectDatabase[currentProjectId].name = document.getElementById('modalProjectName').value.trim() || 'Untitled Project';
+            projectDatabase[currentProjectId].startDate = document.getElementById('modalProjectStartDate').value;
+            closeModal('projectModalOverlay');
+            updateProjectDropdown();
+            refreshEngine();
+        }
+
+        function loadDefaultTemplate(forceAlert = true) {
+            if (forceAlert && !confirm("Load the default Example Schedule into the current project? This action will overwrite your active task data.")) return;
+            
+            projectDatabase[currentProjectId].tasks = [
+                { id: '1', name: "Project Initiation", type: 'phase', parentId: '', manualStart: 0, duration: null, start: 0, end: 0, dependsOn: '', resources: 'Lead PM', cost: 0, risk: '' },
+                { id: '2', name: "Market Analysis", type: 'task', parentId: '1', manualStart: 0, duration: 4, start: 0, end: 0, dependsOn: '', resources: 'Commercial Team', cost: 2500, risk: 'Data latency delays' },
+                { id: '3', name: "Technical Feasibility", type: 'task', parentId: '1', manualStart: 0, duration: 6, start: 0, end: 0, dependsOn: '2', resources: 'Lead Engineer', cost: 4000, risk: 'Resource unavailability' },
+                { id: '4', name: "Project Definition", type: 'milestone', parentId: '1', manualStart: 0, duration: 0, start: 0, end: 0, dependsOn: '3', resources: '', cost: 0, risk: '' },
+                { id: '5', name: "Concept Development", type: 'phase', parentId: '', manualStart: 0, duration: null, start: 0, end: 0, dependsOn: '', resources: '', cost: 0, risk: '' },
+                { id: '6', name: "Independent Float Task", type: 'task', parentId: '5', manualStart: 12, duration: 5, start: 0, end: 0, dependsOn: '', resources: 'Specialist A', cost: 1000, risk: 'Disconnected slack operation' },
+                { id: '7', name: "Structural Prototyping", type: 'task', parentId: '5', manualStart: 0, duration: 8, start: 0, end: 0, dependsOn: '4', resources: 'Design Team A', cost: 15000, risk: 'Material constraints' },
+                { id: '8', name: "Client Design Review", type: 'task', parentId: '5', manualStart: 0, duration: 3, start: 0, end: 0, dependsOn: '7', resources: 'Stakeholders', cost: 1500, risk: 'Client revisions request' }
+            ];
+            projectDatabase[currentProjectId].timescale = "Days";
+            syncProjectControls();
+            if (forceAlert) refreshEngine();
+        }
+
+        // --- 4. CORE SCHEDULING ALGORITHM (Dry Run Capable) ---
+        function executeScheduleCalculations(taskArray) {
+            taskArray.forEach(t => { t.start = 0; t.end = 0; });
+            let changed = true;
+            let iterations = 0;
+            const maxIterations = 1000;
+
+            while (changed && iterations < maxIterations) {
+                changed = false;
+                iterations++;
+
+                taskArray.forEach(task => {
+                    if (task.type === 'phase') return;
+
+                    let calculatedStart = parseInt(task.manualStart) || 0; 
+                    
+                    if (task.dependsOn) {
+                        const dependency = taskArray.find(x => x.id === task.dependsOn);
+                        if (dependency) {
+                            calculatedStart = dependency.end + (parseInt(task.manualStart) || 0); // manualStart acts as Slack/Lag if dependent
+                        }
+                    }
+
+                    const safeDuration = task.type === 'milestone' ? 0 : (parseInt(task.duration) || 0);
+
+                    if (task.start !== calculatedStart || task.end !== (calculatedStart + safeDuration)) {
+                        task.start = calculatedStart;
+                        task.end = calculatedStart + safeDuration;
+                        changed = true;
+                    }
+                });
+            }
+
+            return iterations < maxIterations; // Returns false if circular logic encountered
+        }
+
+        function calculateSchedule() {
+            const tasks = projectDatabase[currentProjectId].tasks;
+            
+            // Initial Forward Pass
+            const isValid = executeScheduleCalculations(tasks);
+            if (!isValid) console.warn("System warning: Circular dependency limits breached.");
+
+            // Phase Roll-Up
+            tasks.filter(t => t.type === 'phase').forEach(phase => {
+                const children = tasks.filter(c => c.parentId === phase.id);
+                if (children.length > 0) {
+                    phase.start = Math.min(...children.map(c => c.start));
+                    phase.end = Math.max(...children.map(c => c.end));
+                    phase.duration = phase.end - phase.start;
+                } else {
+                    phase.start = 0;
+                    phase.end = 0;
+                    phase.duration = 0;
+                }
+            });
+
+            // Critical Path Isolation (Longest Path Simulation)
+            isCriticalPathActive = [];
+            let absoluteProjectEnd = Math.max(...tasks.map(t => t.end), 0);
+            totalProjectDays = Math.max(absoluteProjectEnd + 5, 30); 
+
+            tasks.forEach(task => {
+                if (task.type === 'phase') return;
+                
+                const findLongestPath = (tId) => {
+                    const dependents = tasks.filter(x => x.dependsOn === tId);
+                    if (dependents.length === 0) {
+                        const nodeEnd = tasks.find(x => x.id === tId).end;
+                        return { isCriticalBranch: nodeEnd === absoluteProjectEnd };
+                    }
+                    let criticalLink = false;
+                    dependents.forEach(dep => {
+                        const downstream = findLongestPath(dep.id);
+                        if (downstream.isCriticalBranch) criticalLink = true;
+                    });
+                    return { isCriticalBranch: criticalLink };
+                };
+
+                if (findLongestPath(task.id).isCriticalBranch) {
+                    isCriticalPathActive.push(task.id);
+                }
+            });
+        }
+
+        // --- 5. RENDER ENGINE ---
+        function refreshEngine() {
+            const timescale = projectDatabase[currentProjectId].timescale || 'Days';
+            let shortScale = timescale === 'Unitless' ? 'T+' : timescale.charAt(0);
+            
+            document.getElementById('headerDurationUnit').innerText = `Dur (${shortScale})`;
+            document.getElementById('labelModalDuration').innerText = `Duration (${timescale})`;
+
+            calculateSchedule();
+            renderTable(timescale);
+            renderTimeline(timescale);
+            renderBars(timescale);
+            autoSaveState();
+        }
+
+        function renderTable(timescale) {
+            const tasks = projectDatabase[currentProjectId].tasks;
+            const baseDate = projectDatabase[currentProjectId].startDate;
+            const rowContainer = document.getElementById('ganttDataRows');
+            rowContainer.innerHTML = '';
+
+            const flatList = [];
+            const roots = tasks.filter(t => !t.parentId);
+            
+            const traverse = (node, level) => {
+                flatList.push({ ...node, level });
+                const children = tasks.filter(c => c.parentId === node.id);
+                children.forEach(c => traverse(c, level + 1));
+            };
+            roots.forEach(r => traverse(r, 0));
+
+            flatList.forEach(task => {
+                const row = document.createElement('div');
+                row.className = 'gantt-data-row';
+                row.onclick = () => openModal(task.id);
+
+                let indentClass = task.level > 0 ? 'gantt-indent' : '';
+                let typeClass = task.type === 'phase' ? 'row-phase' : (task.type === 'milestone' ? 'row-milestone' : '');
+                let prefix = task.type === 'phase' ? '▼ ' : (task.type === 'milestone' ? '♦ ' : '├─ ');
+                if(task.level === 0 && task.type !== 'phase') prefix = '▪ ';
+
+                const displayStart = formatOffsetDate(baseDate, task.start, timescale);
+                const displayEnd = formatOffsetDate(baseDate, task.end, timescale);
+
+                row.innerHTML = `
+                    <div class="${indentClass} ${typeClass}" title="${task.name}">${prefix}${task.name}</div>
+                    <div style="text-align:center;">${displayStart}</div>
+                    <div style="text-align:center;">${displayEnd}</div>
+                    <div style="text-align:center;">${task.type === 'milestone' ? '0' : task.duration}</div>
+                    <div style="text-align:center; color:var(--terminal-green);">✎</div>
+                `;
+                rowContainer.appendChild(row);
+            });
+        }
+
+        function renderTimeline(timescale) {
+            const baseDate = projectDatabase[currentProjectId].startDate;
+            const header = document.getElementById('ganttTimelineHeader');
+            header.innerHTML = '';
+            
+            // Adjust day width based on string sizes to prevent visual text overlap
+            DAY_WIDTH = (timescale === 'Unitless' || timescale === 'Years') ? 40 : 55;
+            header.style.width = `${totalProjectDays * DAY_WIDTH}px`;
+
+            for (let i = 0; i < totalProjectDays; i++) {
+                const tick = document.createElement('div');
+                tick.className = 'gantt-day-tick';
+                tick.style.width = `${DAY_WIDTH}px`;
+                tick.innerText = formatTickLabel(baseDate, i, timescale);
+                tick.title = `${timescale} ${i}`;
+                header.appendChild(tick);
+            }
+        }
+
+        function renderBars(timescale) {
+            const tasks = projectDatabase[currentProjectId].tasks;
+            const baseDate = projectDatabase[currentProjectId].startDate;
+            const chartArea = document.getElementById('ganttChartRows');
+            const svgLayer = document.getElementById('ganttDependencies');
+            
+            Array.from(chartArea.children).forEach(child => {
+                if (child.id !== 'ganttDependencies') chartArea.removeChild(child);
+            });
+            svgLayer.innerHTML = ''; 
+            chartArea.style.width = `${totalProjectDays * DAY_WIDTH}px`;
+
+            const flatList = [];
+            const roots = tasks.filter(t => !t.parentId);
+            const traverse = (node) => {
+                flatList.push(node);
+                const children = tasks.filter(c => c.parentId === node.id);
+                children.forEach(c => traverse(c));
+            };
+            roots.forEach(r => traverse(r));
+
+            const positions = {};
+
+            flatList.forEach((task, index) => {
+                const row = document.createElement('div');
+                row.className = 'gantt-chart-row';
+                
+                const bar = document.createElement('div');
+                bar.className = `gantt-bar bar-${task.type}`;
+                
+                if (isCriticalPathActive.includes(task.id) && task.type === 'task') {
+                    bar.classList.add('bar-critical');
+                }
+
+                const leftPos = task.start * DAY_WIDTH;
+                let barWidth = task.duration * DAY_WIDTH;
+                
+                if (task.type === 'milestone') {
+                    bar.style.left = `${leftPos - 10}px`; 
+                } else {
+                    bar.style.left = `${leftPos}px`;
+                    bar.style.width = `${Math.max(barWidth, 4)}px`; 
+                    if(task.type === 'task') bar.innerText = `${task.duration}`;
+                }
+
+                // Tooltip & Modal Interaction Binding
+                bar.onclick = () => openModal(task.id);
+                bindTooltip(bar, task, timescale, baseDate);
+
+                row.appendChild(bar);
+                chartArea.appendChild(row);
+
+                positions[task.id] = {
+                    xEnd: leftPos + barWidth,
+                    xStart: leftPos,
+                    yCenter: (index * ROW_HEIGHT) + (ROW_HEIGHT / 2)
+                };
+            });
+
+            // Render SVG Constraints
+            let svgPaths = '';
+            flatList.forEach(task => {
+                if (task.dependsOn && positions[task.dependsOn] && positions[task.id]) {
+                    const p1 = positions[task.dependsOn];
+                    const p2 = positions[task.id];
+                    
+                    const startX = p1.xEnd;
+                    const startY = p1.yCenter;
+                    const endX = p2.xStart;
+                    const endY = p2.yCenter;
+                    
+                    const isCrit = isCriticalPathActive.includes(task.id) && isCriticalPathActive.includes(task.dependsOn);
+                    const strokeColor = isCrit ? '#ff4757' : 'rgba(3, 247, 160, 0.8)';
+                    const strokeWidth = isCrit ? '2.5' : '1.5';
+
+                    svgPaths += `
+                        <path d="M ${startX} ${startY} 
+                                 L ${startX + 10} ${startY} 
+                                 L ${startX + 10} ${endY} 
+                                 L ${endX} ${endY}" 
+                              fill="transparent" 
+                              stroke="${strokeColor}" 
+                              stroke-width="${strokeWidth}" 
+                              stroke-dasharray="${isCrit ? 'none' : '4,2'}"/>
+                        <polygon points="${endX},${endY - 4} ${endX + 6},${endY} ${endX},${endY + 4}" fill="${strokeColor}"/>
+                    `;
+                }
+            });
+            svgLayer.innerHTML = svgPaths;
+        }
+
+        function bindTooltip(barElement, task, timescale, baseDate) {
+            const tooltip = document.getElementById('ganttTooltip');
+            
+            barElement.addEventListener('mousemove', (e) => {
+                const sDate = formatOffsetDate(baseDate, task.start, timescale);
+                const eDate = formatOffsetDate(baseDate, task.end, timescale);
+                
+                tooltip.innerHTML = `
+<span class="hl">${task.name.toUpperCase()}</span> [${task.type}]
+Start: ${sDate}  |  End: ${eDate}
+Duration: ${task.type === 'milestone' ? '0' : task.duration} ${timescale}
+
+<span class="hl">Resources:</span> ${task.resources || 'None Assigned'}
+<span class="hl">Capital Cost:</span> £${(task.cost || 0).toLocaleString()}
+<span class="hlor">Risk Notes:</span> ${task.risk || 'No hazards identified.'}
+                `;
+                
+                tooltip.style.display = 'block';
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                
+                // Keep tooltip inside vertical bounds safely
+                const tHeight = tooltip.offsetHeight;
+                let topPos = e.clientY + 15;
+                if (topPos + tHeight > window.innerHeight) topPos = e.clientY - tHeight - 15;
+                tooltip.style.top = topPos + 'px';
+            });
+            
+            barElement.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+        }
+
+        // --- 6. INTERACTIVE CRUD & CONSTRAINT MECHANICS ---
+        function generateId() {
+            return Math.random().toString(36).substr(2, 9);
+        }
+
+        function addNewItem(type) {
+            const newItem = {
+                id: generateId(),
+                name: `New ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+                type: type,
+                parentId: '',
+                manualStart: 0,
+                duration: type === 'milestone' ? 0 : 5,
+                start: 0, end: 0, dependsOn: '', resources: '', cost: 0, risk: ''
+            };
+            projectDatabase[currentProjectId].tasks.push(newItem);
+            refreshEngine();
+            openModal(newItem.id);
+        }
+
+        function openModal(taskId) {
+            const tasks = projectDatabase[currentProjectId].tasks;
+            const task = tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            document.getElementById('modalTaskId').value = task.id;
+            document.getElementById('modalTaskName').value = task.name;
+            document.getElementById('modalTaskType').value = task.type;
+            document.getElementById('modalTaskDuration').value = task.duration;
+            document.getElementById('modalTaskDuration').disabled = (task.type === 'phase' || task.type === 'milestone');
+            document.getElementById('modalTaskStart').value = task.manualStart !== undefined ? task.manualStart : 0;
+            document.getElementById('modalTaskResources').value = task.resources || '';
+            document.getElementById('modalTaskCost').value = task.cost || '';
+            document.getElementById('modalTaskRisk').value = task.risk || '';
+
+            const parentSelect = document.getElementById('modalTaskParent');
+            parentSelect.innerHTML = '<option value="">None (Root Level)</option>';
+            tasks.filter(t => t.type === 'phase' && t.id !== task.id).forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.id;
+                opt.innerText = p.name;
+                if (task.parentId === p.id) opt.selected = true;
+                parentSelect.appendChild(opt);
+            });
+
+            const depSelect = document.getElementById('modalTaskDepends');
+            depSelect.innerHTML = '<option value="">None (Arbitrary Start)</option>';
+            tasks.filter(t => t.id !== task.id && t.type !== 'phase').forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d.id;
+                opt.innerText = `${d.name} (Ends ${d.end})`;
+                if (task.dependsOn === d.id) opt.selected = true;
+                depSelect.appendChild(opt);
+            });
+
+            document.getElementById('taskModalOverlay').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function saveTaskConfiguration() {
+            const id = document.getElementById('modalTaskId').value;
+            const task = projectDatabase[currentProjectId].tasks.find(t => t.id === id);
+            const originalTasks = JSON.parse(JSON.stringify(projectDatabase[currentProjectId].tasks));
+
+            if (task) {
+                // Apply temporary updates to a shadow variable
+                const proposedDep = document.getElementById('modalTaskDepends').value;
+                
+                // 1. Structural Circularity Validation
+                if (proposedDep) {
+                    let depTraceId = proposedDep;
+                    let infiniteLoop = false;
+                    for (let step = 0; step < 100; step++) {
+                        if (depTraceId === task.id) { infiniteLoop = true; break; }
+                        const upstream = originalTasks.find(x => x.id === depTraceId);
+                        if (!upstream) break;
+                        depTraceId = upstream.dependsOn;
+                    }
+                    if (infiniteLoop) {
+                        alert("❌ Constraint Error: Circular dependency detected. Task cannot depend on itself or its own downstream descendants.");
+                        return;
+                    }
+                }
+
+                // 2. Clone active array to dry-run downstream constraint violations
+                let clonedTasks = JSON.parse(JSON.stringify(originalTasks));
+                let shadowTask = clonedTasks.find(t => t.id === id);
+                
+                shadowTask.name = document.getElementById('modalTaskName').value || 'Untitled';
+                shadowTask.parentId = document.getElementById('modalTaskParent').value;
+                if (shadowTask.type === 'task') shadowTask.duration = parseInt(document.getElementById('modalTaskDuration').value) || 0;
+                shadowTask.dependsOn = proposedDep;
+                shadowTask.manualStart = parseInt(document.getElementById('modalTaskStart').value) || 0;
+
+                executeScheduleCalculations(clonedTasks);
+
+                // 3. Post-run evaluation looking for forced constraint overrides
+                let conflictMessages = [];
+                clonedTasks.forEach(cTask => {
+                    if (cTask.type !== 'phase' && !cTask.dependsOn) {
+                        // If it has NO dependency, its calculated start MUST equal its manual start. 
+                        // If logic pushed it further (which it shouldn't mathematically without dependency, but acts as safety net)
+                        if (cTask.start > cTask.manualStart) conflictMessages.push(`- ${cTask.name}`);
+                    }
+                });
+
+                if (conflictMessages.length > 0) {
+                    const override = confirm(`⚠️ CONSTRAINT BREACH WARNING:\n\nThe proposed change forces the following tasks to shift beyond their manually locked start dates:\n${conflictMessages.join('\n')}\n\nClick OK to permanently OVERRIDE these constraints and push the schedule backwards, or Cancel to abort this edit.`);
+                    if (!override) return; // Silent abort
+                }
+
+                // 4. Safe to Commit
+                task.name = shadowTask.name;
+                task.parentId = shadowTask.parentId;
+                task.duration = shadowTask.duration;
+                task.dependsOn = shadowTask.dependsOn;
+                task.manualStart = shadowTask.manualStart;
+                task.resources = document.getElementById('modalTaskResources').value;
+                task.cost = parseFloat(document.getElementById('modalTaskCost').value) || 0;
+                task.risk = document.getElementById('modalTaskRisk').value;
+            }
+            
+            closeModal('taskModalOverlay');
+            refreshEngine();
+        }
+
+        function deleteActiveTask() {
+            const id = document.getElementById('modalTaskId').value;
+            if(confirm("Confirm deletion of this activity? This will break dependent structural linkages downstream.")) {
+                projectDatabase[currentProjectId].tasks = projectDatabase[currentProjectId].tasks.filter(t => t.id !== id && t.parentId !== id);
+                projectDatabase[currentProjectId].tasks.forEach(t => { if(t.dependsOn === id) t.dependsOn = ''; });
+                closeModal('taskModalOverlay');
+                refreshEngine();
+            }
+        }
+
+        function clearSchedule() {
+            if(confirm("Permanently purge the active project schedule? This action cannot be undone.")) {
+                projectDatabase[currentProjectId].tasks = [];
+                refreshEngine();
+            }
+        }
+
+        // --- 7. UTILITY MECHANICS ---
+        function syncScroll() {
+            const chartPanel = document.getElementById('ganttChartPanel');
+            const dataPanelRows = document.getElementById('ganttDataRows');
+            // Check width to see if we are in desktop dual-pane mode before forcing sync
+            if (window.innerWidth > 900) {
+                dataPanelRows.scrollTop = chartPanel.scrollTop;
+            }
+        }
+
+        function autoSaveState() {
+            clearTimeout(autosaveTimer);
+            autosaveTimer = setTimeout(() => {
+                localStorage.setItem(EE_TOOL_ID, JSON.stringify(projectDatabase));
+                
+                let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+                if (!masterData.ee_tools) masterData.ee_tools = {};
+                masterData.ee_tools[EE_TOOL_ID] = projectDatabase;
+                localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+            }, 1500);
+        }
+
+        function exportJSON() {
+            const timestamp = new Date().toISOString().slice(0, 10);
+            const payload = { 
+                exportedProject: projectDatabase[currentProjectId].name,
+                startDate: projectDatabase[currentProjectId].startDate,
+                timescale: projectDatabase[currentProjectId].timescale,
+                tasks: projectDatabase[currentProjectId].tasks 
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `EE_Project_Schedule_${timestamp}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (Array.isArray(parsed.tasks)) {
+                        
+                        const importAction = confirm("Import Logic Engine:\n\nClick OK to create a NEW isolated project from this file.\nClick Cancel to append it as a Sub-Phase into the CURRENT project.");
+                        
+                        if (importAction) {
+                            const newId = generateId();
+                            projectDatabase[newId] = { 
+                                name: parsed.exportedProject || "Imported Project Profile", 
+                                startDate: parsed.startDate || new Date().toISOString().slice(0,16),
+                                timescale: parsed.timescale || 'Days',
+                                tasks: parsed.tasks 
+                            };
+                            currentProjectId = newId;
+                            updateProjectDropdown();
+                            syncProjectControls();
+                            refreshEngine();
+                            alert("✅ Schedule profile successfully imported as a completely new project.");
+                        } else {
+                            // Sub-project Appending Integration
+                            const subPhaseId = generateId();
+                            projectDatabase[currentProjectId].tasks.push({
+                                id: subPhaseId,
+                                name: `[Imported] ${parsed.exportedProject || "Sub-Project"}`,
+                                type: 'phase',
+                                parentId: '',
+                                manualStart: 0, duration: null, start: 0, end: 0, dependsOn: '', resources: '', cost: 0, risk: ''
+                            });
+                            
+                            const idMap = {};
+                            parsed.tasks.forEach(t => {
+                                const newGenId = generateId();
+                                idMap[t.id] = newGenId;
+                                t.id = newGenId;
+                            });
+                            
+                            parsed.tasks.forEach(t => {
+                                if (t.parentId && idMap[t.parentId]) t.parentId = idMap[t.parentId];
+                                else if (!t.parentId) t.parentId = subPhaseId; 
+                                
+                                if (t.dependsOn && idMap[t.dependsOn]) t.dependsOn = idMap[t.dependsOn];
+                                
+                                projectDatabase[currentProjectId].tasks.push(t);
+                            });
+                            refreshEngine();
+                            alert("✅ External schedule successfully merged as an integrated sub-phase.");
+                        }
+                    } else {
+                        alert("❌ Parsing Error: No valid array arrays identified inside the JSON file.");
+                    }
+                } catch (err) {
+                    alert("❌ Corrupted file architecture. Please verify the JSON code string is untampered.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // --- 8. PRINTABLE SCALABLE VECTOR GRAPHIC (SVG) COMPILER ENGINE ---
+        function generateReport() {
+            let totalCost = 0;
+            const tasks = projectDatabase[currentProjectId].tasks;
+            const timescale = projectDatabase[currentProjectId].timescale || 'Days';
+            const baseDate = projectDatabase[currentProjectId].startDate;
+
+            const flatList = [];
+            const roots = tasks.filter(t => !t.parentId);
+            const traverse = (node, level) => {
+                flatList.push({ ...node, level });
+                const children = tasks.filter(c => c.parentId === node.id);
+                children.forEach(c => traverse(c, level + 1));
+            };
+            roots.forEach(r => traverse(r, 0));
+
+            // Generate SVG Architecture
+            let svgHeight = 40 + (flatList.length * 30);
+            let lblW = 250;
+            let chartW = 750;
+            let totalW = 1000;
+            let scaleX = chartW / Math.max(totalProjectDays, 1);
+
+            let svgHTML = `<div style="margin-top: 40px; width: 100%; overflow: hidden; page-break-inside: avoid;">
+                <h2 style="color: #006837; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; text-transform: uppercase; font-size: 18px;">Project Visual Roadmap</h2>
+                <svg viewBox="0 0 1000 ${svgHeight}" style="width: 100%; height: auto; border: 1px solid #CBD5E0; background: #FFFFFF; font-family: Arial, sans-serif;">`;
+
+            // SVG Timeline Header
+            svgHTML += `<rect x="0" y="0" width="1000" height="30" fill="#F7FAFC" />`;
+            svgHTML += `<line x1="0" y1="30" x2="1000" y2="30" stroke="#CBD5E0" stroke-width="2" />`;
+
+            // SVG Ticks (Mathematically spaced to avoid text collision)
+            let tickStep = Math.ceil(totalProjectDays / 15) || 1;
+            for (let i = 0; i <= totalProjectDays; i += tickStep) {
+                let tx = lblW + (i * scaleX);
+                svgHTML += `<line x1="${tx}" y1="30" x2="${tx}" y2="${svgHeight}" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4 4" />`;
+                svgHTML += `<text x="${tx}" y="20" font-size="9" font-weight="bold" fill="#718096" text-anchor="middle">${formatTickLabel(baseDate, i, timescale)}</text>`;
+            }
+
+            // SVG Rows and Geometrics
+            let svgPositions = {};
+            flatList.forEach((t, i) => {
+                let y = 30 + (i * 30);
+                if (i % 2 === 0) svgHTML += `<rect x="0" y="${y}" width="1000" height="30" fill="#F7FAFC" opacity="0.5" />`;
+                svgHTML += `<line x1="0" y1="${y+30}" x2="1000" y2="${y+30}" stroke="#E2E8F0" stroke-width="1" />`;
+
+                let indent = t.level * 15;
+                let prefix = t.type === 'phase' ? '▼' : (t.type === 'milestone' ? '♦' : '├─');
+                let fw = t.type === 'phase' ? 'bold' : 'normal';
+                let color = t.type === 'phase' ? '#006837' : '#2D3748';
+                svgHTML += `<text x="${10 + indent}" y="${y + 20}" font-size="12" font-weight="${fw}" fill="${color}">${prefix} ${t.name}</text>`;
+
+                let startX = lblW + (t.start * scaleX);
+                let barW = Math.max(t.duration * scaleX, 4);
+                let endX = startX + barW;
+                let yCenter = y + 15;
+                svgPositions[t.id] = { startX, endX, yCenter };
+
+                if (t.type === 'milestone') {
+                    svgHTML += `<polygon points="${startX},${yCenter - 6} ${startX + 6},${yCenter} ${startX},${yCenter + 6} ${startX - 6},${yCenter}" fill="#C05621" />`;
+                } else if (t.type === 'phase') {
+                    svgHTML += `<rect x="${startX}" y="${y + 10}" width="${barW}" height="10" fill="#A0AEC0" />`;
+                    svgHTML += `<polygon points="${startX},${y+10} ${startX+6},${y+10} ${startX},${y+20}" fill="#A0AEC0" />`;
+                    svgHTML += `<polygon points="${endX},${y+10} ${endX-6},${y+10} ${endX},${y+20}" fill="#A0AEC0" />`;
+                } else {
+                    let isCrit = isCriticalPathActive.includes(t.id);
+                    let barFill = isCrit ? '#FC8181' : '#68D391'; 
+                    svgHTML += `<rect x="${startX}" y="${y + 8}" width="${barW}" height="14" fill="${barFill}" rx="2" />`;
+                }
+            });
+
+            // SVG Dependency Routes
+            flatList.forEach(t => {
+                if (t.dependsOn && svgPositions[t.dependsOn] && svgPositions[t.id]) {
+                    let p1 = svgPositions[t.dependsOn];
+                    let p2 = svgPositions[t.id];
+                    let isCrit = isCriticalPathActive.includes(t.id) && isCriticalPathActive.includes(t.dependsOn);
+                    let strokeCol = isCrit ? '#FC8181' : '#A0AEC0'; 
+                    let strokeW = isCrit ? '2' : '1.5';
+                    
+                    svgHTML += `<path d="M ${p1.endX} ${p1.yCenter} L ${p1.endX + 5} ${p1.yCenter} L ${p1.endX + 5} ${p2.yCenter} L ${p2.startX} ${p2.yCenter}" fill="none" stroke="${strokeCol}" stroke-width="${strokeW}" />`;
+                    svgHTML += `<polygon points="${p2.startX},${p2.yCenter - 3} ${p2.startX + 4},${p2.yCenter} ${p2.startX},${p2.yCenter + 3}" fill="${strokeCol}" />`;
+                }
+            });
+
+            svgHTML += `</svg></div>`;
+
+            // Combine HTML Document Output
+            let html = `<!DOCTYPE html>
+            <html lang="en-GB">
+            <head>
+                <meta charset="UTF-8">
+                <title>EE Project Schedule Report</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 40px auto; padding: 20px; background: #FFF; }
+                    h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
+                    h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 20px; font-size: 13px; }
+                    th { background: #f4f7f9; color: #0D1B2A; text-align: left; padding: 10px; border: 1px solid #ddd; font-weight: bold; text-transform: uppercase; font-size: 11px; }
+                    td { padding: 10px; border: 1px solid #ddd; }
+                    .phase-row { background: #e2e8f0; font-weight: bold; }
+                    .critical-row { color: #c53030; font-weight: bold; }
+                    .logo { max-width: 250px; margin-bottom: 20px; }
+                    .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    @media print { body { margin: 0; padding: 0; } }
+                </style>
+            </head>
+            <body>
+                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <h1>Project Roadmap Report: ${projectDatabase[currentProjectId].name}</h1>
+                <p><em>Framework Branch: Strategy & Business Planning // Compiled: ${new Date().toLocaleDateString('en-GB')}</em><br>
+                <em>Base Project Anchor Timestamp: ${baseDate ? new Date(baseDate).toLocaleString('en-GB') : 'Immediate Local Target'}</em></p>
+
+                <h2>Schedule & Resources Ledger (Timescale Resolution: ${timescale})</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity Description</th>
+                            <th style="text-align:center;">Type</th>
+                            <th style="text-align:center;">Start Output</th>
+                            <th style="text-align:center;">End Output</th>
+                            <th>Assigned Resources</th>
+                            <th style="text-align:right;">Capital Cost (£)</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+            flatList.forEach(t => {
+                totalCost += (parseFloat(t.cost) || 0);
+                const isCrit = isCriticalPathActive.includes(t.id) && t.type === 'task' ? 'critical-row' : '';
+                const isPhase = t.type === 'phase' ? 'phase-row' : '';
+                const indent = '&nbsp;'.repeat(t.level * 4);
+                
+                const sDate = formatOffsetDate(baseDate, t.start, timescale);
+                const eDate = formatOffsetDate(baseDate, t.end, timescale);
+
+                html += `<tr class="${isPhase} ${isCrit}">
+                    <td>${indent}${t.type === 'phase' ? '▼' : (t.type === 'milestone' ? '♦' : '├─')} ${t.name}</td>
+                    <td style="text-align:center;">${t.type.toUpperCase()}</td>
+                    <td style="text-align:center;">${sDate}</td>
+                    <td style="text-align:center;">${eDate}</td>
+                    <td>${t.resources || '-'}</td>
+                    <td style="text-align:right;">£${(t.cost || 0).toLocaleString()}</td>
+                </tr>`;
+            });
+
+            html += `
+                    </tbody>
+                    <tfoot>
+                        <tr style="background:#0D1B2A; color:#FFF; font-weight:bold;">
+                            <td colspan="5" style="text-align:right;">Total Estimated Capital Expenditure:</td>
+                            <td style="text-align:right; color:#03F7A0;">£${totalCost.toLocaleString()}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                ${svgHTML}
+
+                <h2>Operational Risk Profile</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity Description</th>
+                            <th>Identified Engineering Risk / Threat Matrix</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+            
+            flatList.filter(t => t.risk && t.risk.trim() !== '').forEach(t => {
+                html += `<tr>
+                    <td><strong>${t.name}</strong></td>
+                    <td>${t.risk}</td>
+                </tr>`;
+            });
+
+            html += `</tbody></table>
+                <div class="footer">
+                    Generated locally via Empowering Engineers UK - Strategy Subsystem Core
+                </div>
+            </body>
+            </html>`;
+
+            const printWindow = window.open('', '_blank');
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to permit master document compilation.");
+            }
+        }
+    </script>
+    
+    <script src="footer.js?v=22.0" defer></script>
+</body>
+</html>
