@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="The Master Continuing Professional Development (CPD) Governance Cockpit. Centralise, monitor, and audit your 70/20/10 development planning, industry nomenclature decoding, and RACI matrices to satisfy UK-SPEC Competence E.">
+    <meta name="description" content="The Master Continuing Professional Development (CPD) Management Dashboard. Centralise, monitor, and audit your 70/20/10 development planning, industry nomenclature decoding, and RACI matrices to satisfy UK-SPEC Competence E.">
     <meta name="keywords" content="CPD Log, Continuing Professional Development, Development Action Plan, DAP, UK-SPEC Competence E, Chartered Engineer, Incorporated Engineer, RACI Matrix, Technical Nomenclature">
-    <meta property="og:title" content="CPD Governance Cockpit & Hub | Empowering Engineers UK">
+    <meta property="og:title" content="CPD Management Dashboard & Hub | Empowering Engineers UK">
     <meta property="og:description" content="The master framework entry gateway and diagnostic milestone tracking dashboard for professional engineering professional development plans under UK-SPEC guidelines.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/cpd.html">
     <meta property="og:type" content="website">
     
-    <title>CPD Governance Cockpit | Empowering Engineers UK</title>    
+    <title>CPD Management Dashboard | Empowering Engineers UK</title>    
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
@@ -23,19 +23,19 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/cpd.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Continuing Professional Development (CPD) Governance Cockpit",
+      "name": "Continuing Professional Development (CPD) Management Dashboard",
       "url": "https://www.empoweringengineers.uk/cpd.html",
-      "description": "The unified entry cockpit and diagnostic tracking index for professional engineering development action planning, professional registration logging, and lifecycle accountability under Engineering Council UK-SPEC standards.",
+      "description": "The unified entry and diagnostic tracking index for professional engineering development action planning, professional registration logging, and lifecycle accountability under Engineering Council UK-SPEC standards.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "All",
       "publisher": {
@@ -49,260 +49,28 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 25px 5% 45px 5%;
-            color: var(--cloud-white);
-            line-height: 1.75;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Programmatic Metric Indicators */
-        .branch-count-badge {
-            font-size: 0.75rem;
-            background: var(--midnight-navy);
-            color: var(--cloud-white);
-            padding: 2px 6px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            margin-left: 6px;
-            font-family: monospace;
-        }
-
-        /* High Contrast Square Status Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 15px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 12px;
-        }
-        
-        /* Command Center Cockpit Layout Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--slate-grey);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        /* High Density Sub-Link List Module */
-        .sub-link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex-grow: 1;
-        }
-
-        .sub-link-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 12px;
-            background: var(--midnight-navy);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 0.88rem;
-            text-decoration: none;
-            color: var(--cloud-white);
-            font-weight: 700;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-        .sub-link-item:hover {
-            border-color: var(--terminal-green);
-            background-color: var(--hover-green);
-        }
-
-        .sub-link-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.04);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(3, 247, 160, 0.05);
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Purge corrupted repository navigation cache layers instantly before content binding loops -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Continuing Professional Development (CPD): Compliance, Governance, and Lifecycle Registration</h1>
-            <p>Welcome to the master Continuing Professional Development (CPD) Governance Cockpit and diagnostic milestone tracking environment. Maintaining an un-interrupted, audit-ready development log is not merely a bureaucratic task within the British engineering sector; it is a rigid statutory and ethical obligation enforced by the Engineering Council. Under the current UK Standard for Professional Engineering Competence (UK-SPEC), achieving and sustaining status as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) demands continuous validation. Specifically, <strong>Competence E (Personal commitment to professional standards)</strong> mandates that every registered professional must take absolute, proactive responsibility for identifying, executing, and logging their developmental milestones to maintain public safety, technological alignment, and sustainable operational value.</p>
+            <h2>What is Continuing Professional Development (CPD)?</h2>
+            <p>Continuing Professional Development (CPD) is the ongoing process of tracking and documenting the skills, knowledge, and experience you gain as you work. It is much more than just a list of training courses you have attended. Instead, your CPD log is a complete record of how you apply your learning to real-world tasks on site. This master hub brings together tools to help you manage your career progression. It breaks your learning down into clear targets, making it easy to see where your skills are strong and where you need improvement.</p>
             
-            <h2>The Architecture of Contemporary Learning: Deconstructing the 70/20/10 Framework</h2>
-            <p>Modern technical domains change too rapidly for traditional classroom learning alone. Elite engineering organisations structure their technical talent pipelines around the balanced <strong>70/20/10 Learning Model</strong>. This empirical framework states that true professional mastery is achieved through a structured combination of distinct learning channels: 70% stems from direct, on-the-job experiential problem-solving (such as leading high-hazard equipment modifications or resolving structural field non-conformances); 20% is forged through active social coaching, peer reviews, and professional mentorship networks; and 10% is secured via formal educational courses, technical seminars, and code-compliance certifications (such as ASME, Eurocodes, or BS 7671 updates).</p>
-            <p>By mapping out your developmental activities across these explicit channels within our integrated workbenches, you build a robust barrier against professional obsolescence. Our system translates your raw logs into highly scannable, institution-compliant documentation, proving to professional review panels and corporate audit boards that your technical practice is backed by continuous refinement and lifecycle engineering excellence.</p>
+            <h2>Why Does CPD Tracking Matter to Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you are judged against strict standards. The Engineering Council requires all registered engineers to maintain an up-to-date development record. This requirement is audited under <strong>UK-SPEC Competence E</strong>, which focuses on your personal commitment to professional standards. Many talented young technicians face unexpected delays in their career simply because they fail to log their learning.</p>
+            <p>A senior supervisor or a professional review panel wants to see that you take active responsibility for your development. By structured planning, you show that you care about keeping your skills relevant and your projects safe. Elite engineering firms organise their training around the balanced <strong>70/20/10 Learning Model</strong>. This standard shows that 70% of your knowledge comes from practical, on-the-job experience. Another 20% comes from social learning, such as working with a mentor or peer reviews. The final 10% comes from formal education, like technical seminars or safety certifications. Recording these details proves you are ready for greater technical responsibility and leadership positions.</p>
 
-            <h2>Systemic Accountability: Aligning Corporate Governance with Personal Autonomy</h2>
-            <p>Fulfilling institutional compliance parameters requires engineers to operate with absolute clarity regarding project roles and structural accountability. Complex engineering projects are highly vulnerable to communication breakdowns, overlapping operational lines, and misaligned delivery targets. To mitigate these risks, professional leads integrate structured deployment metrics, such as RACI matrices, alongside their personal training logs. This methodology allows engineers to define exact operational touchpoints—establishing who is Accountable, Responsible, Consulted, or Informed across multi-disciplinary tasks. Documenting this structure alongside regular technical nomenclature sweeps ensures compliance with the Construction (Design and Management) Regulations 2015, protecting corporate assets while keeping team development aligned with corporate goals.</p>
-
-            <h2>Absolute Privacy via Local Client-Side Execution Layer</h2>
-            <p>Acknowledging that lead engineers, project management consultants, and professional registration candidates regularly handle highly classified corporate data, sensitive asset design maps, and confidential human resource reviews, this platform operates on a strict, zero-knowledge local browser architecture. Every professional development plan step, technical acronym search query, and operational accountability matrix you structure is parsed and cached entirely within your local machine's memory boundaries. No performance metrics or corporate datasets ever cross external network loops or remote cloud servers. This guarantees total data sovereignty and flawless compliance with corporate non-disclosure agreements (NDAs). Use our **Live CPD Command Subsystem** below to monitor your verification milestones across all core development branches in real-time.</p>
+            <h2>How Do You Complete This Module Cleanly?</h2>
+            <p>We have engineered this central dashboard to help you choose the exact career tracking tool you need. Treat this directory as your personal development workspace. First, launch the <strong>CPD Planner</strong> to build a clear <strong>Development Action Plan (DAP)</strong>. Here, you can match your daily tasks against institutional benchmarks. Second, use the <strong>Engineering Acronyms Decoder</strong> to master technical words used across safety-critical industries. Third, open the <strong>RACI Matrix</strong> tool to define your specific role and accountability on active projects.</p>
+            <p>Type your notes directly into each interactive field. Our platform operates on a secure, <strong>zero-knowledge local browser architecture</strong>. Your personal development logs and project details are saved automatically into your device's local memory cache every few seconds. This protects your sensitive company data and fully satisfies corporate non-disclosure agreements (NDAs). Once you complete your logs, you can compile a master interview report to showcase your evidence during your <strong>Professional Review Interview (PRI)</strong>.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -322,23 +90,23 @@
 			</a>
             <a href="planner.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_planner"></div>
-                <span class="tab-label">CPD Planner <span class="branch-count-badge" id="lbl_cnt_planner">0/1</span></span>
+                <span class="tab-label">CPD Planner</span>
             </a>
             <a href="decoder.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_decoder"></div>
-                <span class="tab-label">Decoder <span class="branch-count-badge" id="lbl_cnt_decoder">0/1</span></span>
+                <span class="tab-label">Decoder</span>
             </a>
             <a href="raci.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_raci"></div>
-                <span class="tab-label">RACI Matrix <span class="branch-count-badge" id="lbl_cnt_raci">0/1</span></span>
+                <span class="tab-label">RACI Matrix</span>
             </a>
             <a href="resources.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_resources"></div>
-                <span class="tab-label">Resources <span class="branch-count-badge" id="lbl_cnt_resources">0/1</span></span>
+                <span class="tab-label">Resources</span>
             </a>
             <a href="hobbies.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_hobbies"></div>
-                <span class="tab-label">Hobbies <span class="branch-count-badge" id="lbl_cnt_hobbies">0/5</span></span>
+                <span class="tab-label">Hobbies</span>
             </a>
         </nav>
 
@@ -346,7 +114,7 @@
         <div class="header-actions">
             <div>
                 <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">CPD COMMAND</h1>
-                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Continuous Learning & Governance Cockpit Matrix</p>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Continuous Learning & Performance Dashboard Matrix</p>
             </div>
             <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
                 <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Focus Context:</label>
@@ -405,7 +173,7 @@
                     <span>3. Governance & Resources</span>
                     <span id="check_branch_governance"></span>
                 </div>
-                <p class="hub-card-desc">Assign explicit structural accountability across delivery modules using standard RACI metrics, and access central technical reference repositories.</p>
+                <div class="hub-card-desc">Assign explicit structural accountability across delivery modules using standard RACI metrics, and access central technical reference repositories.</div>
                 <div class="sub-link-list">
                     <a href="raci.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_cpd_raci"></span> RACI Matrix Roles</span> <span>&rarr;</span></a>
                     <a href="resources.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_cpd_resources"></span> Engineering Resources</span> <span>&rarr;</span></a>
@@ -435,7 +203,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // Unique operational module namespace string
@@ -508,59 +276,51 @@
             };
 
             let globalCpdHasContent = false;
-            let globalHobbiesHasContent = false;
 
-            // Process individual sections accurately to drive horizontal checkboxes
-            let plannerCompleted = 0;
-            taxonomyMasterRegistry.planner.forEach(item => {
-                if (parseToolTextLog(item.key)) { plannerCompleted++; globalCpdHasContent = true; }
-            });
-            if (document.getElementById('lbl_cnt_planner')) document.getElementById('lbl_cnt_planner').innerText = `${plannerCompleted}/1`;
-            if (document.getElementById('badge_nav_planner')) document.getElementById('badge_nav_planner').innerHTML = buildTickUI(plannerCompleted === 1);
-            if (document.getElementById('tick_cpd_planner')) document.getElementById('tick_cpd_planner').innerHTML = buildTickUI(plannerCompleted > 0);
-            if (document.getElementById('check_branch_planner')) document.getElementById('check_branch_planner').innerHTML = buildTickUI(plannerCompleted > 0);
+            // CPD Planner Status Check
+            let plannerHasContent = parseToolTextLog('ee_cpd_planner_state');
+            if (plannerHasContent) globalCpdHasContent = true;
+            if (document.getElementById('badge_nav_planner')) document.getElementById('badge_nav_planner').innerHTML = buildTickUI(plannerHasContent);
+            if (document.getElementById('tick_cpd_planner')) document.getElementById('tick_cpd_planner').innerHTML = buildTickUI(plannerHasContent);
+            if (document.getElementById('check_branch_planner')) document.getElementById('check_branch_planner').innerHTML = buildTickUI(plannerHasContent);
 
-            let decoderCompleted = 0;
-            taxonomyMasterRegistry.decoder.forEach(item => {
-                if (parseToolTextLog(item.key)) { decoderCompleted++; globalCpdHasContent = true; }
-            });
-            if (document.getElementById('lbl_cnt_decoder')) document.getElementById('lbl_cnt_decoder').innerText = `${decoderCompleted}/1`;
-            if (document.getElementById('badge_nav_decoder')) document.getElementById('badge_nav_decoder').innerHTML = buildTickUI(decoderCompleted === 1);
-            if (document.getElementById('tick_cpd_decoder')) document.getElementById('tick_cpd_decoder').innerHTML = buildTickUI(decoderCompleted > 0);
-            if (document.getElementById('check_branch_decoder')) document.getElementById('check_branch_decoder').innerHTML = buildTickUI(decoderCompleted > 0);
+            // Decoder Status Check
+            let decoderHasContent = parseToolTextLog('EE_ACRONYM_DECODER');
+            if (decoderHasContent) globalCpdHasContent = true;
+            if (document.getElementById('badge_nav_decoder')) document.getElementById('badge_nav_decoder').innerHTML = buildTickUI(decoderHasContent);
+            if (document.getElementById('tick_cpd_decoder')) document.getElementById('tick_cpd_decoder').innerHTML = buildTickUI(decoderHasContent);
+            if (document.getElementById('check_branch_decoder')) document.getElementById('check_branch_decoder').innerHTML = buildTickUI(decoderHasContent);
 
-            let govCompleted = 0;
-            taxonomyMasterRegistry.governance.forEach(item => {
-                const hasContent = parseToolTextLog(item.key);
-                if (hasContent) { globalCpdHasContent = true; }
-                if (item.id === 'raci') {
-                    if (hasContent) govCompleted++;
-                    if (document.getElementById('tick_cpd_raci')) document.getElementById('tick_cpd_raci').innerHTML = buildTickUI(hasContent);
-                }
-                if (item.id === 'resources') {
-                    if (hasContent) govCompleted++;
-                    if (document.getElementById('tick_cpd_resources')) document.getElementById('tick_cpd_resources').innerHTML = buildTickUI(hasContent);
-                }
-            });
-            if (document.getElementById('lbl_cnt_raci')) document.getElementById('lbl_cnt_raci').innerText = `${parseToolTextLog('ee_raci_matrix_state') ? 1 : 0}/1`;
-            if (document.getElementById('lbl_cnt_resources')) document.getElementById('lbl_cnt_resources').innerText = `${parseToolTextLog('ee_resources_bookmarks') ? 1 : 0}/1`;
-            if (document.getElementById('badge_nav_raci')) document.getElementById('badge_nav_raci').innerHTML = buildTickUI(parseToolTextLog('ee_raci_matrix_state'));
-            if (document.getElementById('badge_nav_resources')) document.getElementById('badge_nav_resources').innerHTML = buildTickUI(parseToolTextLog('ee_resources_bookmarks'));
-            if (document.getElementById('check_branch_governance')) document.getElementById('check_branch_governance').innerHTML = buildTickUI(govCompleted > 0);
+            // RACI Matrix Status Check
+            let raciHasContent = parseToolTextLog('ee_raci_matrix_state');
+            if (raciHasContent) globalCpdHasContent = true;
+            if (document.getElementById('badge_nav_raci')) document.getElementById('badge_nav_raci').innerHTML = buildTickUI(raciHasContent);
+            if (document.getElementById('tick_cpd_raci')) document.getElementById('tick_cpd_raci').innerHTML = buildTickUI(raciHasContent);
 
+            // Resources Status Check
+            let resourcesHasContent = parseToolTextLog('ee_resources_bookmarks');
+            if (resourcesHasContent) globalCpdHasContent = true;
+            if (document.getElementById('badge_nav_resources')) document.getElementById('badge_nav_resources').innerHTML = buildTickUI(resourcesHasContent);
+            if (document.getElementById('tick_cpd_resources')) document.getElementById('tick_cpd_resources').innerHTML = buildTickUI(resourcesHasContent);
+
+            // Governance Card Checkbox Combination
+            if (document.getElementById('check_branch_governance')) {
+                document.getElementById('check_branch_governance').innerHTML = buildTickUI(raciHasContent || resourcesHasContent);
+            }
+
+            // Hobbies Status Checks
             let hobbiesCompleted = 0;
             taxonomyMasterRegistry.hobbies.forEach(item => {
                 const hasContent = parseToolTextLog(item.key);
-                if (hasContent) { hobbiesCompleted++; globalHobbiesHasContent = true; globalCpdHasContent = true; }
+                if (hasContent) { hobbiesCompleted++; globalCpdHasContent = true; }
                 if (document.getElementById(`tick_hobbies_${item.id}`)) {
                     document.getElementById(`tick_hobbies_${item.id}`).innerHTML = buildTickUI(hasContent);
                 }
             });
-            if (document.getElementById('lbl_cnt_hobbies')) document.getElementById('lbl_cnt_hobbies').innerText = `${hobbiesCompleted}/5`;
             if (document.getElementById('badge_nav_hobbies')) document.getElementById('badge_nav_hobbies').innerHTML = buildTickUI(hobbiesCompleted === 5);
             if (document.getElementById('check_branch_hobbies')) document.getElementById('check_branch_hobbies').innerHTML = buildTickUI(hobbiesCompleted > 0);
 
-            // Master configuration log binding triggers
+            // Master Hub Checkbox Sync
             if (document.getElementById('badge_cpd_hub')) document.getElementById('badge_cpd_hub').innerHTML = buildTickUI(globalCpdHasContent);
         }
 
@@ -610,12 +370,12 @@
                 const storedPayload = localStorage.getItem(masterReportRegistry[titleStr]);
                 if (storedPayload) {
                     try {
-                        const parsedFields = JSON.parse(storedPayload);
+                        const parsedJSON = JSON.parse(storedPayload);
                         let moduleHasValidStrings = false;
                         let fieldHTMLCollector = "";
 
-                        Object.keys(parsedFields).forEach(fieldKey => {
-                            const valueString = parsedFields[fieldKey];
+                        Object.keys(parsedJSON).forEach(fieldKey => {
+                            const valueString = parsedJSON[fieldKey];
                             if (valueString && typeof valueString === 'string' && valueString.trim().length > 0) {
                                 moduleHasValidStrings = true;
                                 fieldHTMLCollector += `<h3>Dimension: ${fieldKey.toUpperCase().replace(/_/g, ' ')}</h3>`;
@@ -668,7 +428,7 @@
             }
             switchCpdContext();
             updateSubpageDiagnosticBadges();
-            console.log("System Status: CPD Governance Cockpit initialised. Cache compliance layers active.");
+            console.log("System Status: CPD Governance Dashboard initialised. Cache compliance layers active.");
         }
     </script>
 </body>

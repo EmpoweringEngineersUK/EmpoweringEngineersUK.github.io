@@ -19,10 +19,10 @@
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Global Layout Core Linkage with Active Cache-Busting -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Deferred Database Scripts -->
-    <script defer src="tools_data.js?v=21.7"></script>
+    <script defer src="tools_data.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -43,119 +43,9 @@
     </script>
     
     <style>
-        /* --- PAGE SPECIFIC STRUCTURE --- */
-        body, button, input, select, textarea, h1, h2, h3, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        /* Thick Content Insulation Layer */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .thick-content p, .thick-content li { 
-            margin-bottom: 15px; 
-            font-size: 1.05rem; 
-        }
-        .thick-content ul {
-            padding-left: 20px;
-            margin-bottom: 25px;
-        }
-
-        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* High Contrast Square Status Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* Responsive Chess Board Grid Architecture */
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
+        /* Centralised layout.css fully inherits standard page wrappers. Local styles are isolated to the board grid grid layout components. */
+        
         .chess-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -196,7 +86,7 @@
         .chess-iframe-container {
             position: relative;
             width: 100%;
-            height: 550px; /* Standardised height to accommodate the external engine GUI */
+            height: 550px; 
             border-radius: 4px;
             overflow: hidden;
             background: var(--input-bg);
@@ -217,37 +107,35 @@
 <body onload="initApp()">
     
     <!-- Injection of system standard navigation -->
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Chess Openings & Systems Strategy: Cultivating Analytical Engineering Leadership</h1>
-            <p>While chess is widely recognised as a classic board game, playing and rigorously studying it serves as a phenomenal exercise in systems thinking, spatial analysis, and strategic planning. For developing engineering professionals working towards professional registration under the Engineering Council’s UK-SPEC (4th Edition), the stringent mental discipline required for chess directly reinforces several core analytical competences and operational habits.</p>
+            <p>Physical and digital engineering structures rely heavily on a strong starting design. Similarly, a successful chess game depends entirely on the stability of its initial setup phase. For developing engineering professionals working towards professional registration under the Engineering Council's UK-SPEC guidelines, chess serves as an interactive playground to sharpen system modelling capabilities. It teaches you to spot dependencies and track changes before they impact operations.</p>
             
-            <h2>Aligning with UK-SPEC Engineering Standards</h2>
-            <p><strong>Competence A (Knowledge and Understanding):</strong> Chess requires the continuous study of geometrical patterns, theoretical systems, and underlying tactical principles. Learning to accurately identify these patterns and apply established theories to novel, high-pressure situations perfectly mirrors how engineers must apply fundamental technical and mathematical knowledge to solve complex, real-world operational problems.</p>
-            <p><strong>Competence B (Design and Development of Processes and Systems):</strong> Formulating a robust game plan from the opening through to the endgame is an exercise in pure systems design. Anticipating an opponent’s responses, evaluating positional risks, calculating probability variations, and dynamically adjusting your strategy on the fly are the exact cognitive skills engineers utilise during the iterative design and development phases of a project. Just as an engineer constructs a Failure Mode and Effects Analysis (FMEA) to mitigate project hazards, a chess player must rigorously calculate the consequences of every structural pawn shift or piece sacrifice.</p>
+            <h2>What is Chess Systems Strategy?</h2>
+            <p>Chess Systems Strategy is the methodical study of structured openings, pawn layouts, and geometric piece positioning. This module helps early-career technicians and graduate engineers understand how separate parts of a system interact. Instead of treating chess as a game of random moves, this portal teaches you to analyse the board as a complex machine. Every piece has a specific functional weight, and every move alters the overall structural integrity of your position. By studying classical openings, you learn to establish central control, coordinate your assets, and deploy defensive fortifications systematically.</p>
+            
+            <h2>Why Strategic Chess Study Matters to Your Career</h2>
+            <p>When you present your application portfolio to a Professional Review Interview (PRI) panel for Chartered Engineer (CEng) or Incorporated Engineer (IEng) status, assessors judge your analytical depth. UK-SPEC Competence A requires you to maintain a sound theoretical approach to technology, while Competence B mandates that you design and develop engineering solutions to unusual or challenging problems. Chess mirrors these exact professional expectations perfectly.</p>
+            <p>When you play through an opening, you are designing a strategic blueprint under active competition. You must anticipate failure modes, calculate risk variations, and evaluate positional liabilities. If your king's pawn shield is structurally weak, your mid-game operations will collapse under opponent pressures. Practising these geometric interactions helps your mind process multi-variable dependencies, enhancing your capability to design safe, resilient infrastructure layouts in your day-to-day career.</p>
 
-            <h2>The Critical Importance of the Opening Phase</h2>
-            <p>Welcome to the interactive chess study suite. Whether you are a casual player looking to break past a rating plateau or a complete beginner, mastering your opening repertoire is the most critical step you can take to elevate your overall game. In chess, your mid-game tactical opportunities and late-game survivability rely almost entirely on the structural accuracy of your opening sequence. A strong opening secures central board control, develops your pieces efficiently, and ensures the absolute safety of your king. Without this solid architectural foundation, even the most brilliant tactical players will find themselves constantly defending from severely disadvantaged positions.</p>
-
-            <h2>Overcoming the Beginner's Knowledge Plateau</h2>
-            <p>The sheer volume of opening theory is the single biggest operational barrier preventing beginners from improving their game. Attempting to memorise countless variations from static textbooks or lengthy, passive video lectures can quickly become overwhelming. This pedagogical friction makes it incredibly difficult to remember and actively practise the correct theoretical moves over the physical board.</p>
-
-            <h2>Step-by-Step Interactive Practice Workbenches</h2>
-            <p>To permanently remove this barrier, this page utilises interactive chess boards powered by the Chess.com engine framework. Rather than passively reading about an opening, these embedded analytical tools allow you to actively engage with the theoretical data.</p>
+            <h2>How to Complete this Analytical Module Cleanly</h2>
+            <p>To gain full value from this study suite, do not simply look at the boards. You must actively engage with each interactive workbench rendered below to build deep muscle memory. Follow our simple process roadmap to log your completions accurately.</p>
             <ul>
-                <li><strong>Learn Step-by-Step:</strong> Move through complex opening lines one turn at a time, understanding the logic and structural purpose behind every pawn push and piece development.</li>
-                <li><strong>Practise Variations:</strong> Safely explore different opponent responses and learn how to adapt your strategy without the high-stakes pressure of a live ranked match.</li>
-                <li><strong>Build Muscle Memory:</strong> By physically playing the moves on the digital board, you will commit these essential geometrical patterns to your working memory significantly faster than by reading alone.</li>
+                <li><strong>Step 1:</strong> Select a classical opening variant from the high-density grid array, such as the <strong>Nimzo-Indian Defense</strong> or the <strong>Sicilian Defense</strong>.</li>
+                <li><strong>Step 2:</strong> Use the embedded Chess.com emboards to step through the historical master variations move by move. Analyse the technical purpose behind every pawn push and piece development.</li>
+                <li><strong>Step 3:</strong> Physically test alternative lines on the canvas to observe how different opponent responses shift the structural balance of the board.</li>
+                <li><strong>Step 4:</strong> Once you finish reviewing a theoretical line, click the high-contrast <strong>"Mark Opening as Reviewed"</strong> action button to record the entry.</li>
             </ul>
-            <p>Get started by selecting an opening from the interactive grid below. Play through the guided operational steps, reset the board as many times as you require, and start building a watertight strategic repertoire for your next competitive match.</p>
+            <p>Clicking this button automatically fires a script that updates your client-side portfolio data inside your browser cache. This real-time logging updates your top-mounted diagnostic pathway badges across the entire extracurricular loop without transmitting any proprietary information to external servers, protecting your privacy completely.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
-        <div class="ad-slot ad-mpu" id="monetisationBlock" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
             <ins class="adsbygoogle"
                  style="display:inline-block;width:300px;height:250px"
                  data-ad-client="ca-pub-7071036534151105"
@@ -287,7 +175,16 @@
             </a>
         </nav>
 
-        <div id="tool-header-target"></div>
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+          <div>
+            <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Chess Strategy Studio</h1>
+            <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Systems Strategy & Positional Analysis Model Ledger</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button type="button" class="action-btn action-btn-ghost" onclick="window.print()">📑 Preview Plan</button>
+          </div>
+        </div>
 
         <section class="chess-grid" aria-label="Interactive Chess Opening Boards">
             
@@ -375,9 +272,30 @@
 
     </main>
 
+    <script defer src="footer.js?v=22.0"></script>
+
     <!-- Programmatic Local Cache Parsing Subsystem -->
     <script>
         function parseToolTextLog(toolKeyStr) {
+            if (toolKeyStr === 'ee_master_state_calisthenics') {
+                const master = localStorage.getItem('ee_master_state');
+                if (!master) return false;
+                try {
+                    const parsed = JSON.parse(master);
+                    const cal = parsed?.ee_tools?.['ee_calisthenics_tracker'];
+                    if (!cal) return false;
+                    return Object.values(cal).some(v => v === true);
+                } catch(e) { return false; }
+            }
+            if (toolKeyStr === 'ee_master_state_poetry') {
+                const master = localStorage.getItem('ee_master_state');
+                if (!master) return false;
+                try {
+                    const parsed = JSON.parse(master);
+                    return !!(parsed?.ee_tools?.['ee_poetry_suite']?.db?.length);
+                } catch(e) { return false; }
+            }
+
             const structuralString = localStorage.getItem(toolKeyStr);
             if (!structuralString) return false;
             try {
@@ -404,8 +322,8 @@
             const taxonomyMasterRegistry = {
                 stem: [{ id: 'stem', key: 'ee_hobby_stem_state' }],
                 chess: [{ id: 'chess', key: 'ee_hobby_chess_state' }],
-                poetry: [{ id: 'poetry', key: 'ee_master_state' }],
-                calisthenics: [{ id: 'calisthenics', key: 'ee_hobby_calisthenics_state' }],
+                poetry: [{ id: 'poetry', key: 'ee_master_state_poetry' }, { id: 'poetry_fallback', key: 'ee_master_state' }],
+                calisthenics: [{ id: 'calisthenics', key: 'ee_master_state_calisthenics' }, { id: 'calisthenics_fallback', key: 'ee_hobby_calisthenics_state' }],
                 blitz: [{ id: 'blitz', key: 'EE_BLITZ_BLITZ_SCORE' }, { id: 'blitz_hm', key: 'EE_BLITZ_HANGMAN_SCORE' }]
             };
 
@@ -452,15 +370,9 @@
 
         // System Initialisation Engine
         function initApp() {
-            if(typeof renderToolHeader === 'function') {
-                renderToolHeader('chess');
-            }
             updateSubpageDiagnosticBadges();
             console.log("System Status: Chess interactive nodes loaded securely.");
         }
     </script>
-    
-    <!-- Injection of system standard persistence and footer layouts -->
-    <script defer src="footer.js?v=21.7"></script>
 </body>
 </html>

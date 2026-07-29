@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- SHARE STACK STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .share-stack {
             display: flex;
             flex-direction: column;
@@ -159,70 +66,13 @@
         .share-card.results-card { border-left-color: var(--ee-terminal-green); }
         .share-card.evaluation-card { border-left-color: #00b894; }
 
-        .share-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .situation-label { color: var(--burnt-orange) !important; }
-        .hindrance-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--terminal-green) !important; }
-        .results-label { color: var(--terminal-green) !important; }
-        .evaluation-label { color: #00b894 !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 100px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -243,9 +93,10 @@
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -268,44 +119,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Reflective Leadership and Project Recovery: The SHARE Model</h1>
-            <p>
-                As technical candidates advance into principal engineering, program management, or corporate operations roles, their day-to-day challenges shift away from siloed mathematics. Senior leadership requires navigating unpredictable project bottlenecks, managing vendor resource shortages, and mitigating geopolitical supply chain delays. While basic behavioral tools like STAR map simple operations well, they frequently omit the specific external frictions that disrupt execution. The **SHARE Model (Situation, Hindrance, Action, Results, Evaluation)** expands on standard behavioral reporting. It introduces formal barrier tracking and retrospective loops, satisfying **UK-SPEC Competence D (Communication)** and **Competence E (Commitment)**.
-            </p>
-            <p>
-                The primary benefit of utilizing the SHARE methodology lies in the explicit mapping of the **Hindrance** phase. Review panels from professional institutions look for proof of resilience and adaptive risk management. By clearly separating a baseline project environment from unexpected commercial or physical barriers, candidates can document exactly how they recovered a failing asset program. Furthermore, the framework integrates a comprehensive **Evaluation** block. This guarantees that your technical portfolio goes beyond simple, passive event logging to present deep reflective learning, helping you secure professional accreditation.
-            </p>
+            <h2>What is the SHARE Model?</h2>
+            <p>The <strong>SHARE model</strong> is a powerful five-part communication tool built specifically for engineering professionals. SHARE stands for <strong>Situation, Hindrance, Action, Results, and Evaluation</strong>. While traditional frameworks like the STAR method help you map out general day-to-day assignments, the SHARE model is built to focus heavily on project recovery and resilience. It provides a simple, structured workspace where you can explain exactly how you spotted an unexpected barrier during an engineering task and what steps you took to get the work back on schedule.</p>
 
-            <h2>Analyzing the Five Strategic Core Tiers of SHARE</h2>
-            <p>
-                Constructing an audit-ready, compliant SHARE evidence record requires engineers to critically analyze project recoveries step-by-step:
-            </p>
-            <p>
-                <strong>Situation [S]:</strong> This initial tier establishes the project environment, initial design parameters, scheduling thresholds, or asset requirements. Candidates must define the scope cleanly, embedding financial baselines, resource parameters, and standard compliance specifications (such as Eurocodes, ASME, or ISO guidelines) to provide solid commercial context.
-            </p>
-            <p>
-                <strong>Hindrance [H]:</strong> The hindrance quadrant identifies the sudden commercial barrier, technical defect, or supply chain bottleneck that disrupted execution. Rather than stating "the project was delayed," define the specific risk parameters: e.g. "An international vendor declared insolvencies, blocking the delivery of specialized cast turbine housings, threatening a 14-week program expansion, and risking a £2M late-delivery contractual penalty."
-            </p>
-            <p>
-                <strong>Action [A]:</strong> The action segment captures your personal technical and leadership contributions during the crisis. Explain what alternative first-principles calculations you ran, what script parameters you modified, what compliance frameworks you deployed, and how you managed cross-functional team networks to isolate or bypass the identified hindrance safely.
-            </p>
-            <p>
-                <strong>Results [R]:</strong> This section documents the data-driven milestones achieved through your technical actions. Review boards require clear empirical proof of project recovery. Entries must quantify optimized performance parameters, validated safety clearances, minimized expenditure losses, or formal regulatory sign-offs under relevant CDM governance frameworks.
-            </p>
-            <p>
-                <strong>Evaluation [E]:</strong> The final tier represents the reflective analysis required for professional registration. Authors must evaluate what the crisis revealed about system vulnerabilities. This involves documenting how this experience optimized subsequent engineering workflows, updated material procurement criteria, or revised institutional codes of practice to prevent recurrent liabilities.
-            </p>
+            <h2>Why Does Project Recovery Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must satisfy the Engineering Council benchmarks. Your assessment panel evaluates your communication and engineering leadership capabilities directly under <strong>UK-SPEC Competence D</strong>. Many early-career technicians experience unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they struggle to show how they handle sudden, real-world problems.</p>
+            <p>In a real-world engineering project, things rarely go completely to plan. A key material supplier might go out of business mid-project, a major item of plant machinery could break down unexpectedly, or site conditions might change due to severe weather. Senior reviewers from your <strong>Professional Engineering Institution (PEI)</strong> want to see how you respond to these high-pressure challenges. Using the SHARE model allows you to highlight the specific <strong>Hindrance</strong> or blocker that disrupted your work. This lets you clearly show your problem-solving skills, engineering resilience, and technical choices. It proves to senior management and assessors that you are ready to manage large engineering budgets and lead complex team networks safely.</p>
 
-            <h2>Interactive Client-Side SHARE Architecture Builder</h2>
-            <p>
-                The interactive builder below is engineered to help senior technical professionals rapidly organize and refine their project recovery evidence blocks. To safeguard highly sensitive commercial strategies and protect proprietary corporate datasets, our platform uses a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks. Use this toolkit to compile robust outlines, export clean JSON databases, or generate sophisticated AI prompts to verify your interview readiness.
-            </p>
+            <h2>How to Complete Your SHARE Framework Workspace Cleanly</h2>
+            <p>To construct an audit-ready project recovery summary, work sequentially through the five interactive cards on our workbench editor canvas:</p>
+            <ul>
+                <li><strong>Situation [S]:</strong> Establish the primary project background, baseline design parameters, or planned installation schedules.</li>
+                <li><strong>Hindrance [H]:</strong> Isolate the exact technical issue, material shortage, or structural barrier that threatened to delay your project.</li>
+                <li><strong>Action [A]:</strong> Document your personal technical contributions. State exactly what calculations, design reviews, or safety steps you executed to fix the issue.</li>
+                <li><strong>Results [R]:</strong> State the final, quantitative outcome of your recovery actions. Use concrete numbers like money saved, hours compressed, or safety clearances secured.</li>
+                <li><strong>Evaluation [E]:</strong> Reflect honestly on the event. Explain what this crisis revealed about your team workflows and how you updated corporate design guides to prevent it from happening again.</li>
+            </ul>
+            <p>Type your project notes directly into the fields below. Our platform uses a <strong>strong zero-knowledge local browser architecture</strong>, meaning your text entries are saved automatically onto your device every few seconds. No confidential company data or sensitive project parameters are ever transmitted to external servers, keeping you completely compliant with your employer's non-disclosure agreements (NDAs). Once you finish, use the controls in the side panel to copy your completed text outline or print a professional audit report directly from your browser to support your engineering portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -384,43 +220,43 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="share-stack">
                     
                     <!-- Situation Card -->
                     <div class="share-card situation-card">
-                        <label class="share-label situation-label">Situation [S]</label>
+                        <label class="ee-label" for="share_Situation" style="color: var(--burnt-orange);">Situation [S]</label>
                         <span class="form-hint">What primary baseline scope, project parameters, or scheduling metrics defined the program environment? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Managing the structural commissioning of a multi-disciplinary automotive manufacturing facility layout.</span></span>
-                        <textarea id="share_Situation" class="form-input" placeholder="Define background boundaries and project scope criteria here..." oninput="updatePreview()"></textarea>
+                        <textarea id="share_Situation" class="ee-textarea" placeholder="Define background boundaries and project scope criteria here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Hindrance Card -->
                     <div class="share-card hindrance-card">
-                        <label class="share-label hindrance-label">Hindrance [H]</label>
+                        <label class="ee-label" for="share_Hindrance" style="color: var(--burnt-orange);">Hindrance [H]</label>
                         <span class="form-hint">What technical defect, material limit, vendor bottleneck, or risk barrier threatened execution? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Sudden component allocation lockouts halted the delivery of automated hardware lines, risking a major project overrun.</span></span>
-                        <textarea id="share_Hindrance" class="form-input" placeholder="Isolate the specific structural barrier or commercial hindrance here..." oninput="updatePreview()"></textarea>
+                        <textarea id="share_Hindrance" class="ee-textarea" placeholder="Isolate the specific structural barrier or commercial hindrance here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="share-card action-card">
-                        <label class="share-label action-label">Action [A]</label>
+                        <label class="ee-label" for="share_Action" style="color: var(--terminal-green);">Action [A]</label>
                         <span class="form-hint">What calculations, alternative design reviews, script re-writes, or team networks did you command to resolve the issue? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Structured an alternative hardware map layout, updated baseline logic scripts, and coordinated emergency verification loops.</span></span>
-                        <textarea id="share_Action" class="form-input" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
+                        <textarea id="share_Action" class="ee-textarea" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Results Card -->
                     <div class="share-card results-card">
-                        <label class="share-label results-label">Results [R]</label>
+                        <label class="ee-label" for="share_Results" style="color: var(--terminal-green);">Results [R]</label>
                         <span class="form-hint">What data-driven milestones, financial containment, or standard clearances proved the success of your recovery actions? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Compressed the schedule delay by 11 days, protected operational output targets, and secured formal system verification.</span></span>
-                        <textarea id="share_Results" class="form-input" placeholder="State quantifiable project outcomes and professional sign-offs here..." oninput="updatePreview()"></textarea>
+                        <textarea id="share_Results" class="ee-textarea" placeholder="State quantifiable project outcomes and professional sign-offs here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Evaluation Card -->
                     <div class="share-card evaluation-card">
-                        <label class="share-label evaluation-label">Evaluation [E]</label>
+                        <label class="ee-label" for="share_Evaluation" style="color: #00b894;">Evaluation [E]</label>
                         <span class="form-hint">What did this recovery reveal about workflow gaps? How was this applied to update design guides or code specifications? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Realised that legacy component specs lacked multi-vendor design fallbacks; revised internal procurement guidelines.</span></span>
-                        <textarea id="share_Evaluation" class="form-input" placeholder="Detail your reflective analysis and subsequent systemic optimizations here..." oninput="updatePreview()"></textarea>
+                        <textarea id="share_Evaluation" class="ee-textarea" placeholder="Detail your reflective analysis and subsequent systemic optimizations here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -428,12 +264,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -589,7 +425,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -707,6 +543,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

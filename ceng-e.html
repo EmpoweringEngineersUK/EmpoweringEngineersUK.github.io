@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="Free engineering tools for CEng registration. AI-powered writers, UK-SPEC Competence E commitment, safety, and ethics trackers. Secure, browser-based, and open access.">
-    <meta name="keywords" content="Chartered Engineer, CEng, UK-SPEC, Engineering Council, Competence E, Professional Commitment, Safety, Ethics, Sustainability, CPD, Professional Review">
+    <meta name="description" content="Free engineering tools for CEng registration. AI-powered writers, UK-SPEC competency trackers for Competence E commitment, safety, and ethics. Secure, browser-based, and open access.">
+    <meta name="keywords" content="Chartered Engineer, CEng, UK-SPEC, Engineering Council, STAR Technique, Professional Review, Competence E, Safety, Ethics, Sustainability, CPD">
     <meta property="og:title" content="Empowering Engineers UK | CEng E Professional Registration Tools">
-    <meta property="og:description" content="Accelerate your journey to Chartered Engineer (CEng) status with our high-trust technical toolset for Competence E.">
+    <meta property="og:description" content="Accelerate your journey to Chartered Engineer (CEng) status with our high-trust commitment toolset for Competence E.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/ceng-e.html">
     <meta property="og:type" content="website">
@@ -20,11 +20,10 @@
     <link rel="manifest" href="site.webmanifest">
     
     <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
-    
     <link rel="canonical" href="https://www.empoweringengineers.uk/ceng-e.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -36,7 +35,6 @@
       "publisher": {
         "@type": "Organization",
         "name": "Empowering Engineers UK",
-        "url": "https://www.empoweringengineers.uk/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
@@ -45,64 +43,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -110,51 +113,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -162,26 +120,35 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Chartered Engineer (CEng) Competence E: Personal and Professional Commitment</h1>
-            <p>To attain status as a Chartered Engineer (CEng), candidates must prove they are more than technical leaders—they must act as exemplary stewards of the profession. The Engineering Council's UK-SPEC Competence E demands an unshakeable personal and professional commitment to safety, ethical codes, sustainable societal development, and the continuous mentoring of the wider engineering ecosystem. Evaluating panels look beyond simple process compliance; they require proof of systematic leadership, where you actively championed and formulated standards that protect life, safety, and commercial integrity under pressure.</p>
+            <p>To become a Chartered Engineer (CEng), you must prove your commitment to the engineering profession. Competence E in the UK-SPEC framework checks your ethical conduct, safety management, and professional standards. The Engineering Council wants to ensure that you protect public safety, act ethically, and protect the environment. True leaders do not just follow safety regulations blindly. You must show that you take technical responsibility and lead by example every day. This page helps you organize your evidence cleanly for your professional assessment panel review.</p>
             
-            <h2>E1 & E2: Professional Conduct and Systemic Safe Systems</h2>
-            <p>Sub-competence E1 evaluates your strict adherence to, and active promotion of, your Licensed Institution's professional code of conduct (e.g. IMechE, IET, ICE). You must describe scenarios where you successfully navigated ethical dilemmas or made values-based commercial decisions. E2 concentrates heavily on your systemic safety leadership. While an Incorporated Engineer (IEng) applies existing policies, a Chartered Engineer is expected to formulate, audit, and improve safe systems of work. You should highlight your authoritative role in managing quantitative risk mitigation strategies (such as HAZOP, LOPA, or ALARP), writing policy, enforcing the CDM 2015 Regulations, or designing safety-critical emergency response protocols.</p>
+            <h2>E1: Comply with Relevant Codes of Conduct</h2>
+            <p>What is this step? This step is the practice of working strictly within the professional code of conduct of your Professional Engineering Institution (PEI). Why does it matter to your career? To protect public trust in engineering, you must act honestly, manage conflicts of interest, and operate within your technical capabilities. Ethical slip-ups can damage your career and destroy company reputations. How do you complete it cleanly? Document scenarios where you successfully navigated ethical dilemmas or made value-based commercial choices. Show how you applied your institution's ethical guidelines to solve real-world problems layout boundaries.</p>
             
-            <h2>E3 & E4: Sustainable Development and Lifelong Mentorship</h2>
-            <p>Modern global challenges mandate that a Chartered Engineer drives sustainable lifecycle stewardship. Sub-competence E3 assesses your proactive commitment to sustainable engineering practice. Detail your strategic leadership in lowering project carbon footprints, integrating Circular Economy principles, mitigating waste streams, or executing rigorous environmental impact assessments (EIA) to achieve Net Zero. Complementing this, E4 requires an active dedication to continuous professional growth. You must demonstrate a systematic approach to your own Continuous Professional Development (CPD) while proving how you actively support the growth of others through structured corporate mentoring, formal reviews, or STEM outreach campaigns.</p>
+            <h2>E2: Manage and Apply Safe Systems of Work</h2>
+            <p>What is this step? This phase covers your direct responsibility for health, safety, and welfare regulations on engineering sites. Why does it matter to your career? Engineering operations involve dangerous risks that can threaten human life if unmanaged. Chartered Engineers must design, audit, and improve safe systems of work to protect their teams. How do you complete it cleanly? Describe your leading role in setting up safety risk frameworks like HAZOP or ALARP. Explain how you implemented the CDM 2015 Regulations on site. Document how you investigated a site hazard and changed the process layout to prevent future incidents from repeating.</p>
             
-            <h2>E5: Legal Compliance, Ethical Governance, and Cyber Security</h2>
-            <p>Sub-competence E5 scrutinises your capacity to operate safely within complex modern legal and ethical boundaries. This encompasses active management of commercial whistleblowing paths, preventing conflicts of interest in supply chains, and safeguarding digital infrastructure. In an increasingly digitised landscape, you must detail how you lead technical risk assessments for data integrity, satisfy strict data protection directives (such as GDPR), and enforce rigorous cyber-security protocols on sensitive commercial assets and designs.</p>
+            <h2>E3: Undertake Engineering Work for Sustainable Development</h2>
+            <p>What is this step? This pillar focuses on your ability to reduce environmental impacts and support sustainable engineering development. Why does it matter to your career? Modern infrastructure projects must reduce waste and help achieve national Net Zero carbon targets. Companies need engineering leads who understand material circular economy loops and sustainable resource planning. How do you complete it cleanly? Explain how you lowered a project's carbon footprint or reduced factory material waste. Document your role in conducting environmental impact assessments (EIA). Show how you selected alternative, eco-friendly materials to maximize long-term asset sustainability.</p>
+            
+            <h2>E4: Carry Out Continuing Professional Development (CPD)</h2>
+            <p>What is this step? This step is the systematic practice of updating your technical capabilities and mentoring other staff members. Why does it matter to your career? Engineering technology changes rapidly, so you must keep your skills sharp. Senior mentors must also support graduate engineers and early-career technicians to help them grow. How do you complete it cleanly? Map your learning goals to a clear Development Action Plan (DAP). Document how you led training sessions, mentored junior engineers towards their professional registration, or volunteered for STEM outreach campaigns. Show your active reflection records for all your learning activities.</p>
+            
+            <h2>E5: Understand Ethical, Legal, and Cyber Security Requirements</h2>
+            <p>What is this step? This target checks your understanding of commercial contracts, legal frameworks, and digital asset security. Why does it matter to your career? Modern engineering relies on connected digital infrastructure, making data protection and cyber security essential. You must protect your company's intellectual property and satisfy data laws like GDPR. How do you complete it cleanly? Document how you assessed cyber security risks on sensitive design files. Explain how you reviewed supply chain contracts to protect against commercial data leaks. Show how you ensured full legal compliance across all your project execution phases.</p>
             
             <h2>Structuring Your Evidence via the STAR Methodology</h2>
-            <p>When drafting your CEng Competence E responses, use the STAR methodology (Situation, Task, Action, Result) to frame your evidence. Institutional assessors seek to extract your specific, personal actions and strategic decisions. Since detailing real-world safety incidents, procurement negotiations, or corporate vulnerabilities often involves highly sensitive technical information, Empowering Engineers UK implements a secure, client-side, zero-knowledge local storage architecture. Your entire draft portfolio remains fully sandboxed in your browser's local memory, guaranteeing absolute data sovereignty and compliance with corporate NDAs.</p>
+            <p>To pass your Professional Review Interview (PRI), your final competence portfolio must be highly structured. We mandate using the STAR Methodology (Situation, Task, Action, Result) for all your drafts. This structural layout keeps your writing short, clear, and punchy. It forces you to highlight your personal, individual choices rather than what your wider project team achieved. In the Action sections, focus entirely on your personal ethical and safety decisions. The Result sections must use quantified data to prove your success. A clear narrative forms a robust base for your verbal defense during your interview panel.</p>
+            
+            <h2>Secure Client-Side Architecture</h2>
+            <p>Drafting your professional commitment records involves handling sensitive company data, safety logs, and confidential client-side information. This platform uses a zero-knowledge local storage architecture to protect your intellectual property. All your text entries are secured natively inside your local browser cache. Your proprietary engineering narratives are never uploaded to external networks or remote servers. This layout guarantees absolute compliance with strict corporate Non-Disclosure Agreements (NDAs). You can draft your career portfolio safely with complete peace of mind.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -194,7 +161,7 @@
         </div>
 
         <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="CEng Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+        <nav class="ee-horizontal-nav" aria-label="CEng Application Pathway">
             <a href="ceng.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">CEng Hub</span>
@@ -239,9 +206,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Chartered Engineer (CEng) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -463,16 +430,15 @@
                         <textarea id="E5_compiled" class="ee-textarea" style="min-height: 250px; border-radius: 0 4px 4px 4px; border-color: var(--ee-dark-blue); font-size: 1rem;" oninput="analyzeText('E5')"></textarea>
                     </div>
                 </div>
-
             </div>
 
-            <!-- COACH SIDEBAR -->
+            <!-- MENTOR SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: E1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: E1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
-                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - AWARE</span></div>
+                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - Aware</span></div>
                 </div>
                 
                 <div class="coach-card">
@@ -493,7 +459,7 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
@@ -511,9 +477,9 @@
 
         // --- NAVIGATION BADGE ENGINE ---
         function calculateScoreForBadge(text, subId) {
-            if (!text || text.trim() === "") return 1; // Explicit default for empty strings
+            if (!text || text.trim() === "") return 1;
             const wordCount = text.trim().split(/\s+/).length;
-            if (wordCount < 50) return 1; // Default L1 if sparse data
+            if (wordCount < 50) return 1; 
 
             let score = 1;
             if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap['CEng']) {
@@ -580,9 +546,9 @@
                 let subScores = [];
 
                 expectedSubs.forEach(sub => {
-                    let score = 1; // Default to L1 - AWARE explicitly for blanks
+                    let score = 1;
                     // Read active text locally if on current page, else read from memory cache
-                    if (comp === 'e' && appState[sub]) { // Local tracking for Comp E
+                    if (comp === 'e' && appState[sub]) {
                         score = calculateScoreForBadge(appState[sub].compiled || '', sub);
                     } else if (tools[toolId] && tools[toolId][sub]) {
                         score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub);
@@ -652,7 +618,7 @@
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Application Draft Preview</h1>
                 <p><em>Candidate: ${masterData.username || "Not Provided"}</em></p>`;
 
@@ -660,7 +626,7 @@
             if (masterData.ee_tools['ee_career_builder_state']) {
                 html += `<h2>Career Summary</h2>`;
                 const cs = masterData.ee_tools['ee_career_builder_state'];
-                if(cs.p_summary) html += `<p>${cs.p_summary}</p>`;
+                if (cs.p_summary) html += `<p>${cs.p_summary}</p>`;
                 else html += `<p><em>Career data logged but no explicit summary text identified.</em></p>`;
             }
 
@@ -698,7 +664,7 @@
 
         // --- UI & TAB LOGIC ---
         function switchMainTab(tabId) {
-            saveCurrentInputsToState(); // Ensure we don't lose typed data before switching
+            saveCurrentInputsToState(); 
             currentMainTab = tabId;
 
             // Toggle Main Tabs scoped to internal nav to protect Breadcrumbs
@@ -708,7 +674,7 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
             // Reload the placeholders & inputs for the active scenario of this tab
             loadPlaceholders(tabId);
@@ -717,9 +683,8 @@
             analyzeText(tabId);
         }
 
-        // Switch internal scenario sub-tabs
         function switchScenario(subId, scenNum) {
-            saveCurrentInputsToState(); // Save current before switching
+            saveCurrentInputsToState(); 
             appState[subId].activeScenario = scenNum;
             populateInputsFromState(subId, scenNum);
             updateScenarioTabVisuals(subId, scenNum);
@@ -909,7 +874,7 @@
                 if (savedState.E5) appState.E5 = savedState.E5;
             }
             switchMainTab('E1');
-            updateNavigationBadges(); // Execute initial render of global badges
+            updateNavigationBadges(); 
         }
 
         function saveToLocalTemp() {
@@ -917,45 +882,7 @@
             let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
             masterData.ee_tools[EE_TOOL_ID] = appState; 
             localStorage.setItem('ee_master_state', JSON.stringify(masterData));
-            updateNavigationBadges(); // Live update global badges after saving
-        }
-
-        function exportEEData() {
-            saveToLocalTemp();
-            let masterData = JSON.parse(localStorage.getItem('ee_master_state'));
-            masterData.lastUpdated = getEETimestamp();
-            
-            const prefix = masterData.username !== "EE_User" ? masterData.username.replace(/\s+/g, '') : EE_TOOL_ID;
-            const filename = `${prefix}_${masterData.lastUpdated}.json`;
-
-            const blob = new Blob([JSON.stringify(masterData, null, 2)], { type: "application/json" });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        function importEEData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const importedData = JSON.parse(e.target.result);
-                    if (!importedData.ee_tools) throw new Error("Invalid");
-                    
-                    localStorage.setItem('ee_master_state', JSON.stringify(importedData));
-                    loadToolStateFromMaster(); 
-                    alert("EE Backup imported successfully!");
-                } catch (err) {
-                    alert("Error importing file. Please ensure it is a valid EE Backup JSON.");
-                }
-            };
-            reader.readAsText(file);
-            event.target.value = ''; 
+            updateNavigationBadges(); 
         }
 
         // --- INIT ---

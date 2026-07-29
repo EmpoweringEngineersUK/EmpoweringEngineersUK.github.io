@@ -18,12 +18,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <!-- Global Layout Core Linkage with Active Cache-Busting -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Global Layout Core Linkage with Active Cache-Busting Baseline Configuration -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Deferred Database Scripts -->
-    <script defer src="acronyms.js?v=21.7"></script>
-    <script defer src="tools_data.js?v=21.7"></script>
+    <script defer src="acronyms.js?v=22.0"></script>
+    <script defer src="tools_data.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -44,26 +44,8 @@
     </script>
     
     <style>
-        /* --- PAGE SPECIFIC STRUCTURE --- */
-        body, button, input, select, textarea, h1, h2, h3, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-        }
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .thick-content p { margin-bottom: 15px; font-size: 1.05rem; }
-
+        /* --- TOOL SPECIFIC INTERACTION COMPONENTS --- */
+        /* Local layout controls strictly limited to bespoke workspace grids to protect centralized CSS inheritance */
         .tool-input-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -112,20 +94,6 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-
-        input[type="text"], select {
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            min-height: 48px;
-            padding: 0 12px;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-        input[type="text"]:focus, select:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-        }
         
         #resultsArea, #sessionLogArea {
             margin-top: 15px;
@@ -136,6 +104,7 @@
         
         .panel-content { display: none; }
         .panel-content.active { display: block; }
+        .hidden { display: none !important; }
 
         .result-item {
             background: var(--input-bg);
@@ -194,22 +163,40 @@
             display: block; margin-bottom: 4px; font-weight: 700;
         }
         .wotd-desc { color: var(--slate-grey); font-size: 0.85rem; line-height: 1.4; }
+
+        /* Bespoke micro-formatting to isolate the dynamic tools_data header block text elements */
+        .tool-header h1.tool-h1 { font-size: 1.5rem; text-transform: uppercase; color: var(--terminal-green); margin-bottom: 12px; font-weight: 700; display: block; }
+        .tool-header p.tool-desc { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
+        .tool-header .header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 15px; }
+        @media (max-width: 768px) { .tool-header .header-grid { grid-template-columns: 1fr; } }
+        .tool-header h4 { color: var(--burnt-orange); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+        .tool-header .tool-list { padding-left: 20px; font-size: 0.95rem; line-height: 1.6; }
+        .tool-header .tool-list li { margin-bottom: 8px; }
+        .tool-header .privacy-badge { display: none !important; } /* Wipes legacy duplication token */
     </style>
 </head>
 <body onload="initApp()">
-    
-    <script defer src="header_nav.js?v=21.7"></script>
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
         
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>The Engineering Decoder: Mastering Technical Terminology for UK-SPEC Registration</h1>
-            <p>Achieving professional registration as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) necessitates an absolute mastery of technical communication. Within safety-critical British industries such as Nuclear, Aerospace, Rail, and Civil Infrastructure, the precision of your engineering terminology is just as vital as the mathematical tolerances applied to your structural designs. The Engineering Council rigidly evaluates this capability under UK-SPEC Competence D1, which mandates the ability to communicate effectively in English at all organisational levels.</p>
-            <p>A pervasive risk within multi-disciplinary engineering projects is the "Context Trap"—a scenario where an identical acronym holds vastly different meanings depending on the sector. For instance, to a Mechanical Systems Engineer, "CV" routinely indicates a Check Valve within a fluid dynamics programme. However, to a Project Controls Manager operating under Earned Value Management, it denotes Cost Variance. To mitigate these dangerous ambiguities, the Empowering Engineers UK platform has developed the Engineering Decoder. This robust analytical search engine allows candidates to instantly cross-reference over 15,000 industry-standard abbreviations.</p>
             
-            <h2>Standardisation and Document Control Protocols</h2>
-            <p>Standardisation is the cornerstone of operational safety. When drafting critical Basis of Design (BoD) reports, Permit-to-Work (PTW) authorisations, or Failure Mode and Effects Analyses (FMEA), engineers must not rely on siloed, assumed knowledge. By proactively interrogating our comprehensive database—which aligns with recognised standards such as ASME, ISO, IEEE, and BS 7671—you safeguard your supply chain and operational workflows from costly misinterpretations.</p>
-            <p>Furthermore, the systematic logging of technical terminology contributes directly to your Continuous Professional Development (CPD) portfolio. As you prepare for your Professional Review Interview (PRI), the assessing panel will expect you to seamlessly decode complex jargon and translate these concepts for non-technical commercial stakeholders. Utilise this tool to audit your reports, ensuring that every initialism is fully expanded upon its first use, thereby projecting the authority and clarity expected of a registered professional engineer.</p>
+            <h2>Understanding Technical Terminology Mapping</h2>
+            <p><strong>What is this step?</strong> The Engineering Decoder is a searchable shorthand index designed to translate over 15,000 technical acronyms, abbreviations, and industry-standard initialisms used across British sectors. Within safety-critical fields such as Nuclear, Aerospace, Rail, and Civil Infrastructure, technical language requires absolute precision. This tool serves as a reference engine to cross-reference confusing terms instantly, helping early-career engineers and technicians verify definitions before submitting written engineering profiles or project design summaries.</p>
+            
+            <h2>Why Jargon Control Matters to Your Professional Registration</h2>
+            <p><strong>Why does it matter to your career?</strong> Achieving professional registration with the <strong>Engineering Council</strong> as a Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), or Engineering Technician (<strong>EngTech</strong>) requires clear communication skills. Under <strong>UK-SPEC Competence D</strong>, candidates must prove they can translate complex engineering summaries into clear text for non-technical stakeholders. Misinterpreting an initialism is known as the "Context Trap." For instance, to a systems engineer, "CV" stands for a Check Valve, while to a project controls director, it means Cost Variance. Using incorrect terms in your portfolio can cause application setbacks, whereas demonstrating precise terminology control helps secure career progression quickly.</p>
+            <p>When you sit before your peer assessors during the <strong>Professional Review Interview (PRI)</strong>, they will closely examine your verbal arguments and portfolio documentation. They expect you to expand acronyms completely upon their first use, proving you understand structural design regulations and safety codes. Using this tool to check your technical reports ensures your documentation sounds professional and authoritative, matching the exact standards expected by your <strong>Professional Engineering Institution (PEI)</strong>.</p>
+
+            <h2>How to Complete Your Terminology Scans Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To use this system successfully, type any technical acronym into our database filter to query matched terms in real-time. You can filter results by specific industrial streams to find the exact definition that fits your workspace context. Click on individual search blocks to save decoded initialisms directly into your local session log, helping you track your vocabulary updates cleanly. This entire process relies on secure local storage memory, ensuring your confidential project histories and company data layers are never sent to external networks, fully protecting your employer's Non-Disclosure Agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -221,16 +208,58 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <div id="tool-header-target"></div>
+        <!-- Context-Aware Pathway Breadcrumb Bar -->
+        <nav class="ee-horizontal-nav" aria-label="CPD & Reference Sub-Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cpd"></div>
+                <span class="tab-label">CPD Hub</span>
+            </a>
+            <a href="planner.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_planner"></div>
+                <span class="tab-label">CPD Planner</span>
+            </a>
+            <a href="decoder.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_decoder"></div>
+                <span class="tab-label">Decoder</span>
+            </a>
+            <a href="raci.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_raci"></div>
+                <span class="tab-label">RACI Builder</span>
+            </a>
+            <a href="resources.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_resources"></div>
+                <span class="tab-label">Resources</span>
+            </a>
+        </nav>
+
+        <!-- Dynamic Overview Summary Component Block Injected Cleanly Below Breadcrumbs -->
+        <div id="tool-header-target" style="text-align: left; margin-top: 10px; margin-bottom: 25px; background: rgba(3, 247, 160, 0.03); border: 2px solid var(--terminal-green); border-radius: 8px; padding: 30px;">
+            <!-- Target anchor populated securely by tools_data.js script hooks -->
+        </div>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">The Engineering Decoder</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Cross-Disciplinary Jargon Scraper & Context Verification Subsystem</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="switchPanel('search')" style="min-height: 48px;">📑 Search Index</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="switchPanel('log')" style="min-height: 48px;">📋 View Active Log</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="switchPanel('quiz')" style="min-height: 48px;">🎯 Recall Quiz</button>
+            </div>
+        </div>
 
         <div class="tool-input-grid">
             <div class="input-group">
-                <div class="card" style="background-color: var(--dark-card); padding: 25px; border-radius: 6px; border: 1px solid var(--border-color);">
+                <div class="ee-workbench-editor" style="padding: 25px;">
                     <div class="panel-tabs">
                         <div class="panel-tab active" id="tabSearch" onclick="switchPanel('search')">Database</div>
                         <div class="panel-tab" id="tabLog" onclick="switchPanel('log')">Session Log</div>
+                        <div class="panel-tab" id="tabQuiz" onclick="switchPanel('quiz')">Active Recall Quiz</div>
                     </div>
                     
+                    <!-- Search Viewport Context -->
                     <div id="panelSearch" class="panel-content active">
                         <p style="color:var(--slate-grey); margin-bottom:20px; font-size:0.95rem;">
                             Search our database of <span id="dbCount" style="color: var(--cloud-white); font-weight: 700;">...</span> engineering acronyms, initialisms, and abbreviations.
@@ -238,11 +267,11 @@
                         <div class="filter-bar">
                             <div class="search-area">
                                 <label class="filter-label">SEARCH ACRONYM</label>
-                                <input type="text" id="searchInput" placeholder="e.g. HAZOP, PID, BOM..." oninput="triggerSearch()">
+                                <input type="text" id="searchInput" class="ee-input" placeholder="e.g. HAZOP, PID, BOM..." oninput="triggerSearch()">
                             </div>
                             <div class="search-area">
                                 <label class="filter-label">DISCIPLINE</label>
-                                <select id="contextFilter" onchange="triggerSearch()">
+                                <select id="contextFilter" class="ee-select" onchange="triggerSearch()">
                                     <option value="All">All Sectors</option>
                                     <option value="Project">Project/Contracts</option>
                                     <option value="Electrical">Electrical/C&I</option>
@@ -264,10 +293,14 @@
                         </div>
                     </div>
 
+                    <!-- Session Log Viewport Context -->
                     <div id="panelLog" class="panel-content">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap: wrap; gap: 10px;">
                             <p style="color:var(--slate-grey); font-size:0.95rem;">Live record of successfully decoded terms this session.</p>
-                            <button class="action-btn action-btn-ghost" onclick="printSessionReport()">PRINT REPORT 🖨️</button>
+                            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                <button class="action-btn btn-ai" id="aiBtn" onclick="generateAiCoachPrompt()" style="min-height: 48px;">✨ AI Coach Prompt</button>
+                                <button class="action-btn action-btn-ghost" onclick="printSessionReport()" style="min-height: 48px;">PRINT REPORT 🖨️</button>
+                            </div>
                         </div>
                         <div id="sessionLogArea">
                             <div style="text-align:center; color:var(--slate-grey); padding:40px 20px; font-style: italic;">
@@ -275,11 +308,64 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Timed Recall Quiz Subsystem Context Viewport -->
+                    <div id="panelQuiz" class="panel-content">
+                        <div id="quizSetup" style="text-align:center; padding:30px 20px;">
+                            <p style="color:var(--slate-grey); margin-bottom:20px; font-size:1rem;">
+                                Test your engineering vocabulary recall benchmarks under timed conditions. The engine will extract random terms matching your selected sector filters.
+                            </p>
+                            <div class="ee-form-group" style="max-width:300px; margin:0 auto 20px auto; text-align:left;">
+                                <label class="ee-label">Select Sector Filter Array:</label>
+                                <select id="quizContextFilter" class="ee-select">
+                                    <option value="All">All Sectors</option>
+                                    <option value="Project">Project/Contracts</option>
+                                    <option value="Electrical">Electrical/C&I</option>
+                                    <option value="Mechanical">Mechanical/Manuf</option>
+                                    <option value="Civil">Civil/Construction</option>
+                                    <option value="Safety">HSE/Safety</option>
+                                    <option value="Nuclear">Nuclear</option>
+                                    <option value="Pharma">Pharma/Bio</option>
+                                    <option value="Marine">Marine/Offshore</option>
+                                    <option value="Aerospace">Aerospace</option>
+                                    <option value="IT">IT/Computing</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                </select>
+                            </div>
+                            <button type="button" class="action-btn" onclick="startActiveRecallQuiz()" style="min-height:48px;">Start Quiz Game</button>
+                        </div>
+                        
+                        <div id="quizActive" class="hidden" style="text-align:center; padding:20px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; font-weight:700;">
+                                <span id="quizProgress" style="color:var(--burnt-orange);">Card 1 of 10</span>
+                                <span id="quizTimer" style="color:var(--terminal-green); font-family:monospace; font-size:1.4rem;">15s</span>
+                            </div>
+                            
+                            <div class="ee-workbench-editor" style="min-height:180px; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-bottom:25px; border:2px solid var(--border-color); background:var(--input-bg);">
+                                <div id="quizTermDisplay" style="font-size:2.5rem; font-weight:900; color:var(--terminal-green); margin-bottom:10px;">HAZOP</div>
+                                <div id="quizDefDisplay" class="hidden" style="font-size:1.1rem; color:var(--cloud-white); line-height:1.5; padding:0 15px;">Hazard and Operability Study</div>
+                            </div>
+                            
+                            <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                                <button id="btnRevealQuiz" class="action-btn action-btn-ghost" onclick="revealQuizDefinition()" style="min-height:48px;">Reveal Definition</button>
+                                <button id="btnKnewIt" class="action-btn hidden" onclick="advanceQuizCard(true)" style="min-height:48px;">I Knew It</button>
+                                <button id="btnLearnIt" class="action-btn action-btn-ghost hidden" style="border-color:var(--burnt-orange) !important; color:var(--burnt-orange) !important; min-height:48px;" onclick="advanceQuizCard(false)">Learn This</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quizSummary" class="hidden" style="text-align:center; padding:30px 20px;">
+                            <h3 style="color:var(--terminal-green); text-transform:uppercase; margin-bottom:15px;">Quiz Concluded</h3>
+                            <p style="font-size:1.2rem; color:var(--cloud-white); margin-bottom:25px;">
+                                Your Recall Accuracy Score: <strong id="quizScoreDisplay" style="color:var(--terminal-green);">0/0</strong>
+                            </p>
+                            <button type="button" class="action-btn" onclick="resetQuizSubsystem()" style="min-height:48px;">Retake Quiz</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="tool-stack-right">
-                <div class="card" style="margin-bottom: 25px; padding: 25px; background-color: var(--dark-card); border-radius: 6px; border: 1px solid var(--border-color);">
+                <div class="ee-workbench-editor" style="margin-bottom: 25px; padding: 25px;">
                     <div class="wotd-section">
                         <div class="wotd-header">>> Words of the Day</div>
                         <div id="wotdList" style="margin-top: 15px;">Loading data stream...</div>
@@ -303,6 +389,7 @@
             } else {
                 console.error("System Error: acronymDb array not located.");
             }
+            updateNavigationBadges();
         }
 
         let db = [];
@@ -311,15 +398,21 @@
         function switchPanel(panel) {
             document.getElementById('panelSearch').classList.remove('active');
             document.getElementById('panelLog').classList.remove('active');
+            document.getElementById('panelQuiz').classList.remove('active');
             document.getElementById('tabSearch').classList.remove('active');
             document.getElementById('tabLog').classList.remove('active');
+            document.getElementById('tabQuiz').classList.remove('active');
 
             if(panel === 'search') {
                 document.getElementById('panelSearch').classList.add('active');
                 document.getElementById('tabSearch').classList.add('active');
-            } else {
+            } else if(panel === 'log') {
                 document.getElementById('panelLog').classList.add('active');
                 document.getElementById('tabLog').classList.add('active');
+            } else if(panel === 'quiz') {
+                document.getElementById('panelQuiz').classList.add('active');
+                document.getElementById('tabQuiz').classList.add('active');
+                resetQuizSubsystem();
             }
         }
 
@@ -373,7 +466,7 @@
             groupedArray.sort((a,b) => (a.a === query ? -1 : 1));
             
             if(groupedArray.length === 0) {
-                container.innerHTML = `<div class="result-item" style="border-left-color:var(--slate-grey); border-left-width: 1px; opacity: 0.7;"><span class=\"acr-def\">No matching definitions located in the central database.</span></div>`;
+                container.innerHTML = `<div class="result-item" style="border-left-color:var(--slate-grey); border-left-width: 1px; opacity: 0.7;"><span class="acr-def">No matching definitions located in the central database.</span></div>`;
             } else {
                 const fragment = document.createDocumentFragment();
                 groupedArray.slice(0, 50).forEach((item) => {
@@ -404,6 +497,7 @@
             }
             sessionLog.unshift(item);
             renderSessionLog();
+            updateNavigationBadges();
             alert(`✅ Decoded term ${item.a} added to session log.`);
         }
 
@@ -525,8 +619,145 @@
               return ((t ^ t >>> 14) >>> 0) / 4294967296;
             }
         }
+
+        // --- PLATFORM DIAGNOSTIC STATE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const hasLogContent = sessionLog.length > 0;
+            const decoderBadge = document.getElementById('badge_decoder');
+            if (decoderBadge) {
+                decoderBadge.innerHTML = getTickHTML(hasLogContent);
+            }
+
+            // Check sibling state tokens across local cache files to synchronize breadcrumb check indicators
+            const siblingTools = {
+                'cpd': 'ee_cpd_hub_master',
+                'planner': 'ee_cpd_planner_state',
+                'raci': 'ee_raci_matrix_state',
+                'resources': 'ee_resources_bookmarks'
+            };
+
+            Object.keys(siblingTools).forEach(key => {
+                const badgeDOM = document.getElementById(`badge_${key}`);
+                if (badgeDOM) {
+                    const cache = localStorage.getItem(siblingTools[key]);
+                    let hasCache = false;
+                    if (cache) {
+                        try {
+                            const parsed = JSON.parse(cache);
+                            hasCache = Object.values(parsed).some(val => typeof val === 'string' && val.trim().length > 0);
+                        } catch(e) {
+                            hasCache = cache.trim().length > 0;
+                        }
+                    }
+                    badgeDOM.innerHTML = getTickHTML(hasCache);
+                }
+            });
+        }
+
+        // --- ACTIVE RECALL QUIZ SUBSYSTEM ENGINE ---
+        let quizItems = [];
+        let quizCurrentIndex = 0;
+        let quizScore = 0;
+        let quizTimerInterval = null;
+        let quizSecondsLeft = 15;
+
+        function startActiveRecallQuiz() {
+            const category = document.getElementById('quizContextFilter').value;
+            let pool = db.filter(item => category === "All" || item.c === category);
+            
+            if (pool.length === 0) {
+                pool = db;
+            }
+            
+            // Extract 10 unique elements randomly via structural shuffle loops
+            let processedPool = [...pool];
+            processedPool.sort(() => 0.5 - Math.random());
+            quizItems = processedPool.slice(0, 10);
+            
+            quizCurrentIndex = 0;
+            quizScore = 0;
+            
+            document.getElementById('quizSetup').classList.add('hidden');
+            document.getElementById('quizActive').classList.remove('hidden');
+            document.getElementById('quizSummary').classList.add('hidden');
+            
+            loadQuizCard();
+        }
+
+        function loadQuizCard() {
+            if (quizCurrentIndex >= quizItems.length) {
+                showQuizSummary();
+                return;
+            }
+            
+            clearInterval(quizTimerInterval);
+            
+            const currentItem = quizItems[quizCurrentIndex];
+            document.getElementById('quizProgress').innerText = `Card ${quizCurrentIndex + 1} of ${quizItems.length}`;
+            document.getElementById('quizTermDisplay').innerText = currentItem.a;
+            document.getElementById('quizDefDisplay').innerText = currentItem.m;
+            
+            document.getElementById('quizDefDisplay').classList.add('hidden');
+            document.getElementById('btnRevealQuiz').classList.remove('hidden');
+            document.getElementById('btnKnewIt').classList.add('hidden');
+            document.getElementById('btnLearnIt').classList.add('hidden');
+            
+            quizSecondsLeft = 15;
+            document.getElementById('quizTimer').innerText = `${quizSecondsLeft}s`;
+            document.getElementById('quizTimer').style.color = "var(--terminal-green)";
+            
+            quizTimerInterval = setInterval(() => {
+                quizSecondsLeft--;
+                document.getElementById('quizTimer').innerText = `${quizSecondsLeft}s`;
+                
+                if (quizSecondsLeft <= 5) {
+                    document.getElementById('quizTimer').style.color = "var(--burnt-orange)";
+                }
+                
+                if (quizSecondsLeft <= 0) {
+                    clearInterval(quizTimerInterval);
+                    revealQuizDefinition();
+                }
+            }, 1000);
+        }
+
+        function revealQuizDefinition() {
+            clearInterval(quizTimerInterval);
+            document.getElementById('quizDefDisplay').classList.remove('hidden');
+            document.getElementById('btnRevealQuiz').classList.add('hidden');
+            document.getElementById('btnKnewIt').classList.remove('hidden');
+            document.getElementById('btnLearnIt').classList.remove('hidden');
+        }
+
+        function advanceQuizCard(knewIt) {
+            if (knewIt) quizScore++;
+            quizCurrentIndex++;
+            loadQuizCard();
+        }
+
+        function showQuizSummary() {
+            clearInterval(quizTimerInterval);
+            document.getElementById('quizActive').classList.add('hidden');
+            document.getElementById('quizSummary').classList.remove('hidden');
+            document.getElementById('quizScoreDisplay').innerText = `${quizScore} / ${quizItems.length}`;
+            
+            if (typeof gtag === 'function' && window.location.hostname === 'www.empoweringengineers.uk') {
+                gtag('event', 'quiz_completed', {
+                    'event_category': 'engagement',
+                    'quiz_score': quizScore
+                });
+            }
+        }
+
+        function resetQuizSubsystem() {
+            document.getElementById('quizSetup').classList.remove('hidden');
+            document.getElementById('quizActive').classList.add('hidden');
+            document.getElementById('quizSummary').classList.add('hidden');
+        }
     </script>
-    
-    <script defer src="footer.js?v=21.7"></script>
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
+
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="The Master Decision Making & Risk Management Command Hub. Systematically evaluate project risks, model parameters via Monte Carlo tools, execute Cost-Benefit Analyses, and secure UK-SPEC Competence C compliance logs.">
+    <meta name="description" content="Free engineering risk management and decision-making tools. Master Monte Carlo simulations, Cost-Benefit Analysis, and Risk Matrices for your UK-SPEC portfolio.">
     <meta name="keywords" content="Decision Making, Risk Management, Monte Carlo Simulation, Decision Tree, Cost-Benefit Analysis, CBA, Risk Assessment Matrix, Force Field Analysis, OODA Loop, UK-SPEC">
     <meta property="og:title" content="Decision Making & Risk Management Hub | Empowering Engineers UK">
     <meta property="og:description" content="The master entry portal and interactive status directory for engineering risk mitigation frameworks and structural decision criteria dashboards.">
@@ -14,7 +14,8 @@
     <meta property="og:url" content="https://www.empoweringengineers.uk/decisions.html">
     <meta property="og:type" content="website">
     
-    <title>Decision Making & Risk Hub | Empowering Engineers UK</title>    
+    <title>Decision Making & Risk Hub | Empowering Engineers UK</title> 
+    
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
@@ -23,11 +24,13 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/decisions.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    
+    <!-- Strict Relative Pathing for Local Sandbox Integrity -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
@@ -49,200 +52,26 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 3px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.05);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Decision Making Architecture & Quantitative Risk Engineering</h1>
-            <p>In highly complex engineering ventures, capital allocations, and asset containment scenarios, the application of systematic risk insulation structures is a core operational mandate. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) fundamentally aligns these governance capabilities under <strong>Competence C (Technical and Commercial Leadership)</strong>. Registered professionals must provide empirical validation that options profiles, safety margins, and structural dependencies have been objectively analyzed. Relying on intuitive assumptions or unquantified guesswork introduces systemic failure coordinates, breaching statutory safety compliance loops like the Health and Safety at Work etc. Act 1974.</p>
+            <h2>What is the Decision Making and Risk Management Hub?</h2>
+            <p>The decision making and risk management hub is a centralized development workspace built to help you make objective project choices. Early-career engineering professionals often face complex design alternatives, unpredictable field hazards, or tight commercial constraints on site. Making choices based on guesswork can lead to project delays, financial waste, or serious safety failures. This workspace brings together eight powerful quantitative and qualitative risk mitigation models. These tools break down complicated strategic choices into simple, logical parameters. By using this hub, you can replace personal intuition with clear, data-driven evidence that stands up to professional audit.</p>
             
-            <h2>De-risking Engineering Strategies via Objective Modeling Matrices</h2>
-            <p>Engineering uncertainty must be aggressively minimized through mathematically validated modeling matrices. When navigating volatile project environments or selecting alternative material specifications, engineers deploy tools such as <strong>Monte Carlo Simulations</strong> to model statistical likelihood arrays or construct <strong>Decision Tree Analyses</strong> to trace sequential failure branches. For commercial asset sign-offs, a rigorous <strong>Cost-Benefit Analysis (CBA)</strong> isolates CapEx expenditures from long-term operational cost optimization parameters, ensuring structural decisions serve corporate fiscal parameters. These processes protect capital programmes from systemic budget slips and guarantee design transparency across inter-departmental control rings.</p>
+            <h2>Why Risk Management Matters to Your Engineering Career</h2>
+            <p>When you apply for professional registration with your <strong>Professional Engineering Institution (PEI)</strong>, your skills are assessed against rigorous industry standards. The <strong>Engineering Council</strong> requires all registered engineers to show a strong capability to identify, evaluate, and mitigate project risks. These specific management requirements are audited under the guidelines of <strong>UK-SPEC Competence C</strong>. Many brilliant graduate technicians encounter unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they focus entirely on technical equations. They often struggle to show how their independent choices protect company assets, lower operational costs, or support public safety. To secure your <strong>CEng</strong> or <strong>IEng</strong> registration, you must prove that you can lead technical risk assessments and justify your decisions with structured business models.</p>
             
-            <h2>Risk Assessment Matrices and Dynamic Tactical Iteration Loops</h2>
-            <p>Evaluating physical or software hazards requiring mitigation mandates a structured grid logic framework. Utilizing traditional <strong>Risk Assessment Matrices</strong> translates loose hazard definitions into quantifiable probability and consequence indexes, establishing transparent safety actions before site mobilization begins. To balance competing stakeholder interests during major modification changes, <strong>Force Field Analysis</strong> categorises driving and restraining performance variables objectively. Furthermore, during active system disruptions or fluid incidents, tools like the <strong>OODA Loop</strong> (Observe, Orient, Decide, Act) and the structured <strong>WRAP Technique</strong> safeguard fast, logical decision paths under intense real-world pressure constraints.</p>
-
-            <h2>Total Client-Side Sovereignty for Sensitive Risk Logs</h2>
-            <p>We recognize that architecting corporate risk registers, tracking potential process vulnerabilities, or plotting commercial variation decisions requires interacting with proprietary metrics or trade secrets under active Non-Disclosure Agreements (NDAs). To preserve data security parameters completely, this decisions workspace enforces a zero-knowledge local architecture. No text entries, risk models, or cost summaries are ever uploaded to remote networks or external servers. Your technical assessments remain sandbox-isolated within your local browser cache. Utilise the interactive dashboard below to select your target analytical engine and populate your verified competence portfolio safely.</p>
+            <h2>How to Navigate and Complete These Workbenches Cleanly</h2>
+            <p>We have engineered this directory layout into four targeted analysis branches to guide your professional development path. First, launch our quantitative modules like the <strong>Monte Carlo Simulation</strong> or <strong>Decision Tree Analysis</strong> to map out probability ranges and future consequences using mathematical models. Second, deploy our commercial tools like the <strong>Cost-Benefit Analysis (CBA)</strong> to compare capital expenditures (CapEx) against long-term operational savings (OpEx). Third, utilize our qualitative hazard methods like the <strong>Risk Assessment Matrix</strong> or <strong>Force Field Analysis</strong> to evaluate physical field hazards and manage team change resistance. Finally, practice active problem-solving during unfolding operational incidents using the fast <strong>OODA Loop</strong> tracker or the <strong>WRAP Technique</strong>.</p>
+            <p>Type your data directly into your selected framework canvas. To safeguard your commercially sensitive project data and protect secret company files, our platform runs on a secure client-side model. Every note, probability score, and risk entry is cached securely within your own device's local memory profile. Your information is never sent to external servers, ensuring absolute compliance with your corporate non-disclosure agreements (NDAs). Once you complete your notes, you can compile your gathered records into a single consolidated report to showcase your leadership skills within your professional portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -256,10 +85,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="decisionsPathNav" aria-label="Decision Architecture Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="decisions.html" class="ee-horizontal-tab active" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_decisions"></div>
                 <span class="tab-label">Decisions Hub</span>
@@ -291,6 +120,10 @@
             <a href="decisions-wrap.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
+            </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
             </a>
         </nav>
 
@@ -376,7 +209,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_decisions_master_hub";
@@ -426,13 +259,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'montecarlo': 'ee_decisions_montecarlo',
+                'montecarlo': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'riskmatrix': 'ee_decisions_riskmatrix',
-                'forcefield': 'ee_decisions_forcefield',
+                'riskmatrix': 'ee_decisions_risk-matrix',
+                'forcefield': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+                'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -465,13 +299,14 @@
             const contextType = document.getElementById('decisionsContextSelect').value.toUpperCase();
             
             const decisionsMap = {
-                'Monte Carlo Simulation Model': 'ee_decisions_montecarlo',
+                'Monte Carlo Simulation Model': 'ee_decisions_monte-carlo',
                 'Decision Tree Alternative Roadmap': 'ee_decisions_tree',
                 'Cost-Benefit Analysis Framework': 'ee_decisions_cba',
-                'Risk Assessment Matrix Grid': 'ee_decisions_riskmatrix',
-                'Force Field Analysis Balance Map': 'ee_decisions_forcefield',
+                'Risk Assessment Matrix Grid': 'ee_decisions_risk-matrix',
+                'Force Field Analysis Balance Map': 'ee_decisions_force-field',
                 'OODA Tactical Loop Sequence': 'ee_decisions_ooda',
-                'WRAP Alternative Validation Architecture': 'ee_decisions_wrap'
+                'WRAP Alternative Validation Architecture': 'ee_decisions_wrap',
+                'Supplier Contracts Analysis Workbench': 'ee_decisions_contracts'
             };
 
             let html = `<!DOCTYPE html>
@@ -493,7 +328,7 @@
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Master Consolidated Decision Architecture Audit</h1>
                 <div class="meta-block">
                     <strong>Vector Profile Context:</strong> ${contextType} Optimization Strategy<br>

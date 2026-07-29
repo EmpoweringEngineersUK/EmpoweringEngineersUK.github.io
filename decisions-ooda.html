@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
@@ -20,9 +21,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +43,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -168,14 +79,6 @@
         .dec-label { color: #9b59b6 !important; }
         .act-label { color: var(--terminal-green) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
         .example-text {
             color: var(--terminal-green);
             opacity: 0.85;
@@ -183,88 +86,11 @@
             margin-top: 4px;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,34 +98,25 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Tactical Incident Control and Fluid Risk Mitigation: Mastering the OODA Loop Subsystem</h1>
+            <h1>Tactical Incident Control and Fluid Risk Mitigation: Mastering the OODA Loop</h1>
             <p>
-                In high-integrity processing facilities, heavy automated manufacturing environments, and safety-critical infrastructure operations, standard operating procedures can be outpaced by fast-moving anomalies. When a control network experiences an unexpected telemetry drop, or an active distribution pipeline drops pressure rapidly, engineering leads face intense time pressures. Relying purely on static templates or slow administrative pathways creates an operational bottleneck, which can worsen system damage or compromise site safety under regulations like the Construction (Design and Management) Regulations 2015 (CDM). To maintain absolute control during unfolding site disruptions, engineering directors execute a structured tactical control loop called the **OODA Loop** (**Observe**, **Orient**, **Decide**, **Act**). Developed originally by military strategist Colonel John Boyd and widely adopted across high-consequence systems engineering environments, this iterative model helps technical cells quickly make sense of data, out-manoeuvre system drifts, and execute sound mitigations.
+                When you are working in high-risk engineering environments, like automated manufacturing plants or chemical processing facilities, standard rules sometimes fail. Unexpected problems happen fast. A sensor might drop, or a pipeline might lose pressure instantly. If you rely on slow paperwork, the problem will only get worse. To stay in control, engineering leaders use a fast decision-making system called the <strong>OODA Loop</strong>. This stands for <strong>Observe</strong>, <strong>Orient</strong>, <strong>Decide</strong>, and <strong>Act</strong>. Created by military strategist John Boyd, this four-step cycle helps technical teams quickly process data, adapt to sudden changes, and execute safe solutions under extreme pressure.
             </p>
             <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, leading rapid troubleshooting and risk insulation provides candidates with premium evidence for **Competence C (Technical and Commercial Leadership)**. Criterion C explicitly requires candidates to demonstrate personal ownership of high-pressure commercial operations, manage technical risk boundaries, and implement systematic mitigations under legislative constraints like the Health and Safety at Work etc. Act 1974. Documenting your direct management of an unfolding crisis using this OODA studio—proving you converted raw telemetry alarms into a series of logical, data-driven isolation commands—presents professional review boards with unvarnished evidence of operational maturity, systems literacy, and command capability.
+                When you apply for your <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> professional registration, the <strong>Engineering Council</strong> will assess how you handle danger. Under the <strong>UK-SPEC</strong> guidelines, <strong>Competence C</strong> and <strong>Competence E</strong> demand that you can manage technical risks safely and take responsibility for sudden site incidents. During your <strong>Professional Review Interview (PRI)</strong>, assessors will ask you how you handled an emergency. If you say you just panicked or guessed the answer, you will fail. Showing that you used the OODA Loop proves that you stay calm. It proves that you collect empirical data, orient yourself using technical drawings, make logical decisions, and act to protect public safety and company assets.
             </p>
-            <h2>Deconstructing the Symmetrical Taxonomy of the OODA Workspace</h2>
+            <h2>How to Use the OODA Workspace During an Incident</h2>
             <p>
-                Calibrating an audit-ready emergency tracking register using this digital workspace requires candidate leads to methodically segment and log parameters across four discrete tactical phases:
-            </p>
-            <p>
-                <strong>Observe System Data (OBS):</strong> Monitor, extract, and record raw real-time diagnostics, system sensor outputs, or physical failure logs without early interpretation. Avoid speculation; note explicit metrics such as exact pressure drops, fluid tracking references, or automated SCADA system error flags.
+                We have designed this interactive tactical workspace to help you log your incident responses cleanly. It is divided into four clear chronological sections. First, you <strong>Observe</strong> the problem. Do not guess; record the exact pressure drops, alarm codes, or physical failures you see. Next, you <strong>Orient</strong> yourself. Check the engineering schematics and maintenance logs to understand what the data means. Third, you <strong>Decide</strong> on the safest and fastest way to isolate the hazard. Finally, you <strong>Act</strong> by sending commands to the system and watching the sensors to make sure your fix actually worked. By separating these four phases, you stop yourself from jumping to dangerous conclusions. For example, if you act before you properly orient yourself to the real root cause, you might shut down the wrong safety valve and cause a wider system failure.
             </p>
             <p>
-                <strong>Orient Infrastructure Context (ORI):</strong> Process the data points through engineering principles, system schematics, asset design thresholds, and recent maintenance logs to separate superficial symptoms from underlying technical links.
-            </p>
-            <p>
-                <strong>Decide Corrective Route (DEC):</strong> Evaluate alternative mitigation paths under tight timeline constraints and choose the optimal step to isolate the failure block while protecting broader system continuity.
-            </p>
-            <p>
-                <strong>Act on Command Scripts (ACT):</strong> Execute the selected isolation commands, engage physical safety interlocks, or run override scripts, then immediately audit incoming telemetry to confirm system baseline stability.
+                Because operational failures and plant emergencies are highly confidential, this digital workbench uses strict zero-knowledge local browser storage. Everything you type into the OODA Loop cards is saved privately on your own computer. Your sensitive company response data is never sent to our external servers. This keeps you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Use the tool below to structure your incident response and generate a clean audit report for your portfolio.
             </p>
         </article>
 
@@ -314,16 +131,16 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="decisionsPathNav" aria-label="Risk Management Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="decisions.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_decisions"></div>
                 <span class="tab-label">Decisions Hub</span>
             </a>
             <a href="decisions-monte-carlo.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_monte"></div>
+                <div class="tab-badge-container" id="badge_montecarlo"></div>
                 <span class="tab-label">Monte Carlo</span>
             </a>
             <a href="decisions-tree.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -335,11 +152,11 @@
                 <span class="tab-label">CBA</span>
             </a>
             <a href="decisions-risk-matrix.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_risk"></div>
+                <div class="tab-badge-container" id="badge_riskmatrix"></div>
                 <span class="tab-label">Risk Matrix</span>
             </a>
             <a href="decisions-force-field.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_force"></div>
+                <div class="tab-badge-container" id="badge_forcefield"></div>
                 <span class="tab-label">Force Field</span>
             </a>
             <a href="decisions-ooda.html" class="ee-horizontal-tab active" style="text-decoration: none;">
@@ -349,6 +166,10 @@
             <a href="decisions-wrap.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
+            </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
             </a>
         </nav>
 
@@ -379,9 +200,9 @@
                 <div class="coach-header">>> LIVE INCIDENT CONTROL OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting tactical system entries to construct the real-time response log...</div>
@@ -414,6 +235,7 @@
         // --- 2. INITIALISATION & INHERITANCE ENGINE ---
         function initApp() {
             loadFrameworkFields();
+            updateNavigationBadges();
         }
 
         function loadFrameworkFields() {
@@ -435,7 +257,7 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure active response parameters here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="form-input ee-textarea" placeholder="Configure active response parameters here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
             });
@@ -460,13 +282,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_montecarlo',
+                'montecarlo': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_riskmatrix',
-                'force': 'ee_decisions_forcefield',
+                'riskmatrix': 'ee_decisions_risk-matrix',
+                'forcefield': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+                'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -549,21 +372,57 @@ ${script}
 """
 [EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -613,7 +472,7 @@ ${script}
                             if (el) el.value = parsed[f.id] || "";
                         });
                         updatePreview();
-                        alert("OODA incident parameters successfully synchronized into local storage.");
+                        alert("OODA incident parameters successfully synchronised into local storage.");
                     } else {
                         alert("Invalid JSON layout. Missing expected OODA structural keys.");
                     }
@@ -644,7 +503,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>OODA Loop Tactical Action Report</h1>
                 <p><em>Framework Branch: Real-Time Incident Control & Risk Insulation // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
 
@@ -668,6 +527,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

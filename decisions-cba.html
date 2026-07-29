@@ -20,9 +20,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +42,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC CBA INTERACTION STYLES --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -153,7 +63,7 @@
         }
         .framework-card.cost-card { border-left-color: var(--burnt-orange); }
         .framework-card.ben-card { border-left-color: var(--slate-grey); }
-        .framework-card.roi-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.roi-card { border-left-color: var(--terminal-green); }
 
         .framework-label {
             display: block;
@@ -166,103 +76,11 @@
         .ben-label { color: var(--slate-grey) !important; }
         .roi-label { color: var(--terminal-green) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
         .example-text {
             color: var(--terminal-green);
             opacity: 0.85;
             display: inline-block;
             margin-top: 4px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
-        }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
         }
     </style>
 </head>
@@ -270,23 +88,20 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Financial Auditing in Engineering Operations: Mastering Cost-Benefit Analysis (CBA)</h1>
-            <p>
-                In the contemporary execution of multi-disciplinary engineering frameworks, systems automation overhauls, and capital asset management tracks, technical selections cannot safely depend on qualitative assertions or unverified hunches. When an asset experiences process drift or structural degradation—such as an obsolete distillation column layout or an undersized pump network—the lead engineer is confronted with a range of competing options. Deciding whether to repair, modify, or completely replace critical hardware layers demands an exhaustive appraisal filter that translates physical variables into clear financial metrics. To bridge the gap between abstract physics and commercial realities, technical directors execute a formal **Cost-Benefit Analysis (CBA)**. This classic quantitative tool establishes a transparent ledger that weighs total expenditure outlays directly against verified operational returns, protecting company balance sheets from poorly planned investments.
-            </p>
-            <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, applying structured economic filters to guide technical changes provides candidates with top-tier portfolio evidence for **Competence C (Technical and Commercial Leadership)**. Criterion C explicitly mandates that registered professionals (CEng, IEng) demonstrate complete ownership of commercial project budgets, manage resource allocations efficiently, and optimise pipeline processes to reduce structural waste. Documenting your direct architectural command of a CBA ledger—proving that you have converted technical changes into quantified financial gains to defend a corporate capital request—presents professional review boards with unvarnished evidence of financial literacy, engineering leadership, and corporate governance.
-            </p>
-            <h2>Commercial Viability and Capital Efficiency Filters</h2>
-            <p>
-                Structuring an audit-ready Cost-Benefit ledger requires a disciplined, step-by-step process that accounts for both near-term outlays and long-term operating gains. This digital workbench divides your commercial appraisal into three explicit, scannable phases: **Total Expenditure Overheads (COST)**, **Quantifiable System Benefits (BEN)**, and **Financial Metrics & Payback (ROI)**. By classifying parameters systematically, engineering leads differentiate between temporary capital expenditure (CapEx) loops and ongoing operational expenditure (OpEx) costs. This model captures elements like immediate equipment procurement, software licensing fees, employee training requirements, and installation downtime, while contrasting them against ongoing energy efficiency gains, human error reductions, and maintenance savings. Use the framework cards below to structure your financial calculations, verify investment payback windows, and compile print-ready documentation for your corporate review portfolio.
-            </p>
+            <h2>What is a Cost-Benefit Analysis (CBA)?</h2>
+            <p>A Cost-Benefit Analysis (CBA) is an objective financial framework used to compare the total costs of a project against its expected gains. In daily engineering practice, technical leaders frequently face complex choices on site. For example, you may need to decide whether to repair an aging asset or purchase a complete replacement system. Making this decision using gut feeling or guesswork can lead to massive financial waste and timeline overruns. A structured CBA solves this problem by translating engineering options into clear financial records. It creates a scannable ledger that balances your initial construction outlays against verified running savings. This tool ensures that every technical option you select is backed by solid commercial proof.</p>
+            
+            <h2>Why a Cost-Benefit Analysis Matters to Your Career</h2>
+            <p>When you apply for professional registration with a <strong>Professional Engineering Institution (PEI)</strong>, your skills are audited against strict benchmarks. The <strong>Engineering Council</strong> demands that candidates show a clear understanding of business operations and resource management. These key leadership benchmarks are evaluated directly under the rules of <strong>UK-SPEC Competence C</strong>. Many talented graduate technicians face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they only focus on technical formulas. They struggle to explain the wider commercial value of their calculation logs to non-technical business directors. To secure your <strong>CEng</strong> or <strong>IEng</strong> registration, you must prove that you can manage project budgets responsibly. Completing a CBA ledger shows reviewers that you can defend capital requests and optimize resources to eliminate operational waste.</p>
+            
+            <h2>How to Complete This Financial Ledger Cleanly</h2>
+            <p>We have built this interactive studio workbench to guide you through three essential commercial appraisal phases. First, use the Total Expenditure Overheads field to list your initial capital expenditure (CapEx) loops and regular operational expenditure (OpEx) liabilities. This section should capture equipment procurement fees, installation downtime losses, and employee training requirements. Second, deploy the Quantifiable System Benefits card to calculate your engineering hour savings, energy efficiency gains, or product reject reductions. Third, check the Financial Metrics section to evaluate your overall investment returns and project payback horizon. Type your data entries directly into each card segment. Our platform operates on a secure, zero-knowledge browser architecture that saves your notes automatically into your local memory cache every few seconds. This protects your company's sensitive design parameters, shields your drafts from connection dropouts, and ensures total compliance with corporate non-disclosure agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -309,7 +124,7 @@
                 <span class="tab-label">Decisions Hub</span>
             </a>
             <a href="decisions-monte-carlo.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_monte"></div>
+                <div class="tab-badge-container" id="badge_montecarlo"></div>
                 <span class="tab-label">Monte Carlo</span>
             </a>
             <a href="decisions-tree.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -321,11 +136,11 @@
                 <span class="tab-label">CBA</span>
             </a>
             <a href="decisions-risk-matrix.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_risk"></div>
+                <div class="tab-badge-container" id="badge_riskmatrix"></div>
                 <span class="tab-label">Risk Matrix</span>
             </a>
             <a href="decisions-force-field.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_force"></div>
+                <div class="tab-badge-container" id="badge_forcefield"></div>
                 <span class="tab-label">Force Field</span>
             </a>
             <a href="decisions-ooda.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -336,18 +151,22 @@
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
             </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
         <div class="header-actions">
             <div>
                 <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Cost-Benefit Analysis Studio</h1>
-                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Commercial Appraisal Ledger & Return on Investment Subsystem</p>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Commercial Appraisal Ledger & Options Analysis Subsystem</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
-                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="exportJSON()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
             </div>
         </div>
@@ -365,9 +184,9 @@
                 <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" style="min-height: 48px; width: 100%;" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" style="min-height: 48px; width: 100%;" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting commercial dataset variables to compile the cost-benefit matrix sheet...</div>
@@ -420,7 +239,7 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure commercial appraisal metrics here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="form-input" style="min-height: 85px;" placeholder="Configure commercial appraisal metrics here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
             });
@@ -445,13 +264,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_monte',
+                'monte': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_risk',
-                'force': 'ee_decisions_force',
+                'risk': 'ee_decisions_risk-matrix',
+                'force': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+				'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -532,7 +352,7 @@
 """
 ${script}
 """
-[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report using British English spelling conventions.`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -545,7 +365,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
             });
@@ -648,11 +468,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to permit master risk data compilation grids.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

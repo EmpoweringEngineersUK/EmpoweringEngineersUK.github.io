@@ -2,7 +2,8 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
     <meta name="description" content="Free engineering Decision Tree Analysis interactive workspace. Map critical sequential decision paths, define risk branches, assign probabilities, and calculate Expected Value milestones to satisfy UK-SPEC Competence C. Secure client-side storage.">
@@ -20,9 +21,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +43,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -151,6 +62,7 @@
             gap: 10px;
             border-left: 6px solid var(--border-color);
         }
+        
         .framework-card.dec-card { border-left-color: var(--ee-terminal-green); }
         .framework-card.opa-card { border-left-color: var(--burnt-orange); }
         .framework-card.opb-card { border-left-color: var(--burnt-orange); }
@@ -167,14 +79,6 @@
         .opa-label, .opb-label { color: var(--burnt-orange) !important; }
         .con-label { color: var(--slate-grey) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
         .example-text {
             color: var(--terminal-green);
             opacity: 0.85;
@@ -182,88 +86,11 @@
             margin-top: 4px;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -271,22 +98,34 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Sequential Logic in Capital Engineering Management: Mastering Decision Tree Architectures</h1>
+            <h1>Engineering Decision Tree Analysis and Risk Management</h1>
             <p>
-                In the design, capital allocation, and structural risk insulation of industrial infrastructure investments, engineering executives routinely confront multi-tiered forks in operational policy. Historically, identifying asset procurement tracks or structural layout options relied on isolated point-in-time calculations or qualitative guesswork. However, industrial systems are subject to chronological variables, where an initial technological choice dictates a cascading web of downstream failure modes, capacity constraints, maintenance liabilities, and statutory compliance criteria. To map out these sequential paths objectively, lead professionals implement a formal **Decision Tree Analysis**. By translating binary options into chronological logic branches punctuated by statistical probability nodes, this framework allows technical teams to mathematically evaluate alternative project futures using the formula of Expected Value ($EV$).
+                When managing capital engineering projects, you will frequently face difficult technical choices with unpredictable financial outcomes. For example, should you repair an aging industrial pump system for a quick fix, or should you spend more capital upfront to replace it completely? A <strong>Decision Tree Analysis</strong> is a highly visual and mathematical tool designed to help you map out these complex, multi-stage choices objectively.
             </p>
             <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, leading quantitative asset evaluations maps directly to the criteria for **Competence C (Technical and Commercial Leadership)**. Criterion C explicitly mandates that registered professionals (CEng, IEng) demonstrate complete ownership of commercial project budgets, manage resource allocations safely, and deploy structured risk control matrices before breaking site ground. Documenting your direct configuration of a sequential logic tree—proving that you have accounted for long-term maintenance degradation loops and downtime penalties to defend a capital path profile—provides professional review boards with unvarnished evidence of financial literacy, technical governance, and operational leadership.
+                Instead of making choices based on gut feeling, a decision tree breaks your problem down into clear chronological branches. By attaching probability scores (the statistical likelihood of a specific event happening) and financial penalty metrics to each branch, you can calculate the exact <strong>Expected Value (EV)</strong> of every possible outcome. This allows technical leaders to mathematically prove which decision pathway offers the safest and most profitable return over the long term.
             </p>
-            <h2>Implementing Probabilistic Option Paths to Protect Corporate Margins</h2>
+
+            <h2>Why Do Decision Trees Matter for Your Engineering Career?</h2>
             <p>
-                Structuring a resilient decision log requires a disciplined linear progression that separates engineering data layers into distinct, scannable field blocks. This digital workbench isolates your asset tree analysis into four sequential configuration cards: the **Critical Decision Node (DEC)**, **Logic Branch A (OPA)**, **Logic Branch B (OPB)**, and the final **Expected Value Conclusion (CON)**. By mapping these dimensions systematically, engineers move beyond basic guesswork and isolate exactly how distinct probabilities compound across an asset's lifecyle. For example, contrasting an immediate equipment repair path against a full asset replacement cycle reveals hidden long-term operational cost optimization variables that conventional short-term accounting completely overlooks. Use the dynamic templates below to construct your tracking index, run sensitivity metrics, and extract white-backed print sheets ready for engineering logs or review boards.
+                If you are applying for professional registration as an <strong>Incorporated Engineer (IEng)</strong> or a <strong>Chartered Engineer (CEng)</strong>, your <strong>Professional Review Interview (PRI)</strong> panel will actively test your commercial and risk awareness. Under the <strong>Engineering Council's UK-SPEC</strong> guidelines, <strong>Competence C</strong> demands that you can lead commercial decisions, control budgets safely, and manage technical risks effectively. 
+            </p>
+            <p>
+                Showing an assessing panel a fully calculated decision tree proves that you do not just design physical systems; you actively protect your company's operational budget from downstream failures. It demonstrates that you understand how a technical choice made today will directly impact maintenance costs and downtime liabilities three years into the future. Mastering this quantitative logic elevates you from a standard technical contributor into a senior engineering leader.
+            </p>
+
+            <h2>How to Use This Interactive Workbench</h2>
+            <p>
+                We have built this interactive studio to help you calculate your expected values cleanly and securely. First, define your <strong>Critical Decision Node</strong>—the main technical choice you need to resolve. Next, fill out the separate branches for your different options, noting the upfront capital costs and the probability of future risks. As an example, if Branch A offers a cheap repair but carries a 60% chance of a catastrophic breakdown costing £100,000, the Expected Value formula will expose this hidden liability. Branch B might require a more expensive initial purchase, but if its failure probability is only 2%, its overall Expected Value will be significantly better for the business. Finally, write your formal conclusion based on the mathematical outcome to justify your final asset strategy.
+            </p>
+            <p>
+                Because <strong>Capital Expenditure (CapEx)</strong> calculations and operational budgets are highly confidential, this workbench operates using a strict, zero-knowledge local browser storage system. Your text inputs, probabilities, and strategic notes are saved securely on your own device's internal memory. They are never transmitted to our external servers, ensuring you remain completely compliant with your employer's Non-Disclosure Agreements (NDAs). Use the tool below to structure your logic and generate a clean audit report.
             </p>
         </article>
 
@@ -301,16 +140,16 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="decisionsPathNav" aria-label="Risk Management Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="decisions.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_decisions"></div>
                 <span class="tab-label">Decisions Hub</span>
             </a>
             <a href="decisions-monte-carlo.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_monte"></div>
+                <div class="tab-badge-container" id="badge_montecarlo"></div>
                 <span class="tab-label">Monte Carlo</span>
             </a>
             <a href="decisions-tree.html" class="ee-horizontal-tab active" style="text-decoration: none;">
@@ -322,11 +161,11 @@
                 <span class="tab-label">CBA</span>
             </a>
             <a href="decisions-risk-matrix.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_risk"></div>
+                <div class="tab-badge-container" id="badge_riskmatrix"></div>
                 <span class="tab-label">Risk Matrix</span>
             </a>
             <a href="decisions-force-field.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_force"></div>
+                <div class="tab-badge-container" id="badge_forcefield"></div>
                 <span class="tab-label">Force Field</span>
             </a>
             <a href="decisions-ooda.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -336,6 +175,10 @@
             <a href="decisions-wrap.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
+            </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
             </a>
         </nav>
 
@@ -366,9 +209,9 @@
                 <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting operational inputs to construct the sequential probability tree...</div>
@@ -401,6 +244,7 @@
         // --- 2. INITIALISATION & INHERITANCE ENGINE ---
         function initApp() {
             loadFrameworkFields();
+            updateNavigationBadges();
         }
 
         function loadFrameworkFields() {
@@ -422,7 +266,7 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure sequential option variables here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="form-input ee-textarea" placeholder="Configure sequential option variables here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
             });
@@ -447,13 +291,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_montecarlo',
+                'montecarlo': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_riskmatrix',
-                'force': 'ee_decisions_forcefield',
+                'riskmatrix': 'ee_decisions_risk-matrix',
+                'forcefield': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+                'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -536,21 +381,58 @@ ${script}
 """
 [EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                // Fallback for non-secure local environments
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -600,7 +482,7 @@ ${script}
                             if (el) el.value = parsed[f.id] || "";
                         });
                         updatePreview();
-                        alert("Sequential decision tree fields successfully synchronized into local storage.");
+                        alert("Sequential decision tree fields successfully synchronised into local storage.");
                     } else {
                         alert("Invalid JSON layout. Missing expected Decision Tree structural keys.");
                     }
@@ -631,7 +513,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Decision Tree Logic Path Specification</h1>
                 <p><em>Framework Branch: Probabilistic Asset Evaluation & Risk Architecture // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
 
@@ -655,6 +537,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

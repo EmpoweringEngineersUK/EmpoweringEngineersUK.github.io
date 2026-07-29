@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- SOAR GRID STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .soar-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -162,69 +69,13 @@
         .soar-card.action-card { border-top: 4px solid var(--terminal-green); }
         .soar-card.result-card { border-top: 4px solid var(--terminal-green); }
 
-        .soar-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .situation-label { color: var(--burnt-orange) !important; }
-        .opportunity-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--terminal-green) !important; }
-        .result-label { color: var(--terminal-green) !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -245,9 +96,10 @@
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -270,41 +122,28 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>The SOAR Technique: Mastering Behavioural Interviews for Engineering Leaders</h1>
-            <p>
-                Navigating the professional path toward registration as a Chartered Engineer (CEng) or Incorporated Engineer (IEng) culminates in the definitive Professional Review Interview (PRI). During this intensive assessment, review panels from licensed institutions do not simply look for basic competency boxes; they actively interrogate the candidate's psychological maturity, risk navigation frameworks, and ethical alignment. While the standard STAR framework is widely known, the advanced **SOAR Technique (Situation, Opportunity, Action, Result)** shifts the focus from passive task execution to proactive value innovation. This model is engineered to satisfy the high-level criteria of **UK-SPEC Competence D**, proving that an engineer can communicate value effectively across complex multi-disciplinary domains.
-            </p>
-            <p>
-                The core advantage of utilizing the SOAR framework lies in the replacement of the rigid "Task" parameter with the forward-looking **Opportunity** phase. In senior operations, a technical problem is never merely an assigned duty; it represents a strategic opportunity to optimize a workflow, eliminate structural waste, insulate an organization from risk, or introduce breakthrough engineering methodologies. By restructuring your behavioral interview narratives around this specific lens, you demonstrate to institutional assessors that your leadership satisfies Competence C (Management) and Competence D (Communication). It proves that your decision-making aligns micro-environmental constraints directly with long-term corporate sustainability and capital efficiency targets.
-            </p>
+            <h2>What is the SOAR Interview Technique?</h2>
+            <p>The <strong>SOAR framework</strong> is an advanced four-part communication tool designed specifically to help technical professionals build strong behavioral interview responses. SOAR stands for <strong>Situation, Opportunity, Action, and Result</strong>. While the standard STAR layout is widely used across many fields, the SOAR technique changes the focus from simple task execution to active value creation. By replacing the rigid task phase with a forward-looking opportunity section, it ensures you highlight how you turned a standard technical issue into a real business improvement.</p>
 
-            <h2>Deconstructing the Four Quadrants of the SOAR Framework</h2>
-            <p>
-                Constructing a professional engineering evidence block using the SOAR workspace requires a meticulous balance of technical context and commercial acumen:
-            </p>
-            <p>
-                <strong>Situation [S]:</strong> This quadrant defines the baseline project status, physical constraints, operational parameters, or systemic breakdowns. Candidates must avoid vague storytelling by hardcoding exact values: e.g., structural failure thresholds, supply chain expansion delays, or regulatory compliance liabilities. This sets a clear baseline for your upcoming decisions.
-            </p>
-            <p>
-                <strong>Opportunity [O]:</strong> The opportunity phase represents the primary point of differentiation in the SOAR method. Here, you isolate how the problem statement was leveraged to introduce systemic optimization. Instead of just fixing a component, explain how you identified a wider opportunity to deploy automated calculation macros, implement lean parameters, or rewrite standard asset configurations to prevent recurrent failures.
-            </p>
-            <p>
-                <strong>Action [A]:</strong> The action block captures your specific technical and leadership contributions. You must detail what *you* personally calculated, simulated, authorized, or designed. Document the application of first-principles mathematics, the optimization of script layers, the coordination of hazard reviews, and your management of multi-disciplinary teams. Use strong engineering verbs to clearly isolate your accountability.
-            </p>
-            <p>
-                <strong>Result [R]:</strong> The final quadrant provides the empirical proof of success. Review panels will dismiss entries that rely on generic qualitative statements. Candidates must hardcode verifiable data-driven results, such as percentage capacity gains, quantified capital expenditure optimization, life-cycle carbon reductions, or formal regulatory sign-offs under relevant CDM frameworks.
-            </p>
+            <h2>Why Does Structured Speaking Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must show that you can lead teams and communicate value effectively. The Engineering Council evaluates these interpersonal skills strictly under <strong>UK-SPEC Competence D</strong>. Many brilliant technicians face unexpected setbacks during their <strong>Professional Review Interview (PRI)</strong> because they give dry, descriptive background summaries instead of focusing on their individual leadership choices.</p>
+            <p>In a senior engineering position, technical problems are never just simple duties assigned to you by a manager. Every system breakdown, plant limitation, or process delay represents a distinct opportunity to update standard design workflows, remove operational waste, or reduce long-term material safety risks. Using the SOAR technique proves to your <strong>Professional Engineering Institution (PEI)</strong> review panel that you can think like an executive business leader. It explicitly demonstrates that you understand how to link micro-level technical tasks directly to your company's long-term commercial goals and budget efficiency targets.</p>
 
-            <h2>Interactive Client-Side SOAR Workspace</h2>
-            <p>
-                The interactive SOAR Interview Builder below is engineered to help professional engineers rapidly compile their behavioral evidence lines. To guarantee total compliance with corporate non-disclosure agreements (NDAs) and protect sensitive financial baselines, our platform uses a zero-knowledge local browser architecture. Your inputs are stored and processed entirely within your device's sandboxed local memory cache—nothing is ever transmitted to external servers. Use this system to generate comprehensive outlines, export clean JSON databases, or compile elite AI prompts to audit your interview readiness.
-            </p>
+            <h2>How to Complete Your SOAR Framework Workspace Cleanly</h2>
+            <p>To construct an audit-ready, high-density behavioral interview summary, work through the four quadrants of the workbench editor canvas:</p>
+            <ul>
+                <li><strong>Situation [S]:</strong> Outline the initial technical background, system failure, asset challenge, or physical constraint your team faced on site.</li>
+                <li><strong>Opportunity [O]:</strong> Explain how you leveraged this specific issue to drive continuous improvements, rewrite baseline specifications, or save company resources.</li>
+                <li><strong>Action [A]:</strong> Document your individual technical contributions. Use strong verbs to detail exactly what calculations, design reviews, or safety steps you executed.</li>
+                <li><strong>Result [R]:</strong> State the final, quantitative outcome of your engineering actions. Include concrete numbers like hours saved, money optimized, or safety sign-offs secured.</li>
+            </ul>
+            <p>Type your project notes directly into the fields below. Our platform uses a <strong>strong zero-knowledge local browser architecture</strong>, meaning your text entries are saved automatically onto your device every few seconds. No confidential company data or sensitive project parameters are ever transmitted to external servers, keeping you completely compliant with your employer's non-disclosure agreements (NDAs). Once you finish, use the controls in the side panel to copy your completed text outline or print a professional audit report directly from your browser to support your engineering portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -383,36 +222,36 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="soar-grid">
                     
                     <!-- Situation Card -->
                     <div class="soar-card situation-card">
-                        <label class="soar-label situation-label">Situation</label>
+                        <label class="ee-label" for="soar_Situation" style="color: var(--burnt-orange);">Situation [S]</label>
                         <span class="form-hint">What technical baseline, system failure, asset challenge, or resource limit defined the scenario? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Inflow variations inside a wastewater treatment array exceeded standard design filters by 34%, risking an environmental penalty.</span></span>
-                        <textarea id="soar_Situation" class="form-input" placeholder="Define structural constraints and background scenario variables here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_Situation" class="ee-textarea" placeholder="Define structural constraints and background scenario variables here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Opportunity Card -->
                     <div class="soar-card opportunity-card">
-                        <label class="soar-label opportunity-label">Opportunity</label>
+                        <label class="ee-label" for="soar_Opportunity" style="color: var(--burnt-orange);">Opportunity [O]</label>
                         <span class="form-hint">How did you leverage this issue to drive systemic process updates, rewrite design rules, or improve long-term asset value? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Identified an opportunity to overhaul the primary filtration logic and introduce automated predictive control sensors.</span></span>
-                        <textarea id="soar_Opportunity" class="form-input" placeholder="Define the value optimization and process improvements targeted here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_Opportunity" class="ee-textarea" placeholder="Define the value optimization and process improvements targeted here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="soar-card action-card">
-                        <label class="soar-label action-label">Action</label>
+                        <label class="ee-label" for="soar_Action" style="color: var(--terminal-green);">Action [A]</label>
                         <span class="form-hint">What specific calculations, engineering designs, standard code deployments, or team networks did you personally command? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Recalculated dynamic load values, authored updated PLC automation scripts, and managed the field commissioning team.</span></span>
-                        <textarea id="soar_Action" class="form-input" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_Action" class="ee-textarea" placeholder="Document your personal technical interventions and command choices here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Result Card -->
                     <div class="soar-card result-card">
-                        <label class="soar-label result-label">Result</label>
+                        <label class="ee-label" for="soar_Result" style="color: #00b894;">Result [R]</label>
                         <span class="form-hint">What data-driven milestones, financial optimizations, carbon drops, or compliance sign-offs proved the success of your intervention? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Contained flow variances to within 4%, eliminated recurring maintenance costs, and secured formal agency sign-off.</span></span>
-                        <textarea id="soar_Result" class="form-input" placeholder="State quantifiable engineering outcomes and verified metrics here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_Result" class="ee-textarea" placeholder="State quantifiable engineering outcomes and verified metrics here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -420,12 +259,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -553,11 +392,11 @@
             }
 
             const role = "Executive Engineering Interviewer & UK-SPEC Registration Assessor";
-            const actionText = "Analyse this SOAR behavioral matrix blueprint. 1. Critique if the candidate's opportunity phase effectively demonstrates macro-commercial strategic thinking vs passive duty execution. 2. Verify if the action text contains strong active technical verbs that clearly isolate personal accountability. 3. Assess if the result section hardcodes sufficient empirical indicators to completely validate CEng or IEng registration criteria.";
+            const actionText = "Analyse this SOAR behavioral matrix blueprint. 1. Critique if the candidate's opportunity phase effectively demonstrates macro-commercial strategic thinking vs passive duty execution. 2. Verify if the action text contains strong active technical verbs that clearly isolate personal accountability. 3. Assess if the result section hardcodes sufficient data-driven empirical indicators to completely validate CEng or IEng registration criteria.";
 
             const metaPrompt = `[ROLE] You are acting as a ${role}. 
 [GOAL] ${actionText}
-[CONTEXT] The user is an engineering candidate refining evidence structures for an institutional Professional Review Interview against UK-SPEC Competence D parameters. The format used is a SOAR Technique Matrix (${promptType}).
+[CONTEXT] The user is an engineering candidate refining evidence structures for an Sample Institutional Review Interview against UK-SPEC Competence D parameters. The format used is a SOAR Technique Matrix (${promptType}).
 [SOURCE]
 """
 ${script}
@@ -575,7 +414,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -699,6 +538,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

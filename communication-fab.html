@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- FAB CANVAS STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .fab-stack {
             display: flex;
             flex-direction: column;
@@ -157,68 +64,13 @@
         .fab-card.advantage-card { border-left-color: var(--ee-terminal-green); }
         .fab-card.benefit-card { border-left-color: #00b894; }
 
-        .fab-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .feature-label { color: var(--burnt-orange) !important; }
-        .advantage-label { color: var(--terminal-green) !important; }
-        .benefit-label { color: #00b894 !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -239,9 +91,10 @@
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -264,38 +117,27 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Commercial Pitching for Engineers: Executing the FAB Approach</h1>
-            <p>
-                A common challenge during technical project reviews and executive board briefings is the "Features Trap." Less experienced technical teams often spend hours detailing low-level physical attributes, sub-assembly geometric constraints, and mathematical software parameters. However, corporate executives holding financial sign-off authority operate on a different frequency. To pass major capital expenditure (CapEx) reviews, secure multi-million-pound project bids, and satisfy **UK-SPEC Competence C (Management/Leadership)** and **Competence D (Communication)**, technical professionals must master the art of value translation.
-            </p>
-            <p>
-                The **FAB Approach (Features, Advantages, Benefits)** provides a rigorous framework to translate raw engineering properties into clear business value. By separating a design or upgrade proposal into three distinct fields, this methodology ensures engineering leaders lead with strategic utility rather than descriptive data. It structures technical data so that non-technical corporate vice-presidents, procurement managers, and external financial directors can instantly understand how a specific component choice directly helps contain operational overheads (OpEx), minimize lifecycle maintenance risk, and protect bottom-line corporate profitability.
-            </p>
+            <h2>What is the FAB Value Pitch Framework?</h2>
+            <p>The <strong>FAB framework</strong> is a clear, three-part communication tool designed specifically for technical professionals. FAB stands for <strong>Features, Advantages, and Benefits</strong>. It provides an easy way to turn complicated engineering data into clear arguments that business managers can understand. Instead of focusing entirely on technical details, this model helps you explain why your design choices matter to the wider business. It changes the way you speak about your projects so that your ideas get approved quickly.</p>
 
-            <h2>Analyzing the Three Strands of the FAB Value Pitch</h2>
-            <p>
-                Constructing a professional engineering pitch using the FAB grid requires transforming cold material specifications into high-impact commercial justifications:
-            </p>
-            <p>
-                <strong>Features [F]:</strong> This strand identifies the core technical attributes, specifications, material selections, and physical parameters of the asset or software upgrade. This information is purely descriptive and represents first-principles facts. Examples include specifying a high-performance titanium alloy, a cloud-based Building Information Modeling (BIM) data link, an automated script algorithm, or a customized double-seal layout config.
-            </p>
-            <p>
-                <strong>Advantages [A]:</strong> The advantages dimension defines why the feature matters technically. It answers how this design choice outperforms traditional alternatives or industry baselines. For example, a titanium alloy feature provides an advantage of "superior resistance to localized electrochemical corrosion loop propagation within severe marine environments compared to standard grade carbon steels." This bridges the gap between cold specifications and ultimate performance.
-            </p>
-            <p>
-                <strong>Benefits [B]:</strong> The benefits section is the most critical element for securing executive approval. It translates technical advantages directly into hard business results. Corporate review boards focus heavily on this box. Here, candidates must hardcode quantifiable data markers, such as a 20% drop in annual lifecycle maintenance downtime, a total elimination of recurring inspection costs, a £650,000 optimization in CapEx procurement allocation, or complete insulation from statutory regulatory non-compliance risks under relevant CDM provisions.
-            </p>
+            <h2>Why Does Value Pitching Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must show that you understand the business side of your work. The Engineering Council assesses these commercial capabilities strictly under <strong>UK-SPEC Competence C</strong> and <strong>Competence D</strong>. Many brilliant technicians face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they make a common mistake called the features trap. This happens when you spend all your time explaining technical facts but forget to explain the commercial value.</p>
+            <p>In the real world, senior business executives and directors hold the financial sign-off authority for your projects. They do not need to know every single mathematical parameter or software code loop. Instead, they need to see how your choices minimize financial risk, lower material costs, or protect public safety. Using the FAB framework proves to your <strong>Professional Engineering Institution (PEI)</strong> review panel that you possess commercial awareness. It shows that you know how to link cold material specifications directly to long-term corporate profitability and site safety.</p>
 
-            <h2>Interactive Client-Side FAB Architecture Grid</h2>
-            <p>
-                The interactive FAB Value Pitch Canvas below is engineered specifically to help engineering professionals quickly convert technical specs into high-impact business proposals. To guarantee total data privacy and preserve absolute intellectual property security, this system operates on a zero-knowledge local browser framework. Your text entries are processed and cached exclusively within your device's local memory partition—nothing is ever shared with external networks or servers. Use this system to generate pristine outlines, export secure JSON data arrays, or compile elite AI consultant prompts.
-            </p>
+            <h2>How to Complete Your FAB Grid Workspace Cleanly</h2>
+            <p>To build an effective business proposal, work through the three interactive cards on our workbench editor canvas:</p>
+            <ul>
+                <li><strong>Features [F]:</strong> List the factual, descriptive details of your engineering design, such as material choices, dimensions, or software options.</li>
+                <li><strong>Advantages [A]:</strong> Explain why these features are technically superior to standard industry baselines or older alternative methods.</li>
+                <li><strong>Benefits [B]:</strong> State the direct, measurable value your choice delivers to the company, focusing on cost savings, hours saved, or safety improvements.</li>
+            </ul>
+            <p>Type your project notes directly into each card section below. Our <strong>zero-knowledge local browser architecture</strong> saves your entries automatically every few seconds. This keeps your company’s sensitive design parameters completely private on your own device. Once you finish, you can copy the text summary or print an official report to support your engineering registration portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -374,29 +216,29 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="fab-stack">
                     
                     <!-- Features Card -->
                     <div class="fab-card feature-card">
-                        <label class="fab-label feature-label">Features [F]</label>
+                        <label class="ee-label" for="fab_Features" style="color: var(--burnt-orange);">Features [F]</label>
                         <span class="form-hint">What are the technical specs, material selections, and physical attributes of the design? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Implementation of an automated cloud-based predictive telemetry macro suite within secondary structural housings.</span></span>
-                        <textarea id="fab_Features" class="form-input" placeholder="List technical specifications and material properties here..." oninput="updatePreview()"></textarea>
+                        <textarea id="fab_Features" class="ee-textarea" placeholder="List technical specifications and material properties here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Advantages Card -->
                     <div class="fab-card advantage-card">
-                        <label class="fab-label advantage-label">Advantages [A]</label>
+                        <label class="ee-label" for="fab_Advantages" style="color: var(--terminal-green);">Advantages [A]</label>
                         <span class="form-hint">Why is this parameter superior to standard methods or market baselines? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Facilitates real-time vibration calculation loops, bypass-ing manual multi-tier spreadsheet auditing delay.</span></span>
-                        <textarea id="fab_Advantages" class="form-input" placeholder="State operational advantages and functional advancements here..." oninput="updatePreview()"></textarea>
+                        <textarea id="fab_Advantages" class="ee-textarea" placeholder="State operational advantages and functional advancements here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Benefits Card -->
                     <div class="fab-card benefit-card">
-                        <label class="fab-label benefit-label">Benefits [B]</label>
+                        <label class="ee-label" for="fab_Benefits" style="color: #00b894;">Benefits [B]</label>
                         <span class="form-hint">What is the hard commercial, financial, safety, or lifecycle value generated for executive buyers? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Lowers recurrent maintenance team field exposure risks by 35% and avoids a potential £180,000 monthly output failure cost.</span></span>
-                        <textarea id="fab_Benefits" class="form-input" placeholder="Define quantifiable commercial savings and corporate benefits here..." oninput="updatePreview()"></textarea>
+                        <textarea id="fab_Benefits" class="ee-textarea" placeholder="Define quantifiable commercial savings and corporate benefits here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -404,12 +246,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile value-pitch preview...</div>
@@ -552,7 +394,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -656,6 +498,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

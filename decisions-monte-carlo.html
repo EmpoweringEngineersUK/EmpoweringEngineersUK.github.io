@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="Free engineering Monte Carlo Simulation and Probabilistic Risk Modeling interactive workspace. Quantify technical uncertainties and forecast capital project variance to satisfy UK-SPEC Competence C leadership targets. Secure client-side storage.">
-    <meta name="keywords" content="Monte Carlo Simulation, Probabilistic Risk Modeling, Stochastic Variables, Engineering Risk, Quantitative Risk Analysis, Expected Value, Project Cost Contingency, UK-SPEC Competence C, Asset Management">
+    <meta name="description" content="Free engineering Monte Carlo Simulation and Probabilistic Risk Modelling interactive workspace. Quantify technical uncertainties and forecast capital project variance to satisfy UK-SPEC Competence C leadership targets. Secure client-side storage.">
+    <meta name="keywords" content="Monte Carlo Simulation, Probabilistic Risk Modelling, Stochastic Variables, Engineering Risk, Quantitative Risk Analysis, Expected Value, Project Cost Contingency, UK-SPEC Competence C, Asset Management">
     <meta property="og:title" content="Bespoke Monte Carlo Risk Analytics Studio | Empowering Engineers UK">
-    <meta property="og:description" content="An advanced client-side probabilistic modeling engine configured to map stochastic engineering variables, assign distribution curves, and optimize project margins.">
+    <meta property="og:description" content="An advanced client-side probabilistic modelling engine configured to map stochastic engineering variables, assign distribution curves, and optimise project margins.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/decisions-monte-carlo.html">
     <meta property="og:type" content="website">
@@ -18,11 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC MONTE CARLO INTERACTION STYLES --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -153,7 +62,7 @@
         }
         .framework-card.var-card { border-left-color: var(--burnt-orange); }
         .framework-card.dis-card { border-left-color: var(--slate-grey); }
-        .framework-card.out-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.out-card { border-left-color: var(--terminal-green); }
 
         .framework-label {
             display: block;
@@ -166,103 +75,49 @@
         .dis-label { color: var(--slate-grey) !important; }
         .out-label { color: var(--terminal-green) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
+        .sim-widget-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-top: 4px solid var(--terminal-green);
         }
 
+        .chart-canvas-wrapper {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .chart-canvas {
+            width: 100%;
+            height: 250px;
+            display: block;
+        }
+
+        .sim-metrics-box {
+            background: var(--input-bg);
+            border-left: 4px solid var(--burnt-orange);
+            padding: 15px;
+            border-radius: 0 4px 4px 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--cloud-white);
+        }
+        
         .example-text {
             color: var(--terminal-green);
             opacity: 0.85;
             display: inline-block;
             margin-top: 4px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
-        }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
         }
     </style>
 </head>
@@ -270,23 +125,20 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Quantitative Risk Assessment in Capital Project Delivery: Mastering Monte Carlo Frameworks</h1>
-            <p>
-                In the modern engineering governance ecosystem, managing multi-million-pound capital expenditures, long-term asset turnarounds, and highly complex civil infrastructure developments demands a fundamental departure from rigid, single-point deterministic estimation techniques. Historically, project scheduling and budget controls relied on static projections that assumed exact durations and fixed material procurement values. However, real-world execution environments operate under a state of continuous variation driven by unpredictable geotechnics, fluctuating labor availability, volatile global commodity indexes, and adverse climatic events. When teams apply simple safety buffers or arbitrary percentage contingencies to a project outline, they mask the underlying system risks and leave corporate balance sheets exposed to severe overruns. To replace qualitative assumptions with mathematical models, lead professionals execute a formal quantitative risk analysis utilising **Monte Carlo Simulation** frameworks. Named originally after the Mediterranean gaming hub by Manhattan Project mathematicians Stanislaw Ulam and John von Neumann, this statistical technique models risk by running thousands of computing iterations to generate a complete probabilistic distribution curve of potential project outcomes.
-            </p>
-            <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, commanding quantitative risk structures provides candidates with top-tier evidence for **Competence C (Technical and Commercial Leadership)**. Criterion C explicitly requires candidates to demonstrate absolute ownership of commercial budgets, optimize resource management matrices, and implement systematic continuous risk mitigation routines across commercial programmes. Documenting your direct architectural ownership of a Monte Carlo framework—proving that you have converted static assumptions into dynamic probability models to defend a project contingency envelope—presents review panels with unvarnished evidence of financial literacy, technical leadership, and strategic asset governance.
-            </p>
-            <h2>Implementing Probabilistic Bound Layers to Control Process Drift</h2>
-            <p>
-                Structuring a resilient Monte Carlo analysis requires a disciplined linear process that translates physical and commercial uncertainties into bounded statistical definitions. This digital workspace segments your risk modeling pipeline into three explicit, scannable steps: the **Stochastic System Variables (VAR)**, the **Probability Distributions (DIS)**, and the **Simulation Accuracy Forecast (OUT)**. By defining these parameters systematically, technical directors move beyond binary risk logs and evaluate exactly how distinct variables compound across a project timeline. For example, a triangular distribution can capture the absolute minimum, maximum, and most likely duration for a critical subsea pipe-laying phase, revealing hidden bottlenecks that conventional critical path methodologies overlook. Use the dynamic cards below to structure your simulation registry, verify model boundaries, and compile print-ready evidence sheets for your corporate registration portfolio.
-            </p>
+            <h2>What is a Monte Carlo Simulation?</h2>
+            <p>A Monte Carlo simulation is a mathematical tool used to estimate risk and predict project outcomes under uncertain conditions. In traditional project planning, teams often guess a single fixed value for financial costs or schedule timelines. However, real-world engineering tasks are rarely that simple. Material delivery dates change constantly due to global supply chain pressures, on-site weather conditions delay construction loops unexpectedly, and commodity prices fluctuate wildly in the procurement market. A Monte Carlo simulation solves this exact problem by running thousands of automated calculations in rapid succession. It uses a range of possible values for each unknown factor instead of relying on a single optimistic number. The tool then combines all these structural variations to create a clear probability distribution curve. This curve displays every possible project outcome alongside its exact statistical likelihood of occurring, completely removing guesswork from your commercial planning loops.</p>
+            
+            <h2>Why Probabilistic Risk Modelling Matters to Your Career</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you are evaluated against rigorous industry benchmarks. The <strong>Engineering Council</strong> requires all candidates to prove they can manage technical and commercial risks safely and effectively. These essential management capabilities are reviewed directly under the guidelines of <strong>UK-SPEC Competence C</strong>. Many talented graduate engineers face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they rely entirely on simple project averages without accounting for severe margins of error. They often struggle to show how they calculate budget contingencies or schedule float margins dynamically. To secure your professional title, you must prove you can make objective, data-driven decisions under extreme uncertainty. Using a Monte Carlo simulation proves to review panels and senior executives that you possess strong financial literacy. It shows you can protect company resources from unexpected overruns and justify heavy capital expenditure with scientific, undeniable proof.</p>
+            
+            <h2>How to Complete This Interactive Workspace Cleanly</h2>
+            <p>We have engineered this interactive workspace to help you document your text evidence and run live visual risk calculations effortlessly. First, use the text field cards below to outline your project variables and define your statistical boundaries. You must state your minimum, maximum, and most likely parameters for your text narrative portfolio. Second, look at the integrated Visual Simulation Studio widget located below the text fields. This operational module allows you to run a live mathematical calculation set directly inside your browser. We have provided two pre-configured fallback scenarios—<strong>Schedule Risk</strong> and <strong>Financial Risk</strong>—that you can load via the quick-action buttons to see how the model responds to both timeline and budget parameters. You can add, remove, and rename tasks dynamically to build your precise project architecture. You can also download our dynamic CSV template file, populate your planning baseline data inside Microsoft Excel, and upload it back into the checker. If you leave the uncertainty columns blank, our software automatically executes a fallback safety proxy layout. This process wraps your baseline with a calculated safety buffer, applying a minimum boundary of 85% and a maximum limit of 130% to the durations. Input your overall deadline or budget threshold, and click the calculation button to execute 10,000 distinct tracking trials instantly. Because our platform uses a secure client-side model, your numbers and notes stay entirely private on your own device, keeping you fully compliant with strict corporate non-disclosure agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -309,7 +161,7 @@
                 <span class="tab-label">Decisions Hub</span>
             </a>
             <a href="decisions-monte-carlo.html" class="ee-horizontal-tab active" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_monte"></div>
+                <div class="tab-badge-container" id="badge_montecarlo"></div>
                 <span class="tab-label">Monte Carlo</span>
             </a>
             <a href="decisions-tree.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -321,11 +173,11 @@
                 <span class="tab-label">CBA</span>
             </a>
             <a href="decisions-risk-matrix.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_risk"></div>
+                <div class="tab-badge-container" id="badge_riskmatrix"></div>
                 <span class="tab-label">Risk Matrix</span>
             </a>
             <a href="decisions-force-field.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_force"></div>
+                <div class="tab-badge-container" id="badge_forcefield"></div>
                 <span class="tab-label">Force Field</span>
             </a>
             <a href="decisions-ooda.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -336,18 +188,22 @@
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
             </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
         <div class="header-actions">
             <div>
                 <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Monte Carlo Simulation Panel</h1>
-                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Probabilistic Risk Modeller & Stochastic Calculation Subsystem</p>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Probabilistic Risk Modeller & Options Appraisal System</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
-                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="exportJSON()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
             </div>
         </div>
@@ -356,7 +212,64 @@
         <div class="workbench-layout">
             <div class="editor-col">
                 <div id="dynamicFieldsContainer" class="framework-stack">
-                    <!-- Fields loaded dynamically based on frameworks database registration mapping -->
+                    <!-- Portfolio fields loaded dynamically based on frameworks registration mapping -->
+                </div>
+
+                <!-- Bespoke Statistical Simulation Widget Box -->
+                <div class="sim-widget-card">
+                    <h3 style="color: var(--terminal-green); text-transform: uppercase; margin: 0; font-size: 1.15rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+                        Interactive Schedule & Cost Risk Simulator (10,000 Trials)
+                    </h3>
+                    <p style="font-size: 0.85rem; color: var(--slate-grey); margin: 0;">
+                        Model the cumulative variance of custom project tasks or cost budgets using triangular parameters. Verify the exact probability of breaching your target commitment.
+                    </p>
+                    
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 15px;">
+                        <button type="button" class="action-btn" style="min-height: 48px; padding: 0 15px;" onclick="addNewTaskRow()">➕ Add Item</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px; padding: 0 15px;" onclick="loadScheduleScenario()">📊 Load Schedule Risk</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px; padding: 0 15px;" onclick="loadFinancialScenario()">💷 Load Financial Risk</button>
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px; padding: 0 15px;" onclick="downloadCSVTemplate()">📥 CSV Template</button>
+                        <button type="button" class="action-btn" style="min-height: 48px; padding: 0 15px;" onclick="document.getElementById('csv_import_file').click()">📤 Import CSV</button>
+                        <input type="file" id="csv_import_file" accept=".csv" style="display:none" onchange="importCSVFile(event)">
+                    </div>
+
+                    <div style="width: 100%; overflow-x: auto; margin-bottom: 15px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;" id="tasksTable">
+                            <thead>
+                                <tr style="background: var(--midnight-navy); color: var(--cloud-white);">
+                                    <th style="padding: 12px; border: 1px solid var(--border-color); text-align: left; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Item Description (Task or Cost)</th>
+                                    <th style="padding: 12px; border: 1px solid var(--border-color); text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; width: 12%;">Min</th>
+                                    <th style="padding: 12px; border: 1px solid var(--border-color); text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; width: 12%;">Likely</th>
+                                    <th style="padding: 12px; border: 1px solid var(--border-color); text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; width: 12%;">Max</th>
+                                    <th style="padding: 12px; border: 1px solid var(--border-color); text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; width: 10%;">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monteCarloTableBody">
+                                <!-- Dynamic rows injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Target Configuration Row -->
+                    <div style="display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; border-top: 1px dashed var(--border-color); padding-top: 15px;">
+                        <div style="flex: 1; min-width: 150px;">
+                            <label class="ee-label" for="target_threshold">Target Cut-Off Threshold</label>
+                            <input type="number" id="target_threshold" class="ee-input" value="18" min="1" style="min-height: 48px;" oninput="updatePreview()">
+                        </div>
+                        <button type="button" class="action-btn" style="min-height: 48px; padding: 0 25px; background-color: var(--terminal-green);" onclick="runScheduleSimulation()">
+                            ⚡ Run Risk Calculation
+                        </button>
+                    </div>
+
+                    <!-- Output Graph Canvas & Statistics -->
+                    <div id="simulationOutputBlock" style="display: none; margin-top: 10px;">
+                        <div class="sim-metrics-box" id="simMetricsText">
+                            Awaiting calculation execution loops...
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="monteCarloCanvas" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -365,12 +278,13 @@
                 <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" style="min-height: 48px; width: 100%;" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" style="min-height: 48px; width: 100%;" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting stochastic system inputs to construct the probabilistic risk log sheet...</div>
+                <span id="saveIndicator">Data Synced ✔</span>
             </div>
         </div>
 
@@ -378,20 +292,33 @@
 
     <script>
         // --- 1. MEMORY NAMESPACING ---
-        const EE_TOOL_ID = "ee_decisions_monte";
+        const EE_TOOL_ID = "ee_decisions_monte-carlo";
         const FW_KEY = "MONTE";
         let autosaveTimer;
+        
+        // Base initialisation targets matching the default schedule values provided
+        let taskList = [
+            { name: "Task A Duration", min: 4, likely: 6, max: 9 },
+            { name: "Task B Duration", min: 3, likely: 4, max: 6 },
+            { name: "Task C Duration", min: 6, likely: 8, max: 12 }
+        ];
+        
+        window.lastSimulationResult = null;
+
+        // Instantiate background texture reference securely
+        const bgImg = new Image();
+        bgImg.src = 'assets/EE_banner.webp';
 
         // --- Defensive Fallback configuration data architecture injection layer ---
         if (typeof frameworks === 'undefined') { window.frameworks = {}; }
         if (!frameworks[FW_KEY]) {
             frameworks[FW_KEY] = {
-                name: "Monte Carlo Simulation (Probabilistic Risk Modeler)",
+                name: "Monte Carlo Simulation (Probabilistic Risk Modeller)",
                 cat: "decision",
                 fields: [
                     { id: "VAR", label: "STOCHASTIC SYSTEM VARIABLES", hint: "List the uncertain project elements, raw material cost ranges, or timeline durations exhibiting high variability.", example: "e.g. 'Fluctuating Steel Material Surcharge (£/tonne), Field Mechanical Installation Phase Duration (days), Adverse Climate Delay Window (days).'" },
                     { id: "DIS", label: "PROBABILITY DISTRIBUTIONS", hint: "Assign statistical boundaries (Minimum, Maximum, Most Likely) and distribution curves (Normal, Triangular, Uniform) to each variable.", example: "e.g. 'Structural Steel Surcharge: £550 to £780 per tonne (Normal Curve baseline). Installation Window: 14 to 28 days (Triangular skew: 16 days most likely).'" },
-                    { id: "OUT", label: "SIMULATION ACCURACY FORECAST", hint: "Define the specific target probability threshold or confidence interval required for capital investment authorization.", example: "e.g. 'Execute 10,000 statistical iterations. Establish exact budget envelope boundaries to confirm a P90 confidence limit of completing under £4.2M.'" }
+                    { id: "OUT", label: "SIMULATION ACCURACY FORECAST", hint: "Define the specific target probability threshold or confidence interval required for capital investment authorisation.", example: "e.g. 'Execute 10,000 statistical iterations. Establish exact budget envelope boundaries to confirm a P90 confidence limit of completing under £4.2M.'" }
                 ]
             };
         }
@@ -409,7 +336,12 @@
             let savedState = {};
             const stored = localStorage.getItem(EE_TOOL_ID);
             if (stored) {
-                try { savedState = JSON.parse(stored); } catch(e) { console.error("Failed to parse local JSON state object."); }
+                try { 
+                    savedState = JSON.parse(stored); 
+                    if (Array.isArray(savedState.tasks)) taskList = savedState.tasks;
+                    if (savedState.threshold) document.getElementById('target_threshold').value = savedState.threshold;
+                    if (savedState.last_res) window.lastSimulationResult = savedState.last_res;
+                } catch(e) { console.error("Failed to parse local JSON state object.", e); }
             }
             
             data.fields.forEach(f => {
@@ -420,14 +352,164 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localized stochastic parameters here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="form-input" style="min-height: 85px;" placeholder="Configure localised stochastic parameters here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
+            });
+            
+            renderTableRows();
+            if (window.lastSimulationResult) {
+                runScheduleSimulation(false); // Silent chart mapping refresh on window mount
+            }
+        }
+
+        function renderTableRows() {
+            const tbody = document.getElementById('monteCarloTableBody');
+            tbody.innerHTML = "";
+            taskList.forEach((task, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="padding: 6px; border: 1px solid var(--border-color);">
+                        <input type="text" class="task-row-input" style="min-height:38px; padding: 6px 10px;" value="${task.name}" oninput="updateTaskRow(${index}, 'name', this.value)">
+                    </td>
+                    <td style="padding: 6px; border: 1px solid var(--border-color); text-align: center;">
+                        <input type="number" class="task-num-input" style="min-height:38px; text-align: center; padding: 6px;" value="${task.min !== undefined && task.min !== null ? task.min : ''}" placeholder="Auto" oninput="updateTaskRow(${index}, 'min', this.value)">
+                    </td>
+                    <td style="padding: 6px; border: 1px solid var(--border-color); text-align: center;">
+                        <input type="number" class="task-num-input" style="min-height:38px; text-align: center; padding: 6px;" value="${task.likely !== undefined && task.likely !== null ? task.likely : ''}" oninput="updateTaskRow(${index}, 'likely', this.value)">
+                    </td>
+                    <td style="padding: 6px; border: 1px solid var(--border-color); text-align: center;">
+                        <input type="number" class="task-num-input" style="min-height:38px; text-align: center; padding: 6px;" value="${task.max !== undefined && task.max !== null ? task.max : ''}" placeholder="Auto" oninput="updateTaskRow(${index}, 'max', this.value)">
+                    </td>
+                    <td style="padding: 6px; border: 1px solid var(--border-color); text-align: center;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 38px; min-width: 38px; padding: 0; color: var(--burnt-orange) !important; border-color: var(--burnt-orange) !important;" onclick="removeTaskRow(${index})">❌</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
             });
             updatePreview();
         }
 
-        // --- 3. VERIFICATION BADGE ENGINE ---
+        function updateTaskRow(index, field, value) {
+            if (field === 'name') {
+                taskList[index].name = value;
+            } else {
+                taskList[index][field] = value === '' ? '' : parseFloat(value);
+            }
+            updatePreview();
+        }
+
+        function addNewTaskRow() {
+            taskList.push({ name: "New Schedule Task or Cost Item", min: '', likely: 5, max: '' });
+            renderTableRows();
+        }
+
+        function removeTaskRow(index) {
+            if (taskList.length <= 1) {
+                alert("⚠️ System Boundary Constraint: Your tracking model requires at least one active row item.");
+                return;
+            }
+            taskList.splice(index, 1);
+            renderTableRows();
+        }
+
+        // --- 3. DYNAMIC SCENARIO LOADING PROCEDURES ---
+        function loadScheduleScenario() {
+            if(confirm("Load the default Project Schedule Risk scenario? This action will overwrite your current table data.")) {
+                taskList = [
+                    { name: "Task A Duration", min: 4, likely: 6, max: 9 },
+                    { name: "Task B Duration", min: 3, likely: 4, max: 6 },
+                    { name: "Task C Duration", min: 6, likely: 8, max: 12 }
+                ];
+                document.getElementById('target_threshold').value = 18;
+                window.lastSimulationResult = null;
+                document.getElementById('simulationOutputBlock').style.display = 'none';
+                renderTableRows();
+                updatePreview();
+            }
+        }
+
+        function loadFinancialScenario() {
+            if(confirm("Load the default Financial Cost Risk scenario? This action will overwrite your current table data.")) {
+                taskList = [
+                    { name: "Structural Steel Surcharge (£k)", min: 40, likely: 55, max: 80 },
+                    { name: "Mechanical Labour Costs (£k)", min: 30, likely: 35, max: 45 },
+                    { name: "Site Preparation Element (£k)", min: 15, likely: 20, max: 25 }
+                ];
+                document.getElementById('target_threshold').value = 110;
+                window.lastSimulationResult = null;
+                document.getElementById('simulationOutputBlock').style.display = 'none';
+                renderTableRows();
+                updatePreview();
+            }
+        }
+
+        // --- 4. EXCEL-COMPATIBLE CSV LOGIC NODES ---
+        function downloadCSVTemplate() {
+            // Dynamically construct the CSV format string mapped perfectly to the current user configuration table
+            let csvContent = "data:text/csv;charset=utf-8,Item Name,Likely Value,Min Value,Max Value\n";
+            taskList.forEach(t => {
+                const minString = (t.min !== undefined && t.min !== null) ? t.min : '';
+                const maxString = (t.max !== undefined && t.max !== null) ? t.max : '';
+                csvContent += `${t.name},${t.likely},${minString},${maxString}\n`;
+            });
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.href = encodedUri;
+            link.download = "EE_MonteCarlo_Template.csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function importCSVFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split(/\r\n|\n/);
+                let parsedTasks = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    const cols = line.split(',');
+                    if (cols.length >= 2) {
+                        const nameVal = cols[0].trim() || `Imported Task ${i}`;
+                        const likelyVal = parseFloat(cols[1]);
+                        
+                        if (isNaN(likelyVal) || likelyVal <= 0) continue; 
+                        
+                        const minVal = cols[2] && cols[2].trim() !== "" ? parseFloat(cols[2]) : '';
+                        const maxVal = cols[3] && cols[3].trim() !== "" ? parseFloat(cols[3]) : '';
+                        
+                        parsedTasks.push({
+                            name: nameVal,
+                            likely: likelyVal,
+                            min: isNaN(minVal) ? '' : minVal,
+                            max: isNaN(maxVal) ? '' : maxVal
+                        });
+                    }
+                }
+
+                if (parsedTasks.length > 0) {
+                    taskList = parsedTasks;
+                    renderTableRows();
+                    if (window.lastSimulationResult) window.lastSimulationResult = null;
+                    document.getElementById('simulationOutputBlock').style.display = 'none';
+                    alert("✅ Successfully imported task rows from CSV.");
+                } else {
+                    alert("❌ Parsing Error: No valid rows or baseline values discovered inside the CSV file.");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // --- 5. VERIFICATION BADGE ENGINE ---
         function getTickHTML(isComplete) {
             return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
         }
@@ -437,7 +519,7 @@
             if (!stored) return false;
             try {
                 const data = JSON.parse(stored);
-                return Object.values(data).some(val => typeof val === 'string' && val.trim().length > 0);
+                return Object.keys(data).some(k => k !== '_widget_params' && k !== 'tasks' && k !== 'threshold' && k !== 'last_res' && typeof data[k] === 'string' && data[k].trim().length > 0);
             } catch (e) { return false; }
         }
 
@@ -445,13 +527,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_monte',
+                'montecarlo': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_risk',
-                'force': 'ee_decisions_force',
+                'riskmatrix': 'ee_decisions_risk-matrix',
+                'forcefield': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+				'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -463,7 +546,7 @@
             });
         }
 
-        // --- 4. COMPILER ENGINE ---
+        // --- 6. COMPILER ENGINE ---
         function updatePreview() {
             const data = frameworks[FW_KEY];
             let output = `=== MONTE CARLO SIMULATION SPECIFICATION SHEET ===\n\n`;
@@ -482,22 +565,227 @@
                     output += `[${f.label.toUpperCase()}]:\n...\n\n`;
                 }
             });
+
+            const cutOff = parseFloat(document.getElementById('target_threshold').value) || 0;
+
+            // Append live mathematical arithmetic results to the portfolio copy layout smoothly
+            if (window.lastSimulationResult) {
+                output += `=== LIVE WIDGET ARITHMETIC METRICS ===\n`;
+                output += `Simulated Execution Iterations: 10,000 Runs\n`;
+                output += `Defined Target Project Threshold: ${window.lastSimulationResult.threshold}\n`;
+                output += `Calculated Risk of Overrunning Threshold: ${window.lastSimulationResult.probability}%\n\n`;
+            }
             
             document.getElementById('previewArea').innerText = output;
             
             const aiBtn = document.getElementById('aiBtn');
             aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+            
+            document.getElementById('saveIndicator').style.opacity = '0';
 
             // Keystroke Real-Time Auto-Save with 3-second boundary delay logic
             clearTimeout(autosaveTimer);
             autosaveTimer = setTimeout(() => {
+                stateData.tasks = taskList;
+                stateData.threshold = cutOff;
+                stateData.last_res = window.lastSimulationResult;
+                stateData._widget_params = {
+                    _ran_sim: window.lastSimulationResult ? true : false
+                };
+
                 localStorage.setItem(EE_TOOL_ID, JSON.stringify(stateData));
+                
+                let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+                if (!masterData.ee_tools) masterData.ee_tools = {};
+                masterData.ee_tools[EE_TOOL_ID] = stateData;
+                localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+
                 updateNavigationBadges();
-                console.log("Monte Carlo system modeling workspace metrics auto-saved.");
+                document.getElementById('saveIndicator').style.opacity = '1';
+                console.log("Monte Carlo system modelling workspace metrics auto-saved.");
             }, 3000); 
         }
 
-        // --- 5. COGNITIVE AI PROMPT INJECTION ---
+        // --- 7. BESPOKE TRIANGULAR SAMPLING & CANVAS RENDERING LOGIC ---
+
+        // Injected Statistical Maths Algorithm to resolve the ReferenceError correctly
+        function sampleTriangular(min, likely, max) {
+            let u = Math.random();
+            let f = (likely - min) / (max - min);
+            if (u < f) {
+                return min + Math.sqrt(u * (max - min) * (likely - min));
+            } else {
+                return max - Math.sqrt((1 - u) * (max - min) * (max - likely));
+            }
+        }
+
+        function runScheduleSimulation(triggerAlert = true) {
+            const cutOff = parseFloat(document.getElementById('target_threshold').value);
+
+            if (isNaN(cutOff) || cutOff <= 0) {
+                alert("❌ Input Validation Error: Provide a positive target commitment threshold value.");
+                return;
+            }
+
+            let processedTasks = [];
+            for (let i = 0; i < taskList.length; i++) {
+                const t = taskList[i];
+                const likely = parseFloat(t.likely);
+                
+                if (isNaN(likely) || likely <= 0) {
+                    alert(`❌ Row Configuration Error on Row ${i+1}:\n\nEvery project task requires a valid baseline likely value.`);
+                    return;
+                }
+
+                // Standardised fallback proxies: 85% for min, 130% for max if left empty
+                const min = (t.min === undefined || t.min === null || t.min === '') ? likely * 0.85 : parseFloat(t.min);
+                const max = (t.max === undefined || t.max === null || t.max === '') ? likely * 1.30 : parseFloat(t.max);
+
+                if (min > likely || likely > max) {
+                    alert(`❌ Mathematical Constraint Error on Row ${i+1}:\n\nEnsure that Min (${min.toFixed(1)}) ≤ Likely (${likely}) ≤ Max (${max.toFixed(1)}) parameters match triangular laws.`);
+                    return;
+                }
+                processedTasks.push({ min, likely, max, name: t.name });
+            }
+
+            const trials = 10000;
+            let durations = [];
+            let overrunCount = 0;
+
+            for (let i = 0; i < trials; i++) {
+                let totalDur = 0;
+                processedTasks.forEach(t => {
+                    totalDur += sampleTriangular(t.min, t.likely, t.max);
+                });
+                durations.push(totalDur);
+                if (totalDur > cutOff) {
+                    overrunCount++;
+                }
+            }
+
+            const probabilityValue = ((overrunCount / trials) * 100).toFixed(2);
+            window.lastSimulationResult = {
+                threshold: cutOff,
+                probability: probabilityValue,
+                tasks: processedTasks
+            };
+
+            // Display UI metric values concisely following Lato/Arial typography defaults
+            document.getElementById('simulationOutputBlock').style.display = 'block';
+            document.getElementById('simMetricsText').innerHTML = `
+                Simulated Iterations: 10,000 Runs // Target Cut-Off: ${cutOff}<br>
+                Threshold Exceedance Risk: <strong>${probabilityValue}%</strong> of iterations exceeded the target threshold.
+            `;
+
+            renderHistogram(durations, cutOff);
+            updatePreview();
+
+            if (triggerAlert) {
+                alert(`✅ Probabilistic calculation completed. Target Exceedance Probability: ${probabilityValue}%`);
+            }
+        }
+
+        function renderHistogram(dataPoints, cutOffLine) {
+            const canvas = document.getElementById('monteCarloCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw background corporate asset alignment banner image if loaded completely
+            if (bgImg.complete && bgImg.naturalWidth !== 0) {
+                ctx.drawImage(bgImg, 0, 0, width, height);
+                // Inflow semi-transparent shield mask over the banner artwork to preserve bar legibility
+                ctx.fillStyle = "rgba(16, 25, 37, 0.88)";
+                ctx.fillRect(0, 0, width, height);
+            } else {
+                ctx.fillStyle = "#101925";
+                ctx.fillRect(0, 0, width, height);
+            }
+
+            let minVal = Math.min(...dataPoints);
+            let maxVal = Math.max(...dataPoints);
+            
+            const paddingLeft = 50;
+            const paddingRight = 30;
+            const paddingTop = 20;
+            const paddingBottom = 40;
+            
+            const graphWidth = width - paddingLeft - paddingRight;
+            const graphHeight = height - paddingTop - paddingBottom;
+
+            const binCount = 12;
+            let bins = new Array(binCount).fill(0);
+            const binWidthVal = (maxVal - minVal) / binCount;
+
+            dataPoints.forEach(pt => {
+                let index = Math.floor((pt - minVal) / binWidthVal);
+                if (index >= binCount) index = binCount - 1;
+                if (index < 0) index = 0;
+                bins[index]++;
+            });
+
+            const maxBinCount = Math.max(...bins);
+
+            // Axis outline mapping bounds
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(paddingLeft, paddingTop);
+            ctx.lineTo(paddingLeft, height - paddingBottom);
+            ctx.lineTo(width - paddingRight, height - paddingBottom);
+            ctx.stroke();
+
+            // Render bars with high-glowing --ee-terminal-green neon (#03F7A0)
+            const barWidth = graphWidth / binCount;
+            bins.forEach((count, i) => {
+                const barHeight = (count / maxBinCount) * graphHeight;
+                const x = paddingLeft + (i * barWidth);
+                const y = height - paddingBottom - barHeight;
+
+                ctx.fillStyle = "#03F7A0";
+                ctx.globalAlpha = 0.75;
+                ctx.fillRect(x + 2, y, barWidth - 4, barHeight);
+                
+                ctx.strokeStyle = "#03F7A0";
+                ctx.globalAlpha = 1.0;
+                ctx.strokeRect(x + 2, y, barWidth - 4, barHeight);
+            });
+
+            // Enforce pure white text variables across axes mapping
+            ctx.fillStyle = "#FFFFFF";
+            ctx.font = '10px Lato, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            
+            for(let i = 0; i <= binCount; i += 3) {
+                const val = (minVal + (i * binWidthVal)).toFixed(1);
+                const x = paddingLeft + (i * barWidth);
+                ctx.fillText(val, x, height - paddingBottom + 18);
+            }
+
+            if (cutOffLine >= minVal && cutOffLine <= maxVal) {
+                const lineX = paddingLeft + ((cutOffLine - minVal) / (maxVal - minVal)) * graphWidth;
+                ctx.strokeStyle = '#ff6b6b';
+                ctx.lineWidth = 2.5;
+                ctx.setLineDash([4, 3]);
+                ctx.beginPath();
+                ctx.moveTo(lineX, paddingTop);
+                ctx.lineTo(lineX, height - paddingBottom);
+                ctx.stroke();
+                ctx.setLineDash([]); 
+
+                ctx.fillStyle = '#ff6b6b';
+                ctx.textAlign = 'left';
+                ctx.fillText(' TARGET THRESHOLD', lineX + 4, paddingTop + 12);
+            }
+        }
+
+        // --- 8. COGNITIVE AI PROMPT INJECTION ---
         function generatePrompt() {
             const data = frameworks[FW_KEY];
             let script = "";
@@ -532,7 +820,7 @@
 """
 ${script}
 """
-[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report using British English spelling conventions.`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -541,17 +829,17 @@ ${script}
             });
         }
 
-        // --- 6. CLIPBOARD MECHANICS ---
+        // --- 9. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
             });
         }
 
-        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
+        // --- 10. DATA TRANSACTION PROCEDURES (CRUD) ---
         function clearData() {
             if(confirm(`Confirm action: permanently purge all text fields from the Monte Carlo simulation workspace?`)) {
                 const data = frameworks[FW_KEY];
@@ -559,11 +847,18 @@ ${script}
                     const el = document.getElementById(`input_${f.id}`);
                     if (el) el.value = '';
                 });
-                updatePreview();
+                taskList = [
+                    { name: "Task A Duration", min: 4, likely: 6, max: 9 },
+                    { name: "Task B Duration", min: 3, likely: 4, max: 6 },
+                    { name: "Task C Duration", min: 6, likely: 8, max: 12 }
+                ];
+                document.getElementById('target_threshold').value = 18;
+                window.lastSimulationResult = null;
+                document.getElementById('simulationOutputBlock').style.display = 'none';
+                renderTableRows();
             }
         }
 
-        /* --- Strict copy-and-paste preservation of export structures --- */
         function exportJSON() {
             let savedState = {};
             const data = frameworks[FW_KEY];
@@ -571,6 +866,13 @@ ${script}
                 const el = document.getElementById(`input_${f.id}`);
                 savedState[f.id] = el ? el.value.trim() : "";
             });
+
+            savedState.tasks = taskList;
+            savedState.threshold = parseFloat(document.getElementById('target_threshold').value) || 18;
+            savedState.last_res = window.lastSimulationResult;
+            savedState._widget_params = {
+                _ran_sim: window.lastSimulationResult ? true : false
+            };
             
             const timestamp = new Date().toISOString().slice(0, 10);
             const blob = new Blob([JSON.stringify(savedState, null, 2)], { type: "application/json" });
@@ -591,15 +893,29 @@ ${script}
                 try {
                     const parsed = JSON.parse(e.target.result);
                     const data = frameworks[FW_KEY];
-                    const isValid = data.fields.some(f => parsed[f.id] !== undefined);
+                    const isValid = data.fields.some(f => parsed[f.id] !== undefined) || Array.isArray(parsed.tasks);
                     
                     if (isValid) {
                         data.fields.forEach(f => {
                             const el = document.getElementById(`input_${f.id}`);
                             if (el) el.value = parsed[f.id] || "";
                         });
-                        updatePreview();
-                        alert("Probabilistic risk variables successfully synchronized into local storage.");
+
+                        if (Array.isArray(parsed.tasks)) {
+                            taskList = parsed.tasks;
+                        }
+                        if (parsed.threshold) {
+                            document.getElementById('target_threshold').value = parsed.threshold;
+                        }
+                        window.lastSimulationResult = parsed.last_res || null;
+
+                        renderTableRows();
+                        if (window.lastSimulationResult) {
+                            runScheduleSimulation(false);
+                        } else {
+                            updatePreview();
+                        }
+                        alert("Probabilistic risk variables successfully synchronised into local storage.");
                     } else {
                         alert("Invalid JSON layout. Missing expected Monte Carlo structural keys.");
                     }
@@ -611,9 +927,10 @@ ${script}
             event.target.value = ''; 
         }
 
-        // --- 8. HTML REPORT COMPILER ---
+        // --- 11. HTML REPORT COMPILER ---
         function generateReport() {
             const data = frameworks[FW_KEY];
+            const cutOff = document.getElementById('target_threshold').value;
             let html = `<!DOCTYPE html>
             <html lang="en-GB">
             <head>
@@ -624,8 +941,12 @@ ${script}
                     h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
                     h2 { color: #0D1B2A; margin-top: 25px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
                     p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; color: #1A202C; }
+                    table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 20px; font-size: 14px; }
+                    th { background: #f4f7f9; color: #0D1B2A; text-align: left; padding: 10px; border: 1px solid #ddd; font-weight: bold; text-transform: uppercase; font-size: 11px; }
+                    td { padding: 10px; border: 1px solid #ddd; }
                     .logo { max-width: 250px; margin-bottom: 20px; }
                     .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
+                    .metrics-card { background: #fffdf5; border: 1px solid #e2e8f0; border-left: 4px solid #C05621; padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 14px; }
                     @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
                 </style>
             </head>
@@ -641,6 +962,41 @@ ${script}
                 html += `<p>${val ? val : 'Not defined.'}</p>`;
             });
 
+            html += `<h2>Interactive Schedule & Cost Risk Simulator Entries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Description (Task or Cost)</th>
+                        <th>Min</th>
+                        <th>Likely</th>
+                        <th>Max</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+                
+            taskList.forEach(t => {
+                const likely = parseFloat(t.likely) || 0;
+                const min = (t.min === undefined || t.min === null || t.min === '') ? (likely * 0.85).toFixed(1) : t.min;
+                const max = (t.max === undefined || t.max === null || t.max === '') ? (likely * 1.30).toFixed(1) : t.max;
+                html += `<tr>
+                    <td><strong>${t.name || 'Untitled Item'}</strong></td>
+                    <td>${min}</td>
+                    <td>${likely}</td>
+                    <td>${max}</td>
+                </tr>`;
+            });
+            
+            html += `</tbody></table>`;
+
+            if (window.lastSimulationResult) {
+                html += `<h2>Calculated Arithmetic Simulation Deliverables</h2>
+                <div class="metrics-card">
+                    Total Runtime Parameters Evaluated: 10,000 Sample Computations<br>
+                    Assigned Performance Target Threshold: <strong>${window.lastSimulationResult.threshold}</strong><br>
+                    Audited Probability of Target Breach: <strong style="color:#C05621;">${window.lastSimulationResult.probability}%</strong> of iterations exceeded threshold.
+                </div>`;
+            }
+
             html += `
                 <div class="footer">
                     Generated locally via Empowering Engineers UK - Risk Assessment & Decision Subsystem Core
@@ -649,11 +1005,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to permit master risk data compilation grids.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

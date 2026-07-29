@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
@@ -20,9 +21,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +43,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -163,18 +74,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .w-label { color: var(--terminal-green) !important; }
+        .w-label { color: var(--ee-terminal-green) !important; }
         .r-label { color: var(--burnt-orange) !important; }
         .a-label { color: #3498db !important; }
         .p-label { color: #e74c3c !important; }
-
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
 
         .example-text {
             color: var(--terminal-green);
@@ -183,88 +86,11 @@
             margin-top: 4px;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,7 +98,7 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
@@ -280,26 +106,30 @@
         <article class="thick-content" id="aeoThickContentBlock">
             <h1>Strategic Risk Governance and Options Analysis: Mastering the WRAP Decision Architecture</h1>
             <p>
-                In the modern engineering management ecosystem, selecting capital procurement tracks, software overhauls, or project delivery strategies can introduce subtle cognitive risks. Historically, decision-making cells have fallen into narrow "binary framing" traps—evaluating projects through single-track choices like "Should we buy this tooling system or not?". This limited approach masks alternative technical paths, leaves budgets exposed to cost spikes, and increases project risks due to confirmation bias, where teams look for data that supports their original preference. To move past binary choices and build a rigorous, multi-track selection framework, lead engineers execute a formal **WRAP Decision Analysis**. Developed by researchers Chip and Dan Heath and heavily tailored here for asset management and heavy commercial engineering projects, this method breaks decisions down into four explicit stages: **Widen Your Options**, **Reality-Test Assumptions**, **Attain Distance**, and **Prepare to be Wrong**.
+                When managing complex engineering projects, selecting the right capital equipment or planning a new digital software transition can introduce subtle mental traps. Historically, many technical teams fall into a dangerous habit called "binary framing." This means looking at problems as simple yes-or-no choices, such as "Should we buy this new filtration system or not?" This limited approach blocks out better alternative solutions, leaves your budgets exposed to sudden cost spikes, and increases project risks due to confirmation bias (where teams unconsciously only look for data that supports their favourite idea).
             </p>
             <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) guidelines, establishing structured risk logs and justifying major capital outlays maps directly to the criteria for **Competence C (Technical and Commercial Leadership)**. Criterion C candidate candidates must demonstrate clear personal ownership of commercial budgets, optimize asset workflows, and implement systematic risk insulation matrices before mobilising site work. Documenting your direct setup of a WRAP tracking script—proving you evaluated diverse technological options and engineered quantitative performance "tripwires" to capture project deviations early—gives review panels strong evidence of financial literacy, strategic governance, and structural leadership.
+                To break past these binary choices and build a rigorous, multi-track selection plan, lead engineers use the <strong>WRAP Decision Architecture</strong>. Developed by researchers Chip and Dan Heath, and tailored here for heavy commercial engineering projects, this method breaks decisions down into four explicit stages: <strong>Widen Your Options</strong>, <strong>Reality-Test Assumptions</strong>, <strong>Attain Distance</strong>, and <strong>Prepare to be Wrong</strong>.
             </p>
-            <h2>Deconstructing the Linear Taxonomy of the WRAP Workbench</h2>
+            <h2>Why the WRAP Framework Matters for Your Career</h2>
             <p>
-                Calibrating an audit-ready options appraisal register using this digital platform requires technical candidate leads to methodically analyze and record parameters across four clear field blocks:
-            </p>
-            <p>
-                <strong>Widen Explicit Options (W):</strong> Force the engineering group to escape narrow binary choice structures. Evaluate multiple alternative options profiles simultaneously, such as blending partial open-source software licenses alongside localized pilot development blocks.
+                If you are working towards your <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> professional registration, the <strong>Engineering Council</strong> will assess your decision-making maturity. Under the <strong>UK-SPEC</strong> guidelines, <strong>Competence C</strong> demands that you demonstrate clear personal ownership of commercial budgets, optimise project workflows, and implement systematic risk reduction strategies before beginning site work. During your <strong>Professional Review Interview (PRI)</strong>, assessors will ask exactly how you handle difficult project choices.
             </p>
             <p>
-                <strong>Reality-Test Assumptions (R):</strong> Design low-cost, short-duration prototyping tracks or site pilot runs to check theoretical performance assertions against real-world metrics, bypassing confirmation bias.
+                Showing that you use the WRAP tracking script proves that you evaluate diverse technological options and engineer quantitative performance tripwires to capture project deviations early. This gives your review panel strong evidence of your financial literacy, strategic governance, and structural leadership. It proves that you do not guess; you verify.
             </p>
+            <h2>How to Use This Interactive Workbench Cleanly</h2>
             <p>
-                <strong>Attain Cognitive Distance (A):</strong> Remove short-term emotional bias, corporate schedule pressures, or personal career self-preservation factors from the logic loop by evaluating options through long-term lifecycle baselines.
+                Calibrating an audit-ready options register using this digital platform requires you to methodically analyse and record parameters across four clear field blocks:
             </p>
+            <ul>
+                <li><strong>Widen Explicit Options (W):</strong> Force your engineering group to escape narrow binary choice structures. Evaluate multiple alternative paths simultaneously. For example, instead of choosing to outsource or build internally, you might explore a third option: purchasing open-access baseline scripts and customising them locally.</li>
+                <li><strong>Reality-Test Assumptions (R):</strong> Design a low-cost, short-duration prototyping track or site pilot run to check your theoretical performance assertions against real-world metrics, bypassing confirmation bias.</li>
+                <li><strong>Attain Cognitive Distance (A):</strong> Remove short-term emotional bias, tight corporate schedule pressures, or personal career fears from your logic loop by evaluating options through a long-term lifecycle baseline.</li>
+                <li><strong>Prepare to be Wrong via Tripwires (P):</strong> Hardcode precise, quantitative operational triggers and deadline boundaries into your project plan. If these limits are crossed, they instantly launch automated recovery procedures or cancel the contract.</li>
+            </ul>
             <p>
-                <strong>Prepare to be Wrong via Tripwires (P):</strong> Hardcode precise, quantitative operational triggers and deadline boundaries that instantly launch automated recovery procedures or cancel the contract if exceeded.
+                Because capital asset plans and operational budgets are highly confidential, this workbench operates using a strict, zero-knowledge local browser storage system. Your text inputs, probabilities, and strategic notes are saved securely on your own device's internal memory. They are never transmitted to our external servers, ensuring you remain completely compliant with your employer's Non-Disclosure Agreements (NDAs). Use the tool below to structure your logic and generate a clean audit report.
             </p>
         </article>
 
@@ -314,10 +144,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="decisionsPathNav" aria-label="Risk Management Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="decisions.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_decisions"></div>
                 <span class="tab-label">Decisions Hub</span>
@@ -350,6 +180,10 @@
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
             </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -379,9 +213,9 @@
                 <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting structured analytical entries to construct the WRAP strategy sheet...</div>
@@ -403,10 +237,10 @@
                 name: "WRAP Technique (Advanced Decision Process Architecture)",
                 cat: "decision",
                 fields: [
-                    { id: "W", label: "WIDEN EXPLICIT OPTIONS", hint: "Avoid binary frame restrictions ('Do X or not'). Force the group to consider multiple alternative configuration paths.", example: "e.g. 'Instead of Outsource vs Build Internally, evaluate: 1. Purchase open-access baseline scripts. 2. Jointly fund custom code with an infrastructure partner.'" },
-                    { id: "R", label: "REALITY-TEST ASSUMPTIONS", hint: "Design a limited, low-risk simulation, prototype track, or field test to verify performance parameters directly.", example: "e.g. 'Run a limited 14-day field evaluation loop using a single beta license on a non-critical infrastructure node to audit real-world processing latency.'" },
-                    { id: "A", label: "ATTAIN COGNITIVE DISTANCE", hint: "Remove short-term emotional bias, corporate schedule pressures, or career self-preservation factors from the logic loop.", example: "e.g. 'Evaluate the option strictly through a 10-year asset lifecycle perspective: if we were onboarded as external consulting engineers today, we would cancel this legacy track.'" },
-                    { id: "P", label: "PREPARE TO BE WRONG (Tripwires)", hint: "Hardcode explicit, quantitative operational metrics and deadline boundaries that instantly trigger termination or recovery loops.", example: "e.g. 'Set a firm performance tripwire: if software integration logic overruns our scheduled critical path by >7 days, terminate the contract immediately and revert to the baseline.'" }
+                    { id: "W", label: "WIDEN EXPLICIT OPTIONS", hint: "Avoid binary choice frameworks ('X or Y'). Force the group to consider multiple alternative configuration paths.", example: "e.g. 'Instead of just Outsource Software vs Develop Internally, evaluate: 1. Purchase open-access baseline scripts. 2. Jointly fund custom code with an infrastructure partner.'" },
+                    { id: "R", label: "REALITY-TEST ASSUMPTIONS", hint: "Design a limited, low-risk simulation, prototype track, or field test to verify theoretical performance claims.", example: "e.g. 'Run a limited 14-day field evaluation loop using a single beta license on a non-critical infrastructure node to audit real-world processing latency.'" },
+                    { id: "A", label: "ATTAIN COGNITIVE DISTANCE", hint: "Remove short-term emotional bias, corporate deadline panic, and career self-preservation fears from the logic loop.", example: "e.g. 'Evaluate the option strictly through a 10-year asset lifecycle perspective: if we were onboarded as external consulting engineers today, we would immediately cancel this legacy code track.'" },
+                    { id: "P", label: "PREPARE TO BE WRONG (Tripwires)", hint: "Hardcode explicit, quantitative operational metrics and deadline boundaries that instantly trigger termination or recovery procedures if missed.", example: "e.g. 'Set a firm performance tripwire: if software integration logic overruns our scheduled critical path by >7 days, terminate the contract immediately and revert to the baseline configuration.'" }
                 ]
             };
         }
@@ -414,6 +248,7 @@
         // --- 2. INITIALISATION & INHERITANCE ENGINE ---
         function initApp() {
             loadFrameworkFields();
+            updateNavigationBadges();
         }
 
         function loadFrameworkFields() {
@@ -435,7 +270,7 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localized option bounds here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="ee-textarea form-input" placeholder="Configure localized option bounds here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
             });
@@ -460,13 +295,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_montecarlo',
+                'monte': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_riskmatrix',
-                'force': 'ee_decisions_forcefield',
+                'risk': 'ee_decisions_risk-matrix',
+                'force': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+                'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -549,21 +385,57 @@ ${script}
 """
 [EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -644,7 +516,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>WRAP Decision Architecture Report</h1>
                 <p><em>Framework Branch: Advanced Options Appraisal & Project Risk Governance // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>`;
 
@@ -668,6 +540,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

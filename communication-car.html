@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- CAR GRID STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .car-stack {
             display: flex;
             flex-direction: column;
@@ -157,68 +64,13 @@
         .car-card.action-card { border-left-color: var(--ee-terminal-green); }
         .car-card.result-card { border-left-color: #00b894; }
 
-        .car-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .challenge-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--terminal-green) !important; }
-        .result-label { color: #00b894 !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -238,10 +90,12 @@
             justify-content: center;
         }
 
+        /* Enforce custom prompt adjustments alongside global button utilities */
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -264,38 +118,27 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Executive Engineering Communication: Mastering the CAR Focus Framework</h1>
-            <p>
-                In high-pressure corporate boardrooms and during rigorous Professional Review Interviews (PRI) conducted by licensed professional institutions, technical clarity must be balanced with executive conciseness. While the traditional and thorough STAR methodology (Situation, Task, Action, Result) serves as an excellent operational mapping tool for foundational engineering portfolios, senior engineering leads, principal consultants, and candidates pursuing Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration often require a more streamlined approach. The **CAR Focus Framework (Challenge, Action, Result)** resolves this structural need by compressing narrative fluff and prioritising high-impact analytical synthesis.
-            </p>
-            <p>
-                The Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) explicitly subjects candidates to strict assessments regarding **Competence D (Communication and Interpersonal Skills)**. This specific standard demands that an engineer demonstrate the capability to translate complex technical jargon, multi-variable geometric tolerances, and safety-critical data registries into definitive, actionable summaries for commercial stakeholders. The CAR framework achieves this balance by merging the "Situation" and "Task" phases into a singular, risk-focused **Challenge** field. This architectural structure prevents candidates from drifting into passive, historical background descriptions, forcing an immediate focus on personal accountability, professional engineering methods, and measurable commercial results.
-            </p>
+            <h2>What is the CAR Focus Framework?</h2>
+            <p>The <strong>CAR framework</strong> is a high-impact, three-part communication model designed specifically for engineering professionals. CAR stands for <strong>Challenge, Action, and Result</strong>. It provides a clear, streamlined way to write about your engineering achievements without getting lost in unnecessary background details. While more detailed setups like the STAR method are fantastic for long portfolio entries, the CAR layout is ideal for fast technical summaries, project updates, and executive briefs. It helps you compress information so your engineering insights stand out clearly to whoever reads your work.</p>
 
-            <h2>Deconstructing the Dimensions of a Compliant CAR Summary</h2>
-            <p>
-                Constructing a professional engineering evidence block utilizing the CAR focus grid requires an advanced understanding of project drivers and lifecycle asset constraints:
-            </p>
-            <p>
-                <strong>Challenge [C]:</strong> This dimension defines the technical problem statement, systemic crisis, or baseline operational bottleneck. Technical leaders must outline the exact boundaries of the crisis, incorporating physical design parameters, financial liabilities, resource limits, and safety risk profiles. Instead of stating "the cooling system failed," a compliant entry outlines the structural parameters: e.g. "Thermal stratification profiles inside a nuclear cooling assembly exceeded maximum design allowances by 18%, threatening a statutory reactor trip, imposing a potential £350,000 daily downtime liability, and violating Construction (Design and Management) safety baselines."
-            </p>
-            <p>
-                <strong>Action [A]:</strong> The action field represents the core technical substance of your submission. Assessors use this block to evaluate personal technical contribution and independent decision-making. Candidates must use active engineering verbs to document what *they* personally calculated, simulated, authorized, or designed. This involves explaining the first-principles mathematics applied, the custom scripts written, the standard compliance specifications deployed (such as ISO 9001 or ASME codes), and the multi-disciplinary team networks orchestrated to mitigate the identified challenge.
-            </p>
-            <p>
-                <strong>Result [R]:</strong> The final dimension proves the ultimate validity of the engineering action. Review boards will completely dismiss entries that lack data-driven, empirical results. Candidates must provide concrete numbers to verify success. This includes documenting optimized performance metrics, verified safety clearances, capital expenditure savings, minimized life-cycle carbon calculations, or formal regulatory sign-offs. Proving these outcomes establishes absolute compliance with UK-SPEC strategic metrics.
-            </p>
+            <h2>Why Does Structured Writing Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must satisfy the Engineering Council's benchmarks. Your professional review panel evaluates your communication and interpersonal skills directly under <strong>UK-SPEC Competence D</strong>. Many brilliant technicians experience unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they ramble or focus too much on group tasks rather than their individual technical decisions.</p>
+            <p>Using the CAR model helps you fix this issue completely. By merging the context and scope of a project into a single, high-impact <strong>Challenge</strong> block, you avoid wasting space on background history. This structure allows you to move immediately into your personal <strong>Actions</strong>, showcasing your design choices, calculations, and problem-solving skills. Proving your work with a clear, data-driven <strong>Result</strong> shows senior business managers and review panels that you possess the commercial awareness and professional maturity needed for senior engineering leadership roles.</p>
 
-            <h2>Interactive Client-Side CAR Workspace</h2>
-            <p>
-                The interactive workspace below is engineered to help engineering professionals rapidly structure their interview narratives and technical briefings. To protect classified commercial strategies and secure proprietary corporate datasets, our platform utilizes a zero-knowledge local browser architecture. All inputs are saved and compiled entirely within your device's sandboxed local memory cache—nothing is ever transmitted to remote networks. Use this toolkit to compile comprehensive outlines, export verified JSON structures, or generate advanced AI prompt configurations.
-            </p>
+            <h2>How to Complete Your CAR Framework Workspace Cleanly</h2>
+            <p>To construct an audit-ready engineering evidence summary, work sequentially through the three interactive cards on our workbench canvas:</p>
+            <ul>
+                <li><strong>Challenge [C]:</strong> Define the exact technical breakdown, structural bottleneck, safety risk, or financial liability your project faced. Use precise numbers where possible to ground your statement.</li>
+                <li><strong>Action [A]:</strong> Document your personal technical contributions. Use active verbs to state exactly what *you* calculated, analyzed, modeled, or authorized under industry standards.</li>
+                <li><strong>Result [R]:</strong> State the final, quantitative outcome of your engineering actions. Include empirical data like hours saved, percentage efficiency gains, or verified safety clearances.</li>
+            </ul>
+            <p>Type your project notes directly into the fields below. Our <strong>strong zero-knowledge local browser architecture</strong> saves your entries automatically every few seconds, keeping your company’s sensitive data completely private on your own device. Once finished, use the side panel controls to copy your completed text outline or print a professional report to back up your engineering registration portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -374,29 +217,29 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="car-stack">
                     
                     <!-- Challenge Card -->
                     <div class="car-card challenge-card">
-                        <label class="car-label challenge-label">Challenge [C]</label>
+                        <label class="ee-label" for="car_Challenge" style="color: var(--burnt-orange);">Challenge [C]</label>
                         <span class="form-hint">What structural, mechanical, or systemic crisis did you identify? Highlight technical boundaries, commercial liabilities, and safety risks. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Micro-fractures detected in high-pressure steam lines during statutory testing, creating an immediate plant lockout risk.</span></span>
-                        <textarea id="car_Challenge" class="form-input" placeholder="Define the technical challenge or structural risk parameters..." oninput="updatePreview()"></textarea>
+                        <textarea id="car_Challenge" class="ee-textarea" placeholder="Define the technical challenge or structural risk parameters..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="car-card action-card">
-                        <label class="car-label action-label">Action [A]</label>
+                        <label class="ee-label" for="car_Action" style="color: var(--terminal-green);">Action [A]</label>
                         <span class="form-hint">What personal calculations, standard workflows, codes, or optimizations did you execute? Focus strictly on your personal accountability. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Formulated finite element stress models, recalculated safe working tolerances, and authorized repair layouts.</span></span>
-                        <textarea id="car_Action" class="form-input" placeholder="Document your specific technical actions and engineering contributions..." oninput="updatePreview()"></textarea>
+                        <textarea id="car_Action" class="ee-textarea" placeholder="Document your specific technical actions and engineering contributions..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Result Card -->
                     <div class="car-card result-card">
-                        <label class="car-label result-label">Result [R]</label>
+                        <label class="ee-label" for="car_Result" style="color: #00b894;">Result [R]</label>
                         <span class="form-hint">What data-driven outcomes, financial savings, asset improvements, or safety clearances resulted from your actions? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Restored full plant capacity 48 hours ahead of schedule, avoiding £700,000 in operational losses.</span></span>
-                        <textarea id="car_Result" class="form-input" placeholder="State the quantifiable results and verified engineering performance indicators..." oninput="updatePreview()"></textarea>
+                        <textarea id="car_Result" class="ee-textarea" placeholder="State the quantifiable results and verified engineering performance indicators..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -404,12 +247,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile narrative tracking stream...</div>
@@ -553,7 +396,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -585,6 +428,7 @@ ${script}
             document.body.removeChild(link);
         }
 
+        document.template_state = {};
         function importJSON(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -657,6 +501,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

@@ -17,122 +17,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <!-- References Version 21.7 to strictly bind with the active master cache baseline -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- References Version 22.0 to strictly bind with the active master cache baseline -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
     
     <style>
         /* --- TOOL-SPECIFIC OVERRIDES & STANDARDISED TAB ENGINE --- */
+        /* Global typography and container grids are handled by layout.css */
         
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Strict Levelling Badges matching the master framework template */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
         /* Workspace Panels */
         .form-section { display: none; animation: fadeIn 0.3s ease; }
         .form-section.active { display: block; }
@@ -152,30 +48,31 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-
-        .header-actions { 
-            display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; 
-            justify-content: space-between; align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 15px;
-        }
     </style>
 </head>
 <body>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Engineering Career Summary & Professional CV Architect</h1>
-            <p>The foundation of any successful application for professional engineering registration—whether targeting Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status—is a meticulously structured chronological career summary. The Engineering Council and associated licensed professional institutions (such as the IMechE, IET, and ICE) mandate that candidates submit a highly concentrated, verified report detailing their past engineering experience. This summary is not merely an amorphous list of historical job titles; it is a strategic reference document engineered specifically to highlight your expanding level of management authority, technical autonomy, and measurable commercial impact over time.</p>
+            <p>The foundation of any successful application for professional engineering registration is a meticulously structured chronological career summary. Whether you are targeting Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status, you must prove your experience. The Engineering Council and licensed institutions, such as the IMechE or IET, require a highly concentrated report. This document details your past engineering roles. It is not just a simple list of jobs. It is a strategic reference document. It must clearly highlight your expanding level of management authority, technical autonomy, and measurable commercial impact over time.</p>
             
             <h2>Structuring the UK-SPEC Career Report</h2>
-            <p>Institutional guidelines typically restrict this baseline career overview to a tight parameter of a maximum of 600 words, focusing acutely on the past five years of professional practice or your three most recent technical roles. Within this strict structural constraint, engineers must distinctly and authoritatively articulate the specific parameters of their responsibilities and the direct, data-driven outcomes of their achievements. The institutional assessing panel utilises this foundational document to establish an initial benchmark of your professional maturity and tier alignment before diving into the granular sub-competency evidence blocks spanning Sections A through E.</p>
+            <p>Institutional guidelines usually restrict this career overview to a strict maximum of 600 words. You should focus acutely on the past five years of your professional practice, or your three most recent technical roles. Within this strict word limit, you must distinctly and authoritatively articulate your responsibilities. You must also highlight the direct, data-driven outcomes of your achievements using the STAR Methodology (Situation, Task, Action, Result). The institutional assessing panel reads this foundational document first. They use it to establish an initial benchmark of your professional maturity and tier alignment. Once they are satisfied with your career overview, they will dive into the detailed sub-competency evidence blocks spanning Sections A through E.</p>
             
-            <h2>From Registration Mapping to Commercial Positioning</h2>
-            <p>To maximise the operational utility of your technical data compilation, this architectural platform features a dual-purpose compilation and preview engine. While the primary function aggregates your structured inputs into the rigid, narrative text blocks required for your formal UK-SPEC Professional Review Interview (PRI) application forms, the secondary generation engine leverages this exact dataset to construct a full-scale professional Curriculum Vitae (CV). The system offers three distinct scannable layout topologies—Executive Classic, Modern Sidebar, and Dense Academic—allowing you to instantly preview, optimise, and deploy your updated professional history to external hiring managers and review boards. Our integrated visual settings engine also allows you to customise typography parameters, text scaling, and brand accent colours to cleanly align with your personal identity.</p>
-            <p>Acknowledging the absolute confidentiality of engineering career records, internal safety data audits, and sensitive project histories, this system is fortified by a zero-knowledge local storage architecture. Your personal identifiable information (PII) and corporate project backgrounds are never transmitted to external processing servers. All typed characters are secured natively within your local machine's browser cache, ensuring total data sovereignty and strict compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+            <h2>Building a High-Impact Professional CV</h2>
+            <p>To maximise the value of your hard work, this architectural platform features a dual-purpose compilation engine. The primary function aggregates your typed inputs into the rigid, narrative text blocks required for your formal UK-SPEC Professional Review Interview (PRI) application forms. However, the secondary generation engine uses this exact same dataset to construct a full-scale professional Curriculum Vitae (CV). This means you only have to write your career history once.</p>
+            <p>The system offers three distinct scannable layout topologies. You can choose from the Executive Classic, the Modern Sidebar, or the Dense Academic layout. These options allow you to instantly preview, optimise, and deploy your updated professional history to external hiring managers and review boards. Our integrated visual settings engine also allows you to customise typography parameters, text scaling, and brand accent colours. This ensures your CV cleanly aligns with your personal professional identity.</p>
+
+            <h2>Total Data Security and Confidentiality</h2>
+            <p>As a working engineer, you handle highly confidential records, internal safety data audits, and sensitive project histories. This system is protected by a zero-knowledge local storage architecture. Your personal identifiable information and corporate project backgrounds are never transmitted to external processing servers. All typed characters are secured natively within your local machine's browser cache. This ensures total data sovereignty and strict compliance with corporate Non-Disclosure Agreements (NDAs). You can draft your career history safely, without fear of data leaks.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -188,7 +85,7 @@
         </div>
 
         <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+        <nav class="ee-horizontal-nav" aria-label="Application Pathway">
             <a href="ceng.html" id="link_hub" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">Hub Overview</span>
@@ -241,7 +138,7 @@
         </div>
 
         <!-- Unified Horizontal Navigation for Build Phases -->
-        <nav id="internal-tool-nav" class="ee-horizontal-nav" aria-label="Build Phases" style="border-bottom: 1px solid var(--border-color); margin-bottom: 20px;">
+        <nav id="internal-tool-nav" class="ee-horizontal-nav" aria-label="Build Phases">
             <button type="button" class="ee-horizontal-tab active" onclick="switchSection('sec-personal', this)">1. Personal Summary</button>
             <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-role1', this)">2. Current Role</button>
             <button type="button" class="ee-horizontal-tab" onclick="switchSection('sec-role2', this)">3. Previous Role</button>
@@ -487,9 +384,9 @@
                             
                             <div style="display: flex; flex-direction: column; gap: 12px;">
                                 <button type="button" class="action-btn" onclick="exportReport('summary', false)">📄 IMechE Summary</button>
-                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-classic', false)">📄 CV: Executive Classic</button>
-                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-modern', false)">📄 CV: Modern Sidebar</button>
-                                <button type="button" class="action-btn action-btn-outline" onclick="exportReport('cv-dense', false)">📄 CV: Dense Academic</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-classic', false)">📄 CV: Executive Classic</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-modern', false)">📄 CV: Modern Sidebar</button>
+                                <button type="button" class="action-btn action-btn-ghost" onclick="exportReport('cv-dense', false)">📄 CV: Dense Academic</button>
                             </div>
                         </div>
 
@@ -511,7 +408,7 @@
         </div>
     </main>
 
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 
     <script>
         // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.

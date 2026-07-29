@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="Free engineering tools for CEng registration. AI-powered writers, UK-SPEC Competence D communication and interpersonal skill trackers. Secure, browser-based, open access.">
-    <meta name="keywords" content="Chartered Engineer, CEng, UK-SPEC, Engineering Council, Competence D, Engineering Communication, Interpersonal Skills, STAR Technique, Professional Review">
+    <meta name="description" content="Free engineering tools for CEng registration. AI-powered writers, UK-SPEC competency trackers for Competence D communication and interpersonal skills. Secure, browser-based, and open access.">
+    <meta name="keywords" content="Chartered Engineer, CEng, UK-SPEC, Engineering Council, STAR Technique, Professional Review, Competence D, Engineering Communication, Interpersonal Skills">
     <meta property="og:title" content="Empowering Engineers UK | CEng D Professional Registration Tools">
-    <meta property="og:description" content="Accelerate your journey to Chartered Engineer (CEng) status with our high-trust technical toolset for Competence D.">
+    <meta property="og:description" content="Accelerate your journey to Chartered Engineer (CEng) status with our high-trust communication toolset for Competence D.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/ceng-d.html">
     <meta property="og:type" content="website">
@@ -20,11 +20,10 @@
     <link rel="manifest" href="site.webmanifest">
     
     <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
-    
-    <link class="canonical" href="https://www.empoweringengineers.uk/ceng-d.html" />
+    <link rel="canonical" href="https://www.empoweringengineers.uk/ceng-d.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -36,7 +35,6 @@
       "publisher": {
         "@type": "Organization",
         "name": "Empowering Engineers UK",
-        "url": "https://www.empoweringengineers.uk/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
@@ -45,64 +43,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -110,51 +113,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -162,29 +120,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Chartered Engineer (CEng) Competence D: Communication and Interpersonal Skills</h1>
-            <p>While technical design and project management form the operational core of a Chartered Engineer (CEng), the ability to communicate those concepts effectively is what drives projects to successful completion. The UK Standard for Professional Engineering Competence (UK-SPEC) dedicates Competence D to interpersonal skills, assessing your capability to articulate complex technical information to diverse audiences, negotiate effectively, and manage professional relationships. The Engineering Council requires undeniable proof that you can operate as a persuasive, objective, and empathetic leader.</p>
-
+            <p>To become a Chartered Engineer (CEng), you must prove that you have excellent communication skills. Competence D in the UK-SPEC framework checks how well you share technical information and work with others. The Engineering Council wants to ensure that you can lead teams, discuss complex designs, and present clear proposals. If an engineer cannot explain their ideas, project layouts cannot be delivered safely. This digital tracker helps you structure your professional reports to pass your final assessment review loops smoothly.</p>
+            
             <h2>D1: Communicate in English with Others at All Levels</h2>
-            <p>Sub-competence D1 establishes the baseline for professional communication. Assessors require explicit evidence that you can present, write, and converse fluently and confidently. However, this extends far beyond mere grammar; you must demonstrate acute audience awareness. You must show how you distil highly complex mathematical or structural data into accessible executive summaries for commercial stakeholders, while concurrently retaining the ability to dive into extreme technical depth when briefing engineering peers or subject matter experts. Your portfolio should reference specific technical reports, formal specifications, and critical correspondence you have authored.</p>
-
+            <p>What is this step? This step is the practice of sharing technical data accurately through clear writing and professional speech. Why does it matter to your career? Senior engineering leads must speak confidently with different audiences. You need to explain complex mathematics to your design peers, but you must also write simple, high-level summaries for business clients. Poor communication causes layout errors and project delays. How do you complete it cleanly? Document times you wrote formal engineering specifications, technical manuals, or factory safety guidelines. Explain how you adapted your vocabulary to match your audience's technical knowledge level.</p>
+            
             <h2>D2: Present and Discuss Proposals</h2>
-            <p>Communication within the engineering sector is inherently a two-way process. D2 evaluates your operational ability to pitch ideas, defend technical proposals, and navigate intense professional scrutiny. Assessing panels look for scenarios where you have formally presented a technical case (such as a design review, safety case, or multi-million-pound project bid) and constructively handled objections or alternative viewpoints. You must highlight your capability to remain objective under pressure, process critical feedback in real-time, and seamlessly synthesize differing opinions into a safe engineering strategy.</p>
-
+            <p>What is this step? This phase involves delivering technical presentations and defending your project plans during design reviews. Why does it matter to your career? You must prove that you can handle difficult technical questions under intense pressure. Institutional review panels look for evidence that you can pitch ideas and constructively process critical feedback from senior colleagues. True leaders use evidence to resolve conflicting design requirements safely. How do you complete it cleanly? Describe a specific time you delivered a presentation, such as a milestone review or a site risk briefing. Explain how you answered questions from clients using clear engineering facts.</p>
+            
             <h2>D3: Demonstrate Personal and Social Skills</h2>
-            <p>Engineering is a deeply collaborative discipline. Sub-competence D3 focuses on the human element of your career trajectory. It assesses your emotional intelligence, conflict resolution capabilities, and absolute commitment to fostering inclusive work environments. You are required to provide robust evidence of how you manage difficult interpersonal dynamics, negotiate limited resources with conflicting departments, and champion diversity within your engineering teams. It demonstrates your maturity as a leader who values psychological safety just as highly as physical safety on site.</p>
-
+            <p>What is this step? This pillar focuses on your teamwork, emotional intelligence, and commitment to workplace diversity. Why does it matter to your career? Modern engineering projects are a team effort. You must prove you can manage professional relationships and resolve interpersonal conflicts constructively on site. Fostering an inclusive, respectful work environment increases operational speeds and safeguards team safety. How do you complete it cleanly? Provide clear evidence of how you resolved an argument between team members or negotiated for extra staff resources during a critical project window. Show how you applied your Professional Engineering Institution (PEI) code of conduct daily.</p>
+            
             <h2>Structuring Your Evidence via the STAR Methodology</h2>
-            <p>To satisfy the rigorous demands of institutional reviewing panels (including the IMechE, IET, and ICE), absolute narrative precision is mandatory. We enforce the deployment of the STAR methodology (Situation, Task, Action, Result) across all competency responses. This universally recognised framework prevents vague generalisations. When documenting Competence D, your 'Action' phase must vividly detail the specific communication strategies you employed, the presentations you authored, and the exact interpersonal resolutions you engineered to guarantee success.</p>
-
+            <p>To pass your Professional Review Interview (PRI), your competence portfolio must be highly structured. We mandate using the STAR Methodology (Situation, Task, Action, Result) for all your written responses. This simple layout prevents vague generalisations. It forces you to highlight your personal, individual actions rather than what your wider project team achieved. In the Action boxes, describe your specific communication steps and presentation methods. The Result section must include quantified data to prove your success. A factual report forms a robust base for your verbal defense during your interview panel.</p>
+            
             <h2>Secure Client-Side Architecture</h2>
-            <p>Acknowledging the extreme confidentiality of internal commercial dispute resolutions, proprietary project pitches, and sensitive personnel management scenarios, this tracker is fortified by a zero-knowledge local storage architecture. Your sensitive project histories never transmit to external servers. All keystrokes are secured natively within your local browser cache, assuring absolute data sovereignty and compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+            <p>Drafting your communication history involves handling confidential company records, internal emails, and project pitches. This workbench uses a zero-knowledge local storage architecture to protect your intellectual property completely. All text inputs remain saved natively inside your local browser cache. Your proprietary engineering narratives are never transmitted to external servers or remote networks. This setup guarantees absolute compliance with corporate Non-Disclosure Agreements (NDAs). You can draft your career portfolio safely with complete peace of mind.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -197,7 +155,7 @@
         </div>
 
         <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="CEng Pathway Overview" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+        <nav class="ee-horizontal-nav" aria-label="CEng Application Pathway">
             <a href="ceng.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">CEng Hub</span>
@@ -242,9 +200,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Chartered Engineer (CEng) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -388,11 +346,11 @@
 
             <!-- COACH SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: D1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: D1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
-                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - AWARE</span></div>
+                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - Aware</span></div>
                 </div>
                 
                 <div class="coach-card">
@@ -413,7 +371,7 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
@@ -429,9 +387,9 @@
 
         // --- NAVIGATION BADGE ENGINE ---
         function calculateScoreForBadge(text, subId) {
-            if (!text || text.trim() === "") return 1; // Explicit default for empty strings
+            if (!text || text.trim() === "") return 1;
             const wordCount = text.trim().split(/\s+/).length;
-            if (wordCount < 50) return 1; // Default L1 if sparse data
+            if (wordCount < 50) return 1; 
 
             let score = 1;
             if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap['CEng']) {
@@ -498,9 +456,9 @@
                 let subScores = [];
 
                 expectedSubs.forEach(sub => {
-                    let score = 1; // Default to L1 - AWARE explicitly for blanks
+                    let score = 1;
                     // Read active text locally if on current page, else read from memory cache
-                    if (comp === 'd' && appState[sub]) { // Local tracking for Comp D
+                    if (comp === 'd' && appState[sub]) {
                         score = calculateScoreForBadge(appState[sub].compiled || '', sub);
                     } else if (tools[toolId] && tools[toolId][sub]) {
                         score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub);
@@ -570,7 +528,7 @@
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Application Draft Preview</h1>
                 <p><em>Candidate: ${masterData.username || "Not Provided"}</em></p>`;
 
@@ -578,7 +536,7 @@
             if (masterData.ee_tools['ee_career_builder_state']) {
                 html += `<h2>Career Summary</h2>`;
                 const cs = masterData.ee_tools['ee_career_builder_state'];
-                if(cs.p_summary) html += `<p>${cs.p_summary}</p>`;
+                if (cs.p_summary) html += `<p>${cs.p_summary}</p>`;
                 else html += `<p><em>Career data logged but no explicit summary text identified.</em></p>`;
             }
 
@@ -616,7 +574,7 @@
 
         // --- UI & TAB LOGIC ---
         function switchMainTab(tabId) {
-            saveCurrentInputsToState(); // Ensure we don't lose typed data before switching
+            saveCurrentInputsToState(); 
             currentMainTab = tabId;
 
             // Toggle Main Tabs scoped to internal nav to protect Breadcrumbs
@@ -626,9 +584,9 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
-            // Reload the placeholders & inputs for the active scenario of this tab
+            // Reload placeholders & inputs
             loadPlaceholders(tabId);
             populateInputsFromState(tabId, appState[tabId].activeScenario);
             updateScenarioTabVisuals(tabId, appState[tabId].activeScenario);
@@ -636,7 +594,7 @@
         }
 
         function switchScenario(subId, scenNum) {
-            saveCurrentInputsToState(); // Save current before switching
+            saveCurrentInputsToState(); 
             appState[subId].activeScenario = scenNum;
             populateInputsFromState(subId, scenNum);
             updateScenarioTabVisuals(subId, scenNum);
@@ -649,7 +607,6 @@
             }
         }
 
-        // --- REAL-TIME AUTOSAVE MATRIX ---
         function saveCurrentInputsToState() {
             const subId = currentMainTab;
             const scenNum = appState[subId].activeScenario;
@@ -825,7 +782,7 @@
                 if (savedState.D3) appState.D3 = savedState.D3;
             }
             switchMainTab('D1');
-            updateNavigationBadges(); // Execute initial render of global badges
+            updateNavigationBadges(); 
         }
 
         function saveToLocalTemp() {
@@ -833,7 +790,7 @@
             let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
             masterData.ee_tools[EE_TOOL_ID] = appState; 
             localStorage.setItem('ee_master_state', JSON.stringify(masterData));
-            updateNavigationBadges(); // Live update global badges after saving
+            updateNavigationBadges(); 
         }
 
         function exportEEData() {

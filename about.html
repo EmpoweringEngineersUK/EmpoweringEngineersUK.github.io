@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
     <meta name="description" content="The story of Empowering Engineers UK: A mentorless journey to FIMechE and CEng. Built to democratise professional registration for all engineers.">
+    <meta name="keywords" content="Empowering Engineers UK, CEng, IEng, EngTech, Engineering Mentor, Professional Registration, UK-SPEC, Engineering Council">
     <meta property="og:title" content="About Us | Empowering Engineers UK">
     <meta property="og:description" content="The story of Empowering Engineers UK: A mentorless journey to FIMechE and CEng. Built to democratise professional registration for all engineers.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
@@ -16,14 +19,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <link rel="canonical" href="https://www.empoweringengineers.uk/about.html" />
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Enforce unified layout styling and local pathing with active cache-busting -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
 
     <script type="application/ld+json">
     {
@@ -42,153 +39,66 @@
       }
     }
     </script>
-
-    <style>
-        /* INHERITED AESTHETIC - STRICTLY ARIAL/SANS-SERIF */
-        body, button, input, select, textarea, h1, h2, h3, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        .content-card { 
-            background: var(--dark-card); 
-            padding: 40px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
-            margin-bottom: 20px; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        h1.main-title { 
-            color: var(--terminal-green); 
-            border-bottom: 2px solid var(--border-color); 
-            padding-bottom: 15px; 
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-        }
-
-        h2.section-subtitle { 
-            color: var(--burnt-orange); 
-            margin-top: 40px; 
-            margin-bottom: 15px; 
-            font-size: 1.3rem; 
-            border-bottom: 1px dashed var(--border-color); 
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        h3.block-heading {
-            color: var(--slate-grey);
-            margin-top: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        p.narrative-text { 
-            line-height: 1.7; 
-            color: var(--cloud-white);
-            margin-bottom: 20px; 
-            font-size: 1rem;
-        }
-
-        strong.highlight-green { color: var(--terminal-green); }
-
-        ul.tool-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-
-        ul.tool-list li {
-            border-left: 3px solid var(--terminal-green);
-            margin-bottom: 10px;
-            padding: 15px;
-            background: rgba(0, 104, 55, 0.05);
-            color: var(--cloud-white);
-        }
-
-        ul.tool-list li a {
-            color: var(--terminal-green);
-            font-weight: bold;
-            text-decoration: none;
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        ul.tool-list li a:hover { text-decoration: underline; }
-
-        .founder-box {
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--burnt-orange);
-            padding: 25px;
-            margin-top: 50px;
-            background: var(--midnight-navy);
-        }
-
-        .founder-role { 
-            color: var(--slate-grey); 
-            font-size: 0.85rem; 
-            display: block; 
-            margin-bottom: 15px; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
-        .badge-container { margin-top: 15px; width: 100%; }
-        .LI-simple-link { color: var(--terminal-green) !important; text-decoration: none; font-weight: bold; }
-        .li-badge-light { display: none; }
-        .li-badge-dark { display: block; }
-        body[data-theme="light"] .li-badge-light { display: block; }
-        body[data-theme="light"] .li-badge-dark { display: none; }
-
-        @media (max-width: 600px) {
-            .content-card { padding: 20px; }
-            h1.main-title { font-size: 1.4rem; }
-        }
-    </style>
 </head>
 <body>
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
         // Unique namespacing token initialised to guarantee compliance with platform tracking
         const EE_TOOL_ID = "ee_about_framework";
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
-    <script src="tools_data.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
+    <script src="tools_data.js?v=22.0" defer></script>
 
     <main class="container" style="max-width: 900px;">
         
+        <!-- Home Cluster Breadcrumb -->
+        <nav class="ee-horizontal-nav" aria-label="Home Section Navigation">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+        </nav>
+        
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>The Structural Evolution of Professional Engineering Frameworks</h1>
-            <p>The structural evolution of a professional engineer within the United Kingdom framework requires a systematic transition from pure academic theory to operational governance and commercial responsibility. Under the strict criteria defined by the Engineering Council in the UK Standard for Professional Engineering Competence (UK-SPEC), candidates seeking Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status must present comprehensive evidence of their proficiency. However, a significant systemic barrier exists: many engineering enterprises do not possess structured corporate mentoring frameworks or active links with Professional Engineering Institutions (PEIs). This leaves early-career professionals to navigate complex compliance documentation in complete isolation, frequently failing to recognise how their daily technical tasks align with formal institutional definitions of leadership, financial accountability, and safety risk management.</p>
-            <p>Empowering Engineers UK was initialised specifically to dismantle this mentoring disparity. We believe that professional registration is the definitive benchmark of technical excellence and ethical conduct, and that access to the tools required to achieve it should be universally democratised. Our platform operates entirely as a zero-knowledge, client-side digital reference repository. By utilising advanced browser storage synchronisation layers, we guarantee absolute data sovereignty for candidates processing sensitive corporate project histories. This ensures complete compliance with strict enterprise Non-Disclosure Agreements (NDAs) while drafting competency matrices. By replacing fragmented spreadsheets and ambiguous advice with high-density, terminal-grade analytical workbenches, we empower individual engineers to systematically audit their experience, track continuous professional development (CPD), and structure their competency summaries with total professional clarity.</p>
-            <p>Achieving registration is more than an exercise in document compilation; it is a critical process of career reflection and strategic positioning. When an engineer utilises our platform to frame their narrative contributions through structured methodologies like the STAR engine or audits their cross-departmental project responsibilities with our RACI matrix designer, they are actively developing the operational mindsets required of senior management leaders. Our comprehensive toolsets are designed to eliminate the 'thin content' structural weaknesses that often cause applications to be rejected by assessment panels. By providing clear guidance on the use of active command verbs, quantifying engineering achievements, and explicitly mapping safety-critical engineering judgements, we bridge the communication gap between specialised engineering execution and high-level institutional standards. We exist to ensure that no qualified engineer has to navigate the complex pathway to professional registration alone.</p>
+            <h1>The Journey to Professional Engineering Registration</h1>
+            <p>Welcome to Empowering Engineers UK. If you are beginning your engineering career, your main goal is likely achieving professional registration. This means earning the title of Engineering Technician (EngTech), Incorporated Engineer (IEng), or Chartered Engineer (CEng). The Engineering Council sets the strict rules for this within a document called the UK-SPEC. However, simply reading these rules is rarely enough. You must prove you meet them with solid, detailed evidence from your daily work. This platform is a completely free, open-access toolkit built specifically to help you cross that finish line. We provide interactive digital workbenches that organise your raw career history into structured, professional evidence.</p>
+
+            <h2>Why Does Mentorship Matter to Your Career?</h2>
+            <p>Many brilliant engineers struggle to get registered, not because they lack technical skill, but because they lack guidance. This often happens because they do not have a structured mentor program at work. Without an experienced Chartered Engineer to guide them, early-career engineers frequently write applications that are too brief or focus on team achievements rather than individual accountability. If your application lacks specific detail, the review panel will reject it for having weak evidence.</p>
+            <p>Achieving your EngTech, IEng, or CEng status is the ultimate proof that you are a safe, capable, and commercially aware leader. Professional registration opens doors to senior promotions, higher salary bands, and global industry recognition. We built this platform because we firmly believe no engineer should have to navigate the complex UK-SPEC requirements alone. You deserve access to the right tools to clearly showcase your hard work and technical decisions.</p>
+
+            <h2>How Do You Use This Platform Cleanly?</h2>
+            <p>We have designed this website to act as your continuous digital mentor. You do not need to download heavy software or pay expensive subscription fees to access elite career coaching. Simply follow these standard steps to build your portfolio.</p>
+            
+            <p><strong>Step 1: Choose Your Registration Pathway</strong><br>
+            Navigate to our Mentor Hub and select your current target level (EngTech, IEng, or CEng). This action will instantly load the exact UK-SPEC criteria you need to satisfy.</p>
+
+            <p><strong>Step 2: Structure Your Career Evidence</strong><br>
+            Use our interactive STAR Methodology workbenches to write out your career history. The STAR method stands for Situation, Task, Action, and Result. This specific structure ensures you highlight your personal leadership choices, risk management, and safety decisions clearly.</p>
+
+            <p><strong>Step 3: Keep Your Corporate Data Secure</strong><br>
+            Writing a professional application means you will handle sensitive company information. Our platform uses a zero-knowledge local storage system. This means everything you type is saved securely inside your own web browser cache on your personal machine. We never extract or store your data, ensuring you perfectly comply with strict corporate non-disclosure agreements.</p>
+
+            <p><strong>Step 4: Prepare for the Final Interview</strong><br>
+            When your written report is fully drafted, use our Virtual Professional Review Interview (PRI) simulator. This tool allows you to practice answering tough technical questions under pressure, ensuring you walk into the real interview with absolute confidence.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -200,91 +110,78 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <article class="content-card">
-            <h1 class="main-title">>> The_Mentorless_Maze</h1>
-            <p class="narrative-text" style="color:var(--slate-grey); font-style:italic;">My Journey to CEng and the Birth of Empowering Engineers UK.</p>
+        <!-- Narrative Continuation using Native layout.css Typography -->
+        <article style="background: var(--dark-card); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 40px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+            <h1 style="border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 30px;">>> The_Mentorless_Maze</h1>
+            <p style="color:var(--slate-grey); font-style:italic; margin-bottom: 30px;">My Journey to CEng and the Birth of Empowering Engineers UK.</p>
 
-            <section>
-                <h2 class="section-subtitle">The Academic Path: Theory Without Context</h2>
-                <p class="narrative-text">My fascination with how things work began early, leading me from high school to an intensive BEng Mechanical Engineering degree. University was a deep dive into thermodynamics, design principles, and complex analysis. While the technical knowledge was essential, the wider world of engineering, specifically the Professional Engineering Institutions (PEIs), remained largely abstract.</p>
-                <p class="narrative-text">I attended a few introductory courses but failed to grasp the true significance of professional registration. This knowledge gap widened during my MSc Mechanical Engineering Design; I’d heard the term <strong class="highlight-green">'CEng' (Chartered Engineer)</strong>, but it felt like an inaccessible title reserved for senior leaders, not a roadmap for my own development.</p>
+            <section style="margin-bottom: 30px;">
+                <h2 style="color: var(--burnt-orange); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px; font-size: 1.3rem;">The Academic Path: Theory Without Context</h2>
+                <p>My fascination with how things work began early, leading me from high school to an intensive BEng Mechanical Engineering degree. University was a deep dive into thermodynamics, design principles, and complex analysis. While the technical knowledge was essential, the wider world of engineering, specifically the Professional Engineering Institutions (PEIs), remained largely abstract.</p>
+                <p>I attended a few introductory courses but failed to grasp the true significance of professional registration. This knowledge gap widened during my MSc Mechanical Engineering Design; I’d heard the term <strong style="color: var(--terminal-green);">CEng (Chartered Engineer)</strong>, but it felt like an inaccessible title reserved for senior leaders, not a roadmap for my own development.</p>
             </section>
 
-            <section>
-                <h2 class="section-subtitle">The Professional Wilderness: Alone in the Industry</h2>
-                <p class="narrative-text">After graduation, I secured roles in companies where professional registration was neither encouraged nor understood. There were no CEng or IEng mentors. I was focused solely on delivery, not development. The ambition to achieve CEng, however, persisted. I decided to tackle the application form alone.</p>
-                <p class="narrative-text">This self-guided journey was quickly halted by a critical barrier: the sponsor. Lacking CEng colleagues, I couldn't find anyone to endorse my application. In a last-ditch effort, I reached out directly to my relevant Professional Engineering Institution (PEI), the Institution of Mechanical Engineers (IMechE).</p>
+            <section style="margin-bottom: 30px;">
+                <h2 style="color: var(--burnt-orange); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px; font-size: 1.3rem;">The Professional Wilderness: Alone in the Industry</h2>
+                <p>After graduation, I secured roles in companies where professional registration was neither encouraged nor understood. There were no CEng or IEng mentors. I was focused solely on delivery, not development. The ambition to achieve CEng, however, persisted. I decided to tackle the application form alone.</p>
+                <p>This self-guided journey was quickly halted by a critical barrier: the sponsor. Lacking CEng colleagues, I couldn't find anyone to endorse my application. In a last-ditch effort, I reached out directly to my relevant Professional Engineering Institution (PEI), the Institution of Mechanical Engineers (IMechE).</p>
             </section>
 
-            <section>
-                <h2 class="section-subtitle">The Red Pen Moment: A Wake-Up Call</h2>
-                <p class="narrative-text">The institution connected me with an incredible sponsor, a seasoned Fellow member, Paul Shecter. This was the turning point. My diligently compiled application was returned to me, covered in red lines.</p>
-                <p class="narrative-text">His feedback was blunt but crucial: my experience descriptions were too passive and lacked clear, quantifiable actions that demonstrated competence against the UK-SPEC criteria. <em>"You need to write action statements, not just job descriptions,"</em> he advised.</p>
-                <p class="narrative-text">I realised the application wasn't just a tick-box exercise; it was a rigorous assessment of my professional competence. My biggest shortfall was in Project Management. I had executed tasks, but never held full project ownership. I immediately approached my line manager, asking for the trust to manage a project end-to-end, taking full responsibility for scope, budget, and delivery. Concurrently, I enrolled in a distance-learning PgCert in Project Management Engineering. This dual focus on practical application and formal study was the key to closing my competency gap rapidly.</p>
+            <section style="margin-bottom: 30px;">
+                <h2 style="color: var(--burnt-orange); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px; font-size: 1.3rem;">The Red Pen Moment: A Wake-Up Call</h2>
+                <p>The institution connected me with an incredible sponsor, a seasoned Fellow member, Paul Shecter. This was the turning point. My diligently compiled application was returned to me, covered in red lines.</p>
+                <p>His feedback was blunt but crucial: my experience descriptions were too passive and lacked clear, quantifiable actions that demonstrated competence against the UK-SPEC criteria. <em>"You need to write action statements, not just job descriptions,"</em> he advised.</p>
+                <p>I realised the application wasn't just a tick-box exercise; it was a rigorous assessment of my professional competence. My biggest shortfall was in Project Management. I had executed tasks, but never held full project ownership. I immediately approached my line manager, asking for the trust to manage a project end-to-end, taking full responsibility for scope, budget, and delivery. Concurrently, I enrolled in a distance-learning PgCert in Project Management Engineering. This dual focus on practical application and formal study was the key to closing my competency gap rapidly.</p>
             </section>
 
-            <section>
-                <h2 class="section-subtitle">The Path to Leadership: Volunteering and Growth</h2>
-                <p class="narrative-text">Successfully achieving CEng was a triumph, but my sponsor’s influence didn't end there. He inspired me to give back. I began volunteering with the Institution, beside him.</p>
-                <p class="narrative-text">The initial years were difficult. Without prior mentors, and working autonomously, I struggled to find my footing. However, through persistent volunteering, leading initiatives, organising technical events, and coordinating STEM outreach, I found my purpose.</p>
-                <p class="narrative-text">This extensive voluntary work, alongside my professional career, became the foundation for developing commercial leadership and soft skills far beyond my technical remit. I used this trajectory to successfully achieve <strong class="highlight-green">Fellowship (FIMechE), EUR ING, and IntPE(UK)</strong>.</p>
-                <p class="narrative-text">My structured and deliberate approach to Continuous Professional Development (CPD) meant I moved up the ranks quickly both at work and within the Institution, culminating in a role co-panelling and later chairing Professional Review Interviews (PRIs). Mentoring countless CEng candidates and Fellows became a deeply rewarding aspect of my life.</p>
+            <section style="margin-bottom: 30px;">
+                <h2 style="color: var(--burnt-orange); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px; font-size: 1.3rem;">The Path to Leadership: Volunteering and Growth</h2>
+                <p>Successfully achieving CEng was a triumph, but my sponsor’s influence didn't end there. He inspired me to give back. I began volunteering with the Institution, beside him.</p>
+                <p>The initial years were difficult. Without prior mentors, and working autonomously, I struggled to find my footing. However, through persistent volunteering, leading initiatives, organising technical events, and coordinating STEM outreach, I found my purpose.</p>
+                <p>This extensive voluntary work, alongside my professional career, became the foundation for developing commercial leadership and soft skills far beyond my technical remit. I used this trajectory to successfully achieve <strong style="color: var(--terminal-green);">Fellowship (FIMechE), EUR ING, and IntPE(UK)</strong>.</p>
+                <p>My structured and deliberate approach to Continuous Professional Development (CPD) meant I moved up the ranks quickly both at work and within the Institution, culminating in a role co-panelling and later chairing Professional Review Interviews (PRIs). Mentoring countless CEng candidates and Fellows became a deeply rewarding aspect of my life.</p>
             </section>
 
-            <section>
-                <h2 class="section-subtitle">The Birth of Empowering Engineers UK</h2>
-                <p class="narrative-text">Despite the satisfaction of mentoring, I found myself facing a hard truth: there simply wasn't enough time to personally help every single student, graduate, and early-career professional struggling with the professional registration process. The same opaque system and lack of structured guidance that I faced was hindering a new generation.</p>
-                <p class="narrative-text">This frustration led to the creation of <strong class="highlight-green">Empowering Engineers UK</strong>.</p>
+            <section style="margin-bottom: 30px;">
+                <h2 style="color: var(--burnt-orange); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px; font-size: 1.3rem;">The Birth of Empowering Engineers UK</h2>
+                <p>Despite the satisfaction of mentoring, I found myself facing a hard truth: there simply wasn't enough time to personally help every single student, graduate, and early-career professional struggling with the professional registration process. The same opaque system and lack of structured guidance that I faced was hindering a new generation.</p>
+                <p>This frustration led to the creation of <strong style="color: var(--terminal-green);">Empowering Engineers UK</strong>.</p>
             </section>
 
-            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 40px 0;">
 
             <section>
-                <h1 class="main-title">>> Our_Mission</h1>
-                <p class="narrative-text">Empowering Engineers UK is a free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.</p>
+                <h1 style="margin-bottom: 20px;">>> Our_Mission</h1>
+                <p>Empowering Engineers UK is a free, open-access platform designed to democratise the route to professional registration (CEng, IEng, and EngTech) with the Engineering Council.</p>
 
-                <h3 class="block-heading">The Problem We Solved</h3>
-                <p class="narrative-text">Professional registration is the gold standard, yet the application process, especially writing the competency reports against the UK-SPEC, is notoriously opaque, time-consuming, and difficult to structure. Many talented engineers fail not because of a lack of experience, but a lack of guidance in articulating it.</p>
+                <h3 style="color: var(--slate-grey); margin-top: 30px; font-size: 1.1rem;">The Problem We Solved</h3>
+                <p>Professional registration is the gold standard, yet the application process, especially writing the competency reports against the UK-SPEC, is notoriously opaque, time-consuming, and difficult to structure. Many talented engineers fail not because of a lack of experience, but a lack of guidance in articulating it.</p>
 
-                <h3 class="block-heading">Our Solution</h3>
-                <p class="narrative-text">We provide a suite of "terminal-grade" digital tools that structure your thinking and writing:</p>
+                <h3 style="color: var(--slate-grey); margin-top: 30px; font-size: 1.1rem;">Our Solution</h3>
+                <p>We provide a suite of "terminal-grade" digital tools that structure your thinking and writing. You can access all these modules directly from our <a href="sitemap.html" style="color: var(--terminal-green); text-decoration: none; font-weight: bold;">Platform Sitemap</a>, including:</p>
 
-                <ul class="tool-list">
-                    <li><a href="career.html">Professional Registration Workbench</a>: Converts raw experience into competency-focused, structured reports via the STAR Engine.</li>
-                    <li><a href="raci.html">RACI Matrix Tool</a>: Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E.</li>
-                    <li><a href="coach.html">Management Coaching Studio</a>: Giving you the frameworks (GROW, SWOT, COIN) to review, course correct, and give operational feedback.</li>
-                    <li><a href="decoder.html">The Engineering Decoder</a>: Clarify over 15,000+ technical engineering acronyms.</li>
-                    <li><a href="interview.html">Virtual Interviewer</a>: Test and push your limits before the real Professional Review Interview.</li>
+                <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                    <li style="border-left: 3px solid var(--terminal-green); margin-bottom: 10px; padding: 15px; background: rgba(0, 104, 55, 0.05);"><a href="career.html" style="color: var(--terminal-green); font-weight: bold; text-decoration: none;">Professional Registration Workbench</a>: Converts raw experience into competency-focused, structured reports via the STAR Engine.</li>
+                    <li style="border-left: 3px solid var(--terminal-green); margin-bottom: 10px; padding: 15px; background: rgba(0, 104, 55, 0.05);"><a href="raci.html" style="color: var(--terminal-green); font-weight: bold; text-decoration: none;">RACI Matrix Tool</a>: Demonstrating clear accountability is key for UK-SPEC Competencies C, D, and E.</li>
+                    <li style="border-left: 3px solid var(--terminal-green); margin-bottom: 10px; padding: 15px; background: rgba(0, 104, 55, 0.05);"><a href="coach.html" style="color: var(--terminal-green); font-weight: bold; text-decoration: none;">Management Coaching Studio</a>: Giving you the frameworks (GROW, SWOT, COIN) to review, course correct, and give operational feedback.</li>
+                    <li style="border-left: 3px solid var(--terminal-green); margin-bottom: 10px; padding: 15px; background: rgba(0, 104, 55, 0.05);"><a href="decoder.html" style="color: var(--terminal-green); font-weight: bold; text-decoration: none;">The Engineering Decoder</a>: Clarify over 15,000+ technical engineering acronyms.</li>
+                    <li style="border-left: 3px solid var(--terminal-green); margin-bottom: 10px; padding: 15px; background: rgba(0, 104, 55, 0.05);"><a href="interview.html" style="color: var(--terminal-green); font-weight: bold; text-decoration: none;">Virtual Interviewer</a>: Test and push your limits before the real Professional Review Interview.</li>
                 </ul>
             </section>
 
-            <aside class="founder-box">
-                <span class="founder-role">>> LEAD DEVELOPER & FOUNDER</span>
-                <p class="narrative-text">As a practicing engineer, I built these tools to solve the very frustrations I faced during my own long, mentorless development journey. This platform is my way of ensuring no engineer has to navigate the CEng maze alone. Empowering Engineers UK is built by engineers, for engineers, ensuring strict adherence to industry standards and ethics.</p>
+            <aside style="border: 1px solid var(--border-color); border-left: 4px solid var(--burnt-orange); padding: 25px; margin-top: 50px; background: var(--midnight-navy); border-radius: 4px;">
+                <span style="color: var(--slate-grey); font-size: 0.85rem; display: block; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">>> LEAD DEVELOPER & FOUNDER</span>
+                <p>As a practicing engineer, I built these tools to solve the very frustrations I faced during my own long, mentorless development journey. This platform is my way of ensuring no engineer has to navigate the CEng maze alone. Empowering Engineers UK is built by engineers, for engineers, ensuring strict adherence to industry standards and ethics.</p>
                 
-                <div class="badge-container">
-                    <div class="li-badge-dark">
-                        <div class="badge-base LI-profile-badge" data-locale="en_GB" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="muratislam" data-version="v1">
-                            <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/muratislam?trk=profile-badge">Murat Islam EUR ING CEng IntPE(UK) FIMechE</a>
-                        </div>
-                    </div>
-
-                    <div class="li-badge-light">
-                        <div class="badge-base LI-profile-badge" data-locale="en_GB" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="muratislam" data-version="v1">
-                            <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/muratislam?trk=profile-badge">Murat Islam EUR ING CEng IntPE(UK) FIMechE</a>
-                        </div>
-                    </div>
+                <div style="margin-top: 20px;">
+                    <a href="https://uk.linkedin.com/in/muratislam?trk=profile-badge" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; background: #0077B5; color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);">
+                        View Profile: Murat Islam EUR ING CEng IntPE(UK) FIMechE
+                    </a>
                 </div>
             </aside>
         </article>
     </main>
 
-    <script>
-        function initApp() {
-            // LocalStorage persistence validation node deployed here to trace app boot cycles safely
-            console.log("System Status: About Framework Context Initialised.");
-        }
-    </script>
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

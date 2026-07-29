@@ -20,9 +20,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="frameworks.js?v=21.7"></script>
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="frameworks.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -42,97 +42,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 380px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DYNAMIC FRAMEWORK STACK STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC FORCE FIELD INTERACTION STYLES --- */
         .framework-stack {
             display: flex;
             flex-direction: column;
@@ -151,7 +61,7 @@
             gap: 10px;
             border-left: 6px solid var(--border-color);
         }
-        .framework-card.change-card { border-left-color: var(--ee-terminal-green); }
+        .framework-card.change-card { border-left-color: var(--terminal-green); }
         .framework-card.for-card { border-left-color: var(--burnt-orange); }
         .framework-card.ag-card { border-left-color: #d63031; }
         .framework-card.strat-card { border-left-color: var(--slate-grey); }
@@ -163,18 +73,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .change-label { color: var(--ee-terminal-green) !important; }
+        .change-label { color: var(--terminal-green) !important; }
         .for-label { color: var(--burnt-orange) !important; }
         .ag-label { color: #d63031 !important; }
         .strat-label { color: var(--slate-grey) !important; }
-
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
 
         .example-text {
             color: var(--terminal-green);
@@ -182,125 +84,26 @@
             display: inline-block;
             margin-top: 4px;
         }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 85px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 0;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
-        }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
-        }
     </style>
 </head>
 <body onload="initApp()">
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Force Field Analysis in Engineering Change Control: Managing Structural Equilibrium Shifts</h1>
-            <p>
-                Within complex industrial processing networks, asset life-cycle management, and manufacturing operations, initiating modifications to plant hardware, automation control architecture, or institutional workflows introduces immediate systemic variables. All engineering environments exist in a state of dynamic equilibrium—a balance maintained by competing vectors. When an engineering team attempts to push through a modification, such as replacing a legacy SCADA network or overhauling high-pressure pipeline routing, the project invariably encounters a complex web of resisting forces. To safely map, evaluate, and break through these counter-pressures, technical directors implement a formal **Force Field Analysis**. Originally developed by social psychologist Kurt Lewin and heavily adapted across modern systems engineering practices, this framework separates modification dynamics into two explicit vectors: **Driving Forces** that facilitate process drift toward the target state, and **Restraining Forces** that act as structural inhibitors.
-            </p>
-            <p>
-                Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) parameters, managing engineering modifications directly targets the core criteria for **Competence C (Technical and Commercial Leadership)**. Criterion C mandates that professional engineers (CEng, IEng) possess the capability to lead technical teams through complex operational modifications, manage change management risks safely under statutory limits like the Health and Safety at Work etc. Act 1974, and implement strategic continuous improvement routines. Documenting your objective auditing of these opposing operational vectors—proving that you have designed leadership interventions to actively weaken restraining blockages rather than simply attempting to increase driving pressure—provides review panels with explicit evidence of structural governance, stakeholder diplomacy, and commercial awareness.
-            </p>
-            <h2>Deconstructing the Multi-Vector Taxonomy of the Force Field Workspace</h2>
-            <p>
-                Calibrating an audit-ready change control file using this digital studio requires candidate leads to methodically evaluate and record parameters across four discrete data columns:
-            </p>
-            <p>
-                <strong>Proposed Engineering Configuration (CHANGE):</strong> Clearly define the boundary limits of the intended technical modification. Avoid vague ambitions; record precise parameters such as specific equipment asset IDs, code updates, or procedural standard operating procedure (SOP) standardisations.
-            </p>
-            <p>
-                <strong>Driving Enforcement Forces (FOR):</strong> Identify and weight the specific corporate drivers, technical benefits, regulatory compliance mandates, or cost-reduction metrics that necessitate execution of the change.
-            </p>
-            <p>
-                <strong>Restraining Resistance Forces (AG):</strong> Interrogate the environment to surface technical legacy system constraints, cultural friction points, operator training gaps, or direct safety risks that act to disrupt or block transition progress.
-            </p>
-            <p>
-                <strong>Equilibrium Balancing Strategy (STRAT):</strong> Formulate the precise leadership actions, parallel testing protocols, peer training routines, and technical mitigations required to safely decouple the restraining forces, thereby allowing the system to transition smoothly to its optimized equilibrium boundary.
-            </p>
+            <h2>What is a Force Field Analysis?</h2>
+            <p>A Force Field Analysis is a clear decision-making tool used to look at the factors driving or blocking a major project change. Every industrial workplace exists in a state of balance. When you want to modify plant equipment, update software scripts, or change site workflows, you will find opposing forces at play. Driving forces are the positives that push your change forward, like cost savings or better safety metrics. Restraining forces are the negatives that hold the project back, like team resistance, technical limits, or training delays. This framework helps you map out these competing groups objectively on a simple canvas. Instead of guessing how your team will react, you can visualize the forces and plan a smooth transition path.</p>
+            
+            <h2>Why Force Field Analysis Matters to Your Career</h2>
+            <p>When you apply for professional registration with a <strong>Professional Engineering Institution (PEI)</strong>, you must prove your leadership capabilities. The <strong>Engineering Council</strong> checks your skills against strict rules before awarding your title. Specifically, <strong>UK-SPEC Competence C</strong> focuses completely on your responsibility, management, and leadership skills. Many graduate engineers encounter unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they treat modifications as purely technical tasks. They talk about material choices or design drawings but ignore the human or business side of change. To secure your <strong>CEng</strong> or <strong>IEng</strong> registration, you must show that you can manage risks and guide teams through operational updates smoothly. Using this framework proves to assessors that you are a mature leader who knows how to overcome workplace barriers safely.</p>
+            
+            <h2>How to Complete This Selection Grid Cleanly</h2>
+            <p>We have engineered this interactive studio workbench to break your change management plan down into four clear columns. First, use the Proposed Engineering Configuration block to state your target technical modification or system update clearly. Avoid vague descriptions; list specific asset IDs or code specifications. Second, use the Driving Enforcement Forces field to calculate the direct technical advantages or safety mandates prompting the change. Third, use the Restraining Resistance Forces card to identify legacy equipment limits, employee habits, or timeline disruption risks. Finally, use the Equilibrium Balancing Strategy box to design targeted leadership actions, such as parallel testing loops or peer-to-peer training modules, to neutralize those barriers safely. Type your entries directly into each card section. Our platform runs entirely on a secure client-side model, saving your notes automatically into your browser's local memory cache every few seconds. This protects your sensitive company records, shields your drafts from connection dropouts, and keeps you in full compliance with corporate non-disclosure agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -323,7 +126,7 @@
                 <span class="tab-label">Decisions Hub</span>
             </a>
             <a href="decisions-monte-carlo.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_monte"></div>
+                <div class="tab-badge-container" id="badge_montecarlo"></div>
                 <span class="tab-label">Monte Carlo</span>
             </a>
             <a href="decisions-tree.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -335,11 +138,11 @@
                 <span class="tab-label">CBA</span>
             </a>
             <a href="decisions-risk-matrix.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_risk"></div>
+                <div class="tab-badge-container" id="badge_riskmatrix"></div>
                 <span class="tab-label">Risk Matrix</span>
             </a>
             <a href="decisions-force-field.html" class="ee-horizontal-tab active" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_force"></div>
+                <div class="tab-badge-container" id="badge_forcefield"></div>
                 <span class="tab-label">Force Field</span>
             </a>
             <a href="decisions-ooda.html" class="ee-horizontal-tab" style="text-decoration: none;">
@@ -350,6 +153,10 @@
                 <div class="tab-badge-container" id="badge_wrap"></div>
                 <span class="tab-label">WRAP</span>
             </a>
+            <a href="decisions-contracts.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_contracts"></div>
+                <span class="tab-label">Contracts</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -359,9 +166,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Engineering Change Vector Configuration Subsystem</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
-                <button type="button" class="action-btn" onclick="exportJSON()">💾 Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px;" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" style="min-height: 48px;" onclick="exportJSON()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importJSON(event)">
             </div>
         </div>
@@ -379,12 +186,13 @@
                 <div class="coach-header">>> LIVE WORKSPACE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" style="min-height: 48px; width: 100%;" onclick="copyOutline()">📋 COPY TEXT SUMMARY</button>
+                    <button class="action-btn btn-ai" id="aiBtn" style="min-height: 48px; width: 100%;" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting configuration vectors to construct the force field evaluation sheet...</div>
+                <span id="saveIndicator">Data Synced ✔</span>
             </div>
         </div>
 
@@ -392,7 +200,7 @@
 
     <script>
         // --- 1. MEMORY NAMESPACING ---
-        const EE_TOOL_ID = "ee_decisions_forcefield";
+        const EE_TOOL_ID = "ee_decisions_force-field";
         const FW_KEY = "FORCEFIELD";
         let autosaveTimer;
 
@@ -435,7 +243,7 @@
                 card.innerHTML = `
                     <label class="framework-label ${lowerId}-label">${f.label} [${f.id}]</label>
                     <span class="form-hint">${f.hint} <br><span class="example-text">${f.example}</span></span>
-                    <textarea id="input_${f.id}" class="form-input" placeholder="Configure localized equilibrium vectors here..." oninput="updatePreview()">${val}</textarea>
+                    <textarea id="input_${f.id}" class="form-input" style="min-height: 85px;" placeholder="Configure localized equilibrium vectors here..." oninput="updatePreview()">${val}</textarea>
                 `;
                 container.appendChild(card);
             });
@@ -460,13 +268,14 @@
             const decisionsRegistry = {
                 'coach': 'ee_management_master_hub',
                 'decisions': 'ee_decisions_master_hub',
-                'monte': 'ee_decisions_montecarlo',
+                'montecarlo': 'ee_decisions_monte-carlo',
                 'tree': 'ee_decisions_tree',
                 'cba': 'ee_decisions_cba',
-                'risk': 'ee_decisions_riskmatrix',
-                'force': 'ee_decisions_forcefield',
+                'riskmatrix': 'ee_decisions_risk-matrix',
+                'forcefield': 'ee_decisions_force-field',
                 'ooda': 'ee_decisions_ooda',
-                'wrap': 'ee_decisions_wrap'
+                'wrap': 'ee_decisions_wrap',
+				'contracts': 'ee_decisions_contracts'
             };
 
             Object.keys(decisionsRegistry).forEach(key => {
@@ -502,12 +311,15 @@
             
             const aiBtn = document.getElementById('aiBtn');
             aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
+            
+            document.getElementById('saveIndicator').style.opacity = '0';
 
             // Keystroke Real-Time Auto-Save with 3-second boundary delay logic
             clearTimeout(autosaveTimer);
             autosaveTimer = setTimeout(() => {
                 localStorage.setItem(EE_TOOL_ID, JSON.stringify(stateData));
                 updateNavigationBadges();
+                document.getElementById('saveIndicator').style.opacity = '1';
                 console.log("Force Field change vector workspace metrics auto-saved.");
             }, 3000); 
         }
@@ -547,7 +359,7 @@
 """
 ${script}
 """
-[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report.`;
+[EXPECTATION] Do not rewrite any section for the user. Cross-examine the text definitions thoroughly. Expose gaps, indicate logic flaws, and output a clean section-by-section audit feedback report using British English spelling conventions.`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -560,7 +372,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY TEXT SUMMARY"; }, 2000);
             });
@@ -578,6 +390,7 @@ ${script}
             }
         }
 
+        // Standardised JSON data export functions
         function exportJSON() {
             let savedState = {};
             const data = frameworks[FW_KEY];
@@ -663,11 +476,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to permit master risk data compilation grids.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

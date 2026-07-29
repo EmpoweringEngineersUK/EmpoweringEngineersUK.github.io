@@ -23,11 +23,11 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/communication.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
@@ -49,200 +49,33 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 3px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.05);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Engineering Communication Command & Professional Interview Matrix</h1>
-            <p>Welcome to the master directory for structuring, refining, and auditing your professional engineering narratives. The Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) fundamentally mandates that registered professionals—whether applying for CEng, IEng, or EngTech status—must operate with absolute communicative clarity. Specifically, <strong>Competence D (Communication and Interpersonal Skills)</strong> dictates that engineers must demonstrate the ability to communicate complex, safety-critical data to both highly technical peers and non-technical commercial stakeholders. Failing to translate technical nuances into commercial impacts is the leading cause of deferrals during the Professional Review Interview (PRI).</p>
+            <h2>What is Professional Engineering Communication?</h2>
+            <p>Professional engineering communication is the ability to share complex, highly technical information in a way that anyone can understand. It is not just about writing dense calculations or drawing complicated assembly schematics. Instead, it is about creating clear, structured explanations of your engineering tasks, design choices, and project outcomes. This master hub brings together ten powerful narrative frameworks to help you organize your daily work experience into clear evidence blocks.</p>
             
-            <h2>Bridging the Technical-to-Commercial Translation Gap</h2>
-            <p>In highly regulated environments such as civil infrastructure, aerospace, or nuclear decommissioning, raw data is insufficient without strategic context. A structural load calculation or a fluid dynamics simulation must be translated into actionable intelligence: how does this specification mitigate risk, compress the project schedule, or secure lifecycle cost efficiency? This requires engineers to discard passive reporting and adopt active, structured narrative frameworks. By utilising methodologies such as the STAR technique (Situation, Task, Action, Result) or the engineering Storytelling framework (Context, Conflict, Climax, Resolution), candidates can systematically construct evidence blocks that leave no room for ambiguity. These frameworks guarantee that the assessing panel explicitly understands your personal technical contributions, isolated from broader departmental achievements.</p>
-            
-            <h2>Mastering Behavioural Dynamics and Pitch Engineering</h2>
-            <p>Beyond the PRI, modern engineering leadership requires you to navigate daily conflicts, pitch new technologies to the board of directors, and lead multidisciplinary teams through volatile project phases. To support this, our matrix is categorised into distinct operational environments. For behavioural assessments and conflict resolution, frameworks like SOAR and PARLA guide you through constructing robust interpersonal evidence. For pitching new innovations or negotiating CapEx budgets, the FAB and SHARE methodologies ensure you lead with value rather than getting bogged down in low-level technical features.</p>
+            <h2>Why Communication Matters for Your Engineering Career</h2>
+            <p>When you apply for professional registration as a Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), or Engineering Technician (<strong>EngTech</strong>), you are assessed strictly against the Engineering Council's benchmarks. Specifically, <strong>UK-SPEC Competence D</strong> focuses entirely on your communication and interpersonal skills. Many brilliant technicians face unexpected delays during their Professional Review Interview (<strong>PRI</strong>) simply because they struggle to explain the wider commercial value of their calculations.</p>
+            <p>To pass your review cleanly, you must translate raw technical data into direct business benefits. A senior director or a non-technical client needs to see how your stress calculations, system updates, or software workflows minimize financial risk, lower material costs, or protect public safety. Mastering these presentation models proves to senior management that you are ready for engineering leadership positions and greater technical project responsibility.</p>
 
-            <h2>Zero-Knowledge Sovereignty and Secure Portfolio Architecture</h2>
-            <p>We acknowledge that preparing for professional interviews frequently requires drafting narratives that contain proprietary corporate data, sensitive financial metrics, or classified project methodologies. To protect your intellectual property, this communication hub enforces a strict, zero-knowledge local browser architecture. Every narrative arc, STAR scenario, or conflict resolution script you develop is processed and cached exclusively within your local machine's memory boundary. Your professional records are never transmitted to external servers, ensuring total compliance with your employer's Non-Disclosure Agreements (NDAs). Utilise the live matrix below to select the framework that best addresses your current communicative challenge and begin compiling your audit-ready interview evidence.</p>
+            <h2>How to Complete This Module Cleanly</h2>
+            <p>We have engineered this central command dashboard to help you choose the exact communication tool required for any professional scenario. Treat this directory as your personal development guide:</p>
+            <ul>
+                <li><strong>Foundation Narratives:</strong> Deploy the globally recognized <strong>STAR Method</strong> (Situation, Task, Action, Result) or <strong>CAR Framework</strong> to outline design challenges and isolate your personal technical contributions.</li>
+                <li><strong>Behavioural Dynamics:</strong> Use <strong>SOAR</strong> or <strong>PARLA</strong> to map out leadership experiences, personal reflections, and team adaptation examples for your professional review panel.</li>
+                <li><strong>Pitching & Directives:</strong> Leverage the <strong>FAB Approach</strong> (Features, Advantages, Benefits) or <strong>SHARE Model</strong> to pitch new equipment investments or deliver clear, actionable briefs to site teams.</li>
+                <li><strong>Conflict & Review:</strong> Apply the <strong>DARE Method</strong> to resolve team friction safely, and use <strong>CAPS</strong> to present clear technical spec reviews.</li>
+            </ul>
+            <p>Select your chosen review context from the drop-down selector block or click any target framework card within the matrix below to launch its workspace. Type your project notes directly into the fields. Our <strong>zero-knowledge local architecture</strong> automatically caches your work safely every few seconds. This configuration ensures your entries remain entirely private on your own device, protecting your data and fully satisfying corporate non-disclosure agreements. Once complete, compile your master interview report to review your gathered evidence.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -256,10 +89,10 @@
 
         <!-- Dynamic Communication Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="communicationPathNav" aria-label="Communication Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="communication.html" class="ee-horizontal-tab active" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_communication"></div>
                 <span class="tab-label">Communication</span>
@@ -393,7 +226,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_communication_master_hub";
@@ -442,10 +275,10 @@
         }
 
         function updateNavigationBadges() {
-            // Master directory map containing unique LocalStorage namespaces for the 10 frameworks
+            // Master directory map aligned with master coach.html definitions
             const frameworksRegistry = {
-                'coach': 'ee_comm_coach',
-                'communication': 'ee_communication',
+                'coach': 'ee_management_master_hub',
+                'communication': 'ee_communication_master_hub',
                 'storytelling': 'ee_comm_storytelling',
                 'star': 'ee_comm_star',
                 'car': 'ee_comm_car',

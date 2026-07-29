@@ -18,114 +18,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script defer src="acronyms.js?v=21.7"></script>
-    <script defer src="tools_data.js?v=21.7"></script>
+    <!-- Enforce unified layout styling and local pathing with active cache-busting -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script defer src="acronyms.js?v=22.0"></script>
+    <script defer src="tools_data.js?v=22.0"></script>
     
     <style>
-        body, button, input, select, textarea, h1, h2, h3, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .thick-content p { margin-bottom: 15px; font-size: 1.05rem; }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* High Contrast Square Status Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
+        /* --- GAME-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
+        
         .game-wrapper { max-width: 850px; margin: 0 auto; }
 
         .game-area { 
@@ -204,10 +104,10 @@
         .word-display {
             display: flex;
             flex-direction: row; 
-            flex-wrap: wrap; /* Wraps whole words to new line when width exceeded */
+            flex-wrap: wrap; 
             justify-content: center;
             align-items: center;
-            gap: 15px 25px; /* 15px vertical, 25px horizontal gap between words */
+            gap: 15px 25px;
             margin-bottom: 30px; 
             min-height: 40px; 
             transition: color 0.3s;
@@ -215,7 +115,7 @@
         .word-line { 
             display: flex; 
             gap: 8px; 
-            flex-wrap: nowrap; /* Prevents word from breaking internally */
+            flex-wrap: nowrap; 
             justify-content: center; 
         }
         .char-box {
@@ -280,17 +180,6 @@
             margin-bottom: 10px; transition: all 0.5s;
         }
 
-        .action-btn-menu {
-            background-color: transparent !important;
-            background-image: none !important;
-            border: 2px solid var(--slate-grey) !important;
-            color: var(--slate-grey) !important;
-            box-shadow: none !important;
-            font-weight: 700; text-transform: uppercase; cursor: pointer; padding: 6px 14px;
-            border-radius: 4px; transition: all 0.2s; min-height: 48px; font-size: 0.85rem;
-        }
-        .action-btn-menu:hover { background-color: var(--slate-grey) !important; color: var(--input-bg) !important; }
-
         @keyframes pulse-orange {
             0%, 100% { color: var(--slate-grey); border-color: var(--slate-grey); }
             50% { color: var(--burnt-orange); border-color: var(--burnt-orange); }
@@ -341,18 +230,34 @@
 </head>
 <body onload="initApp()">
     
-    <script defer src="header_nav.js?v=21.7"></script>
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
 
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>The Acronym Blitz Simulation: Gamified Cognitive Retention for Engineering Professionals</h1>
-            <p>Continuous Professional Development (CPD) is a mandatory requirement for all engineers seeking to maintain their Engineering Technician (EngTech), Incorporated Engineer (IEng), or Chartered Engineer (CEng) status through the Engineering Council. While traditional CPD often involves formal seminars or technical reading, cognitive retention of complex industry terminology requires active, high-frequency recall. The Acronym Blitz Simulation has been explicitly engineered to gamify this learning process, providing a high-intensity, interactive environment to permanently embed critical engineering jargon into your working memory.</p>
-            <p>In the high-stakes environments of control rooms, active construction sites, or rapid-response manufacturing floors, engineers do not have the luxury of referencing a manual when an urgent alert is broadcast. You must possess the capability to instantly decode system warnings and operational abbreviations to execute safe, decisive action. This simulation accelerates your neural processing speed by forcing rapid cross-referencing of terms across various disciplines—from Civil and Aerospace to Nuclear and Electrical engineering.</p>
+            <h1>The Acronym Blitz Simulation: Master Engineering Terminology</h1>
+            <p>When you step onto a busy construction site, walk into a manufacturing control room, or review a technical drawing, you are instantly surrounded by acronyms. From SCADA and HVAC to NDT and FEA, the engineering world relies heavily on abbreviated jargon to communicate rapidly and efficiently. The Acronym Blitz Game is a high-speed, interactive simulation specifically engineered to test your memory of these vital terms. It turns rote learning into a rapid-fire challenge, forcing you to decode complex industry abbreviations before your system integrity runs out.</p>
             
-            <h2>Testing Methodologies and Operational Modes</h2>
-            <p>The programme features two distinct operational modes designed to test different cognitive faculties. The Standard 'Hangman' mode evaluates your deductive reasoning, requiring you to systematically reconstruct a term with limited contextual data while managing a critical system integrity health bar. The 'Blitz' mode introduces severe time constraints, mimicking the psychological pressure of an unfolding operational incident, forcing rapid-fire decision-making. You can interface with the simulation using either the on-screen touch targets or via your physical keyboard for rapid execution.</p>
-            <p>Engaging with this simulation routinely provides a dual benefit: it directly fortifies your technical vocabulary for your impending Professional Review Interview (PRI), and it serves as a valid, informal entry for your CPD log. By mastering the vast lexicon of the British engineering sector, you demonstrate a clear commitment to UK-SPEC Competence D, ensuring you can communicate complex, safety-critical data with absolute clarity and confidence to both technical peers and commercial stakeholders.</p>
+            <h2>Why Does Terminology Matter for Your Career?</h2>
+            <p>If you are working towards your professional registration as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) with the Engineering Council, mastering this language is critical. Under the UK-SPEC guidelines, Competence D explicitly requires you to demonstrate that you can communicate effectively with technical and non-technical stakeholders.</p>
+            <p>In a high-pressure scenario—such as a sudden machinery breakdown or a safety alert—you do not have the luxury of checking a manual to find out what a specific abbreviation means. You must understand it instantly to make safe, decisive choices. Furthermore, when you write your professional application reports using the STAR methodology (Situation, Task, Action, Result), integrating the correct industry terms seamlessly proves to the Professional Review Interview (PRI) panel that you are deeply embedded in your field. Engaging with this simulation regularly also counts as informal learning, which is a highly valid entry for your Continuous Professional Development (CPD) log.</p>
+            
+            <h2>How Do You Play the Simulation Cleanly?</h2>
+            <p>We have built this tool to challenge your cognitive retention in a fun, pressure-tested environment. Follow these standard steps to begin your training sequence:</p>
+            <p><strong>Step 1: Choose Your Operational Mode</strong><br>
+            Before you start, select either 'Standard' or 'Blitz' mode from the main control panel. Standard mode gives you time to think, operating like a classic guessing game while you manage a health bar. Blitz mode introduces a severe, ticking time limit. This mimics the psychological pressure of a real-world operational incident, forcing you to think and react incredibly fast.</p>
+            
+            <p><strong>Step 2: Decode the Engineering Term</strong><br>
+            Once initiated, the system will display a short acronym alongside a broad context hint, such as 'Mechanical', 'Electrical', or 'Quality'. Use your physical keyboard or the on-screen touch targets to guess the individual letters that spell out the complete technical definition.</p>
+            
+            <p><strong>Step 3: Maintain Your System Health</strong><br>
+            Every correct letter you guess keeps the system online and builds your active streak. However, every wrong letter damages your system integrity bar. If you guess the full phrase flawlessly without a single error, you earn a perfect run bonus.</p>
+            <p>Because this game operates entirely within your local browser memory, you can practice as frequently as you need without judgment. Push your limits, break your personal high score, and permanently lock these vital terms into your professional engineering vocabulary.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -432,7 +337,7 @@
                         
                         <div style="display: flex; gap: 15px; align-items: center;">
                             <div id="timerBadge" class="timer-badge" style="display:none; margin:0;">60s</div>
-                            <button class="action-btn-menu" onclick="returnToMenu()">MAIN MENU</button>
+                            <button class="action-btn action-btn-ghost" onclick="returnToMenu()">MAIN MENU</button>
                         </div>
 
                         <div style="text-align:right;">
@@ -847,6 +752,6 @@
         });
     </script>
     
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 </body>
 </html>

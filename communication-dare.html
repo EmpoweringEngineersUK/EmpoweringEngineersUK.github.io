@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="Free engineering DARE Method conflict resolution workbench. Systematically structure, mediate, and document multidisciplinary design team conflicts to fulfill UK-SPEC Competence D3 requirements. Secure client-side memory engine.">
-    <meta name="keywords" content="DARE Method, Conflict Resolution, Engineering Communication, UK-SPEC Competence D3, Interpersonal Skills, Team Management, Design Trade-offs, Professional Review Interview">
+    <meta name="description" content="Free engineering DARE Conflict Resolution workspace. Apply the Detect, Acknowledge, Reframe, Execute framework to manage team friction, align stakeholder project goals, and satisfy UK-SPEC Competence D requirements. Secure client-side memory.">
+    <meta name="keywords" content="DARE Framework, Conflict Resolution, Team Friction, Stakeholder Management, UK-SPEC Competence D, Engineering Leadership, Professional Review Interview, PRI, CEng, IEng">
     <meta property="og:title" content="DARE Conflict Resolution Architect | Empowering Engineers UK">
-    <meta property="og:description" content="A secure, zero-knowledge client-side application engineered to convert engineering team conflict into structured technical trade-offs.">
+    <meta property="og:description" content="A secure, zero-knowledge tactical workspace developed for engineering professionals to de-escalate team friction and structure interpersonal evidence.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/communication-dare.html">
     <meta property="og:type" content="website">
     
-    <title>DARE Method | Empowering Engineers UK</title>
+    <title>DARE Conflict Resolution | Empowering Engineers UK</title>
     
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Engineering DARE Method Conflict Resolution Workbench",
+      "name": "Engineering DARE Conflict Resolution Architect",
       "url": "https://www.empoweringengineers.uk/communication-dare.html",
-      "description": "An interactive digital grid built for engineers to process professional design conflicts into structured technical outcomes and compliant evidence lines.",
+      "description": "An interactive, client-side application enabling technical engineering managers to structure team conflict resolution logs using the DARE protocol.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "All",
       "publisher": {
@@ -41,110 +41,12 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
+        .dare-stack {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- DARE MATRIX GRID --- */
-        .dare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            flex-direction: column;
             gap: 20px;
             margin-bottom: 20px;
-        }
-        @media (max-width: 768px) {
-            .dare-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .dare-card {
@@ -156,23 +58,12 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            border-left: 6px solid var(--border-color);
         }
-        .dare-card.define-card { border-top: 4px solid var(--burnt-orange); }
-        .dare-card.acknowledge-card { border-top: 4px solid var(--burnt-orange); }
-        .dare-card.redirect-card { border-top: 4px solid var(--terminal-green); }
-        .dare-card.educate-card { border-top: 4px solid var(--terminal-green); }
-
-        .dare-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .define-label { color: var(--burnt-orange) !important; }
-        .acknowledge-label { color: var(--burnt-orange) !important; }
-        .redirect-label { color: var(--terminal-green) !important; }
-        .educate-label { color: var(--terminal-green) !important; }
+        .dare-card.detect-card { border-left-color: var(--burnt-orange); }
+        .dare-card.acknowledge-card { border-left-color: var(--burnt-orange); }
+        .dare-card.reframe-card { border-left-color: var(--terminal-green); }
+        .dare-card.execute-card { border-left-color: var(--terminal-green); }
 
         .form-hint {
             display: block;
@@ -180,51 +71,7 @@
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -245,9 +92,10 @@
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -270,36 +118,28 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Interpersonal Risk Management: Resolving Conflicts via the DARE Method</h1>
-            <p>
-                In the modern engineering lifecycle, multidisciplinary programs frequently experience significant systemic friction due to competing technical constraints, conflicting asset parameters, and misaligned stakeholder priorities. Whether resolving a prioritization clash between mechanical structural margins and environmental life-cycle carbon optimizations, or handling friction between contracting parties regarding risk indemnities during procurement, lead engineers must act as mediators. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) explicitly subjects candidates to strict evaluation regarding **Competence D (Communication and Interpersonal Skills)**. Specifically, **Criterion D3** mandates that engineers must demonstrate the capability to resolve conflicts, lead discussions, and build high-performance team networks across complex technical boundaries.
-            </p>
-            <p>
-                The **DARE Method (Define, Acknowledge, Redirect, Educate)** provides a robust, structured protocol to systematically dismantle professional disputes. Traditional ad-hoc management conversations often fail because participants get bogged down in emotional arguments or rigid defense of their own design ideas. DARE changes this dynamic by converting personal friction into objective, engineering-focused trade-offs. The model guides technical leads through a linear four-step path: first, to clearly Define the precise technical parameters and boundaries of the dispute; second, to Acknowledge the competing stakeholder requirements and engineering viewpoints without bias; third, to Redirect the energy of both parties toward common ground, such as strict statutory compliance baselines or project delivery schedules; and finally, to Educate and Establish clear accountability, procedural gates, and verification loops. Mastering this methodology ensures your institutional evidence array proves an absolute command of interpersonal leadership and risk mitigation under high pressure.
-            </p>
+            <h2>What is the DARE Conflict Resolution Framework?</h2>
+            <p>The <strong>DARE framework</strong> is a practical, four-step communication model designed specifically to help engineers handle disagreements and team friction safely. DARE stands for <strong>Detect, Acknowledge, Reframe, and Execute</strong>. It provides technical leaders with an objective roadmap to move teams away from personal arguments and steer them back toward shared technical goals. By breaking down a conflict into clear, manageable steps, the DARE layout ensures you can handle difficult workplace situations calmly, logically, and professionally.</p>
 
-            <h2>Deconstructing the Four Strategic Steps of DARE</h2>
-            <p>
-                Mediating an engineering dispute utilizing the DARE interactive grid requires a rigorous focus on technical fact-finding, emotional intelligence, and process governance:
-            </p>
-            <p>
-                <strong>Define [D]:</strong> Isolate the objective core of the conflict. Separate personal friction from engineering parameters. Clearly document the technical variables, design contradictions, resource bottlenecks, or standard deviations that triggered the breakdown, binding the conflict statement to specific material, financial, or timeline values.
-            </p>
-            <p>
-                <strong>Acknowledge [A]:</strong> Map the competing stances and underlying professional motivations without judgment. Document each stakeholder group's requirements, validating their technical positions or operational limitations. This step builds psychological safety, defuses emotional polarization, and establishes equal accountability across the review panel.
-            </p>
-            <p>
-                <strong>Redirect [R]:</strong> Shift the discussion away from gridlocked assumptions and steer it toward unyielding project constraints or shared targets. Align the parties around mandatory common denominators, such as British Standards, Eurocodes, client safety thresholds, CDM compliance regulations, or critical commissioning deadlines.
-            </p>
-            <p>
-                <strong>Educate & Establish [E]:</strong> Formulate the resolution strategy and document future operational behaviors. Establish explicit next steps, updated script configurations, material changes, or cross-checked validation gates. Close the loop by defining the metrics used to track compliance, thereby transforming a operational crisis into a permanent continuous improvement log.
-            </p>
+            <h2>Why Does Resolving Team Friction Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must prove you can work effectively with other people. The Engineering Council assesses these interpersonal skills strictly under <strong>UK-SPEC Competence D</strong>. Many brilliant technicians face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they struggle to show how they managed a team disagreement or handled a stubborn stakeholder.</p>
+            <p>In a real engineering environment, conflicts happen often. For example, a site installation crew might disagree with a design office about structural tolerances, or a supplier might push back against a strict quality code. If left unresolved, these friction points cause project delays, expensive reworks, and safety hazards. Using the DARE framework allows you to turn these stressful moments into valuable professional evidence. It proves to your <strong>Professional Engineering Institution (PEI)</strong> review panel that you possess the commercial awareness, leadership maturity, and technical diplomacy required to run large, complex project operations smoothly.</p>
+
+            <h2>How to Complete Your DARE Framework Workspace Cleanly</h2>
+            <p>To construct a solid conflict resolution log, work sequentially through the four interactive cards on our workbench canvas:</p>
+            <ul>
+                <li><strong>Detect the Friction [D]:</strong> Pinpoint the exact root cause of the disagreement. Clearly outline the technical mismatch, scheduling clash, or safety risk without placing blame.</li>
+                <li><strong>Acknowledge Perspectives [A]:</strong> List the differing arguments and valid technical views of everyone involved, showing that you understand their unique constraints.</li>
+                <li><strong>Reframe the Challenge [R]:</strong> Shift the discussion away from personal opinions. Focus the team entirely on shared project goals, client needs, or statutory safety codes.</li>
+                <li><strong>Execute the Resolution [E]:</strong> Document the specific compromise, updated technical brief, or action plan you put in place to resolve the issue safely and permanently.</li>
+            </ul>
+            <p>Type your project notes directly into the text areas below. Our <strong>zero-knowledge local browser architecture</strong> saves your text automatically every few seconds, keeping your company’s sensitive data completely private on your own device. Once finished, use the side panel controls to copy your completed outline or print an official report to support your engineering portfolio entries.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -366,7 +206,7 @@
         <!-- Tool Header Interface Matching Standard Layout Registration -->
         <div class="header-actions">
             <div>
-                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">DARE Conflict Framework</h1>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">DARE Conflict Resolution</h1>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Professional Communication Subsystem</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -378,36 +218,36 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
-                <div class="dare-grid">
+                <div class="dare-stack">
                     
-                    <!-- Define Card -->
-                    <div class="dare-card define-card">
-                        <label class="dare-label define-label">Define the Conflict [D]</label>
-                        <span class="form-hint">Isolate the core technical dispute, layout clash, or resource boundary issue. Avoid subjective or personal statements. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Friction arose between the piping layout team and the structural lead regarding physical routing clearances near structural columns.</span></span>
-                        <textarea id="dare_Define" class="form-input" placeholder="Clearly define the technical parameters and objective boundaries of the dispute..." oninput="updatePreview()"></textarea>
+                    <!-- Detect Card -->
+                    <div class="dare-card detect-card">
+                        <label class="ee-label" for="dare_Detect" style="color: var(--burnt-orange);">Detect the Friction [D]</label>
+                        <span class="form-hint">What core professional misalignment, technical disagreement, or site bottleneck did you encounter? Avoid personal finger-pointing. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Structural fabrication crew rejected specified weld geometries due to physical tight access limitations on site.</span></span>
+                        <textarea id="dare_Detect" class="ee-textarea" placeholder="Identify the root operational conflict or delivery roadblock..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Acknowledge Card -->
                     <div class="dare-card acknowledge-card">
-                        <label class="dare-label acknowledge-label">Acknowledge Viewpoints [A]</label>
-                        <span class="form-hint">Document the competing professional requirements, operational constraints, or design objectives of both parties without bias. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. The piping team required direct runs to minimize flow turbulence, while structural engineering mandated preserving column stiffener margins.</span></span>
-                        <textarea id="dare_Acknowledge" class="form-input" placeholder="Map out stakeholder constraints, motivations, and technical justifications..." oninput="updatePreview()"></textarea>
+                        <label class="ee-label" for="dare_Acknowledge" style="color: var(--burnt-orange);">Acknowledge Perspectives [A]</label>
+                        <span class="form-hint">What were the valid technical, commercial, or safety drivers held by the opposing stakeholder groups? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Design engineers required strict compliance with weld codes; site teams required constructability parameters to stick to the schedule.</span></span>
+                        <textarea id="dare_Acknowledge" class="ee-textarea" placeholder="Document the competing engineering opinions and operational priorities..." oninput="updatePreview()"></textarea>
                     </div>
 
-                    <!-- Redirect Card -->
-                    <div class="dare-card redirect-card">
-                        <label class="dare-label redirect-label">Redirect to Solutions [R]</label>
-                        <span class="form-hint">Identify the unyielding project boundaries, standard safety rules, or statutory codes that serve as objective common ground. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Redirected both groups to the mandatory BS EN 13480 piping code limits and the fixed plant commissioning deadline.</span></span>
-                        <textarea id="dare_Redirect" class="form-input" placeholder="Steer the team toward mandatory codes, shared safety rules, or fixed timelines..." oninput="updatePreview()"></textarea>
+                    <!-- Reframe Card -->
+                    <div class="dare-card reframe-card">
+                        <label class="ee-label" for="dare_Reframe" style="color: var(--terminal-green);">Reframe the Challenge [R]</label>
+                        <span class="form-hint">How did you re-centre the discussion away from personal debate and focus it on shared standards, safety, or milestones? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Reframed the problem statement around maintaining structural code compliance while adjusting assembly sequences.</span></span>
+                        <textarea id="dare_Reframe" class="ee-textarea" placeholder="Explain how you pivoted the conversation back to objective project drivers..." oninput="updatePreview()"></textarea>
                     </div>
 
-                    <!-- Educate Card -->
-                    <div class="dare-card educate-card">
-                        <label class="dare-label educate-label">Educate & Establish [E]</label>
-                        <span class="form-hint">Formulate the final resolution, updated designs, new cross-checks, and verification loops. Clarify upcoming accountabilities. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Established a localized layout adjustment using high-pressure elbows, and added a mandatory combined 3D BIM review stage.</span></span>
-                        <textarea id="dare_Educate" class="form-input" placeholder="Document the agreed resolution, workflow modifications, and compliance metrics..." oninput="updatePreview()"></textarea>
+                    <!-- Execute Card -->
+                    <div class="dare-card execute-card">
+                        <label class="ee-label" for="dare_Execute" style="color: #00b894;">Execute Resolution [E]</label>
+                        <span class="form-hint">What specific compromise, design variation review, or clear site brief did you authorize to resolve the conflict safely? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Chaired an emergency review loop, authorized a verified alternative joint design, and kept production moving without lowering safety margins.</span></span>
+                        <textarea id="dare_Execute" class="ee-textarea" placeholder="State the final collaborative agreement and quantified project metrics..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -415,15 +255,15 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
-                <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
+                <div id="previewArea" class="preview-box">Awaiting text inputs to compile narrative tracking stream...</div>
             </div>
         </div>
 
@@ -431,6 +271,7 @@
 
     <script>
         // --- 1. MEMORY NAMESPACING ---
+        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
         const EE_TOOL_ID = "ee_comm_dare";
         let autosaveTimer;
 
@@ -440,10 +281,10 @@
             if (stored) {
                 try {
                     const data = JSON.parse(stored);
-                    document.getElementById('dare_Define').value = data.Define || '';
+                    document.getElementById('dare_Detect').value = data.Detect || '';
                     document.getElementById('dare_Acknowledge').value = data.Acknowledge || '';
-                    document.getElementById('dare_Redirect').value = data.Redirect || '';
-                    document.getElementById('dare_Educate').value = data.Educate || '';
+                    document.getElementById('dare_Reframe').value = data.Reframe || '';
+                    document.getElementById('dare_Execute').value = data.Execute || '';
                 } catch (e) {
                     console.error("Failed to parse stored DARE state:", e);
                 }
@@ -494,27 +335,27 @@
 
         // --- 4. COMPILER ENGINE ---
         function updatePreview() {
-            const define = document.getElementById('dare_Define').value.trim();
+            const detect = document.getElementById('dare_Detect').value.trim();
             const acknowledge = document.getElementById('dare_Acknowledge').value.trim();
-            const redirect = document.getElementById('dare_Redirect').value.trim();
-            const educate = document.getElementById('dare_Educate').value.trim();
+            const reframe = document.getElementById('dare_Reframe').value.trim();
+            const execute = document.getElementById('dare_Execute').value.trim();
 
-            let output = `=== DARE METHOD: CONFLICT RESOLUTION ARCHITECT ===\n\n`;
-            output += `[DEFINE]:\n${define ? define : '...\n'}\n`;
-            output += `[ACKNOWLEDGE]:\n${acknowledge ? acknowledge : '...\n'}\n`;
-            output += `[REDIRECT]:\n${redirect ? redirect : '...\n'}\n`;
-            output += `[EDUCATE & ESTABLISH]:\n${educate ? educate : '...\n'}\n`;
+            let output = `=== DARE FRAMEWORK: CONFLICT RESOLUTION ===\n\n`;
+            output += `[DETECT FRICTION]:\n${detect ? detect : '...\n'}\n`;
+            output += `[ACKNOWLEDGE VIEWS]:\n${acknowledge ? acknowledge : '...\n'}\n`;
+            output += `[REFRAME CHALLENGE]:\n${reframe ? reframe : '...\n'}\n`;
+            output += `[EXECUTE RESOLUTION]:\n${execute ? execute : '...\n'}\n`;
 
             document.getElementById('previewArea').innerText = output;
 
             const aiBtn = document.getElementById('aiBtn');
-            const hasData = define || acknowledge || redirect || educate;
+            const hasData = detect || acknowledge || reframe || execute;
             aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
 
             // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
             clearTimeout(autosaveTimer);
             autosaveTimer = setTimeout(() => {
-                const data = { Define: define, Acknowledge: acknowledge, Redirect: redirect, Educate: educate };
+                const data = { Detect: detect, Acknowledge: acknowledge, Reframe: reframe, Execute: execute };
                 localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
                 updateNavigationBadges();
                 console.log("DARE conflict framework layout auto-saved.");
@@ -523,40 +364,40 @@
 
         // --- 5. COGNITIVE AI PROMPT INJECTION ---
         function generatePrompt() {
-            const define = document.getElementById('dare_Define').value.trim();
+            const detect = document.getElementById('dare_Detect').value.trim();
             const acknowledge = document.getElementById('dare_Acknowledge').value.trim();
-            const redirect = document.getElementById('dare_Redirect').value.trim();
-            const educate = document.getElementById('dare_Educate').value.trim();
+            const reframe = document.getElementById('dare_Reframe').value.trim();
+            const execute = document.getElementById('dare_Execute').value.trim();
 
             let script = "";
             let promptType = "User Draft";
-            const hasUserData = define || acknowledge || redirect || educate;
+            const hasUserData = detect || acknowledge || reframe || execute;
 
             if (hasUserData) {
-                script += `[DEFINED CONFLICT PARAMETERS]\n${define ? define : 'Not defined.'}\n\n`;
-                script += `[ACKNOWLEDGED COMPETING STANCES]\n${acknowledge ? acknowledge : 'Not defined.'}\n\n`;
-                script += `[REDIRECTED OBJECTIVE DENOMINATORS]\n${redirect ? redirect : 'Not defined.'}\n\n`;
-                script += `[ESTABLISHED RESOLUTION GOVERNANCE]\n${educate ? educate : 'Not defined.'}\n\n`;
+                script += `[DETECTED FRICTION ROOT CAUSE]\n${detect ? detect : 'Not defined.'}\n\n`;
+                script += `[ACKNOWLEDGED INFRASTRUCTURE VIEWS]\n${acknowledge ? acknowledge : 'Not defined.'}\n\n`;
+                script += `[OBJECTIVE REFRAME STRATEGY]\n${reframe ? reframe : 'Not defined.'}\n\n`;
+                script += `[EXECUTED COMPROMISE OUTCOME]\n${execute ? execute : 'Not defined.'}\n\n`;
             } else {
                 promptType = "Hypothetical Example";
                 script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
-                script += `[DEFINED CONFLICT PARAMETERS]\ne.g., Standoff between safety operations and process design regarding the installation placement of high-pressure venting valves.\n\n`;
-                script += `[ACKNOWLEDGED COMPETING STANCES]\ne.g., Safety demanded absolute isolation spacing from main thoroughfares, while process engineering flagged critical piping pressure losses if run too long.\n\n`;
-                script += `[REDIRECTED OBJECTIVE DENOMINATORS]\ne.g., Grounded the argument in the mandatory API 520 standard gas venting calculations and fixed CapEx procurement boundaries.\n\n`;
-                script += `[ESTABLISHED RESOLUTION GOVERNANCE]\ne.g., Selected an optimized blast-deflection housing assembly, updated the plant safety manual layout, and introduced joint sign-off procedures.\n\n`;
+                script += `[DETECTED FRICTION ROOT CAUSE]\ne.g., Disagreement between site construction coordinators and senior structural design analysts regarding safety margin compliance on a tight radius tunnel layout change.\n\n`;
+                script += `[ACKNOWLEDGED INFRASTRUCTURE VIEWS]\ne.g., Site teams prioritized reducing layout delay overheads; design analysts prioritized zero deviation from absolute stress calculations.\n\n`;
+                script += `[OBJECTIVE REFRAME STRATEGY]\ne.g., Pivoted the debate around a shared regulatory baseline requirement, explicitly auditing the alignment limits via Eurocode compliance criteria.\n\n`;
+                script += `[EXECUTED COMPROMISE OUTCOME]\ne.g., Supervised a parallel structural re-modeling script, verified a 4.5% thickness augmentation layout change, and secured formal principal engineer clearance signature blocks within 24 hours.\n\n`;
             }
 
-            const role = "Expert Arbitrator & Senior Engineering Leadership Panel Chair";
-            const action = "Analyse this DARE conflict resolution model mapping sheet. 1. Isolate if the conflict statement frames an objective engineering variance vs a subjective dispute. 2. Critique whether the redirection phase targets unyielding standards or timelines effectively. 3. Evaluate if the establish segment provides clear process governance and compliance metrics suitable to prove UK-SPEC Competence D3 proficiency.";
+            const role = "Senior Engineering Mediator & UK-SPEC Registration Assessor";
+            const actionText = "Analyse this DARE conflict resolution briefing outline. 1. Critique if the user successfully separates individual behavior metrics from raw process friction parameters. 2. Evaluate if the reframe methodology relies on objective industry parameters rather than emotional persuasion techniques. 3. Assess if the execution section isolates the candidate's personal accountability and leadership decisions to fulfill UK-SPEC Competence D.";
 
             const metaPrompt = `[ROLE] You are acting as a ${role}. 
-[GOAL] ${action}
-[CONTEXT] The user is an engineering leader finalizing evidence structures to prove multidisciplinary conflict resolution capabilities for a Professional Review Interview (specifically UK-SPEC Competence D3). The format used is a DARE Method Matrix (${promptType}).
+[GOAL] ${actionText}
+[CONTEXT] The user is a senior technician compiling professional review evidence records to satisfy institutional standard criteria. The format used is a DARE Conflict Resolution Canvas (${promptType}).
 [SOURCE]
 """
 ${script}
 """
-[EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
+[EXPECTATION] Do not write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -569,7 +410,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -578,26 +419,26 @@ ${script}
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
         function clearData() {
             if(confirm("Confirm action: permanently purge all text inputs from the DARE conflict canvas?")) {
-                document.getElementById('dare_Define').value = '';
+                document.getElementById('dare_Detect').value = '';
                 document.getElementById('dare_Acknowledge').value = '';
-                document.getElementById('dare_Redirect').value = '';
-                document.getElementById('dare_Educate').value = '';
+                document.getElementById('dare_Reframe').value = '';
+                document.getElementById('dare_Execute').value = '';
                 updatePreview();
             }
         }
 
         function exportJSON() {
-            const define = document.getElementById('dare_Define').value.trim();
+            const detect = document.getElementById('dare_Detect').value.trim();
             const acknowledge = document.getElementById('dare_Acknowledge').value.trim();
-            const redirect = document.getElementById('dare_Redirect').value.trim();
-            const educate = document.getElementById('dare_Educate').value.trim();
+            const reframe = document.getElementById('dare_Reframe').value.trim();
+            const execute = document.getElementById('dare_Execute').value.trim();
 
-            const state = { Define: define, Acknowledge: acknowledge, Redirect: redirect, Educate: educate };
+            const state = { Detect: detect, Acknowledge: acknowledge, Reframe: reframe, Execute: execute };
             const timestamp = new Date().toISOString().slice(0, 10);
             const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `EE_DARE_Conflict_Resolution_${timestamp}.json`;
+            link.download = `EE_DARE_Conflict_Log_${timestamp}.json`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -611,15 +452,15 @@ ${script}
             reader.onload = function(e) {
                 try {
                     const data = JSON.parse(e.target.result);
-                    if (data.Define !== undefined || data.Acknowledge !== undefined || data.Redirect !== undefined || data.Educate !== undefined) {
-                        document.getElementById('dare_Define').value = data.Define || '';
+                    if (data.Detect !== undefined || data.Acknowledge !== undefined || data.Reframe !== undefined || data.Execute !== undefined) {
+                        document.getElementById('dare_Detect').value = data.Detect || '';
                         document.getElementById('dare_Acknowledge').value = data.Acknowledge || '';
-                        document.getElementById('dare_Redirect').value = data.Redirect || '';
-                        document.getElementById('dare_Educate').value = data.Educate || '';
+                        document.getElementById('dare_Reframe').value = data.Reframe || '';
+                        document.getElementById('dare_Execute').value = data.Execute || '';
                         updatePreview();
-                        alert("DARE conflict framework data layers imported successfully!");
+                        alert("DARE conflict resolution narrative parameters imported successfully!");
                     } else {
-                        alert("Invalid JSON format. Expected DARE conflict parameters.");
+                        alert("Invalid JSON data layout. Expected Detect, Acknowledge, Reframe, and Execute parameters.");
                     }
                 } catch (err) {
                     alert("Failed to parse file as valid JSON.");
@@ -631,58 +472,45 @@ ${script}
 
         // --- 8. HTML REPORT COMPILER ---
         function generateReport() {
-            const define = document.getElementById('dare_Define').value.trim();
+            const detect = document.getElementById('dare_Detect').value.trim();
             const acknowledge = document.getElementById('dare_Acknowledge').value.trim();
-            const redirect = document.getElementById('dare_Redirect').value.trim();
-            const educate = document.getElementById('dare_Educate').value.trim();
+            const reframe = document.getElementById('dare_Reframe').value.trim();
+            const execute = document.getElementById('dare_Execute').value.trim();
             
             let html = `<!DOCTYPE html>
             <html lang="en-GB">
             <head>
                 <meta charset="UTF-8">
-                <title>EE DARE Conflict Resolution Report</title>
+                <title>EE DARE Conflict Resolution Audit Memo</title>
                 <style>
                     body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
                     h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
-                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
-                    p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
-                    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
-                    .define { border-top: 4px solid #C05621; }
-                    .acknowledge { border-top: 4px solid #C05621; }
-                    .redirect { border-top: 4px solid #006837; }
-                    .educate { border-top: 4px solid #006837; }
+                    h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 16px;}
+                    p { white-space: pre-wrap; margin-bottom: 20px; font-size: 14px; background: #F9F9F9; padding: 15px; border-radius: 4px; border: 1px solid #E2E8F0; }
                     .logo { max-width: 250px; margin-bottom: 20px; }
                     .footer { margin-top: 50px; font-size: 0.85rem; color: #777; border-top: 1px dashed #ccc; padding-top: 20px; text-align: center; }
-                    @media print { body { margin: 0; padding: 0; } }
+                    @media print { body { margin: 0; padding: 0; } p { background: transparent; border: 1px solid #ccc; } }
                 </style>
             </head>
             <body>
                 <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
-                <h1>DARE Conflict Resolution Report</h1>
-                <p><em>Framework: Professional Communication / Interpersonal Mediation // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
+                <h1>DARE Interpersonal Conflict Audit Report</h1>
+                <p><em>Framework Cluster: Interview & Professional Communication System // Compiled: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
-                <div class="grid">
-                    <div class="card define">
-                        <h2>Defined Conflict</h2>
-                        <p>${define ? define : 'Not defined.'}</p>
-                    </div>
-                    <div class="card acknowledge">
-                        <h2>Acknowledged Viewpoints</h2>
-                        <p>${acknowledge ? acknowledge : 'Not defined.'}</p>
-                    </div>
-                    <div class="card redirect">
-                        <h2>Redirected Solutions</h2>
-                        <p>${redirect ? redirect : 'Not defined.'}</p>
-                    </div>
-                    <div class="card educate">
-                        <h2>Established Governance</h2>
-                        <p>${educate ? educate : 'Not defined.'}</p>
-                    </div>
-                </div>
+                <h2>Detect the Friction</h2>
+                <p>${detect ? detect : 'Not defined.'}</p>
+                
+                <h2>Acknowledge Perspectives</h2>
+                <p>${acknowledge ? acknowledge : 'Not defined.'}</p>
+                
+                <h2>Reframe the Challenge</h2>
+                <p>${reframe ? reframe : 'Not defined.'}</p>
+                
+                <h2>Execute Resolution</h2>
+                <p>${execute ? execute : 'Not defined.'}</p>
 
                 <div class="footer">
-                    Generated by Empowering Engineers UK - Professional Communication Framework System
+                    Generated via Empowering Engineers UK - Professional Conflict Resolution Architecture Suite
                 </div>
             </body>
             </html>`;
@@ -693,6 +521,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

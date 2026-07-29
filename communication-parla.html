@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- PARLA GRID STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .parla-stack {
             display: flex;
             flex-direction: column;
@@ -155,22 +62,9 @@
         }
         .parla-card.problem-card { border-left-color: var(--burnt-orange); }
         .parla-card.action-card { border-left-color: var(--burnt-orange); }
-        .parla-card.result-card { border-left-color: var(--ee-terminal-green); }
-        .parla-card.learning-card { border-left-color: var(--ee-terminal-green); }
+        .parla-card.result-card { border-left-color: var(--terminal-green); }
+        .parla-card.learning-card { border-left-color: var(--terminal-green); }
         .parla-card.application-card { border-left-color: #00b894; }
-
-        .parla-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .problem-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--burnt-orange) !important; }
-        .result-label { color: var(--terminal-green) !important; }
-        .learning-label { color: var(--terminal-green) !important; }
-        .application-label { color: #00b894 !important; }
 
         .form-hint {
             display: block;
@@ -178,51 +72,7 @@
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 100px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -242,10 +92,12 @@
             justify-content: center;
         }
 
+        /* Enforce custom prompt adjustments alongside global button utilities */
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -268,44 +120,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Reflective Practice in Engineering: Mastering the PARLA Method</h1>
-            <p>
-                In advanced industrial sectors governed by tight safety parameters and rigorous statutory regulations, raw project execution is only half the battle. Professional assessment panels from licensed institutions do not merely look for technical output; they actively search for proof of continuous self-directed development and professional growth. While traditional frameworks like STAR focus heavily on descriptive execution, the **PARLA Method (Problem, Action, Result, Learning, Application)** expands this narrative structure by introducing continuous improvement mechanics. This makes it an ideal framework for documenting evidence required under **UK-SPEC Competence D (Communication)** and **Competence E (Professional Commitment)**.
-            </p>
-            <p>
-                The distinguishing feature of a PARLA evidence entry is its focus on continuous learning. In senior consulting engineering or asset lifecycle management, a technical error or design discrepancy represents a critical opportunity to update institutional workflows. The PARLA framework splits a typical narrative arc into five clear milestones. Rather than finishing with the "Result" field, it forces the engineer to complete a thorough retrospective evaluation. This involves documenting exactly what was **Learned** from the technical constraints of the project, and detailing how that new knowledge was systematically **Applied** to insulate subsequent engineering designs from similar risk parameters.
-            </p>
+            <h2>What is the PARLA Reflective Framework?</h2>
+            <p>The <strong>PARLA framework</strong> is a structured five-part writing tool designed to help engineering professionals record and evaluate their project experiences. PARLA stands for <strong>Problem, Action, Result, Learning, and Application</strong>. While other models like the STAR method focus mostly on describing a specific technical task from start to finish, the PARLA model goes a step further by focusing heavily on your personal growth. It provides a simple workspace where you can analyze what went wrong or what went right on a project, what you discovered from that event, and how you used that knowledge to improve future work.</p>
 
-            <h2>Deconstructing the Five Core Dimensions of PARLA</h2>
-            <p>
-                Structuring a compliant PARLA reflective record requires technical leads to meticulously evaluate project workflows from problem isolation through to long-term operational application:
-            </p>
-            <p>
-                <strong>Problem [P]:</strong> This dimension defines the technical boundary conditions, baseline failure state, or project bottleneck. Candidates must document the exact boundaries of the crisis, incorporating data metrics, material parameters, and commercial exposure thresholds. For instance, rather than simply identifying an equipment malfunction, outline the specific risk: e.g. "Fatigue propagation cracks were detected along a critical high-pressure hydraulic assembly during statutory testing, threatening a total plant lockout and violating strict ISO 4413 system standards."
-            </p>
-            <p>
-                <strong>Action [A]:</strong> The action block captures your personal engineering execution and technical decision-making. Explain what first-principles calculations you ran, what validation software scripts you modified, what standard compliance matrices you deployed, and how you coordinated the multi-disciplinary asset engineering teams to mitigate the problem safely.
-            </p>
-            <p>
-                <strong>Result [R]:</strong> This phase documents the quantitative, empirical project milestones achieved. You must present verifiable data—including percentage performance improvements, certified safety clearances, compressed project timelines, or direct financial optimizations—to prove the absolute success of your structural engineering actions.
-            </p>
-            <p>
-                <strong>Learning [L]:</strong> The learning dimension moves beyond technical descriptions into independent reflection. Authors must critique what the operational failure or design bottleneck revealed about systemic workflow gaps. This includes analyzing limitations in standard material specifications, hidden logic errors in baseline calculation tools, or gaps in standard asset control processes.
-            </p>
-            <p>
-                <strong>Application [A]:</strong> The final phase documents how you closed the continuous professional development (CPD) loop. Candidates must provide concrete evidence of how this new insight was used to optimize subsequent programs. Examples include authoring an updated corporate engineering code of practice, modifying procurement specifications, updating standard design workflows, or training the engineering team.
-            </p>
+            <h2>Why Does Reflective Learning Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), your technical knowledge is only part of the assessment. The Engineering Council requires you to demonstrate a strong commitment to your personal development and professional standards. These metrics are evaluated directly under <strong>UK-SPEC Competence D (Communication)</strong> and <strong>Competence E (Professional Commitment)</strong>. Many capable graduate technicians face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> because they simply list their day-to-day duties rather than showing true reflective learning.</p>
+            <p>In the real world of professional engineering, unexpected complications happen frequently. A component might fail under unexpected cyclic stress, a software code might trigger a system slowdown, or an installation layout might cause site clearance issues. Senior mentors and review panels from your <strong>Professional Engineering Institution (PEI)</strong> do not expect you to be perfect, but they absolutely expect you to learn from every asset incident. Using the PARLA method proves that you possess the self-awareness and maturity required for leadership. It shows you can take an operational bottleneck and turn it into an updated code of practice or a team training module to protect long-term project safety.</p>
 
-            <h2>Interactive Client-Side PARLA Architecture Workbench</h2>
-            <p>
-                The interactive PARLA workbench below is engineered specifically to help engineering professionals quickly structure, audit, and refine their reflective technical records. To ensure total compliance with corporate non-disclosure agreements (NDAs) and preserve absolute data sovereignty, this system uses a zero-knowledge client-side architecture. All inputs are handled entirely within your local browser partition—nothing is ever transmitted to remote network servers. Use this toolkit to compile robust portfolios, export verified JSON databases, or generate sophisticated AI coach prompts.
-            </p>
+            <h2>How to Complete Your PARLA Framework Canvas Cleanly</h2>
+            <p>To build a compliant reflective learning record, work systematically through the five interactive cards on our workbench editor:</p>
+            <ul>
+                <li><strong>Problem [P]:</strong> Define the exact technical flaw, equipment malfunction, design gap, or safety risk your team faced. Ground this statement with cold, clear facts.</li>
+                <li><strong>Action [A]:</strong> Document your individual technical choices. Use active verbs to state exactly what *you* calculated, modeled, verified, or authorized under relevant industry codes.</li>
+                <li><strong>Result [R]:</strong> State the quantitative outcome of your engineering actions. Include data points like percent efficiency gains, hours saved, or formal safety sign-offs.</li>
+                <li><strong>Learning [L]:</strong> Reflect honestly on what this specific incident revealed about structural gaps in older materials, calculation formulas, or company workflows.</li>
+                <li><strong>Application [A]:</strong> Document how you closed the professional loop. Explain how you used this new knowledge to update design guides, adjust procurement gates, or train your team networks.</li>
+            </ul>
+            <p>Type your analysis directly into the workspace sections below. Our platform utilizes a <strong>strong zero-knowledge local browser architecture</strong>, meaning your project descriptions are automatically cached safely on your device every few seconds. No confidential company data or proprietary details are ever sent to external servers, ensuring full compliance with your employer's non-disclosure agreements (NDAs). Once finished, copy your compiled outline or print a professional audit report directly from your browser to support your professional registration portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -390,37 +227,37 @@
                     
                     <!-- Problem Card -->
                     <div class="parla-card problem-card">
-                        <label class="parla-label problem-label">Problem [P]</label>
+                        <label class="ee-label" for="parla_Problem" style="color: var(--burnt-orange);">Problem [P]</label>
                         <span class="form-hint">What design flaw, mechanical bottleneck, safety anomaly, or resource constraint emerged? Set exact boundaries. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Transducers captured structural cavitation loops inside a main processing valve, threatening a complete refinery pipeline lockout.</span></span>
-                        <textarea id="parla_Problem" class="form-input" placeholder="Define technical challenge boundaries and system risks here..." oninput="updatePreview()"></textarea>
+                        <textarea id="parla_Problem" class="ee-textarea" placeholder="Define technical challenge boundaries and system risks here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="parla-card action-card">
-                        <label class="parla-label action-label">Action [A]</label>
+                        <label class="ee-label" for="parla_Action" style="color: var(--burnt-orange);">Action [A]</label>
                         <span class="form-hint">What calculations, validations, script re-writes, or team coordination did you personally command? Use strong engineering verbs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Executed transient flow models, modified core logic configurations, and directed field repairs under ISO standards.</span></span>
-                        <textarea id="parla_Action" class="form-input" placeholder="Document your personal technical intervention and choices here..." oninput="updatePreview()"></textarea>
+                        <textarea id="parla_Action" class="ee-textarea" placeholder="Document your personal technical intervention and choices here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Result Card -->
                     <div class="parla-card result-card">
-                        <label class="parla-label result-label">Result [R]</label>
+                        <label class="ee-label" for="parla_Result" style="color: var(--terminal-green);">Result [R]</label>
                         <span class="form-hint">What data-driven milestones, financial containment, or standard clearances proved the success of your actions? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Completely eliminated cavitation, optimized runtime safety blocks, and compressed downtime losses by £450,000.</span></span>
-                        <textarea id="parla_Result" class="form-input" placeholder="State quantifiable project outcomes and standard sign-offs here..." oninput="updatePreview()"></textarea>
+                        <textarea id="parla_Result" class="ee-textarea" placeholder="State quantifiable project outcomes and standard sign-offs here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Learning Card -->
                     <div class="parla-card learning-card">
-                        <label class="parla-label learning-label">Learning [L]</label>
+                        <label class="ee-label" for="parla_Learning" style="color: var(--terminal-green);">Learning [L]</label>
                         <span class="form-hint">What did this asset incident reveal about structural gaps in standard material codes, calculation tools, or corporate control workflows? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Realised that legacy fluid calculation algorithms failed to account for variable viscosity thresholds at low operating temperatures.</span></span>
-                        <textarea id="parla_Learning" class="form-input" placeholder="Detail your reflective analysis and technical insights captured here..." oninput="updatePreview()"></textarea>
+                        <textarea id="parla_Learning" class="ee-textarea" placeholder="Detail your reflective analysis and technical insights captured here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Application Card -->
                     <div class="parla-card application-card">
-                        <label class="parla-label application-label">Application [A]</label>
+                        <label class="ee-label" for="parla_Application" style="color: #00b894;">Application [A]</label>
                         <span class="form-hint">How did you use this insight to update design guides, update procurement specifications, or train team networks? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Authored an updated calculation code of practice, delivered team training, and revised material procurement gates.</span></span>
-                        <textarea id="parla_Application" class="form-input" placeholder="Document how you closed the loop and optimized subsequent engineering systems here..." oninput="updatePreview()"></textarea>
+                        <textarea id="parla_Application" class="ee-textarea" placeholder="Document how you closed the loop and optimized subsequent engineering systems here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -428,12 +265,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -470,6 +307,7 @@
             return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
         }
 
+        // Programmatic Local Data Layer Scraper
         function checkToolContent(toolId) {
             const stored = localStorage.getItem(toolId);
             if (!stored) return false;
@@ -570,12 +408,12 @@
 
             const metaPrompt = `[ROLE] You are acting as a ${role}. 
 [GOAL] ${actionText}
-[CONTEXT] The user is an engineering leader planning a high-density documentation package to satisfy professional review rules (specifically UK-SPEC Competence D and E). The format used is a PARLA Technical Review Sheet (${promptType}).
+[CONTEXT] The user is an engineering professional finalizing evidence structures to satisfy the Engineering Council UK-SPEC Competence D and E registers. The format used is a PARLA Technical Review Sheet (${promptType}).
 [SOURCE]
 """
 ${script}
 """
-[EXPECTATION] Do not complete or write out text sections for the user. Evaluate the content framework parameters thoroughly. Expose informational design blind spots, challenge weak structure models, and offer specific optimizations section-by-section.`;
+[EXPECTATION] Do not execute or write out text sections for the user. Interrogate the provided data framework critically. Expose narrative flaws, highlight vague assertions, and present a structured section-by-section audit feedback report Simon.`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -588,7 +426,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -706,6 +544,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
-</html>
+</html>```

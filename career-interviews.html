@@ -20,7 +20,7 @@
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Global Layout Core Linkage with Active Cache-Busting -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -39,205 +39,33 @@
       }
     }
     </script>
-
-    <style>
-        /* --- HUB SPECIFIC ARCHITECTURE & OVERRIDES --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 10px;
-        }
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 25px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Career Advancement: Internal Succession vs. External Procurement</h1>
-            <p>The trajectory of a professional engineering career invariably intersects with high-stakes executive assessments. Whether navigating an internal succession pipeline to secure a directorship or engaging in a competitive external procurement cycle for a principal consultant role, the interview environment demands absolute strategic precision. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these expectations under Competence C (Responsibility, management, or leadership) and Competence D (Communication). Assessing panels are no longer strictly evaluating your theoretical mathematical capabilities; they are auditing your commercial viability, your capacity to absorb regulatory liability, and your aptitude for cross-disciplinary team leadership.</p>
+            <h1>Engineering Career Interviews: Mastering Your Professional Progression</h1>
+            <p>Welcome to the Engineering Career Interviews Hub. As you progress through your engineering career, you will inevitably face high-stakes executive interviews. Whether you are aiming for a promotion within your current company or applying for a new role externally, the interview environment demands careful preparation. Assessing panels are no longer just checking your mathematical skills or technical software literacy. They want to evaluate your commercial awareness, your ability to handle safety regulations, and your talent for leading a multi-disciplinary team.</p>
+
+            <h2>Why Interview Preparation Matters for UK-SPEC</h2>
+            <p>If you are actively working towards your Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) status, mastering the professional interview is absolutely essential. The Engineering Council’s UK-SPEC guidelines focus heavily on your ability to perform under pressure. Competence C requires you to prove your leadership and commercial management skills. Meanwhile, Competence D demands that you can communicate highly technical information clearly and safely. A strong, structured interview performance proves to the panel that you are ready for the executive responsibilities of professional registration.</p>
 
             <h2>Navigating Internal Promotion Panels</h2>
-            <p>Internal promotion boards operate on a fundamentally distinct paradigm compared to external acquisition teams. An internal panel possesses intimate knowledge of your corporate environment, legacy systems, and ongoing operational bottlenecks. Consequently, they expect candidates to demonstrate advanced corporate stewardship. You must articulate how your specific technical interventions have directly optimised capital expenditure (CapEx), mitigated Health and Safety Executive (HSE) compliance risks, and streamlined internal business processes. The narrative must shift from personal task execution to systemic organisational improvement, highlighting your ability to mentor graduate engineers and architect long-term value innovation.</p>
+            <p>Internal promotion boards operate very differently from external hiring teams. An internal panel already knows your company, your legacy systems, and your daily operational challenges. Therefore, they expect you to show deep corporate understanding and stewardship. You must clearly explain how your specific technical work has saved the business money, improved safety compliance, or made internal processes faster. You need to shift your focus from simply finishing assigned tasks to proactively improving the whole organisation and mentoring junior staff.</p>
             
             <h2>Mastering External Corporate Procurement</h2>
-            <p>Conversely, securing an elite engineering appointment at a new enterprise requires the rapid establishment of unshakeable technical trust. External review boards evaluate candidates against unfamiliar operational parameters, subjecting them to severe technical stress testing and behavioural diagnostics. In these scenarios, you must explicitly demonstrate your ability to execute complex problem-solving from first principles, particularly when standard manufacturer codes or historical site data are unavailable. Your responses must strictly adhere to the STAR (Situation, Task, Action, Result) methodology, ensuring that your individual commercial impact is never obscured by generic departmental achievements.</p>
+            <p>On the other hand, securing an elite job at a new engineering firm means you must quickly build unshakeable trust. External review boards will test you against unfamiliar operational scenarios. They will push you to solve problems from first principles. In these external interviews, you must strictly use the STAR Methodology (Situation, Task, Action, Result). This specific structural framework ensures you clearly explain your personal impact and leadership choices, rather than just talking broadly about what your previous department achieved.</p>
 
-            <h2>High-Fidelity Simulation Workbenches</h2>
-            <p>To master these distinct executive environments, Empowering Engineers UK has engineered two high-fidelity interview simulation workbenches. These client-side applications force candidates to articulate their engineering histories under strict countdown boundaries, mimicking the psychological pressure of a live board review. By utilising the integrated browser dictation tools, engineers can compile exact textual transcripts of their spoken narratives. These transcripts are then aggregated into an optimised artificial intelligence prompt, ready for immediate external critique. Utilise the gateway directory below to access the specific simulation matrix aligned with your current career trajectory, and begin permanently eradicating ambiguities from your professional pitch.</p>
-
-            <p>Mastering the art of the engineering interview is an iterative, continuous improvement process. Treat your professional narrative as you would a mechanical or electrical design—subject it to rigorous peer review, optimise the data delivery, and eliminate any redundant phraseology. By repeatedly exposing yourself to these simulated technical cross-examinations, you will develop the cognitive stamina required to dominate executive boardrooms and secure the senior leadership appointments your technical expertise warrants.</p>
+            <h2>How to Use These High-Fidelity Simulators</h2>
+            <p>To help you master both environments, we have engineered two specialised interview simulators. These digital workbenches force you to answer tough technical questions under a strict time limit. This perfectly replicates the psychological pressure of a real board review. Practising your answers repeatedly builds cognitive stamina, ensuring you do not freeze when asked a difficult question.</p>
+            <p>Because you will likely use highly sensitive corporate project examples to practice, this platform uses a strict zero-knowledge local storage system. Everything you type into the simulator is saved safely inside your own machine's browser cache. We never transmit your corporate data to external servers, ensuring you remain completely compliant with any enterprise Non-Disclosure Agreements (NDAs). Select your target pathway below to begin practising safely.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -249,7 +77,7 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
+        <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Career Interview Pathway">
             <a href="interview.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
@@ -310,7 +138,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // Core System Tool Identifiers mapped to the respective simulator execution environments

@@ -8,44 +8,23 @@
     <!-- Advanced AEO/GEO & SEO Meta Data -->
     <meta name="description" content="Free engineering calisthenics programme. Maximise physical capability and manage operational stress using a structured 4-week bodyweight training tracker.">
     <meta name="keywords" content="Calisthenics, Engineering Fitness, Stress Management, Bodyweight Training, UK-SPEC, Resilience, Minimal Effective Dose">
-    <meta property="og:title" content="EE Calisthenics Tracker | Empowering Engineers UK">
+    <meta property="og:title" content="Calisthenics Tracker | Empowering Engineers UK">
     <meta property="og:description" content="Sculpt a highly functional, resilient physique with our 4-week engineering calisthenics protocol and interactive workbench.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/calisthenics.html">
     <meta property="og:type" content="website">
 
-    <title>EE Calisthenics Tracker | Empowering Engineers UK</title>
+    <title>Calisthenics Tracker | Empowering Engineers UK</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Global Layout Core Linkage with Active Cache-Busting -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
 
     <style>
-        /* --- Tool Specific Micro-Overrides & UI Components --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p { margin-bottom: 15px; font-size: 1.05rem; }
-        
+        /* --- Tool Specific Micro-Overrides & Bespoke UI Components --- */
         .ee-card { 
             background-color: var(--dark-card); 
             border: 1px solid var(--border-color); 
@@ -53,86 +32,6 @@
             padding: 25px; 
             margin-bottom: 25px; 
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
-        }
-
-        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* High Contrast Square Status Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
         }
 
         /* Layout Grids */
@@ -143,7 +42,7 @@
         .guide-box h4 { color: var(--terminal-green); margin-bottom: 5px; text-transform: uppercase; font-size: 0.9rem; }
         .guide-box p { font-size: 0.85rem; color: var(--cloud-white); line-height: 1.5; margin-bottom: 0;}
 
-        /* Accordions (Collapsible UI) */
+        /* Workout Accordions (Bespoke Collapsible UI for Tracker) */
         .accordion-btn {
             background-color: var(--ee-dark-blue); color: var(--ee-white); cursor: pointer; padding: 15px 20px; width: 100%; text-align: left; border: none; outline: none; transition: 0.2s; font-size: 1rem; font-weight: 700; text-transform: uppercase; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-left: 4px solid var(--ee-terminal-green); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
@@ -158,13 +57,13 @@
         .ex-text { color: var(--cloud-white); }
 
         .ex-section-title { font-weight: 700; color: var(--cloud-white); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 2px;}
-        .ex-section-title { font-weight: 700; color: var(--cloud-white); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 2px;}
+        .ex-section-title:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
         .ex-list { padding-left: 20px; font-size: 0.85rem; color: var(--cloud-white); margin-bottom: 10px;}
         .ex-list li { margin-bottom: 6px; }
         
         .mindfulness-box { background: rgba(3, 247, 160, 0.05); border-left: 3px solid var(--ee-terminal-green); padding: 15px; margin-top: 20px; font-size: 0.9rem; font-style: italic; color: var(--cloud-white);}
 
-        /* 4-Week Tracker (Inside Accordion) */
+        /* 4-Week Tracker Setup */
         .week-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .day-col { text-align: center; background: var(--input-bg); padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;}
         .day-title { font-size: 1.1rem; font-weight: 700; color: var(--cloud-white); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--ee-terminal-green); display: inline-block; padding-bottom: 4px;}
@@ -179,11 +78,8 @@
         .ee-checkbox-wrap input:checked + .ee-checkmark { background: var(--ee-terminal-green); border-color: var(--ee-terminal-green); }
         .ee-checkbox-wrap input:checked + .ee-checkmark::after { content: '✓'; color: var(--ee-dark-blue); font-weight: bold; font-size: 1rem;}
 
-        .header-actions { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: space-between; align-items: center;}
-
         @media (max-width: 768px) {
             .grid-2, .week-body { grid-template-columns: 1fr; }
-            .header-actions { flex-direction: column; align-items: stretch;}
             .ex-info-grid { grid-template-columns: 1fr; gap: 2px;}
             .ex-label { margin-top: 10px; }
         }
@@ -194,28 +90,28 @@
     </style>
 </head>
 <body>
-
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
     <!-- Injection of system standard navigation and logic modules -->
-    <script src="header_nav.js?v=21.7" defer></script>
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
 
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Engineering the Human Machine: A Systemic Approach to Calisthenics</h1>
-            <p>As an engineering professional, you are routinely tasked with managing complex systems, predicting failure modes, and optimising operational lifecycles. Yet, the most critical and complex system you will ever command is your own biological machine. Physical fitness is fundamentally the body's ability to withstand, recover from, and adapt to applied stress. In a demanding career characterised by long hours at a workstation, high-stakes project delivery, and cognitive fatigue, maintaining absolute physical resilience is not a luxury—it is an operational necessity.</p>
+            <h1>Engineering the Human Machine: A Systemic Approach to Physical Resilience</h1>
+            <p>As a professional engineer, you are continuously tasked with managing complex infrastructure systems, predicting mechanical failure modes, and optimising operational lifecycles. However, the most critical and complex system you will ever command is your own biological machine. Physical fitness is fundamentally the body's ability to withstand, recover from, and adapt to applied stress. In a highly demanding career characterised by long hours at a workstation, high-stakes project delivery, and intense cognitive fatigue, maintaining absolute physical resilience is not a luxury—it is an operational necessity.</p>
 
-            <h2>The Biomechanics of Bodyweight Training</h2>
-            <p>Calisthenics is the rigorous practice of utilising your own body weight to maximise physical capability, mobility, and natural aesthetics. Unlike traditional weightlifting, which often isolates muscle groups and enforces rigid, linear movement patterns, calisthenics requires the integration of your entire central nervous system. Every push-up, row, and squat demands profound core stabilisation, spatial awareness, and joint integrity.</p>
-            <p>By eliminating external weights, the resistance applied to your joints is never greater than what your body can naturally stabilise. This acts as an inherent safety mechanism, drastically reducing the probability of connective tissue injuries while promoting functional longevity. We refer to this as the <strong>Minimum Effective Dose</strong>: sculpting a highly resilient, functional physique at home with just two to three focused sessions a week, without the need for extensive equipment or gym commutes.</p>
+            <h2>What is Physical Resilience Tracking?</h2>
+            <p>This tracking framework is an active, structured approach to bodyweight calisthenics training. This step helps early-career engineers build physical endurance and mental clarity through progressive fitness routines. Instead of using random, unverified workout logs, this interactive platform acts as a standard operating procedure for your personal health. It maps out your exercise sets, repetitions, and recovery targets across a 4-week window, allowing you to log completions natively and securely on your own device.</p>
+            
+            <h2>Why Fitness Matters to Early-Career Engineers</h2>
+            <p>When you are working towards professional registration as a Chartered Engineer (CEng) or Incorporated Engineer (IEng) through the Engineering Council, you must satisfy rigorous UK-SPEC guidelines. Competence C demands effective leadership and project risk management, while Competence D focuses on your ability to communicate and perform under pressure. If your physical baseline is compromised by chronic fatigue or poor posture, your cognitive processing speed will drop during critical work incidents. Treating your health as a preventative maintenance programme ensures you can handle operational stress safely. Furthermore, tracking your progress serves as an excellent informal entry within your Continuous Professional Development (CPD) logs to prove your commitment to work-life balance and personal development.</p>
 
-            <h2>Achieving the Grecian Ideal</h2>
-            <p>The core philosophy of this programme is rooted in the "Grecian Ideal"—a standard of physical development that champions perfect proportionality. Rather than pursuing hypertrophy in isolated muscle bellies, this systemic approach ensures that your strength, mobility, and cardiovascular endurance are developed in total harmony. You are training your musculoskeletal system to operate as a unified matrix, optimising postural alignment and counteracting the biomechanical degradation associated with chronic desk work.</p>
-
-            <h2>Implementing the 4-Week Foundation Programme</h2>
-            <p>This 4-week interactive workbench provides a structured, progressive overload protocol designed specifically for time-poor professionals. The programme systematically cycles through foundational movements, ensuring adequate central nervous system recovery between sessions. To utilise this tool: expand the weekly accordion tabs below, review the prescribed sets and repetitions, and initiate the interactive workout player. The player features a built-in stopwatch to rigorously control your rest periods, ensuring maximum metabolic efficiency.</p>
-            <p><em>Disclaimer: The physiological information provided within this document is for educational purposes only and does not constitute professional medical advice. Always consult with a qualified healthcare provider before initiating any new exercise programme. By participating in these physical exercises, you assume all inherent risks and agree to terminate the activity immediately upon experiencing any sharp pain or severe discomfort.</em></p>
+            <h2>How to Complete this 4-Week Protocol Cleanly</h2>
+            <p>To gain the maximum benefits from this protocol, you must execute your sessions consistently without overtraining. Expand the weekly tabs below to review your prescribed bodyweight exercises. Click the <strong>"Run Workout"</strong> target button to launch the interactive session player in a new browser tab. This tool features an integrated manual stopwatch to time your rest periods precisely, keeping your training efficient. Once you finish all the sets for a specific training day, tick the day complete checkbox to update your master progress bars. Your training records stay stored entirely inside your local browser cache, ensuring absolute data privacy.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -229,10 +125,10 @@
 
         <!-- Dynamic Hobbies Framework Pathway with Programmatic Completion Badges -->
         <nav class="ee-horizontal-nav" id="hobbiesMasterNav" aria-label="Hobbies & Extracurricular Pathway">
-			<a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_cpd_hub"></div>
-				<span class="tab-label">CPD Hub</span>
-			</a>
+            <a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cpd_hub"></div>
+                <span class="tab-label">CPD Hub</span>
+            </a>
             <a href="hobbies.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hobbies_hub"></div>
                 <span class="tab-label">Hobbies Hub</span>
@@ -261,14 +157,14 @@
 
         <div class="header-actions">
             <div>
-                <h1 style="font-size: 1.5rem; text-transform: uppercase; color: var(--cloud-white); margin-bottom: 5px;">Calisthenics Initiation</h1>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin-bottom: 5px; margin-top: 0;">Calisthenics Initiation</h1>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700;">4-Week Foundation Programme</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap: wrap;">
-                <button class="action-btn action-btn-ghost" onclick="generateReport()">📄 Preview & Print Plan</button>
-                <button class="action-btn" onclick="exportEEData()">💾 Save Progress</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()" title="Import JSON">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
-                <button class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()" style="padding: 0 15px;" title="Import JSON">📥 Upload</button>
             </div>
         </div>
 
@@ -286,7 +182,7 @@
                 </div>
             </div>
 
-            <button class="accordion-btn" onclick="toggleAccordion(this)">Warm-Up & Recovery Protocol</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">Warm-Up & Recovery Protocol</button>
             <div class="accordion-content">
                 <div class="ex-section-title">Phase 1: The Warm-Up (5 Mins)</div>
                 <p style="font-size: 0.85rem; color: var(--cloud-white);">Do not skip this. Cold muscles and stiff joints are prone to injury. The goal is to raise your core body temperature and lubricate the joints.</p>
@@ -308,7 +204,7 @@
             <h3 style="color: var(--cloud-white); margin-bottom: 20px; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 5px; text-transform: uppercase;">The Core Movements</h3>
             <p style="font-size: 0.95rem; margin-bottom: 15px; color: var(--slate-grey);">Expand the tabs below to read the precise mechanics, safety tips, and beginner scaling options for each core movement.</p>
             
-            <button class="accordion-btn" onclick="toggleAccordion(this)">1. The Push-Up</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">1. The Push-Up</button>
             <div class="accordion-content">
                 <div class="ex-info-grid">
                     <div class="ex-label">Target:</div><div class="ex-text">Chest (Pectorals), Shoulders (Deltoids), Triceps.</div>
@@ -340,7 +236,7 @@
                 <div class="mindfulness-box">Mindfulness: Focus purely on the contraction. Imagine pushing away your stress and mental fatigue as you push away the floor.</div>
             </div>
             
-            <button class="accordion-btn" onclick="toggleAccordion(this)">2. The Bodyweight Squat</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">2. The Bodyweight Squat</button>
             <div class="accordion-content">
                 <div class="ex-info-grid">
                     <div class="ex-label">Target:</div><div class="ex-text">Quads, Hamstrings, Glutes.</div>
@@ -371,7 +267,7 @@
                 <div class="mindfulness-box">Mindfulness: Ground your feet into the floor. Feel the stability and connection to your foundation. Breathe into the tension.</div>
             </div>
 
-            <button class="accordion-btn" onclick="toggleAccordion(this)">3. The Bodyweight Row</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">3. The Bodyweight Row</button>
             <div class="accordion-content">
                 <div class="ex-info-grid">
                     <div class="ex-label">Target:</div><div class="ex-text">Back (Latissimus Dorsi, Rhomboids), Biceps.</div>
@@ -402,7 +298,7 @@
                 <div class="mindfulness-box">Mindfulness: Imagine pulling your goals toward you. Focus on releasing tension from your upper back and neck on the downward phase.</div>
             </div>
 
-            <button class="accordion-btn" onclick="toggleAccordion(this)">4. The Plank</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">4. The Plank</button>
             <div class="accordion-content">
                 <div class="ex-info-grid">
                     <div class="ex-label">Target:</div><div class="ex-text">Core (Rectus & Transverse Abdominis).</div>
@@ -429,10 +325,10 @@
                     <li><strong>Knee Planks:</strong> Drop your knees to the floor while maintaining the rigid core brace.</li>
                     <li><strong>Incline Planks:</strong> Place your forearms on an elevated surface like a bench or sturdy chair.</li>
                 </ul>
-                <div class="mindfulness-box">Mindfulness: The lunge is a mental battle. Embrace the physical discomfort, stay completely still, and observe your thoughts without reacting to them.</div>
+                <div class="mindfulness-box">Mindfulness: The plank is a mental battle. Embrace the physical discomfort, stay completely still, and observe your thoughts without reacting to them.</div>
             </div>
 
-            <button class="accordion-btn" onclick="toggleAccordion(this)">5. The Lunge</button>
+            <button type="button" class="accordion-btn" onclick="toggleAccordion(this)">5. The Lunge</button>
             <div class="accordion-content">
                 <div class="ex-info-grid">
                     <div class="ex-label">Target:</div><div class="ex-text">Quads, Glutes, Core Stability.</div>
@@ -473,6 +369,8 @@
         </div>
 
     </main>
+
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
@@ -601,13 +499,12 @@
                 let wCount = 0;
                 for(let d=1; d<=3; d++) { if(state[`w${w}_d${d}`] === true) wCount++; }
 
-                // Default open Week 1, closed for others
                 const activeClass = w === 1 ? "active" : "";
                 const displayStyle = w === 1 ? "block" : "none";
                 const badgeColor = wCount === 3 ? "var(--ee-terminal-green)" : "var(--ee-white)";
 
                 let html = `
-                    <button class="accordion-btn ${activeClass}" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-btn ${activeClass}" onclick="toggleAccordion(this)">
                         WEEK ${w}: ${weekTitles[w-1]} 
                         <span id="stat_w${w}" style="font-size:0.9rem; margin-left:auto; margin-right:15px; color:${badgeColor}; font-weight:normal;">${wCount}/3 Done</span>
                     </button>
@@ -625,7 +522,7 @@
                         <div class="day-col">
                             <div class="day-title">Day ${d}</div>
                             <div class="day-routine">${exercises}</div>
-                            <button class="play-btn" onclick="openWorkoutTab('${id}', 'Week ${w} - Day ${d}')">▶️ Run Workout</button>
+                            <button type="button" class="play-btn" onclick="openWorkoutTab('${id}', 'Week ${w} - Day ${d}')">▶️ Run Workout</button>
                             <label class="ee-checkbox-wrap">
                                 <input type="checkbox" id="${id}" ${isDone ? 'checked' : ''} onchange="updateProgress()">
                                 <div class="ee-checkmark"></div> Day Complete
@@ -666,8 +563,6 @@
                 <link rel="icon" type="image/png" sizes="32x32" href="https://empoweringengineersuk.github.io/favicon-32x32.png">
                 <style>
                     body { font-family: 'Arial', sans-serif; background-color: #0D1B2A; color: #FFFFFF; margin: 0; padding: 0; text-align: center;}
-                    
-                    /* Sticky Top Header & Timer */
                     .sticky-header {
                         position: sticky; top: 0; background: #0D1B2A; z-index: 100;
                         padding: 15px 20px; border-bottom: 2px solid #03F7A0;
@@ -677,8 +572,6 @@
                     .brand-title { font-size: 1.1rem; font-weight: bold; color: #03F7A0; text-transform: uppercase; display: flex; align-items: center;}
                     .close-btn { background: transparent; color: #fff; border: 1px solid #fff; padding: 8px 15px; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-weight: bold; transition: 0.2s;}
                     .close-btn:hover { background: #D63031; border-color: #D63031;}
-                    
-                    /* Compact Timer Bar */
                     .timer-bar {
                         display: flex; justify-content: center; align-items: center; gap: 20px;
                         max-width: 500px; margin: 0 auto; background: #1A2E44; padding: 10px 20px;
@@ -687,38 +580,31 @@
                     .time-display { font-size: 2.5rem; font-weight: bold; font-variant-numeric: tabular-nums; line-height: 1; color: #fff; min-width: 100px;}
                     .timer-btn { background: #03F7A0; color: #0D1B2A; border: none; padding: 10px 20px; font-weight: bold; border-radius: 25px; cursor: pointer; text-transform: uppercase; font-size: 0.9rem; min-width: 90px;}
                     .timer-btn.stop { background: transparent; color: #03F7A0; border: 1px solid #03F7A0;}
-                    
-                    /* Workout List - Fat Finger Buttons */
                     .workout-list { max-width: 600px; margin: 0 auto; text-align: left; padding: 30px 20px; }
                     .ex-card { background: #111E2E; color: #FFFFFF; border: 1px solid #30363D; border-radius: 8px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
                     .ex-title { font-size: 1.4rem; font-weight: bold; text-transform: uppercase; color: #03F7A0; margin-bottom: 5px; border-bottom: 2px solid #03F7A0; display: inline-block; padding-bottom: 4px;}
                     .ex-meta { font-size: 1rem; color: #8899A6; margin-bottom: 20px; font-weight: bold; }
-                    
                     .fat-finger-btn { display: block; width: 100%; padding: 20px; font-size: 1.2rem; font-weight: bold; background: #1A2E44; color: #fff; border: 2px solid #03F7A0; border-radius: 8px; margin-bottom: 15px; cursor: pointer; transition: 0.2s; text-align: center; text-transform: uppercase;}
                     .fat-finger-btn.completed { background: #03F7A0; color: #0D1B2A; text-decoration: line-through; border-color: #03F7A0; opacity: 0.8;}
-                    
                     .complete-msg { margin-top: 20px; padding: 30px; background: rgba(3, 247, 160, 0.1); border: 2px dashed #03F7A0; border-radius: 8px; display: none; text-align: center;}
                 </style>
             </head>
             <body>
-                
                 <div class="sticky-header">
                     <div class="header-top">
                         <div class="brand-title">
                             <img src="https://empoweringengineersuk.github.io/EE_150_150.jpg" alt="EE Logo" style="height:24px; border-radius:4px; margin-right:10px;">
                             ${title}
                         </div>
-                        <button class="close-btn" onclick="window.close()">X CLOSE</button>
+                        <button type="button" class="close-btn" onclick="window.close()">X CLOSE</button>
                     </div>
-
                     <div class="timer-bar">
-                        <button id="startBtn" class="timer-btn" onclick="toggleTimer()">Start</button>
+                        <button type="button" id="startBtn" class="timer-btn" onclick="toggleTimer()">Start</button>
                         <div id="display" class="time-display">00:00</div>
-                        <button class="timer-btn stop" onclick="resetTimer()">Reset</button>
+                        <button type="button" class="timer-btn stop" onclick="resetTimer()">Reset</button>
                     </div>
                     <div style="font-size:0.75rem; color:#03F7A0; text-transform:uppercase; font-weight:bold; margin-top:8px;">Manual Rest Timer (60s Recommended)</div>
                 </div>
-
                 <div class="workout-list">`;
 
             plan.forEach((ex, exIndex) => {
@@ -728,7 +614,7 @@
                 
                 for(let i=1; i<=ex.s; i++) {
                     const btnId = `set_${exIndex}_${i}`;
-                    html += `<button id="${btnId}" class="fat-finger-btn" onclick="toggleSet('${btnId}')">Set ${i}: ${ex.r} ${ex.t}</button>`;
+                    html += `<button type="button" id="${btnId}" class="fat-finger-btn" onclick="toggleSet('${btnId}')">Set ${i}: ${ex.r} ${ex.t}</button>`;
                 }
                 html += `</div>`;
             });
@@ -737,12 +623,10 @@
                     <div id="finishMsg" class="complete-msg">
                         <h2 style="color:#03F7A0; margin:0 0 10px 0; font-size:2rem;">WORKOUT COMPLETE!</h2>
                         <p style="margin:0; font-size:1.1rem; color:#fff;">Great job building your resilience today. You may now close this tab.</p>
-                        <button class="timer-btn" style="margin-top:20px; width:200px; padding:15px; border-radius:6px;" onclick="window.close()">CLOSE TAB</button>
+                        <button type="button" class="timer-btn" style="margin-top:20px; width:200px; padding:15px; border-radius:6px;" onclick="window.close()">CLOSE TAB</button>
                     </div>
                 </div>
-
                 <script>
-                    // Stopwatch Logic
                     let timerInterval;
                     let seconds = 0;
                     let isRunning = false;
@@ -778,7 +662,6 @@
                         document.getElementById('startBtn').style.color = '#0D1B2A';
                     }
 
-                    // Completion Logic
                     function toggleSet(btnId) {
                         const btn = document.getElementById(btnId);
                         const isCompleted = btn.classList.contains('completed');
@@ -884,7 +767,7 @@
             saveToLocalTemp(); 
             let html = `<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><title>EE Calisthenics Plan</title>
             <style>
-                body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+                body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background: #FFF; }
                 h1 { color: #0D1B2A; border-bottom: 2px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; }
                 h2 { color: #0D1B2A; margin-top: 30px; background: #eee; padding: 10px; border-radius: 4px;}
                 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -906,7 +789,6 @@
                     
                     plan.forEach(ex => {
                         exercisesHtml += `<strong>${ex.n}</strong> (${ex.r} ${ex.t})<br>`;
-                        // Generate a checkbox square for each set for printing
                         for(let s=0; s<ex.s; s++) checkboxesHtml += `<div class="checkbox" style="margin-right:8px; margin-bottom:8px;"></div>`;
                         checkboxesHtml += `<br>`;
                     });

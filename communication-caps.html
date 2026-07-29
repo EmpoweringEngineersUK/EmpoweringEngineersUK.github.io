@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- CAPS MATRIX GRID --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .caps-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -162,69 +69,13 @@
         .caps-card.purpose-card { border-top: 4px solid var(--terminal-green); }
         .caps-card.structure-card { border-top: 4px solid var(--terminal-green); }
 
-        .caps-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .context-label { color: var(--burnt-orange) !important; }
-        .audience-label { color: var(--burnt-orange) !important; }
-        .purpose-label { color: var(--terminal-green) !important; }
-        .structure-label { color: var(--terminal-green) !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -244,10 +95,12 @@
             justify-content: center;
         }
 
+        /* Enforce custom prompt adjustments alongside global button utilities */
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -270,36 +123,28 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Technical Document Architecture: Optimising Communications via the CAPS Framework</h1>
-            <p>
-                In multi-disciplinary engineering infrastructure programmes, the precise management of technical documentation is a critical safety parameter. Whether preparing a safety-critical Basis of Design (BoD), authoring an environmental impact register, or drafting a summary for a corporate investment board, engineers routinely face the "Context Trap." This hazard occurs when identical jargon or raw analytical datasets hold differing interpretations across separate project control circles. To address this risk, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) under **Competence D (Communication and Interpersonal Skills)** mandates that registered professionals plan and execute communications with structured clarity.
-            </p>
-            <p>
-                The **CAPS Technical Review Framework (Content, Audience, Purpose, Structure)** delivers an objective method to pre-audit and configure critical documentation workflows before distribution. By segregating the document planning stage into four scannable fields, lead engineers can guarantee that information density serves corporate governance requirements without introducing operational error vectors. This method supports absolute compliance with the Construction (Design and Management) (CDM) Regulations 2015, ensuring safety-critical design margins are clearly understood by site installers, financial directors, and external regulatory bodies.
-            </p>
+            <h2>What is the CAPS Technical Review Framework?</h2>
+            <p>The **CAPS framework** is a highly effective, four-part communication tool designed specifically for technical professionals. CAPS stands for **Content, Audience, Purpose, and Structure**. It provides a clear blueprint to help you plan, audit, and perfect your engineering reports, technical summaries, and project proposals before sharing them with stakeholders. Instead of diving straight into writing a long document, CAPS forces you to think about why you are writing it, who will read it, and how it should look. This simple pre-audit process ensures your writing remains high-density, accurate, and easy to understand for everyone involved in your project lifecycle.</p>
 
-            <h2>Analyzing the Four Structural Pillars of CAPS</h2>
-            <p>
-                Mastering the CAPS review framework requires technical professionals to methodically analyze the core delivery layout of their document packages:
-            </p>
-            <p>
-                <strong>Context & Content [C]:</strong> This dimension defines the technical dataset, baseline engineering parameters, calculation matrices, or risk registers that form the substance of the report. Authors must establish what parameters are being transferred, ensuring that all assumptions—such as finite element analysis constraints, material corrosion tolerances, and lifecycle boundary metrics—are empirically validated and fully expanded upon first mention.
-            </p>
-            <p>
-                <strong>Audience Mapping [A]:</strong> Technical data is fundamentally useless if it ignores the stakeholder's baseline literacy. This pillar demands a comprehensive profile analysis of the readers. A computational fluid dynamics (CFD) graph that satisfies a peer review panel will completely confuse a commercial investor holding financial allocation authority. Engineers must map out the specific risk appetites, commercial requirements, and technical capabilities of their audience, adapting terminology parameters accordingly.
-            </p>
-            <p>
-                <strong>Purpose Definition [P]:</strong> Every engineering document must drive a specific, traceable action. The purpose dimension forces the author to explicitly define the objective of the report. This involves clarifying whether the package is engineered to win a B2B project bid, secure a statutory regulatory sign-off, request a major CapEx variation, or authorize a deviation from a standard site layout.
-            </p>
-            <p>
-                <strong>Structural Delivery [S]:</strong> This final field determines the layout typography, data visualization parameters, and document control tracking loops. Modern scannability requires heavy use of hierarchical headers, bold key milestones, comparative tables, and transparent data charts. Front-loading the document with a 600-word executive summary ensures maximum informational utility while appendices protect mathematical depth.
-            </p>
+            <h2>Why Writing Clarity Matters for Your Engineering Career</h2>
+            <p>When you apply for professional registration as an Engineering Technician (**EngTech**), Incorporated Engineer (**IEng**), or Chartered Engineer (**CEng**), the Engineering Council evaluates your performance against a strict set of benchmarks. Your communication skills are reviewed directly under **UK-SPEC Competence D**. Many graduate engineers face unexpected setbacks during their **Professional Review Interview (PRI)** because they struggle to explain their calculations clearly to non-technical people.</p>
+            <p>In the modern engineering workplace, a brilliant calculation is only useful if people can act on it. Senior business managers, financial controllers, and safety regulators do not have the time to read through hundreds of lines of raw data or unorganized design notes. They need to see the core value of your technical work immediately. Using the CAPS framework proves to your **Professional Engineering Institution (PEI)** review panel that you possess the commercial awareness and leadership skills required for senior project roles. It shows you know how to protect project safety margins while keeping business objectives clear.</p>
+
+            <h2>How to Complete Your CAPS Review Canvas Cleanly</h2>
+            <p>To build a solid documentation plan, work through the four interactive cards in the workbench below:</p>
+            <ul>
+                <li><strong>Context and Content [C]:</strong> Outline the exact technical datasets, engineering formulas, material constraints, or design safety margins that form the basis of your report.</li>
+                <li><strong>Audience Mapping [A]:</strong> Identify exactly who will read your document. Map out their technical understanding, their role in the company, and what details they care about most.</li>
+                <li><strong>Purpose Definition [P]:</strong> State the exact business action or decision your report needs to achieve, such as securing a capital expenditure budget sign-off or obtaining a safety clearance certificate.</li>
+                <li><strong>Structural Delivery [S]:</strong> Organize your layout using clear headings, bold text highlights, and summary tables, keeping raw calculations safely placed within document appendices.</li>
+            </ul>
+            <p>Type your design notes directly into each section of the workbench canvas. Our **zero-knowledge local browser architecture** automatically saves your text every few seconds, keeping your company’s sensitive trade files completely private. Once finished, you can copy the completed text outline or print a professional audit report directly from your browser to support your engineering portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -378,36 +223,36 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="caps-grid">
                     
                     <!-- Context/Content Card -->
                     <div class="caps-card context-card">
-                        <label class="caps-label context-label">Context & Content [C]</label>
+                        <label class="ee-label" for="caps_Context" style="color: var(--burnt-orange);">Context & Content [C]</label>
                         <span class="form-hint">What core data layers, equations, tolerances, or design criteria form the baseline substance of this communication package? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Finite element modeling metrics for a next-generation high-pressure composite housing assembly.</span></span>
-                        <textarea id="caps_Context" class="form-input" placeholder="Define the document context and core engineering technical data sets..." oninput="updatePreview()"></textarea>
+                        <textarea id="caps_Context" class="ee-textarea" style="min-height: 140px;" placeholder="Define the document context and core engineering technical data sets..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Audience Mapping Card -->
                     <div class="caps-card audience-card">
-                        <label class="caps-label audience-label">Audience Mapping [A]</label>
+                        <label class="ee-label" for="caps_Audience" style="color: var(--burnt-orange);">Audience Mapping [A]</label>
                         <span class="form-hint">Who are the key stakeholders consuming this text? Map out their specific technical literacy baselines and risk tolerances. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Non-technical senior corporate vice-presidents alongside HSE hazardous environment site auditors.</span></span>
-                        <textarea id="caps_Audience" class="form-input" placeholder="Map stakeholder profiles, technical assumptions, and expectations..." oninput="updatePreview()"></textarea>
+                        <textarea id="caps_Audience" class="ee-textarea" style="min-height: 140px;" placeholder="Map stakeholder profiles, technical assumptions, and expectations..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Purpose Definition Card -->
                     <div class="caps-card purpose-card">
-                        <label class="caps-label purpose-label">Purpose Definition [P]</label>
+                        <label class="ee-label" for="caps_Purpose" style="color: var(--terminal-green);">Purpose Definition [P]</label>
                         <span class="form-hint">What explicit organizational authorization, budget sign-off, or regulatory safety clearance is this document built to achieve? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Securing formal executive approval for a £1.8M specialized materials procurement framework.</span></span>
-                        <textarea id="caps_Purpose" class="form-input" placeholder="Define the core objective, targeted business decision, or standard action items..." oninput="updatePreview()"></textarea>
+                        <textarea id="caps_Purpose" class="ee-textarea" style="min-height: 140px;" placeholder="Define the core objective, targeted business decision, or standard action items..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Structural Delivery Card -->
                     <div class="caps-card structure-card">
-                        <label class="caps-label structure-label">Structural Delivery [S]</label>
+                        <label class="ee-label" for="caps_Structure" style="color: var(--terminal-green);">Structural Delivery [S]</label>
                         <span class="form-hint">How is the information partitioned, cross-referenced, and controlled to ensure absolute scannability? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Main report text limited to executive findings, utilizing multi-variable charts with raw telemetry mapped to Appendix D.</span></span>
-                        <textarea id="caps_Structure" class="form-input" placeholder="Outline layout hierarchy, headers, visual charts, and documentation logs..." oninput="updatePreview()"></textarea>
+                        <textarea id="caps_Structure" class="ee-textarea" style="min-height: 140px;" placeholder="Outline layout hierarchy, headers, visual charts, and documentation logs..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -415,12 +260,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--burnt-orange); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -570,7 +415,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -587,6 +432,7 @@ ${script}
             }
         }
 
+        template_state = {};
         function exportJSON() {
             const context = document.getElementById('caps_Context').value.trim();
             const audience = document.getElementById('caps_Audience').value.trim();
@@ -693,6 +539,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

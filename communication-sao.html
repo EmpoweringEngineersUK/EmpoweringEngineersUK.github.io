@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- SAO STACK STYLING --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .sao-stack {
             display: flex;
             flex-direction: column;
@@ -157,68 +64,13 @@
         .sao-card.action-card { border-left-color: var(--ee-terminal-green); }
         .sao-card.outcome-card { border-left-color: #00b894; }
 
-        .sao-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .situation-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--terminal-green) !important; }
-        .outcome-label { color: #00b894 !important; }
-
         .form-hint {
             display: block;
             font-size: 0.8rem;
             color: var(--slate-grey);
             font-style: italic;
             line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .action-bar {
@@ -239,9 +91,10 @@
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         .preview-box {
@@ -264,38 +117,27 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Professional Engineering Communication: The SAO Framework</h1>
-            <p>
-                In the context of statutory structural audits, complex manufacturing lifecycles, and high-stakes Professional Review Interviews (PRI), engineers must communicate with maximum brevity. Assessing boards and corporate stakeholders frequently reject descriptive project updates that obscure personal accountability. While elaborate models like STAR or SHARE provide excellent deep-dive mapping layouts, they can introduce narrative bloat when presenting rapid operational snapshots. The **SAO Framework (Situation, Action, Outcome)** addresses this precisely, functioning as an elite, high-density professional communication tool optimized for Chartered Engineer (CEng) and Incorporated Engineer (IEng) registration profiles.
-            </p>
-            <p>
-                The Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) rigidly evaluates candidates on **Competence D (Communication and Interpersonal Skills)**. Registered professionals must prove they can present complex calculations, geometric design parameters, and asset risks clearly across technical and commercial boundaries. The SAO framework enforces this by stripping out historical background noise. It compresses evidence lines into three distinct, scannable dimensions. This linear progression forces candidates to immediately link an active operational **Situation** directly to independent technical **Actions** and quantifiable commercial **Outcomes**, matching the scannability expectations of institutional assessors.
-            </p>
+            <h2>What is the SAO Narrative Framework?</h2>
+            <p>The <strong>SAO framework</strong> is a high-impact, three-part communication model designed specifically for technical professionals. SAO stands for <strong>Situation, Action, and Outcome</strong>. It provides a clear, streamlined way to write about your engineering achievements without getting lost in unnecessary background details. While more complex models like the STAR method break tasks down into minor steps, the SAO model focuses entirely on speed and high density. By cutting out historical background noise, it allows you to explain your engineering project achievements concisely to anyone reading your text.</p>
 
-            <h2>Deconstructing the Dimensions of a Compliant SAO Draft</h2>
-            <p>
-                Structuring engineering evidence utilizing the SAO interactive grid requires a rigorous focus on personal contribution and data-driven milestones:
-            </p>
-            <p>
-                <strong>Situation [S]:</strong> This field establishes the immediate engineering baseline problem statement or risk boundary rule. Authors must define the operational crisis using precise numerical parameters: e.g. "During standard performance review sweeps, localized vibrations along an industrial gas compressor exceeded maximum design limits by 24%, introducing an immediate fracture threat, creating potential regulatory non-compliance under HSE rules, and risking a £120,000 daily output liability."
-            </p>
-            <p>
-                <strong>Action [A]:</strong> The action segment represents the core evidence block for your competence submission. Reviewers look for active engineering verbs that document exactly what *you* personally calculated, modeled, or authorized. This involves documenting the deployment of specific compliance specifications (such as British Standards or ISO codes), the scripting loops modified, the first-principles mathematics applied, and the team networks orchestrated to isolate and resolve the situation.
-            </p>
-            <p>
-                <strong>Outcome [O]:</strong> The final dimension validates the entire technical narrative. General qualitative summaries are insufficient for professional registration trackers. The outcome must be hardcoded with empirical data, showcasing optimized performance indicators, validated safety clearances, capital expenditure optimization, reduced carbon indices, or formal regulatory sign-offs under relevant Construction (Design and Management) structures.
-            </p>
+            <h2>Why Does Concise Writing Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you must prove you can communicate effectively. The Engineering Council assesses these interpersonal capabilities strictly under <strong>UK-SPEC Competence D</strong>. Many brilliant technicians face unexpected setbacks during their <strong>Professional Review Interview (PRI)</strong> because they ramble or write long, dense paragraphs that obscure their actual work results.</p>
+            <p>In a fast-moving corporate boardroom or an interview room, senior managers and technical assessors do not have the time to read through paragraphs of minor background data. They need to see the direct connection between your technical decisions and the final business benefits. Using the SAO framework ensures you present your achievements cleanly. It helps you state a project problem immediately, outline your personal technical actions, and prove your success with concrete numbers. Mastering this presentation approach shows your <strong>Professional Engineering Institution (PEI)</strong> assessors that you possess the professional maturity and executive communication skills required for senior project leadership roles.</p>
 
-            <h2>Interactive Client-Side SAO Workbench</h2>
-            <p>
-                The interactive workspace below is engineered to help engineering professionals quickly construct, refine, and audit their communication evidence logs. To protect proprietary corporate data matrices and preserve absolute data sovereignty, this platform uses a zero-knowledge client-side architecture. Every text entry is processed and saved entirely within your device's sandboxed local memory cache—nothing is ever transmitted to remote networks. Use this toolkit to compile robust professional outlines, export clean JSON structures, or generate advanced AI coach prompts to optimize your interview preparations.
-            </p>
+            <h2>How to Complete Your SAO Framework Workspace Cleanly</h2>
+            <p>To construct an executive-level engineering evidence summary, work sequentially through the three interactive cards on our workbench editor canvas:</p>
+            <ul>
+                <li><strong>Situation [S]:</strong> Define the immediate engineering problem, asset malfunction, safety hazard, or commercial liability your project faced. Ground your statement with precise metrics where possible.</li>
+                <li><strong>Action [A]:</strong> Document your individual technical choices. Use active verbs to state exactly what <strong>you</strong> calculated, modeled, verified, or authorized under industry standard guidelines.</li>
+                <li><strong>Outcome [O]:</strong> State the final, quantitative result of your technical actions. Include data points like percentage efficiency improvements, hours saved, or formal safety sign-offs.</li>
+            </ul>
+            <p>Type your project notes directly into the fields below. Our <strong>strong zero-knowledge local browser architecture</strong> saves your text automatically every few seconds, keeping your company’s sensitive design parameters completely private on your own device. Once finished, use the side panel controls to copy your completed text summary or print a professional audit report directly from your browser to support your engineering portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -374,29 +216,29 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="sao-stack">
                     
                     <!-- Situation Card -->
                     <div class="sao-card situation-card">
-                        <label class="sao-label situation-label">Situation [S]</label>
+                        <label class="ee-label" for="sao_Situation" style="color: var(--burnt-orange);">Situation [S]</label>
                         <span class="form-hint">What core design boundary, structural breakdown, or project crisis occurred? Detail technical parameters and commercial exposures. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Discovered severe electromagnetic interface drift across a localized rail signalling grid, risking an immediate network lockout.</span></span>
-                        <textarea id="sao_Situation" class="form-input" placeholder="Define background constraints and asset risk profiles here..." oninput="updatePreview()"></textarea>
+                        <textarea id="sao_Situation" class="ee-textarea" placeholder="Define background constraints and asset risk profiles here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="sao-card action-card">
-                        <label class="sao-label action-label">Action [A]</label>
+                        <label class="ee-label" for="sao_Action" style="color: var(--terminal-green);">Action [A]</label>
                         <span class="form-hint">What individual mathematical calculations, software models, script overrides, or code validations did you execute? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Recalculated attenuation parameters, deployed localized shielding specs, and modified automated network loop configurations.</span></span>
-                        <textarea id="sao_Action" class="form-input" placeholder="Document your specific technical actions and independent choices here..." oninput="updatePreview()"></textarea>
+                        <textarea id="sao_Action" class="ee-textarea" placeholder="Document your specific technical actions and independent choices here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Outcome Card -->
                     <div class="sao-card outcome-card">
-                        <label class="sao-label outcome-label">Outcome [O]</label>
+                        <label class="ee-label" for="sao_Outcome" style="color: #00b894;">Outcome [O]</label>
                         <span class="form-hint">What data-driven results, budget optimizations, asset improvements, or standard clearances verified success? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Attenuated interface drift by 98%, restored absolute signal transmission integrity, and avoided a potential £400,000 regulatory fine.</span></span>
-                        <textarea id="sao_Outcome" class="form-input" placeholder="State quantifiable project outcomes and professional sign-offs here..." oninput="updatePreview()"></textarea>
+                        <textarea id="sao_Outcome" class="ee-textarea" placeholder="State quantifiable project outcomes and professional sign-offs here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -404,12 +246,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile narrative tracking stream...</div>
@@ -530,12 +372,12 @@
                 script += `[DATA-DRIVEN MEASURABLE OUTCOMES]\ne.g., Stabilised operational performance metrics to within 0.5% tolerance levels and achieved formal regulatory safety compliance sign-off.\n\n`;
             }
 
-            const role = "Executive Institutional Reviewer & UK-SPEC Registration Panel Chair";
-            const actionText = "Analyse this Situation-Action-Outcome technical evidence entry. 1. Critique whether the action description isolates the candidate's personal technical accountability vs. passive team descriptors. 2. Evaluate if the entry uses strong engineering verbs aligned with UK-SPEC Competence D. 3. Assess if the outcome section hardcodes sufficient data-driven metrics rather than qualitative statements.";
+            const role = "Executive Institutional Reviewer & UK-SPEC Registration Assessor";
+            const actionText = "Analyse this Situation-Action-Outcome technical evidence entry. 1. Critique whether the action description isolates the candidate's personal technical accountability vs. passive team descriptors. 2. Evaluate if the entry uses strong engineering verbs aligned with UK-SPEC Competence D. 3. Validate if the outcome section hardcodes sufficient data-driven metrics rather than qualitative statements.";
 
             const metaPrompt = `[ROLE] You are acting as a ${role}. 
 [GOAL] ${actionText}
-[CONTEXT] The user is an engineering leader planning a high-density documentation release package to satisfy professional review rules (specifically UK-SPEC Competence D). The format used is a SAO Framework Matrix (${promptType}).
+[CONTEXT] The user is an engineering professional finalizing evidence structures to satisfy the Engineering Council UK-SPEC Competence D registers. The format used is a SAO Framework Matrix (${promptType}).
 [SOURCE]
 """
 ${script}
@@ -553,7 +395,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -657,6 +499,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

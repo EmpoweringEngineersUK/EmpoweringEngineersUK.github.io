@@ -18,10 +18,10 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +41,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- STAR PARAMETERS GRID --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION STYLES --- */
         .star-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -156,18 +63,6 @@
         .star-card.task-card { border-top: 4px solid var(--burnt-orange); }
         .star-card.action-card { border-top: 4px solid var(--terminal-green); }
         .star-card.result-card { border-top: 4px solid var(--terminal-green); }
-
-        .star-label {
-            display: block;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .situation-label { color: var(--burnt-orange) !important; }
-        .task-label { color: var(--burnt-orange) !important; }
-        .action-label { color: var(--terminal-green) !important; }
-        .result-label { color: var(--terminal-green) !important; }
 
         .form-hint {
             display: block;
@@ -193,87 +88,11 @@
             line-height: 1.4;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 130px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
 
         /* Auto-save status feedback line */
@@ -292,36 +111,22 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Structural Breakdown of the STAR Technique for Engineering Reviews</h1>
-            <p>
-                The STAR methodology (Situation, Task, Action, Result) represents a critical qualitative communication framework for modern technical leaders. When an engineering candidate undergoes a Professional Review Interview (PRI) with premier licensing bodies such as the Institution of Mechanical Engineers (IMechE), the Institution of Civil Engineers (ICE), or the Institution of Engineering and Technology (IET), the assessment board does not grade theoretical capability alone. Rather, they require robust, verifiable evidence of past professional performance evaluated directly against the UK Standard for Professional Engineering Competence (UK-SPEC). Specifically, **Competence D (Communication and Interpersonal Skills)** dictates that engineers must demonstrate the ability to plan, execute, and control complex technical language loops cleanly.
-            </p>
-            <p>
-                A common failure vector in professional registration interviews is the "Collective Narrative Trap." This hazard occurs when highly skilled candidates rely heavily on plural pronouns (e.g., "we initialised the feasibility study," "our team optimised the compressor layout alignment"). Assessors cannot allocate competence scores to a collective department; they are legally bound to grade the individual applicant's engineering accountability. The STAR framework systematically solves this by enforcing an explicit narrative structure that isolates background context from direct personal actions. This structural discipline ensures compliance with standard documentation control protocols and helps professionals cleanly bridge the communication gap between technical and corporate management loops.
-            </p>
+            <h2>What is the STAR Method?</h2>
+            <p>The <strong>STAR method</strong> is a structured four-part communication tool designed to help technical professionals build clear and powerful examples of their work. STAR stands for <strong>Situation, Task, Action, and Result</strong>. It provides a simple workspace where you can break down your real-world engineering experiences into digestible milestones. Instead of writing long, unorganized paragraphs, the STAR layout ensures your insights stand out clearly to whoever reads your portfolio.</p>
 
-            <h2>Maximising Impact Across Each Narrative Quadrant</h2>
-            <p>
-                To successfully construct a high-density, audit-ready evidence block within your professional development portfolio, the technical author must understand the specific requirements governing each separate parameter:
-            </p>
-            <p>
-                <strong>Situation [S]:</strong> Establishes the baseline operational environment, timeline parameters, and project controls. This field should introduce the specific engineering crisis, asset degradation event, or structural design limitation (e.g., a sudden 25% spike in transient bearing vibration velocities or an environmental non-compliance boundary). Keep this boundary highly compressed, utilizing around 15% of your total text space.
-            </p>
-            <p>
-                <strong>Task [T]:</strong> Defines the exact engineering mandate and regulatory constraints. Here, the professional must explicitly state their personal engineering assignment or the scope of authority they were authorised to command. This involves clarifying the targeted technical criteria, safety considerations under the Construction (Design and Management) Regulations 2015 (CDM), or financial limits that governed the solution path.
-            </p>
-            <p>
-                <strong>Action [A]:</strong> This is the core engine of your technical evidence and must consume at least 60% of the entire narrative block. The candidate must exhaustively document the analytical procedures, mathematical models, diagnostic calculations, software configurations (such as Ansys, ETAP, or MATLAB), and physical modifications they individually orchestrated. It is vital to use strong British English active verbs—such as *initialised*, *analysed*, *optimised*, *formulated*, and *quantified*—to explicitly capture personal technical leadership.
-            </p>
-            <p>
-                <strong>Result [R]:</strong> Provides empirical verification of success. An engineering story without data is an assertion, not evidence. This section must culminate in tangible, quantitative metrics. Candidates must explicitly list how their intervention impacted project delivery timelines, CapEx reductions, carbon footprint margins, or asset lifecycle parameters (e.g., "reducing total harmonic distortion from 8% to 2.4%, avoiding a £100k grid delay penalty").
-            </p>
+            <h2>Why Does the STAR Method Matter for Your Engineering Career?</h2>
+            <p>When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), you are evaluated strictly against the Engineering Council benchmarks. Your professional review panel audits your communication and interpersonal skills directly under <strong>UK-SPEC Competence D</strong>. Many brilliant graduate technicians face unexpected delays during their <strong>Professional Review Interview (PRI)</strong> simply because they struggle to explain their work clearly.</p>
+            <p>They often fall into the collective narrative trap, using words like "we did this" or "our team optimized that". Assessors cannot score a group; they need to know your individual choices. Using the STAR technique forces you to isolate your personal technical contributions, showing exactly what you calculated, analyzed, modeled, or authorized under industry standard rules. This establishes absolute proof of your engineering capabilities and leadership readiness.</p>
+
+            <h2>How to Complete Your STAR Studio Canvas Cleanly</h2>
+            <p>To build an audit-ready engineering evidence summary, work sequentially through the four interactive cards on our workbench studio canvas. First, use the <strong>Situation</strong> card to outline the background context, timeline baselines, or asset challenges on site. Second, deploy the <strong>Task</strong> card to state your explicit individual responsibility or authorized scope of duty. Third, exhaustively list your steps in the <strong>Action</strong> card, using active verbs to detail the first-principles mathematics, software diagnostics, and physical modifications you personally executed. Finally, use the <strong>Result</strong> card to prove your success with data-driven metrics, financial optimizations, or safety sign-off references.</p>
+            <p>Type your notes directly into each card section. Our platform utilizes a <strong>strong zero-knowledge local browser architecture</strong>, which saves your entries automatically every few seconds. This protects your company's sensitive design parameters and confidential trade files on your own device, keeping you fully compliant with non-disclosure agreements (NDAs). Once finished, copy your compiled outline or print a professional audit report directly from your browser to support your registration portfolio.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -400,13 +205,13 @@
         </div>
 
         <!-- Workbench Main Interactive Layout -->
-        <div class="workbench-layout">
+        <div class="ee-workbench-grid" style="grid-template-columns: 1fr 340px;">
             <div class="editor-col">
                 <div class="star-grid">
                     
                     <!-- Situation Card -->
                     <div class="star-card situation-card">
-                        <label class="star-label situation-label">S: Situation</label>
+                        <label class="ee-label" for="star_Situation" style="color: var(--burnt-orange);">S: Situation</label>
                         <span class="form-hint">Set the context and background for the engineering challenge. What was the operational scenario?</span>
                         <div class="example-block">
                             <strong>Contextual Reference Anchors:</strong>
@@ -416,12 +221,12 @@
                                 <li><strong>Electrical:</strong> During the final commissioning phase of a 50MW solar farm substation, grid energisation was blocked due to G99 harmonic distortion compliance failures.</li>
                             </ul>
                         </div>
-                        <textarea id="star_Situation" class="form-input" placeholder="Describe the background context, timeline baselines, and root incident markers..." oninput="updatePreview()"></textarea>
+                        <textarea id="star_Situation" class="ee-textarea" style="min-height: 130px;" placeholder="Describe the background context, timeline baselines, and root incident markers..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Task Card -->
                     <div class="star-card task-card">
-                        <label class="star-label task-label">T: Task</label>
+                        <label class="ee-label" for="star_Task" style="color: var(--burnt-orange);">T: Task</label>
                         <span class="form-hint">What was your specific individual responsibility, authorized objective, or scope of duty within this situation?</span>
                         <div class="example-block">
                             <strong>Contextual Reference Anchors:</strong>
@@ -431,12 +236,12 @@
                                 <li><strong>Electrical:</strong> I was tasked with redesigning the harmonic filter circuits within 48 hours to secure formal compliance clearance.</li>
                             </ul>
                         </div>
-                        <textarea id="star_Task" class="form-input" placeholder="Define your explicit assignment bounds, commercial metrics, and regulatory constraints..." oninput="updatePreview()"></textarea>
+                        <textarea id="star_Task" class="ee-textarea" style="min-height: 130px;" placeholder="Define your explicit assignment bounds, commercial metrics, and regulatory constraints..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Action Card -->
                     <div class="star-card action-card">
-                        <label class="star-label action-label">A: Action</label>
+                        <label class="ee-label" for="star_Action" style="color: var(--terminal-green);">A: Action</label>
                         <span class="form-hint">What detailed technical actions, calculations, modeling sequences, or engineering steps did YOU individually take?</span>
                         <div class="example-block">
                             <strong>Contextual Reference Anchors:</strong>
@@ -446,12 +251,12 @@
                                 <li><strong>Electrical:</strong> I modelled the substation interface loop in ETAP, simulated load network profiles, and recalculated tuning inductor values for the filter banks.</li>
                             </ul>
                         </div>
-                        <textarea id="star_Action" class="form-input" placeholder="Exhaustively list the engineering procedures, software applications, calculations, and leadership steps you personally implemented..." oninput="updatePreview()"></textarea>
+                        <textarea id="star_Action" class="ee-textarea" style="min-height: 130px;" placeholder="Exhaustively list the engineering procedures, software applications, calculations, and leadership steps you personally implemented..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Result Card -->
                     <div class="star-card result-card">
-                        <label class="star-label result-label">R: Result</label>
+                        <label class="ee-label" for="star_Result" style="color: #00b894;">R: Result</label>
                         <span class="form-hint">What was the measurable outcome, commercial impact, data metric, or formal sign-off achieved by your intervention?</span>
                         <div class="example-block">
                             <strong>Contextual Reference Anchors:</strong>
@@ -461,7 +266,7 @@
                                 <li><strong>Electrical:</strong> Total harmonic distortion (THD) dropped from 8% to 2.4%, achieving formal DNO sign-off on the first re-test and avoiding a £100k grid delay penalty.</li>
                             </ul>
                         </div>
-                        <textarea id="star_Result" class="form-input" placeholder="Quantify the results using empirical metrics, financial parameters, structural data tolerances, or safety sign-off references..." oninput="updatePreview()"></textarea>
+                        <textarea id="star_Result" class="ee-textarea" style="min-height: 130px;" placeholder="Quantify the results using empirical metrics, financial parameters, structural data tolerances, or safety sign-off references..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -469,12 +274,12 @@
 
             <!-- Strategic Review Coach Panel -->
             <div class="coach-panel">
-                <div class="coach-header">>> LIVE OUTPUT</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -644,7 +449,7 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar button');
                 btn.innerText = "✔️ COPIED!";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
@@ -763,6 +568,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>
