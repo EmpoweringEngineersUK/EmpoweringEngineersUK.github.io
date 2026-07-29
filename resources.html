@@ -9,13 +9,16 @@
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/resources.html">
     <meta property="og:type" content="website">
+    
     <title>Technical References & Resource Manager | Empowering Engineers UK</title>  
+    
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="references.js?v=21.7" onerror="handleMissingDatabase()"></script>
+    <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="references.js?v=22.0" onerror="handleMissingDatabase()"></script>
     
     <script type="application/ld+json">
     {
@@ -31,163 +34,19 @@
         "@type": "Organization",
         "name": "Empowering Engineers UK",
         "url": "https://www.empoweringengineers.uk/"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP"
       }
     }
     </script>
 
     <style>
-        /* --- GLOBAL INPUT INHERITANCE OVERRIDES --- */
-        body, button, input, select, textarea, h1, h2, h3, p, a, label {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+        /* --- TOOL SPECIFIC INTERACTION COMPONENTS --- */
+        /* Local layout controls strictly limited to bespoke visual cards and tool selectors to protect global cascades */
+        .hidden { display: none !important; }
+
+        .action-btn, .action-btn-ghost, .action-btn-outline, .btn-ai {
+            text-decoration: none !important;
         }
 
-        select, input[type="text"] {
-            width: 100%;
-            padding: 12px; 
-            background-color: var(--input-bg);
-            color: var(--cloud-white);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            font-family: inherit;
-            transition: border-color 0.2s, background-color 0.2s;
-            box-sizing: border-box;
-            min-height: 48px;
-        }
-
-        select { cursor: pointer; }
-        input[type="text"] { cursor: text; }
-        select:hover, input[type="text"]:hover { background-color: var(--hover-green); }
-        select:focus, input[type="text"]:focus { outline: none; border-color: var(--terminal-green); }
-
-        select option {
-            background-color: var(--dark-card);
-            color: var(--cloud-white);
-        }
-
-        label {
-            color: var(--burnt-orange); 
-            font-size: 0.8rem; 
-            font-weight: bold; 
-            margin-bottom: 6px; 
-            display:block; 
-            text-transform:uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- THEMATIC NARRATIVE BLOCK --- */
-        .thick-content {
-            padding: 25px 5% 45px 5%;
-            color: var(--cloud-white);
-            line-height: 1.75;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        /* --- HARMONISED HORIZONTAL NAVIGATION STRIP --- */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* --- HIGH CONTRAST STATUS CHECKBOXES --- */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- INTEGRATED LAYOUT GRID ARCHITECTURE --- */
         .main-grid {
             display: grid;
             grid-template-columns: 360px 1fr;
@@ -365,6 +224,23 @@
             border-top: 1px solid var(--border-color);
         }
 
+        .btn-ai {
+            border-color: var(--border-color) !important;
+        }
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
+        }
+
+        /* Bespoke overrides for dynamic tools_data header block text elements */
+        .tool-header h1.tool-h1 { font-size: 1.5rem; text-transform: uppercase; color: var(--terminal-green); margin-bottom: 12px; font-weight: 700; display: block; border-bottom: none; padding-bottom: 0; }
+        .tool-header p.tool-desc { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
+        .tool-header .header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 15px; text-align: left; }
+        @media (max-width: 768px) { .tool-header .header-grid { grid-template-columns: 1fr; } }
+        .tool-header h4 { color: var(--burnt-orange); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+        .tool-header .tool-list { padding-left: 20px; font-size: 0.95rem; line-height: 1.6; list-style-type: square; }
+        .tool-header .tool-list li { margin-bottom: 8px; }
+        .tool-header .privacy-badge { display: none !important; }
+
         @media (max-width: 992px) {
             .main-grid { grid-template-columns: 1fr; }
             .controls-col { position: relative; top: 0; }
@@ -373,23 +249,27 @@
     </style>
 </head>
 <body onload="initApp()">
-    <script src="header_nav.js?v=21.7" defer></script>
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
+    <script>
+        localStorage.removeItem('ee_cached_sitemap_tree');
+    </script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Technical Codes of Practice, Standards Compliance, and Data Retrieval Engineering</h1>
-            <p>In the execution of high-hazard structural engineering, infrastructure architecture, or safety-critical software systems, decisions can never be based upon unverified intuition or anecdotal experience. The Engineering Council rigidly enforces this standard across the sector via the <strong>UK Standard for Professional Engineering Competence (UK-SPEC)</strong>. Specifically, <strong>Competence B (Design, Development, and Solution Innovation)</strong> and <strong>Competence E (Personal Commitment to Professional Standards)</strong> dictate that engineering candidates must prove absolute compliance with domestic and international statutory guidelines, authoritative codes of practice, and standardized regulatory parameters.</p>
             
-            <h2>The Taxonomy of Structural Standardization: BS, EN, ISO, and ASME</h2>
-            <p>Engineering documentation frameworks follow a rigorous hierarchy designed to shield the public from catastrophic system failures. <strong>British Standards (BS)</strong> establish national operational baselines, which are routinely harmonized into <strong>European Standards (EN)</strong>—such as the Eurocodes suite for structural validation—and globally unified via the <strong>International Organization for Standardization (ISO)</strong>. Within mechanical systems and pressure vessel networks, frameworks transcend borders through the integration of the <strong>ASME (American Society of Mechanical Engineers)</strong> Boiler and Pressure Vessel Codes. Interrogating these comprehensive code blocks guarantees that materials, fluid flow metrics, and thermal fatigue behaviors operate within mathematically validated safety thresholds, protecting corporate assets while fulfilling environmental protection mandates.</p>
+            <h2>Introduction to Technical Code Compliance</h2>
+            <p><strong>What is this step?</strong> The Technical References and Resource Manager is a client-side search directory and bookmark database designed to help you organize gold-standard reference files, corporate codes, and statutory frameworks. Reviewing authoritative industry specifications forms a vital part of daily engineering. This workbook serves as an open-access lookup terminal to query documents cross-disciplinary, allowing you to maintain an active record of verified textbooks or British Standards (BS) safely on your own machine. It structures your reading list before your formal evaluations begin.</p>
+            
+            <h2>Why Regulatory Standards Matter to Your Engineering Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Becoming a registered professional with the <strong>Engineering Council</strong> requires you to prove you can apply technical codes to minimize commercial and structural risks. Under the <strong>UK-SPEC</strong> guidelines, candidates pursuing Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), or Engineering Technician (<strong>EngTech</strong>) status must show strong regulatory awareness. Specifically, <strong>Competence B</strong> and <strong>Competence E</strong> demand that you verify your designs against current European Standards (EN) or international guidelines (ISO), preventing dangerous asset failures and protecting your professional progression from costly delays.</p>
+            <p>When you present your application portfolio or answer questions during your <strong>Professional Review Interview (PRI)</strong>, assessors look for deep familiarity with regulatory codes. They expect your reports to include clear citation layers showing compliance with health and safety mandates (such as CDM 2015 regulations). Demonstrating that you consistently reference verified textbooks or standard specifications proves you have the professional maturity needed to manage large corporate programs safely, ensuring your choices are respected by your chosen <strong>Professional Engineering Institution (PEI)</strong>.</p>
 
-            <h2>Information Retrieval Routines within the CPD Lifecycle</h2>
-            <p>Maintaining status as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) requires an ongoing commitment to Continuous Professional Development (CPD). The systematic logging, filtering, and cross-referencing of technical literature constitute a valid entry for your developmental logs. When a design panel or corporate audit board interrogates a Basis of Design (BoD) report, they demand a transparent reference citation layer tracing back to definitive, current standards. Failure to track regulatory updates introduces catastrophic project risk, vulnerable liability profiles, and immediate compliance penalties.</p>
-
-            <h2>Zero-Knowledge Secure Local Bookmark Layer</h2>
-            <p>Acknowledging that consultants, senior designers, and validation engineers regularly process proprietary reference tracking paths and classified corporate asset indexes, this workbench operates completely on a zero-knowledge local client-side memory substratum. While the search script dynamically queries our curated baseline database, all personalized resource bookmarks and custom textbook additions are cached natively within the sandboxed parameters of your individual machine's browser memory loop (`ee_resources_bookmarks`). No external data scraping or network loops occur, safeguarding your absolute confidentiality and enterprise compliance tracking. Utilize our high-density command filters below to systematically navigate our gold-standard engineering database.</p>
+            <h2>How to Complete Your Reference Logs Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To complete your literature tracking successfully, use our filter menus to find records by engineering discipline or technical domain topic. You can use the search bar to query terms in real-time, toggle the star button to save specific cards into your personal bookmarks, or use the custom form panel to add your own reference titles cleanly. This entire process runs through secure, zero-knowledge local storage memory, meaning your private project details are never sent to external servers, fully matching your employer's Non-Disclosure Agreements (NDAs). Download your JSON files regularly to protect your logs from accidental browser clearances completely.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -401,8 +281,8 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- Dynamic CPD Framework Pathway with Programmatic Completion Badges -->
-        <nav class="ee-horizontal-nav" id="cpdMasterNav" aria-label="CPD Framework Hub Pathway">
+        <!-- Dynamic CPD Framework Pathway Realigned Directly Below Ad Slot -->
+        <nav class="ee-horizontal-nav" id="cpdMasterNav" aria-label="CPD Framework Hub Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
             <a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_cpd_hub"></div>
                 <span class="tab-label">CPD Hub</span>
@@ -425,11 +305,25 @@
             </a>
         </nav>
 
+        <!-- Dynamic Overview Summary Component Block Injected Cleanly Below Breadcrumbs -->
+        <div class="master-cta-box" style="text-align: left; margin-top: 10px; margin-bottom: 25px;">
+            <!-- Target anchor populated securely by tools_data.js script hooks -->
+            <div id="tool-header-target" class="tool-header"></div>
+        </div>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Engineering Library</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Technical References & Resource Manager</p>
+            </div>
+        </div>
+
         <!-- Interactive Layout Grid Container -->
         <div class="main-grid">
             
             <div class="controls-col">
-                <div class="card" style="padding: 20px; background-color: var(--dark-card); border: 1px solid var(--border-color); border-radius: 8px;">
+                <div class="ee-workbench-editor" style="padding: 20px;">
                     <div style="color:var(--terminal-green); border-bottom:1px dashed var(--border-color); margin-bottom:15px; font-weight:bold; text-transform:uppercase; font-size:0.85rem; letter-spacing:0.5px;">
                         >> Search Engine Filters
                     </div>
@@ -441,21 +335,21 @@
                     </div>
                     
                     <div id="standardFilterControls">
-                        <label for="searchInput">Query Terms</label>
-                        <input type="text" id="searchInput" placeholder="e.g. Eurocode, FEA, ISO 9001..." oninput="executeDataFilterRoutine()">
+                        <label class="ee-label" for="searchInput">Query Terms</label>
+                        <input type="text" id="searchInput" class="ee-input" placeholder="e.g. Eurocode, FEA, ISO 9001..." oninput="executeDataFilterRoutine()">
 
-                        <label for="discSelect">Engineering Discipline</label>
-                        <select id="discSelect" onchange="executeDataFilterRoutine()">
+                        <label class="ee-label" for="discSelect">Engineering Discipline</label>
+                        <select id="discSelect" class="ee-select" onchange="executeDataFilterRoutine()">
                             <option value="All">All Disciplines</option>
                         </select>
 
-                        <label for="typeSelect">Resource Typology</label>
-                        <select id="typeSelect" onchange="executeDataFilterRoutine()">
+                        <label class="ee-label" for="typeSelect">Resource Typology</label>
+                        <select id="typeSelect" class="ee-select" onchange="executeDataFilterRoutine()">
                             <option value="All">All Typologies</option>
                         </select>
 
-                        <label for="topicSelect">Technical Domain Topic</label>
-                        <select id="topicSelect" onchange="executeDataFilterRoutine()">
+                        <label class="ee-label" for="topicSelect">Technical Domain Topic</label>
+                        <select id="topicSelect" class="ee-select" onchange="executeDataFilterRoutine()">
                             <option value="All">All Domain Topics</option>
                         </select>
                     </div>
@@ -463,21 +357,22 @@
                     <!-- Add Custom Entry Framework Form -->
                     <div id="customItemPanel" class="panel-content custom-item-panel" style="display:none;">
                         <div style="font-size:0.75rem; font-weight:bold; color:var(--burnt-orange); text-transform:uppercase; margin-bottom:10px;">Create Custom Reference Card</div>
-                        <input type="text" id="customTitle" placeholder="Title (e.g., Institution Handbook)">
-                        <input type="text" id="customDesc" placeholder="Brief Description / Context Notes">
-                        <input type="text" id="customLink" placeholder="Resource Web URL Reference (https://...)">
-                        <input type="text" id="customDisc" placeholder="Discipline (e.g., Mechanical)">
-                        <input type="text" id="customType" placeholder="Type (e.g., Guidebook)">
-                        <input type="text" id="customTopic" placeholder="Topic (e.g., Compliance)">
+                        <input type="text" id="customTitle" class="ee-input" placeholder="Title (e.g., Institution Handbook)">
+                        <input type="text" id="customDesc" class="ee-input" placeholder="Brief Description / Context Notes">
+                        <input type="text" id="customLink" class="ee-input" placeholder="Resource Web URL Reference (https://...)">
+                        <input type="text" id="customDisc" class="ee-input" placeholder="Discipline (e.g., Mechanical)">
+                        <input type="text" id="customType" class="ee-input" placeholder="Type (e.g., Guidebook)">
+                        <input type="text" id="customTopic" class="ee-input" placeholder="Topic (e.g., Compliance)">
                         <button type="button" class="action-btn" style="width:100%; min-height:48px;" onclick="injectCustomUserReference()">Add to Local Workspace</button>
                     </div>
 
                     <!-- Dedicated Module Isolated Import / Export Actions -->
                     <div class="workspace-backup-box">
-                        <label style="color:var(--slate-grey); font-size:0.7rem; font-weight:bold; margin-bottom:8px;">Workspace References Archive</label>
-                        <div style="display:flex; gap:10px;">
+                        <label class="ee-label" style="color:var(--slate-grey); font-size:0.7rem; font-weight:bold; margin-bottom:8px;">Workspace References Archive</label>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap;">
                             <button type="button" class="action-btn" style="flex:1; min-height:48px;" onclick="exportModuleReferencesOnly()">💾 Export</button>
                             <button type="button" class="action-btn action-btn-ghost" style="flex:1; min-height:48px;" onclick="triggerModuleReferencesImport()">📥 Import</button>
+                            <button type="button" class="action-btn btn-ai" id="aiCoachBtn" style="flex:1; min-height:48px; width:100%;" onclick="generateAiCoachPrompt()">✨ AI Coach Prompt</button>
                         </div>
                         <input type="file" id="ee_isolated_module_import" style="display:none;" accept=".json" onchange="handleModuleReferencesImport(event)">
                     </div>
@@ -509,9 +404,9 @@
 
         // Fallback reference matrix dataset deployed natively if references.js layer encounters a dropout
         const fallbackDatabase = [
-            { type: "Standard", disc: "General", topic: "Quality", title: "ISO 9001:2015 Quality Management Systems", desc: "The definitive global framework regulating document control parameters, leadership alignment metrics, and continuous organizational improvement pipelines.", link: "https://www.iso.org/standard/62085.html" },
+            { type: "Standard", disc: "General", topic: "Quality", title: "ISO 9001:2015 Quality Management Systems", desc: "The definitive global framework regulating document control parameters, leadership alignment metrics, and continuous organisational improvement pipelines.", link: "https://www.iso.org/standard/62085.html" },
             { type: "Standard", disc: "Civil", topic: "Structures", title: "BS EN 1990: Eurocode - Basis of Structural Design", desc: "The foundational European standard establishing target safety thresholds, serviceability bounds, and mechanical durability paradigms across load structures.", link: "https://www.bsigroup.com/" },
-            { type: "Textbook", disc: "Mechanical", topic: "Fluids", title: "Crane Technical Paper No. 410 (TP-410)", desc: "The standard textbook reference for analyzing fluid friction metrics, pressure drops, and valve coefficients across piping networks.", link: "https://www.flowcontrolnetwork.com" },
+            { type: "Textbook", disc: "Mechanical", topic: "Fluids", title: "Crane Technical Paper No. 410 (TP-410)", desc: "The standard textbook reference for analysing fluid friction metrics, pressure drops, and valve coefficients across piping networks.", link: "https://www.flowcontrolnetwork.com" },
             { type: "Standard", disc: "Electrical", topic: "Safety", title: "BS 7671:2018+A2:2022 IET Wiring Regulations", desc: "The core British standard governing the safe architectural design, installation parameters, and validation steps for electrical networks.", link: "https://electrical.theiet.org/" },
             { type: "Handbook", disc: "Mechanical", topic: "Design", title: "Machinery's Handbook (Dense Reference Edition)", desc: "The definitive operational toolbox manual for mechanical engineering tolerances, thread criteria, and machining metrics.", link: "https://books.industrialpress.com/" },
             { type: "Guidance", disc: "Safety", topic: "Legislation", title: "HSE L153: Construction (Design and Management) Regulations 2015", desc: "Statutory guidance expansion detailing legal parameters, safety duties, and pre-construction risk matrix ownership rules under CDM 2015.", link: "https://www.hse.gov.uk/pubns/books/l153.htm" }
@@ -706,7 +601,7 @@
             document.getElementById('customType').value = "";
             document.getElementById('customTopic').value = "";
 
-            alert("✅ Custom documentation reference card injected into localized session mapping.");
+            alert("✅ Custom documentation reference card injected into localised session mapping.");
             switchLibraryView('all');
             updateSubpageDiagnosticBadges();
         }
@@ -847,8 +742,57 @@
             const hasCpdHub = hasPlanner || hasDecoder || hasRaci || hasResources;
             if (document.getElementById('badge_cpd_hub')) document.getElementById('badge_cpd_hub').innerHTML = buildTickHTML(hasCpdHub);
         }
+
+        function generateAiCoachPrompt() {
+            if (bookmarkedIdsArray.length === 0 && customUserRefsArray.length === 0) {
+                alert("⚠️ Please toggle individual card bookmarks or add custom reference entries before compiling a coach prompt.");
+                return;
+            }
+
+            let referenceLogDump = "=== SELECTION LOG NARRATIVE ALIGNMENT ===\n";
+            let itemCounter = 1;
+
+            masterDb.forEach(ref => {
+                if (bookmarkedIdsArray.includes(ref.id)) {
+                    referenceLogDump += `${itemCounter}. [${ref.title}] Typology: ${ref.type || 'Standard'} | Discipline: ${ref.disc || 'General'}\nContext: ${ref.desc}\n\n`;
+                    itemCounter++;
+                }
+            });
+
+            const basePrompt = `[ROLE] You are acting as an Expert Peer Reviewer, Technical Board Chairman, and Senior Professional Review Interviewer (PRI) representing the Engineering Council (UK).
+[GOAL] Critically evaluate this active reading curriculum and compliance directory log harvested for my Continuous Professional Development (CPD) portfolio. 1. Audit whether my selected codes, British Standards (BS), and technical manuals show sufficient depth to satisfy UK-SPEC Competence B (Solutions Design) and Competence E (Ethical Standards) criteria. 2. Outline one practical context rule for weaving these references into a written submission case study. 3. Formulate one high-stress probing question to test my knowledge of technical regulations based on this curriculum.
+[SOURCE LOG Payload]
+"""
+${referenceLogDump}
+"""
+[EXPECTATION] Do not write or compile responses for me. Provide sharp, objective practical critique and request confirmation section-by-section.`;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(basePrompt).then(() => {
+                    const btn = document.getElementById('aiCoachBtn');
+                    btn.innerText = ">> COPIED!";
+                    setTimeout(() => { btn.innerText = "✨ AI Coach Prompt"; }, 2000);
+                });
+            } else {
+                const winterArea = document.createElement("textarea");
+                winterArea.value = basePrompt;
+                winterArea.style.position = "fixed";
+                document.body.appendChild(winterArea);
+                winterArea.focus();
+                winterArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiCoachBtn');
+                    btn.innerText = ">> COPIED!";
+                    setTimeout(() => { btn.innerText = "✨ AI Coach Prompt"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access blocked. Please copy text contents manually.");
+                }
+                document.body.removeChild(winterArea);
+            }
+        }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

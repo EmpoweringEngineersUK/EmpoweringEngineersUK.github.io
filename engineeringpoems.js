@@ -1,5 +1,5 @@
 // =========================================================================
-// EMPOWERING ENGINEERS UK - engineeringpoems.js - v21.7 - Database Asset
+// EMPOWERING ENGINEERS UK - engineeringpoems.js - v22.0 - Database Asset
 // Date: 18 Jul 2026
 // Purpose: Core Reference Database & Historical Engineering Almanac Baseline
 // Security Profile: Zero-Knowledge Read-Only Structural Memory Arrays

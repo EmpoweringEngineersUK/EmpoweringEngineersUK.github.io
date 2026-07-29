@@ -19,8 +19,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <!-- Global Layout Core Linkage with Active Cache-Busting -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Global Layout Core Linkage with Active Cache-Busting baseline configuration -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -39,203 +39,30 @@
       }
     }
     </script>
-
-    <style>
-        /* --- HUB SPECIFIC ARCHITECTURE & OVERRIDES --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 10px;
-        }
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 25px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Professional Review Interview (PRI) Simulation Hub</h1>
-            <p>The Professional Review Interview (PRI) is the definitive, concluding gateway to achieving Engineering Technician (EngTech), Incorporated Engineer (IEng), or Chartered Engineer (CEng) registration through your licensed Professional Engineering Institution (PEI). Governed rigidly by the Engineering Council's UK-SPEC 4th Edition framework, this 45-to-60-minute panel assessment is not a conventional career interview. It is an intensive, peer-to-peer defence of your professional capability, ethical commitment, and technical authority, evaluated by two registered assessors.</p>
-
-            <h2>Navigating the Competency Matrix</h2>
-            <p>The panel does not seek a chronological recital of your curriculum vitae. Instead, they will aggressively probe your written submission to validate your alignment with Competencies A through E. You must seamlessly weave experiential narratives that demonstrate your foundational engineering knowledge (A), your evidence-based approach to design and problem-solving (B), your operational responsibility and budget management (C), your interpersonal communication skills (D), and your absolute adherence to statutory safety regulations and professional ethics (E).</p>
             
-            <h2>Tier Distinctions and Institutional Expectations</h2>
-            <p>While the A-E framework is universal, the execution parameters differ dramatically across the registration tiers. The CEng pathway focuses heavily on pioneering first principles, strategic innovation, and managing significant commercial risk. The IEng standard rigorously demands proficiency in applied technology, process optimisation, and operational management. Conversely, the EngTech route prioritises hands-on practical execution, hazard isolation, and comprehensive toolkit literacy. A critical failure point across all tiers is the reliance on the "We" pronoun; the PRI strictly audits individual accountability. You must unequivocally articulate what *you* engineered, decided, and delivered.</p>
+            <h2>Understanding the Professional Review Process</h2>
+            <p><strong>What is this step?</strong> The Professional Review Interview (PRI) is the final, concluding assessment on your journey to achieving formal engineering registration through your licensed <strong>Professional Engineering Institution (PEI)</strong>. Governed by the <strong>Engineering Council</strong> under the rigorous <strong>UK-SPEC</strong> framework, this session is not a traditional job interview. Instead, it is a peer-to-peer discussion and oral defense conducted by two registered engineering experts. This landing hub serves as your master preparation index, linking you directly to specialized rehearsal workspaces built to test your engineering capability, technical authority, and commitment to industry standards before the real review takes place.</p>
+            
+            <h2>Why the Professional Review Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Achieving status as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>) is a major milestone that transforms your professional development. It validates your engineering skills, increases your commercial value to employers, and allows you to take on higher levels of operational and legal responsibility. Passing this final interview tells clients and the public that you can be trusted to manage complex assets and make safety-critical decisions while keeping your projects aligned with long-term business goals.</p>
+            <p>During the review panel, assessors will probe your written portfolio to check your personal accountability across Competences A through E. A common mistake made by many early-career technicians and graduate engineers is speaking broadly about what their team accomplished as a collective group. The interview panel focuses strictly on your individual contributions, meaning you must present your arguments using the "I" pronoun rather than the vague "We." You must show exactly how you independently applied engineering principles to solve problems, mitigate financial risks, and maintain safe systems of work.</p>
 
-            <h2>The Simulator Architecture</h2>
-            <p>To condition your cognitive reflexes for this environment, Empowering Engineers UK has developed a suite of targeted PRI simulators. These digital workbenches subject you to timed, UK-SPEC aligned question matrices, forcing your verbal reasoning to condense within standard presentation limits. By utilising local browser dictation tools, you can compile text transcripts of your spoken responses entirely client-side. This ensures absolute data sovereignty and NDA compliance while generating an optimised meta-prompt for AI-driven peer critique. Select your target registration pathway below to initiate the validation sequence.</p>
+            <h2>How to Prepare and Complete Your Rehearsals Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To pass your interview cleanly, you must practice structuring your project narratives to answer questions directly against the required competence benchmarks. Our interactive simulation tools are engineered to help you build this focus step-by-step. By selecting your target registration pathway below, you can launch a dedicated training engine that delivers realistic, timed sample questions. This training conditions your focus and trains your mind to deliver concise, data-driven arguments under pressure.</p>
+            <p>When you use our workspace text boxes and speech dictation tools to practice your summaries, your responses are recorded securely within your local device's browser memory cache. Our zero-knowledge local storage architecture ensures that no personal data logs, private reports, or sensitive corporate project files are ever sent to external cloud networks. This guarantees complete confidentiality and maintains absolute compliance with employer Non-Disclosure Agreements (NDAs). After completing a rehearsal session, you can copy your text transcripts and parse them through artificial intelligence models to view an objective feedback matrix, helping you polish your delivery before your official institutional defense.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -288,7 +115,7 @@
                     <div id="check_ceng_card"></div>
                 </div>
                 <div class="hub-card-desc">
-                    Defend your Chartered Engineer application. This matrix evaluates your capability to pioneer first principles, manage complex commercial risk, and lead technological innovation.
+                    Defend your Chartered Engineer application. This matrix evaluates your capability to use core engineering principles, manage complex project risk, and lead technical innovation.
                 </div>
                 <a href="interview-registration-ceng.html" class="action-btn" style="text-decoration: none; width: 100%; text-align: center;">Launch CEng Engine →</a>
             </div>
@@ -320,7 +147,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // Core System Tool Identifiers mapped to the respective simulator execution environments
@@ -360,18 +187,31 @@
             const hasCareer = internalStatus || externalStatus;
             const hasPRI = cengStatus || iengStatus || engtechStatus;
 
-            // Update Breadcrumb Badges
-            document.getElementById('badge_ceng').innerHTML = getTickHTML(cengStatus);
-            document.getElementById('badge_ieng').innerHTML = getTickHTML(iengStatus);
-            document.getElementById('badge_engtech').innerHTML = getTickHTML(engtechStatus);
+            // Update Breadcrumb Badges safely via checking elements
+            const badgeCengEl = document.getElementById('badge_ceng');
+            if (badgeCengEl) badgeCengEl.innerHTML = getTickHTML(cengStatus);
+
+            const badgeIengEl = document.getElementById('badge_ieng');
+            if (badgeIengEl) badgeIengEl.innerHTML = getTickHTML(iengStatus);
+
+            const badgeEngtechEl = document.getElementById('badge_engtech');
+            if (badgeEngtechEl) badgeEngtechEl.innerHTML = getTickHTML(engtechStatus);
             
-            document.getElementById('badge_pri').innerHTML = getTickHTML(hasPRI);
-            document.getElementById('badge_hub').innerHTML = getTickHTML(hasCareer && hasPRI);
+            const badgePriEl = document.getElementById('badge_pri');
+            if (badgePriEl) badgePriEl.innerHTML = getTickHTML(hasPRI);
+
+            const badgeHubEl = document.getElementById('badge_hub');
+            if (badgeHubEl) badgeHubEl.innerHTML = getTickHTML(hasCareer && hasPRI);
 
             // Update Hub Card Badges
-            document.getElementById('check_ceng_card').innerHTML = getTickHTML(cengStatus);
-            document.getElementById('check_ieng_card').innerHTML = getTickHTML(iengStatus);
-            document.getElementById('check_engtech_card').innerHTML = getTickHTML(engtechStatus);
+            const checkCengCardEl = document.getElementById('check_ceng_card');
+            if (checkCengCardEl) checkCengCardEl.innerHTML = getTickHTML(cengStatus);
+
+            const checkIengCardEl = document.getElementById('check_ieng_card');
+            if (checkIengCardEl) checkIengCardEl.innerHTML = getTickHTML(iengStatus);
+
+            const checkEngtechCardEl = document.getElementById('check_engtech_card');
+            if (checkEngtechCardEl) checkEngtechCardEl.innerHTML = getTickHTML(engtechStatus);
         }
 
         // --- INITIALISATION ---

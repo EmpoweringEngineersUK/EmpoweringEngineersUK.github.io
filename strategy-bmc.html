@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. BUSINESS MODEL CANVAS GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .bmc-canvas-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -207,96 +113,15 @@
         .cost-label { color: var(--burnt-orange) !important; }
         .rev-label { color: var(--terminal-green) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.3;
-        }
-
         .form-input {
-            width: 100%;
-            padding: 10px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.9rem;
-            font-family: inherit;
-            line-height: 1.4;
-            transition: border-color 0.2s;
             flex-grow: 1;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -305,55 +130,39 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying the Business Model Canvas (BMC) Framework</h1>
+            <h1>Strategic Engineering Leadership: Deploying the Business Model Canvas</h1>
             <p>
-                To direct complex engineering enterprises and maintain sustainable industrial value, senior technical managers must operate far beyond immediate project milestones. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these exact multi-tier accountabilities under strict assessment controls. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) demand clear proof that professional engineers can critically evaluate risk profiles, manage capital allocation pipelines, and optimise technological resource deployment across volatile market sectors.
+                As you step into project management or direct a new engineering department, you quickly realise that technical brilliance alone does not guarantee a successful project. A brilliantly engineered product will still fail if the company cannot manufacture it profitably, or if the sales team cannot find the right customers. The Engineering Council’s <strong>UK-SPEC</strong> guidelines recognise this reality. Under <strong>Competence C</strong> and <strong>Competence E</strong>, engineers applying for <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> registration must prove they can lead commercial operations, control budgets, and manage corporate risk portfolios effectively.
             </p>
             <p>
-                The Business Model Canvas (BMC), originally authored by Alexander Osterwalder, is an indispensable corporate planning instrument used by technical managers to categorise and risk-profile a business venture, project office, or new product architecture. By mapping strategic vectors across nine core criteria, the canvas frames corporate operations into a single-page blueprint. It provides a highly continuous, visual logic block to evaluate value creation, distribution mechanisms, cost structures, and revenue architectures, ensuring that engineering consultancies do not overextend their baseline technical resource pools while seeking industrial growth.
-            </p>
-
-            <h2>Deconstructing the Nine Core Canvas Blocks from an Engineering Perspective</h2>
-            <p>
-                Structuring your technical operations within the BMC framework requires a data-driven, first-principles methodology. Here is how each of the nine core blocks directly maps to modern technical management environments:
-            </p>
-            <p>
-                <strong>1. Key Partners [KP]:</strong> This block maps the ecosystem of external consultancies, specialized sub-contractors, regulatory bodies, and material vendors required to complete project execution. In safety-critical sectors, this involves aligning with accredited testing laboratories, independent third-party assessors (IVBs), and long-term joint-venture networks that share financial exposure.
-            </p>
-            <p>
-                <strong>2. Key Activities [KA]:</strong> The definitive actions required to execute the value proposition. In engineering contexts, this means detail design engineering, finite element analysis (FEA) optimization, physical prototyping, managing rigorous Factory Acceptance Testing (FAT) loops, and enforcing strict drawing revision control gates under ISO 9001 guidelines.
-            </p>
-            <p>
-                <strong>3. Key Resources [KR]:</strong> The physical, human, intellectual, and financial assets essential to maintain operations. This includes proprietary computational simulation software scripts, specialized testing rigs, laboratory space, patented alloy chemical formulations, and your core team of registered Chartered Engineers (CEng) who maintain safety sign-off authority.
-            </p>
-            <p>
-                <strong>4. Value Propositions [VP]:</strong> The unique technical and commercial value package delivered to your clients. This goes beyond standard calculations; it defines how your engineering solutions solve asset optimization issues, reduce long-term operational expenditure (OpEx), accelerate delivery speeds through automated scripts, and guarantee strict statutory safety compliance.
-            </p>
-            <p>
-                <strong>5. Customer Relationships [CR]:</strong> This block characterizes the interaction model established with your client base. For engineering operators, these relationships are typically long-term, high-touch partnerships driven by engineering frameworks, embedded engineering consultancy support, performance-guaranteed SLAs, or collaborative engineering committees.
-            </p>
-            <p>
-                <strong>6. Channels [CH]:</strong> The distribution and communication interfaces used to deliver your value packages to market sectors. This category evaluates tender procurement portals, international trade exhibitions, direct B2B executive consultation panels, or secure cloud-based data networks used to transmit compiled project scripts.
-            </p>
-            <p>
-                <strong>7. Customer Segments [CS]:</strong> The distinct groups of organizations or corporate bodies your technical group intends to serve. In industrial fields, these segments include municipal water boards, national transport authorities, tier-1 aerospace operators, offshore green energy developers, or private capital infrastructure funds.
-            </p>
-            <p>
-                <strong>8. Cost Structure [Cost]:</strong> Audits the primary financial cost drivers required to operate your value chain. This requires engineering managers to categorize capital expenditure (CapEx) for laboratory hardware, continuous software licensing fees, specialized skilled labor costs, and raw material purchase indexing parameters (such as managing steel or copper volatility).
-            </p>
-            <p>
-                <strong>9. Revenue Streams [Rev]:</strong> The monetization tracks that generate corporate inflows. Examples include fixed-price design engineering framework contracts, long-term predictive maintenance subscription cycles driven by IoT telemetrics, intellectual property (IP) licensing royalties, or hourly technical advisory retainers.
+                To map out these complex operations cleanly, executives use the <strong>Business Model Canvas (BMC)</strong>. Created by Alexander Osterwalder, the BMC takes a complicated business plan and shrinks it down into a highly visual, single-page blueprint consisting of nine connected blocks. Instead of writing a 50-page business report that nobody reads, you can use this grid to instantly see how your technical choices impact customer sales, supply chains, and company profits. During your <strong>Professional Review Interview (PRI)</strong>, demonstrating that you use tools like the BMC proves to the assessing panel that you possess genuine commercial awareness.
             </p>
 
-            <h2>Interactive Client-Side Business Model Canvas Workbench</h2>
+            <h2>Deconstructing the Nine Blocks of the Canvas</h2>
             <p>
-                The interactive Business Model Canvas Workbench below is custom-engineered to help technical professionals systematically map out their corporate ventures and optimize structural design architectures. To protect highly sensitive financial records and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilizes a zero-knowledge local browser storage profile. All text inputs are parsed and stored entirely within your device's browser memory partition; no proprietary corporate details are ever transmitted to external networks. Use this tool to build comprehensive enterprise outlines, export verified JSON archives, or generate highly targeted AI system prompts engineered to expose hidden cost liabilities and insulate your strategic programmes.
+                Structuring your technical operations within the BMC requires you to think holistically. Here is how the nine core blocks map directly to engineering and manufacturing environments:
+            </p>
+            <ul>
+                <li><strong>Value Propositions [VP]:</strong> This is the heart of your canvas. What exact technical or commercial problem are you solving? For example, are you delivering an automated pipeline script that guarantees zero statutory safety breaches?</li>
+                <li><strong>Customer Segments [CS]:</strong> Who exactly are you solving this problem for? (e.g., Tier-1 aerospace operators or local municipal water boards).</li>
+                <li><strong>Channels [CH]:</strong> How do you deliver your solution to the customer? (e.g., Secure cloud-based data networks or direct technical tender portals).</li>
+                <li><strong>Customer Relationships [CR]:</strong> How do you interact with the client? (e.g., Long-term maintenance contracts or direct consultative engineering support).</li>
+                <li><strong>Revenue Streams [Rev]:</strong> How does this generate cash? (e.g., Fixed-price design contracts or monthly software licensing royalties).</li>
+                <li><strong>Key Resources [KR]:</strong> What assets do you physically need to do the work? (e.g., Proprietary simulation software, registered CEng staff, or testing laboratories).</li>
+                <li><strong>Key Activities [KA]:</strong> What are the primary actions your team must take every day? (e.g., Finite element analysis, code verification loops, or quality assurance testing).</li>
+                <li><strong>Key Partners [KP]:</strong> Who outside your company do you rely on? (e.g., Certified steel suppliers, independent safety auditors, or external software developers).</li>
+                <li><strong>Cost Structure [Cost]:</strong> What are the main expenses draining your budget? (e.g., Heavy capital expenditure for machinery, raw material costs, or high engineering salaries).</li>
+            </ul>
+
+            <h2>Secure Local Storage and Unified Strategy Verification</h2>
+            <p>
+                Because business models define your company's secret competitive advantages, this interactive workbench operates using a strict zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's own memory cache. No proprietary corporate details or financial pricing structures are ever transmitted to our external servers. This guarantees absolute data sovereignty, keeping you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Use this tool to build your strategic outlines and generate a clean, printable audit report for your portfolio.
             </p>
         </article>
 
@@ -424,6 +233,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -449,63 +266,63 @@
                     <div class="bmc-cell bmc-kp">
                         <label class="bmc-label kp-label">Key Partners [KP]</label>
                         <span class="form-hint">Strategic alliances, tier-1 material vendors, sub-contractor pools, regulatory clearings agencies.</span>
-                        <textarea id="bmc_KP" class="form-input" placeholder="Type key partners here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_KP" class="form-input ee-textarea" placeholder="Type key partners here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Key Activities Block -->
                     <div class="bmc-cell bmc-ka">
                         <label class="bmc-label ka-label">Key Activities [KA]</label>
                         <span class="form-hint">Detail design loops, simulation runs, quality checks, FAT tracking, configuration architectures.</span>
-                        <textarea id="bmc_KA" class="form-input" placeholder="Type key activities here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_KA" class="form-input ee-textarea" placeholder="Type key activities here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Key Resources Block -->
                     <div class="bmc-cell bmc-kr">
                         <label class="bmc-label kr-label">Key Resources [KR]</label>
                         <span class="form-hint">Proprietary simulation scripts, lab facilities, testing equipment registers, CEng sign-off staff assets.</span>
-                        <textarea id="bmc_KR" class="form-input" placeholder="Type key resources here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_KR" class="form-input ee-textarea" placeholder="Type key resources here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Value Propositions Block -->
                     <div class="bmc-cell bmc-vp">
                         <label class="bmc-label vp-label">Value Propositions [VP]</label>
                         <span class="form-hint">Bespoke system designs, lifecycle carbon optimizations, statutory safety assurance moats.</span>
-                        <textarea id="bmc_VP" class="form-input" placeholder="Type value propositions here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_VP" class="form-input ee-textarea" placeholder="Type value propositions here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Customer Relationships Block -->
                     <div class="bmc-cell bmc-cr">
                         <label class="bmc-label cr-label">Customer Relationships [CR]</label>
                         <span class="form-hint">High-touch framework alliances, dedicated engineering boards, performance-based SLAs.</span>
-                        <textarea id="bmc_CR" class="form-input" placeholder="Type customer relationships here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_CR" class="form-input ee-textarea" placeholder="Type customer relationships here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Channels Block -->
                     <div class="bmc-cell bmc-ch">
                         <label class="bmc-label ch-label">Channels [CH]</label>
                         <span class="form-hint">Public framework tender portals, direct executive advisory routes, secure design data pipelines.</span>
-                        <textarea id="bmc_CH" class="form-input" placeholder="Type channels here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_CH" class="form-input ee-textarea" placeholder="Type channels here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Customer Segments Block -->
                     <div class="bmc-cell bmc-cs">
                         <label class="bmc-label cs-label">Customer Segments [CS]</label>
                         <span class="form-hint">Municipal infrastructure boards, private utility operators, multi-national manufacturing firms.</span>
-                        <textarea id="bmc_CS" class="form-input" placeholder="Type customer segments here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_CS" class="form-input ee-textarea" placeholder="Type customer segments here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Cost Structure Block -->
                     <div class="bmc-cell bmc-cost">
                         <label class="bmc-label cost-label">Cost Structure [Cost]</label>
                         <span class="form-hint">CapEx for simulation hardware, licensing fees, skilled team wages, raw material cost tracking.</span>
-                        <textarea id="bmc_Cost" class="form-input" placeholder="Type cost structure details here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_Cost" class="form-input ee-textarea" placeholder="Type cost structure details here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Revenue Streams Block -->
                     <div class="bmc-cell bmc-rev">
                         <label class="bmc-label rev-label">Revenue Streams [Rev]</label>
                         <span class="form-hint">Fixed-price tender allocations, telemetric maintenance retainers, custom design royalties streams.</span>
-                        <textarea id="bmc_Rev" class="form-input" placeholder="Type revenue streams here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bmc_Rev" class="form-input ee-textarea" placeholder="Type revenue streams here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -516,9 +333,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -554,6 +371,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -588,13 +406,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -691,21 +517,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -811,7 +673,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Business Model Canvas Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -862,11 +724,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to preview drafts.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

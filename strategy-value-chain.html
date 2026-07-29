@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. VALUE CHAIN GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .vc-section-title {
             color: var(--burnt-orange) !important;
             font-size: 1.2rem;
@@ -182,95 +88,11 @@
         .primary-label { color: var(--terminal-green) !important; }
         .support-label { color: var(--burnt-orange) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 130px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -279,60 +101,49 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying Porter's Value Chain Framework</h1>
+            <h1>Strategic Engineering Leadership: Deploying Value Chain Analysis</h1>
             <p>
-                To design, scale, and optimize high-yield operations, professional engineers must look far beyond standard mechanical boundaries or localized programming scripts. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these holistic management variables directly into professional assessment paths. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) demand absolute proof that senior engineering specialists can identify cost dependencies, coordinate multidisciplinary support streams, and engineer organizational cost moats.
+                To design, scale, and optimise successful factory operations, professional engineers must look far beyond standard mechanical boundaries or basic programming scripts. The Engineering Council's <strong>UK-SPEC</strong> guidelines require that candidates seeking <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> registration demonstrate total business awareness. Specifically, <strong>Competence C</strong> (Responsibility, management, or leadership) and <strong>Competence E</strong> (Commitment to professional standards) demand absolute proof that you can map out your company's processes, spot where time or money is being wasted, and improve overall efficiency.
             </p>
             <p>
-                Michael Porter's Value Chain Analysis is an indispensable internal diagnostics framework used by systems engineers and technical managers to model an organization's discrete operational activities. Rather than evaluating generic corporate structures, the framework models the firm as a sequential chain of value-creating actions divided into Primary and Support activities. By dissecting operations through this systemic lens, engineering leads can diagnose hidden inefficiencies, reduce wasted material lines, optimize lead times, and systematically separate generic commodity processing from true competitive advantages.
-            </p>
-
-            <h2>Primary Activities: Optimizing the Core Technical Pipeline</h2>
-            <p>
-                Primary activities represent the direct, sequential steps required to transform raw materials or technical requirements into finalized client assets. Maximizing pipeline velocity demands an objective assessment of five sequential activities:
-            </p>
-            <p>
-                <strong>Inbound Logistics:</strong> This phase defines the reception, storage, and material management tracking protocols of your supply line. In advanced manufacturing or construction domains, inbound logistics covers checking raw components against rigorous quality tolerances, handling raw chemicals under strict COSHH variables, and organizing electronic drawing registers within isolated configuration management nodes to ensure production lines are fed without latency.
-            </p>
-            <p>
-                <strong>Operations:</strong> The core transformation engine where engineering plans are translated into physical or digital reality. Operations audits your standard machining runs, continuous quality control validation tracking, automated software compiling loops, and fabrication assemblies. Optimizing this link requires lead managers to integrate Lean Six Sigma tools, mapping performance metrics back to satisfy UK-SPEC Criterion C1 (Manage teams and optimize industrial resource profiles).
-            </p>
-            <p>
-                <strong>Outbound Logistics:</strong> Once production or engineering packaging concludes, outbound logistics manages the distribution of the finished deliverables to the end-client. This block defines structural transport route checking, the deployment of secure data transmission pathways for sensitive software configurations, tracking factory acceptance testing (FAT) document handovers, and packing fragile mechanical assemblies to preserve physical integrity during delivery.
-            </p>
-            <p>
-                <strong>Marketing & Sales:</strong> Engineering organizations must effectively communicate their technical unique selling propositions (USPs) to win major capital projects. This activity profiles how technical design teams interface with corporate sales groups to compile precise procurement tenders, justify lifecycle cost optimizations (CapEx vs. OpEx), and navigate complex commercial framework negotiations with regional public utility boards.
-            </p>
-            <p>
-                <strong>Service:</strong> Modern technical programs are measured across their entire lifecycle. The service dimension governs post-sale activities including localized client installation support, predictive maintenance loops driven by real-time IoT telemetry, component overhaul timelines, and field troubleshooting systems. Designing for high-tier maintainability insulates the organization's reputation and captures high-margin long-term service agreements.
+                Michael Porter's <strong>Value Chain Analysis</strong> is an indispensable business tool used by technical managers to model an organisation's internal activities. Instead of looking at a company as separate, random departments, this framework treats a business as a continuous, sequential chain of value-creating steps. These steps are divided into <strong>Primary Activities</strong> (making, moving, and selling the physical product) and <strong>Support Activities</strong> (hiring staff, buying software, and enforcing corporate quality rules). By analyzing your business through this structured lens, you can easily find process delays, cut out material waste, and ensure your team runs at maximum efficiency.
             </p>
 
-            <h2>Support Activities: Strengthening Structural Engineering Infrastructure</h2>
+            <h2>Why Value Chain Mapping Matters to Your Career</h2>
             <p>
-                Support activities run horizontally across the primary pipeline, providing the necessary operational backing, technological frameworks, and human capacity to sustain continuous execution.
+                When you present your competence evidence to a <strong>Professional Engineering Institution (PEI)</strong> review panel, they will assess your commercial leadership maturity. Many graduate technicians face unexpected setbacks during their formal <strong>Professional Review Interview (PRI)</strong> because they discuss their projects as a series of isolated equations. They struggle to explain how their technical choices affect the company's financial bottom line. 
             </p>
             <p>
-                <strong>Procurement:</strong> The acquisition framework of the firm. This sub-activity manages supplier qualification parameters, pricing structures for engineering software licensing, negotiation profiles for raw material indexing (such as shielding the firm from steel or copper price inflation), and auditing sub-contractor insurance limits to defend project budgets from supply line drift.
-            </p>
-            <p>
-                <strong>Technological Development:</strong> The R&D and systems engineering engine of the firm. This involves developing custom computational fluid dynamics (CFD) scripts, integrating Building Information Modeling (BIM) level 3 protocols, and constructing automated internal macros to eliminate repetitive drafting workflows. Technical investment here accelerates execution across all primary pipeline nodes simultaneously.
-            </p>
-            <p>
-                <strong>Human Resource Management:</strong> Capturing a competitive edge requires a continuous commitment to talent development. This block profiles specialized engineering recruiting matrices, managing institutional competency clearings (such as tracking safety clearings for nuclear or high-voltage spaces), and logging formal apprentice programs to systematically fulfill UK-SPEC professional commitment targets.
-            </p>
-            <p>
-                <strong>Firm Infrastructure:</strong> The overarching regulatory and legal envelope of the enterprise. This encompasses unified quality management frameworks matching ISO 9001 criteria, safety matrices under ISO 45001, general corporate counsel architectures, finance infrastructure, and executive leadership gates that govern strategic direction and corporate risk insulation.
+                Using this workbench to build a structured value chain audit proves that you think like a operations director. It shows you know how to link your day-to-day designs directly to corporate cost savings and lifecycle optimization goals. This provides absolute proof that you are ready to manage large-scale engineering budgets and lead multidisciplinary project teams safely.
             </p>
 
-            <h2>Interactive Client-Side Value Chain Analysis Workbench</h2>
+            <h2>How to Complete Your Interactive Value Chain Ledger</h2>
+            <p>To compile a powerful, audit-ready operational review for your professional registration portfolio, work methodically through the nine data cards on our active canvas:</p>
+            
+            <h3>Primary Activities (The Core Pipeline)</h3>
+            <ul>
+                <li><strong>Inbound Logistics:</strong> How do you receive, store, and check incoming parts? (e.g., Scanning raw material batches against quality tolerances).</li>
+                <li><strong>Operations:</strong> This is your core manufacturing or assembly work. How do you execute production and run quality control loops smoothly?</li>
+                <li><strong>Outbound Logistics:</strong> How do you pack, ship, and deliver your completed designs or hardware packages to the client safely?</li>
+                <li><strong>Marketing & Sales:</strong> How do you write winning procurement tenders and explain your technical advantages to secure new capital projects?</li>
+                <li><strong>Service:</strong> What post-sale support, field troubleshooting, or remote IoT tracking loops keep the system running long-term?</li>
+            </ul>
+
+            <h3>Support Activities (The Infrastructure)</h3>
+            <ul>
+                <li><strong>Procurement:</strong> How do you contract vendors, qualify suppliers, and buy engineering software licenses without blowing your budget?</li>
+                <li><strong>Technological Development:</strong> What R&D, custom calculation scripts, or advanced modeling protocols are you building to automate manual tasks?</li>
+                <li><strong>Human Resource Management:</strong> How do you recruit skilled team members and manage structured apprentice schemes using registered CEng mentors?</li>
+                <li><strong>Firm Infrastructure:</strong> What overarching corporate rules, accounting pipelines, and ISO 9001 drawing control gates protect your group from risk?</li>
+            </ul>
             <p>
-                The interactive Value Chain Analysis Workbench below is custom-engineered to help engineering leads systematically analyze their internal corporate activities. To safeguard highly sensitive operational strategies and protect proprietary corporate data, our platform operates on a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks or servers. Use this analytical toolkit to compile comprehensive industrial outlines, export clean JSON databases, or generate sophisticated AI system prompts engineered to expose cost liabilities and insulate your engineering programs.
+                Type your analysis notes directly into each block. Because company operational data is highly confidential, this toolkit runs entirely on a zero-knowledge local browser architecture. Your entries are saved securely on your own device's internal memory and are never transmitted to our external servers. This keeps you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Once complete, download a verified JSON backup or compile a clean text summary to attach directly to your <strong>Development Action Plan (DAP)</strong>.
             </p>
         </article>
 
@@ -347,10 +158,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -403,6 +214,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -429,21 +248,21 @@
                     <div class="vc-card primary-card">
                         <label class="vc-label primary-label">1. Inbound Logistics</label>
                         <span class="form-hint">Component inspection parameters, configuration management nodes, checking incoming tolerances, raw chemical COSHH protocols. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Scanning raw component batches against material test certs (MTCs); data ingestion gates.</span></span>
-                        <textarea id="vc_Inbound" class="form-input" placeholder="Analyse inbound logistics value streams here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Inbound" class="ee-textarea form-input" placeholder="Analyse inbound logistics value streams here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Operations Card -->
                     <div class="vc-card primary-card">
                         <label class="vc-label primary-label">2. Operations</label>
                         <span class="form-hint">Transformation processes, core manufacturing runs, software compilation loops, structural fabrication tracking architectures. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Deploying automated assembly scripts; executing precision CNC machining pipelines.</span></span>
-                        <textarea id="vc_Operations" class="form-input" placeholder="Analyse core operation value creation here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Operations" class="ee-textarea form-input" placeholder="Analyse core operation value creation here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Outbound Logistics Card -->
                     <div class="vc-card primary-card">
                         <label class="vc-label primary-label">3. Outbound Logistics</label>
                         <span class="form-hint">Finished asset distribution channels, packing safety cases, data transmission encryptions, factory acceptance test handovers. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Transmitting compiled executable scripts via cryptographically secure lines; heavy logistics routing.</span></span>
-                        <textarea id="vc_Outbound" class="form-input" placeholder="Analyse outbound logistics distribution systems here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Outbound" class="ee-textarea form-input" placeholder="Analyse outbound logistics distribution systems here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Marketing & Sales Card -->
@@ -457,7 +276,7 @@
                     <div class="vc-card primary-card" style="grid-column: span 2;">
                         <label class="vc-label primary-label">5. Service (Lifecycle Maintenance)</label>
                         <span class="form-hint">Post-sale support grids, IoT telemetric predictive maintenance loops, field engineering interventions, lifecycle extension packages. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Integrating cloud monitoring nodes for early wear detection; executing structured maintenance contracts.</span></span>
-                        <textarea id="vc_Service" class="form-input" placeholder="Analyse post-sale service and maintainability moats here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Service" class="ee-textarea form-input" placeholder="Analyse post-sale service and maintainability moats here..." oninput="updatePreview()"></textarea>
                     </div>
                 </div>
 
@@ -467,28 +286,28 @@
                     <div class="vc-card support-card">
                         <label class="vc-label support-label">A. Procurement (Vendor Contracting)</label>
                         <span class="form-hint">Supplier qualification matrices, engineering tool software licensing costs, hedging raw material cost variables. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Establishing bulk-purchase supply indices for structural steel; contracting specialized sub-contractors.</span></span>
-                        <textarea id="vc_Procurement" class="form-input" placeholder="Analyse supply acquisition frameworks here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Procurement" class="ee-textarea form-input" placeholder="Analyse supply acquisition frameworks here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Technological Development Card -->
                     <div class="vc-card support-card">
                         <label class="vc-label support-label">B. Technological Development (R&D / Systems)</label>
                         <span class="form-hint">Developing custom calculation macros, BIM level 3 modelling integration, simulation software optimizations, process automations. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Building custom internal Python optimization scripts to minimize multi-disciplinary drafting time.</span></span>
-                        <textarea id="vc_Technology" class="form-input" placeholder="Analyse strategic R&D and automation systems here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Technology" class="ee-textarea form-input" placeholder="Analyse strategic R&D and automation systems here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Human Resource Management Card -->
                     <div class="vc-card support-card">
-                        <label class="vc-label support-label">C. Human Resource Management (Competency clearings)</label>
+                        <label class="vc-label support-label">C. Human Resource Management (Competency Clearings)</label>
                         <span class="form-hint">Specialized technical recruiting profiles, institutional clearings logs, apprentice training, tracking high-voltage clearings. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Funding graduate onboarding tracks while maintaining an active matrix of certified CEng mentors.</span></span>
-                        <textarea id="vc_HR" class="form-input" placeholder="Analyse human capital and capability clearings here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_HR" class="ee-textarea form-input" placeholder="Analyse human capital and capability clearings here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Firm Infrastructure Card -->
                     <div class="vc-card support-card">
-                        <label class="vc-label support-label">D. Firm Infrastructure (Quality & Legal envelope)</label>
+                        <label class="vc-label support-label">D. Firm Infrastructure (Quality & Legal Envelope)</label>
                         <span class="form-hint">ISO 9001 compliance standards, ISO 45001 safety matrices, accounting pipelines, overall corporate governance structures. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Enforcing unified configuration management and statutory drawing review control gates across the firm.</span></span>
-                        <textarea id="vc_Infrastructure" class="form-input" placeholder="Analyse corporate governance and compliance systems here..." oninput="updatePreview()"></textarea>
+                        <textarea id="vc_Infrastructure" class="ee-textarea form-input" placeholder="Analyse corporate governance and compliance systems here..." oninput="updatePreview()"></textarea>
                     </div>
                 </div>
 
@@ -499,9 +318,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -537,6 +356,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -558,9 +378,9 @@
         function updateNavigationBadges() {
             // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
             const toolsMap = {
-                'coach': 'ee_comm_coach',
-                'strategy': 'ee_strategy',
-				'swot': 'ee_strategy_swot',
+                'coach': 'ee_management_master_hub',
+                'strategy': 'ee_strategy_master_hub',
+                'swot': 'ee_strategy_swot',
                 'pestle': 'ee_strategy_pestle',
                 'porters': 'ee_strategy_porters',
                 'vrio': 'ee_strategy_vrio',
@@ -571,13 +391,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -680,21 +508,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -802,7 +666,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Value Chain Analysis Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -857,11 +721,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to preview drafts.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+    <!-- 25 July 2026 v22.0-->
+    <!-- Core Hub Pages -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
@@ -16,21 +18,25 @@
     
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <!-- Strict Relative Pathing for Local Sandbox Integrity -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <style>
+        /* --- PAGE SPECIFIC STRUCTURE (Sitemap Grid) --- */
         .sitemap-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 20px;
+            margin-bottom: 40px;
         }
         .sitemap-category {
             background: var(--dark-card);
             border-top: 3px solid var(--terminal-green);
             padding: 20px;
             border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .sitemap-category h2 {
             color: var(--terminal-green);
@@ -72,32 +78,13 @@
             padding: 6px 0;
             font-size: 0.95rem;
             transition: color 0.2s ease;
+            font-weight: 700;
         }
         .sitemap-list a:hover, .sitemap-sub-list a:hover {
             color: var(--terminal-green);
             text-decoration: underline;
         }
-        .body[data-theme="dark"] .sitemap-list a { color: var(--cloud-white); }
-        
-        .thick-content {
-            background: var(--dark-card);
-            padding: 25px;
-            border-radius: 4px;
-            border-left: 4px solid var(--terminal-green);
-            margin-bottom: 30px;
-            color: var(--slate-grey);
-            line-height: 1.7;
-        }
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
+        body[data-theme="dark"] .sitemap-list a { color: var(--cloud-white); }
     </style>
 </head>
 <body>
@@ -105,23 +92,23 @@
         // LocalStorage namespace initialised to guarantee compliance with platform tracking
         const EE_TOOL_ID = 'EE_SITEMAP_DIR';
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">      
+        
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
-            <h1>Platform Architectural Directory: Navigating the Ecosystem</h1>
-            <p>Welcome to the comprehensive platform directory for Empowering Engineers UK. This central index operates as your primary navigation matrix, connecting you directly to our proprietary suite of professional registration workbenches, strategic coaching frameworks, and continuous professional development (CPD) trackers. Whether you are actively compiling evidence for your UK-SPEC assessment or seeking advanced analytical tools to optimise your departmental workflows, this directory ensures immediate access to highly structured, rigorously categorised engineering resources.</p>
+            <h1>Platform Directory: Find Your Engineering Tools</h1>
+            <p>Welcome to the complete platform directory for Empowering Engineers UK. This page acts as your master navigation map, listing every single interactive tool, leadership framework, and continuous learning guide available on our site. Whether you are actively building your <strong>UK-SPEC</strong> application or simply looking for proven tools to run your engineering team more effectively, you can find the exact resource you need right here.</p>
             
-            <h2>Professional Registration and Competence Mapping</h2>
-            <p>The journey towards professional engineering registration in the UK requires meticulous evidence gathering and a deep understanding of standard competency frameworks. Within the <strong>Mentor</strong> section of our directory, you will find dedicated, interactive modules designed to support applications for Chartered Engineer (CEng), Incorporated Engineer (IEng), and Engineering Technician (EngTech) statuses. Each pathway is structurally broken down into core competences (A through E). Our interactive toolsets allow candidates to draft, refine, and securely cache their experiential evidence locally. We employ a rigorous dual-persistence caching architecture that natively bounds your data to your browser cache, ensuring absolute data sovereignty and guaranteeing zero data loss during intensive, confidential drafting sessions. Furthermore, our Career Builder module assists in standardising your curriculum vitae to align perfectly with strict institutional expectations of the Engineering Council.</p>
+            <h2>Building Your Professional Registration Evidence</h2>
+            <p>Applying for <strong>Chartered Engineer (CEng)</strong>, <strong>Incorporated Engineer (IEng)</strong>, or <strong>Engineering Technician (EngTech)</strong> status takes considerable time and clear, well-organised evidence. Under the Mentor section below, you will find our bespoke trackers built to match the exact Engineering Council Competences (A to E). These interactive workbenches help you write, structure, and save your portfolio notes locally on your own device. We utilise a highly secure, zero-knowledge browser storage architecture. This means your private project data never leaves your computer, ensuring you remain fully compliant with your employer's data protection rules. We also provide a dedicated Career Builder to help you format your CV perfectly for the assessing panel.</p>
             
-            <h2>Strategic Management and Quality Assurance Frameworks</h2>
-            <p>Transitioning from a technical specialist to an engineering leader necessitates a robust understanding of business strategy and process optimisation. The <strong>Coach</strong> hub categorised below provides direct links to industry-standard analytical instruments. In the Strategy & Business Planning quadrant, professionals can leverage digital environments for SWOT, PESTLE, Porter's Five Forces, and the Business Model Canvas to evaluate market positioning and operational viability. Similarly, the Process & Quality Improvement sector grants access to root-cause analysis tools such as the 5 Whys, Ishikawa (Fishbone) diagrams, DMAIC routing, and Value Stream Mapping (VSM). These tools are engineered to enforce high-density data logging, allowing management consultants and lead engineers to diagnose systemic failures, eliminate operational bottlenecks, and deploy measurable continuous improvement programmes securely.</p>
+            <h2>Engineering Leadership and Quality Tools</h2>
+            <p>As you step into project management and senior leadership, you need to deeply understand business strategy and quality control. The Coach section in the directory links directly to proven, industry-standard tools like <strong>SWOT Analysis</strong>, <strong>PESTLE</strong>, and <strong>Value Stream Mapping (VSM)</strong>. These frameworks help you solve complex operational problems logically (such as using the <strong>5 Whys</strong> root-cause tool) and manage commercial budgets safely. By integrating these specific frameworks into your daily routine, you can lead your projects with absolute confidence and improve your team's performance without relying on guesswork.</p>
 
-            <h2>Interview Preparation and CPD Compliance</h2>
-            <p>Securing a promotion or successfully navigating a Professional Review Interview (PRI) requires structured communication and demonstrable reflective practice. Our directory links directly to behavioural communication frameworks, including the STAR, CAR, and SOAR methodologies, enabling users to digitally wireframe their experiential narratives safely and privately. The integration of high-performance fuzzy search engines across the platform ensures rapid location of specific coaching modules. Additionally, maintaining professional registration mandates strict adherence to CPD logging. Our CPD workbenches provide a streamlined interface for tracking formal training, informal learning, and STEM volunteering efforts, ensuring your developmental portfolio remains audit-ready and comprehensively documented at all times without risking the exposure of proprietary corporate data.</p>
+            <h2>Interviews and Keeping Your CPD Up to Date</h2>
+            <p>To successfully pass your <strong>Professional Review Interview (PRI)</strong>, you must be able to communicate your technical decisions clearly under pressure. Our directory links directly to communication tools like the <strong>STAR Methodology</strong> studio, so you can practice formatting your answers safely before the big day. Furthermore, you must maintain an active record of your <strong>Continuous Professional Development (CPD)</strong>. Our integrated CPD tools help you log your formal training, on-the-job learning, and STEM volunteering efforts easily, ensuring you are always prepared for a random audit from your Professional Engineering Institution (PEI).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -131,6 +118,45 @@
                  data-ad-client="ca-pub-7071036534151105"
                  data-ad-slot="4413012282"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar -->
+        <nav class="ee-horizontal-nav" aria-label="System Hub Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+            <a href="sitemap.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Sitemap</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Platform Sitemap</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Master Directory & Tool Index</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Back to Top</button>
+            </div>
         </div>
 
         <!-- Interactive Sitemap Grid -->
@@ -207,6 +233,7 @@
                         <li><a href="strategy-bmc.html">Business Model Canvas</a></li>
                         <li><a href="strategy-soar.html">SOAR Analysis</a></li>
                         <li><a href="strategy-map.html">Strategy Map</a></li>
+                        <li><a href="strategy-budgets.html">Financial & Budget Control</a></li>
                     </ul>
 
                     <h3><a href="quality.html">Process & Quality Improvement</a></h3>
@@ -237,6 +264,7 @@
                         <li><a href="decisions-force-field.html">Force Field Analysis</a></li>
                         <li><a href="decisions-ooda.html">OODA Loop</a></li>
                         <li><a href="decisions-wrap.html">WRAP Technique</a></li>
+                        <li><a href="decisions-contracts.html">Supplier Contract Analysis</a></li>
                     </ul>
 
                     <h3><a href="goals.html">Goal Setting & Performance</a></h3>
@@ -327,5 +355,7 @@
             </section>
         </div>
     </main>
+    
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

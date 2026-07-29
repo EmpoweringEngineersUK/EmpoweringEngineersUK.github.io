@@ -1,26 +1,27 @@
 /* =========================================================================
-   EMPOWERING ENGINEERS UK – layout.css - v21.7 - Master Central Layout Stylesheet
+   EMPOWERING ENGINEERS UK – layout.css - v22.0 - Master Central Layout Stylesheet
    Specification: Native Light Layout with Responsive Dark & Contrast States
    Layout Rules: Fluid Gutter Constraint Configuration (5% / 90% / 5%)
+   Date: 25 Jul 2026
    ========================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 /* --- 1. CORE STYLE ENGINE CRITERIA & VARIABLES --- */
 :root {
-    --midnight-navy: #F4F7F9;      /* Default Light Canvas Substratum */
-    --dark-card: #FFFFFF;          /* High-Contrast Element Background */
-    --slate-grey: #4A5568;         /* Compliant Secondary Micro-Typography */
-    --terminal-green: #006837;     /* Standard Layout Interaction Tone */
-    --burnt-orange: #C05621;       /* Operational Alert Context Tone */
-    --cloud-white: #1A202C;        /* Accessible Core Alpha Typography */
-    --border-color: #CBD5E0;       /* Fine UI Separation Boundaries */
+    --midnight-navy: #F4F7F9; /* Default Light Canvas Substratum */
+    --dark-card: #FFFFFF; /* High-Contrast Element Background */
+    --slate-grey: #4A5568; /* Compliant Secondary Micro-Typography */
+    --terminal-green: #006837; /* Standard Layout Interaction Tone */
+    --burnt-orange: #C05621; /* Operational Alert Context Tone */
+    --cloud-white: #1A202C; /* Accessible Core Alpha Typography */
+    --border-color: #CBD5E0; /* Fine UI Separation Boundaries */
     
     /* Global Brand Scheme Variables */
     --ee-dark-blue: #0D1B2A;
     --ee-white: #FFFFFF;
     --ee-light-gray: #F9F9F9;
-    --ee-terminal-green: #03F7A0;
+    --ee-terminal-green: #03F7A0; /* Strictly reserved for Dark Surfaces and high-contrast dark overlay states */
     --ee-banner-src: url('assets/EE_banner.webp'); 
     --ee-header-gradient: linear-gradient(135deg, #1A2E44 0%, #0D1B2A 100%);
     --hover-green: rgba(0, 104, 55, 0.08);
@@ -33,13 +34,13 @@
 
 /* --- 2. THEMATIC ACCESSIBILITY VISIBILITY PROFILES --- */
 body[data-theme="dark"] {
-    --midnight-navy: #0D1B2A;      
-    --dark-card: #101925;          
-    --slate-grey: #8899A6;         
-    --terminal-green: #03F7A0;     
-    --burnt-orange: #FF8C42;       
-    --cloud-white: #E6EDF3;        
-    --border-color: #30363D;       
+    --midnight-navy: #0D1B2A; 
+    --dark-card: #101925; 
+    --slate-grey: #8899A6; 
+    --terminal-green: #03F7A0; 
+    --burnt-orange: #FF8C42; 
+    --cloud-white: #E6EDF3; 
+    --border-color: #30363D; 
     --hover-green: rgba(3, 247, 160, 0.1);
     --input-bg: rgba(13, 27, 42, 0.6);
 }
@@ -47,11 +48,11 @@ body[data-theme="dark"] {
 body[data-theme="contrast"] {
     --midnight-navy: #000000;
     --dark-card: #000000;
-    --slate-grey: #FFFF00;         
-    --terminal-green: #00FF00;     
-    --burnt-orange: #FFA500;       
-    --cloud-white: #FFFFFF;        
-    --border-color: #FFFFFF;       
+    --slate-grey: #FFFF00; 
+    --terminal-green: #00FF00; 
+    --burnt-orange: #FFA500; 
+    --cloud-white: #FFFFFF; 
+    --border-color: #FFFFFF; 
     --input-bg: #000000;
 }
 
@@ -65,13 +66,26 @@ body[data-theme="contrast"] {
 body {
     background-color: var(--midnight-navy);
     color: var(--cloud-white);
-    font-family: 'Lato', "Arial", "Helvetica Neue", sans-serif;
+    font-family: 'Lato', "Arial", "Helvetica Neue", "Helvetica", sans-serif;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
     transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* --- 3.1 CORE TYPOGRAPHY ENFORCEMENT --- */
+h1, h2, h3, h4, h5, p, a {
+    font-family: 'Lato', "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
+}
+
+h1:not(.header-page-title), h2, h3 {
+    color: var(--terminal-green);
+}
+
+p {
+    color: var(--cloud-white);
 }
 
 /* Fluid Gutter Constraint: 5% Margin Gutter + 90% Content Container Block + 5% Margin Gutter */
@@ -86,7 +100,7 @@ body {
 }
 
 /* --- 4. ACCESSIBLE 3D SYSTEM ELEMENTS --- */
-button, .btn, .action-btn {
+.btn, .action-btn {
     font-family: inherit;
     font-weight: 700;
     text-transform: uppercase;
@@ -108,7 +122,7 @@ button, .btn, .action-btn {
     box-shadow: 2px 2px 0px var(--ee-terminal-green) !important;
 }
 
-button:hover, .btn:hover, .action-btn:hover {
+.btn:hover, .action-btn:hover {
     transform: translate(1px, 1px);
     box-shadow: 1px 1px 0px var(--ee-terminal-green) !important;
     color: var(--ee-terminal-green) !important;
@@ -119,13 +133,13 @@ button:hover, .btn:hover, .action-btn:hover {
 .action-btn-ghost, .action-btn-outline {
     background-color: var(--dark-card) !important;
     background-image: none !important;
-    border: 2px solid var(--ee-terminal-green) !important;
+    border: 2px solid var(--terminal-green) !important;
     color: var(--cloud-white) !important;
-    box-shadow: 2px 2px 0px var(--ee-terminal-green) !important;
+    box-shadow: 2px 2px 0px var(--terminal-green) !important;
 }
 
 .action-btn-ghost:hover, .action-btn-outline:hover {
-    background-color: var(--ee-terminal-green) !important;
+    background-color: var(--terminal-green) !important;
     border-color: var(--ee-dark-blue) !important;
     color: var(--ee-dark-blue) !important;
     transform: translate(1px, 1px);
@@ -490,7 +504,7 @@ button:hover, .btn:hover, .action-btn:hover {
 
 .ee-search-input-field:focus {
     outline: none;
-    border-color: var(--ee-terminal-green);
+    border-color: var(--terminal-green);
 }
 
 .ee-search-results-list {
@@ -530,13 +544,23 @@ button:hover, .btn:hover, .action-btn:hover {
     font-size: 0.9rem;
 }
 
-/* --- 9. MONETISATION PLACEHOLDER (CORE WEB VITALS OPTIMISED) --- */
+/* --- 9. MONETISATION & BRANDING (CORE WEB VITALS OPTIMISED) --- */
 .ee-ad-leaderboard-container {
     margin: 5px auto;
     max-width: 728px;
     overflow: hidden;
     min-height: 90px;
     background: rgba(0, 0, 0, 0.05);
+}
+
+.ad-slot.ad-mpu {
+    background-image: url('assets/EE_banner.webp') !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
 }
 
 /* --- 10. CONTINUOUS IN-FLOW BANNER FOOTER --- */
@@ -635,61 +659,370 @@ footer {
     text-shadow: 0 2px 6px rgba(0,0,0,0.8);
 }
 
-/* --- 11. INTEGRATED PRINT LAYOUT CONTROLS --- */
-@media print {
-    .sticky-container, footer, .ee-ad-leaderboard-container, button, .btn, .action-btn, .ad-slot, #eeSearchModal, .thick-content {
-        display: none !important;
-    }
-    body {
-        background: #FFFFFF !important;
-        color: #000000 !important;
-    }
-    .container, main {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .card, .sitemap-category {
-        background: #FFFFFF !important;
-        border: 1px solid #000000 !important;
-        color: #000000 !important;
-        page-break-inside: avoid;
-    }
-    h1, h2, h3, a, p {
-        color: #000000 !important;
-    }
+/* --- 11. MASTER PAGE & HUB ARCHITECTURE --- */
+/* 11.1 Thick Content Narrative Blocks */
+.thick-content {
+    padding: 25px 5% 45px 5%;
+    color: var(--cloud-white);
+    line-height: 1.75;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    background: var(--dark-card);
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* --- 12. MOBILE VIEWPORT OVERRIDES --- */
+.thick-content h1, .thick-content h2, .thick-content h3 {
+    color: var(--terminal-green) !important;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.thick-content p, .thick-content li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.thick-content ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.thick-content a {
+    color: var(--burnt-orange);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.thick-content a:hover {
+    color: var(--terminal-green);
+    text-decoration: underline;
+}
+
+/* 11.2 Standardised Header Actions */
+.header-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--ee-terminal-green);
+    padding-bottom: 12px;
+}
+
+/* 11.3 Interactive Hub Dashboards & Grids */
+.hub-grid, .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    align-items: stretch;
+}
+
+.hub-card, .tool-card {
+    background: var(--dark-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--border-color);
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+.hub-card:hover, .tool-card:hover, .tool-card:focus-within {
+    transform: translateY(-4px);
+    border-top-color: var(--terminal-green);
+    border-color: var(--terminal-green);
+}
+
+.hub-card-title, .tool-title {
+    color: var(--terminal-green);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+.hub-card-desc, .tool-desc {
+    color: var(--slate-grey);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tool-arrow {
+    text-align: right;
+    margin-top: auto;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--burnt-orange);
+}
+
+.master-cta-box {
+    background: rgba(3, 247, 160, 0.04);
+    border: 2px solid var(--ee-terminal-green);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(3, 247, 160, 0.05);
+}
+
+/* 11.4 High Density Sub-Link List Module */
+.sub-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.sub-link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--midnight-navy);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.88rem;
+    text-decoration: none;
+    color: var(--cloud-white);
+    font-weight: 700;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.sub-link-item:hover {
+    border-color: var(--terminal-green);
+    background-color: var(--hover-green);
+}
+
+.sub-link-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- 12. DIAGNOSTIC LEVEL BADGES & STATUS CHECKBOXES --- */
+/* Strict Levelling Badges */
+.level-badge { 
+    display: inline-block; 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    line-height: 1;
+    border: 1px solid transparent; 
+}
+
+.nb-l1 { background: #C05621; color: #FFFFFF; }
+.nb-l2 { background: #FDCB6E; border-color: #E0B050; color: #0D1B2A !important; }
+.nb-l3 { background: #006837; color: #FFFFFF; }
+.nb-l4 { background: #00B894; border-color: #009070; color: #FFFFFF !important; }
+
+body[data-theme="dark"] .nb-l1 { background: #FF8C42; color: #0D1B2A !important; }
+body[data-theme="dark"] .nb-l3 { background: #03F7A0; color: #0D1B2A !important; }
+
+body[data-theme="contrast"] .level-badge {
+    background: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+    color: #FFFF00 !important;
+}
+body[data-theme="contrast"] .nb-l4 { color: #FFFFFF !important; }
+
+/* High Contrast Square Status Checkboxes */
+.status-tick {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--terminal-green);
+    color: var(--dark-card);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    border: 2px solid var(--terminal-green);
+    line-height: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.status-tick.empty {
+    background: transparent;
+    color: transparent;
+    border: 2px solid var(--slate-grey);
+}
+
+/* --- 13. WORKBENCH & MENTOR PANEL ARCHITECTURE --- */
+.workbench-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
 @media (max-width: 992px) {
-    .sticky-container {
-        min-height: 120px;
-    }
-    .sticky-container.scrolled {
-        min-height: var(--ee-header-height-small) !important;
-    }
-    .header-brand-row nav {
-        display: none !important;
-    }
-    .ee-mobile-trigger-bar {
-        display: flex;
-    }
-    .footer-content {
+    .workbench-layout {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
-    .data-actions {
-        flex-direction: column;
-    }
-    .container, main, .card {
-        padding-left: 5px !important;
-        padding-right: 5px !important;
+    .coach-panel {
+        position: relative !important;
+        top: 0 !important;
     }
 }
 
-/* --- 13. UNIVERSAL WORKBENCH & FORM ELEMENTS --- */
-/* Designed to neutralise global <button> gradients and enforce strict EE form styling */
+.coach-panel {
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--burnt-orange);
+    position: sticky;
+    top: 85px;
+    box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Enforce clear brand banner insulation for the mentor panel */
+    background-color: var(--ee-dark-blue) !important;
+    background-image: var(--ee-banner-src) !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
 
+.coach-panel p, .coach-panel div, .coach-panel span:not(.level-badge):not(.verb-chip), .coach-panel li {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.coach-panel .coach-title {
+    color: var(--ee-terminal-green) !important;
+}
+
+.coach-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ee-terminal-green) !important;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2) !important;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
+.verb-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    border: 2px solid #03F7A0 !important;
+    color: #0D1B2A !important;
+    box-shadow: 2px 2px 0px #03F7A0 !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    padding: 6px 12px !important;
+    margin: 4px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.verb-chip:hover {
+    background-color: #03F7A0 !important;
+    border-color: #0D1B2A !important;
+    color: #0D1B2A !important;
+    transform: translate(1px, 1px) !important;
+    box-shadow: 1px 1px 0px #0D1B2A !important;
+}
+
+.coach-panel .verb-chip {
+    color: #0D1B2A !important;
+}
+
+.coach-panel .verb-chip:hover {
+    color: #0D1B2A !important;
+}
+
+.action-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-bar button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.85rem;
+}
+
+.preview-box {
+    font-family: 'Courier Prime', monospace;
+    background: #000000;
+    color: #03F7A0; /* Terminal Green Glow */
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    white-space: pre-wrap;
+    line-height: 1.5;
+    min-height: 250px;
+    font-size: 0.85rem;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.form-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--slate-grey);
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--cloud-white);
+    border-radius: 4px;
+    min-height: 85px;
+    resize: vertical;
+    font-size: 0.95rem;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--terminal-green);
+    box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
+}
+
+/* --- 14. UNIVERSAL WORKBENCH FORMS --- */
 .ee-workbench-grid {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -697,6 +1030,7 @@ footer {
     margin-bottom: 40px;
     align-items: start;
 }
+
 @media (max-width: 992px) {
     .ee-workbench-grid { grid-template-columns: 1fr; }
 }
@@ -712,7 +1046,6 @@ footer {
 }
 
 .ee-nav-tab {
-    /* Strict overrides to counter global button styles */
     background-image: none !important;
     background-color: transparent !important;
     box-shadow: none !important;
@@ -720,7 +1053,6 @@ footer {
     border-top: none !important;
     border-left: 3px solid transparent !important;
     color: var(--slate-grey) !important;
-    
     display: block;
     width: 100%;
     text-align: left;
@@ -825,7 +1157,7 @@ footer {
     box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
 }
 
-/* --- 14. HORIZONTAL TAB NAVIGATION (STANDARDISED) --- */
+/* --- 15. HORIZONTAL TAB NAVIGATION (STANDARDISED) --- */
 .ee-horizontal-nav {
     display: flex;
     border-bottom: 2px solid var(--border-color);
@@ -840,8 +1172,8 @@ footer {
     border: none !important;
     border-bottom: 3px solid transparent !important;
     color: var(--slate-grey) !important;
-    padding: 12px 25px;
-    min-height: 48px;
+    padding: 10px 14px !important;
+    min-height: 58px;
     font-family: inherit;
     font-weight: 700;
     font-size: 0.95rem;
@@ -849,9 +1181,12 @@ footer {
     transition: all 0.2s ease;
     text-transform: uppercase;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     border-radius: 4px 4px 0 0;
     margin-bottom: -2px; /* Pull down to overlap the nav border */
+    gap: 8px;
 }
 
 .ee-horizontal-tab:hover {
@@ -866,7 +1201,7 @@ footer {
     border-bottom-color: var(--terminal-green) !important;
 }
 
-/* 14.1 SUB-SCENARIO TABS (Card-style horizontal tabs) */
+/* 15.1 SUB-SCENARIO TABS (Card-style horizontal tabs) */
 .ee-sub-nav {
     display: flex;
     border-bottom: 1px solid var(--border-color);
@@ -901,10 +1236,160 @@ footer {
 }
 
 .ee-sub-tab.active {
-    background-color: var(--input-bg) !important;
-    border-color: var(--border-color) !important;
-    border-bottom-color: var(--input-bg) !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    border-bottom: 3px solid var(--terminal-green) !important; /* Perfect physical active underline matching primary nav links */
     color: var(--terminal-green) !important;
     margin-bottom: -1px;
     z-index: 10;
+}
+
+/* --- 16. FAQ ARCHITECTURE --- */
+.faq-container {
+    background: var(--dark-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.faq-item.hidden {
+    display: none !important;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: var(--ee-dark-blue);
+    border: none;
+    padding: 18px 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ee-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.faq-question:hover {
+    color: var(--terminal-green);
+}
+
+.faq-answer {
+    padding: 0 20px 20px 20px;
+    font-size: 0.95rem;
+    color: var(--slate-grey);
+    line-height: 1.6;
+    display: none;
+    border-top: 1px dashed var(--border-color);
+    margin-top: -5px;
+    padding-top: 15px;
+}
+
+.faq-item.open {
+    border-color: var(--terminal-green);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.faq-item.open .faq-question {
+    color: var(--terminal-green);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-toggle-icon {
+    font-size: 1.2rem;
+    color: var(--ee-terminal-green);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-toggle-icon {
+    transform: rotate(45deg);
+    color: var(--terminal-green);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 17. INTEGRATED PRINT LAYOUT CONTROLS --- */
+@media print {
+    .sticky-container, footer, .ee-ad-leaderboard-container, button, .btn, .action-btn, .ad-slot, #eeSearchModal, .thick-content, .ee-horizontal-nav, .ee-sidebar-nav, .master-cta-box {
+        display: none !important;
+    }
+    body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+    }
+    .container, main {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .card, .hub-card, .tool-card, .ee-workbench-editor, .faq-container {
+        background: #FFFFFF !important;
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+    }
+    h1, h2, h3, a, p {
+        color: #000000 !important;
+    }
+    .preview-box {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    .ee-workbench-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --- 18. MOBILE VIEWPORT OVERRIDES --- */
+@media (max-width: 992px) {
+    .sticky-container {
+        min-height: 120px;
+    }
+    .sticky-container.scrolled {
+        min-height: var(--ee-header-height-small) !important;
+    }
+    .header-brand-row nav {
+        display: none !important;
+    }
+    .ee-mobile-trigger-bar {
+        display: flex;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .data-actions {
+        flex-direction: column;
+    }
+    .container, main, .card {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
 }

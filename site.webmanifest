@@ -1,16 +1,16 @@
 {
     "name": "Empowering Engineers UK",
-    "short_name": "EmpowerEngUK",
-    "description": "Accelerating your journey to CEng, IEng, EngTech and Engineering Leadership.",
+    "short_name": "EEUK",
+    "description": "Accelerating your path to CEng, IEng, EngTech professional registration and engineering leadership optimisation.",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "assets/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"

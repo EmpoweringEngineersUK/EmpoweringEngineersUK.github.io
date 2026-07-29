@@ -20,13 +20,13 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght=700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Core Platform Dependency Engines -->
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="cpd.js?v=21.7" defer></script>
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="cpd.js?v=22.0" defer></script>
     
     <script type="application/ld+json">
     {
@@ -46,133 +46,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-        
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-            min-height: 58px;
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            display: inline-flex;
-            margin-bottom: -2px;
-        }
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- PLANNER APP MATRIX WORKSPACE --- */
+        /* --- BESPOKE, TOOL-SPECIFIC INTERACTION COMPONENTS ONLY --- */
         .planner-card {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
@@ -195,35 +69,6 @@
         }
         .matrix-label { color: var(--burnt-orange) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--slate-grey);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 100px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- SLIDER MECHANICS --- */
         .slider-group {
             margin-bottom: 22px;
             background: rgba(0,0,0,0.02);
@@ -282,70 +127,6 @@
             border-radius: 3px;
         }
 
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
-        }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
-        }
-
-        /* Competency Categories Subheaders */
         .comp-cat-header {
             color: var(--ee-dark-blue);
             border-bottom: 2px solid var(--border-color);
@@ -357,7 +138,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Result Plan Items */
         .plan-item {
             background: var(--dark-card);
             padding: 15px;
@@ -387,29 +167,27 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Continuous Professional Development Architecture: Structuring 70/20/10 Development Action Plans</h1>
+            
+            <h2>Understanding Your Development Action Plan</h2>
             <p>
-                Within the jurisdiction of the Engineering Council and premier professional engineering institutions (such as the IMechE, IET, and ICE), Continuing Professional Development (CPD) represents a permanent statutory obligation. To maintain registered alignment as an Engineering Technician (EngTech), Incorporated Engineer (IEng), or Chartered Engineer (CEng), professionals must provide robust evidence of systematic, self-directed learning. Under the unified guidelines of **UK-SPEC**, this planning requirement is explicitly formalised within your **Development Action Plan (DAP)**. It mandates that engineers proactively audit technical deficiencies, identify emerging sector constraints, and map learning milestones back to specific competency elements (Sections A through E).
+                <strong>What is this step?</strong> The Development Action Plan (DAP) is a structured roadmap that identifies engineering capability variances. It establishes clear milestones to ensure compliance with professional standards over a rolling timeline. This workspace provides an interactive interface to self-assess your expertise across the 17 core sub-competencies of the UK-SPEC framework. By grading your capability from Level 1 (Aware) to Level 4 (Expert), you can easily isolate knowledge gaps. The tool then automatically applies the balanced 70/20/10 professional growth model to your profile. This approach ensures your learning combines practical site experience with structured mentorship and formal technical training modules.
             </p>
+            
+            <h2>Why Jargon Control and CPD Matter to Your Career</h2>
             <p>
-                To avoid the "Passive Logging Trap"—where candidates compile lists of courses attended without demonstrating reflective practice or commercial value—modern engineering leadership requires the deployment of the **70/20/10 Professional Growth Model**. This framework stipulates that professional competence is realised through three balanced channels: 
-                <strong>70% Experiential Learning:</strong> Challenging, on-the-job project assignments, direct diagnostic investigations, and technical failures managed under real-world operational environments. 
-                <strong>20% Social Learning:</strong> Professional mentorship, cross-disciplinary technical coaching, peer review panels, and community knowledge sharing loops. 
-                <strong>10% Formal Learning:</strong> Structured technical courses, university baseline certifications, and rigorous regulatory safety seminars.
+                <strong>Why does it matter to your career?</strong> Maintaining an active professional development record is a lifelong statutory obligation under the Engineering Council guidelines. When you apply for professional registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>), assessors audit your records against <strong>UK-SPEC Competence E</strong>. Many early-career technicians face registration delays simply because they fail to log their learning actions properly. A robust plan shows senior mentors that you take active responsibility for your progression. It proves you can identify technical risks, manage budgets safely, and lead structural modifications under real-world project conditions. It turns complex professional development from a passive checklist into a high-impact career asset.
             </p>
 
-            <h2>Methodical Competence Auditing and Scannability</h2>
+            <h2>Completing Your Competence Review Cleanly</h2>
             <p>
-                The **CPD Smart-Planner Hub** functions as your centralised interactive laboratory to identify skill variances and establish your rolling Development Action Plan. By dividing your inputs into clear target fields, engineers can ensure that their technical progression satisfies professional registration panels. When recording developmental records, authors must specify the targeted competency criteria, explicitly declare the chosen 70/20/10 vector classification, and document the direct commercial impact of their newly acquired knowledge on ongoing infrastructure operations.
-            </p>
-            <p>
-                Because professional portfolio records often contain sensitive technical histories, proprietary calculations, or protected corporate project metrics, information sovereignty is paramount. This workspace operates on a zero-knowledge local storage architecture. Your entries are mapped and cached exclusively within your machine's browser memory workspace. Your intellectual data layers remain sandbox-isolated, fully supporting your employer's internal Non-Disclosure Agreements (NDAs). Use the integrated framework workspace below to organise your continuous growth milestones safely.
+                <strong>How do you complete it cleanly?</strong> To complete this milestone successfully, you must configure your targeted registration level and engineering discipline first. Use the interactive sliders to calibrate your current operational execution levels across sections A through E. Any category evaluated below Level 3 (Skilled) will instantly trigger tailored engineering recommendations inside your strategic review coach panel. You can copy this roadmap directly or use the cognitive AI prompt builder to generate structured verification reports. This entire process operates via a secure, zero-knowledge client-side cache layer. Your confidential data and company histories are stored exclusively within your local machine's browser memory workspace. This ensures you satisfy internal non-disclosure agreements (NDAs) completely while engineering your professional progression.
             </p>
         </article>
 
@@ -529,9 +307,9 @@
                 <div class="coach-header">>> STRATEGIC PLAN GAP REVIEWS</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY DAP ROADMAP</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI MENTOR PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="resetScores()" style="min-height: 48px;">🗑️ RESET SCORING</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY DAP ROADMAP</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI MENTOR PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="resetScores()">🗑️ RESET SCORING</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting calibration matrices to compile live gap analysis logs...</div>
@@ -542,7 +320,7 @@
 
     <script>
         // --- 1. MEMORY NAMESPACING & BASELINE REGISTRIES ---
-        const EE_TOOL_ID = "ee_quality_planner";
+        const EE_TOOL_ID = "ee_cpd_planner_state";
         let autosaveTimer;
 
         const compLevels = {
@@ -577,12 +355,12 @@
             "a1": { 70: "Lead a technical review of emerging tech assets and determine viability.", 20: "Organise knowledge sharing loops with structural technical experts.", 10: "Secure registration on certified advanced technical simulation courses." },
             "a2": { 70: "Execute mathematical validation checks for complex system modifications.", 20: "Shadow a Principal Authority engineer during root-cause system forensics.", 10: "Complete formal continuous compliance training modules." },
             "b1": { 70: "Coordinate root-cause incident breakdown investigations on site systems.", 20: "Review failure logs directly with hazardous operation site leads.", 10: "Attend certified diagnostic asset verification training events." },
-            "b2": { 70: "Architect complete configuration design modifications for processing lines.", 20: "Present schematic optimization profiles before senior peer review blocks.", 10: "Secure computational simulation tool mastery training lines." },
+            "b2": { 70: "Architect complete configuration design modifications for processing lines.", 20: "Present schematic optimisation profiles before senior peer review blocks.", 10: "Secure computational simulation tool mastery training lines." },
             "b3": { 70: "Supervise physical execution and validation commissioning loops.", 20: "Audit subcontractor math calculation sheets with inspection bodies.", 10: "Complete formal continuous quality loop integration seminars." },
             "c1": { 70: "Manage project tracking parameters, adjusting for capital variances.", 20: "Organise weekly risk coordination alignment alignments with site teams.", 10: "Attend formal Project Management strategic standard modules." },
             "c2": { 70: "Own the commercial cost engineering ledger for structural elements.", 20: "Conduct vendor technical verification appraisals with supply chains.", 10: "Complete training on lifecycle asset economy configuration loops." },
             "c3": { 70: "Actively mentor graduate level engineering candidates toward CEng paths.", 20: "Analyse individual team operational variance matrices with management.", 10: "Attend high-performance leadership coaching workshops." },
-            "c4": { 70: "Deploy a localised Kanban model to clear continuous quality log backlogs.", 20: "Lead cross-departmental continuous process optimization sprint tracks.", 10: "Secure Green Belt Six Sigma standard optimization credentials." },
+            "c4": { 70: "Deploy a localised Kanban model to clear continuous quality log backlogs.", 20: "Lead cross-departmental continuous process optimisation sprint tracks.", 10: "Secure Green Belt Six Sigma standard optimisation credentials." },
             "d1": { 70: "Draft comprehensive Basis of Design technical documentation lines.", 20: "Review executive summary layout scannability with verification nodes.", 10: "Complete business technical writing compliance course modules." },
             "d2": { 70: "Deliver the major capital asset adjustment pitch to executive directors.", 20: "Practice presentation delivery cadence with technical panels.", 10: "Attend professional public speaking and pitch masterclasses." },
             "d3": { 70: "Mediate a critical design parameters clash between technical groups.", 20: "Analyse interpersonal team alignment metrics with internal authorities.", 10: "Complete corporate negotiation and dispute resolution training." },
@@ -601,7 +379,7 @@
                 updateNavigationBadges();
                 generatePlan();
             } catch (err) {
-                console.error("Initialization error resolved safely:", err);
+                console.error("Initialisation error resolved safely:", err);
             }
         }
 
@@ -691,16 +469,29 @@
             try {
                 const toolsMap = {
                     'cpdhub': 'ee_cpd_master_hub',
-                    'planner': 'ee_quality_planner',
-                    'decoder': 'ee_acronym_decoder',
-                    'raci': 'ee_cpd_raci',
-                    'resources': 'ee_cpd_resources'
+                    'planner': 'ee_cpd_planner_state',
+                    'decoder': 'EE_ACRONYM_DECODER',
+                    'raci': 'ee_raci_matrix_state',
+                    'resources': 'ee_resources_bookmarks'
                 };
 
                 Object.keys(toolsMap).forEach(key => {
                     const badgeEl = document.getElementById(`badge_${key}`);
                     if (badgeEl) {
-                        const isComplete = (toolsMap[key] === EE_TOOL_ID) ? checkCurrentDataContent() : !!localStorage.getItem(toolsMap[key]);
+                        let isComplete = false;
+                        if (toolsMap[key] === EE_TOOL_ID) {
+                            isComplete = checkCurrentDataContent();
+                        } else {
+                            const cache = localStorage.getItem(toolsMap[key]);
+                            if (cache) {
+                                try {
+                                    const parsed = JSON.parse(cache);
+                                    isComplete = Object.values(parsed).some(val => typeof val === 'string' && val.trim().length > 0);
+                                } catch (e) {
+                                    isComplete = cache.trim().length > 0;
+                                }
+                            }
+                        }
                         badgeEl.innerHTML = isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
                     }
                 });
@@ -726,14 +517,12 @@
                 10: "Attend formal institutional training or technical course loops." 
             };
             
-            // Check global variable namespace injection first
             if (typeof cpdDb !== 'undefined' && cpdDb[id] && cpdDb[id][level]) {
                 const tierData = cpdDb[id][level];
                 if (tierData[disc]) return tierData[disc];
                 if (tierData["General"]) return tierData["General"];
             }
             
-            // Fall back cleanly to the static fallback array if script tags drop out
             if (localCpdDb[id]) return localCpdDb[id];
             
             return defaultObj;
@@ -801,7 +590,7 @@ ${objectives}
 Extracted Competency Gaps Roadmap:
 ${gapSummaryText}
 """
-[EXPECTATION] Do not complete or draft the whole plan document for the user. Critique the learning vectors thoroughly. Force specific data-driven milestone definitions and offer strategic feedback using British English spelling rules (e.g., analyse, organise, continuous, optimization).`;
+[EXPECTATION] Do not complete or draft the whole plan document for the user. Critique the learning vectors thoroughly. Force specific data-driven milestone definitions and offer strategic feedback using British English spelling rules (e.g., analyse, organise, continuous, optimisation).`;
 
             navigator.clipboard.writeText(metaPrompt).then(() => {
                 const btn = document.getElementById('aiBtn');
@@ -816,7 +605,7 @@ ${gapSummaryText}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
+                const btn = document.querySelector('.action-bar .action-btn');
                 if (btn) {
                     btn.innerText = "✔️ ROADMAP COPIED!";
                     setTimeout(() => { btn.innerText = "📋 COPY DAP ROADMAP"; }, 2000);
@@ -919,6 +708,6 @@ ${gapSummaryText}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

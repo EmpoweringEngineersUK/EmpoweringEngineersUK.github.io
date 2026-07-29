@@ -15,13 +15,13 @@
     
     <title>Blue Ocean Strategy | Empowering Engineers UK</title>
     
-    <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. ERRC GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .errc-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -183,87 +89,11 @@
             line-height: 1.4;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,40 +102,37 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Applying Blue Ocean Strategy and the ERRC Grid</h1>
+            <h1>Strategic Engineering Leadership: Applying Blue Ocean Strategy</h1>
             <p>
-                In the highly saturated sectors of modern civil infrastructure, commercial manufacturing, and tech-driven contracting, traditional organizations frequently engage in destructive "Red Ocean" competition. They battle aggressively over identical procurement frameworks, compress profit margins, and accept high-risk contract indemnities to win commodity engineering bids. However, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) demands that leaders operate with a higher level of maturity. Candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration must explicitly demonstrate value innovation, continuous optimization, and advanced commercial leadership.
+                When engineering companies bid for new projects, they often fight in overcrowded markets known as "Red Oceans." In these environments, firms battle aggressively over identical procurement frameworks, cutting prices, taking on dangerous contract risks, and accepting tiny profit margins just to win the job. But as you move into engineering management and aim for your <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> registration, the Engineering Council expects more. Under the <strong>UK-SPEC</strong> guidelines, <strong>Competence C</strong> and <strong>Competence E</strong> require you to show advanced commercial leadership and continuous improvement. You must prove you can identify new ways to add value without destroying your project budget.
             </p>
             <p>
-                Blue Ocean Strategy, pioneered by W. Chan Kim and Renée Mauborgne, provides a structured framework to break away from structural competition. Instead of attempting to outperform rivals within existing industrial boundaries, Blue Ocean strategy guides engineering leads to execute "Value Innovation." This simultaneously pursues technical differentiation and cost optimization, unlocking entirely unmapped market spaces or "Blue Oceans." Technical managers achieve this balance through the **Four Actions Framework**, mapping strategic choices onto a scannable **Eliminate-Reduce-Raise-Create (ERRC) Grid**. This grid forces multidisciplinary teams to systematically dismantle industry assumptions, driving organizational transformations that satisfy UK-SPEC Competence C (Leadership) and Competence E (Professional Commitment).
-            </p>
-
-            <h2>Analyse the Four Actions of the ERRC Grid</h2>
-            <p>
-                Constructing an engineering ERRC grid requires technical managers to critically audit corporate assets, baseline workflows, and project delivery structures:
-            </p>
-            <p>
-                <strong>Eliminate [E]:</strong> This action challenges the industry standards that engineering organizations take for granted. Technical leaders must isolate and completely eliminate costly, bloated legacy activities that deliver zero real value to the modern asset owner. Examples include eliminating excessive physical drawing handovers where cloud-based Building Information Modeling (BIM) data loops are standard, removing repetitive multi-tier manual check-hierarchies by writing automated verification scripts, and dropping costly, non-standard component specifications that expand procurement timelines unnecessarily.
-            </p>
-            <p>
-                <strong>Reduce [W]:</strong> Reduction forces technical teams to identify over-engineered parameters that drive up project budgets without providing a measurable return on utility or safety. Managers should evaluate where design complexity can be reduced well below standard market baselines. This includes reducing excessive, non-critical structural safety margins that violate material minimization and lifecycle carbon policies, reducing the volume of ad-hoc on-site construction work by utilizing standardized off-site manufacturing, and minimizing administrative report drift to optimize engineering team focus.
-            </p>
-            <p>
-                <strong>Raise [Ra]:</strong> Raising focuses on elevating critical service vectors or technical capabilities far above standard industry offerings. This action answers where your engineering group can aggressively redefine performance benchmarks. For instance, raising the baseline speed of simulation cycles by optimizing internal calculation scripts, elevating the quality standard of design reviews to match strict ISO 9001 and Construction (Design and Management) (CDM) safety registers, and boosting lifecycle maintenance transparency by providing asset owners with comprehensive, pre-indexed electronic datasets.
-            </p>
-            <p>
-                <strong>Create [C]:</strong> The final action focuses on introducing completely novel technical services, workflow architectures, or technological solutions that the existing engineering market has never offered. Value innovation occurs here by creating entirely new utility paradigms. Examples include creating zero-knowledge, client-side browser portals that secure sensitive data while facilitating real-time applications reviews, building predictive IoT telemetry networks integrated directly into custom structural layouts, or designing proprietary carbon-sovereignty calculators that compute real-time life-cycle environmental impacts.
+                The <strong>Blue Ocean Strategy</strong> helps you break out of this trap. Instead of fighting competitors over the exact same technical delivery, it teaches you to execute "Value Innovation." This means you lower your costs while simultaneously creating new technical features that your clients actually care about, opening up clear, uncontested "Blue Oceans."
             </p>
 
-            <h2>Interactive Client-Side Blue Ocean Workbench</h2>
+            <h2>The ERRC Grid Explained</h2>
             <p>
-                The interactive Blue Ocean Strategy Workbench below is engineered specifically to help technical professionals systematically structure their value innovation audits. To safeguard highly sensitive commercial strategies and protect proprietary corporate data, our platform operates on a zero-knowledge local browser architecture. Your analytical text inputs are processed and stored entirely within your device's sandboxed local memory cache—nothing is ever shared with external networks or servers. Use this analytical toolkit to compile comprehensive industrial outlines, export clean JSON databases, or generate sophisticated AI system prompts engineered to expose cost liabilities and insulate your engineering programs.
+                To achieve Value Innovation, engineering managers use the <strong>ERRC Grid</strong> (Eliminate, Reduce, Raise, Create). This forces your team to challenge standard industry habits:
+            </p>
+            <ul>
+                <li><strong>Eliminate [E]:</strong> Remove costly legacy activities that add no real value. For example, eliminate physical paper drawing handovers entirely by enforcing a 100% digital cloud-based workflow.</li>
+                <li><strong>Reduce [R]:</strong> Shrink technical parameters that are over-engineered. For instance, reduce excessive material safety margins that violate your carbon-reduction targets, while ensuring the design remains completely structurally sound.</li>
+                <li><strong>Raise [Ra]:</strong> Elevate the quality of critical features well above the industry standard. For example, raise your statutory safety compliance transparency under the Construction (Design and Management) Regulations 2015 (CDM) by giving clients real-time dashboards.</li>
+                <li><strong>Create [C]:</strong> Invent completely new technical solutions. For example, create an automated predictive maintenance sensor package that the sector has never seen before, allowing you to charge a premium.</li>
+            </ul>
+            <p>
+                During your <strong>Professional Review Interview (PRI)</strong>, the panel will ask how you handle commercial strategy. Showing them a completed ERRC Grid proves that you think like an executive director and can lead a department successfully.
+            </p>
+
+            <h2>Secure Local Storage and Unified Strategy Verification</h2>
+            <p>
+                Because corporate strategy and new product ideas are highly confidential, this workbench operates using strict zero-knowledge local browser storage. Everything you type into the grid is saved privately on your own computer and never transmitted to our external servers. This keeps you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Use this tool to build comprehensive expansion outlines, export verified JSON archives, or compile highly targeted AI prompts designed to audit your strategic assumptions.
             </p>
         </article>
 
@@ -320,10 +147,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -376,6 +203,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -401,28 +236,28 @@
                     <div class="errc-card eliminate-card">
                         <label class="errc-label eliminate-label">Eliminate</label>
                         <span class="form-hint">Which legacy activities, bloated review structures, or default constraints that the industry takes for granted should be completely removed? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Eliminate multi-tier physical print reviews; remove non-standard component dependencies.</span></span>
-                        <textarea id="bo_Eliminate" class="form-input" placeholder="Type factors to eliminate here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bo_Eliminate" class="ee-textarea form-input" placeholder="Type factors to eliminate here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Reduce Card -->
                     <div class="errc-card reduce-card">
                         <label class="errc-label reduce-label">Reduce</label>
                         <span class="form-hint">Which engineering parameters, structural margin over-designs, or overhead costs should be reduced well below industry standards? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Reduce excessive safety margins violating carbon targets; minimize custom on-site fabrication drift.</span></span>
-                        <textarea id="bo_Reduce" class="form-input" placeholder="Type factors to reduce here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bo_Reduce" class="ee-textarea form-input" placeholder="Type factors to reduce here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Raise Card -->
                     <div class="errc-card raise-card">
                         <label class="errc-label raise-label">Raise</label>
                         <span class="form-hint">Which performance metrics, simulation speeds, data tolerances, or safety gates should be raised well above the standard market benchmarks? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Raise simulation workflow speeds; elevate CDM compliance transparency; maximize drawing control accuracy.</span></span>
-                        <textarea id="bo_Raise" class="form-input" placeholder="Type factors to raise here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bo_Raise" class="ee-textarea form-input" placeholder="Type factors to raise here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Create Card -->
                     <div class="errc-card create-card">
                         <label class="errc-label create-label">Create</label>
                         <span class="form-hint">Which unique technical solutions, zero-knowledge security profiles, or automated workflow macros should be introduced that the market has never offered? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Create client-side storage application sandboxes; integrate real-time predictive IoT telemetrics.</span></span>
-                        <textarea id="bo_Create" class="form-input" placeholder="Type factors to create here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bo_Create" class="ee-textarea form-input" placeholder="Type factors to create here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -433,9 +268,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -466,6 +301,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -500,13 +336,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -578,21 +422,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -678,7 +558,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Blue Ocean Strategy Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -713,6 +593,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="The Strategic Engineering & Business Planning Command Hub. Centralise your SWOT, PESTLE, Porter's Five Forces, VRIO, and Balanced Scorecard matrices into a unified master executive report.">
-    <meta name="keywords" content="Strategy Hub, Business Planning, UK-SPEC Competence, Engineering Leadership, SWOT Analysis, PESTLE Analysis, Value Innovation, Risk Mitigation, Portfolio Management">
+    <meta name="description" content="The Strategic Engineering & Business Planning Command Hub. Centralise your SWOT, PESTLE, Gantt Charts, Budget Control, and Balanced Scorecard matrices into a unified master report.">
+    <meta name="keywords" content="Strategy Hub, Business Planning, UK-SPEC Competence, Engineering Leadership, SWOT Analysis, PESTLE Analysis, Value Innovation, Gantt Chart, Portfolio Management, Budget Control">
     <meta property="og:title" content="Strategic Engineering & Business Planning Hub | Empowering Engineers UK">
     <meta property="og:description" content="The master entry portal and diagnostic compliance tracking dashboard for advanced engineering strategy and business planning frameworks.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
@@ -23,11 +23,11 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/strategy.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
@@ -49,210 +49,28 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 3px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.05);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Engineering Strategic Architecture & Corporate Business Planning Matrix</h1>
-            <p>Welcome to the master gateway directory for architecting, validating, and auditing your macro-commercial engineering strategies. Transitioning into an engineering management, product delivery, or executive director role requires far more than isolated technical expertise or pure design capabilities. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC), candidates seeking professional registration must demonstrate executive leadership and deep commercial acumen. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) dictate that leaders must evaluate the broader business context, manage volatile capital allocation profiles, and engineer long-term organizational cost moats.</p>
+            <h1>Engineering Strategy & Business Planning Hub</h1>
+            <p>Welcome to the Strategy and Business Planning Hub. As you grow from an early-career engineer into a project manager or engineering leader, your professional focus must expand. You cannot just look at isolated technical calculations or CAD drawings. You must understand how your project fits into the wider business world. Under the Engineering Council's <strong>UK-SPEC</strong> guidelines, applying for <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> status requires you to show strong commercial awareness. Specifically, <strong>Competence C</strong> and <strong>Competence E</strong> dictate that you must understand project budgets, market risks, and long-term sustainability.</p>
             
-            <h2>Building Strategic Thinking: Navigating Macro and Micro Risk Vectors</h2>
-            <p>True strategic thinking within the engineering sector requires a bottom-up understanding of how macro-environmental forces directly influence physical asset lifecycles, project viability, and regulatory compliance parameters. Strategic engineers do not treat business models as abstract frameworks or static checkboxes; they understand that a political policy pivot or an inflationary macro-trend shifts first-principles engineering calculations instantly. For example, a sudden adjustment to carbon taxation thresholds immediately alters the required lifecycle cost profiling (CapEx vs. OpEx) of an industrial infrastructure project, mandating a completely different structural design configuration to optimize resource efficiency and maintain profitability.</p>
-            <p>By executing a rigorous, continuous alignment through our integrated workspace modules, engineers can map out complete threat trajectories. This allows multidisciplinary teams to connect external disruptions directly to internal capabilities, using the **Resource-Based View (RBV)** to isolate rare, valuable, and inimitable corporate competencies. This structured foresight is a vital asset when compiling evidence for your CEng or IEng portfolios, demonstrating to institutional review panels that your technical designs are executed with a full, comprehensive command of commercial market dynamics and lifecycle sustainability constraints.</p>
-
-            <h2>Value Innovation, Capital Allocation, and Lifecycle Resiliency</h2>
-            <p>Modern technical programmes are fundamentally vulnerable to environmental volatility, supply chain constraints, and regulatory drift. Managing these parameters requires the integration of advanced portfolio tools—including SWOT, PESTLE, Porter’s Five Forces, and the Balanced Scorecard Strategy Map. These frameworks enable technical leads to break away from low-margin commodity bidding wars or "Red Oceans," systematically driving **Value Innovation** that elevates technical performance indicators while compressing operational costs. Furthermore, structuring strategies across these standardized quadrants establishes total compliance with the Construction (Design and Management) (CDM) Regulations 2015, protecting site workers, preserving structural safety margins, and maintaining absolute commercial project alignment.</p>
-
-            <h2>Secure Local Storage and Unified Strategy Verification</h2>
-            <p>Acknowledging that engineering candidates frequently handle highly confidential financial profiles, proprietary calculation frameworks, and sensitive client-side data structures, this portal enforces an absolute, zero-knowledge local browser architecture. Your analytical inputs, strategic text segments, and matrix configurations are processed and saved entirely within your browser partition. No proprietary corporate information ever traverses our external computing networks, guaranteeing absolute data sovereignty and complete compliance with corporate non-disclosure agreements (NDAs). Use our **Live Strategy Dashboard Matrix** below to systematically navigate our twelve specialized strategy subpages and track your documentation progress in real-time.</p>
+            <h2>Why Strategic Planning Matters to Your Career</h2>
+            <p>Every engineering project is affected by outside rules and market forces. A new environmental law might change the materials you are allowed to use on site. A sudden rise in steel prices might destroy your project budget. Using structured tools like the <strong>PESTLE</strong> and <strong>SWOT</strong> analysis frameworks helps you identify these threats before they ruin your hard work. Furthermore, by mapping out a clear <strong>Gantt Chart Roadmap</strong>, you ensure your team knows exactly what to do and when to do it. This stops disorganised delays and proves to your assessing <strong>Professional Review Interview (PRI)</strong> panel that you can protect company profits.</p>
+            
+            <h2>How to Use This Workspace Cleanly</h2>
+            <p>We have grouped our strategic tools into six simple categories below. If you want to understand your team's internal strengths and weaknesses, start with the SWOT Analysis. If you need to sequence a complex project timeline, launch the Gantt Chart tool. </p>
+            
+            <p>Your commercial data is incredibly secure. This entire platform uses a zero-knowledge local storage system. Everything you type or plan is saved directly to your computer's browser, meaning your secret company plans and project budgets never leave your device. This keeps you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Use the dropdown menu below to select your focus and launch your first framework.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -266,10 +84,10 @@
 
         <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="strategyPathNav" aria-label="Strategy Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab active" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -322,6 +140,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Global Master Dashboard Actions -->
@@ -332,17 +158,18 @@
             </div>
             <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
                 <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Focus Context:</label>
-                <select class="ee-select" id="strategyContextSelect" style="min-width: 220px; min-height: 48px; background: var(--input-bg);" onchange="switchStrategyContext()">
-                    <option value="corporate">Corporate Enterprise Planning</option>
-                    <option value="asset">Capital Asset Lifecycle Management</option>
-                    <option value="project">Multidisciplinary Programme Delivery</option>
+                <select class="ee-select" id="strategyContextSelect" style="min-width: 300px; min-height: 48px; background: var(--input-bg);" onchange="switchStrategyContext()">
+                    <option value="swot">Team Strengths & Feasibility (SWOT)</option>
+                    <option value="pestle">External Rules & Environment (PESTLE)</option>
+                    <option value="porters">Industry Competition & Markets (5 Forces)</option>
+                    <option value="gantt">Project Scheduling & Roadmapping (Gantt)</option>
                 </select>
                 <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterStrategyReport()">📸 Compile Master Strategic Audit</button>
             </div>
         </div>
 
         <!-- Master Portfolio CTA Component Box -->
-        <div class="master-cta-box" style="margin-top: 30px;">
+        <div class="master-cta-box">
             <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem; margin-top: 0; margin-bottom: 12px;">Active Strategic Alignment Routing</h2>
             <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 750px; margin-left: auto; margin-right: auto;">
                 Select a target analytical instrument from the matrix directory below to directly compile, audit, and cache your commercial text models against UK-SPEC criteria.
@@ -407,7 +234,7 @@
                 <a href="strategy-blue-ocean.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Blue Ocean Strategy Framework</a>
             </div>
 
-            <!-- Card 5: Business Models & Balanced Scorecards -->
+            <!-- Card 5: Models & Balanced Strategy -->
             <div class="hub-card">
                 <div class="hub-card-title">
                     <span>5. Models & Balanced Strategy</span>
@@ -420,11 +247,24 @@
                 </div>
                 <a href="strategy-map.html" class="action-btn action-btn-ghost" style="text-decoration: none; width: 100%; text-align: center;">Balanced Scorecard Strategy Map</a>
             </div>
+
+            <!-- Card 6: Commercial & Scheduling -->
+            <div class="hub-card">
+                <div class="hub-card-title">
+                    <span>6. Commercial & Scheduling</span>
+                    <div style="display: flex; gap: 6px;" id="check_commercial"></div>
+                </div>
+                <div class="hub-card-desc">Evaluate financial budgets, control project expenditures, and sequence critical path engineering tasks using visual Gantt charts.</div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <a href="strategy-budgets.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Budgets</a>
+                    <a href="strategy-gantt.html" class="action-btn action-btn-ghost" style="text-decoration: none; flex: 1; text-align: center;">Gantt Chart</a>
+                </div>
+            </div>
         </div>
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_strategy_master_hub";
@@ -435,16 +275,19 @@
             const context = document.getElementById('strategyContextSelect').value;
             const btn = document.getElementById('btnEnterStrategyWorkspace');
             
-            // Map context flags to specific primary workspace files logically
-            if (context === "corporate") {
+            // Map context flags to specific primary workspace files logically based on plain English descriptors
+            if (context === "swot") {
                 targetFrameworkUrl = "strategy-swot.html";
                 btn.innerText = "Launch SWOT Analysis Framework →";
-            } else if (context === "asset") {
+            } else if (context === "pestle") {
                 targetFrameworkUrl = "strategy-pestle.html";
                 btn.innerText = "Launch PESTLE Analysis Framework →";
-            } else if (context === "project") {
+            } else if (context === "porters") {
                 targetFrameworkUrl = "strategy-porters.html";
-                btn.innerText = "Launch Porter's Five Forces Framework →";
+                btn.innerText = "Launch Porter's 5 Forces Framework →";
+            } else if (context === "gantt") {
+                targetFrameworkUrl = "strategy-gantt.html";
+                btn.innerText = "Launch Project Gantt Chart Roadmap →";
             }
             
             // Cache active choice to preserve session integrity across the platform layout
@@ -473,7 +316,7 @@
         }
 
         function updateNavigationBadges() {
-            // Master directory map containing unique LocalStorage namespaces for the 12 frameworks
+            // Master directory map containing unique LocalStorage namespaces for the 14 frameworks
             const frameworksRegistry = {
                 'coach': 'ee_comm_coach',
                 'strategy': 'ee_strategy',
@@ -488,14 +331,23 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             // Evaluate states across all specific breadcrumb anchor target containers
             Object.keys(frameworksRegistry).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const status = checkToolContent(frameworksRegistry[key]);
+                    // For Gantt charts, check Tool content natively handles objects/arrays correctly by skipping strings check or checking raw length
+                    let status = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(frameworksRegistry[key]);
+                        if (ganttData && ganttData.length > 10) status = true;
+                    } else {
+                        status = checkToolContent(frameworksRegistry[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(status);
                 }
             });
@@ -522,11 +374,19 @@
             const soarStatus = checkToolContent(frameworksRegistry.soar);
             const mapStatus = checkToolContent(frameworksRegistry.map);
             document.getElementById('check_scorecard').innerHTML = `${getTickHTML(bmcStatus)} ${getTickHTML(soarStatus)} ${getTickHTML(mapStatus)}`;
+
+            const budgetsStatus = checkToolContent(frameworksRegistry.budgets);
+            let ganttStatus = false;
+            const ganttDataCache = localStorage.getItem(frameworksRegistry.gantt);
+            if (ganttDataCache && ganttDataCache.length > 10) ganttStatus = true;
+            
+            const checkCommEl = document.getElementById('check_commercial');
+            if (checkCommEl) checkCommEl.innerHTML = `${getTickHTML(budgetsStatus)} ${getTickHTML(ganttStatus)}`;
         }
 
         // --- MASTER STRATEGIC REPORT CONCATENATOR ---
         function generateMasterStrategyReport() {
-            const contextType = document.getElementById('strategyContextSelect').value.toUpperCase();
+            const contextType = document.getElementById('strategyContextSelect').options[document.getElementById('strategyContextSelect').selectedIndex].text;
             
             const frameworksMap = {
                 'SWOT Analysis': 'ee_strategy_swot',
@@ -540,7 +400,8 @@
                 'Blue Ocean ERRC Grid': 'ee_strategy_blue-ocean',
                 'Business Model Canvas': 'ee_strategy_bmc',
                 'SOAR Strategic Profile': 'ee_strategy_soar',
-                'Balanced Scorecard Strategy Map': 'ee_strategy_map'
+                'Balanced Scorecard Strategy Map': 'ee_strategy_map',
+                'Financial & Budget Control': 'ee_strategy_budgets'
             };
 
             let html = `<!DOCTYPE html>
@@ -565,7 +426,7 @@
                 <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Master Consolidated Strategic Audit Report</h1>
                 <div class="meta-block">
-                    <strong>Selected Operational Context:</strong> ${contextType} Configuration Alignment<br>
+                    <strong>Selected Operational Context:</strong> ${contextType}<br>
                     <strong>Report Generation Timestamp:</strong> ${new Date().toLocaleString('en-GB')}<br>
                     <strong>Data Sovereignty Verification:</strong> Client-Side Verified // Zero-Knowledge Local Extraction<br>
                 </div>`;
@@ -582,9 +443,9 @@
 
                         Object.keys(parsedFields).forEach(fieldKey => {
                             const valueString = parsedFields[fieldKey];
-                            if (valueString && valueString.trim().length > 0) {
+                            if (valueString && typeof valueString === 'string' && valueString.trim().length > 0) {
                                 moduleHasText = true;
-                                innerHTMLBlock += `<h3>Dimension: ${fieldKey.toUpperCase()}</h3>`;
+                                innerHTMLBlock += `<h3>Dimension: ${fieldKey.toUpperCase().replace(/_/g, ' ')}</h3>`;
                                 innerHTMLBlock += `<p>${valueString.trim()}</p>`;
                             }
                         });
@@ -599,6 +460,24 @@
                     }
                 }
             });
+
+            // Handle the Gantt Data separately since its JSON structure differs completely from the string-value pairs.
+            const ganttCache = localStorage.getItem('ee_strategy_gantt_projects');
+            if (ganttCache) {
+                try {
+                    const parsedGantt = JSON.parse(ganttCache);
+                    if (Object.keys(parsedGantt).length > 0) {
+                        let ganttBlock = "<h2>Project Gantt Chart & Roadmap Tracker</h2>";
+                        Object.keys(parsedGantt).forEach(projId => {
+                            const proj = parsedGantt[projId];
+                            ganttBlock += `<h3>Project: ${proj.name || 'Untitled'}</h3>`;
+                            ganttBlock += `<p>Total Active Activities Logged: ${proj.tasks ? proj.tasks.length : 0}</p>`;
+                        });
+                        html += ganttBlock;
+                        extractedRecordsCount++;
+                    }
+                } catch(e) {}
+            }
 
             if (extractedRecordsCount === 0) {
                 html += `<div style="padding: 30px; border: 1px dashed #ccc; border-radius: 6px; text-align: center; color: #718096; font-style: italic; margin-top: 20px;">
@@ -631,7 +510,7 @@
             }
             switchStrategyContext();
             updateNavigationBadges();
-            console.log("System Status: Strategic Planning Command Subsystem operational. Verification matrices synced.");
+            console.log("System Status: Strategic Planning Command Subsystem operational. Verification matrices synchronised.");
         }
     </script>
 </body>

@@ -1,6 +1,6 @@
 // =========================================================================
-// EMPOWERING ENGINEERS UK - header_nav.js - v21.7 - Dynamic Advanced Navigation Engine
-// Date: 20 Jul 2026
+// EMPOWERING ENGINEERS UK - header_nav.js - v22.0 - Dynamic Advanced Navigation Engine
+// Date: 29 Jul 2026
 // Optimisation Profile: Full Taxonomy Capitalised Fuzzy Search Indexer
 // Telemetry Profile: Environment-Aware GA4 Conversion Tracking Engine
 // Language Metric: British English Hardcoded UI Layout Controls
@@ -127,176 +127,203 @@ window.ThemeManager.init();
 (function() {
     const navStyles = `
     <style>
-    /* Encapsulated Layout Controls to Prevent Live Server Rendering Collapse */
-    .sticky-container {
-        position: sticky;
-        top: 0;
-        z-index: 2000;
-        min-height: 180px;
-        padding: 10px 5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-bottom: 3px solid var(--ee-terminal-green, #03F7A0);
-        box-shadow: 0 4px 20px rgba(13, 27, 42, 0.2);
-        background-color: #0D1B2A;
-        background-image: url('assets/EE_banner.webp') !important;
-        background-position: center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        transition: min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-    }
-    .sticky-container.scrolled {
-        min-height: 65px !important;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-    }
-    .header-brand-row {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100% !important;
-    }
-    .header-title-row {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-grow: 1 !important;
-        width: 100% !important;
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-    }
-    .sticky-container.scrolled .header-title-row {
-        opacity: 0 !important;
-        visibility: hidden !important;
-        display: none !important;
-    }
-    .ee-nav-menu {
-        display: flex !important;
-        flex-direction: row !important;
-        list-style: none !important;
-        list-style-type: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        gap: 6px;
-        align-items: center;
-    }
-    .ee-nav-menu li {
-        list-style: none !important;
-        list-style-type: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .ee-nav-item { position: relative; }
-    
-    /* Isolated Sub-Menu Architecture Restoring Correct Dropdown States */
-    .ee-nav-menu .ee-dropdown {
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        background: #0D1B2A !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-top: 3px solid #03F7A0 !important;
-        border-radius: 0 0 6px 6px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        min-width: 280px !important;
-        padding: 6px 0 !important;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transform: translateY(10px) !important;
-        transition: all 0.2s ease !important;
-        z-index: 2100 !important;
-    }
-    .ee-nav-item:hover > .ee-dropdown {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0) !important;
-    }
-    .ee-dropdown-sub { position: relative; }
-    .ee-dropdown-sub .ee-dropdown {
-        top: -7px !important;
-        left: 100% !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-left: 3px solid #03F7A0 !important;
-        border-radius: 0 6px 6px 0 !important;
-    }
-    .ee-mobile-trigger-bar {
-        display: none;
-        gap: 10px;
-        align-items: center;
-    }
-    @media (max-width: 992px) {
-        .header-brand-row nav { display: none !important; }
-        .ee-mobile-trigger-bar { display: flex !important; }
-    }
-    /* Mobile Side-Drawer Insulation & Contrast Layer Rules */
-    .ee-mobile-drawer {
-        position: fixed !important;
-        top: 0 !important;
-        left: -340px !important;
-        width: 300px !important;
-        height: 100% !important;
-        background: #0D1B2A !important;
-        border-right: 2px solid #03F7A0 !important;
-        box-shadow: 8px 0 24px rgba(0,0,0,0.4) !important;
-        z-index: 3000 !important;
-        transition: left 0.3s cubic-bezier(0.77, 0, 0.175, 1) !important;
-        overflow-y: auto !important;
-        padding: 20px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        visibility: hidden !important;
-    }
-    .ee-mobile-drawer.open {
-        left: 0 !important;
-        visibility: visible !important;
-    }
-    .ee-accordion, .ee-accordion ul {
-        list-style: none !important;
-        list-style-type: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    .ee-accordion li {
-        list-style: none !important;
-        list-style-type: none !important;
-    }
-    .ee-accordion-link {
-        color: rgba(255, 255, 255, 0.95) !important;
-        text-decoration: none;
-        padding: 10px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 48px;
-        font-size: 0.95rem;
-        font-weight: 700;
-    }
-    .ee-accordion-link:hover, .ee-accordion-link:active {
-        color: #03F7A0 !important;
-    }
-    .ee-accordion-sub-menu .ee-accordion-link {
-        color: #03F7A0 !important;
-        font-size: 0.9rem;
-    }
-    .ee-accordion-sub-menu .ee-accordion-link:hover {
-        color: #FFFFFF !important;
-    }
-    @media (min-width: 993px) {
-        .ee-dropdown-sub:hover > .ee-dropdown {
+        /* Encapsulated Layout Controls to Prevent Live Server Rendering Collapse */
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            min-height: 180px;
+            padding: 10px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--ee-terminal-green, #03F7A0);
+            box-shadow: 0 4px 20px rgba(13, 27, 42, 0.2);
+            background-color: #0D1B2A;
+            background-image: url('assets/EE_banner.webp') !important;
+            background-position: center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            transition: min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .sticky-container.scrolled {
+            min-height: 65px !important;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+        .header-brand-row {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+        .header-title-row {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-grow: 1 !important;
+            width: 100% !important;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .sticky-container.scrolled .header-title-row {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            display: none !important;
+        }
+        .ee-nav-menu {
+            display: flex !important;
+            flex-direction: row !important;
+            list-style: none !important;
+            list-style-type: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 6px;
+            align-items: center;
+        }
+        .ee-nav-menu li {
+            list-style: none !important;
+            list-style-type: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .ee-nav-item { position: relative; }
+        
+        /* Isolated Sub-Menu Architecture Restoring Correct Dropdown States */
+        .ee-nav-menu .ee-dropdown {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: #0D1B2A !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-top: 3px solid #03F7A0 !important;
+            border-radius: 0 0 6px 6px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            min-width: 280px !important;
+            padding: 6px 0 !important;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(10px) !important;
+            transition: all 0.2s ease !important;
+            z-index: 2100 !important;
+        }
+        .ee-nav-item:hover > .ee-dropdown {
             opacity: 1 !important;
             visibility: visible !important;
             transform: translateY(0) !important;
         }
-        .ee-nav-item:not(:first-child) .ee-dropdown-sub .ee-dropdown {
-            left: auto !important;
-            right: 100% !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-right: 3px solid #03F7A0 !important;
-            border-radius: 6px 0 0 6px !important;
+        .ee-dropdown-sub { position: relative; }
+        .ee-dropdown-sub .ee-dropdown {
+            top: -7px !important;
+            left: 100% !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-left: 3px solid #03F7A0 !important;
+            border-radius: 0 6px 6px 0 !important;
         }
-    }
+        .ee-mobile-trigger-bar {
+            display: none;
+            gap: 10px;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            .header-brand-row nav { display: none !important; }
+            .ee-mobile-trigger-bar { display: flex !important; }
+        }
+        /* Mobile Side-Drawer Insulation & Contrast Layer Rules */
+        .ee-mobile-drawer {
+            position: fixed !important;
+            top: 0 !important;
+            left: -340px !important;
+            width: 300px !important;
+            height: 100% !important;
+            background: #0D1B2A !important;
+            border-right: 2px solid #03F7A0 !important;
+            box-shadow: 8px 0 24px rgba(0,0,0,0.4) !important;
+            z-index: 3000 !important;
+            transition: left 0.3s cubic-bezier(0.77, 0, 0.175, 1) !important;
+            overflow-y: auto !important;
+            padding: 20px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            visibility: hidden !important;
+        }
+        .ee-mobile-drawer.open {
+            left: 0 !important;
+            visibility: visible !important;
+        }
+        .ee-accordion, .ee-accordion ul {
+            list-style: none !important;
+            list-style-type: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .ee-accordion li {
+            list-style: none !important;
+            list-style-type: none !important;
+        }
+        .ee-accordion-link {
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-decoration: none;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 48px;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        .ee-accordion-link:hover, .ee-accordion-link:active {
+            color: #03F7A0 !important;
+        }
+        .ee-accordion-sub-menu .ee-accordion-link {
+            color: #03F7A0 !important;
+            font-size: 0.9rem;
+        }
+        .ee-accordion-sub-menu .ee-accordion-link:hover {
+            color: #FFFFFF !important;
+        }
+        
+        /* Desktop Viewport Multi-Column Orientation Adjustments */
+        @media (min-width: 993px) {
+            .ee-dropdown-sub:hover > .ee-dropdown {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important;
+            }
+            /* Universal default left-expansion override layer for inner submenus */
+            .ee-nav-item:not(:first-child) .ee-dropdown-sub .ee-dropdown {
+                left: auto !important;
+                right: 100% !important;
+                border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+                border-right: 3px solid #03F7A0 !important;
+                border-radius: 6px 0 0 6px !important;
+            }
+            /* Force secondary and rightward menu tabs to align right and expand leftwards */
+            .ee-nav-item:nth-child(n+3) > .ee-dropdown {
+                left: auto !important;
+                right: 0 !important;
+                border-radius: 0 0 6px 6px !important;
+            }
+            .ee-nav-item:nth-child(n+3) .ee-dropdown-sub .ee-dropdown {
+                left: auto !important;
+                right: 100% !important;
+                border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+                border-right: 3px solid #03F7A0 !important;
+                border-radius: 6px 0 0 6px !important;
+            }
+        }
+
+        /* Centralised MPU Ad Background Injection */
+        .ad-slot.ad-mpu {
+            background-image: url('assets/EE_banner.webp') !important;
+            background-position: center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
     </style>
     `;
 
@@ -307,7 +334,8 @@ window.ThemeManager.init();
             children: [
                 { label: "About Us", url: "about.html" },
                 { label: "Contact Us", url: "contact.html" },
-                { label: "Social Media", url: "social.html" }
+                { label: "Our Social Media", url: "social.html" },
+                { label: "User Journey & FAQ", url: "FAQ.html" }
             ]
         },
         {
@@ -371,7 +399,9 @@ window.ThemeManager.init();
                         { label: "Blue Ocean Strategy (BOS)", url: "strategy-blue-ocean.html" },
                         { label: "Business Model Canvas (BMC)", url: "strategy-bmc.html" },
                         { label: "SOAR Analysis", url: "strategy-soar.html" },
-                        { label: "Strategy Map", url: "strategy-map.html" }
+                        { label: "Strategy Map", url: "strategy-map.html" },
+                        { label: "Financial & Budget Control", url: "strategy-budgets.html" },
+                        { label: "Project Gantt Chart", url: "strategy-gantt.html" }
                     ]
                 },
                 {
@@ -399,7 +429,8 @@ window.ThemeManager.init();
                         { label: "Risk Assessment Matrix", url: "decisions-risk-matrix.html" },
                         { label: "Force Field Analysis", url: "decisions-force-field.html" },
                         { label: "OODA Loop", url: "decisions-ooda.html" },
-                        { label: "WRAP Technique", url: "decisions-wrap.html" }
+                        { label: "WRAP Technique", url: "decisions-wrap.html" },
+                        { label: "Supplier Contract Analysis", url: "decisions-contracts.html" }
                     ]
                 },
                 {
@@ -500,6 +531,15 @@ window.ThemeManager.init();
     const path = window.location.pathname;
     const page = path === "/" ? "index" : path.split("/").pop().replace('.html', '');
 
+    // Automatically sync pathway persistence logic based on the current page opened
+    if (page === 'ceng' || page === 'ieng' || page === 'engtech') {
+        let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+        let newTier = page === 'ceng' ? 'CEng' : page === 'ieng' ? 'IEng' : 'EngTech';
+        if (!masterData.ee_tools['ee_dap']) masterData.ee_tools['ee_dap'] = { level: newTier, disc: 'Mech', weakness: 'Commercial', goal: '', compiled: '' };
+        else masterData.ee_tools['ee_dap'].level = newTier;
+        localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+    }
+
     let resolvedTitle = "Empowering Engineers UK®";
     if (page !== "index" && page !== "") {
         let cleanTitle = document.title.replace(/\s*\|\s*Empowering Engineers UK/gi, '').trim();
@@ -548,14 +588,14 @@ window.ThemeManager.init();
         });
         
         html += `
-        <li class="ee-nav-theme-item-wrapper">
-            <button class="ee-search-trigger-btn" onclick="window.toggleSearchModal(true)" aria-label="Open sitemap search overlay" style="background:transparent; border:none; font-size:1.4rem; box-shadow:none !important;">🔍</button>
-        </li>
-        <li class="ee-nav-theme-item-wrapper">
-            <button class="ee-nav-theme-svg-btn" onclick="window.ThemeManager.toggle()" aria-label="Toggle user interface configuration state" style="background:transparent; border:none; box-shadow:none !important;">
-                <img class="js-theme-svg-target" src="assets/EE_light-visibility.svg" alt="Active Interface Visibility Toggle Target" style="height:24px; width:24px;">
-            </button>
-        </li>
+            <li class="ee-nav-theme-item-wrapper">
+                <button class="ee-search-trigger-btn" onclick="window.toggleSearchModal(true)" aria-label="Open sitemap search overlay" style="background:transparent; border:none; font-size:1.4rem; box-shadow:none !important;">🔍</button>
+            </li>
+            <li class="ee-nav-theme-item-wrapper">
+                <button class="ee-nav-theme-svg-btn" onclick="window.ThemeManager.toggle()" aria-label="Toggle user interface configuration state" style="background:transparent; border:none; box-shadow:none !important;">
+                    <img class="js-theme-svg-target" src="assets/EE_light-visibility.svg" alt="Active Interface Visibility Toggle Target" style="height:24px; width:24px;">
+                </button>
+            </li>
         `;
         html += '</ul>';
         return html;
@@ -612,54 +652,54 @@ window.ThemeManager.init();
     const mobileNavHTML = buildMobileMenu(menuTree);
 
     const headerHTML = `
-    ${navStyles}
-    <header class="sticky-container" >
-        <div class="header-brand-row">
-            <a href="index.html" aria-label="Return to Empowering Engineers UK Home">
-                <img src="assets/EE_Favicon_1024.jpg" alt="Empowering Engineers UK Logo" class="site-brand-img">
-            </a> 
-            <nav aria-label="Main Navigation">
-                ${desktopNavHTML}
-            </nav> 
-            <div class="ee-mobile-trigger-bar">
-                <button class="ee-hamburger-btn" onclick="toggleMobileDrawer(true)" aria-label="Toggle responsive drawer pane">☰</button>
-                <button class="ee-search-trigger-btn" onclick="window.toggleSearchModal(true)" aria-label="Open search engine viewport" style="background:transparent; border:none; box-shadow:none !important; color:#fff; font-size:1.4rem;">🔍</button>
+        ${navStyles}
+        <header class="sticky-container" >
+            <div class="header-brand-row">
+                <a href="index.html" aria-label="Return to Empowering Engineers UK Home">
+                    <img src="assets/EE_Favicon_1024.jpg" alt="Empowering Engineers UK Logo" class="site-brand-img">
+                </a> 
+                <nav aria-label="Main Navigation">
+                    ${desktopNavHTML}
+                </nav> 
+                <div class="ee-mobile-trigger-bar">
+                    <button class="ee-hamburger-btn" onclick="toggleMobileDrawer(true)" aria-label="Toggle responsive drawer pane">☰</button>
+                    <button class="ee-search-trigger-btn" onclick="window.toggleSearchModal(true)" aria-label="Open search engine viewport" style="background:transparent; border:none; box-shadow:none !important; color:#fff; font-size:1.4rem;">🔍</button>
+                </div>
+            </div> 
+            <div class="header-title-row">
+                <div>
+                    <p style="text-align:center;"><img width="460" src="assets/EE_Logo_rect_Trans.png" class="logo-box" alt="Empowering Engineers UK Master Emblem"></p>
+                    <h1 class="header-page-title">${resolvedTitle}</h1>
+                </div>
             </div>
-        </div> 
-        <div class="header-title-row">
-            <div>
-                <p style="text-align:center;"><img width="460" src="assets/EE_Logo_rect_Trans.png" class="logo-box" alt="Empowering Engineers UK Master Emblem"></p>
-                <h1 class="header-page-title">${resolvedTitle}</h1>
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <div id="eeSearchModal" class="ee-search-modal">
-        <div class="ee-search-box-container">
-            <div class="ee-search-modal-header">
-                <span class="ee-search-modal-title">Fuzzy Navigation Search Index</span>
-                <button class="ee-search-close-btn" onclick="window.toggleSearchModal(false)">✕</button>
+        <div id="eeSearchModal" class="ee-search-modal">
+            <div class="ee-search-box-container">
+                <div class="ee-search-modal-header">
+                    <span class="ee-search-modal-title">Fuzzy Navigation Search Index</span>
+                    <button class="ee-search-close-btn" onclick="window.toggleSearchModal(false)">✕</button>
+                </div>
+                <input type="text" id="eeSearchInput" class="ee-search-input-field" placeholder="Search subpages... (e.g. CENG, SWOT, OKRS)" autocomplete="off" oninput="window.executeFuzzySearch()">
+                <div id="eeSearchResults" class="ee-search-results-list"></div>
             </div>
-            <input type="text" id="eeSearchInput" class="ee-search-input-field" placeholder="Search subpages... (e.g. CENG, SWOT, OKRS)" autocomplete="off" oninput="window.executeFuzzySearch()">
-            <div id="eeSearchResults" class="ee-search-results-list"></div>
         </div>
-    </div>
 
-    <div id="eeMobileOverlay" class="ee-drawer-overlay" onclick="toggleMobileDrawer(false)"></div>
-    <div id="eeMobileDrawer" class="ee-mobile-drawer">
-        <div class="ee-drawer-header">
-            <span style="color:#FFFFFF; font-weight:700; text-transform:uppercase; font-size:0.9rem; letter-spacing:0.5px;">Navigation Menu</span>
-            <button class="ee-drawer-close" onclick="toggleMobileDrawer(false)">✕</button>
-        </div>
-        <nav aria-label="Mobile Navigation System Menu">
-            ${mobileNavHTML}
-            <div style="padding: 15px 16px; margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); display:flex; gap:10px;">
-                <button class="ee-nav-theme-svg-btn" onclick="window.ThemeManager.toggle()" aria-label="Cycle system layouts" style="background:transparent; border:none; box-shadow:none !important;">
-                    <img class="js-theme-svg-target" src="assets/EE_light-visibility.svg" alt="Active visibility layout variant" style="height:32px; width:32px;">
-                </button>
+        <div id="eeMobileOverlay" class="ee-drawer-overlay" onclick="toggleMobileDrawer(false)"></div>
+        <div id="eeMobileDrawer" class="ee-mobile-drawer">
+            <div class="ee-drawer-header">
+                <span style="color:#FFFFFF; font-weight:700; text-transform:uppercase; font-size:0.9rem; letter-spacing:0.5px;">Navigation Menu</span>
+                <button class="ee-drawer-close" onclick="toggleMobileDrawer(false)">✕</button>
             </div>
-        </nav>
-    </div>
+            <nav aria-label="Mobile Navigation System Menu">
+                ${mobileNavHTML}
+                <div style="padding: 15px 16px; margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); display:flex; gap:10px;">
+                    <button class="ee-nav-theme-svg-btn" onclick="window.ThemeManager.toggle()" aria-label="Cycle system layouts" style="background:transparent; border:none; box-shadow:none !important;">
+                        <img class="js-theme-svg-target" src="assets/EE_light-visibility.svg" alt="Active visibility layout variant" style="height:32px; width:32px;">
+                    </button>
+                </div>
+            </nav>
+        </div>
     `;
 
     document.body.insertAdjacentHTML('afterbegin', headerHTML);

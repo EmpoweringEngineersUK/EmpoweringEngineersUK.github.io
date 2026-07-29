@@ -1,5 +1,5 @@
 // =========================================================================
-// EMPOWERING ENGINEERS UK - cpd.js - v21.7 - Continuous Professional Development Intelligence Database
+// EMPOWERING ENGINEERS UK - cpd.js - v22.0 - Continuous Professional Development Intelligence Database
 // Date: 18 Jul 2026
 // Specification: Aligned with UK-SPEC 4th Edition Requirements
 // Structure Matrix: { 70: "On Job Experiential", 20: "Social Coaching", 10: "Formal Track", prompt: "AI Context" }

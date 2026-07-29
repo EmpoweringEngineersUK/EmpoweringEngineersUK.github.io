@@ -20,56 +20,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <!-- Central layout engine connection strictly enforced to immutable root filenames -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Central layout engine connection strictly enforced to immutable root filenames linking version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <style>
-        /* PAGE SPECIFIC STYLES: Enforcing high information density and structural boundaries */
-        body, button, input, select, textarea, h1, h2, h3, h4, h5, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        .thick-content {
-            padding: 40px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
-        }
-        
-        .thick-content h1 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .thick-content h2, .thick-content h3 {
-            color: var(--burnt-orange);
-            text-transform: uppercase;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
-            padding-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .thick-content p, .thick-content li { 
-            margin-bottom: 15px; 
-            font-size: 1.05rem;
-        }
-
-        /* Digital Nodes Call-to-Action Block */
+        /* --- TOOL SPECIFIC INTERACTION COMPONENTS --- */
+        /* Local layout controls strictly limited to bespoke workspace grids to protect centralized CSS inheritance */
         .social-nodes-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -91,7 +47,6 @@
         }
 
         .social-node-card h3 {
-            color: var(--cloud-white);
             margin-bottom: 10px;
             text-transform: uppercase;
             font-size: 1.2rem;
@@ -102,6 +57,11 @@
             color: var(--slate-grey);
             font-size: 0.95rem;
             margin-bottom: 20px;
+        }
+
+        /* Suppress underlines on all interactive button classes on this page layout */
+        .action-btn, .action-btn-ghost, .action-btn-outline {
+            text-decoration: none !important;
         }
 
         /* Dual-Feed Iframe Container Architecture for Responsive Scaling */
@@ -129,7 +89,6 @@
         }
 
         .iframe-embed-container h2 {
-            color: var(--terminal-green);
             font-size: 1.2rem;
             text-transform: uppercase;
             border-bottom: 1px dashed var(--border-color);
@@ -138,7 +97,7 @@
             margin-bottom: 15px;
         }
 
-        /* 16:9 Aspect Ratio Wrapper strictly for YouTube Video */
+        /* 16:9 Aspect Ratio Wrapper strictly for Standalone SVG YouTube Player Asset Link */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Ratio */
@@ -148,13 +107,11 @@
             background: #000;
         }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .video-wrapper svg {
+            transition: filter 0.2s ease;
+        }
+        .video-wrapper svg:hover {
+            filter: brightness(1.05);
         }
 
         /* Tall vertical wrapper for LinkedIn Feed */
@@ -181,8 +138,8 @@
 <body onload="if(typeof initApp === 'function') initApp();">
     
     <!-- Injection of core navigation and persistent memory tools strictly locked to root filenames -->
-    <script defer src="header_nav.js?v=21.7"></script>
-    <script defer src="tools_data.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
+    <script defer src="tools_data.js?v=22.0"></script>
     
     <main class="container">
         
@@ -190,17 +147,16 @@
         <article class="thick-content">
             <h1>The Strategic Imperative of Engineering Networking</h1>
             
-            <p>Within the highly regulated British engineering sector, technical acumen alone is insufficient for long-term career progression or successful professional registration. The UK Standard for Professional Engineering Competence (UK-SPEC) explicitly mandates that prospective Chartered Engineers (CEng), Incorporated Engineers (IEng), and Engineering Technicians (EngTech) must operate as active participants within the broader industrial ecosystem. This continuous engagement is rigorously evaluated under Competence C (Responsibility, Management, and Leadership) and Competence D (Communication and Interpersonal Skills). To satisfy these criteria, engineers must move beyond siloed, individual contributor roles and actively integrate into collaborative digital networks.</p>
+            <h2>Connecting with the Engineering Community</h2>
+            <p><strong>What is this step?</strong> The Social Media and Networking Hub is a centralised platform directory designed to bridge your local engineering preparation with the global professional ecosystem. Engaging with professional social networks means interacting with engineering peers, sharing continuous professional development notes, and following industry updates across our visual and text channels. Instead of building your applications in complete isolation, this hub enables you to join a supportive community of developers, lead engineers, and field technicians, ensuring your technical capabilities are aligned with real-world sector transitions. It acts as an interactive bridge connecting your daily tasks to the wider world of engineering excellence.</p>
 
-            <h2>Visual Coaching and the YouTube Repository</h2>
-            <p>Empowering Engineers UK operates across multiple digital channels to facilitate this essential knowledge transfer protocol. Our official YouTube channel functions as a high-fidelity visual coaching repository. While our core platform provides the structural matrices and text-based analytics required to draft your portfolio, the video network delivers deep-dive contextual breakdowns. We systematically dissect complex strategic frameworks—such as PESTLE Analysis, DMAIC Problem Solving, and the Balanced Scorecard—providing step-by-step operational guidance. Subscribing to and consistently reviewing this material serves as an excellent, auditable input for your Continuous Professional Development (CPD) logs, ensuring your theoretical knowledge remains razor-sharp.</p>
+            <h2>Why Professional Networks Accelerate Your Engineering Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Becoming a registered professional with the <strong>Engineering Council</strong> requires far more than completing standalone mathematical calculations or mechanical drawings. Under the <strong>UK-SPEC</strong> framework, specifically within <strong>Competence d (Communication and interpersonal skills)</strong> and <strong>Competence e (Personal commitment to professional standards)</strong>, candidates must prove their ability to work effectively with diverse groups and participate in the wider engineering community. Following our corporate updates and video briefings helps you expand your industry awareness. This direct insight prepares you to discuss emerging national standards and continuous quality improvement methodologies fluently during your final <strong>Professional Review Interview (PRI)</strong> panel defense. It turns your private study into a respected professional asset track.</p>
+            <p>Furthermore, participating in online technical forums and professional platforms gives you visible proof of your lifelong commitment to learning and professional development. For engineers aiming for <strong>Chartered Engineer (CEng)</strong>, <strong>Incorporated Engineer (IEng)</strong>, or <strong>Engineering Technician (EngTech)</strong> status, these social interactions provide excellent evidence for your continuous professional development logs. Building a clear digital footprint establishes your authority as an engineering leader, making your experience stand out to your chosen <strong>Professional Engineering Institution (PEI)</strong> during portfolio audits and supporting your long-term career progression goals completely. It shows assessors you are an active part of our industrial community.</p>
 
-            <h2>The LinkedIn Professional Matrix</h2>
-            <p>Parallel to our visual output, the Empowering Engineers UK LinkedIn corporate matrix acts as our primary broadcast terminal for rapid industry updates, platform patch notes, and strategic insights. Building a robust digital footprint on LinkedIn is a critical operational tactic for modern engineering professionals. Engaging in high-level technical discourse, challenging methodologies, and sharing verified best practices provides assessors with transparent, public-facing evidence of your professional commitment (Competence E). By actively networking with our community, you align yourself with a cohort of forward-thinking professionals dedicated to raising the standard of British engineering.</p>
-
-            <h2>Crowdsourcing Operational Solutions</h2>
-            <p>Furthermore, leveraging these digital broadcasting tools allows candidates to effectively crowdsource solutions to complex procedural bottlenecks. The engineering community thrives on peer-to-peer validation. By observing how seasoned engineering managers approach problem-solving methodologies—such as the 5 Whys or Ishikawa failure analysis—candidates can dynamically calibrate their own operational strategies.</p>
-            <p>We strongly encourage all users of the Empowering Engineers UK platform to not only consume the data provided across these social vectors but to actively challenge the content. Commenting on technical videos, sharing structural templates, and providing constructive feedback to industry peers directly correlates with the leadership expectations established by the Engineering Council. Ultimately, your professional registration journey is a collaborative enterprise. Connect, engage, and standardise your communication to meet the rigorous demands of the sector.</p>
+            <h2>How to Fulfill Your Professional Networking Objectives Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To fulfill your networking goals successfully, explore our integrated digital feeds below to review our latest video tutorials, platform patch notes, and strategic insights. Use our official links to subscribe to our video coaching tracks on YouTube and follow our corporate hub on LinkedIn. Ensure you actively participate in technical discussions by leaving feedback, questioning standard design methods, and sharing your own project management experiences. Collecting these cross-disciplinary records provides amazing material to help you write your <strong>Development Action Plan (DAP)</strong>.</p>
+            <p>To keep your personal information completely secure, all of our primary analytical tools and text editors use a strict zero-knowledge local storage system. Everything you plan or write is saved only on your machine's browser memory cache and is never sent to external servers. This keeps your sensitive company details fully compliant with your employer's Non-Disclosure Agreements (NDAs). Use this social hub to expand your knowledge of structured development frameworks like the <strong>STAR Methodology</strong>, and download your data archives regularly to protect your hard work from accidental browser cache clearances completely.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -210,6 +166,38 @@
                  data-ad-client="ca-pub-7071036534151105"
                  data-ad-slot="4413012282"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Home Cluster Breadcrumb Navigation Bar Realigned Directly Below Ad Block -->
+        <nav class="ee-horizontal-nav" aria-label="Home Section Navigation" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+        </nav>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Social Media & Networking</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Professional Engineering Communication & Ecosystem Matrix</p>
+            </div>
         </div>
 
         <!-- Social Routing Nodes -->
@@ -234,15 +222,42 @@
         <!-- Integrated Live Feed Terminal Block -->
         <div class="feed-grid">
             
-            <!-- YouTube Spotlight Feed -->
+            <!-- YouTube Spotlight Feed with Static Vector Link to Overcome Local Drive File Restrictions -->
             <div class="iframe-embed-container">
                 <h2>Spotlight Video</h2>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; margin-bottom: 15px;">Review our latest featured technical briefing and structural methodology breakdown directly through the platform.</p>
                 <div class="video-wrapper">
-                    <!-- Localized fix deployed here to link directly to verified YouTube playlist arrays without cross-origin fragmentation -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KR7gXHZ0Tjs?si=SmA5v2PziCMggOMF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=KR7gXHZ0Tjs" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; text-decoration: none;" aria-label="Watch engineering briefing on YouTube (opens in a new tab)">
+                        <svg width="100%" height="100%" viewBox="0 0 560 315" preserveAspectRatio="xMidYMid slice" style="background: #111E2E; display: block;">
+                            <defs>
+                                <linearGradient id="vectorPlayerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1A2E44;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#0D1B2A;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="560" height="315" fill="url(#vectorPlayerGrad)" opacity="0.65"/>
+                            <!-- Technical reference tracking grids -->
+                            <path d="M0 78.75 H560 M0 157.5 H560 M0 236.25 H560 M140 0 V315 M280 0 V315 M420 0 V315" stroke="rgba(3, 247, 160, 0.08)" stroke-width="1"/>
+                            
+                            <!-- Video Descriptor Overlays -->
+                            <text x="30" y="45" fill="#E6EDF3" font-family="'Lato', Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.5">FEATURED BRIEFING: NARRATIVE ENGINEERING & UK-SPEC</text>
+                            
+                            <!-- Concentric Red YouTube Style Play Node -->
+                            <g transform="translate(280, 157.5)">
+                                <circle r="46" fill="rgba(3, 247, 160, 0.12)" stroke="#03F7A0" stroke-width="1.5" opacity="0.85"/>
+                                <path d="M66.52 34.3c-.78-2.93-3.07-5.22-6-6-5.28-.7-26.52-.7-26.52-.7s-21.24 0-26.52.7c-2.93.78-5.22 3.07-6 6-1.42 5.3-1.42 16.3-1.42 16.3s0 11 1.42 16.3c.78 2.93 3.07 5.22 6 6 5.28.7 26.52.7 26.52.7s21.24 0 26.52-.7c2.93-.78 5.22-3.07 6-6 1.42-5.3 1.42-16.3 1.42-16.3s0-11-1.42-16.3z" fill="#FF0000" transform="translate(-33, -33)"/>
+                                <polygon points="-8,-12 14,0 -8,12" fill="#FFFFFF"/>
+                            </g>
+                            
+                            <!-- Interactive Base Callout -->
+                            <rect y="275" width="560" height="40" fill="rgba(13, 27, 42, 0.92)"/>
+                            <text x="20" y="300" fill="#03F7A0" font-family="'Lato', Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="0.25">▶ LAUNCH TUTORIAL SEQUENCE VIA DIRECT OUTBOUND DISPATCH</text>
+                            <text x="540" y="300" fill="#8899A6" font-family="'Lato', Arial, sans-serif" font-size="11" text-anchor="end" font-weight="700">YOUTUBE.COM</text>
+                        </svg>
+                    </a>
                 </div>
             </div>
+            
             <!-- LinkedIn Live Feed -->
             <div class="iframe-embed-container">
                 <h2>LinkedIn Feed</h2>
@@ -257,6 +272,6 @@
     </main>
 
     <!-- Master Footer Injection strictly locked to root filename -->
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 </body>
 </html>

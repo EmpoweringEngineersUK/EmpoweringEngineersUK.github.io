@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. SWOT GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .swot-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -175,95 +81,11 @@
         .opportunities-label { color: var(--terminal-green) !important; }
         .threats-label { color: var(--burnt-orange) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,46 +94,30 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Strategic Engineering Leadership: Deploying the SWOT Analysis Framework</h1>
-            <p>
-                The development of sustainable, high-integrity engineering projects requires more than technical competency. Under the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC), engineers seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration must actively demonstrate leadership, commercial awareness, and commitment to statutory safety codes. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) dictate that candidates must evaluate the broader strategic context of their technical decisions.
-            </p>
-            <p>
-                SWOT Analysis (Strengths, Weaknesses, Opportunities, and Threats) is an indispensable analytical instrument used by Engineering Lead Managers and Directors to assess structural, operational, and commercial risk profiles. When applied rigorously from a first-principles perspective, SWOT bridges the gap between pure mechanical or electrical design and commercial project feasibility. It forces multi-disciplinary engineering teams to evaluate both internal capabilities and volatile external markets before committing capital expenditure (CapEx) to major infrastructure or manufacturing programmes.
-            </p>
+            <p>Building a successful career in engineering requires more than just excellent technical skills. When you design a structure, map an electrical grid, or code an automated process line, your decisions have a real commercial impact. Under the Engineering Council's <strong>UK-SPEC</strong> guidelines, professionals must demonstrate strong business awareness and leadership capabilities. These essential professional qualities are assessed directly under <strong>Competence C</strong> (Responsibility, management, or leadership) and <strong>Competence E</strong> (Commitment to professional standards) when you apply for your <strong>Chartered Engineer (CEng)</strong>, <strong>Incorporated Engineer (IEng)</strong>, or <strong>Engineering Technician (EngTech)</strong> registration.</p>
+            
+            <h2>What is a SWOT Analysis?</h2>
+            <p>A SWOT Analysis stands for <strong>Strengths, Weaknesses, Opportunities, and Threats</strong>. It is a simple but powerful planning tool used by senior engineering managers to check the health and risks of a project, team, or entire department before committing large budgets. It divides your evaluation into internal factors (things you can control inside your team) and external factors (things happening in the wider market outside your control). By writing down these four areas clearly, you can replace guesswork with a data-driven strategy that protects your project from costly mistakes.</p>
 
-            <h2>Internal Dimension Analysis: Strengths and Weaknesses</h2>
-            <p>
-                Evaluating the internal dimension of an engineering organisation or project department requires an objective audit of technical capacity, intellectual property (IP), and human resource constraints. 
-            </p>
-            <p>
-                <strong>Identifying Engineering Strengths [S]:</strong> Internal strengths represent the unique technological or human assets that give your project or department a distinct advantage. Within an engineering design office, these assets might include advanced finite element analysis (FEA) or computational fluid dynamics (CFD) modelling tools, highly skilled Chartered Engineers with specific domain experience, or patented proprietary machinery. Furthermore, certifications such as ISO 9001 (Quality Management) or ISO 45001 (Occupational Health & Safety) indicate robust operational processes. Recognising these strengths allows the engineering lead to allocate resources effectively, ensuring complex design tasks are handled by teams with the exact technical credentials required to guarantee structural compliance and project safety.
-            </p>
-            <p>
-                <strong>Pinpointing Technical Weaknesses [W]:</strong> Concurrently, identifying internal weaknesses is critical to preventing systemic project failures. Engineering weaknesses often manifest as single-points-of-failure (SPOF) within technical teams, reliance on legacy systems or unmaintained software scripts, and resource constraints such as a shortage of specialist structural analysis capability. A weakness might also be a lack of standardisation in drawing control or quality review systems, leading to costly modifications during the physical manufacturing or construction phase. By documenting these limitations transparently within your SWOT matrix, you can architect targeted mitigation strategies before these weaknesses compromise the project's delivery schedule or safety parameters.
-            </p>
+            <h2>Why Does a SWOT Analysis Matter to Your Career?</h2>
+            <p>Many brilliant young engineers face unexpected delays during their formal <strong>Professional Review Interview (PRI)</strong> because they focus entirely on technical details. They can explain their calculations perfectly, but they struggle to show how their individual choices protect company finances or support public safety. Using this workbench to log a structured SWOT matrix provides absolute proof to your <strong>Professional Engineering Institution (PEI)</strong> review panel that you possess genuine commercial awareness. It shows that you understand the business context of your work, making you a strong candidate for rapid career progression and management roles.</p>
 
-            <h2>External Dimension Analysis: Opportunities and Threats</h2>
-            <p>
-                External analysis looks beyond the boundary of the engineering team to evaluate macroeconomic, regulatory, and industrial forces. This step is heavily linked with broader PESTLE criteria and plays a fundamental role in evaluating project viability under the Construction (Design and Management) (CDM) Regulations 2015.
-            </p>
-            <p>
-                <strong>Capitalising on Industrial Opportunities [O]:</strong> External opportunities are positive market developments or technological transitions that your engineering group is positioned to leverage. For example, the national transition to Net-Zero and decarbonised infrastructure represents an exceptional opportunity for civil and electrical engineers specialising in smart grid integration or carbon-neutral materials. Similarly, government research grants from Innovate UK or tax credits for automated manufacturing systems can heavily subsidise the development of new production lines. Identifying these external triggers early enables the engineering team to steer their research and development (R&D) pipelines toward high-growth sectors, ensuring long-term commercial sustainability.
-            </p>
-            <p>
-                <strong>Mitigating Macroeconomic Threats [T]:</strong> Conversely, external threats present hazards that could derail project execution, increase operational expenditure (OpEx), or violate compliance codes. These threats typically encompass rapid material cost inflation (such as steel or copper supply volatility), sudden changes to British Standards or Eurocodes, and competitive disruption from overseas operators using highly automated production methods. In safety-critical sectors such as nuclear or aerospace, threats might also include sudden shifts in regulatory frameworks governed by the Office for Nuclear Regulation (ONR) or the Civil Aviation Authority (CAA). Anticipating these threats within the SWOT matrix allows strategic engineers to build contingency margins, qualify alternative suppliers, and establish robust risk registers to protect client-side operations.
-            </p>
-
-            <h2>Deploying the Interactive SWOT Workbench Natively</h2>
-            <p>
-                The interactive SWOT Analysis Workbench below is engineered specifically to help professional engineers structure their strategic thinking. To protect proprietary corporate data and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilises a zero-knowledge local browser storage profile. Your text inputs are saved in real-time entirely within your client device; no confidential project details are ever transmitted to external servers. Once complete, you can compile your SWOT analysis into a pristine text outline, preview a print-friendly document, or generate an AI Coach prompt to challenge your strategic assumptions.
-            </p>
+            <h2>How Do You Complete This Workbench Cleanly?</h2>
+            <p>To create an audit-ready strategic log for your professional portfolio, work sequentially through the four interactive cards on the canvas below:</p>
+            <ul>
+                <li><strong>Strengths (Internal):</strong> List the unique technical advantages or skills your team controls right now. This includes proprietary simulation scripts, specialized testing rigs, or team members with advanced credentials.</li>
+                <li><strong>Weaknesses (Internal):</strong> Pinpoint internal resource limits, training gaps, or slow review steps. Identifying these bottlenecks early allows you to fix them before they disrupt your delivery schedule.</li>
+                <li><strong>Opportunities (External):</strong> Look for positive market trends or regulatory changes that your team can exploit, such as new government grants for green engineering or a client shift toward modular designs.</li>
+                <li><strong>Threats (External):</strong> Anticipate external hazards that could derail your project, such as raw material cost inflation, supply chain delays, or sudden changes to industrial safety laws.</li>
+            </ul>
+            <p>Type your notes directly into each card section. To protect your company's sensitive project details and keep you fully compliant with non-disclosure agreements (NDAs), this workbench runs on a zero-knowledge local browser architecture. Your entries are saved automatically onto your own device every few seconds and are never sent to external servers. Once finished, you can copy the text summary or generate an official report to support your <strong>Development Action Plan (DAP)</strong>.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -324,11 +130,11 @@
         </div>
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+        <nav class="ee-horizontal-nav" id="strategyPathNav" aria-label="Strategy Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -381,12 +187,20 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
         <div class="header-actions">
             <div>
-                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">SWOT Analysis</h1>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">SWOT Analysis Matrix</h1>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Strategy & Business Planning Interface</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -404,30 +218,30 @@
                     
                     <!-- Strengths Card -->
                     <div class="swot-card strengths-card">
-                        <label class="swot-label strengths-label">S: Strengths (Internal)</label>
+                        <label class="swot-label strengths-label" for="swot_S">S: Strengths (Internal Assets)</label>
                         <span class="form-hint">Internal technical advantages, human resources, proprietary software, patents, or QA certs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. In-house FEA specialist; patented safety design; ISO 9001 certified.</span></span>
-                        <textarea id="swot_S" class="form-input" placeholder="Type internal strengths here..." oninput="updatePreview()"></textarea>
+                        <textarea id="swot_S" class="form-input ee-textarea" placeholder="Type internal strengths here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Weaknesses Card -->
                     <div class="swot-card weaknesses-card">
-                        <label class="swot-label weaknesses-label">W: Weaknesses (Internal)</label>
+                        <label class="swot-label weaknesses-label" for="swot_W">W: Weaknesses (Internal Constraints)</label>
                         <span class="form-hint">Internal resource limits, legacy calculations software, drawing revision bottlenecks, or training gaps. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. High dependence on legacy Fortran scripts; single testing rig bottlenecks.</span></span>
-                        <textarea id="swot_W" class="form-input" placeholder="Type internal weaknesses here..." oninput="updatePreview()"></textarea>
+                        <textarea id="swot_W" class="form-input ee-textarea" placeholder="Type internal weaknesses here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Opportunities Card -->
                     <div class="swot-card opportunities-card">
-                        <label class="swot-label opportunities-label">O: Opportunities (External)</label>
+                        <label class="swot-label opportunities-label" for="swot_O">O: Opportunities (External Markets)</label>
                         <span class="form-hint">External market factors, transition to Net-Zero, government grants, or new modular methods. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Government research funding for carbon-neutral structures; modular integration.</span></span>
-                        <textarea id="swot_O" class="form-input" placeholder="Type external opportunities here..." oninput="updatePreview()"></textarea>
+                        <textarea id="swot_O" class="form-input ee-textarea" placeholder="Type external opportunities here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Threats Card -->
                     <div class="swot-card threats-card">
-                        <label class="swot-label threats-label">T: Threats (External)</label>
+                        <label class="swot-label threats-label" for="swot_T">T: Threats (External Hazards)</label>
                         <span class="form-hint">External regulatory compliance shifts, material cost inflation, supply chain delays, or competitor tools. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Extreme material inflation in copper/steel; revisions to Eurocode guidelines.</span></span>
-                        <textarea id="swot_T" class="form-input" placeholder="Type external threats here..." oninput="updatePreview()"></textarea>
+                        <textarea id="swot_T" class="form-input ee-textarea" placeholder="Type external threats here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -438,9 +252,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -491,8 +305,8 @@
 
         function updateNavigationBadges() {
             const toolsMap = {
-                'coach': 'ee_comm_coach',
-                'strategy': 'ee_strategy',
+                'coach': 'ee_management_master_hub',
+                'strategy': 'ee_strategy_master_hub',
                 'swot': 'ee_strategy_swot',
                 'pestle': 'ee_strategy_pestle',
                 'porters': 'ee_strategy_porters',
@@ -504,13 +318,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -582,21 +404,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -712,11 +570,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to preview drafts.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

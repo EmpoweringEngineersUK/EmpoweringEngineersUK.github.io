@@ -17,19 +17,15 @@
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Central layout engine connection strictly enforced to layout.css -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <style>
         /* PAGE SPECIFIC STYLES: Enforcing high information density and structural boundaries */
-        body, button, input, select, textarea, h1, h2, h3, h4, h5, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
         /* Decoupled from .thick-content to successfully bypass layout.css print-hide rules */
         .legal-wrapper {
             padding: 40px 5% 40px 5%;
             color: var(--cloud-white);
-            line-height: 1.7;
+            line-height: 1.75;
             background: var(--dark-card);
             border-radius: 8px;
             margin-top: 20px;
@@ -97,7 +93,7 @@
             justify-content: flex-end;
         }
 
-        /* PRINT ENGINE OVERRIDE: Ensures the legal wrapper formats perfectly on A4 paper */
+        /* PRINT ENGINE OVERRIDE: Ensures the legal wrapper formats perfectly on A4 paper profiles */
         @media print {
             .legal-wrapper {
                 background: #FFFFFF !important;
@@ -122,36 +118,72 @@
 <body onload="if(typeof initApp === 'function') initApp();">
     
     <!-- Injection of core navigation and persistent memory tools strictly locked to root filenames -->
-    <script defer src="header_nav.js?v=21.7"></script>
-    <script defer src="tools_data.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
+    <script defer src="tools_data.js?v=22.0"></script>
     
     <main class="container">
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="System Hub Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+            <a href="privacy.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Privacy</span>
+            </a>
+            <a href="terms.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Terms</span>
+            </a>
+            <a href="sitemap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Sitemap</span>
+            </a>
+        </nav>
         
         <!-- Document Boundary bypassing standard thick-content rules for clean printing -->
         <article class="legal-wrapper">
             <h1>Privacy Policy & Data Sovereignty</h1>
             
-            <p>At Empowering Engineers UK, safeguarding your professional intellectual property and personal privacy is a foundational operational directive. This comprehensive Privacy Policy delineates our rigid data handling protocols, telemetry tracking integrations, and the zero-knowledge architectural design of our application suite. By accessing and utilising our digital workbenches, you consent to the practices outlined within this framework.</p>
+            <p><strong>What is this step?</strong> At Empowering Engineers UK, safeguarding your professional intellectual property and personal privacy is a core operational requirement. This comprehensive Privacy Policy outlines our rigid data handling protocols, telemetry tracking integrations, and the zero-knowledge architectural design of our application suite. As an engineering professional, your project histories and career timelines are intensely valuable. This document forms a strict agreement describing exactly how our platform interacts with your information, ensuring you maintain absolute control over your notes at all times.</p>
 
             <h2>1. Zero-Knowledge Architecture & Local Storage Protocol</h2>
             <div class="alert-box">
                 CORE DIRECTIVE: We absolutely do not store, parse, or transmit your engineering competence drafts on our external servers.
             </div>
-            <p>Engineering candidates—particularly those pursuing Chartered Engineer (CEng) or Incorporated Engineer (IEng) status—regularly process highly sensitive, commercially confidential project data to formulate their UK-SPEC competence reports. To completely mitigate the risk of data breaches or non-disclosure agreement (NDA) violations, this platform operates on a strict "Zero-Knowledge" client-side architecture.</p>
-            <p>When you input text into the STAR Methodology Architect, configure a Development Action Plan within the CPD Smart-Planner, or establish an Acronym Decoder database array, your data is sandboxed securely within your local device's browser memory cache using native Web Storage APIs. We have no mechanism to view or monetise your professional engineering drafts. Consequently, you retain absolute data sovereignty and are solely responsible for exporting and backing up your local payloads using the provided JSON extraction tools.</p>
+            <p><strong>Why does it matter to your career?</strong> Engineering candidates—particularly those pursuing Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), or Engineering Technician (<strong>EngTech</strong>) status—regularly process highly sensitive, commercially confidential project data to formulate their <strong>UK-SPEC</strong> competence reports. A single accidental data leak could violate your company's Non-Disclosure Agreements (NDAs) and severely damage your professional reputation. To completely eliminate this risk, this platform operates on a strict "Zero-Knowledge" client-side framework.</p>
+            <p>When you input text into the STAR Methodology Architect, configure a Development Action Plan within the CPD Smart-Planner, or establish an Acronym Decoder database array, your text data is sandboxed securely within your local device's browser memory cache using native Web Storage APIs. We have no mechanism to view, copy, or monetise your professional engineering drafts. Consequently, you retain absolute data sovereignty and are solely responsible for exporting and backing up your local payloads using the integrated JSON extraction tools provided on the platform.</p>
 
             <h2>2. Telemetry and Analytical Tracking</h2>
-            <p>To dynamically optimise our platform's layout algorithms and categorise popular coaching frameworks, we deploy Google Analytics 4 (GA4) telemetry. This system captures aggregated, anonymised data sets regarding user session durations, page routing interactions, and geographical access vectors. This analytical tracking strictly isolates behavioural trends and does not profile personal, identifiable user identities. IP anonymisation protocols are active by default to further insulate your systemic digital footprint.</p>
+            <p><strong>How do you complete it cleanly?</strong> To dynamically optimise our platform's layout algorithms, monitor traffic growth, and categorise popular coaching frameworks, we deploy standard Google Analytics 4 (GA4) telemetry. This system captures aggregated, anonymised data sets regarding user session durations, page routing interactions, and general geographical access vectors. This analytical tracking isolates behavioral trends to help us improve user flows and does not profile personal, identifiable user identities. IP anonymisation protocols are active by default across our scripts to further insulate your digital footprint. You do not need to perform any configuration steps to keep your identity secure; our systems handle this tracking inside isolated analytics blocks.</p>
 
             <h2>3. Contextual Monetisation and Google AdSense</h2>
-            <p>Empowering Engineers UK is maintained as a free, open-access platform to democratise professional registration resources. To offset hosting architectures and development overheads, we utilise the Google AdSense network to inject targeted B2B and technical advertisements into specific container slots across the website.</p>
-            <p>Google, as a third-party vendor, deploys tracking cookies to serve these advertisements based on your prior browsing history across the internet. These cookies enable Google and its integrated partner networks to deliver highly relevant commercial messaging. You maintain the right to opt out of personalised advertising at any time by configuring your preferences directly via the <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings terminal</a>.</p>
+            <p>Empowering Engineers UK is maintained as a free, open-access platform to democratise professional registration resources for early-career technicians. To offset hosting architectures, code maintenance, and development overheads, we utilize the Google AdSense network to inject targeted B2B and technical advertisements into specific container slots across the website. These slots ensure we can fund the platform without charging subscription fees.</p>
+            <p>Google, as a third-party vendor, deploys tracking cookies to serve these advertisements based on your prior browsing history across the internet. These cookies enable Google and its integrated partner networks to deliver relevant commercial messaging. You maintain the right to opt out of personalised advertising at any time by configuring your preferences directly via the official <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings terminal</a>.</p>
 
             <h2>4. Your Rights Under the UK General Data Protection Regulation (GDPR)</h2>
-            <p>Under the UK GDPR framework, you are guaranteed specific rights regarding the processing of your personal data. Because Empowering Engineers UK fundamentally rejects the establishment of user accounts and does not capture your core technical inputs on external servers, the traditional mechanisms for backend data retrieval or erasure are decentralised. You exercise your right to erasure simply by executing a cache clearance protocol within your native browser settings, instantly wiping all traces of your engagement from your local hardware.</p>
+            <p>Under the UK GDPR framework, you are guaranteed specific rights regarding the processing, verification, and deletion of your personal data. Because Empowering Engineers UK fundamentally rejects the establishment of user accounts and does not capture your core technical inputs on external cloud servers, the traditional mechanisms for backend data retrieval or erasure are entirely decentralised. You can exercise your right to erasure instantly by executing a cache clearance protocol within your native browser settings, wiping all traces of your application segments from your local hardware storage.</p>
 
             <h2>5. External Linkages and Third-Party Frameworks</h2>
-            <p>Our coaching toolkits occasionally reference external institutional bodies, including the Engineering Council, the Institution of Engineering and Technology (IET), and the Institution of Mechanical Engineers (IMechE). We hold no jurisdiction over the privacy architectures deployed by these external domains. We strongly advise reviewing their respective security policies upon initialising an outbound connection.</p>
+            <p>Our coaching toolkits occasionally reference external institutional bodies, including the Engineering Council, the Institution of Engineering and Technology (<strong>IEI</strong>), and the Institution of Mechanical Engineers (<strong>IMechE</strong>). We hold no jurisdiction over the privacy architectures deployed by these external domains. We strongly advise reviewing their respective security policies upon initialising an outbound connection to their portals.</p>
             
             <p>If you require further clarification regarding our data security practices, please submit an enquiry to our administration team at: <a href="mailto:info@empoweringengineers.uk">info@empoweringengineers.uk</a></p>
         </article>
@@ -168,13 +200,13 @@
         <!-- Interactive System Controls -->
         <div class="action-row">
             <!-- Employs .action-btn-ghost for secondary visual hierarchy, ensuring 48px touch compliance -->
-            <button class="action-btn action-btn-ghost" onclick="window.print()" aria-label="Print Privacy Policy Document">
+            <button class="action-btn action-btn-ghost" onclick="window.print()" aria-label="Print Privacy Policy Document" style="min-height: 48px;">
                 Print Document
             </button>
         </div>
     </main>
 
     <!-- Master Footer Injection strictly locked to root filename -->
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 </body>
 </html>

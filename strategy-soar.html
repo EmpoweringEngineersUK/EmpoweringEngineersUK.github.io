@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. SOAR GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .soar-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -175,95 +81,11 @@
         .aspirations-label { color: var(--terminal-green) !important; }
         .results-label { color: var(--burnt-orange) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,40 +94,38 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying the SOAR Analysis Framework</h1>
+            <h1>Strategic Engineering Leadership: Deploying the SOAR Analysis</h1>
             <p>
-                To direct complex engineering enterprises and maintain sustainable industrial value, senior technical managers must operate far beyond immediate project milestones. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these exact multi-tier accountabilities under strict assessment controls. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) demand clear proof that professional engineers can critically evaluate risk profiles, manage capital allocation pipelines, and optimise technological resource deployment across volatile market sectors.
+                To lead complex engineering businesses and maintain sustainable growth, technical leads must look far beyond standard project delivery or daily field tasks. The Engineering Council's <strong>UK-SPEC</strong> guidelines explicitly demand these advanced management skills. Specifically, <strong>Competence C</strong> (Responsibility, management, or leadership) and <strong>Competence E</strong> (Commitment to professional standards) require that you prove you can critically evaluate project opportunities, allocate resources safely, and focus your team towards future commercial goals.
             </p>
             <p>
-                The SOAR Framework (Strengths, Opportunities, Aspirations, and Results) is an intentional departure from traditional risk-mapping strategies like SWOT. Rooted deeply in the principles of Appreciative Inquiry, SOAR focuses an organization's analytical energy on its positive core capacity and future possibilities rather than dwelling extensively on internal deficits or structural vulnerabilities. For multi-disciplinary technical consultancies and manufacturing groups, deploying SOAR encourages an action-oriented planning track. It channels engineering talent toward value innovation, matching core capabilities directly to expanding industrial growth horizons to secure long-term organizational value.
-            </p>
-
-            <h2>Analyse the Four Appreciative Dimensions of SOAR</h2>
-            <p>
-                Structuring your technical operations within the SOAR framework requires a data-driven, first-principles methodology. Here is how each of the four core matrix blocks directly maps to modern technical management environments:
-            </p>
-            <p>
-                <strong>Strengths (Internal Capabilities) [S]:</strong> This dimension defines the present core competencies, unique assets, and technological advantages that your organization commands. In engineering environments, strengths focus heavily on specialized domain expertise, proprietary calculation scripts, in-house finite element analysis (FEA) suites, or patented composite curing configurations. It audits your track record of structural delivery, safety compliance badges, and high-margin framework agreements. Identifying these internal pillars enables the engineering lead to allocate resources effectively, matching top-tier talent to high-complexity asset pipelines.
-            </p>
-            <p>
-                <strong>Opportunities (External Possibilities) [O]:</strong> External analysis maps expanding market trends, regulatory pivots, and customer segment needs that your technical group can exploit. This includes tracking national policy initiatives like the Net-Zero decarbonisation transition, emerging public subsidies from Innovate UK, or shifting developer preferences toward modular off-site manufacturing arrays. Instead of framing external variations purely as hazards, SOAR prompts strategic leads to uncover how technical teams can pivot existing capabilities to answer these market transformations profitably.
-            </p>
-            <p>
-                <strong>Aspirations (Future Vision) [A]:</strong> Aspirations map the deeply held values, long-term visions, and strategic goals of the engineering division. This section answers what the technical group is truly passionate about achieving, defining what success looks like over a five-to-ten-year planning horizon. An aspiration might involve becoming the principal regional authority in smart-grid automated designs, pioneering zero-waste process lifecycle paths, or developing a zero-knowledge local memory matrix to achieve complete client data sovereignty across all corporate portals.
-            </p>
-            <p>
-                <strong>Results (Measurable Progress) [R]:</strong> The final quadrant grounds your strategic vision into concrete, verifiable metrics. Results define exactly how the organization will track and confirm the successful execution of its aspirations. In an engineering context, these results must be quantitative: achieving a 35% decrease in computational design lead times, expanding relative market share inside a new utility sector by 15% within 18 months, or logging a flawless safety record across 500,000 continuous workshop operational hours to satisfy strict compliance criteria.
+                The <strong>SOAR Analysis</strong> framework stands for <strong>Strengths, Opportunities, Aspirations, and Results</strong>. It is a modern corporate planning tool designed to evaluate your engineering department or technical team. Unlike older frameworks that spend a lot of time analyzing internal weaknesses and threats, a SOAR analysis focuses entirely on your positive strengths and future possibilities. This action-oriented method channels your engineering talent toward value innovation, matching your team's core capabilities directly to expanding industry trends to build long-term organizational value.
             </p>
 
-            <h2>Interactive Client-Side SOAR Framework Workbench</h2>
+            <h2>Why Appreciative Planning Matters to Your Engineering Career</h2>
             <p>
-                The interactive SOAR Analysis Workbench below is custom-engineered to help engineering managers systematically map out their corporate ventures and optimize structural design architectures. To protect highly sensitive financial records and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilizes a zero-knowledge local browser storage profile. All text inputs are parsed and stored entirely within your device's browser memory partition; no proprietary corporate details are ever transmitted to external networks. Use this tool to build comprehensive enterprise outlines, export verified JSON archives, or generate highly targeted AI system prompts engineered to expose hidden cost liabilities and insulate your strategic programmes.
+                When you apply for professional registration as a <strong>Chartered Engineer (CEng)</strong> or an <strong>Incorporated Engineer (IEng)</strong>, your <strong>Professional Engineering Institution (PEI)</strong> panel will thoroughly check your business awareness. During your <strong>Professional Review Interview (PRI)</strong>, assessors will ask how you personally drive project improvements and lead teams. Showing the panel a completed SOAR matrix proves that you think like a senior manager. 
+            </p>
+            <p>
+                Instead of just listing problems or complaining about legacy system limitations, a SOAR analysis shows that you know how to build on what your company already does well. It proves that you can link your team's unique technical skills (like proprietary software scripts or custom CAD designs) directly to new customer segments and green energy project opportunities. This gives review boards concrete proof of your commercial maturity and strategic leadership readiness.
+            </p>
+
+            <h2>How to Complete Your Interactive SOAR Canvas Cleanly</h2>
+            <p>To compile a powerful strategic growth plan for your engineering registration portfolio, evaluate your operational unit across these four clear dimensions:</p>
+            <ul>
+                <li><strong>Strengths:</strong> What unique technical advantages, design tools, or specialist skills does your engineering group command right now? (e.g., In-house finite element analysis libraries or registered CEng mentors).</li>
+                <li><strong>Opportunities:</strong> What expanding market trends, national Net-Zero targets, or public project tenders can your team exploit to win new work?</li>
+                <li><strong>Aspirations:</strong> What is your long-term visionary goal for the department? What are you truly passionate about building or achieving over the next five years?</li>
+                <li><strong>Results:</strong> How will you mathematically prove you have succeeded? Connect your aspirations to clear, quantitative indicators, such as a 35% reduction in design lead times or a flawless site safety record.</li>
+            </ul>
+            <p>
+                Type your thoughts directly into the four cards on the canvas below. Because long-term business strategy and project budget tracking are highly confidential, this workbench operates using a strict zero-knowledge local browser storage model. Everything you record is saved privately on your own computer and never transmitted to our external servers. This keeps you fully compliant with your employer's Non-Disclosure Agreements (NDAs). Once finished, you can copy your text summary, download a verified JSON archive, or print an official report to support your <strong>Development Action Plan (DAP)</strong>.
             </p>
         </article>
 
@@ -320,10 +140,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -376,6 +196,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -401,28 +229,28 @@
                     <div class="soar-card strengths-card">
                         <label class="soar-label strengths-label">S: Strengths (Internal Core Assets)</label>
                         <span class="form-hint">Internal unique capabilities, domain expertise, patented designs, engineering macros, certified review processes. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. In-house finite element analysis (FEA) script libraries; registered CEng staff sign-off authority.</span></span>
-                        <textarea id="soar_S" class="form-input" placeholder="Type internal core strengths here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_S" class="ee-textarea form-input" placeholder="Type internal core strengths here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Opportunities Card -->
                     <div class="soar-card opportunities-card">
                         <label class="soar-label opportunities-label">O: Opportunities (External Possibilities)</label>
                         <span class="form-hint">External structural trends, national net-zero infrastructure funding pipelines, regional sub-contractor consolidation. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Increasing public subsidies from Innovate UK; developer preferences for modular off-site configurations.</span></span>
-                        <textarea id="soar_O" class="form-input" placeholder="Type external market opportunities here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_O" class="form-input ee-textarea" placeholder="Type external market opportunities here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Aspirations Card -->
                     <div class="soar-card aspirations-card">
                         <label class="soar-label aspirations-label">A: Aspirations (Strategic Future Vision)</label>
                         <span class="form-hint">What do we deeply care about achieving? Define your long-term engineering vision and shared corporate values. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Pioneer completely automated, zero-knowledge calculation local storage portals for international aviation clients.</span></span>
-                        <textarea id="soar_A" class="form-input" placeholder="Type strategic future visions here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_A" class="form-input ee-textarea" placeholder="Type strategic future visions here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Results Card -->
                     <div class="soar-card results-card">
                         <label class="soar-label results-label">R: Results (Measurable Progress Indicators)</label>
                         <span class="form-hint">How will we know we have succeeded? Define the quantitative performance metrics that track your strategic milestones. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Achieve 35% reduction in computational lead times; claim 15% expanded market share in offshore wind within 12 months.</span></span>
-                        <textarea id="soar_R" class="form-input" placeholder="Type measurable result parameters here..." oninput="updatePreview()"></textarea>
+                        <textarea id="soar_R" class="form-input ee-textarea" placeholder="Type measurable result parameters here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -433,9 +261,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -466,6 +294,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -484,11 +313,10 @@
             }
         }
 
-        // --- 4. NAVIGATION BADGES CONTROLLER ---
         function updateNavigationBadges() {
             // Dynamic evaluation of strategy tools completion states inside the breadcrumb navigation bar
             const toolsMap = {
-                'coach': 'ee_comm_coach',
+                'coach': 'ee_management_master_hub',
                 'strategy': 'ee_strategy',
                 'swot': 'ee_strategy_swot',
                 'pestle': 'ee_strategy_pestle',
@@ -501,19 +329,27 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
         }
 
-        // --- 5. COMPILER ENGINE ---
+        // --- 4. COMPILER ENGINE ---
         function updatePreview() {
             const s = document.getElementById('soar_S').value.trim();
             const o = document.getElementById('soar_O').value.trim();
@@ -542,7 +378,7 @@
             }, 3000); 
         }
 
-        // --- 6. COGNITIVE AI PROMPT INJECTION ---
+        // --- 5. COGNITIVE AI PROMPT INJECTION ---
         function generatePrompt() {
             const s = document.getElementById('soar_S').value.trim();
             const o = document.getElementById('soar_O').value.trim();
@@ -579,24 +415,60 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
-        // --- 7. CLIPBOARD MECHANICS ---
+        // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
-        // --- 8. DATA TRANSACTION PROCEDURES (CRUD) ---
+        // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
         function clearData() {
             if(confirm("Confirm action: permanently purge all text inputs from the SOAR canvas?")) {
                 document.getElementById('soar_S').value = '';
@@ -650,7 +522,7 @@ ${script}
             event.target.value = ''; 
         }
 
-        // --- 9. HTML REPORT COMPILER ---
+        // --- 8. HTML REPORT COMPILER ---
         function generateReport() {
             const s = document.getElementById('soar_S').value.trim();
             const o = document.getElementById('soar_O').value.trim();
@@ -668,7 +540,7 @@ ${script}
                     h2 { color: #0D1B2A; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; text-transform: uppercase; font-size: 18px;}
                     p { white-space: pre-wrap; margin-bottom: 15px; font-size: 14px;}
                     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; }
+                    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
                     .strengths { border-top: 4px solid #006837; }
                     .opportunities { border-top: 4px solid #C05621; }
                     .aspirations { border-top: 4px solid #006837; }
@@ -679,7 +551,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>SOAR Strategic Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -714,6 +586,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

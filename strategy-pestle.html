@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. BRAND SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. PESTLE GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .pestle-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -179,95 +85,11 @@
         .legal-label { color: var(--terminal-green) !important; }
         .environmental-label { color: var(--burnt-orange) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -276,46 +98,37 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying the PESTLE Analysis Framework</h1>
+            <h1>Strategic Engineering Leadership: Deploying the PESTLE Analysis</h1>
             <p>
-                To deliver resilient, future-proof projects, professional engineers must look far beyond standard mechanical boundaries or technical calculations. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) requires that candidates seeking Chartered Engineer (CEng) or Incorporated Engineer (IEng) registration prove they possess comprehensive commercial awareness and a deep commitment to societal safety. Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) directly demand that candidates evaluate how macro-environmental forces impact design methodologies, supply chains, and statutory compliance parameters.
+                To deliver resilient, future-proof projects, professional engineers must look far beyond standard mechanical boundaries or technical calculations. The Engineering Council's <strong>UK-SPEC</strong> guidelines explicitly require that candidates seeking <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> registration prove they possess comprehensive commercial awareness and a deep commitment to societal safety. <strong>Competence C</strong> (Responsibility, management, or leadership) and <strong>Competence E</strong> (Commitment to professional standards) directly demand that you evaluate how major external forces impact your design methodologies, supply chains, and project costs.
             </p>
             <p>
-                PESTLE Analysis (Political, Economic, Social, Technological, Legal, and Environmental) is a structured, multi-dimensional framework designed to assess external factors that influence project viability. In multi-disciplinary engineering environments, utilising PESTLE ensures that lead engineers can identify and mitigate strategic risks before committing capital expenditure (CapEx). It provides a holistic, continuous framework to evaluate risk vectors that are often ignored during standard, narrow-focused design reviews, ensuring that infrastructure developments remain aligned with national policy, economic realities, and emerging environmental targets.
-            </p>
-
-            <h2>Analyse the Six Macro-Environmental Dimensions</h2>
-            <p>
-                Evaluating these external parameters requires objective, evidence-based assessment. Here is how each of the six PESTLE dimensions directly intersects with modern engineering management:
-            </p>
-            <p>
-                <strong>Political Factors [P]:</strong> Engineering programmes are heavily influenced by national policy directions, government funding streams (such as Innovate UK subsidies), and regional devolution plans. Political shifts can instantly redefine public infrastructure strategies, redirect grid-decarbonisation priorities, or influence import tariffs on critical construction raw materials. Critical evaluations in this domain enable technical groups to shield long-term research and development assets from legislative instability.
-            </p>
-            <p>
-                <strong>Economic Factors [E]:</strong> Macroeconomic forces govern commercial project feasibility. These include currency exchange rate volatility, inflation rates affecting material supply lines (such as steel and copper price spikes), and fluctuations in local labour market rates. Identifying these economic parameters allows engineering managers to construct robust contingency models and justify life-cycle cost parameters (OpEx vs CapEx) to corporate clients and institutional investors.
-            </p>
-            <p>
-                <strong>Social Factors [S]:</strong> Societal trends dictate demographic needs, public safety expectations, and consumer behaviour. Engineers must account for shifting public perception regarding major infrastructure initiatives, requirements for localised public consultations, and evolving workforce demographic variables. Managing social considerations guarantees project acceptance, decreases local operational friction, and ensures that systems are designed with human factors and accessibility centrally integrated.
-            </p>
-            <p>
-                <strong>Technological Factors [T]:</strong> Digital transformation is rewriting the rules of industrial manufacturing and construction. This dimension tracks technological developments such as the transition to Industry 4.0 automation, the integration of Building Information Modeling (BIM) Level 2/3 protocols, internet of things (IoT) asset monitoring, and the rise of cyber-physical system security. Incorporating these technologies ensures engineering groups prevent premature technical obsolescence and sustain operational excellence.
-            </p>
-            <p>
-                <strong>Legal Factors [L]:</strong> Structural compliance is non-negotiable. This category audits strict statutory requirements, including the Health and Safety at Work etc. Act 1974, the Construction (Design and Management) (CDM) Regulations 2015, lifting equipment safety guidelines (LOLER), and rigorous product liability laws. Reviewing these legal variables guarantees absolute regulatory alignment, protects workers on-site, and insulates the engineering firm from catastrophic litigation risks.
-            </p>
-            <p>
-                <strong>Environmental Factors [Env]:</strong> Modern engineering must operate in absolute harmony with the natural environment. This dimension assesses extreme weather risk profiles under climate change scenarios, carbon intensity limitations, life-cycle carbon calculations, and circular-economy resource reusability policies. Evaluating these criteria ensures technical systems achieve rigorous Net-Zero carbon thresholds and satisfy local Environmental Impact Assessments (EIAs) seamlessly.
+                A PESTLE Analysis stands for Political, Economic, Social, Technological, Legal, and Environmental. It is a structured, multi-dimensional framework designed to assess external factors that influence project viability. In multi-disciplinary engineering environments, utilising PESTLE ensures that lead engineers can identify and mitigate strategic risks before committing massive Capital Expenditure (CapEx) to a project. It provides a holistic framework to evaluate risk choices that are often ignored during standard, narrow-focused design reviews, ensuring that infrastructure developments remain aligned with national policy, economic realities, and emerging environmental targets.
             </p>
 
-            <h2>Interactive Client-Side PESTLE Analysis Workbench</h2>
+            <h2>Why External Risk Scanning Matters to Your Career</h2>
             <p>
-                The interactive PESTLE Workbench below is specifically designed to help technical professionals systematically structure their macro-environmental audits. To ensure absolute confidentiality and protect sensitive client-side intellectual property, our portal implements a zero-knowledge local storage model. Your strategic notes are parsed and saved in real-time entirely within your browser sandboxed memory profiles—nothing is ever shared with external networks. Use this analytical instrument to compile robust PESTLE summaries, export clean JSON databases, or generate comprehensive AI prompts designed to expose hidden blind spots in your strategic engineering programmes.
+                As an early-career engineer or graduate technician with less than five years of industry experience, it is completely normal to focus entirely on first-principles maths and physical designs. However, senior business leaders and corporate directors need to know that you can protect company assets from unexpected market shifts. If an infrastructure project is halted due to a sudden lack of regulatory alignment, your company faces severe financial losses. Demonstrating that you can use the PESTLE framework to build structured risk logs provides absolute proof to your <strong>Professional Engineering Institution (PEI)</strong> review panel that you are ready for senior leadership during your formal <strong>Professional Review Interview (PRI)</strong>.
+            </p>
+
+            <h2>How to Complete Your Interactive PESTLE Grid Cleanly</h2>
+            <p>To build an audit-ready strategic evaluation for your registration portfolio, work methodically through the six data cards on our interactive workbench canvas:</p>
+            <ul>
+                <li><strong>Political Factors:</strong> Document government infrastructure policies, public R&D funding pipelines, or national trading tariffs. For example, note how Innovate UK clean-energy grants impact your project viability.</li>
+                <li><strong>Economic Factors:</strong> Log macro forces governing commercial feasibility, such as volatile steel or copper price spikes affecting your fixed-price tender margins.</li>
+                <li><strong>Social Factors:</strong> Track societal trends, demographic needs, and public safety expectations. Manage local community feedback to ensure your project secures public acceptance.</li>
+                <li><strong>Technological Factors:</strong> Monitor digital transformations, including the transition to automated lines, Internet of Things (IoT) asset tracking, and advanced BIM modeling protocols.</li>
+                <li><strong>Legal Factors:</strong> Verify adherence to strict statutory regulations, including the Health and Safety at Work etc. Act 1974, the Construction (Design and Management) Regulations 2015 (CDM), and product liability guidelines.</li>
+                <li><strong>Environmental Factors:</strong> Assess extreme weather risk planning, carbon output caps, and circular-economy material reuse targets to ensure your technical systems reach strict Net-Zero carbon thresholds.</li>
+            </ul>
+            <p>
+                Type your project notes directly into each card section below. To protect your commercially sensitive financial files and secret company designs, our platform uses a high-security zero-knowledge local browser architecture. Everything you write is saved natively on your own machine. Your private information is never transmitted to an external server, keeping you fully compliant with corporate Non-Disclosure Agreements (NDAs). Once you complete all sections, you can download a verified JSON backup or compile a clean tabular report to add directly to your <strong>Development Action Plan (DAP)</strong>.
             </p>
         </article>
 
@@ -330,10 +143,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -386,6 +199,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Inheritance Rules -->
@@ -411,42 +232,42 @@
                     <div class="pestle-card political-card">
                         <label class="pestle-label political-label">P: Political Factors</label>
                         <span class="form-hint">Government infrastructure policy, public R&D funding pipelines, regional tax codes, or national trading tariffs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Innovate UK clean-energy grants; public decarbonisation policy adjustments.</span></span>
-                        <textarea id="pestle_P" class="form-input" placeholder="Type political factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_P" class="form-input ee-textarea" placeholder="Type political factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Economic Card -->
                     <div class="pestle-card economic-card">
                         <label class="pestle-label economic-label">E: Economic Factors</label>
                         <span class="form-hint">Inflation impact on raw material prices, labour cost variables, energy utility tariffs, or monetary interest rates. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Volatile steel import pricing index; rising regional engineering skilled labour costs.</span></span>
-                        <textarea id="pestle_E" class="form-input" placeholder="Type economic factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_E" class="form-input ee-textarea" placeholder="Type economic factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Social Card -->
                     <div class="pestle-card social-card">
                         <label class="pestle-label social-label">S: Social Factors</label>
                         <span class="form-hint">Demographic trends, consumer behaviour transitions, localised consultation dynamics, or general public safety perception. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Heightened public concern regarding localised infrastructure projects; ageing technical workforce.</span></span>
-                        <textarea id="pestle_S" class="form-input" placeholder="Type social factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_S" class="form-input ee-textarea" placeholder="Type social factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Technological Card -->
                     <div class="pestle-card technological-card">
                         <label class="pestle-label technological-label">T: Technological Factors</label>
                         <span class="form-hint">Industry 4.0 automation, cyber-physical systems security, BIM integration levels, or IoT system monitoring developments. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Deployment of IoT predictive maintenance; BIM Level 3 modelling protocols.</span></span>
-                        <textarea id="pestle_T" class="form-input" placeholder="Type technological factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_T" class="form-input ee-textarea" placeholder="Type technological factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Legal Card -->
                     <div class="pestle-card legal-card">
                         <label class="pestle-label legal-label">L: Legal Factors</label>
                         <span class="form-hint">Health and safety statutory acts (HASAWA), CDM 2015 obligations, LOLER regulations, or patent compliance. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Strict compliance with CDM 2015 safety guidelines; product liability and CE marking rules.</span></span>
-                        <textarea id="pestle_L" class="form-input" placeholder="Type legal factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_L" class="form-input ee-textarea" placeholder="Type legal factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Environmental Card -->
                     <div class="pestle-card environmental-card">
                         <label class="pestle-label environmental-label">E: Environmental Factors</label>
                         <span class="form-hint">Extreme weather risk planning, carbon output caps, environmental audits (EIAs), or waste circular reuse policies. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Climate change resilience structures; material reuse targets; Net-Zero limits.</span></span>
-                        <textarea id="pestle_Env" class="form-input" placeholder="Type environmental factors here..." oninput="updatePreview()"></textarea>
+                        <textarea id="pestle_Env" class="form-input ee-textarea" placeholder="Type environmental factors here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -457,9 +278,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -492,6 +313,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -526,13 +348,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -614,21 +444,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -724,7 +590,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>PESTLE Analysis Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -762,11 +628,15 @@ ${script}
             </html>`;
 
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
+            if (printWindow) {
+                printWindow.document.write(html);
+                printWindow.document.close();
+            } else {
+                alert("Pop-up blocked! Unlock popup permissions to permit master document compilation sheets.");
+            }
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. STRATEGY MAP CAUSAL STACK STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .map-stack {
             display: flex;
             flex-direction: column;
@@ -153,11 +59,12 @@
             flex-direction: column;
             gap: 10px;
             position: relative;
+            border-top: 4px solid var(--border-color);
         }
-        .map-layer-card.financial-layer { border-top: 4px solid var(--burnt-orange); }
-        .map-layer-card.customer-layer { border-top: 4px solid var(--terminal-green); }
-        .map-layer-card.processes-layer { border-top: 4px solid var(--burnt-orange); }
-        .map-layer-card.growth-layer { border-top: 4px solid var(--terminal-green); }
+        .map-layer-card.financial-layer { border-top-color: var(--burnt-orange); }
+        .map-layer-card.customer-layer { border-top-color: var(--terminal-green); }
+        .map-layer-card.processes-layer { border-top-color: var(--burnt-orange); }
+        .map-layer-card.growth-layer { border-top-color: var(--terminal-green); }
 
         .map-layer-label {
             display: block;
@@ -179,26 +86,6 @@
             line-height: 1.4;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
         /* Vector Arrow indicator pointing upward showing bottom-up execution flow */
         .causal-vector-arrow {
             text-align: center;
@@ -209,67 +96,11 @@
             font-weight: bold;
         }
 
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -278,40 +109,34 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying the Balanced Scorecard Strategy Map</h1>
+            <h1>Strategic Engineering Leadership: Using the Balanced Scorecard Strategy Map</h1>
             <p>
-                To direct complex engineering enterprises and maintain sustainable industrial value, senior technical managers must operate far beyond immediate project milestones. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these exact multi-tier accountabilities under strict assessment controls. Specifically, Competence C (Responsibility, management, or leadership) and Competence E (Commitment to professional standards) demand clear proof that professional engineers can critically evaluate risk profiles, manage capital allocation pipelines, and optimise technological resource deployment across volatile market sectors.
+                As you transition from early-career design roles into senior project management, your professional focus must expand. You cannot simply look at technical metrics or financial budgets in isolation. The Engineering Council’s <strong>UK-SPEC</strong> guidelines explicitly require that registered professionals, particularly those aiming for <strong>Chartered Engineer (CEng)</strong> or <strong>Incorporated Engineer (IEng)</strong> status, demonstrate strong commercial and strategic leadership. Specifically, <strong>Competence C</strong> and <strong>Competence E</strong> demand clear proof that you can evaluate risk profiles, manage capital effectively, and lead your organisation towards long-term sustainability.
             </p>
             <p>
-                The Strategy Map framework, originally authored by Robert Kaplan and David Norton as part of the Balanced Scorecard ecosystem, is an indispensable corporate planning instrument used by technical managers to visually connect an organisation's abstract vision with actionable, day-to-day operations. Rather than treating financial performance or engineering metrics in isolation, a strategy map structures operational targets across four horizontal layers: Learning & Growth, Internal Business Processes, Customer Perspective, and Financial Strategy. It establishes explicit, bottom-up cause-and-effect chains, demonstrating exactly how investments in human capital and technological tools translate directly into compressed project lead times, enhanced client satisfaction, and maximized long-term asset yields.
-            </p>
-
-            <h2>Deconstructing the Four Performance Layers from a First-Principles Perspective</h2>
-            <p>
-                Structuring your technical operations within a Strategy Map requires an objective, bottom-up methodology. Each layer directly relies on the foundations beneath it to enable sustainable execution:
-            </p>
-            <p>
-                <strong>1. Learning & Growth Perspective (The Capabilities Foundation) [Growth]:</strong> The base layer focuses on internal human capital, information frameworks, and organizational culture. Within engineering environments, targets here look at logging specialized professional competency clearings, running formal apprentice programmes guided by registered CEng mentors, and building custom calculation scripts or automation macros. Cultivating these baseline capabilities ensures that your multi-disciplinary teams possess the advanced toolsets required to eliminate repetitive manual workflows and sustain technical excellence.
-            </p>
-            <p>
-                <strong>2. Internal Business Processes Perspective (The Operational Engine) [Processes]:</strong> This tier profiles the critical internal workflows, quality assurance gates, and statutory safety protocols needed to deliver value packages to market sectors. Strategic engineering targets in this perspective focus on achieving absolute compliance with ISO 9001 quality frameworks and ISO 45001 safety matrices, enforcing rigid configuration control and design-review gates, and establishing strict design risk assessments required under the Construction (Design and Management) (CDM) Regulations 2015. Process optimization here directly drives engineering efficiency and protects project timelines from latency.
-            </p>
-            <p>
-                <strong>3. Customer Perspective (The Market Value Proposition) [Customer]:</strong> This layer defines the specific value packages, performance metrics, and relationship parameters established with your client base. For technical consultancies and contractors, these segments encompass municipal water boards, transport authorities, or private asset infrastructure developers. Customer objectives focus on reducing client lead times through compressed engineering design loops, providing enhanced lifecycle maintainability via integrated telemetric IoT sensor layouts, and proving absolute compliance with environmental or Net-Zero carbon thresholds during framework procurement tenders.
-            </p>
-            <p>
-                <strong>4. Financial Perspective (The Commercial Yield Destination) [Financial]:</strong> The apex of the Strategy Map measures the ultimate commercial outcomes of your internal operational excellence. For senior directors, financial objectives address capital expenditure (CapEx) optimization, reducing project cost variances, protecting long-term profit margins on competitive commercial frameworks, and maximizing return on investment for R&D pipelines. This perspective translates engineering integrity into financial stability, securing the capital backing necessary to fund future technological expansions.
+                The <strong>Strategy Map</strong>, developed as a core part of the Balanced Scorecard system, is an indispensable tool that helps engineering leaders visualise how day-to-day technical actions create top-level financial results. Rather than treating safety, training, client satisfaction, and profit as separate, disconnected goals, a strategy map stacks them into a clear, bottom-up chain of cause and effect. During your <strong>Professional Review Interview (PRI)</strong>, presenting a completed strategy map proves that you understand exactly how investing in a new software tool today will directly reduce design errors tomorrow, keeping the client happy and ultimately protecting the company’s profit margin.
             </p>
 
-            <h2>Interactive Client-Side Strategy Map Workbench</h2>
+            <h2>Deconstructing the Four Performance Layers</h2>
             <p>
-                The interactive Strategy Map Expansion Workbench below is custom-engineered to help technical professionals systematically map out their corporate ventures and optimize structural design architectures. To protect highly sensitive financial records and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilizes a zero-knowledge local browser storage profile. All text inputs are parsed and stored entirely within your device's browser memory partition; no proprietary corporate details are ever transmitted to external networks. Use this tool to build comprehensive enterprise outlines, export verified JSON archives, or generate highly targeted AI system prompts engineered to expose hidden cost liabilities and insulate your strategic programmes.
+                Structuring your technical operations within a Strategy Map requires a logical, bottom-up methodology. Each layer directly supports and enables the layer above it:
+            </p>
+            <ul>
+                <li><strong>1. Learning & Growth (The Foundation):</strong> This bottom layer focuses on your team’s skills, training, and internal culture. In an engineering environment, this means funding formal apprentice programmes, investing in new CAD software, and actively mentoring junior staff towards professional registration. If your team is highly trained, your internal processes will naturally improve.</li>
+                <li><strong>2. Internal Business Processes (The Operational Engine):</strong> This layer tracks how well you actually do the work. Strategic targets here involve achieving flawless compliance with ISO 9001 quality frameworks, strictly enforcing drawing revision controls, and executing rigorous safety risk assessments under the Construction (Design and Management) Regulations 2015 (CDM). Excellent internal processes directly prevent client delays.</li>
+                <li><strong>3. Customer Perspective (The Market Value):</strong> This layer measures how your clients see you. For technical consultancies, targets include reducing project lead times, providing better communication, and proving absolute compliance with environmental or Net-Zero carbon thresholds. Happy customers are the direct result of flawless internal processes.</li>
+                <li><strong>4. Financial Perspective (The Commercial Yield):</strong> The top of the map measures ultimate commercial success. For engineering directors, this means optimising Capital Expenditure (CapEx), protecting long-term profit margins on competitive bids, and generating steady revenue. You cannot achieve this financial success without mastering the three layers below it.</li>
+            </ul>
+
+            <h2>Secure Local Storage and Unified Strategy Verification</h2>
+            <p>
+                Because corporate strategy maps handle highly confidential financial goals and sensitive operational targets, this portal enforces an absolute, zero-knowledge local browser architecture. Your strategic text segments are processed and saved entirely within your own device's memory partition. No proprietary corporate details are ever transmitted to our external networks, guaranteeing complete compliance with your corporate Non-Disclosure Agreements (NDAs). Use this tool to build comprehensive enterprise outlines, export verified JSON archives, or generate highly targeted AI system prompts engineered to expose hidden strategic gaps.
             </p>
         </article>
 
@@ -382,6 +207,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -407,7 +240,7 @@
                     <div class="map-layer-card financial-layer">
                         <label class="map-layer-label financial-label">4. Financial Perspective (Commercial Yields)</label>
                         <span class="form-hint">Long-term value targets, cost reduction paths, CapEx optimization metrics, commercial framework viability goals. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Maximize R&D capital return; insulate corporate profit margins on public infrastructure tenders by 12%.</span></span>
-                        <textarea id="map_Financial" class="form-input" placeholder="Define high-level financial objectives here..." oninput="updatePreview()"></textarea>
+                        <textarea id="map_Financial" class="ee-textarea form-input" placeholder="Define high-level financial objectives here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <div class="causal-vector-arrow">▲</div>
@@ -416,7 +249,7 @@
                     <div class="map-layer-card customer-layer">
                         <label class="map-layer-label customer-label">3. Customer Perspective (Value Propositions)</label>
                         <span class="form-hint">Client satisfaction matrices, engineering design cycle reductions, lifecycle maintenance transparency goals. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Compress engineering design loops by 25% using cloud protocols; deliver predictive IoT telemetrics frameworks.</span></span>
-                        <textarea id="map_Customer" class="form-input" placeholder="Define customer and market client objectives here..." oninput="updatePreview()"></textarea>
+                        <textarea id="map_Customer" class="ee-textarea form-input" placeholder="Define customer and market client objectives here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <div class="causal-vector-arrow">▲</div>
@@ -425,7 +258,7 @@
                     <div class="map-layer-card processes-layer">
                         <label class="map-layer-label processes-label">2. Internal Business Processes Perspective (Operational Excellence)</label>
                         <span class="form-hint">ISO 9001/45001 compliance standards, configuration management control gates, CDM safety design risk assessments. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Standardise all drawing control pipelines; eliminate manual validation steps through code verification.</span></span>
-                        <textarea id="map_Processes" class="form-input" placeholder="Define internal process and quality assurance goals here..." oninput="updatePreview()"></textarea>
+                        <textarea id="map_Processes" class="ee-textarea form-input" placeholder="Define internal process and quality assurance goals here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <div class="causal-vector-arrow">▲</div>
@@ -434,7 +267,7 @@
                     <div class="map-layer-card growth-layer">
                         <label class="map-layer-label growth-layer">1. Learning & Growth Perspective (Capabilities & Human Capital)</label>
                         <span class="form-hint">Specialized technical training plans, custom calculation script macros, registered CEng mentor architectures. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Train 5 senior engineers on high-fidelity CFD scripts; log formal apprentice competency paths.</span></span>
-                        <textarea id="map_Growth" class="form-input" placeholder="Define learning, growth, and core technology capability goals here..." oninput="updatePreview()"></textarea>
+                        <textarea id="map_Growth" class="ee-textarea form-input" placeholder="Define learning, growth, and core technology capability goals here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -445,9 +278,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -478,6 +311,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -512,13 +346,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -593,21 +435,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-btn');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -693,7 +571,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Strategy Map Strategic Alignment Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -735,6 +613,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

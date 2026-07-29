@@ -23,11 +23,11 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/sponsors.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -53,115 +53,7 @@
 
     <style>
         /* --- TOOL-SPECIFIC OVERRIDES & STANDARDISED PLATFORM TAXONOMY --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Strict Levelling Badges matching the master framework template */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
+        /* Local styling strictly limited to bespoke visual card boundaries to protect global layout inheritance */
         .ee-card {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
@@ -170,17 +62,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
         }
-
-        .ee-form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .ee-form-row { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body onload="initApp()">
@@ -188,20 +69,20 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Professional Registration Sponsor & Mentor Architecture</h1>
-            <p>The formal validation of your engineering competence does not exist in an isolated vacuum. To ensure the utmost professional integrity of the UK Standard for Professional Engineering Competence (UK-SPEC), the Engineering Council rigidly mandates that all applications submitted for Chartered Engineer (CEng), Incorporated Engineer (IEng), and Engineering Technician (EngTech) tiers be formally scrutinised and endorsed by certified verification sponsors. These sponsors act as the ultimate quality assurance gatekeepers for the licensed professional institutions, explicitly confirming that the technical evidence matrices and operational engineering narratives you have provided inside your submission draft are factually accurate, ethically sound, and completely indicative of true professional maturity.</p>
+            <p><strong>What is this step?</strong> The validation of your engineering competence does not exist in an isolated vacuum. To ensure the utmost professional integrity of the UK Standard for Professional Engineering Competence (<strong>UK-SPEC</strong>), the <strong>Engineering Council</strong> rigidly mandates that all applications submitted for Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), and Engineering Technician (<strong>EngTech</strong>) tiers be formally scrutinised and endorsed by certified verification sponsors. These sponsors act as the ultimate quality assurance gatekeepers for your chosen <strong>Professional Engineering Institution (PEI)</strong>. They explicitly confirm that the technical evidence matrices and operational engineering narratives you have provided inside your submission draft are factually accurate, ethically sound, and completely indicative of true professional maturity.</p>
             
             <h2>Selecting and Aligning the Lead Sponsor</h2>
-            <p>Your designated Lead Sponsor plays the most critical validation and audit role throughout your entire application journey. Institutional assessment guidelines rigidly demand that this specific individual must be currently registered as an active professional with an Engineering Council-licensed body (such as the IMechE, IET, Institute of Physics, or ICE) at the exact professional tier you are targeting, or higher. Consequently, a candidate mapping a portfolio toward CEng registration must secure a Lead Sponsor who already holds active CEng status or stands as an elected Fellow of an approved institution (e.g., FIMechE, FIET). The Lead Sponsor is personally responsible for reviewing your compiled evidence for Competencies A through E in comprehensive detail, confirming that your theoretical approach, engineering execution, and leadership footprint meet institutional review thresholds before formal submission handles are unlocked.</p>
+            <p><strong>Why does it matter to your career?</strong> Your designated Lead Sponsor plays the most critical validation and audit role throughout your entire application journey. Institutional assessment guidelines demand that this specific individual must be currently registered as an active professional with an Engineering Council-licensed body at the exact professional tier you are targeting, or higher. Consequently, a candidate mapping a portfolio toward CEng registration must secure a Lead Sponsor who already holds active CEng status or stands as an elected Fellow of an approved institution (e.g., FIMechE, FIET). The Lead Sponsor is personally responsible for reviewing your compiled evidence for Competencies A through E in comprehensive detail. They confirm that your theoretical approach, engineering execution, and leadership footprint meet institutional review thresholds before your formal review handles are unlocked. Securing this signature proves your capabilities are respected by senior peers.</p>
             
             <h2>The Operational Role of the Secondary Sponsor</h2>
-            <p>While your primary Lead Sponsor directly verifies your professional registration tier alignment, your Secondary Sponsor is typically positioned to provide immediate operational and commercial verification within your current corporate workspace. In the vast majority of application scenarios, this role is fulfilled by your direct line manager, an active engineering mentor, or a Senior Project Director who actively oversees your daily engineering operations and output. Although it remains highly advantageous and preferred if this secondary individual is also professionally registered with the Engineering Council, it is not an absolute institutional mandate, provided that your core Lead Sponsor strictly satisfies all independent tier-accreditation parameters. The Secondary Sponsor’s formal endorsement acts to validate your precise level of operational autonomy, your direct management of engineering project budgets, and your day-to-day commitment to safe systems of work under the Health and Safety at Work Act (UK-SPEC Competence E2).</p>
+            <p><strong>How do you complete it cleanly?</strong> While your primary Lead Sponsor directly verifies your professional registration tier alignment, your Secondary Sponsor is typically positioned to provide immediate operational and commercial verification within your current corporate workspace. In the vast majority of application scenarios, this role is fulfilled by your direct line manager, an active engineering mentor, or a Senior Project Director who oversees your daily engineering operations and output. Although it remains highly advantageous and preferred if this secondary individual is also professionally registered with the Engineering Council, it is not an absolute institutional mandate, provided that your core Lead Sponsor strictly satisfies all independent tier-accreditation parameters. The Secondary Sponsor's formal endorsement acts to validate your precise level of operational autonomy, your direct management of engineering project budgets, and your day-to-day commitment to safe systems of work under the Health and Safety at Work Act (UK-SPEC Competence E2). You fill this out by collecting precise registration metrics from your advocates and recording them inside this workbench.</p>
             
             <h2>The Critical Distinction Between Mentorship and Sponsorship</h2>
             <p>It is vital for candidates to draw a clear architectural distinction between an engineering Mentor and a formal validation Sponsor. An engineering Mentor provides continuous, development-focused guidance over months or years, helping you systematically identify skill gaps, review engineering report structures, and shape your forward-looking Development Action Plan (DAP). A Sponsor, by contrast, performs a strict verification audit at the point of application submission. While your active Mentor may frequently step up to act as your formal Sponsor during the final configuration phases, their operational role during the submission sequence transitions entirely from developmental coaching to strict, objective verification of your absolute UK-SPEC readiness.</p>
@@ -264,9 +145,9 @@
                 <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Sponsors Architect</h1>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Registration Verification Management</p>
             </div>
-            <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()" style="min-height: 48px;">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()" style="min-height: 48px;">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -332,9 +213,12 @@
         </div>
 
         <div class="ee-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
                 <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.2rem; border-bottom: none; margin: 0; padding: 0;">Compiled Output</h2>
-                <button class="action-btn action-btn-outline" style="min-height: 32px; padding: 4px 12px; font-size: 0.8rem;" onclick="copySponsors()">📋 Copy to Clipboard</button>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="action-btn" onclick="copySponsors()" style="min-height: 48px;">📋 Copy to Clipboard</button>
+                    <button type="button" class="action-btn action-btn-ghost" onclick="clearCanvas()" style="min-height: 48px;">🗑️ Clear Canvas</button>
+                </div>
             </div>
             
             <textarea id="sponsorsOutput" class="ee-textarea" style="min-height: 200px; font-family: monospace; font-size: 0.95rem; line-height: 1.6;" readonly>Configure your sponsors above. The compiled data will appear here securely.</textarea>
@@ -342,7 +226,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_sponsors"; 
@@ -397,6 +281,7 @@
             updateNavigationBadges();
         }
 
+        // Real-time auto-save keystroke mechanism tracking state fields dynamically
         function triggerSave() {
             appState.s1 = { 
                 n: document.getElementById('sp1_name').value, 
@@ -534,7 +419,8 @@
                 if (s >= 2) countL2Plus++;
             });
             const isHubReady = (countL3Plus >= 3 && countL2Plus === 5 && hasCV && hasDAP && hasSponsors);
-            document.getElementById('badge_hub').innerHTML = getTickHTML(isHubReady);
+            const hubBadge = document.getElementById('badge_hub');
+            if (hubBadge) hubBadge.innerHTML = getTickHTML(isHubReady);
         }
 
         function exportEEData() {
@@ -577,7 +463,37 @@
 
         function copySponsors() {
             const text = document.getElementById('sponsorsOutput').value;
-            navigator.clipboard.writeText(text).then(() => { alert("Sponsor payload copied to clipboard!"); });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { alert("Sponsor payload copied to clipboard!"); });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert("Sponsor payload copied to clipboard!");
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function clearCanvas() {
+            if (confirm("Confirm action: permanently purge all text inputs from the Sponsors Architect canvas?")) {
+                document.getElementById('sp1_name').value = '';
+                document.getElementById('sp1_comp').value = '';
+                document.getElementById('sp1_job').value = '';
+                document.getElementById('sp1_reg').value = '';
+                document.getElementById('sp2_name').value = '';
+                document.getElementById('sp2_comp').value = '';
+                document.getElementById('sp2_job').value = '';
+                document.getElementById('sp2_reg').value = 'None';
+                triggerSave();
+            }
         }
 
         window.addEventListener('load', () => {

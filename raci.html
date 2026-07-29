@@ -14,8 +14,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="samples.js?v=21.7"></script> 
+    <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="samples.js?v=22.0"></script> 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     
     <script type="application/ld+json">
@@ -41,12 +42,9 @@
     }
     </script>
     <style>
-        /* --- MASTER UI ENFORCEMENT & ARIAL COMPLIANCE --- */
-        body, button, input, select, textarea, table, th, td, .tool-h1, .thick-content h1, .thick-content h2, .thick-content p, .audit-msg {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        body { overflow-x: hidden; background: var(--midnight-navy); }
+        /* --- TOOL SPECIFIC INTERACTION COMPONENTS --- */
+        /* Local layout controls strictly limited to bespoke workspace elements to protect centralized CSS inheritance */
+        body { overflow-x: hidden; }
         
         .main-container {
             max-width: 1400px;
@@ -54,33 +52,6 @@
             padding: 0 20px;
         }
 
-        /* --- THEMATIC ACCESSIBILITY NARRATIVE BLOCK --- */
-        .thick-content {
-            padding: 25px 5% 45px 5%;
-            color: var(--cloud-white);
-            line-height: 1.75;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        /* --- DASHBOARD MECHANICS --- */
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1fr 320px 1fr;
@@ -147,7 +118,7 @@
             height: auto;
         }
 
-        .btn-row { display: flex; gap: 10px; margin-bottom: 5px; }
+        .btn-row { display: flex; gap: 10px; margin-bottom: 5px; flex-wrap: wrap; }
 
         /* --- REDESIGNED HIGH-CONTRAST HISTORY BUTTONS --- */
         .btn-history { 
@@ -377,6 +348,19 @@
         .legend-item { display: flex; align-items: center; gap: 8px; }
         .legend-box { width: 20px; height: 20px; border: 1px solid var(--border-color); border-radius: 4px; }
 
+        .btn-ai { border-color: var(--border-color) !important; }
+        .btn-ai:hover { color: var(--ee-terminal-green) !important; }
+
+        /* Bespoke overrides for dynamic tools_data header block text elements */
+        .tool-header h1.tool-h1 { font-size: 1.5rem; text-transform: uppercase; color: var(--terminal-green); margin-bottom: 12px; font-weight: 700; display: block; border-bottom: none; padding-bottom: 0; }
+        .tool-header p.tool-desc { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: var(--cloud-white); }
+        .tool-header .header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 15px; text-align: left; }
+        @media (max-width: 768px) { .tool-header .header-grid { grid-template-columns: 1fr; } }
+        .tool-header h4 { color: var(--burnt-orange); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+        .tool-header .tool-list { padding-left: 20px; font-size: 0.95rem; line-height: 1.6; color: var(--cloud-white); list-style-type: square; }
+        .tool-header .tool-list li { margin-bottom: 8px; }
+        .tool-header .privacy-badge { display: none !important; }
+
         @media (max-width: 1200px) {
             .dashboard-grid { grid-template-columns: 1fr; }
             .dash-panel-center { order: -1; }
@@ -384,23 +368,24 @@
     </style>
 </head>
 <body onload="initApp()">
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
 
     <div class="main-container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Operational Matrix Management & Project Accountabilities Framework</h1>
-            <p>Within the modern engineering sector, structural execution velocity and multi-disciplinary project delivery failures are rarely caused by a deficit in pure technical calculations. Instead, the primary failure mode stems from systemic communication breakdowns, overlapping authority lines, and ambiguous divisions of labor. To directly resolve these governance friction points and satisfy the stringent requirements of the Engineering Council's <strong>UK Standard for Professional Engineering Competence (UK-SPEC) Competence C (Responsibility, Management, and Leadership)</strong>, engineering leaders deploy structured deployment metrics, primarily the RACI Accountability Matrix framework.</p>
             
-            <h2>Deconstructing the Governance Architecture: R, A, C, and I</h2>
-            <p>A RACI Matrix is an analytical project management instrument that assigns precise operational boundaries to team members across distinct lifecycle tasks, deliverables, or milestones. The framework classifies engagement parameters into four explicit vectors. <strong>Responsible (R)</strong> indicates the individuals who actively execute the engineering task, operating as the practical 'doers' of the work. <strong>Accountable (A)</strong> establishes absolute structural ownership; this single person possesses final approval authority, signs off on compliance gateways, and carries the ultimate commercial and safety risk. <strong>Consulted (C)</strong> designates subject matter experts or statutory stakeholders whose specialized input is integrated into the workflow prior to task execution. Finally, <strong>Informed (I)</strong> represents cross-functional leads or clients who require immediate visibility of output results but do not participate in design loops.</p>
+            <h2>Introduction to Technical Responsibility Mapping</h2>
+            <p><strong>What is this step?</strong> Building an operational accountability matrix means organizing your engineering project teams to ensure every technical task possesses clear boundaries. Transitioning into higher engineering tiers requires managing multi-disciplinary workloads systematically. This RACI builder replaces ambiguous project tracking sheets with a clean layout interface. It serves as an open-access preparation tool to document your management choices cleanly, helping you prove your leadership abilities before initiating formal peer reviews.</p>
+            
+            <h2>Why Accountability Verification Accelerates Engineering Careers</h2>
+            <p><strong>Why does it matter to your career?</strong> Achieving professional registration with the <strong>Engineering Council</strong> demands strong commercial awareness and personal governance skills. Under the <strong>UK-SPEC</strong> guidelines, candidates seeking Chartered Engineer (<strong>CEng</strong>) or Incorporated Engineer (<strong>IEng</strong>) status must prove they can lead teams and optimize resources. This matrix directly supports your <strong>Competence C</strong> and <strong>Competence D</strong> evidence. It shows assessors that you can manage design risks, resolve team conflicts, and protect public safety under active Construction (Design and Management) regulations, preventing costly delays in your career growth.</p>
+            <p>During your institutional <strong>Professional Review Interview (PRI)</strong>, assessors will check your application logs to verify your level of personal autonomy. A common mistake made by many developers is describing project milestones using the collective word "we." This tool reinforces individual responsibility. By proving that you spotted process rows missing an Accountable owner and introduced value-engineering corrections, you provide robust proof of technical stewardship, showing your chosen <strong>Professional Engineering Institution (PEI)</strong> that you are ready for senior leadership advancement.</p>
 
-            <h2>The Golden Rule of Operational Governance</h2>
-            <p>When engineering professionals evaluate system reliability, they mandate redundancy loops to mitigate component failure. However, within project management governance, human redundancy creates severe ambiguity. Therefore, the absolute golden rule of matrix configuration stipulates that for every defined activity, there must be <strong>only one</strong> designated 'Accountable' entity. Splitting accountability across multiple engineering departments creates decision paralysis, dilutes ownership profiles, and obscures the operational audit trail. Conversely, an activity lacking a defined 'A' represents an unmanaged operational hazard. Multiple team members can safely share 'Responsible' status, but the commercial risk validation loop must terminate at a single point of signature.</p>
-
-            <h2>Demonstrating Leadership via Zero-Knowledge Architecture</h2>
-            <p>Proactively mapping out project deliverables against these strict accountability vectors provides direct evidence for CEng and IEng candidates during their Professional Review Interview (PRI). It explicitly proves a candidate's capacity to manage budgets, organize teams, and navigate compliance parameters such as the Construction (Design and Management) Regulations 2015 (CDM 2015). To preserve absolute commercial data security and respect industrial non-disclosure agreements, this framework operates entirely through an isolated client-side storage architecture. All text streams, role descriptions, and cell maps are parsed locally within the browser cache layer, meaning no proprietary project metadata or corporate hierarchies are ever transmitted to external cloud systems. Utilize our automated matrix builder configuration suite below to dynamically initialize your institutional engineering template.</p>
+            <h2>How to Fulfill Your Governance Matrix Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To build your matrix successfully, select one of our pre-configured industrial templates or use the cell selectors to map roles manually. Ensure that every single row has exactly <strong>one Accountable (A)</strong> owner to terminate risk loops safely, while sharing <strong>Responsible (R)</strong> execution roles across team engineers. Our internal parsing monitor audits your inputs in real-time, instantly highlighting violations in red to ensure your framework remains healthy and aligned with long-term <strong>Development Action Plan (DAP)</strong> goals.</p>
+            <p>Your commercial data is fully secure because our platform handles entries entirely using zero-knowledge client-side local browser storage. Everything you map is cached inside your device's browser memory and is never shared with external networks, matching your employer's Non-Disclosure Agreements (NDAs) completely. Remember to download your completed files regularly using our image or CSV export buttons to protect your configurations from accidental browser clearance loops.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -410,6 +395,44 @@
                 data-ad-client="ca-pub-7071036534151105"
                 data-ad-slot="4413012282"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Context-Aware Pathway Breadcrumb Bar -->
+        <nav class="ee-horizontal-nav" aria-label="CPD & Reference Sub-Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="cpd.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_cpd"></div>
+                <span class="tab-label">CPD Hub</span>
+            </a>
+            <a href="planner.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_planner"></div>
+                <span class="tab-label">CPD Planner</span>
+            </a>
+            <a href="decoder.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_decoder"></div>
+                <span class="tab-label">Decoder</span>
+            </a>
+            <a href="raci.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_raci"></div>
+                <span class="tab-label">RACI Builder</span>
+            </a>
+            <a href="resources.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_resources"></div>
+                <span class="tab-label">Resources</span>
+            </a>
+        </nav>
+
+        <!-- Dynamic Overview Summary Component Block Injected Cleanly Below Breadcrumbs -->
+        <div class="master-cta-box" style="text-align: left; margin-top: 10px; margin-bottom: 25px;">
+            <!-- Target anchor populated securely by tools_data.js script hooks -->
+            <div id="tool-header-target" class="tool-header"></div>
+        </div>
+
+        <!-- Tool Header Interface Matching Standard Layout Registration -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">RACI Matrix Builder</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Project Governance & Management Interface</p>
+            </div>
         </div>
 
         <!-- Dashboard Command Layer -->
@@ -426,14 +449,14 @@
                         <div class="btn-row">
                             <button id="btnUndo" class="action-btn btn-history" onclick="performUndo()" disabled title="Undo last state modification (Ctrl+Z)">↶</button>
                             <button id="btnRedo" class="action-btn btn-history" onclick="performRedo()" disabled title="Redo wiped state modification (Ctrl+Y)">↷</button>
-                            <button class="action-btn action-btn-ghost" style="flex: 1;" onclick="clearMatrix()">Reset Layout</button>
+                            <button class="action-btn action-btn-ghost" style="flex: 1; min-height: 48px;" onclick="clearMatrix()">Reset Layout</button>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label">Initialize Engineering Template</label>
-                        <div style="display:flex; gap:10px; align-items: stretch;">
-                            <select id="scenarioSelect" class="ee-select dash-select">
+                        <div style="display:flex; gap:10px; align-items: stretch; flex-wrap: wrap;">
+                            <select id="scenarioSelect" class="ee-select dash-select" style="flex: 1; min-width: 180px;">
                                 <option value="custom">-- Custom / Blank Slate --</option>
                                 <optgroup label="Engineering Projects">
                                     <option value="technical">Technical Design Phase</option>
@@ -454,7 +477,7 @@
                                     <option value="conf">Technical Conference Execution</option>
                                 </optgroup>
                             </select>
-                            <button class="action-btn" style="flex:0 0 70px;" onclick="loadScenario()">Load</button>
+                            <button class="action-btn" style="flex:0 0 70px; min-height: 48px;" onclick="loadScenario()">Load</button>
                         </div>
                     </div>
                 </div>
@@ -483,8 +506,9 @@
                     
                     <div class="dash-label" style="margin-top:12px;">>> 3. DATA ACQUISITION & EXPORT</div>
                     <div class="btn-row">
-                        <button class="action-btn" style="flex: 1;" onclick="exportImage()">📸 Export PNG</button>
-                        <button class="action-btn action-btn-ghost" style="flex: 1;" onclick="exportCSV()">📄 Export CSV</button>
+                        <button class="action-btn" style="flex: 1; min-height: 48px;" onclick="exportImage()">📸 Export PNG</button>
+                        <button class="action-btn action-btn-ghost" style="flex: 1; min-height: 48px;" onclick="exportCSV()">📄 Export CSV</button>
+                        <button class="action-btn btn-ai" id="aiBtn" style="flex: 1; min-height: 48px; width: 100%;" onclick="generateAiCoachPrompt()">✨ AI Coach Prompt</button>
                     </div>
                 </div>
             </div>
@@ -520,7 +544,7 @@
 
     </div>
 
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 
     <script>
         const EE_TOOL_ID = "ee_raci_matrix_state";
@@ -723,6 +747,7 @@
                 loadScenario('technical', true); 
             }
             evaluateHistoryUIControls();
+            updateNavigationBadges();
         }
 
         function executeUICompilation() {
@@ -999,6 +1024,93 @@
                 } catch(err) { console.error("Cache parsing mismatch caught.", err); }
             }
             return false;
+        }
+
+        // --- PLATFORM DIAGNOSTIC STATE ENGINE ---
+        function getTickHTML(isComplete) {
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+        }
+
+        function updateNavigationBadges() {
+            const hasGridContent = tasks.length > 0;
+            const raciBadge = document.getElementById('badge_raci');
+            if (raciBadge) {
+                raciBadge.innerHTML = getTickHTML(hasGridContent);
+            }
+
+            // Check sibling state tokens across local cache files to synchronize breadcrumb check indicators
+            const siblingTools = {
+                'cpd': 'ee_cpd_hub_master',
+                'planner': 'ee_cpd_planner_state',
+                'decoder': 'ee_acronym_decoder_session_log', // Fallback context proxy check
+                'resources': 'ee_resources_bookmarks'
+            };
+
+            Object.keys(siblingTools).forEach(key => {
+                const badgeDOM = document.getElementById(`badge_${key}`);
+                if (badgeDOM) {
+                    const cache = localStorage.getItem(siblingTools[key]);
+                    let hasCache = false;
+                    if (cache) {
+                        try {
+                            const parsed = JSON.parse(cache);
+                            hasCache = Object.values(parsed).some(val => typeof val === 'string' && val.trim().length > 0);
+                        } catch(e) {
+                            hasCache = cache.trim().length > 0;
+                        }
+                    }
+                    badgeDOM.innerHTML = getTickHTML(hasCache);
+                }
+            });
+        }
+
+        function generateAiCoachPrompt() {
+            if (tasks.length === 0) {
+                alert("Please ensure your RACI matrix has active deliverables mapped before compiling a prompt.");
+                return;
+            }
+
+            let matrixDump = "=== ACTIVE RACI MATRIX GOVERNANCE TRACE ===\n";
+            matrixDump += `Operational Roles Matrix: [${roles.join(', ')}]\n\n`;
+            tasks.forEach((t, idx) => {
+                matrixDump += `Deliverable ${idx + 1}: ${t.name}\n`;
+                roles.forEach((r, rIdx) => {
+                    matrixDump += `- Role: ${r} -> Status: ${t.r[rIdx] || 'Unassigned'}\n`;
+                });
+                matrixDump += '\n';
+            });
+
+            const basePrompt = `[ROLE] You are acting as a Senior Engineering Operations Director, Compliance Lead, and professional UK-SPEC assessor.
+[GOAL] Critically evaluate this active RACI matrix governance trace mapped for an engineering project workstream. 1. Audit whether the distribution of accountabilities avoids decision paralysis or structural void hazards. 2. Verify if the framework effectively demonstrates technical stewardship suitable for UK-SPEC Competence C benchmarks. 3. Formulate one high-stress probing question to test my operational bounds based on this matrix structure.
+[SOURCE LOG Payload]
+"""
+${matrixDump}
+"""
+[EXPECTATION] Do not modify or write the matrix for me. Provide sharp, objective practical critique and request confirmation section-by-section.`;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(basePrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED!";
+                    setTimeout(() => { btn.innerText = "✨ AI Coach Prompt"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = basePrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED!";
+                    setTimeout(() => { btn.innerText = "✨ AI Coach Prompt"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access blocked. Please copy text contents manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
     </script>
 </body>

@@ -20,8 +20,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,101 +41,7 @@
     </script>
     
     <style>
-        /* --- 1. GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        /* Protects `.header-page-title` from contrast-breaking global color overrides */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- 2. BCG MATRIX GRID STYLING --- */
+        /* --- DYNAMIC FRAMEWORK STACK STYLING (Bespoke Tool Overrides) --- */
         .bcg-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -183,87 +89,11 @@
             line-height: 1.4;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- 3. COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px; /* Accessible touch target target bounding box */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0; /* Terminal green glow text */
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
@@ -272,40 +102,34 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Strategic Engineering Leadership: Deploying the BCG Matrix Portfolio Framework</h1>
+            <h1>Engineering Strategy and Portfolio Management: The BCG Matrix</h1>
             <p>
-                To direct complex engineering enterprises and maintain institutional value, senior technical managers must operate far beyond immediate project milestones. The Engineering Council's UK Standard for Professional Engineering Competence (UK-SPEC) structures these exact multi-tier accountabilities under strict assessment controls. Specifically, Competence C (Responsibility, management, or leadership) demands clear proof that candidates can successfully manage capital allocation profiles, balance resource pools, and justify continuous investment trends to commercial stakeholders.
+                As you progress in your career from completing technical designs into engineering management, you must learn how to balance your company's investments. The Engineering Council's <strong>UK-SPEC</strong> guidelines require registered <strong>Chartered Engineer (CEng)</strong> and <strong>Incorporated Engineer (IEng)</strong> professionals to demonstrate strong commercial leadership. Specifically, <strong>Competence C</strong> and <strong>Competence E</strong> demand that you understand how to manage capital budgets, balance team resources, and justify financial decisions to senior stakeholders.
             </p>
             <p>
-                The BCG Matrix (Boston Consulting Group Growth-Share Matrix) is an essential corporate planning instrument designed to evaluate an organisation's technical product lines, engineering service divisions, or independent asset classes. By plotting these business units across two core axes—Market Growth Rate and Relative Market Share—engineering directors can systematically assess cash generation and consumption dynamics. It transforms asset review processes from intuitive estimations into quantitative lifecycle strategies, preventing organisations from over-funding legacy projects while missing critical windows for modern technological expansion.
+                To do this without guessing, business leaders use the <strong>BCG Matrix</strong> (Boston Consulting Group Growth-Share Matrix). This tool helps you look at all the different products, projects, or services your engineering department offers and groups them into four simple categories based on market growth and market share. This stops your company from wasting money on dead projects and ensures you safely fund the technologies of the future. During your <strong>Professional Review Interview (PRI)</strong>, assessors will expect you to think like a director. Showing that you use the BCG Matrix proves you understand how to protect corporate assets.
             </p>
 
-            <h2>Analise the Four Portfolio Quadrants</h2>
+            <h2>Understanding the Four Growth Quadrants</h2>
             <p>
                 Structuring your technical divisions within the BCG framework requires objective data analysis. Here is how each of the four core matrix quadrants directly maps to complex engineering operations:
             </p>
-            <p>
-                <strong>1. Stars (High Growth, High Share) [Stars]:</strong> Star divisions represent leading technical capabilities operating within fast-growing industrial sectors. For instance, an engineering consultancy's green hydrogen pipeline design group or an automated EV battery diagnostic line falls under this quadrant. Stars consume immense cash resources to support continuous research and development (R&D), build specialized lab facilities, and secure top-tier engineering talent. However, they are vital for long-term growth, eventually maturing into high-yield financial engines as market growth rates stabilize.
-            </p>
-            <p>
-                <strong>2. Cash Cows (Low Growth, High Share) [Cash Cows]:</strong> Cash Cows are dominant market leaders operating within mature, slow-growing industrial sectors. In engineering contexts, these divisions typically encompass standard structural concrete design, asset maintenance software contracts, or traditional component manufacturing lines. Because these divisions possess optimized tooling, established supply links, and a settled customer base, their capital requirements are minimal. The substantial cash flows generated by these Cows must be extracted and strategically redirected to fund the development of high-potential growth units.
-            </p>
-            <p>
-                <strong>3. Question Marks (High Growth, Low Share) [Question Marks]:</strong> Question Marks, or Problem Children, are technical assets positioned in rapidly expanding markets where the firm has not yet captured a dominant share. Examples include nascent corporate ventures into generative AI design automation or drone-based subsea pipeline inspection services. These units consume massive capital infusions to compete with established operators. Engineering managers must critically evaluate these units to determine if additional funding will successfully convert them into market-leading Stars, or if resource constraints mandate immediate divestment.
-            </p>
-            <p>
-                <strong>4. Dogs (Low Growth, Low Share) [Dogs]:</strong> Dogs are business segments or product classes occupying stagnant or declining markets with negligible market share. In modern engineering contexts, Dogs often manifest as legacy maintenance divisions for obsolete hardware architectures or specialized toolsets tied to phased-out fuel systems. These groups often consume disproportionate overhead costs while delivering minimal returns. Strategic technical leaders utilize this quadrant to justify rationalization, liquidation, or restructuring plans, ensuring corporate assets are diverted to high-margin technical programs.
-            </p>
+            <ul>
+                <li><strong>Stars (High Growth, High Share):</strong> These are your market-leading projects in fast-growing sectors. Think of a booming green energy design team. They bring in strong revenue but require massive capital investment (CapEx) to keep growing and maintain their lead.</li>
+                <li><strong>Cash Cows (Low Growth, High Share):</strong> These are your steady, reliable services in mature markets, like legacy maintenance contracts or standard steelwork drawings. They do not need much investment, so you extract their strong profits to fund your Stars and Question Marks.</li>
+                <li><strong>Question Marks (High Growth, Low Share):</strong> These are risky new ventures in booming markets, like a brand-new AI structural software tool. You must carefully decide whether to invest heavily to turn them into Stars, or cut their funding before they drain your budget.</li>
+                <li><strong>Dogs (Low Growth, Low Share):</strong> These are failing or obsolete product lines. In engineering, this is often a hardware maintenance division for phased-out machinery. You should shut these down or restructure them to save money and free up valuable engineering hours.</li>
+            </ul>
 
-            <h2>Interactive Client-Side BCG Matrix Workbench</h2>
+            <h2>Secure Local Storage and Unified Strategy Verification</h2>
             <p>
-                The interactive BCG Workbench below is custom-engineered to help engineering managers systematically profile their portfolio segments and optimize capital allocations. To protect highly sensitive financial records and maintain absolute compliance with corporate non-disclosure agreements (NDAs), this workbench utilizes a zero-knowledge local browser storage design. All text inputs are parsed and stored entirely within your device's browser memory partition; no proprietary corporate details are ever transmitted to external networks. Use this tool to build comprehensive portfolio outlines, export verified JSON archives, or compile highly targeted AI prompts designed to audit your strategic corporate assumptions.
+                Because portfolio budgets and strategic business plans are highly confidential, this workbench operates using strict zero-knowledge local browser storage. Your text inputs and strategic notes are saved securely on your own device's internal memory. They are never transmitted to our external servers, ensuring you remain completely compliant with your employer's Non-Disclosure Agreements (NDAs). Use the tool below to structure your logic, export verified JSON archives, and generate a clean audit report for your portfolio.
             </p>
         </article>
 
@@ -320,10 +144,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="Strategy & Business Planning Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="strategy.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_strategy"></div>
                 <span class="tab-label">Strategy</span>
@@ -376,6 +200,14 @@
                 <div class="tab-badge-container" id="badge_map"></div>
                 <span class="tab-label">Strategy Map</span>
             </a>
+            <a href="strategy-budgets.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_budgets"></div>
+                <span class="tab-label">Budgets</span>
+            </a>
+            <a href="strategy-gantt.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_gantt"></div>
+                <span class="tab-label">Gantt</span>
+            </a>
         </nav>
 
         <!-- Tool Header Interface Matching Standard Layout Registration -->
@@ -401,28 +233,28 @@
                     <div class="bcg-card stars-card">
                         <label class="bcg-label stars-label">⭐ Stars (High Growth, High Share)</label>
                         <span class="form-hint">Market-leading segments operating in rapid-growth sectors. High cash generation but requires continuous investment to maintain dominance. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Green hydrogen design group; automated grid-integration consultancy.</span></span>
-                        <textarea id="bcg_Stars" class="form-input" placeholder="Type Star business segments here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bcg_Stars" class="ee-textarea form-input" placeholder="Type Star business segments here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Question Marks Card -->
                     <div class="bcg-card questions-card">
                         <label class="bcg-label questions-label">❓ Question Marks (High Growth, Low Share)</label>
                         <span class="form-hint">Ventures in high-growth markets where market share is currently small. High capital consumption; requires clear strategic decisions to invest or divest. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Generative AI design automation scripts; subsea drone infrastructure trials.</span></span>
-                        <textarea id="bcg_Questions" class="form-input" placeholder="Type Question Mark business segments here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bcg_Questions" class="ee-textarea form-input" placeholder="Type Question Mark business segments here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Cash Cows Card -->
                     <div class="bcg-card cows-card">
                         <label class="bcg-label cows-label">🐄 Cash Cows (Low Growth, High Share)</label>
                         <span class="form-hint">Dominant market leaders in slow-growth sectors. Generates high, consistent cash surpluses with low capital reinvestment needs. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Standard structural concrete design services; long-term asset maintenance contracts.</span></span>
-                        <textarea id="bcg_Cows" class="form-input" placeholder="Type Cash Cow business segments here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bcg_Cows" class="ee-textarea form-input" placeholder="Type Cash Cow business segments here..." oninput="updatePreview()"></textarea>
                     </div>
 
                     <!-- Dogs Card -->
                     <div class="bcg-card dogs-card">
                         <label class="bcg-label dogs-label">🐕 Dogs (Low Growth, Low Share)</label>
                         <span class="form-hint">Segments in stagnant or declining markets with minimal market share. Consumes disproportionate management overhead; prime candidates for rationalisation or exit. <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Legacy maintenance contracts for obsolete industrial hardware components.</span></span>
-                        <textarea id="bcg_Dogs" class="form-input" placeholder="Type Dog business segments here..." oninput="updatePreview()"></textarea>
+                        <textarea id="bcg_Dogs" class="ee-textarea form-input" placeholder="Type Dog business segments here..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -433,9 +265,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()" style="width: 100%;">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()" style="width: 100%;">✨ AI EXAMPLE PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px; width: 100%; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile live matrix preview...</div>
@@ -466,6 +298,7 @@
                 }
             }
             updatePreview();
+            updateNavigationBadges();
         }
 
         // --- 3. VERIFICATION BADGE ENGINE ---
@@ -500,13 +333,21 @@
                 'blue_ocean': 'ee_strategy_blue-ocean',
                 'bmc': 'ee_strategy_bmc',
                 'soar': 'ee_strategy_soar',
-                'map': 'ee_strategy_map'
+                'map': 'ee_strategy_map',
+                'budgets': 'ee_strategy_budgets',
+                'gantt': 'ee_strategy_gantt_projects'
             };
 
             Object.keys(toolsMap).forEach(key => {
                 const badgeEl = document.getElementById(`badge_${key}`);
                 if (badgeEl) {
-                    const isComplete = checkToolContent(toolsMap[key]);
+                    let isComplete = false;
+                    if (key === 'gantt') {
+                        const ganttData = localStorage.getItem(toolsMap[key]);
+                        if (ganttData && ganttData.length > 10) isComplete = true;
+                    } else {
+                        isComplete = checkToolContent(toolsMap[key]);
+                    }
                     badgeEl.innerHTML = getTickHTML(isComplete);
                 }
             });
@@ -578,21 +419,57 @@ ${script}
 """
 [EXPECTATION] Do not write or complete the whole document for the user. Evaluate the text critically. Ask for specific missing data, highlight vulnerabilities, and request confirmation section-by-section.`;
 
-            navigator.clipboard.writeText(metaPrompt).then(() => {
-                const btn = document.getElementById('aiBtn');
-                btn.innerText = ">> COPIED! PASTE INTO LLM";
-                setTimeout(() => { updatePreview(); }, 3000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(metaPrompt).then(() => {
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = metaPrompt;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.getElementById('aiBtn');
+                    btn.innerText = ">> COPIED! PASTE INTO LLM";
+                    setTimeout(() => { updatePreview(); }, 3000);
+                } catch (err) {
+                    alert("Clipboard access denied. Please copy the prompt manually.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 6. CLIPBOARD MECHANICS ---
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
-            navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
-                setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => { 
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const btn = document.querySelector('.action-bar button');
+                    btn.innerText = "✔️ COPIED!";
+                    setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
+                } catch (err) {
+                    alert("Clipboard access denied.");
+                }
+                document.body.removeChild(textArea);
+            }
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
@@ -678,7 +555,7 @@ ${script}
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>BCG Matrix Portfolio Report</h1>
                 <p><em>Framework: Strategy & Business Planning // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
@@ -713,6 +590,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>
