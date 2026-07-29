@@ -9,7 +9,7 @@
     <meta name="description" content="The Professional Engineering Registration Portal. Track, validate, and manage your entire application journey for CEng, IEng, and EngTech status.">
     <meta name="keywords" content="Professional Registration, Mentor Hub, Chartered Engineer, CEng, Incorporated Engineer, IEng, Engineering Technician, EngTech, UK-SPEC, Engineering Council, Portfolio Review">
     <meta property="og:title" content="Professional Registration Gateway Hub | Empowering Engineers UK">
-    <meta property="og:description" content="The central directory and live verification command dashboard for auditing your professional engineering portfolio.">
+    <meta property="og:description" content="The central directory and live verification dashboard for auditing your professional engineering portfolio.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/mentor.html">
     <meta property="og:type" content="website">
@@ -23,11 +23,11 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/mentor.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
@@ -35,7 +35,7 @@
       "@type": "WebApplication",
       "name": "Professional Registration Hub",
       "url": "https://www.empoweringengineers.uk/mentor.html",
-      "description": "The master entry portal and dynamic tracking cockpit for professional engineering registration paths under the UK-SPEC guidelines.",
+      "description": "The master entry portal and dynamic tracking index for professional engineering registration paths under the UK-SPEC guidelines.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "All",
       "publisher": {
@@ -49,212 +49,35 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Interactive Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 3px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.05);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Professional Engineering Registration Gateway & Mentor Command Hub</h1>
-            <p>Welcome to the master gateway directory for validating and auditing your engineering credentials against the formal standard. Earning an internationally recognized title through the <a href="https://www.engc.org.uk/" target="_blank" rel="noopener">Engineering Council</a> stands as the definitive benchmark of technical competence, professional ethics, and operational leadership. The UK Standard for Professional Engineering Competence (UK-SPEC) establishes a strict regulatory framework that evaluates candidates across five core categories, mapping from theoretical knowledge parameters (Competence A) to unshakeable safety advocacy and institutional commitment (Competence E). This platform acts as your secure offline command cockpit, giving you the administrative tools required to manage, preview, and optimize your portfolio files before formal institutional submission handles are triggered.</p>
+            <h2>What is Professional Engineering Registration?</h2>
+            <p>Professional engineering registration is the formal verification process used to measure your daily engineering skills against national benchmarks. Earning an internationally recognized title from the <strong>Engineering Council</strong> stands as the definitive proof of your technical competence, safety commitment, and professional ethics. This primary gateway hub serves as your central directory layout. It helps you systematically organize and build your evidence blocks before submitting them to a licensed <strong>Professional Engineering Institution (PEI)</strong>, such as the IMechE, IET, or ICE. The <strong>UK Standard for Professional Engineering Competence (UK-SPEC)</strong> outlines the core requirements you must meet across five distinct areas, covering everything from technical knowledge to safe public leadership.</p>
             
-            <h2>Understanding the Multi-Tier Pathway Options</h2>
-            <p>Professional registration is explicitly divided into three target tiers, each tailored to your specific workplace autonomy and scope of design engineering accountability:</p>
-            <ul>
-                <li><strong>Chartered Engineer (CEng): Systemic Innovation.</strong> Tailored specifically for engineers who develop technological solutions to unusual or challenging problems using first principles. This standard demands authoritative management of advanced technologies, complex multi-disciplinary budgets, and system-wide design optimization risk arrays.</li>
-                <li><strong>Incorporated Engineer (IEng): Operational Excellence.</strong> Designed for technical leaders who manage and maintain applications of current and developing technologies. This pathway concentrates heavily on the continuous improvement, commissioning, construction, and optimization of established engineering paradigms.</li>
-                <li><strong>Engineering Technician (EngTech): Practical Execution.</strong> Aimed at front-line professionals who apply proven techniques and procedures to solve practical engineering challenges. This registration emphasizes absolute proficiency in safe field execution, asset troubleshooting, and strict adherence to process quality codes.</li>
-            </ul>
-            
-            <h2>Executing the Empowering Engineers UK Compilation Sequence</h2>
-            <p>To successfully pass your institutional Professional Review Interview (PRI), your portfolio must function as an integrated, highly quantitative document system. Our system relies on a sequential build architecture to maximize structural density: first, map your complete baseline background metrics within the CV Builder workspace. Second, input your detailed engineering narratives across your selected A-E Trackers using the STAR methodology (Situation, Task, Action, Result) to isolate your specific personal interventions. Third, establish your forward-looking 70/20/10 career timeline in the DAP Architect, and fourth, register your certified lead mentors within the Sponsors module to unlock final compilation tools.</p>
+            <h2>Why Becoming Registered Matters to Your Engineering Career</h2>
+            <p>Achieving registration as an Engineering Technician (<strong>EngTech</strong>), Incorporated Engineer (<strong>IEng</strong>), or Chartered Engineer (<strong>CEng</strong>) is a significant milestone that accelerates your career goals. Securing your professional title opens doors to higher project budgets, senior project management positions, and competitive salary increases. Early-career engineers often focus completely on basic CAD modifications, software testing loops, or localized site calculations. However, institutional review boards evaluate your wider professional accountability and independent decision-making during a live <strong>Professional Review Interview (PRI)</strong>. Using these trackers ensures you prove your personal contributions clearly, showing reviewers exactly what you calculated, analyzed, or authorized on site.</p>
 
-            <h2>Secure Local Storage and Multi-Track Progress Verification</h2>
-            <p>To safeguard your professional metadata and shield confidential project reports from data intercept bugs or unexpected connection loss, the platform implements a secure, client-side, zero-knowledge local storage architecture. Your entries and personal profile metrics are compiled entirely within your browser cache, maintaining complete data sovereignty and absolute compliance with corporate Non-Disclosure Agreements (NDAs). Use our **Live Track Audit Dashboard** below to instantly select your target tier and evaluate your global compliance indicators in real-time.</p>
+            <h2>Choosing the Right Registration Pathway Tier</h2>
+            <p>Before drafting your application text, you must choose the specific registration tier that matches your current workplace autonomy and scope of design engineering duties:</p>
+            <ul>
+                <li><strong>Chartered Engineer (CEng):</strong> Built for technical leads who develop innovative solutions to unusual or challenging problems using first-principles mathematics. This standard demands independent management of advanced technologies, complex budgets, and system-wide design risks.</li>
+                <li><strong>Incorporated Engineer (IEng):</strong> Tailored for professionals who manage and maintain applications of current and developing technologies. This pathway concentrates heavily on equipment commissioning, operational safety, and continuous process improvement frameworks.</li>
+                <li><strong>Engineering Technician (EngTech):</strong> Aimed at front-line specialists who apply proven techniques and procedures to solve practical engineering challenges, emphasizing technical troubleshooting and strict adherence to process quality codes.</li>
+            </ul>
+
+            <h2>How Do You Complete This Module Cleanly?</h2>
+            <p>We have engineered this gatekeeper portal to guide you sequentially through your portfolio development. Treat this workspace as your real-time tracking matrix. First, use the <strong>Career Summary CV Builder</strong> to outline your employment timeline, listing your management scopes and asset authorizations. Second, proceed through the <strong>UK-SPEC Competency Trackers</strong> for your target tier to input your detailed case studies. Always write your text entries using the structured <strong>STAR Methodology</strong> (Situation, Task, Action, Result) to clearly isolate your personal technical steps. Third, establish your forward-looking training timeline in the <strong>Development Action Plan (DAP)</strong> module. Finally, register your certified lead mentors inside the Application Sponsors card to unlock final compilation steps.</p>
+            <p>Type your information directly into the workbenches. To safeguard your commercially sensitive project data and protect proprietary corporate files, our platform runs entirely on a secure <strong>zero-knowledge client-side browser architecture</strong>. Your profile text and technical notes are saved automatically onto your own device every few seconds. This preserves total data privacy, keeps your work safe from connection dropouts, and satisfies your corporate non-disclosure agreements (NDAs). Use the path context drop-down menu below to select your chosen track, monitor your real-time level scores on the horizontal navigation bar, and compile your master report cleanly.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -267,8 +90,12 @@
         </div>
 
         <!-- Dynamic Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" id="platformPathnav" aria-label="Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-            <a href="ceng.html" id="link_hub" class="ee-horizontal-tab active" style="text-decoration: none;">
+        <nav class="ee-horizontal-nav" id="platformPathnav" aria-label="Application Pathway" style="margin-bottom: 30px; border-bottom: 1px dashed var(--border-color);">
+            <a href="mentor.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Mentor Gateway</span>
+            </a>
+            <a href="ceng.html" id="link_hub" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">Hub Overview</span>
             </a>
@@ -310,7 +137,7 @@
         <div class="header-actions">
             <div>
                 <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Registration Gatekeeper</h1>
-                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Live Track Audit Dashboard Engine</p>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Live Track Audit Dashboard Matrix</p>
             </div>
             <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
                 <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Select Pathway Context:</label>
@@ -389,7 +216,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_mentor_gateway";

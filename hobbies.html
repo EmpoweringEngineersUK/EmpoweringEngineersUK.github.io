@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="The Master Extracurricular Competence & Hobbies Hub. Monitor, cross-reference, and leverage your STEM volunteering, strategic chess tracking, poetic craft metrics, and physical endurance portfolios to validate UK-SPEC Competencies D and E.">
-    <meta name="keywords" content="STEM Volunteering, Engineering Hobbies, Chess Log, Poetic Craft Matrix, Calisthenics Training, Acronym Blitz, UK-SPEC Competence D, UK-SPEC Competence E, Personal Development">
+    <meta name="description" content="The Master Extracurricular Competence & Hobbies Hub. Monitor, cross-reference, and leverage your STEM volunteering, strategic chess tracking, performance craft metrics, and physical endurance portfolios to validate UK-SPEC Competencies D and E.">
+    <meta name="keywords" content="STEM Volunteering, Engineering Hobbies, Chess Log, Performance Craft Matrix, Calisthenics Training, Acronym Blitz, UK-SPEC Competence D, UK-SPEC Competence E, Personal Development">
     <meta property="og:title" content="Extracurricular Competence & Hobbies Hub | Empowering Engineers UK">
     <meta property="og:description" content="The master entryway and performance validation gateway for engineering extracurricular development vectors under Engineering Council guidelines.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
@@ -23,11 +23,11 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/hobbies.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/verb.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=22.0"></script>
+    <script src="https://empoweringengineersuk.github.io/samples.js?v=22.0"></script>
 
     <script type="application/ld+json">
     {
@@ -49,248 +49,33 @@
       }
     }
     </script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES & WORKSPACE MECHANICS --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-        
-        .thick-content {
-            padding: 25px 5% 45px 5%;
-            color: var(--cloud-white);
-            line-height: 1.75;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Navigation with Top-Mounted Diagnostic Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 14px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 6px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab:hover, .ee-horizontal-nav .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-nav .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* High Contrast Square Status Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: var(--dark-card);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 20px;
-            height: 20px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 15px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 12px;
-        }
-        
-        /* Command Center Cockpit Layout Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .hub-card:hover {
-            transform: translateY(-4px);
-            border-top-color: var(--terminal-green);
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hub-card-desc {
-            color: var(--slate-grey);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        /* High Density Sub-Link List Module */
-        .sub-link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .sub-link-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 12px;
-            background: var(--midnight-navy);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 0.88rem;
-            text-decoration: none;
-            color: var(--cloud-white);
-            font-weight: 700;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-        .sub-link-item:hover {
-            border-color: var(--terminal-green);
-            background-color: var(--hover-green);
-        }
-
-        .sub-link-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.04);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(3, 247, 160, 0.05);
-        }
-    </style>
 </head>
 <body onload="initApp()">
     <!-- Purge corrupted repository navigation cache layers instantly before content binding loops -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Cross-Disciplinary Competence: Validating Engineering Excellence Through Extracurricular Portfolios</h1>
-            <p>Welcome to the master gateway and development index for extracurricular engineering alignment and creative competence validation. Transitioning into executive industrial tiers, corporate directorships, or principal consulting roles requires engineers to present a well-rounded professional profile that goes beyond pure technical calculations. Under the Engineering Council’s UK-SPEC framework, candidates are heavily scrutinized regarding their holistic influence over society, professional communication, and self-governed discipline. Specifically, <strong>Competence D (Communication and interpersonal skills)</strong> and <strong>Competence E (Personal commitment to professional standards)</strong> mandate that engineers possess a proven capability to articulate complex ideas, guide communities, and maintain peak mental and physical resilience.</p>
             
-            <h2>The Cognitive Engineering Moat: Connecting Personal Mastery to Workplace Output</h2>
-            <p>Elite engineers recognize that professional capability does not stop when they step out of the laboratory or project office. Engaging with distinct, self-directed extracurricular pursuits acts as a cognitive accelerator that directly improves professional output. For example, organizing regional STEM outreach programs provides direct evidence of community leadership, stakeholder management, and public education infrastructure coordination. Similarly, analyzing strategic branching vectors in chess refines real-time algorithmic risk-mitigation skills, a cognitive asset that transfers directly to evaluating failure modes in high-hazard industrial systems.</p>
-            <p>By compiling your extracurricular performance metrics across our five custom modules, you translate alternative pursuits into clear evidence lines. This structured approach proves to institutional review panels and corporate recruiters that your leadership capabilities are driven by comprehensive personal mastery and cross-disciplinary agility.</p>
+            <h2>Understanding the Extracurricular Competence Framework</h2>
+            <p><strong>What is this step?</strong> Building an extracurricular competence profile means organizing and recording your personal activities, community volunteering work, and mental training outside of your day-to-day work tasks. Many graduate engineers believe that professional registration only focuses on structural designs or mathematics equations. However, the Engineering Council requires a well-rounded professional profile. This master hub serves as a central workspace to align your alternative achievements with institutional guidelines. It translates your personal activities into clear, structured evidence pathways, helping you track your developmental updates accurately.</p>
+            
+            <h2>Why Extracurricular Activities Matter to Your Engineering Career</h2>
+            <p><strong>Why does it matter to your career?</strong> When you present your application portfolio to a Professional Review Interview (<strong>PRI</strong>) panel for Chartered Engineer (<strong>CEng</strong>) or Incorporated Engineer (<strong>IEng</strong>) status, assessors look closely at your personal commitment. Under <strong>UK-SPEC Competence D</strong> and <strong>Competence E</strong>, you must prove you can communicate effectively with different audiences, manage projects responsibly, and uphold ethical industry standards. Demonstrating consistent leadership in community outreach programs shows that you can direct teams and engage stakeholders under real-world conditions. These alternative experiences provide powerful proof of your professional maturity when workplace projects are restricted by commercial confidentiality agreements, giving you a competitive edge during job application reviews.</p>
 
-            <h2>Refining Communication and Resilience: Vocal Cadence and Physical Stamina</h2>
-            <p>Safety-critical project delivery depends entirely on an engineer's ability to remain calm and communicate clearly during operational incidents. Developing these communication skills requires practice outside of formal technical report formats. Exploring structural cadence variation through spoken word poetry or creative writing workbenches helps engineers master public speaking, refine emotional intelligence, and translate data into engaging narratives. Furthermore, maintaining strict calisthenics training tracks builds the physical stamina, ergonomic awareness, and focus required to manage extended site sweeps and high-pressure project deadlines. Documenting these diverse activities creates a robust continuous professional development (CPD) asset track, reinforcing your professional standing while supporting complete alignment with long-term career goals.</p>
+            <h3>Driving Leadership, Strategic Foresight, and Personal Resilience</h3>
+            <p>Engaging with structured, self-directed pursuits outside of work builds a cognitive asset moat that protects your delivery paths from performance dropouts. For instance, running regional STEM outreach programs validates your public communication capabilities and safety management skills. Likewise, analyzing tactical branching variations in competitive chess trains your mind to spot structural vulnerabilities and manage risk parameters under pressure. These cognitive habits improve your technical approach to complex hazard identification loops in heavy industrial facilities, sharpening your foresight during critical design reviews.</p>
+            <p>Furthermore, mastering presentation pacing in our Performance Studio refines your vocal clarity and emotional intelligence. This ensures you can deliver high-pressure engineering proposals or defend design modifications before local planning councils cleanly. Additionally, tracking physical endurance metrics through calisthenics training logs proves you have the physical stamina and self-discipline needed to manage intensive site sweeps and satisfy safety criteria, reinforcing your long-term career resilience completely.</p>
 
-            <h2>Absolute Data Sovereignty via Local Client-Side Execution Layer</h2>
-            <p>Acknowledging that lead engineers, project management consultants, and professional registration candidates regularly process personal identifiable data, unique creative works, and confidential volunteering logs, this hub enforces a strict, zero-knowledge local browser architecture. Every strategy chess log step, STEM volunteering hours entry, and poetic craft matrix analysis line you input is handled completely within your local device's isolated storage boundaries. No personnel parameters or creative datasets are ever transmitted across external computing networks, guaranteeing absolute data sovereignty and full compliance with corporate non-disclosure agreements (NDAs). Use our **Live Hobbies Command Subsystem** below to navigate our five specialized workbenches and monitor your documentation milestones in real-time.</p>
+            <h2>How to Fulfill and Track Your Progress Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To track your extracurricular progress successfully, use our five specialized workbenches below to log your activities, volunteering hours, and performance milestones systematically. Select a target training pathway using our active dropdown menu to open its optimized workspace engine. Ensure you describe your personal actions clearly using active verbs to highlight your direct influence over each project outcome. Collecting these records inside a unified continuous professional development (CPD) asset track streamlines your final application preparation.</p>
+            <p>Your personal data is entirely secure because our platform operates on a zero-knowledge client-side local storage protocol. Everything you log is saved inside your browser cache memory and is never shared with external cloud networks. This guarantees complete confidentiality and maintains absolute alignment with employer non-disclosure agreements (NDAs). Remember to use our integrated JSON backup tools to save your data packages regularly, protecting your hard work from accidental browser clearances completely.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -320,9 +105,9 @@
                 <div class="tab-badge-container" id="badge_nav_chess"></div>
                 <span class="tab-label">Chess</span>
             </a>
-            <a href="poetry.html" class="ee-horizontal-tab" style="text-decoration: none;">
+            <a href="performing.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_poetry"></div>
-                <span class="tab-label">Poetry</span>
+                <span class="tab-label">Performance</span>
             </a>
             <a href="calisthenics.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_nav_calisthenics"></div>
@@ -345,7 +130,7 @@
                 <select class="ee-select" id="hobbyContextSelect" style="min-width: 240px; min-height: 48px; background: var(--input-bg);" onchange="switchHobbyContext()">
                     <option value="stem">STEM Community Outreach</option>
                     <option value="chess">Strategic Chess Logging</option>
-                    <option value="poetry">Poetic Craft & Lyric Matrix</option>
+                    <option value="poetry">Performance Studio Workspace</option>
                 </select>
                 <button type="button" class="action-btn" style="min-height: 48px;" onclick="generateMasterHobbyReport()">📸 Compile Extracurricular Report</button>
             </div>
@@ -355,7 +140,7 @@
         <div class="master-cta-box">
             <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.4rem; margin-top: 0; margin-bottom: 12px;">Active Extracurricular Competence Profiling</h2>
             <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 780px; margin-left: auto; margin-right: auto;">
-                Select your chosen alternative training pathway via the context selector block above to instantly open the primary optimized development workspace engine.
+                Select your chosen alternative training pathway via the context selector block above to instantly open the primary optimised development workspace engine.
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <button type="button" id="btnLaunchHobbyWorkspace" class="action-btn" style="min-height: 52px; font-size: 1rem; padding: 0 25px;" onclick="routeToHobbyWorkspace()">Launch STEM Volunteering Portal →</button>
@@ -371,7 +156,7 @@
                     <span>1. STEM Outreach</span>
                     <span id="check_branch_stem"></span>
                 </div>
-                <p class="hub-card-desc">Log your public community engagement hours, organize educational infrastructure, and gather clear evidence for UK-SPEC Competence E criteria registers.</p>
+                <p class="hub-card-desc">Log your public community engagement hours, organise educational infrastructure, and gather clear evidence for UK-SPEC Competence E criteria registers.</p>
                 <div class="sub-link-list">
                     <a href="stem.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_hobby_stem"></span> STEM Volunteering</span> <span>&rarr;</span></a>
                 </div>
@@ -394,14 +179,14 @@
             <!-- Category Card 3: Performing Poetry -->
             <div class="hub-card">
                 <div class="hub-card-title">
-                    <span>3. Poetic Craft Matrix</span>
+                    <span>3. Performance Studio</span>
                     <span id="check_branch_poetry"></span>
                 </div>
-                <p class="hub-card-desc">Quantify structural cadence variation, analyze rhythm pulse indexes, and build live spoken word performance setlists to improve public delivery.</p>
+                <p class="hub-card-desc">Quantify structural cadence variation, analyse rhythm pulse indexes, and build live spoken word performance setlists to improve public delivery.</p>
                 <div class="sub-link-list">
-                    <a href="poetry.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_hobby_poetry"></span> Poetry & Lyric Suite</span> <span>&rarr;</span></a>
+                    <a href="performing.html" class="sub-link-item"><span class="sub-link-label"><span id="tick_hobby_poetry"></span> Performance Studio</span> <span>&rarr;</span></a>
                 </div>
-                <a href="poetry.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">Open Poetry Workbench</a>
+                <a href="performing.html" class="action-btn action-btn-ghost" style="text-decoration: none; text-align: center; width: 100%;">Open Performance Studio</a>
             </div>
 
             <!-- Category Card 4: Calisthenics Training -->
@@ -434,7 +219,7 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // Unique operational module namespace string
@@ -454,8 +239,8 @@
                 targetedHobbyUrl = "chess.html";
                 actionBtnDOM.innerText = "Launch Strategic Chess Log →";
             } else if (contextFlag === "poetry") {
-                targetedHobbyUrl = "poetry.html";
-                actionBtnDOM.innerText = "Launch Poetic Craft Workbench →";
+                targetedHobbyUrl = "performing.html";
+                actionBtnDOM.innerText = "Launch Performance Studio Workspace →";
             }
             
             // Retain choice parameters within standard sandbox memory string to guarantee state resilience
@@ -494,7 +279,7 @@
             const taxonomyMasterRegistry = {
                 stem: [{ id: 'stem', key: 'ee_hobby_stem_state' }],
                 chess: [{ id: 'chess', key: 'ee_hobby_chess_state' }],
-                poetry: [{ id: 'poetry', key: 'ee_master_state' }],
+                poetry: [{ id: 'poetry', key: 'ee_performing_suite' }],
                 calisthenics: [{ id: 'calisthenics', key: 'ee_hobby_calisthenics_state' }],
                 blitz: [{ id: 'blitz', key: 'EE_BLITZ_BLITZ_SCORE' }]
             };

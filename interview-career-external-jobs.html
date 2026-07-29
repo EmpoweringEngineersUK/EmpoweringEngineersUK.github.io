@@ -1,818 +1,1014 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simulate competitive corporate engineering job interviews. Timed competency and technical stress questions for Graduate, Senior, and Principal roles with an integrated browser voice recorder and AI-ready prompt compiler.">
-    <meta name="keywords" content="Engineering Job Interview, Corporate Engineering Roles, Technical Interview Preparation, STAR Technique, Engineering Management, Engineering Consultant, Voice Recorder">
-    <meta property="og:title" content="External Corporate Career Interviews | Empowering Engineers UK">
-    <meta property="og:description" content="Simulate competitive corporate engineering job interviews. Timed competency and technical stress questions for Graduate, Senior, and Principal roles with an integrated browser voice recorder and AI-ready prompt compiler.">
-    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
-    <meta property="og:url" content="https://www.empoweringengineers.uk/interview-career-external-jobs.html">
-    <meta property="og:type" content="website">
-    
-    <title>External Job Interviews | Empowering Engineers UK</title>
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    
-    <link rel="canonical" href="https://www.empoweringengineers.uk/interview-career-external-jobs.html" />
-    
-    <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    
-    <!-- Central Question Pool Database Asset Linkage -->
-    <script src="questions.js?v=21.7"></script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Corporate Engineering Interview Simulator",
-      "url": "https://www.empoweringengineers.uk/interview-career-external-jobs.html",
-      "description": "An interactive, client-side corporate interview simulator evaluating engineers against technical depth, operational efficiency, and commercial acumen benchmarks.",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Empowering Engineers UK",
-        "url": "https://www.empoweringengineers.uk/"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP"
-      }
-    }
-    </script>
-    
-    <style>
-        /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
-        .interview-container {
-            max-width: 900px;
-            width: 100%;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+ <meta charset="UTF-8">
+ <meta name="google-site-verification" content="4GyVwwXjnuImroLJo5KG8WUsojJfExF4gV0EM7Uk0Y4" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-        .screen-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .screen-card.recording-active {
-            border-color: var(--burnt-orange);
-            background: rgba(192, 86, 33, 0.03);
-        }
+ <!-- Advanced AEO/GEO & SEO Meta Data -->
+ <meta name="description" content="Simulate competitive corporate engineering job interviews and discover verified UKVI licensed visa sponsors. Filter engineering firms for Skilled Worker sponsorships.">
+ <meta name="keywords" content="Engineering Job Interview, Corporate Engineering Roles, Visa Sponsor UK, Skilled Worker Visa, UKVI Sponsor Register, Technical Interview Preparation, STAR Technique, CV Builder">
+ <meta property="og:title" content="External Corporate Career Interviews & Visa Sponsors | Empowering Engineers UK">
+ <meta property="og:description" content="Simulate competitive corporate engineering job interviews and navigate the official UKVI licensed sponsor register effortlessly to secure your engineering career.">
+ <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+ <meta property="og:url" content="https://www.empoweringengineers.uk/interview-career-external-jobs.html">
+ <meta property="og:type" content="website">
+ 
+ <title>External Job Interviews & Visa Sponsors | Empowering Engineers UK</title>
+ 
+ <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+ <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+ <link rel="manifest" href="site.webmanifest">
+ 
+ <link rel="canonical" href="https://www.empoweringengineers.uk/interview-career-external-jobs.html" />
+ 
+ <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
+ <link rel="stylesheet" href="layout.css?v=22.0">
+ 
+ <!-- Central Question Pool Database Asset Linkage -->
+ <script src="questions.js?v=22.0"></script>
+ 
+ <!-- Engineering Sector Specialism Alignment & Corporate Website Directory Mapping Layer -->
+ <script src="ukvisasponsorcompanies.js?v=22.0"></script>
+ 
+ <script type="application/ld+json">
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Corporate Engineering Interview Simulator & Visa Sponsor Tracker",
+  "url": "https://www.empoweringengineers.uk/interview-career-external-jobs.html",
+  "description": "An interactive corporate interview simulator and dynamic filtering matrix to help international engineering graduates query the UKVI register of licensed sponsors.",
+  "applicationCategory": "EmploymentApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "publisher": {
+   "@type": "Organization",
+   "name": "Empowering Engineers UK",
+   "url": "https://www.empoweringengineers.uk/"
+  },
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "GBP"
+  }
+ }
+ </script>
+ 
+ <style>
+ /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
+ .interview-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+ }
 
-        .category-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--ee-dark-blue);
-            color: var(--terminal-green);
-            border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+ .screen-card {
+  background: var(--dark-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+ }
+ 
+ .screen-card.recording-active {
+  border-color: var(--burnt-orange);
+  background: rgba(192, 86, 33, 0.03);
+ }
 
-        .progress-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: var(--slate-grey);
-            font-family: monospace;
-            font-weight: bold;
-            font-size: 1rem;
-            display: none;
-        }
+ .category-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--ee-dark-blue);
+  color: var(--ee-terminal-green);
+  border: 1px solid var(--border-color);
+  padding: 5px 12px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+ }
 
-        .question-text {
-            font-size: 1.6rem;
-            line-height: 1.4;
-            color: var(--cloud-white);
-            margin: 30px 0 15px 0;
-            font-weight: bold;
-        }
-        
-        .paraphrase-text {
-            font-size: 1.2rem;
-            line-height: 1.4;
-            color: var(--burnt-orange);
-            margin: 0 0 20px 0;
-            font-weight: bold;
-            font-style: italic;
-            display: none;
-            animation: textFadeInEngine 0.5s ease-in;
-        }
+ .progress-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--slate-grey);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  display: none;
+ }
 
-        @keyframes textFadeInEngine {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .helper-text {
-            font-size: 0.95rem;
-            color: var(--slate-grey);
-            margin-bottom: 20px;
-            max-width: 85%;
-            line-height: 1.6;
-        }
+ .question-text {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--cloud-white);
+  margin: 30px 0 15px 0;
+  font-weight: bold;
+ }
+ 
+ .paraphrase-text {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--burnt-orange);
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  font-style: italic;
+  display: none;
+  animation: textFadeInEngine 0.5s ease-in;
+ }
 
-        .coach-note {
-            color: var(--cloud-white);
-            background: var(--hover-green);
-            border: 1px dashed var(--border-color);
-            padding: 12px 18px;
-            border-radius: 6px;
-        }
+ @keyframes textFadeInEngine {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+ }
+ 
+ .helper-text {
+  font-size: 0.95rem;
+  color: var(--slate-grey);
+  margin-bottom: 20px;
+  max-width: 85%;
+  line-height: 1.6;
+ }
 
-        /* --- VISUAL RECORDER DECK MODULE STYLES --- */
-        .recorder-deck {
-            width: 100%;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px 20px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+ .coach-note {
+  color: var(--cloud-white);
+  background: var(--hover-green);
+  border: 1px dashed var(--border-color);
+  padding: 12px 18px;
+  border-radius: 6px;
+ }
 
-        .recorder-status-block {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+ /* --- VISUAL RECORDER DECK MODULE STYLES --- */
+ .recorder-deck {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+ }
 
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--slate-grey);
-            transition: background 0.3s ease;
-        }
+ .recorder-status-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ }
 
-        .status-dot.active-red {
-            background: #d63031;
-            animation: pulseRecordDot 1s infinite;
-        }
+ .status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--slate-grey);
+  transition: background 0.3s ease;
+ }
 
-        @keyframes pulseRecordDot {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+ .status-dot.active-red {
+  background: #d63031;
+  animation: pulseRecordDot 1s infinite;
+ }
 
-        .status-text-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--slate-grey);
-        }
+ @keyframes pulseRecordDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+ }
 
-        .status-text-label.active-red {
-            color: #d63031;
-        }
+ .status-text-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--slate-grey);
+ }
 
-        .timer-display {
-            font-family: monospace; 
-            font-size: 2.8rem;
-            color: var(--slate-grey);
-            margin-top: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .timer-display.recording { 
-            color: var(--burnt-orange); 
-            animation: pulseActiveTimer 1s infinite; 
-        }
+ .status-text-label.active-red {
+  color: #d63031;
+ }
 
-        @keyframes pulseActiveTimer { 
-            0% { opacity: 1; } 
-            50% { opacity: 0.4; } 
-            100% { opacity: 1; } 
-        }
+ .timer-display {
+  font-family: monospace; 
+  font-size: 2.8rem;
+  color: var(--slate-grey);
+  margin-top: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+ }
+ .timer-display.recording { 
+  color: var(--burnt-orange); 
+  animation: pulseActiveTimer 1s infinite; 
+ }
 
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
+ @keyframes pulseActiveTimer { 
+  0% { opacity: 1; } 
+  50% { opacity: 0.4; } 
+  100% { opacity: 1; } 
+ }
 
-        .workspace-area {
-            display: none;
-            width: 100%;
-            margin-top: 20px;
-            flex-direction: column;
-            gap: 20px;
-        }
+ .controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 25px;
+ }
 
-        .ai-text {
-            width: 100%;
-            background: var(--input-bg);
-            color: var(--cloud-white);
-            font-family: monospace;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 15px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            box-sizing: border-box;
-            resize: vertical;
-            line-height: 1.5;
-        }
-        
-        body[data-theme="dark"] .ai-text {
-            color: var(--terminal-green);
-        }
+ .workspace-area {
+  display: none;
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: column;
+  gap: 20px;
+ }
 
-        /* --- THICK CONTENT NARRATIVE LINKAGE COMPLIANCE --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Heading colour bound to context-aware adaptive standard variable to fix light-theme visibility */
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        
-        .thick-content ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        
-        .thick-content li {
-            margin-bottom: 8px;
-        }
-        
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
+ .ai-text {
+  width: 100%;
+  background: var(--input-bg);
+  color: var(--cloud-white);
+  font-family: monospace;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 15px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+  line-height: 1.5;
+ }
+ 
+ body[data-theme="dark"] .ai-text {
+  color: var(--terminal-green);
+ }
 
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
+ /* --- THICK CONTENT NARRATIVE LINKAGE COMPLIANCE --- */
+ .thick-content {
+  padding: 20px 5% 40px 5%;
+  color: var(--cloud-white);
+  line-height: 1.7;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 30px;
+  background: var(--dark-card);
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+ }
+ 
+ .thick-content h1, .thick-content h2, .thick-content h3 {
+  color: var(--terminal-green);
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 15px;
+ }
+ 
+ .thick-content p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+ }
+ 
+ .thick-content ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+ }
+ 
+ .thick-content li {
+  margin-bottom: 8px;
+ }
+ 
+ /* Standardised Horizontal Navigation with Badge Integration */
+ .ee-horizontal-nav {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 2px;
+ }
 
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
+ .ee-horizontal-tab {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  color: var(--slate-grey) !important;
+  padding: 10px 12px 10px 12px !important;
+  min-height: 58px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -2px;
+  gap: 8px;
+ }
 
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
+ .ee-horizontal-tab span.tab-label {
+  display: block;
+  margin-top: auto;
+ }
 
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
+ .tab-badge-container {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+ }
 
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
+ .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
+  background-color: var(--hover-green) !important;
+  color: var(--terminal-green) !important;
+  border-bottom-color: rgba(3, 247, 160, 0.5) !important;
+  outline: none;
+ }
 
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-    </style>
+ .ee-horizontal-tab.active {
+  background-color: var(--hover-green) !important;
+  color: var(--terminal-green) !important;
+  border-bottom-color: var(--terminal-green) !important;
+ }
+
+ .status-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--terminal-green);
+  color: white;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 900;
+  border: 2px solid var(--terminal-green);
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+ }
+ .status-tick.empty {
+  background: transparent;
+  color: transparent;
+  border: 2px solid var(--slate-grey);
+ }
+
+ /* Search options anchor links alignment styling */
+ .search-shortcut-link {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  background: var(--midnight-navy);
+  color: var(--cloud-white) !important;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.15s ease;
+ }
+ .search-shortcut-link:hover {
+  border-color: var(--terminal-green);
+  color: var(--terminal-green) !important;
+ }
+ 
+ /* Checkbox UI Styling overrides */
+ .ee-filter-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--terminal-green);
+  cursor: pointer;
+ }
+ .ee-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cloud-white);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+ }
+ .ee-filter-label:hover {
+  background: rgba(3, 247, 160, 0.05);
+ }
+ </style>
 </head>
 <body data-theme="light">
-    <!-- Automated System Navigation Injection Target -->
-    <script defer src="header_nav.js?v=21.7"></script>
+ <!-- Automated System Navigation Injection Target -->
+ <script defer src="header_nav.js?v=22.0"></script>
 
-    <main class="container">
+ <main class="container">
 
-        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
-        <article class="thick-content">
-            <h1>Corporate Engineering Interviews: Strategic External Assessment Framework</h1>
-            <p>Securing an elite engineering appointment within modern corporate structures demands significantly more than foundational technical knowledge. Competitive enterprise engineering procurement—spanning cross-disciplinary design infrastructure, safety-critical assets, and fast-paced manufacturing corridors—relies on multi-tiered interview methodologies. Corporate review boards and talent acquisition teams evaluate candidates through a matrix of operational competencies, financial literacy, and behavioural resilience under acute stress parameters.</p>
-            <p>Empowering Engineers UK developed this advanced External Job Interview Simulator to systematically align your practical background with high-stakes corporate expectations. Unlike traditional academic or institutional verification tracking systems, commercial procurement checks focus intensely on how your technical decision-making directly affects corporate profitability, liability insulation, and regulatory compliance parameters.</p>
+  <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+  <article class="thick-content">
+   <h1>Corporate Engineering Interviews & Visa Sponsorship Strategies</h1>
+   <p>Securing an elite engineering appointment within modern corporate structures demands significantly more than foundational technical knowledge. Competitive enterprise engineering procurement—spanning cross-disciplinary design infrastructure, safety-critical assets, and fast-paced manufacturing corridors—relies on multi-tiered interview methodologies. Corporate review boards and talent acquisition teams evaluate candidates through a matrix of operational competencies, financial literacy, and behavioural resilience under acute stress parameters.</p>
+ 
+   <h2>Deconstructing the Commercial Assessment Quadrants</h2>
+   <p>To successfully pass a senior technical board review, your descriptive project narratives must be structured into four operational quadrants. This application structures questions around these exact corporate evaluation streams:</p>
+   <ul>
+    <li><strong>Technical Depth & Problem Solving:</strong> Evaluates your capability to execute complex problem diagnostics from fundamental first principles when established manufacturer codes or legacy specifications prove insufficient.</li>
+    <li><strong>Project Delivery & Operations:</strong> Probes your methodology for managing multi-disciplinary engineering timelines, resource constraints, and plant turnaround scheduling parameters.</li>
+    <li><strong>Commercial Acumen & Finance:</strong> Verifies your alignment with executive metrics, exploring project capital expenditure (CapEx), operational expenditure (OpEx) minimisation, and asset life-cycle cost modelling.</li>
+    <li><strong>Behavioural & Leadership (STAR):</strong> Audits your direct, individual accountability using the Situation, Task, Action, and Result matrix, testing your capacity to de-escalate cross-departmental conflicts.</li>
+   </ul>
 
-            <h2>Deconstructing the Commercial Assessment Quadrants</h2>
-            <p>To successfully pass a senior technical board review, your descriptive project narratives must be structured into four operational quadrants. This application structures questions around these exact corporate evaluation streams:</p>
-            <ul>
-                <li><strong>Technical Depth & Problem Solving:</strong> Evaluates your capability to execute complex problem diagnostics from fundamental first principles when established manufacturer codes or legacy specifications prove insufficient.</li>
-                <li><strong>Project Delivery & Operations:</strong> Probes your methodology for managing multi-disciplinary engineering milestones, resource constraints, supply chain frictions, and plant turnaround scheduling parameters.</li>
-                <li><strong>Commercial Acumen & Finance:</strong> Verifies your alignment with executive metrics, exploring project capital expenditure (CapEx), operational expenditure (OpEx) minimisation, value engineering schemes, and asset life-cycle cost modelling.</li>
-                <li><strong>Behavioural & Leadership (STAR):</strong> Audits your direct, individual accountability using the Situation, Task, Action, and Result matrix, testing your capacity to de-escalate cross-departmental conflicts and promote workplace safety cultures.</li>
-            </ul>
+   <h2>Navigating UKVI Visa Sponsorships for International Graduates</h2>
+   <p>For international engineering graduates, securing an external corporate role also requires navigating the UK Visa and Immigration (UKVI) landscape. Submitting applications to companies unable to legally hire international staff wastes crucial time. To resolve this, we have integrated an advanced <strong>UKVI Licensed Visa Sponsor Tracker</strong> directly into this workspace.</p>
+   <p>This dynamic tool parses a structured register of licensed sponsors. By filtering large datasets down to specific engineering streams (such as Mechanical, Civil, Electrical, or Software), you can target your applications exclusively toward organisations legally authorised to issue Certificates of Sponsorship (CoS) under the Skilled Worker routing frameworks. This ensures your career progression remains secure and aligned with long-term professional registration goals.</p>
 
-            <h2>Maximising Technical Stress Simulation Efficiency</h2>
-            <p>This workspace operates as a high-fidelity diagnostic sandbox. To gain maximum value, we highly recommend operating under active countdown parameters. Forcing your verbal reasoning to condense within strict one to five-minute boundaries simulates the psychological weight of an active executive cross-examination. Furthermore, you should utilise your operating system's client-side dictation subsystems to feed live transcripts directly into our processing engine, generating an expert analytical block optimised for large language model evaluation routines.</p>
-        </article>
+   <h2>Building an Engineering CV for Visa-Sponsored Positions</h2>
+   <p>When applying to companies that hold an official visa sponsor license, your application needs to stand out immediately. Technical directors and recruitment panels must see that you can contribute to their engineering projects from day one without requiring extra support. You can use our interactive <a href="career.html">Professional Registration CV Builder Module</a> to structure your engineering experience cleanly.</p>
+   <p>When drafting your career history inside the tool, make sure you outline your achievements using the <strong>STAR methodology</strong>. For every previous project or university design challenge, clearly separate the <strong>Situation</strong>, <strong>Task</strong>, <strong>Action</strong>, and <strong>Result</strong>. Focus heavily on your individual actions and contributions rather than writing broadly about what your team accomplished. Incorporate technical metrics, budget sizes, and specific safety protocols (such as compliance with CDM regulations) to show potential employers that you have the professional maturity required to progress toward Chartered Engineer (CEng) or Incorporated Engineer (IEng) status.</p>
+  </article>
 
-        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
-        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
-            <ins class="adsbygoogle"
-                style="display:inline-block;width:300px;height:250px"
-                data-ad-client="ca-pub-7071036534151105"
-                data-ad-slot="4413012282"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+  <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+  <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+   <ins class="adsbygoogle"
+    style="display:inline-block;width:300px;height:250px"
+    data-ad-client="ca-pub-7071036534151105"
+    data-ad-slot="4413012282"></ins>
+   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
-        <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="Career Interview Pathway">
-            <a href="interview.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_hub"></div>
-                <span class="tab-label">Interview Hub</span>
-            </a>
-            <a href="pri.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_pri"></div>
-                <span class="tab-label">PRI Registration</span>
-            </a>
-            <a href="career-interviews.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_career"></div>
-                <span class="tab-label">Career Interviews</span>
-            </a>
-            <a href="interview-career-internal-promotion.html" class="ee-horizontal-tab" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_internal"></div>
-                <span class="tab-label">Internal Promotion</span>
-            </a>
-            <a href="interview-career-external-jobs.html" class="ee-horizontal-tab active" style="text-decoration: none;">
-                <div class="tab-badge-container" id="badge_external"></div>
-                <span class="tab-label">External Jobs</span>
-            </a>
-        </nav>
+  <!-- Dynamic Strategic Framework Breadcrumb with Top-Mounted Diagnostic Badges -->
+  <nav class="ee-horizontal-nav" aria-label="Career Interview Pathway">
+   <a href="interview.html" class="ee-horizontal-tab" style="text-decoration: none;">
+    <div class="tab-badge-container" id="badge_hub"></div>
+    <span class="tab-label">Interview Hub</span>
+   </a>
+   <a href="pri.html" class="ee-horizontal-tab" style="text-decoration: none;">
+    <div class="tab-badge-container" id="badge_pri"></div>
+    <span class="tab-label">PRI Registration</span>
+   </a>
+   <a href="career-interviews.html" class="ee-horizontal-tab" style="text-decoration: none;">
+    <div class="tab-badge-container" id="badge_career"></div>
+    <span class="tab-label">Career Interviews</span>
+   </a>
+   <a href="interview-career-internal-promotion.html" class="ee-horizontal-tab" style="text-decoration: none;">
+    <div class="tab-badge-container" id="badge_internal"></div>
+    <span class="tab-label">Internal Promotion</span>
+   </a>
+   <a href="interview-career-external-jobs.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+    <div class="tab-badge-container" id="badge_external"></div>
+    <span class="tab-label">External Jobs</span>
+   </a>
+  </nav>
 
-        <!-- Configuration Control Panel Grid -->
-        <div class="ee-workbench-editor" style="margin-bottom: 25px; padding: 25px;">
-            <div class="ee-form-row">
-                <div class="ee-form-group">
-                    <label class="ee-label">Target Seniority Level:</label>
-                    <select class="ee-select" id="modeSelect">
-                        <option value="Graduate">Graduate / Entry Level</option>
-                        <option value="Senior" selected>Senior / Lead Engineer</option>
-                        <option value="Principal">Principal / Director Level</option>
-                        <option value="All">All Seniorities</option>
-                    </select>
-                </div>
-                <div class="ee-form-group">
-                    <label class="ee-label">Competency Focus Core:</label>
-                    <select class="ee-select" id="compSelect">
-                        <option value="All" selected>All Core Competencies (Full Simulation)</option>
-                        <option value="Tech">Technical Depth & Problem Solving</option>
-                        <option value="Ops">Project Delivery & Operations</option>
-                        <option value="Comm">Commercial Acumen & Finance</option>
-                        <option value="Lead">Behavioural & Leadership (STAR)</option>
-                    </select>
-                </div>
-            </div>
-            <div class="ee-form-row">
-                <div class="ee-form-group">
-                    <label class="ee-label">Simulation Recording Mode:</label>
-                    <select class="ee-select" id="recModeSelect" onchange="evaluateCaptureVisibility()">
-                        <option value="browser" selected>Local Browser Microphone Extraction</option>
-                        <option value="none">No Native Recording (Dictation Only)</option>
-                        <option value="external">Utilising External Capture Systems</option>
-                    </select>
-                </div>
-                <div class="ee-form-group">
-                    <label class="ee-label">Countdown Boundary Timer:</label>
-                    <select class="ee-select" id="timeSelect">
-                        <option value="120" selected>2 Minutes (Standard Corporate)</option>
-                        <option value="300">5 Minutes (Deep Executive Review)</option>
-                        <option value="60">1 Minute (Rapid Technical Fire)</option>
-                        <option value="0">Unlimited Execution (No Timer Override)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+  <!-- ========================================================================= -->
+  <!-- PART 1: CORPORATE INTERVIEW SIMULATOR WORKBENCH -->
+  <!-- ========================================================================= -->
 
-        <!-- Interactive Core Screen Simulator Workspace Component -->
-        <div class="screen-card" id="questionCard">
-            <div class="category-badge" id="catBadge">READY FOR WORKSPACE INITIALISATION</div>
-            <div class="progress-badge" id="progBadge"></div>
-            
-            <div class="question-text" id="qText">Configure your corporate assessment parameters above and click 'Start Corporate Interview' to commence the technical simulation sequence.</div>
-            <div class="paraphrase-text" id="qParaphrase"></div>
-            
-            <div class="helper-text" id="qHelper">
-                <strong>💡 Architectural Directive:</strong> To evaluate your performance through artificial intelligence nodes, you require a text-based transcript of your technical narratives. Click inside the live input notes box below and activate your operating system's native voice dictation shortkeys (e.g., press <strong>Windows Key + H</strong> on Windows platforms, or double-press the <strong>Fn</strong> key on macOS configurations) to stream spoken metrics directly client-side.
-            </div>
+  <!-- Configuration Control Panel Grid -->
+  <div class="ee-workbench-editor" style="margin-bottom: 25px; padding: 25px;">
+   <div class="ee-form-row">
+    <div class="ee-form-group">
+     <label class="ee-label">Target Seniority Level:</label>
+     <select class="ee-select" id="modeSelect">
+      <option value="Graduate">Graduate / Entry Level</option>
+      <option value="Senior" selected>Senior / Lead Engineer</option>
+      <option value="Principal">Principal / Director Level</option>
+      <option value="All">All Seniorities</option>
+     </select>
+    </div>
+    <div class="ee-form-group">
+     <label class="ee-label">Competency Focus Core:</label>
+     <select class="ee-select" id="compSelect">
+      <option value="All" selected>All Core Competencies (Full Simulation)</option>
+      <option value="Tech">Technical Depth & Problem Solving</option>
+      <option value="Ops">Project Delivery & Operations</option>
+      <option value="Comm">Commercial Acumen & Finance</option>
+      <option value="Lead">Behavioural & Leadership (STAR)</option>
+     </select>
+    </div>
+   </div>
+   <div class="ee-form-row">
+    <div class="ee-form-group">
+     <label class="ee-label">Simulation Recording Mode:</label>
+     <select class="ee-select" id="recModeSelect" onchange="evaluateCaptureVisibility()">
+      <option value="browser" selected>Local Browser Microphone Extraction</option>
+      <option value="none">No Native Recording (Dictation Only)</option>
+      <option value="external">Utilising External Capture Systems</option>
+     </select>
+    </div>
+    <div class="ee-form-group">
+     <label class="ee-label">Countdown Boundary Timer:</label>
+     <select class="ee-select" id="timeSelect">
+      <option value="120" selected>2 Minutes (Standard Corporate)</option>
+      <option value="300">5 Minutes (Deep Executive Review)</option>
+      <option value="60">1 Minute (Rapid Technical Fire)</option>
+      <option value="0">Unlimited Execution (No Timer Override)</option>
+     </select>
+    </div>
+   </div>
+  </div>
 
-            <!-- High-Visibility Browser Voice Recorder Deck -->
-            <div class="recorder-deck" id="recorderDeck">
-                <div class="recorder-status-block">
-                    <div class="status-dot" id="recDot"></div>
-                    <span class="status-text-label" id="recLabel">Microphone Infrastructure Idle</span>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <button type="button" class="action-btn" id="recPlayBtn" onclick="toggleManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">● Record Answer</button>
-                    <button type="button" class="action-btn action-btn-outline" id="recStopBtn" onclick="stopManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">■ Stop</button>
-                </div>
-            </div>
+  <!-- Interactive Core Screen Simulator Workspace Component -->
+  <div class="screen-card" id="questionCard">
+   <div class="category-badge" id="catBadge">READY FOR WORKSPACE INITIALISATION</div>
+   <div class="progress-badge" id="progBadge"></div>
+ 
+   <div class="question-text" id="qText">Configure your corporate assessment parameters above and click 'Start Corporate Interview' to commence the technical simulation sequence.</div>
+   <div class="paraphrase-text" id="qParaphrase"></div>
+ 
+   <div class="helper-text" id="qHelper">
+    <strong>💡 Architectural Directive:</strong> To evaluate your performance through artificial intelligence nodes, you require a text-based transcript of your technical narratives. Click inside the live input notes box below and activate your operating system's native voice dictation shortkeys (e.g., press <strong>Windows Key + H</strong> on Windows platforms, or double-press the <strong>Fn</strong> key on macOS configurations) to stream spoken metrics directly client-side.
+   </div>
 
-            <div class="timer-display" id="timer">00:00</div>
-        </div>
+   <!-- High-Visibility Browser Voice Recorder Deck -->
+   <div class="recorder-deck" id="recorderDeck">
+    <div class="recorder-status-block">
+     <div class="status-dot" id="recDot"></div>
+     <span class="status-text-label" id="recLabel">Microphone Infrastructure Idle</span>
+    </div>
+    <div style="display:flex; gap:10px;">
+     <button type="button" class="action-btn" id="recPlayBtn" onclick="toggleManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">● Record Answer</button>
+     <button type="button" class="action-btn action-btn-outline" id="recStopBtn" onclick="stopManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">■ Stop</button>
+    </div>
+   </div>
 
-        <!-- Touch-Target Compliant Primary Execution Controls -->
-        <div class="controls">
-            <button class="action-btn" id="startBtn" onclick="startInterview()">Start Corporate Interview</button>
-            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important;">Halt Sequence</button>
-            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled>Advance Simulation &rarr;</button>
-        </div>
+   <div class="timer-display" id="timer">00:00</div>
+  </div>
 
-        <!-- Data Capture Workspace Areas Layer -->
-        <div id="workspaceArea" class="workspace-area">
-            
-            <!-- Real-Time Text Input Dictation Container Card -->
-            <div class="ee-workbench-editor" style="padding: 25px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
-                    <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Live Workspace Notes & Speech Dictation Stream</h4>
-                    <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="document.getElementById('scratchpad').value=''">Purge Current Pad Input</button>
-                </div>
-                <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Ensure your text cursor is positioned inside the active window below prior to triggering your system's speech-to-text shortkey arrays. Content recorded inside this block will auto-compile upon clicking the advance prompt key.</p>
-                <textarea id="scratchpad" class="ai-text" style="height: 130px;" placeholder="Awaiting verbal input stream data or text entries..."></textarea>
-            </div>
+  <!-- Touch-Target Compliant Primary Execution Controls -->
+  <div class="controls">
+   <button class="action-btn" id="startBtn" onclick="startInterview()">Start Corporate Interview</button>
+   <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important;">Halt Sequence</button>
+   <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled>Advance Simulation &rarr;</button>
+  </div>
 
-            <!-- Full Analytical Prompt Compilation Output Card Component -->
-            <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
-                    <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised Corporate AI Prompt Compiler</h4>
-                    <div style="display:flex; gap: 10px;">
-                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
-                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
-                    </div>
-                </div>
-                <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Your historical query record and matched verbal outputs are being continuously sequenced below. Copy this entire script block into advanced processing tools (ChatGPT, Claude, or internal engineering models) for expert assessment.</p>
-                <textarea id="compilerBox" class="ai-text" style="height: 380px;" readonly></textarea>
-            </div>
+  <!-- Data Capture Workspace Areas Layer -->
+  <div id="workspaceArea" class="workspace-area">
+ 
+   <!-- Real-Time Text Input Dictation Container Card -->
+   <div class="ee-workbench-editor" style="padding: 25px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Live Workspace Notes & Speech Dictation Stream</h4>
+     <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="document.getElementById('scratchpad').value=''">Purge Current Pad Input</button>
+    </div>
+    <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Ensure your text cursor is positioned inside the active window below prior to triggering your system's speech-to-text shortkey arrays. Content recorded inside this block will auto-compile upon clicking the advance prompt key.</p>
+    <textarea id="scratchpad" class="ai-text" style="height: 130px;" placeholder="Awaiting verbal input stream data or text entries..."></textarea>
+   </div>
 
-        </div>
-    </main>
+   <!-- Full Analytical Prompt Compilation Output Card Component -->
+   <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised Corporate AI Prompt Compiler</h4>
+     <div style="display:flex; gap: 10px;">
+      <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
+      <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
+     </div>
+    </div>
+    <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Your historical query record and matched verbal outputs are being continuously sequenced below. Copy this entire script block into advanced processing tools (ChatGPT, Claude, or internal engineering models) for expert assessment.</p>
+    <textarea id="compilerBox" class="ai-text" style="height: 380px;" readonly></textarea>
+   </div>
+  </div>
 
-    <!-- Global Platform Footer Element Injection Target -->
-    <script defer src="footer.js?v=21.7"></script>
+  <!-- ========================================================================= -->
+  <!-- PART 2: UKVI VISA SPONSOR TRACKING MATRIX -->
+  <!-- ========================================================================= -->
 
-    <script>
-        // Unique Platform Identifier String Token
-        const EE_TOOL_ID = "ee_corp_interview_simulation_external";
+  <h2 class="ee-section-header" style="margin-top: 60px;">UKVI Licensed Visa Sponsor Tracker</h2>
+  <p class="ee-section-desc">Upload official governmental records directly into your browser to isolate firms matching your technical degree background and regional preferences instantly.</p>
 
-        // Navigation Badge Validation Tokens
-        const INTERNAL_TOOL_ID = "ee_corp_interview_simulation_internal";
-        const EXTERNAL_TOOL_ID = "ee_corp_interview_simulation_external";
-        const CENG_TOOL_ID = "ee_registration_interview_simulator_ceng";
-        const IENG_TOOL_ID = "ee_registration_interview_simulator_ieng";
-        const ENGTECH_TOOL_ID = "ee_registration_interview_simulator_engtech";
+  <!-- System Dropzone & File Configuration Row -->
+  <div class="master-cta-box" style="text-align: left; padding: 25px;">
+   <p style="font-size: 0.95rem; color: var(--cloud-white); margin-bottom: 15px; font-weight: 700;">
+    Zero-Knowledge Data Ingestion Protocol
+   </p>
+   <p style="font-size: 0.9rem; color: var(--slate-grey); margin-bottom: 20px;">
+    To protect platform performance and bypass aggressive browser security rules (CORS) against downloading massive 10MB+ backend databases, this tool operates strictly on a manual file ingestion loop.
+   </p>
+   
+   <ol style="font-size: 0.95rem; color: var(--cloud-white); margin-bottom: 25px; margin-left: 20px; line-height: 1.8;">
+     <li style="margin-bottom: 10px;">
+      <strong>Obtain an Official Registry File:</strong> Download our verified <a href="assets/sponsor_register.csv" download style="color: var(--terminal-green); font-weight: bold; text-decoration: underline;">EE Repository Database (27 Jul 2026)</a> or fetch the absolute latest CSV directly from the <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank" rel="noopener" style="color: var(--terminal-green); font-weight: bold; text-decoration: underline;">UKVI Government Data Page</a>.
+     </li>
+     <li>
+      <strong>Initialise the Matrix:</strong> Drag and drop your downloaded <code>.csv</code> file into the secure dropzone below.
+     </li>
+   </ol>
+   
+   <div class="ee-form-row">
+    <div class="ee-form-group" style="width: 100%;">
+     <div id="drop_zone" style="border: 2px dashed var(--terminal-green); border-radius: 6px; padding: 30px 15px; text-align: center; background: rgba(3, 247, 160, 0.05); cursor: pointer; transition: all 0.2s ease;" onclick="document.getElementById('csv_file_picker').click()">
+      <span style="font-size: 1.1rem; font-weight: bold; color: var(--cloud-white); display: block; margin-bottom: 8px;">📥 DRAG & DROP YOUR DOWNLOADED CSV HERE TO INITIALISE</span>
+      <span style="font-size: 0.85rem; color: var(--slate-grey);">Or click anywhere in this box to browse your local computer files. Client-side processing only.</span>
+     </div>
+     <input type="file" id="csv_file_picker" accept=".csv" style="display:none" onchange="handleManualCSVUpload(event)">
+    </div>
+   </div>
+   
+   <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <button type="button" class="action-btn" onclick="triggerLocalRepositoryCSVLoad()">🔄 Load Repository Database</button>
+   </div>
+   
+   <div id="engine_status_log" style="font-size: 0.85rem; font-weight: bold; color: var(--burnt-orange); margin-top: 15px; padding: 10px; background: rgba(192, 86, 33, 0.1); border-left: 4px solid var(--burnt-orange); border-radius: 4px;">
+    System Engine: Awaiting Data Source Initialisation.
+   </div>
+   
+   <p style="font-size: 0.8rem; font-style: italic; color: var(--slate-grey); margin-top: 20px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
+    <strong>Disclaimer:</strong> Sector specialism and company website mapping layers provided by internal dictionary libraries may be incomplete or inaccurate. Always cross-reference options with official government portals or direct company representatives if unsure.
+   </p>
+  </div>
 
-        let currentQ = null;
-        let timerInterval = null;
-        let setupInterval = null;
-        let isRecording = false;
-        let mediaRecorder = null;
-        let audioStreamInstance = null;
-        let audioChunks = [];
-        
-        // Corporate Evaluation Control Arrays
-        const fullSequence = ["Corp_Intro", "Corp_Tech", "Corp_Ops", "Corp_Comm", "Corp_Lead", "Corp_Closing"];
-        const compSequences = {
-            "All": fullSequence,
-            "Tech": ["Corp_Intro", "Corp_Tech", "Corp_Closing"],
-            "Ops": ["Corp_Intro", "Corp_Ops", "Corp_Closing"],
-            "Comm": ["Corp_Intro", "Corp_Comm", "Corp_Closing"],
-            "Lead": ["Corp_Intro", "Corp_Lead", "Corp_Closing"]
-        };
-        let currentSequence = [];
-        let sequenceIndex = 0;
+  <!-- Multi-Tiered Interactive Filtering Controls -->
+  <div class="ee-workbench-editor" style="margin-bottom: 25px;">
+   <div class="ee-form-row">
+    <div class="ee-form-group">
+     <label class="ee-label" for="filter_name_search">Organization Name Filter (Fuzzy Search)</label>
+     <input type="text" id="filter_name_search" class="ee-input" placeholder="Search by name... (e.g. ABC Ltd)" oninput="executeDataFilterPipeline()">
+    </div>
+    <div class="ee-form-group">
+     <label class="ee-label" for="filter_city_search">UKHQ Filter</label>
+     <input type="text" id="filter_city_search" class="ee-input" placeholder="Search HQ city... (e.g. MANCHESTER)" oninput="executeDataFilterPipeline()">
+    </div>
+   </div>
 
-        // Hardcoded Corporate Local Fallback Array to secure script from breaking if questions.js fails to initialise
-        let db = [
-            { catCode: "Corp_Intro", catLabel: "Corporate Introduction", mode: "All", text: "Welcome to your technical review board evaluation. To initiate the sequence, please summarise your engineering background and clarify how your architectural choices delivered distinct commercial metrics.", paraphrase: "Walk us through your professional engineering resume, emphasizing projects with major financial or technical outcomes." },
-            { catCode: "Corp_Tech", catLabel: "Technical Depth", mode: "All", text: "Describe a scenario where you solved a complex engineering failure from first principles because standard technical codes were insufficient.", paraphrase: "Tell us about diagnosing a failure using core engineering principles instead of relying entirely on standard manuals." },
-            { catCode: "Corp_Ops", catLabel: "Project Delivery", mode: "All", text: "Detail a project phase where you managed multi-disciplinary engineering timelines under severe material or resource constraints.", paraphrase: "How did you keep a project on track when facing scheduling or resource bottlenecks?" },
-            { catCode: "Corp_Comm", catLabel: "Commercial Acumen", mode: "All", text: "Explain a value engineering modification you introduced that significantly optimised lifecycle operational expenditure (OpEx).", paraphrase: "How did an engineering change you made result in long-term financial or operational savings?" },
-            { catCode: "Corp_Lead", catLabel: "Leadership Framework", mode: "All", text: "Provide an example of addressing an operational safety violation or resolving a technical conflict within your project group.", paraphrase: "How did you manage a safety risk or team disagreement to ensure compliant project delivery?" },
-            { catCode: "Corp_Closing", catLabel: "Corporate Closing", mode: "All", text: "To finalise this session, what core corporate asset or value stream do you believe your appointment will immediately optimise within our enterprise?", paraphrase: "Give us your final summary of how your technical expertise matches our strategic business needs." }
-        ];
+   <div class="ee-form-row" style="display: block;">
+    <div class="ee-form-group" style="width: 100%;">
+     <label class="ee-label" for="filter_engineering_stream">Engineering Sector Specialism Alignment</label>
+     <select id="filter_engineering_stream" class="ee-select" onchange="executeDataFilterPipeline()">
+      <option value="ALL">Show All Industries & Businesses</option>
+      <option value="GENERAL_ENG">General Engineering & Consultancies</option>
+      <option value="MECH_AUTO">Mechanical, Manufacturing & Automotive</option>
+      <option value="CIVIL_STRUC">Civil, Structural & Infrastructure</option>
+      <option value="ELEC_ELEC">Electrical, Electronics & Power Systems</option>
+      <option value="CHEM_PROC">Chemical, Biochemical & Process Plants</option>
+      <option value="SOFT_SYS">Software, Systems & Digital Technology</option>
+     </select>
+    </div>
+   </div>
 
-        document.addEventListener('DOMContentLoaded', () => {
-             // LocalStorage cache memory layout restoration layer mapped to the central question database
-             if(typeof questions !== 'undefined') {
-                 db = questions;
-                 console.log("Central questions database successfully loaded and mapped.");
-             }
-             evaluateCaptureVisibility();
-             updateNavigationBadges();
-             
-             // Keystroke Real-Time Auto-Save layout interface mapping (3-second delay protection)
-             const scratchpadDOM = document.getElementById('scratchpad');
-             if(scratchpadDOM) {
-                 scratchpadDOM.addEventListener('input', () => {
-                     clearTimeout(window.eeSaveTimeout);
-                     window.eeSaveTimeout = setTimeout(() => {
-                         let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
-                         if(!masterData.ee_tools) masterData.ee_tools = {};
-                         masterData.ee_tools[EE_TOOL_ID + "_scratchpad_cache"] = scratchpadDOM.value;
-                         localStorage.setItem('ee_master_state', JSON.stringify(masterData));
-                         updateNavigationBadges();
-                     }, 3000);
-                 });
-             }
-        });
+   <div class="ee-form-group" style="margin-top: 20px;">
+    <label class="ee-label" style="margin-bottom: 10px;">UKVI Visa Route & Rating Framework Attributes</label>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; background: var(--input-bg); padding: 15px; border: 1px solid var(--border-color); border-radius: 4px;">
+     <!-- Core Ratings -->
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_wa" checked onchange="executeDataFilterPipeline()"> <strong>W(A):</strong> Worker (A Rating)</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_twa" checked onchange="executeDataFilterPipeline()"> <strong>TW(A):</strong> Temp Worker (A Rating)</label>
+     <!-- Premium/SME+ Ratings -->
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_wa_prem" checked onchange="executeDataFilterPipeline()"> <strong>W(A-PREM):</strong> Worker (A Premium)</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_twa_prem" checked onchange="executeDataFilterPipeline()"> <strong>TW(A-PREM):</strong> Temp Worker (A Prem)</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_wa_sme" checked onchange="executeDataFilterPipeline()"> <strong>W(A-SME+):</strong> Worker (A SME+)</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_rating_twa_sme" checked onchange="executeDataFilterPipeline()"> <strong>TW(A-SME+):</strong> Temp Worker (A SME+)</label>
+     <!-- Framework Routes -->
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_sw" checked onchange="executeDataFilterPipeline()"> <strong>SW:</strong> Skilled Worker</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_su" checked onchange="executeDataFilterPipeline()"> <strong>SU:</strong> Scale-up</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_sew" checked onchange="executeDataFilterPipeline()"> <strong>SEW:</strong> Seasonal Worker</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_gbm_gt" checked onchange="executeDataFilterPipeline()"> <strong>GBM-GT:</strong> Graduate Trainee</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_gbm_ssw" checked onchange="executeDataFilterPipeline()"> <strong>GBM-SSW:</strong> Senior / Specialist</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_gbm_ss" checked onchange="executeDataFilterPipeline()"> <strong>GBM-SS:</strong> Service Supplier</label>
+     <label class="ee-filter-label"><input type="checkbox" class="ee-filter-checkbox" id="cb_route_gbm_uk" checked onchange="executeDataFilterPipeline()"> <strong>GBM-UK:</strong> UK Expansion Worker</label>
+     
+     <label class="ee-filter-label" style="color: var(--terminal-green); font-weight: bold; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: 5px; grid-column: 1 / -1;">
+      <input type="checkbox" class="ee-filter-checkbox" id="cb_showcase" onchange="executeDataFilterPipeline()"> 👉 Filter Companies with Verified Websites
+     </label>
+    </div>
+   </div>
+  </div>
 
-        // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
-        function checkToolContent(toolKey) {
-            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
-            const cacheKey = toolKey + "_scratchpad_cache";
-            if (masterData.ee_tools && masterData.ee_tools[cacheKey]) {
-                const dataStr = masterData.ee_tools[cacheKey];
-                if (typeof dataStr === 'string' && dataStr.trim().length > 0) return true;
-            }
-            return false;
-        }
+  <!-- Datatable Presentation Ledger Grid -->
+  <div class="ee-workbench-editor" style="overflow-x: auto; padding: 15px;">
+   <div style="display: flex; justify-content: space-between; margin-bottom: 12px; align-items: flex-end; flex-wrap: wrap; gap: 10px;">
+    <span style="font-size: 0.9rem; font-weight: bold; color: var(--terminal-green);" id="records_count_badge">Curated Records: 0 Rows Rendered</span>
+    <span style="font-size: 0.8rem; font-style: italic; color: var(--slate-grey); max-width: 450px; text-align: right;">
+     <strong>Note:</strong> The locations listed are registered headquarters. Many of these enterprises operate national and global sites. We highly recommend visiting their corporate websites to discover engineering vacancies across all UK branches.
+    </span>
+   </div>
+  
+   <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;" id="sponsor_data_table">
+    <thead>
+     <tr style="border-bottom: 2px solid var(--terminal-green); color: var(--terminal-green);">
+      <th style="padding: 12px 8px; text-transform: uppercase;">Organisation & Verification Checks</th>
+      <th style="padding: 12px 8px; text-transform: uppercase;">UKHQ</th>
+      <th style="padding: 12px 8px; text-transform: uppercase; white-space: nowrap; width: 1%;">Rating</th>
+      <th style="padding: 12px 8px; text-transform: uppercase; white-space: nowrap; width: 1%;">Visa Route</th>
+     </tr>
+    </thead>
+    <tbody id="sponsor_table_body" style="color: var(--cloud-white);">
+     <tr>
+      <td colspan="4" style="padding: 20px; text-align: center; font-style: italic; color: var(--slate-grey);">No active data profiles compiled. Click "Load Repository Database" or drop a downloaded CSV register into the zone above to initialise rows.</td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
 
-        function getTickHTML(isComplete) {
-            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
-        }
+ </main>
 
-        function updateNavigationBadges() {
-            const internalStatus = checkToolContent(INTERNAL_TOOL_ID);
-            const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
-            const cengStatus = checkToolContent(CENG_TOOL_ID);
-            const iengStatus = checkToolContent(IENG_TOOL_ID);
-            const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
+ <!-- Global Platform Footer Element Injection Target -->
+ <script defer src="footer.js?v=22.0"></script>
 
-            const hasCareer = internalStatus || externalStatus;
-            const hasPRI = cengStatus || iengStatus || engtechStatus;
+ <script>
+ // Unique Platform Identifier String Tokens
+ const EE_TOOL_ID = "ee_corp_interview_simulation_external";
+ const EE_SPONSOR_TOOL_ID = 'ee_visa_sponsor_external';
 
-            const bInternal = document.getElementById('badge_internal'); if(bInternal) bInternal.innerHTML = getTickHTML(internalStatus);
-            const bExternal = document.getElementById('badge_external'); if(bExternal) bExternal.innerHTML = getTickHTML(externalStatus);
-            const bCareer = document.getElementById('badge_career'); if(bCareer) bCareer.innerHTML = getTickHTML(hasCareer);
-            const bPri = document.getElementById('badge_pri'); if(bPri) bPri.innerHTML = getTickHTML(hasPRI);
-            const bHub = document.getElementById('badge_hub'); if(bHub) bHub.innerHTML = getTickHTML(hasCareer && hasPRI);
-        }
+ // Navigation Badge Validation Tokens
+ const INTERNAL_TOOL_ID = "ee_corp_interview_simulation_internal";
+ const EXTERNAL_TOOL_ID = "ee_corp_interview_simulation_external";
+ const CENG_TOOL_ID = "ee_registration_interview_simulator_ceng";
+ const IENG_TOOL_ID = "ee_registration_interview_simulator_ieng";
+ const ENGTECH_TOOL_ID = "ee_registration_interview_simulator_engtech";
 
-        function evaluateCaptureVisibility() {
-            const mode = document.getElementById('recModeSelect').value;
-            const deck = document.getElementById('recorderDeck');
-            if (mode === 'browser') {
-                deck.style.display = 'flex';
-            } else {
-                deck.style.display = 'none';
-                stopInterviewAction();
-            }
-        }
+ // =========================================================================
+ // JS LOGIC: CORPORATE INTERVIEW SIMULATOR
+ // =========================================================================
+ let currentQ = null;
+ let timerInterval = null;
+ let setupInterval = null;
+ let isRecording = false;
+ let mediaRecorder = null;
+ let audioStreamInstance = null;
+ let audioChunks = [];
+ 
+ // Corporate Evaluation Control Arrays
+ const fullSequence = ["Corp_Intro", "Corp_Tech", "Corp_Ops", "Corp_Comm", "Corp_Lead", "Corp_Closing"];
+ const compSequences = {
+  "All": fullSequence,
+  "Tech": ["Corp_Intro", "Corp_Tech", "Corp_Closing"],
+  "Ops": ["Corp_Intro", "Corp_Ops", "Corp_Closing"],
+  "Comm": ["Corp_Intro", "Corp_Comm", "Corp_Closing"],
+  "Lead": ["Corp_Intro", "Corp_Lead", "Corp_Closing"]
+ };
+ let currentSequence = [];
+ let sequenceIndex = 0;
 
-        function startInterview() {
-            const seniorityVal = document.getElementById('modeSelect').value;
-            const focusTarget = document.getElementById('compSelect').value;
+ // Hardcoded Corporate Local Fallback Array to secure script from breaking if questions.js fails to initialise
+ let db = [
+  { catCode: "Corp_Intro", catLabel: "Corporate Introduction", mode: "All", text: "Welcome to your technical review board evaluation. To initiate the sequence, please summarise your engineering background and clarify how your architectural choices delivered distinct commercial metrics.", paraphrase: "Walk us through your professional engineering resume, emphasizing projects with major financial or technical outcomes." },
+  { catCode: "Corp_Tech", catLabel: "Technical Depth", mode: "All", text: "Describe a scenario where you solved a complex engineering failure from first principles because standard technical codes were insufficient.", paraphrase: "Tell us about diagnosing a failure using core engineering principles instead of relying entirely on standard manuals." },
+  { catCode: "Corp_Ops", catLabel: "Project Delivery", mode: "All", text: "Detail a project phase where you managed multi-disciplinary engineering timelines under severe material or resource constraints.", paraphrase: "How did you keep a project on track when facing scheduling or resource bottlenecks?" },
+  { catCode: "Corp_Comm", catLabel: "Commercial Acumen", mode: "All", text: "Explain a value engineering modification you introduced that significantly optimised lifecycle operational expenditure (OpEx).", paraphrase: "How did an engineering change you made result in long-term financial or operational savings?" },
+  { catCode: "Corp_Lead", catLabel: "Leadership Framework", mode: "All", text: "Provide an example of addressing an operational safety violation or resolving a technical conflict within your project group.", paraphrase: "How did you manage a safety risk or team disagreement to ensure compliant project delivery?" },
+  { catCode: "Corp_Closing", catLabel: "Corporate Closing", mode: "All", text: "To finalise this session, what core corporate asset or value stream do you believe your appointment will immediately optimise within our enterprise?", paraphrase: "Give us your final summary of how your technical expertise matches our strategic business needs." }
+ ];
 
-            if (typeof gtag === 'function') {
-                gtag('event', 'start_corporate_simulation', {
-                    'seniority_tier': seniorityVal,
-                    'competency_stream': focusTarget,
-                    'tool_id': EE_TOOL_ID
-                });
-            }
+ document.addEventListener('DOMContentLoaded', () => {
+  // LocalStorage cache memory layout restoration layer mapped to the central question database
+  if(typeof questions !== 'undefined') {
+   db = questions;
+   console.log("Central questions database successfully loaded and mapped.");
+  }
+  evaluateCaptureVisibility();
+  updateNavigationBadges();
+ 
+  // Keystroke Real-Time Auto-Save layout interface mapping (3-second delay protection)
+  const scratchpadDOM = document.getElementById('scratchpad');
+  if(scratchpadDOM) {
+   scratchpadDOM.addEventListener('input', () => {
+    clearTimeout(window.eeSaveTimeout);
+    window.eeSaveTimeout = setTimeout(() => {
+     let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+     if(!masterData.ee_tools) masterData.ee_tools = {};
+     masterData.ee_tools[EE_TOOL_ID + "_scratchpad_cache"] = scratchpadDOM.value;
+     localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+     updateNavigationBadges();
+    }, 3000);
+   });
+  }
 
-            document.getElementById('startBtn').style.display = 'none';
-            document.getElementById('stopBtn').style.display = 'inline-block';
-            document.getElementById('qHelper').style.display = 'none';
-            document.getElementById('progBadge').style.display = 'none';
-            document.getElementById('qParaphrase').style.display = 'none';
-            
-            document.getElementById('workspaceArea').style.display = 'flex';
-            initCompiler();
+  // Initialise Sponsor Tracker Configuration
+  loadSavedFilterState();
+  setupDragAndDrop();
 
-            currentSequence = compSequences[focusTarget] || compSequences["All"];
-            sequenceIndex = 0;
-            currentQ = null;
+  // Implement auto-load capability for the internal repository asset file
+  const lastDataSource = localStorage.getItem('ee_sponsor_data_source');
+  if (lastDataSource === 'repository') {
+   triggerLocalRepositoryCSVLoad();
+  } else if (lastDataSource === 'custom') {
+   const log = document.getElementById('engine_status_log');
+   log.innerHTML = "⚠️ <strong>SESSION RESTORED:</strong> Your previous session successfully utilised a custom local database file. For platform security, web browsers require you to deliberately re-upload local files upon refresh. Please drag and drop your CSV register again, or click 'Load Repository Database'.";
+   log.style.background = 'rgba(192, 86, 33, 0.1)';
+   log.style.color = 'var(--burnt-orange)';
+   log.style.borderLeftColor = 'var(--burnt-orange)';
+  }
+ });
 
-            startSetupPhase();
-        }
+ // --- DASHBOARD CHECKBOX VERIFICATION MATRIX ---
+ function checkToolContent(toolKey) {
+  const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
+  const cacheKey = toolKey + "_scratchpad_cache";
+  if (masterData.ee_tools && masterData.ee_tools[cacheKey]) {
+   const dataStr = masterData.ee_tools[cacheKey];
+   if (typeof dataStr === 'string' && dataStr.trim().length > 0) return true;
+  }
+  return false;
+ }
 
-        function startSetupPhase() {
-            document.getElementById('catBadge').innerText = 'WORKSPACE INITIALISATION';
-            document.getElementById('qText').innerHTML = "Take a breath. Position your text cursor inside the dictation workspace below and initialise your system speech input tools.<br><br><strong>Ensure your structural logs utilise the STAR methodology frameworks:</strong><br><span style='color:var(--ee-terminal-green); font-weight:bold;'>Situation | Task | Action | Result</span><br><br><span style='font-size:1.1rem; color:var(--burnt-orange); font-weight:bold;'>First technical evaluation parameter deploying shortly...</span>";
-            
-            // UX Engineering Fix: Force immediate activation of the advancement trigger so candidates can manually bypass setup phase blocks
-            document.getElementById('nextBtn').disabled = false;
-            disableRecorderInterfaceButtons();
-            
-            let phaseTimer = 15;
-            document.getElementById('timer').innerText = `00:${phaseTimer}`;
-            
-            setupInterval = setInterval(() => {
-                phaseTimer--;
-                document.getElementById('timer').innerText = `00:${phaseTimer.toString().padStart(2, '0')}`;
-                
-                if (phaseTimer <= 0) {
-                    clearInterval(setupInterval);
-                    nextQuestion();
-                }
-            }, 1000);
-        }
+ function getTickHTML(isComplete) {
+  return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
+ }
 
-        function stopInterview(isComplete = false) {
-            clearInterval(setupInterval); 
-            appendToCompiler(); 
-            stopInterviewAction(); 
-            
-            document.getElementById('startBtn').style.display = 'inline-block';
-            document.getElementById('stopBtn').style.display = 'none';
-            document.getElementById('nextBtn').disabled = true;
-            document.getElementById('progBadge').style.display = 'none';
-            document.getElementById('qParaphrase').style.display = 'none';
-            disableRecorderInterfaceButtons();
-            
-            if (isComplete) {
-                document.getElementById('catBadge').innerText = 'SIMULATION COMPLETE';
-                document.getElementById('qText').innerHTML = "<strong>Sequence finalised successfully.</strong> Completing an advanced technical review board simulation proves strong cognitive stamina and commercial alignment.";
-                document.getElementById('qHelper').innerHTML = "Review your structural text logs compiled below. Copy the full script output and parse it through your artificial intelligence interface nodes to obtain an elite objective grading matrix.";
-            } else {
-                document.getElementById('catBadge').innerText = 'SIMULATION PAUSED';
-                document.getElementById('qText').innerText = "Simulation halted safely. Review your inputs, modify your parameters, and re-initialise when prepared.";
-                document.getElementById('qHelper').innerHTML = "Mock technical checks can feel intensely demanding, but pushing through this stress envelope and reviewing your recorded data is exactly how you refine your commercial pitch.";
-            }
-            
-            document.getElementById('qHelper').style.display = 'block';
-            document.getElementById('timer').innerText = '00:00';
-            document.getElementById('timer').style.color = "var(--slate-grey)";
-            
-            currentQ = null;
-        }
+ function updateNavigationBadges() {
+  const internalStatus = checkToolContent(INTERNAL_TOOL_ID);
+  const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
+  const cengStatus = checkToolContent(CENG_TOOL_ID);
+  const iengStatus = checkToolContent(IENG_TOOL_ID);
+  const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
 
-        function nextQuestion() {
-            clearInterval(setupInterval);
+  const hasCareer = internalStatus || externalStatus;
+  const hasPRI = cengStatus || iengStatus || engtechStatus;
 
-            if (currentQ) {
-                appendToCompiler();
-            }
+  const bInternal = document.getElementById('badge_internal'); if(bInternal) bInternal.innerHTML = getTickHTML(internalStatus);
+  const bExternal = document.getElementById('badge_external'); if(bExternal) bExternal.innerHTML = getTickHTML(externalStatus);
+  const bCareer = document.getElementById('badge_career'); if(bCareer) bCareer.innerHTML = getTickHTML(hasCareer);
+  const bPri = document.getElementById('badge_pri'); if(bPri) bPri.innerHTML = getTickHTML(hasPRI);
+  const bHub = document.getElementById('badge_hub'); if(bHub) bHub.innerHTML = getTickHTML(hasCareer && hasPRI);
+ }
 
-            if (sequenceIndex >= currentSequence.length) {
-                stopInterview(true);
-                return;
-            }
+ function evaluateCaptureVisibility() {
+  const mode = document.getElementById('recModeSelect').value;
+  const deck = document.getElementById('recorderDeck');
+  if (mode === 'browser') {
+   deck.style.display = 'flex';
+  } else {
+   deck.style.display = 'none';
+   stopInterviewAction();
+  }
+ }
 
-            stopInterviewAction();
-            
-            const paraTextNode = document.getElementById('qParaphrase');
-            paraTextNode.style.display = 'none';
-            paraTextNode.innerText = '';
-            
-            // Context Coach Reminders for Mid-Sequence Pacing Boundaries
-            const helperOverlay = document.getElementById('qHelper');
-            if (sequenceIndex === 2) {
-                helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Excellent momentum. Ensure your technical descriptions highlight your individual design choices, avoid generic group references, and frame results through precise data metrics.";
-                helperOverlay.className = "helper-text coach-note";
-                helperOverlay.style.display = "block";
-            } else if (sequenceIndex === 4) {
-                helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Technical review exhaustion generally manifests at this index boundary. Keep your vocal energy up, prioritise financial viability parameters, and explicitly define project capital cost outcomes.";
-                helperOverlay.className = "helper-text coach-note";
-                helperOverlay.style.display = "block";
-            } else {
-                helperOverlay.style.display = "none";
-            }
+ function startInterview() {
+  const seniorityVal = document.getElementById('modeSelect').value;
+  const focusTarget = document.getElementById('compSelect').value;
 
-            const targetSeniority = document.getElementById('modeSelect').value;
-            const targetCategoryBlock = currentSequence[sequenceIndex];
+  if (typeof gtag === 'function') {
+   gtag('event', 'start_corporate_simulation', {
+    'seniority_tier': seniorityVal,
+    'competency_stream': focusTarget,
+    'tool_id': EE_TOOL_ID
+   });
+  }
 
-            // Re-engineered Cascaded Fallback Layer: Eradicates empty arrays and script freezes if questions.js fails to initialise
-            let matchedRecords = db.filter(q => (q.mode === targetSeniority || q.mode === "All") && q.catCode === targetCategoryBlock);
-            
-            if (matchedRecords.length === 0) { 
-                // Fallback Phase 1: Match target block across any seniority configurations
-                matchedRecords = db.filter(q => q.catCode === targetCategoryBlock); 
-            } 
-            if (matchedRecords.length === 0) {
-                // Fallback Phase 2: Filter for general corporate scope items
-                matchedRecords = db.filter(q => q.catCode && q.catCode.startsWith("Corp_"));
-            }
-            if (matchedRecords.length === 0) {
-                // Fallback Phase 3: Broad recovery block mapping directly to universal array memory
-                matchedRecords = db;
-            }
+  document.getElementById('startBtn').style.display = 'none';
+  document.getElementById('stopBtn').style.display = 'inline-block';
+  document.getElementById('qHelper').style.display = 'none';
+  document.getElementById('progBadge').style.display = 'none';
+  document.getElementById('qParaphrase').style.display = 'none';
+ 
+  document.getElementById('workspaceArea').style.display = 'flex';
+  initCompiler();
 
-            const extractionIndex = Math.floor(Math.random() * matchedRecords.length);
-            currentQ = matchedRecords[extractionIndex];
+  currentSequence = compSequences[focusTarget] || compSequences["All"];
+  sequenceIndex = 0;
+  currentQ = null;
 
-            if (currentQ) {
-                const displayModeString = (currentQ.mode || 'All').toUpperCase();
-                const displayLabelString = (currentQ.catLabel || 'Evaluation Matrix').toUpperCase();
-                
-                document.getElementById('catBadge').innerText = `Target: ${displayModeString} // ${displayLabelString}`;
-                document.getElementById('qText').innerText = currentQ.text || '';
-                
-                if (currentQ.paraphrase) {
-                    paraTextNode.innerText = currentQ.paraphrase;
-                }
-            }
-            
-            const progressBadgeNode = document.getElementById('progBadge');
-            progressBadgeNode.style.display = 'block';
-            progressBadgeNode.innerText = `SEQUENCE MATRIX: STEP ${sequenceIndex + 1} / ${currentSequence.length}`;
+  startSetupPhase();
+ }
 
-            document.getElementById('nextBtn').disabled = false;
+ function startSetupPhase() {
+  document.getElementById('catBadge').innerText = 'WORKSPACE INITIALISATION';
+  document.getElementById('qText').innerHTML = "Take a breath. Position your text cursor inside the dictation workspace below and initialise your system speech input tools.<br><br><strong>Ensure your structural logs utilise the STAR methodology frameworks:</strong><br><span style='color:var(--ee-terminal-green); font-weight:bold;'>Situation | Task | Action | Result</span><br><br><span style='font-size:1.1rem; color:var(--burnt-orange); font-weight:bold;'>First technical evaluation parameter deploying shortly...</span>";
+ 
+  document.getElementById('nextBtn').disabled = false;
+  disableRecorderInterfaceButtons();
+ 
+  let phaseTimer = 15;
+  document.getElementById('timer').innerText = `00:${phaseTimer}`;
+ 
+  setupInterval = setInterval(() => {
+   phaseTimer--;
+   document.getElementById('timer').innerText = `00:${phaseTimer.toString().padStart(2, '0')}`;
+ 
+   if (phaseTimer <= 0) {
+    clearInterval(setupInterval);
+    nextQuestion();
+   }
+  }, 1000);
+ }
 
-            const audioCaptureSetting = document.getElementById('recModeSelect').value;
-            if (audioCaptureSetting === 'browser') {
-                initialiseRecorderHardware();
-            } else {
-                startTimer();
-            }
+ function stopInterview(isComplete = false) {
+  clearInterval(setupInterval); 
+  appendToCompiler(); 
+  stopInterviewAction(); 
 
-            sequenceIndex++;
-        }
+  document.getElementById('startBtn').style.display = 'inline-block';
+  document.getElementById('stopBtn').style.display = 'none';
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('progBadge').style.display = 'none';
+  document.getElementById('qParaphrase').style.display = 'none';
+  disableRecorderInterfaceButtons();
+ 
+  if (isComplete) {
+   document.getElementById('catBadge').innerText = 'SIMULATION COMPLETE';
+   document.getElementById('qText').innerHTML = "<strong>Sequence finalised successfully.</strong> Completing an advanced technical review board simulation proves strong cognitive stamina and commercial alignment.";
+   document.getElementById('qHelper').innerHTML = "Review your structural text logs compiled below. Copy the full script output and parse it through your artificial intelligence interface nodes to obtain an elite objective grading matrix.";
+  } else {
+   document.getElementById('catBadge').innerText = 'SIMULATION PAUSED';
+   document.getElementById('qText').innerText = "Simulation halted safely. Review your inputs, modify your parameters, and re-initialise when prepared.";
+   document.getElementById('qHelper').innerHTML = "Mock technical checks can feel intensely demanding, but pushing through this stress envelope and reviewing your recorded data is exactly how you refine your commercial pitch.";
+  }
+ 
+  document.getElementById('qHelper').style.display = 'block';
+  document.getElementById('timer').innerText = '00:00';
+  document.getElementById('timer').style.color = "var(--slate-grey)";
+ 
+  currentQ = null;
+ }
 
-        function initCompiler() {
-            const compilerWindow = document.getElementById('compilerBox');
-            const roleSelection = document.getElementById('modeSelect').value;
-            const textualSeniorityString = roleSelection === "All" ? "Professional Engineering Leadership" : `${roleSelection} Level Engineering Position`;
-            
-            const globalSystemMetaPromptText = `Act as an Elite Engineering Executive, Technical Director, and Talent Acquisition Panel Lead for a premier global engineering enterprise. 
+ function nextQuestion() {
+  clearInterval(setupInterval);
+
+  if (currentQ) {
+   appendToCompiler();
+  }
+
+  if (sequenceIndex >= currentSequence.length) {
+   stopInterview(true);
+   return;
+  }
+
+  stopInterviewAction();
+ 
+  const paraTextNode = document.getElementById('qParaphrase');
+  paraTextNode.style.display = 'none';
+  paraTextNode.innerText = '';
+ 
+  const helperOverlay = document.getElementById('qHelper');
+  if (sequenceIndex === 2) {
+   helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Excellent momentum. Ensure your technical descriptions highlight your individual design choices, avoid generic group references, and frame results through precise data metrics.";
+   helperOverlay.className = "helper-text coach-note";
+   helperOverlay.style.display = "block";
+  } else if (sequenceIndex === 4) {
+   helperOverlay.innerHTML = "<strong>💡 Strategic Guidance Notes:</strong> Technical review exhaustion generally manifests at this index boundary. Keep your vocal energy up, prioritise financial viability parameters, and explicitly define project capital cost outcomes.";
+   helperOverlay.className = "helper-text coach-note";
+   helperOverlay.style.display = "block";
+  } else {
+   helperOverlay.style.display = "none";
+  }
+
+  const targetSeniority = document.getElementById('modeSelect').value;
+  const targetCategoryBlock = currentSequence[sequenceIndex];
+
+  let matchedRecords = db.filter(q => (q.mode === targetSeniority || q.mode === "All") && q.catCode === targetCategoryBlock);
+ 
+  if (matchedRecords.length === 0) { 
+   matchedRecords = db.filter(q => q.catCode === targetCategoryBlock); 
+  } 
+  if (matchedRecords.length === 0) {
+   matchedRecords = db.filter(q => q.catCode && q.catCode.startsWith("Corp_"));
+  }
+  if (matchedRecords.length === 0) {
+   matchedRecords = db;
+  }
+
+  const extractionIndex = Math.floor(Math.random() * matchedRecords.length);
+  currentQ = matchedRecords[extractionIndex];
+
+  if (currentQ) {
+   const displayModeString = (currentQ.mode || 'All').toUpperCase();
+   const displayLabelString = (currentQ.catLabel || 'Evaluation Matrix').toUpperCase();
+ 
+   document.getElementById('catBadge').innerText = `Target: ${displayModeString} // ${displayLabelString}`;
+   document.getElementById('qText').innerText = currentQ.text || '';
+ 
+   if (currentQ.paraphrase) {
+    paraTextNode.innerText = currentQ.paraphrase;
+   }
+  }
+ 
+  const progressBadgeNode = document.getElementById('progBadge');
+  progressBadgeNode.style.display = 'block';
+  progressBadgeNode.innerText = `SEQUENCE MATRIX: STEP ${sequenceIndex + 1} / ${currentSequence.length}`;
+
+  document.getElementById('nextBtn').disabled = false;
+
+  const audioCaptureSetting = document.getElementById('recModeSelect').value;
+  if (audioCaptureSetting === 'browser') {
+   initialiseRecorderHardware();
+  } else {
+   startTimer();
+  }
+
+  sequenceIndex++;
+ }
+
+ function initCompiler() {
+  const compilerWindow = document.getElementById('compilerBox');
+  const roleSelection = document.getElementById('modeSelect').value;
+  const textualSeniorityString = roleSelection === "All" ? "Professional Engineering Leadership" : `${roleSelection} Level Engineering Position`;
+ 
+  const globalSystemMetaPromptText = `Act as an Elite Engineering Executive, Technical Director, and Talent Acquisition Panel Lead for a premier global engineering enterprise. 
 
 I am simulating an intensive job interview for a highly competitive ${textualSeniorityString}. Below is the raw textual transcript of my spoken answers.
 
@@ -825,184 +1021,597 @@ For each individual answer record, you must provide:
 =========================================
 [RAW RUNTIME TRANSCRIPT LOGS INITIALISED]`;
 
-            compilerWindow.value = globalSystemMetaPromptText;
-        }
+  compilerWindow.value = globalSystemMetaPromptText;
+ }
 
-        function appendToCompiler() {
-            if (!currentQ) return;
-            const scratchWindow = document.getElementById('scratchpad');
-            const compilerWindow = document.getElementById('compilerBox');
-            
-            const processedText = scratchWindow.value.trim() !== "" ? scratchWindow.value.trim() : "[Candidate provided no spoken transcript data or entries for this segment]";
-            
-            const structuralEntryString = `\n\n--- SIMULATION EVALUATION BLOCK: STEP ${sequenceIndex} (${currentQ.catCode}) ---\nInterviewer Panel Query: "${currentQ.text}"\nCandidate Verbal Transcript: "${processedText}"`;
-            
-            compilerWindow.value += structuralEntryString;
-            scratchWindow.value = ''; 
-            compilerWindow.scrollTop = compilerWindow.scrollHeight;
-        }
+ function appendToCompiler() {
+  if (!currentQ) return;
+  const scratchWindow = document.getElementById('scratchpad');
+  const compilerWindow = document.getElementById('compilerBox');
+ 
+  const processedText = scratchWindow.value.trim() !== "" ? scratchWindow.value.trim() : "[Candidate provided no spoken transcript data or entries for this segment]";
+ 
+  const structuralEntryString = `\n\n--- SIMULATION EVALUATION BLOCK: STEP ${sequenceIndex} (${currentQ.catCode}) ---\nInterviewer Panel Query: "${currentQ.text}"\nCandidate Verbal Transcript: "${processedText}"`;
+ 
+  compilerWindow.value += structuralEntryString;
+  scratchWindow.value = ''; 
+  compilerWindow.scrollTop = compilerWindow.scrollHeight;
+ }
 
-        function copyCompiler() {
-            const targetSelectionBox = document.getElementById("compilerBox");
-            targetSelectionBox.select();
-            targetSelectionBox.setSelectionRange(0, 99999); 
-            navigator.clipboard.writeText(targetSelectionBox.value);
-            
-            const actionBtnNode = document.getElementById('copyCompBtn');
-            const placeholderOriginalTextString = actionBtnNode.innerText;
-            actionBtnNode.innerText = "CONTENT COPIED";
-            setTimeout(() => { actionBtnNode.innerText = placeholderOriginalTextString; }, 2000);
-        }
+ function copyCompiler() {
+  const targetSelectionBox = document.getElementById("compilerBox");
+  targetSelectionBox.select();
+  targetSelectionBox.setSelectionRange(0, 99999); 
+  navigator.clipboard.writeText(targetSelectionBox.value);
+ 
+  const actionBtnNode = document.getElementById('copyCompBtn');
+  const placeholderOriginalTextString = actionBtnNode.innerText;
+  actionBtnNode.innerText = "CONTENT COPIED";
+  setTimeout(() => { actionBtnNode.innerText = placeholderOriginalTextString; }, 2000);
+ }
 
-        function initialiseRecorderHardware() {
-            updateRecorderUIDeck(false, "Awaiting Recording Trigger");
-            document.getElementById('recPlayBtn').disabled = false;
-            document.getElementById('recStopBtn').disabled = true;
-            startTimer();
-        }
+ function initialiseRecorderHardware() {
+  updateRecorderUIDeck(false, "Awaiting Recording Trigger");
+  document.getElementById('recPlayBtn').disabled = false;
+  document.getElementById('recStopBtn').disabled = true;
+  startTimer();
+ }
 
-        function toggleManualAudioCapture() {
-            if (isRecording) return;
+ function toggleManualAudioCapture() {
+  if (isRecording) return;
 
-            const timingLabelNode = document.getElementById('timer');
-            const parentCardDOMNode = document.getElementById('questionCard');
+  const timingLabelNode = document.getElementById('timer');
+  const parentCardDOMNode = document.getElementById('questionCard');
 
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    try {
-                        audioStreamInstance = stream;
-                        mediaRecorder = new MediaRecorder(stream);
-                        audioChunks = [];
+  navigator.mediaDevices.getUserMedia({ audio: true })
+  .then(stream => {
+   try {
+    audioStreamInstance = stream;
+    mediaRecorder = new MediaRecorder(stream);
+    audioChunks = [];
 
-                        mediaRecorder.ondataavailable = ev => {
-                            audioChunks.push(ev.data);
-                        };
+    mediaRecorder.ondataavailable = ev => {
+     audioChunks.push(ev.data);
+    };
 
-                        mediaRecorder.onstop = () => {
-                            const localWavBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                            const generatedObjectLink = URL.createObjectURL(localWavBlob);
-                            
-                            const fileDownloadTriggerLink = document.createElement('a');
-                            fileDownloadTriggerLink.style.display = 'none';
-                            fileDownloadTriggerLink.href = generatedObjectLink;
-                            fileDownloadTriggerLink.download = `EE_ExternalJob_Segment_Step${sequenceIndex}.wav`; 
-                            document.body.appendChild(fileDownloadTriggerLink);
-                            fileDownloadTriggerLink.click();
-                            document.body.removeChild(fileDownloadTriggerLink);
-                            
-                            URL.revokeObjectURL(generatedObjectLink);
-                        };
+    mediaRecorder.onstop = () => {
+     const localWavBlob = new Blob(audioChunks, { type: 'audio/wav' });
+     const generatedObjectLink = URL.createObjectURL(localWavBlob);
+ 
+     const fileDownloadTriggerLink = document.createElement('a');
+     fileDownloadTriggerLink.style.display = 'none';
+     fileDownloadTriggerLink.href = generatedObjectLink;
+     fileDownloadTriggerLink.download = `EE_ExternalJob_Segment_Step${sequenceIndex}.wav`; 
+     document.body.appendChild(fileDownloadTriggerLink);
+     fileDownloadTriggerLink.click();
+     document.body.removeChild(fileDownloadTriggerLink);
+ 
+     URL.revokeObjectURL(generatedObjectLink);
+    };
 
-                        mediaRecorder.start();
-                        isRecording = true;
-                        
-                        timingLabelNode.classList.add('recording');
-                        parentCardDOMNode.classList.add('recording-active');
-                        
-                        updateRecorderUIDeck(true, "● Native Recording On Air");
-                        document.getElementById('recPlayBtn').disabled = true;
-                        document.getElementById('recStopBtn').disabled = false;
-                    } catch(innerMediaError) {
-                        console.warn("MediaRecorder Framework Exception Intercepted: Reverting to fallback countdown execution.");
-                        startTimer();
-                    }
-                })
-                .catch(err => {
-                    console.warn("Hardware Access Intercepted: Microphone denied. Reverting to structural visual countdown matrices only.");
-                    updateRecorderUIDeck(false, "Microphone Denied / Offline");
-                });
-        }
+    mediaRecorder.start();
+    isRecording = true;
+ 
+    timingLabelNode.classList.add('recording');
+    parentCardDOMNode.classList.add('recording-active');
+ 
+    updateRecorderUIDeck(true, "● Native Recording On Air");
+    document.getElementById('recPlayBtn').disabled = true;
+    document.getElementById('recStopBtn').disabled = false;
+   } catch(innerMediaError) {
+    console.warn("MediaRecorder Framework Exception Intercepted: Reverting to fallback countdown execution.");
+    startTimer();
+   }
+  })
+  .catch(err => {
+   console.warn("Hardware Access Intercepted: Microphone denied. Reverting to structural visual countdown matrices only.");
+   updateRecorderUIDeck(false, "Microphone Denied / Offline");
+  });
+ }
 
-        function stopManualAudioCapture() {
-            if (!isRecording) return;
-            stopInterviewAction();
-        }
+ function stopManualAudioCapture() {
+  if (!isRecording) return;
+  stopInterviewAction();
+ }
 
-        function updateRecorderUIDeck(isActiveState, statusTextString) {
-            const dot = document.getElementById('recDot');
-            const label = document.getElementById('recLabel');
-            
-            label.innerText = statusTextString;
-            if (isActiveState) {
-                dot.className = "status-dot active-red";
-                label.className = "status-text-label active-red";
-            } else {
-                dot.className = "status-dot";
-                label.className = "status-text-label";
-            }
-        }
+ function updateRecorderUIDeck(isActiveState, statusTextString) {
+  const dot = document.getElementById('recDot');
+  const label = document.getElementById('recLabel');
+ 
+  label.innerText = statusTextString;
+  if (isActiveState) {
+   dot.className = "status-dot active-red";
+   label.className = "status-text-label active-red";
+  } else {
+   dot.className = "status-dot";
+   label.className = "status-text-label";
+  }
+ }
 
-        function disableRecorderInterfaceButtons() {
-            document.getElementById('recPlayBtn').disabled = true;
-            document.getElementById('recStopBtn').disabled = true;
-            updateRecorderUIDeck(false, "Microphone Infrastructure Idle");
-        }
+ function disableRecorderInterfaceButtons() {
+  document.getElementById('recPlayBtn').disabled = true;
+  document.getElementById('recStopBtn').disabled = true;
+  updateRecorderUIDeck(false, "Microphone Infrastructure Idle");
+ }
 
-        function startTimer() {
-            clearInterval(timerInterval);
-            let operationalSecondsLimit = parseInt(document.getElementById('timeSelect').value);
-            let rollingTimeCounter = operationalSecondsLimit;
-            
-            if (operationalSecondsLimit === 0) {
-                document.getElementById('timer').innerText = "--:--";
-                document.getElementById('timer').style.color = "var(--slate-grey)";
-                if(currentQ && currentQ.paraphrase) {
-                    document.getElementById('qParaphrase').style.display = 'block';
-                }
-                return; 
-            }
+ function startTimer() {
+  clearInterval(timerInterval);
+  let operationalSecondsLimit = parseInt(document.getElementById('timeSelect').value);
+  let rollingTimeCounter = operationalSecondsLimit;
+ 
+  if (operationalSecondsLimit === 0) {
+   document.getElementById('timer').innerText = "--:--";
+   document.getElementById('timer').style.color = "var(--slate-grey)";
+   if(currentQ && currentQ.paraphrase) {
+    document.getElementById('qParaphrase').style.display = 'block';
+   }
+   return; 
+  }
 
-            updateTimerDisplay(rollingTimeCounter);
-            
-            timerInterval = setInterval(() => {
-                rollingTimeCounter--;
-                updateTimerDisplay(rollingTimeCounter);
+  updateTimerDisplay(rollingTimeCounter);
+ 
+  timerInterval = setInterval(() => {
+   rollingTimeCounter--;
+   updateTimerDisplay(rollingTimeCounter);
 
-                if(rollingTimeCounter === Math.floor(operationalSecondsLimit / 2)) {
-                    if(currentQ && currentQ.paraphrase) {
-                        document.getElementById('qParaphrase').style.display = 'block';
-                    }
-                }
+   if(rollingTimeCounter === Math.floor(operationalSecondsLimit / 2)) {
+    if(currentQ && currentQ.paraphrase) {
+     document.getElementById('qParaphrase').style.display = 'block';
+    }
+   }
 
-                if(rollingTimeCounter <= 20 && rollingTimeCounter > 0) {
-                    document.getElementById('timer').style.color = "var(--burnt-orange)";
-                } else {
-                    document.getElementById('timer').style.color = "var(--slate-grey)";
-                }
+   if(rollingTimeCounter <= 20 && rollingTimeCounter > 0) {
+    document.getElementById('timer').style.color = "var(--burnt-orange)";
+   } else {
+    document.getElementById('timer').style.color = "var(--slate-grey)";
+   }
 
-                if(rollingTimeCounter <= 0) {
-                    nextQuestion();
-                }
-            }, 1000);
-        }
+   if(rollingTimeCounter <= 0) {
+    nextQuestion();
+   }
+  }, 1000);
+ }
 
-        function updateTimerDisplay(totalSecondsValue) {
-            const calculatedMinutesBlock = Math.floor(totalSecondsValue / 60).toString().padStart(2, '0');
-            const calculatedSecondsBlock = (totalSecondsValue % 60).toString().padStart(2, '0');
-            document.getElementById('timer').innerText = `${calculatedMinutesBlock}:${calculatedSecondsBlock}`;
-        }
+ function updateTimerDisplay(totalSecondsValue) {
+  const calculatedMinutesBlock = Math.floor(totalSecondsValue / 60).toString().padStart(2, '0');
+  const calculatedSecondsBlock = (totalSecondsValue % 60).toString().padStart(2, '0');
+  document.getElementById('timer').innerText = `${calculatedMinutesBlock}:${calculatedSecondsBlock}`;
+ }
 
-        function stopInterviewAction() {
-            clearInterval(timerInterval);
-            document.getElementById('timer').style.color = "var(--slate-grey)";
-            
-            const parentCardDOMNode = document.getElementById('questionCard');
-            parentCardDOMNode.classList.remove('recording-active');
-            document.getElementById('timer').classList.remove('recording');
-            
-            updateRecorderUIDeck(false, "Recording Stopped / Idle");
-            document.getElementById('recPlayBtn').disabled = false;
-            document.getElementById('recStopBtn').disabled = true;
-            
-            if (isRecording && mediaRecorder && mediaRecorder.state !== 'inactive') {
-                mediaRecorder.stop(); 
-                isRecording = false;
-            }
-            if (audioStreamInstance) {
-                audioStreamInstance.getTracks().forEach(track => track.stop());
-                audioStreamInstance = null;
-            }
-        }
-    </script>
+ function stopInterviewAction() {
+  clearInterval(timerInterval);
+  document.getElementById('timer').style.color = "var(--slate-grey)";
+ 
+  const parentCardDOMNode = document.getElementById('questionCard');
+  parentCardDOMNode.classList.remove('recording-active');
+  document.getElementById('timer').classList.remove('recording');
+ 
+  updateRecorderUIDeck(false, "Recording Stopped / Idle");
+  document.getElementById('recPlayBtn').disabled = false;
+  document.getElementById('recStopBtn').disabled = true;
+ 
+  if (isRecording && mediaRecorder && mediaRecorder.state !== 'inactive') {
+   mediaRecorder.stop(); 
+   isRecording = false;
+  }
+  if (audioStreamInstance) {
+   audioStreamInstance.getTracks().forEach(track => track.stop());
+   audioStreamInstance = null;
+  }
+ }
+
+ // =========================================================================
+ // JS LOGIC: UKVI VISA SPONSOR TRACKING MATRIX
+ // =========================================================================
+ let parsedMasterRecords = [];
+
+ function setupDragAndDrop() {
+  const zone = document.getElementById('drop_zone');
+  window.addEventListener("dragover", e => e.preventDefault(), false);
+  window.addEventListener("drop", e => e.preventDefault(), false);
+  
+  zone.addEventListener('dragover', () => { 
+   zone.style.borderColor = 'var(--cloud-white)'; 
+   zone.style.background = 'rgba(255, 255, 255, 0.1)'; 
+  });
+  zone.addEventListener('dragleave', () => { 
+   zone.style.borderColor = 'var(--terminal-green)'; 
+   zone.style.background = 'rgba(3, 247, 160, 0.05)'; 
+  });
+  zone.addEventListener('drop', (e) => {
+   zone.style.borderColor = 'var(--terminal-green)'; 
+   zone.style.background = 'rgba(3, 247, 160, 0.05)'; 
+   const files = e.dataTransfer.files;
+   if (files.length > 0) {
+    localStorage.setItem('ee_sponsor_data_source', 'custom');
+    processRawCSVText(files[0]);
+   }
+  });
+ }
+
+ function triggerLocalRepositoryCSVLoad() {
+  const log = document.getElementById('engine_status_log');
+  log.innerHTML = "System Engine: Accessing repository files at 'assets/sponsor_register.csv'...";
+  localStorage.setItem('ee_sponsor_data_source', 'repository');
+  
+  fetch('assets/sponsor_register.csv')
+   .then(response => {
+    if (!response.ok) throw new Error("Local asset file not located or inaccessible.");
+    return response.text();
+   })
+   .then(text => parseCSVStringData(text))
+   .catch(err => {
+    console.error(err.message);
+    log.innerHTML = "⚠️ <strong>LOCAL FILE READ RESTRICTION:</strong> Your web browser's security rules prevent reading local files directly via the <code>file:///</code> protocol.<br><strong>To resolve:</strong> Please manually click the 'Upload Downloaded CSV' button or drag the <code>sponsor_register.csv</code> file from your <code>assets/</code> folder directly into the box on the right.";
+    localStorage.removeItem('ee_sponsor_data_source');
+   });
+ }
+
+ function handleManualCSVUpload(event) {
+  const file = event.target.files[0];
+  if (file) {
+   localStorage.setItem('ee_sponsor_data_source', 'custom');
+   processRawCSVText(file);
+  }
+ }
+
+ function processRawCSVText(file) {
+  const log = document.getElementById('engine_status_log');
+  log.innerHTML = "System Engine: Reading uploaded data block... This may take a few seconds for large databases.";
+  log.style.background = 'rgba(192, 86, 33, 0.1)';
+  log.style.color = 'var(--burnt-orange)';
+  log.style.borderLeftColor = 'var(--burnt-orange)';
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+   parseCSVStringData(e.target.result);
+  };
+  reader.readAsText(file);
+ }
+
+ // Logic engine converting raw government strings into dense visual legend abbreviations
+ function mapRating(rating) {
+  const r = rating.toUpperCase();
+  if(r.includes("WORKER (A (PREMIUM))")) return "W(A-PREM)";
+  if(r.includes("WORKER (A (SME+))")) return "W(A-SME+)";
+  if(r.includes("TEMPORARY WORKER (A (PREMIUM))")) return "TW(A-PREM)";
+  if(r.includes("TEMPORARY WORKER (A (SME+))")) return "TW(A-SME+)";
+  if(r.includes("WORKER (A RATING)")) return "W(A)";
+  if(r.includes("WORKER (B RATING)")) return "W(B)";
+  if(r.includes("TEMPORARY WORKER (A RATING)")) return "TW(A)";
+  if(r.includes("TEMPORARY WORKER (B RATING)")) return "TW(B)";
+  return rating;
+ }
+
+ function mapRoute(route) {
+  const r = route.toUpperCase();
+  if(r.includes("SKILLED WORKER")) return "SW";
+  if(r.includes("GRADUATE TRAINEE")) return "GBM-GT";
+  if(r.includes("SENIOR OR SPECIALIST WORKER")) return "GBM-SSW";
+  if(r.includes("SERVICE SUPPLIER")) return "GBM-SS";
+  if(r.includes("UK EXPANSION WORKER")) return "GBM-UK";
+  if(r.includes("SECONDMENT WORKER")) return "GBM-SEC";
+  if(r.includes("SCALE-UP")) return "SU";
+  if(r.includes("SEASONAL WORKER")) return "SEW";
+  if(r.includes("CREATIVE WORKER")) return "CW";
+  if(r.includes("RELIGIOUS WORKER")) return "RW";
+  if(r.includes("CHARITY WORKER")) return "CHW";
+  if(r.includes("INTERNATIONAL AGREEMENT")) return "IA";
+  if(r.includes("GOVERNMENT AUTHORISED EXCHANGE")) return "GAE";
+  return route;
+ }
+
+ // Title Case regular expression structural layout loop
+ function toProperCase(str) {
+  return str.replace(/\w\S*/g, function(txt){
+   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+ }
+
+ function parseCSVStringData(text) {
+  const log = document.getElementById('engine_status_log');
+  log.innerHTML = "System Engine: Formatting, deduplicating, and tokenising data limits...";
+  
+  const lines = text.split(/\r?\n/);
+  if (lines.length < 2) {
+   log.innerHTML = "❌ <strong>ERROR:</strong> Structurally invalid data matrix discovered. Ensure you uploaded a raw UKVI CSV.";
+   return;
+  }
+
+  // Leveraging Map logic to group distinct operational locations and limits under a single entity node
+  const companyMap = new Map();
+
+  for (let idx = 1; idx < lines.length; idx++) {
+   if (!lines[idx].trim()) continue;
+   const columns = splitCSVLineTokens(lines[idx]);
+   
+   if (columns.length >= 4) {
+    const rawName = columns[0] ? columns[0].replace(/^["']|["']$/g, '').trim() : '';
+    if (!rawName) continue;
+    
+    const upperName = rawName.toUpperCase();
+    const rawCity = columns[1] ? columns[1].replace(/^["']|["']$/g, '').trim() : '';
+    const properCity = toProperCase(rawCity);
+    const rawRating = columns[3] ? columns[3].replace(/^["']|["']$/g, '').trim() : '';
+    const shortRating = mapRating(rawRating);
+    const rawRoute = columns[4] ? columns[4].replace(/^["']|["']$/g, '').trim() : 'Skilled Worker';
+    const shortRoute = mapRoute(rawRoute);
+
+    if (!companyMap.has(upperName)) {
+     companyMap.set(upperName, {
+      name: rawName,
+      cities: new Set([properCity]),
+      ratings: new Set([shortRating]),
+      routes: new Set([shortRoute])
+     });
+    } else {
+     const entry = companyMap.get(upperName);
+     if(properCity) entry.cities.add(properCity);
+     if(shortRating) entry.ratings.add(shortRating);
+     if(shortRoute) entry.routes.add(shortRoute);
+    }
+   }
+  }
+
+  parsedMasterRecords = Array.from(companyMap.values()).map(e => ({
+   name: e.name,
+   cityStr: Array.from(e.cities).join(' '),
+   city: Array.from(e.cities).filter(c => c),
+   rating: Array.from(e.ratings).filter(r => r),
+   routeStr: Array.from(e.routes).join(' '),
+   route: Array.from(e.routes).filter(r => r)
+  }));
+
+  log.innerHTML = `✅ <strong>SUCCESS:</strong> Deduplicated and indexed ${parsedMasterRecords.length.toLocaleString('en-GB')} unique entities securely.`;
+  log.style.background = 'rgba(3, 247, 160, 0.1)';
+  log.style.color = 'var(--terminal-green)';
+  log.style.borderLeftColor = 'var(--terminal-green)';
+  
+  saveFilterState();
+  executeDataFilterPipeline();
+ }
+
+ function splitCSVLineTokens(line) {
+  let result = [];
+  let currentToken = "";
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+   let char = line[i];
+   if (char === '"') {
+    inQuotes = !inQuotes;
+   } else if (char === ',' && !inQuotes) {
+    result.push(currentToken.trim());
+    currentToken = "";
+   } else {
+    currentToken += char;
+   }
+  }
+  result.push(currentToken.trim());
+  return result;
+ }
+
+ function executeDataFilterPipeline() {
+  const searchName = document.getElementById('filter_name_search').value.toUpperCase().trim();
+  const searchCity = document.getElementById('filter_city_search').value.toUpperCase().trim();
+  const targetStream = document.getElementById('filter_engineering_stream').value;
+
+  // Retrieve states from the interactive checkbox grid
+  const cb_wa = document.getElementById('cb_rating_wa').checked;
+  const cb_wa_prem = document.getElementById('cb_rating_wa_prem').checked;
+  const cb_wa_sme = document.getElementById('cb_rating_wa_sme').checked;
+  const cb_twa = document.getElementById('cb_rating_twa').checked;
+  const cb_twa_prem = document.getElementById('cb_rating_twa_prem').checked;
+  const cb_twa_sme = document.getElementById('cb_rating_twa_sme').checked;
+  const cb_sw = document.getElementById('cb_route_sw').checked;
+  const cb_su = document.getElementById('cb_route_su').checked;
+  const cb_sew = document.getElementById('cb_route_sew').checked;
+  const cb_gt = document.getElementById('cb_route_gbm_gt').checked;
+  const cb_ssw = document.getElementById('cb_route_gbm_ssw').checked;
+  const cb_ss = document.getElementById('cb_route_gbm_ss').checked;
+  const cb_uk = document.getElementById('cb_route_gbm_uk').checked;
+  const cb_showcase = document.getElementById('cb_showcase').checked;
+
+  const filtered = parsedMasterRecords.filter(item => {
+   const matchNameText = item.name.toUpperCase().includes(searchName);
+   const matchCityText = item.cityStr.toUpperCase().includes(searchCity);
+   
+   // Subsystem Dictionary Mapping Validation
+   let matchStreamPattern = true;
+   if (targetStream !== "ALL") {
+    if (typeof engineeringSponsorExtraData !== 'undefined' && engineeringSponsorExtraData[item.name.toUpperCase()]) {
+     matchStreamPattern = (engineeringSponsorExtraData[item.name.toUpperCase()].sector === targetStream);
+    } else {
+     const streamKeywords = getStreamKeywords(targetStream);
+     matchStreamPattern = streamKeywords.some(keyword => item.name.toUpperCase().includes(keyword));
+    }
+   }
+
+   // Strict Rating Checkbox Array Validation
+   let ratingMatch = item.rating.some(r => {
+    if (r === 'W(A)') return cb_wa;
+    if (r === 'W(A-PREM)') return cb_wa_prem;
+    if (r === 'W(A-SME+)') return cb_wa_sme;
+    if (r === 'TW(A)') return cb_twa;
+    if (r === 'TW(A-PREM)') return cb_twa_prem;
+    if (r === 'TW(A-SME+)') return cb_twa_sme;
+    return true; // Auto-pass unlisted ratings to ensure they are not accidentally wiped by missing checkboxes
+   });
+
+   // Strict Visa Route Checkbox Array Validation
+   let routeMatch = item.route.some(r => {
+    if (r === 'SW') return cb_sw;
+    if (r === 'SU') return cb_su;
+    if (r === 'SEW') return cb_sew;
+    if (r === 'GBM-GT') return cb_gt;
+    if (r === 'GBM-SSW') return cb_ssw;
+    if (r === 'GBM-SS') return cb_ss;
+    if (r === 'GBM-UK') return cb_uk;
+    return true; 
+   });
+
+   // Showcase Directory Boolean Check
+   let showcaseMatch = true;
+   if (cb_showcase) {
+    showcaseMatch = (typeof engineeringSponsorExtraData !== 'undefined' && engineeringSponsorExtraData[item.name.toUpperCase()] && engineeringSponsorExtraData[item.name.toUpperCase()].website);
+   }
+
+   return matchNameText && matchCityText && matchStreamPattern && ratingMatch && routeMatch && showcaseMatch;
+  });
+
+  renderDataTableRows(filtered);
+  saveFilterState();
+ }
+
+ function getStreamKeywords(streamId) {
+  switch (streamId) {
+   case 'GENERAL_ENG':
+    return ['ENGINEERING', 'CONSULTING', 'TECHNICAL', 'ASSOCIATES', 'DESIGN', 'INNOVATION'];
+   case 'MECH_AUTO':
+    return ['MOTOR', 'AUTOMOTIVE', 'MANUFACTURING', 'AEROSPACE', 'PUMP', 'FABRICATION', 'CASTING', 'MECHANICAL', 'ROBOTICS'];
+   case 'CIVIL_STRUC':
+    return ['CIVIL', 'STRUCTURAL', 'CONSTRUCTION', 'INFRASTRUCTURE', 'RAIL', 'BUILD', 'ENVIRONMENTAL', 'SURVEYING'];
+   case 'ELEC_ELEC':
+    return ['ELECTRICAL', 'ELECTRONIC', 'POWER', 'ENERGY', 'SEMICONDUCTOR', 'CIRCUITS', 'RENEWABLES', 'GRID'];
+   case 'CHEM_PROC':
+    return ['CHEMICAL', 'PROCESS', 'PHARMA', 'BIOCHEMICAL', 'PETROLEUM', 'GAS', 'WATER', 'PLASTICS'];
+   case 'SOFT_SYS':
+    return ['SOFTWARE', 'TECHNOLOGY', 'SYSTEMS', 'DIGITAL', 'CYBER', 'NETWORKS', 'CLOUD', 'COMPUTING', 'DATA'];
+   default:
+    return [];
+  }
+ }
+ 
+ // High-Performance Analytical Keyword Scraper 
+ function determineCompanySectorKeywords(companyName) {
+  const upperName = companyName.toUpperCase();
+  let matchedKeywords = [];
+
+  if (typeof engineeringSponsorExtraData !== 'undefined' && engineeringSponsorExtraData[upperName]) {
+   const sector = engineeringSponsorExtraData[upperName].sector;
+   matchedKeywords = getStreamKeywords(sector);
+  } else {
+   const streams = ['GENERAL_ENG', 'MECH_AUTO', 'CIVIL_STRUC', 'ELEC_ELEC', 'CHEM_PROC', 'SOFT_SYS'];
+   streams.forEach(stream => {
+    const keywords = getStreamKeywords(stream);
+    if (keywords.some(kw => upperName.includes(kw))) {
+     matchedKeywords.push(...keywords);
+    }
+   });
+  }
+
+  if (matchedKeywords.length > 0) {
+   return [...new Set(matchedKeywords)].join(', ');
+  }
+  return "General / Unspecified Sectors";
+ }
+
+ function renderDataTableRows(dataset) {
+  const tbody = document.getElementById('sponsor_table_body');
+  const badge = document.getElementById('records_count_badge');
+  tbody.innerHTML = '';
+
+  badge.innerText = `Curated Records: ${dataset.length.toLocaleString('en-GB')} Unique Matches`;
+
+  if (dataset.length === 0) {
+   tbody.innerHTML = `<tr><td colspan="4" style="padding: 20px; text-align: center; font-style: italic; color: var(--slate-grey);">No target engineering sponsors matched your selected filter parameters. Adjust fields.</td></tr>`;
+   return;
+  }
+
+  const presentationBound = Math.min(dataset.length, 200);
+  const UTM_STRING = "utm_source=empoweringengineers.uk&utm_medium=referral&utm_campaign=visa_sponsor_tracker";
+
+  for (let i = 0; i < presentationBound; i++) {
+   const item = dataset[i];
+   const row = document.createElement('tr');
+   row.style.borderBottom = "1px solid var(--border-color)";
+   
+   const encodedName = encodeURIComponent(item.name);
+   const keywordsTitle = determineCompanySectorKeywords(item.name);
+   
+   // Hardcoded HTML link builder layer with clean parameter separator logic
+   let companyDisplayHtml = `<strong title="Sector Associated Keywords: ${keywordsTitle}" style="cursor: help;">${item.name} <span style="opacity: 0.6; font-size: 0.85rem;">ℹ️</span></strong>`;
+   
+   if (typeof engineeringSponsorExtraData !== 'undefined' && engineeringSponsorExtraData[item.name.toUpperCase()] && engineeringSponsorExtraData[item.name.toUpperCase()].website) {
+    const rawUrl = engineeringSponsorExtraData[item.name.toUpperCase()].website;
+    const separator = rawUrl.includes('?') ? '&' : '?';
+    const finalTrackingUrl = `${rawUrl}${separator}${UTM_STRING}`;
+    
+    companyDisplayHtml = `<a href="${finalTrackingUrl}" target="_blank" rel="noopener" title="Sector Associated Keywords: ${keywordsTitle}" style="font-weight: bold; color: var(--terminal-green); text-decoration: underline; cursor: help;">${item.name} <span style="opacity: 0.6; font-size: 0.85rem; text-decoration: none;">ℹ️</span></a>`;
+   }
+
+   const cityHtml = item.city.join(', ');
+   const ratingHtml = item.rating.map(r => `<span class="level-badge nb-l3" style="margin:2px;">${r}</span>`).join('');
+   const routeHtml = item.route.map(r => `<span style="display:inline-block; margin:2px; padding:2px 6px; border:1px solid var(--border-color); border-radius:3px; font-size:0.8rem; background:rgba(0,0,0,0.2);">${r}</span>`).join('');
+   
+   row.innerHTML = `
+    <td style="padding: 10px 8px; color: var(--cloud-white);">
+     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <span style="font-size: 1.05rem;">${companyDisplayHtml}</span>
+      <div style="display: flex; gap: 6px;">
+       <a class="search-shortcut-link" href="https://find-and-update.company-information.service.gov.uk/search?q=${encodedName}" target="_blank" rel="noopener" style="margin:0;">🏢 Companies House</a>
+       <a class="search-shortcut-link" href="https://www.google.co.uk/search?q=${encodedName}" target="_blank" rel="noopener" style="margin:0;">🔍 Google UK</a>
+      </div>
+     </div>
+    </td>
+    <td style="padding: 10px 8px; vertical-align: middle;">${cityHtml}</td>
+    <td style="padding: 10px 8px; vertical-align: middle; white-space: nowrap;">${ratingHtml}</td>
+    <td style="padding: 10px 8px; font-weight: 700; color: var(--burnt-orange); vertical-align: middle; white-space: nowrap;">${routeHtml}</td>
+   `;
+   tbody.appendChild(row);
+  }
+ }
+
+ function saveFilterState() {
+  const state = {
+   nameSearch: document.getElementById('filter_name_search').value,
+   citySearch: document.getElementById('filter_city_search').value,
+   stream: document.getElementById('filter_engineering_stream').value,
+   cb_wa: document.getElementById('cb_rating_wa').checked,
+   cb_wa_prem: document.getElementById('cb_rating_wa_prem').checked,
+   cb_wa_sme: document.getElementById('cb_rating_wa_sme').checked,
+   cb_twa: document.getElementById('cb_rating_twa').checked,
+   cb_twa_prem: document.getElementById('cb_rating_twa_prem').checked,
+   cb_twa_sme: document.getElementById('cb_rating_twa_sme').checked,
+   cb_sw: document.getElementById('cb_route_sw').checked,
+   cb_su: document.getElementById('cb_route_su').checked,
+   cb_sew: document.getElementById('cb_route_sew').checked,
+   cb_gt: document.getElementById('cb_route_gbm_gt').checked,
+   cb_ssw: document.getElementById('cb_route_gbm_ssw').checked,
+   cb_ss: document.getElementById('cb_route_gbm_ss').checked,
+   cb_uk: document.getElementById('cb_route_gbm_uk').checked,
+   cb_showcase: document.getElementById('cb_showcase').checked
+  };
+  localStorage.setItem(EE_SPONSOR_TOOL_ID + '_filters', JSON.stringify(state));
+ }
+
+ function loadSavedFilterState() {
+  const saved = localStorage.getItem(EE_SPONSOR_TOOL_ID + '_filters');
+  if (saved) {
+   try {
+    const state = JSON.parse(saved);
+    document.getElementById('filter_name_search').value = state.nameSearch || '';
+    document.getElementById('filter_city_search').value = state.citySearch || '';
+    document.getElementById('filter_engineering_stream').value = state.stream || 'ALL';
+    
+    if(state.cb_wa !== undefined) document.getElementById('cb_rating_wa').checked = state.cb_wa;
+    if(state.cb_wa_prem !== undefined) document.getElementById('cb_rating_wa_prem').checked = state.cb_wa_prem;
+    if(state.cb_wa_sme !== undefined) document.getElementById('cb_rating_wa_sme').checked = state.cb_wa_sme;
+    if(state.cb_twa !== undefined) document.getElementById('cb_rating_twa').checked = state.cb_twa;
+    if(state.cb_twa_prem !== undefined) document.getElementById('cb_rating_twa_prem').checked = state.cb_twa_prem;
+    if(state.cb_twa_sme !== undefined) document.getElementById('cb_rating_twa_sme').checked = state.cb_twa_sme;
+    if(state.cb_sw !== undefined) document.getElementById('cb_route_sw').checked = state.cb_sw;
+    if(state.cb_su !== undefined) document.getElementById('cb_route_su').checked = state.cb_su;
+    if(state.cb_sew !== undefined) document.getElementById('cb_route_sew').checked = state.cb_sew;
+    if(state.cb_gt !== undefined) document.getElementById('cb_route_gbm_gt').checked = state.cb_gt;
+    if(state.cb_ssw !== undefined) document.getElementById('cb_route_gbm_ssw').checked = state.cb_ssw;
+    if(state.cb_ss !== undefined) document.getElementById('cb_route_gbm_ss').checked = state.cb_ss;
+    if(state.cb_uk !== undefined) document.getElementById('cb_route_gbm_uk').checked = state.cb_uk;
+    if(state.cb_showcase !== undefined) document.getElementById('cb_showcase').checked = state.cb_showcase;
+   } catch(e) {
+    console.error("Local state parse error.", e);
+   }
+  }
+ }
+ </script>
 </body>
 </html>

@@ -18,10 +18,9 @@
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -41,100 +40,7 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- COIN MATRIX GRID --- */
+        /* --- COIN MATRIX GRID & BESPOKE INTERACTION COMPONENTS --- */
         .coin-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -174,132 +80,44 @@
         .impact-label { color: var(--terminal-green) !important; }
         .nextsteps-label { color: var(--terminal-green) !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 140px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        /* Bespoke AI Button style properties aligned with layout variables */
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--terminal-green) !important;
+            box-shadow: 2px 2px 0px var(--terminal-green) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            box-shadow: 0px 0px 8px var(--terminal-green) !important;
+            color: var(--terminal-green) !important;
         }
     </style>
 </head>
 <body onload="initApp()">
+    <!-- Purging cached search structures before dashboard initialization -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Constructive Performance Management: Applying the COIN Feedback Model</h1>
-            <p>
-                In high-pressure engineering infrastructure programmes and sophisticated asset development environments, executing an objective performance alignment framework is essential to preserve continuous operational velocity. Engineering leads, technical coordinators, and directors routinely manage personnel variances, drawing deviations, and process bottlenecks. If handled using ad-hoc emotional remarks, corrective feedback can cause defensiveness, increase team turnover, and compromise safety gates. To address this risk, the Engineering Council’s UK Standard for Professional Engineering Competence (UK-SPEC) subjects candidates to strict evaluation regarding **Competence C (Responsibility, management, or leadership)** and **Competence D (Communication and interpersonal skills)**.
-            </p>
-            <p>
-                The **COIN Feedback Model (Context, Observation, Impact, Next steps)** delivers an objective method to pre-script and implement professional development conversations safely. By separating personal identity from operational shortcomings, this framework helps technical leads ground their discussions in unvarnished facts rather than character judgements. The COIN structure operates across four distinct fields: anchoring the issue to a verifiable timeline and location (**Context**); defining the explicit, observable action or omission cleanly (**Observation**); illustrating the real-world operational, commercial, or safety consequences of that action (**Impact**); and collaboratively establishing clear corrective actions and check gates (**Next steps**). Using this tool to document feedback sessions builds a compliant record for institutional review portfolios, proving to assessing panels that your leadership directly optimizes workforce capability and protects asset lifecycle integrity.
-            </p>
+            
+            <h2>Introduction to the COIN Feedback Framework</h2>
+            <p><strong>What is this step?</strong> The **COIN Feedback Model** is a structured, four-tier communication framework designed to plan, script, and deliver objective performance interventions. In professional engineering environments, feedback can often become clouded by emotion or subjective interpretation. This framework provides an explicit, evidence-based architecture divided into **Context**, **Observation**, **Impact**, and **Next Steps**. By using this digital canvas, you can prepare carefully before conducting a review session, ensuring that your message is clear, constructive, and directly aligned with the professional standards required in modern engineering management.</p>
+            
+            <h2>Why Objective Leadership Communication Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Progressing from a technical designer or engineer into a senior managerial or leadership position requires you to demonstrate sophisticated interpersonal skills alongside technical competence. The **Engineering Council** establishes strict guidelines under the **UK Standard for Professional Engineering Competence (UK-SPEC)**. Specifically, candidates seeking registration as a **Chartered Engineer (CEng)**, **Incorporated Engineer (IEng)**, or **Engineering Technician (EngTech)** are explicitly evaluated on team management and collaboration. **Competence C** (Responsibility, management, or leadership) and **Competence D** (Communication and interpersonal skills) demand that you prove your baseline leadership capability.</p>
+            <p>When you sit your final **Professional Review Interview (PRI)**, the review panel looks for clear evidence that you can lead teams, resolve conflicts, and mentor junior technicians objectively. If a manager delivers vague or emotionally charged feedback during a project crisis—such as a drawing error or an equipment malfunction—it often creates defensiveness, damages morale, and disrupts project timelines. By implementing the COIN methodology, you prove that you can separate an individual's personal identity from operational shortcomings. This level of professional maturity protects project timelines and lowers employee turnover rates, proving to senior managers that you possess the professional maturity needed to manage large-scale corporate operations.</p>
+            <p>Documenting these regular development meetings creates a solid record of evidence for your professional registration portfolio. Showing that you systematically used structured frameworks to support graduate engineers, clear up workflow bottlenecks, and manage project risks proves you possess true leadership capabilities. This structural awareness ensures you can defend your management decisions confidently before the institutional review panel.</p>
 
-            <h2>Analyzing the Four Strategic Dimensions of the COIN Framework</h2>
-            <p>
-                Constructing an advanced engineering coaching script utilizing the interactive COIN canvas requires technical managers to critically parse workplace events step-by-step:
-            </p>
-            <p>
-                <strong>Context [C]:</strong> Define the exact date, location, meeting, or project phase where the performance variance happened. Grounding the conversation in a specific context ensures both parties align on the background boundaries immediately, preventing historical or subjective arguments about the timeline.
-            </p>
-            <p>
-                <strong>Observation [O]:</strong> Document the unvarnished, observable facts, actions, or data discrepancies that occurred. Technical leaders must completely eliminate emotional adjectives and character judgements. Avoid character-based assertions like "you are being careless" or "unfocused," and instead specify raw parameters—such as missing a calculation checklist or omitting required structural loading margins.
-            </p>
-            <p>
-                <strong>Impact [I]:</strong> Translate the observed behavior directly into real-world project, commercial, or safety consequences. To satisfy UK-SPEC criteria, candidates must demonstrate clear commercial awareness. This involves explaining how a design omission caused schedule drift, expanded capital expenditure liabilities, triggered rework costs, or introduced safety risks violating CDM 2015 regulations.
-            </p>
-            <p>
-                <strong>Next Steps [N]:</strong> Formalize the corrective roadmap, updated training modules, and verification gates. Technical managers must establish explicit action criteria and review timelines with the coachee. This turns the corrective conversation into a permanent, audit-ready continuous professional development (CPD) log with clear future accountability.
-            </p>
+            <h2>Step-by-Step Guide to Completing the COIN Matrix Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To fill out the canvas successfully, you must address each quadrant systematically, filtering out corporate buzzwords and focusing entirely on verifiable engineering parameters. This structural layout focuses on absolute clarity using a strict Point, Evidence, and Explanation progression pattern.</p>
+            <p><strong>Initialise the Context [C]:</strong> Begin by defining the precise date, time, location, or project phase where the performance event occurred. Grounding the conversation in a specific, historical moment prevents arguments about the timeline and ensures both parties focus on a single event. For example, specify that the incident occurred during the Tuesday morning structural simulation review for the offshore platform module.</p>
+            <p><strong>Record the Observation [O]:</strong> Document the exact, unvarnished actions or omissions that took place. You must completely ban emotional adjectives or personal character judgements. Avoid character-based assertions like "you are being careless" or "unfocused," and instead specify raw parameters—such as missing a calculation checklist or omitting required structural loading margins.</p>
+            <p><strong>Quantify the Impact [I]:</strong> Translate the observed action into its real-world project, commercial, or safety consequences. To satisfy the business awareness criteria of the **UK-SPEC**, show exactly how the omission affected the project. Explain how the missing calculations stalled the hazard loop, caused a 48-hour schedule delay, expanded capital expenditure liabilities, triggered rework costs, or introduced safety risks violating CDM 2015 regulations.</p>
+            <p><strong>Establish Next Steps [N]:</strong> Collaboratively build a clear path forward with explicit review dates and check gates. This turns a corrective discussion into an actionable **Development Action Plan (DAP)**. Commit to clear solutions, such as arranging weekly technical peer-reviews or assigning targeted training modules, and log this directly within your continuous professional development (**CPD**) record.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -313,10 +131,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_feedback"></div>
                 <span class="tab-label">Feedback</span>
@@ -383,7 +201,7 @@
                     <!-- Impact Card -->
                     <div class="coin-card impact-card">
                         <label class="coin-label impact-label">Impact [I]</label>
-                        <span class="form-hint">What were the direct, measurable project outcomes, safety risks, or cost liabilities caused by this behavior? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This omission stalled the hazard review loop, causing a 48-hour delay in our design submittal.</span></span>
+                        <span class="form-hint">What were the direct, measurable project outcomes, safety risks, or cost liabilities caused by this behaviour? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This omission stalled the hazard review loop, causing a 48-hour delay in our design submittal.</span></span>
                         <textarea id="coin_Impact" class="form-input" placeholder="State the quantifiable consequences regarding cost, safety, or schedule limits..." oninput="updatePreview()"></textarea>
                     </div>
 
@@ -402,9 +220,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile feedback tracking log...</div>
@@ -550,8 +368,8 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
+                const btn = document.querySelector('.action-bar button');
+                btn.innerText = "Structured Output Copied Successfully";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
         }
@@ -567,18 +385,24 @@ ${script}
             }
         }
 
+        // Full All-Caps UpperCase transformation engine applied globally across JSON outputs
         function exportJSON() {
             const context = document.getElementById('coin_Context').value.trim();
             const observation = document.getElementById('coin_Observation').value.trim();
             const impact = document.getElementById('coin_Impact').value.trim();
             const nextsteps = document.getElementById('coin_Nextsteps').value.trim();
 
-            const state = { Context: context, Observation: observation, Impact: impact, Nextsteps: nextsteps };
+            const state = { 
+                CONTEXT: context.toUpperCase(), 
+                OBSERVATION: observation.toUpperCase(), 
+                IMPACT: impact.toUpperCase(), 
+                NEXTSTEPS: nextsteps.toUpperCase() 
+            };
             const timestamp = new Date().toISOString().slice(0, 10);
             const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `EE_COIN_Feedback_Log_${timestamp}.json`;
+            link.download = `EE_COIN_FEEDBACK_LOG_${timestamp}.json`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -592,11 +416,11 @@ ${script}
             reader.onload = function(e) {
                 try {
                     const data = JSON.parse(e.target.result);
-                    if (data.Context !== undefined || data.Observation !== undefined || data.Impact !== undefined || data.Nextsteps !== undefined) {
-                        document.getElementById('coin_Context').value = data.Context || '';
-                        document.getElementById('coin_Observation').value = data.Observation || '';
-                        document.getElementById('coin_Impact').value = data.Impact || '';
-                        document.getElementById('coin_Nextsteps').value = data.Nextsteps || '';
+                    if (data.CONTEXT !== undefined || data.OBSERVATION !== undefined || data.IMPACT !== undefined || data.NEXTSTEPS !== undefined || data.Context !== undefined) {
+                        document.getElementById('coin_Context').value = data.CONTEXT || data.Context || '';
+                        document.getElementById('coin_Observation').value = data.OBSERVATION || data.Observation || '';
+                        document.getElementById('coin_Impact').value = data.IMPACT || data.Impact || '';
+                        document.getElementById('coin_Nextsteps').value = data.NEXTSTEPS || data.Nextsteps || '';
                         updatePreview();
                         alert("COIN feedback log metrics imported successfully!");
                     } else {
@@ -661,6 +485,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Advanced AEO/GEO & SEO Meta Data -->
+    <meta name="description" content="Frequently Asked Questions and User Journey Map for Empowering Engineers UK. Discover how to leverage our platform for your CEng, IEng, and EngTech professional registration.">
+    <meta name="keywords" content="FAQ, User Journey, Help, UK-SPEC, Professional Registration, CEng, IEng, EngTech, Engineering Council">
+    <meta property="og:title" content="User Journey & FAQ | Empowering Engineers UK">
+    <meta property="og:description" content="Navigate the platform adoption process and find answers to frequently asked questions regarding your professional engineering registration journey.">
+    <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
+    <meta property="og:url" content="https://www.empoweringengineers.uk/FAQ.html">
+    <meta property="og:type" content="website">
+    
+    <title>User Journey & FAQ | Empowering Engineers UK</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    
+    <style>
+        /* --- INTERACTIVE FLOWCHART ARCHITECTURE (Bespoke Tool Local Styles) --- */
+        .flowchart-container {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .flowchart-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .flowchart-header h2 {
+            color: var(--ee-dark-blue);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        body[data-theme="dark"] .flowchart-header h2,
+        body[data-theme="contrast"] .flowchart-header h2 {
+            color: var(--cloud-white);
+        }
+
+        .flowchart-header p {
+            color: var(--terminal-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .fc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .fc-node {
+            background: var(--input-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cloud-white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 2;
+        }
+
+        .fc-node:hover {
+            border-color: var(--terminal-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(3, 247, 160, 0.15);
+        }
+
+        .fc-node.active {
+            background: var(--ee-dark-blue);
+            border-color: var(--terminal-green);
+            color: var(--ee-terminal-green);
+        }
+
+        .fc-node.purple-theme { border-color: #6B46C1; }
+        .fc-node.purple-theme:hover, .fc-node.purple-theme.active { background: #6B46C1; color: #FFFFFF; border-color: #553C9A; }
+
+        /* Logical Grid Placements for Desktop */
+        .node-why { grid-column: 1; grid-row: 2; }
+        .node-when { grid-column: 2; grid-row: 1; }
+        .node-help { grid-column: 3; grid-row: 1; }
+        .node-how-use { grid-column: 2; grid-row: 2; }
+        .node-change { grid-column: 3; grid-row: 2; }
+        .node-more { grid-column: 4; grid-row: 2; }
+        .node-next { grid-column: 5; grid-row: 2; }
+        .node-share { grid-column: 5; grid-row: 3; }
+        .node-enhance { grid-column: 5; grid-row: 4; }
+
+        /* Connectors (Desktop only for simplicity) */
+        .fc-arrow {
+            text-align: center;
+            color: var(--slate-grey);
+            font-weight: 900;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+        
+        .arrow-1 { grid-column: 1 / 2; grid-row: 2; transform: translateX(50%); justify-self: end;}
+        .arrow-2 { grid-column: 2 / 3; grid-row: 2; transform: translateX(50%); justify-self: end;}
+        .arrow-3 { grid-column: 3 / 4; grid-row: 2; transform: translateX(50%); justify-self: end;}
+        .arrow-4 { grid-column: 4 / 5; grid-row: 2; transform: translateX(50%); justify-self: end;}
+        .arrow-5 { grid-column: 5; grid-row: 2 / 3; transform: translateY(50%); align-self: end; }
+        .arrow-6 { grid-column: 5; grid-row: 3 / 4; transform: translateY(50%); align-self: end; }
+
+        @media (max-width: 992px) {
+            .fc-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .fc-arrow { display: none; }
+            .fc-node { min-height: 60px; width: 100%; }
+        }
+
+        /* Flowchart Data Panel */
+        .fc-data-panel {
+            background: var(--input-bg);
+            border: 2px solid var(--terminal-green);
+            border-radius: 6px;
+            padding: 25px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .fc-data-panel.visible {
+            display: block;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .data-grid { grid-template-columns: 1fr; }
+        }
+
+        .data-box {
+            background: rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        body[data-theme="dark"] .data-box, body[data-theme="contrast"] .data-box {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .data-label {
+            font-size: 0.75rem;
+            color: var(--burnt-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .data-value {
+            font-size: 0.95rem;
+            color: var(--cloud-white);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Injection of system standard navigation and logic modules -->
+    <script src="header_nav.js?v=22.0" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
+
+    <main class="container">
+
+        <!-- System Hub Breadcrumb Pathway -->
+        <nav class="ee-horizontal-nav" aria-label="System Hub Pathway">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+        </nav>
+
+        <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
+        <article class="thick-content">
+            <h1>Platform Help and Frequently Asked Questions</h1>
+            <p>Starting your journey to become a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) is a massive step. It is completely normal to have questions about the process. We built the Empowering Engineers UK platform to make your professional registration as simple as possible. This page is your central help desk. It explains how to use our tools safely and how to fix common problems.</p>
+            
+            <h2>Understanding Your Platform Journey</h2>
+            <p>When you first start using a new digital tool, it can feel a little confusing. We understand that moving away from old spreadsheets and messy folders takes time. To help you feel confident, we have mapped out the four stages of using our platform:</p>
+            <ul>
+                <li><strong>Discover Phase:</strong> You might be wondering why you should use this platform. The answer is simple. Our tools do the hard work of organising your evidence, so you can focus on writing great engineering stories.</li>
+                <li><strong>Envision Phase:</strong> Next, you will see how our tools fit together. For example, you will notice how the STAR Methodology framework automatically helps you meet the UK-SPEC communication rules.</li>
+                <li><strong>Onboard Phase:</strong> This is where you start building your portfolio. You can safely type your notes directly into our secure tools and save your progress to your own computer.</li>
+                <li><strong>Drive Value Phase:</strong> Finally, you will export your finished reports. You will have a clear, professional document ready for your Professional Review Interview (PRI).</li>
+            </ul>
+            
+            <h3>How to Find the Answers You Need</h3>
+            <p>If you get stuck, do not worry. We have built a smart search engine below to answer your questions instantly. Simply type a keyword like "Export", "Save", or "CEng" into the search box. The system will immediately filter the list to show you the exact steps you need to take.</p>
+            <p>Our platform uses secure local browser storage. This means your private company data stays entirely on your computer. Because of this high-level security, you must remember to manually download your backup files using the buttons at the bottom of the page. If you clear your internet history without saving, your work will be lost. Read through the questions below to learn exactly how to manage your files, change your screen colours, and prepare for your engineering interview.</p>
+        </article>
+
+        <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
+        <div class="ad-slot ad-mpu" style="border-top:1px solid var(--border-color); padding-top:20px; text-align:center; padding-bottom: 30px; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7071036534151105"
+                 data-ad-slot="4413012282"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Section 1: Interactive User Journey Flowchart -->
+        <section class="flowchart-container">
+            <div class="flowchart-header">
+                <h2>Understanding the User Journey</h2>
+                <p>Getting to "Aha!" — Click a phase below to reveal execution parameters.</p>
+            </div>
+
+            <div class="fc-grid">
+                <!-- Nodes -->
+                <div class="fc-node node-why" onclick="loadPhaseData('discover', this)">Why should I care?</div>
+                <div class="fc-arrow arrow-1">→</div>
+                
+                <div class="fc-node node-how-use purple-theme" onclick="loadPhaseData('envision', this)">How will I use it?<br><br>How will WE use it?</div>
+                <div class="fc-arrow arrow-2">→</div>
+                
+                <div class="fc-node node-when" onclick="loadPhaseData('onboard', this)">When can I use it?</div>
+                <div class="fc-node node-help" onclick="loadPhaseData('onboard', this)">How can I get help?</div>
+                
+                <div class="fc-node node-change" onclick="loadPhaseData('value', this)">How does this change my experience?</div>
+                <div class="fc-arrow arrow-3">→</div>
+                
+                <div class="fc-node node-more" onclick="loadPhaseData('value', this)">How can I do more?</div>
+                <div class="fc-arrow arrow-4">→</div>
+                
+                <div class="fc-node node-next purple-theme" onclick="loadPhaseData('next', this)">What's next?</div>
+                <div class="fc-arrow arrow-5">↓</div>
+                
+                <div class="fc-node node-share" onclick="loadPhaseData('next', this)">How can I share my success?</div>
+                <div class="fc-arrow arrow-6">↓</div>
+                
+                <div class="fc-node node-enhance purple-theme" onclick="loadPhaseData('next', this)">How can I enhance my profession with this?</div>
+            </div>
+
+            <!-- Dynamic Data Panel -->
+            <div id="fcDataPanel" class="fc-data-panel">
+                <h3 id="panelPhaseTitle" style="color: var(--terminal-green); margin-top: 0; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px;">Phase Data</h3>
+                <div class="data-grid">
+                    <div class="data-box">
+                        <span class="data-label">Internal Feeling</span>
+                        <span id="panelFeeling" class="data-value">-</span>
+                    </div>
+                    <div class="data-box">
+                        <span class="data-label">Target Go-Do (Micro-Action)</span>
+                        <span id="panelAction" class="data-value">-</span>
+                    </div>
+                    <div class="data-box" style="grid-column: 1 / -1; border-color: var(--terminal-green);">
+                        <span class="data-label">Expected Outcome</span>
+                        <span id="panelOutcome" class="data-value" style="color: var(--terminal-green);">-</span>
+                    </div>
+                </div>
+                <div id="panelLinkContainer" style="text-align: right; margin-top: 15px;">
+                    <!-- Dynamic Link Button Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Fuzzy Search FAQ Database -->
+        <section class="faq-container">
+            <h2 style="color: var(--cloud-white); text-transform: uppercase; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid var(--terminal-green); padding-bottom: 10px;">Platform Knowledge Base</h2>
+            
+            <div class="faq-search-wrapper" style="margin-bottom: 25px; position: relative;">
+                <span class="search-icon" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--slate-grey);">🔍</span>
+                <input type="text" id="faqSearchInput" class="faq-search-input" style="width: 100%; min-height: 54px; background: var(--input-bg); border: 2px solid var(--border-color); border-radius: 6px; padding: 0 20px 0 45px; font-size: 1.1rem; color: var(--cloud-white); transition: all 0.2s ease; font-family: inherit;" placeholder="Search for questions, features, or keywords (e.g., CEng, Devices, Chrome, Export)..." onkeyup="executeFuzzyFAQSearch()">
+            </div>
+
+            <div class="faq-list" id="faqListContainer">
+                <!-- FAQ Items generated via JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- 1. FLOWCHART LOGIC ENGINE ---
+        const phaseDatabase = {
+            'discover': {
+                title: "Discover / Try Phase",
+                feeling: "Indifference, resistance, curiosity & confusion.",
+                action: "Get familiar with capabilities & requirements (multi-modal comms & engagement).",
+                outcome: "Prepare for change: Understand that this platform replaces manual spreadsheets to accelerate your path to CEng/IEng/EngTech.",
+                linkUrl: "guide.html",
+                linkLabel: "Read the User Onboarding Guide"
+            },
+            'envision': {
+                title: "Envision / Inspire Phase",
+                feeling: "Anxiety, curiosity & confusion.",
+                action: "Interactive learning with community.",
+                outcome: "Aha moment - understand scope of change: Realising how the STAR Methodology architect and UK-SPEC trackers integrate seamlessly.",
+                linkUrl: "coach.html",
+                linkLabel: "Explore the Coach Hub"
+            },
+            'onboard': {
+                title: "Onboard & Empower Phase",
+                feeling: "Anticipation, frustration, curiosity & intrigue.",
+                action: "Attend rapid learning series & expand community connection.",
+                outcome: "Gain operational knowledge: Utilise the Application Manual and Help guides to overcome initial configuration hurdles.",
+                linkUrl: "mentor.html",
+                linkLabel: "Enter the Mentor Hub"
+            },
+            'value': {
+                title: "Realize / Drive Value Phase",
+                feeling: "Confidence, anticipation.",
+                action: "Role-based training with community of peers.",
+                outcome: "Personal scenario use; physical experience of change: Generating full Professional Review Interview (PRI) reports instantly.",
+                linkUrl: "interview.html",
+                linkLabel: "Access PRI Simulators"
+            },
+            'next': {
+                title: "Expansion & Mentorship Phase",
+                feeling: "Mastery, pride, and strategic foresight.",
+                action: "Export data archives and sponsor junior engineers.",
+                outcome: "Enhance your profession: By securing your professional registration and utilizing our Coaching frameworks to lead your teams effectively.",
+                linkUrl: "cpd.html",
+                linkLabel: "Manage Your CPD Plan"
+            }
+        };
+
+        function loadPhaseData(phaseKey, clickedNode) {
+            // Manage active states visually
+            document.querySelectorAll('.fc-node').forEach(node => node.classList.remove('active'));
+            clickedNode.classList.add('active');
+
+            // Populate Panel
+            const data = phaseDatabase[phaseKey];
+            if (data) {
+                document.getElementById('panelPhaseTitle').innerText = data.title;
+                document.getElementById('panelFeeling').innerText = data.feeling;
+                document.getElementById('panelAction').innerText = data.action;
+                document.getElementById('panelOutcome').innerText = data.outcome;
+                
+                const linkContainer = document.getElementById('panelLinkContainer');
+                if (data.linkUrl && data.linkLabel) {
+                    linkContainer.innerHTML = `<a href="${data.linkUrl}" class="action-btn action-btn-ghost">${data.linkLabel} →</a>`;
+                } else {
+                    linkContainer.innerHTML = '';
+                }
+                
+                // Expose Panel
+                document.getElementById('fcDataPanel').classList.add('visible');
+            }
+        }
+
+        // --- 2. FUZZY SEARCH FAQ ENGINE ---
+        // Includes rich HTML formatting for buttons directly within answers.
+        const faqDatabase = [
+            {
+                q: "What devices and browsers does the platform support? Are there limitations?",
+                a: "The platform is fully responsive and supports all modern devices: PC, Mac, tablets, and smartphones. It is thoroughly tested on Google Chrome, Apple Safari, Microsoft Edge, and Mozilla Firefox. <strong>Critical Limitation:</strong> You MUST have JavaScript enabled for the tools to function. Because our security architecture uses Local Browser Storage, your data is bound to the specific device and browser you are using. To move your work from your phone to your PC, you must manually export and upload a `.json` backup file. <br><br><a href='guide.html' class='action-btn action-btn-ghost'>Read the User Guide</a>"
+            },
+            {
+                q: "How do I change the display theme for better visibility or accessibility?",
+                a: "Look for the Visibility Icon (the eye or sun/moon symbol) located in the main navigation bar at the top of the screen (or in the mobile side-drawer). Clicking this will instantly cycle the platform between standard Light Mode, midnight Dark Mode, and a highly accessible High-Contrast matrix to suit your visual preferences."
+            },
+            {
+                q: "How do I contact Empowering Engineers UK?",
+                a: "You can reach us through our dedicated contact page for general enquiries or technical support. We are also highly active on professional networking channels. <br><br><a href='contact.html' class='action-btn action-btn-ghost'>Open Contact Page</a> <a href='social.html' class='action-btn action-btn-ghost'>View Social Media Links</a>"
+            },
+            {
+                q: "How do I start my CEng, IEng, or EngTech application?",
+                a: "Navigate to the 'Mentor' hub via the main navigation. Select your target registration tier to access the specific UK-SPEC Competency Trackers (A through E). We recommend starting with the Career Builder CV Module to establish your baseline timeline. <br><br><a href='career.html' class='action-btn action-btn-ghost'>Open Career Builder</a>"
+            },
+            {
+                q: "What is the LIVE COACH OUTPUT and how does it score my work?",
+                a: "As you type in the Mentor Hub, the 'Live Coach Output' engine reads your text in real-time. It assigns a diagnostic grade from L1-AWARE to L4-EXPERT. It scans for the STAR methodology, penalises passive language (like 'I was involved in'), and rewards strong action verbs ('I orchestrated', 'I validated'). It ensures you meet Competence D communication standards. <br><br><a href='mentor.html' class='action-btn action-btn-ghost'>Enter the Mentor Hub</a>"
+            },
+            {
+                q: "How do I prove 'Commercial Awareness' for Competence E?",
+                a: "Assessing panels expect you to understand budgets, risk, and strategic alignment, not just technical data. Use our Coach Hub's Decision Making frameworks to structure your logic. Building a Cost-Benefit Analysis (CBA) or a Risk Matrix transitions your narrative from 'I fixed the machine' to 'I secured a 2-year ROI by mitigating downtime risks.' <br><br><a href='decisions-cba.html' class='action-btn action-btn-ghost'>Open CBA Tool</a>"
+            },
+            {
+                q: "How can I demonstrate Leadership and Interpersonal Skills (Competences C & D)?",
+                a: "You must prove you can manage teams and resolve conflict objectively. Instead of vague statements, use structured frameworks from our Feedback module. For example, document how you used the SBI (Situation-Behaviour-Impact) model to correct a design error, or the GROW model to mentor a junior engineer. <br><br><a href='feedback-sbi.html' class='action-btn action-btn-ghost'>Learn SBI Feedback</a>"
+            },
+            {
+                q: "How do I prepare for the Professional Review Interview (PRI)?",
+                a: "The PRI is the capstone of the UK-SPEC process. Our Virtual PRI Simulator allows you to engage in timed mock interviews specific to your target tier. It forces you to practice recalling structured evidence using STAR, or advanced PARLA (Problem, Action, Result, Learning, Application) frameworks to prove reflective practice. <br><br><a href='pri.html' class='action-btn action-btn-ghost'>Launch PRI Simulator</a>"
+            },
+            {
+                q: "How do I document Process and Quality Improvements (Competence B)?",
+                a: "Treating the symptom of a failure is insufficient; you must diagnose root causes. Use our Process & Quality tools like the 5 Whys, Ishikawa (Fishbone) diagrams, or the DMAIC loop. Documenting these processes proves to the panel that you actively design and develop robust, safe systems. <br><br><a href='quality-dmaic.html' class='action-btn action-btn-ghost'>Access DMAIC Tool</a>"
+            },
+            {
+                q: "Why are Hobbies like Chess, Poetry, or Calisthenics on an engineering platform?",
+                a: "Professional engineering extends beyond the office. Structured extracurriculars develop critical cognitive faculties. Chess builds strategic foresight; Acronym Blitz improves rapid-recall; Poetry masterclasses enhance public speaking cadence; and Calisthenics builds the physical endurance necessary for high-stakes site operations. <br><br><a href='hobbies.html' class='action-btn action-btn-ghost'>Explore the Hobbies Hub</a>"
+            },
+            {
+                q: "Is my personal data and engineering project IP secure?",
+                a: "Absolutely. Empowering Engineers UK utilises a strict Zero-Knowledge Browser Storage Encryption Fallback Layer. All text, matrices, and logs you type are saved natively within your device's local browser cache. We do not transmit or store your portfolio data on any external servers. <br><br><a href='privacy.html' class='action-btn action-btn-ghost'>Read our Privacy Policy</a>"
+            },
+            {
+                q: "How do I backup or transfer my work to another computer?",
+                a: "Scroll to the continuous footer at the bottom of any page and click the <strong>Backup Files</strong> button under the Platform Asset Control Framework. This will download a `.json` archive to your machine. You can then use the <strong>Upload Files</strong> button on a different device to restore your exact progress."
+            },
+            {
+                q: "How do I export my finished documents for submission?",
+                a: "Within tools like the Career Builder or CPD Smart-Planner, navigate to the final phase tab (e.g., <strong>Theme & Preview</strong>). You can select a visual layout and click the export buttons to generate a clean, print-ready HTML page. From there, simply use your browser's <strong>Save to PDF</strong> function to finalise the document."
+            },
+            {
+                q: "What if I accidentally clear my browser cache?",
+                a: "Because our architecture relies on Local Storage to ensure absolute privacy, clearing your browser cache will delete your active workspace. We strongly mandate that candidates execute a manual `.json` backup using the footer controls after every major drafting session to prevent data loss."
+            }
+        ];
+
+        function renderFAQList() {
+            const container = document.getElementById('faqListContainer');
+            container.innerHTML = '';
+
+            faqDatabase.forEach((item, index) => {
+                const faqHTML = `
+                    <div class="faq-item" id="faq-item-${index}">
+                        <button class="faq-question" onclick="toggleFAQ(${index})">
+                            <span>${item.q}</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            ${item.a}
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', faqHTML);
+            });
+        }
+
+        function toggleFAQ(index) {
+            const item = document.getElementById(`faq-item-${index}`);
+            const icon = item.querySelector('.faq-toggle-icon');
+            
+            if (item.classList.contains('open')) {
+                item.classList.remove('open');
+                icon.innerText = '+';
+            } else {
+                item.classList.add('open');
+                icon.innerText = '×';
+            }
+        }
+
+        function executeFuzzyFAQSearch() {
+            const query = document.getElementById('faqSearchInput').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach((item, index) => {
+                // Strip HTML tags for clean searching against the raw text
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = faqDatabase[index].a;
+                const answerText = tempDiv.textContent || tempDiv.innerText || "";
+                
+                const questionText = faqDatabase[index].q.toLowerCase();
+                const cleanAnswerText = answerText.toLowerCase();
+
+                if (questionText.includes(query) || cleanAnswerText.includes(query)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize Systems on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFAQList();
+        });
+
+    </script>
+</body>
+</html>

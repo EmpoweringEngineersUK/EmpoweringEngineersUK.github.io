@@ -13,17 +13,17 @@
     
     <title>Internal Promotion Interviews | Empowering Engineers UK</title>
     
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link class="js-fav-32" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link class="js-apple-touch" rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
     <link rel="canonical" href="https://www.empoweringengineers.uk/interview-career-internal-promotion.html" />
     
     <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Central Question Pool Database Asset Linkage -->
-    <script src="questions.js?v=21.7"></script>
+    <script src="questions.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -50,6 +50,7 @@
     
     <style>
         /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
+        /* Local styles strictly reserved for bespoke simulation screens to safeguard global layout cascades */
         .interview-container {
             max-width: 900px;
             width: 100%;
@@ -85,7 +86,7 @@
             top: 20px;
             left: 20px;
             background: var(--ee-dark-blue);
-            color: var(--terminal-green);
+            color: var(--ee-terminal-green);
             border: 1px solid var(--border-color);
             padding: 5px 12px;
             font-weight: bold;
@@ -253,145 +254,34 @@
             color: var(--terminal-green);
         }
 
-        /* --- THEMATIC NARRATIVE LINKAGE COMPLIANCE --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        .btn-ai {
+            border-color: var(--border-color) !important;
         }
-        
-        /* Heading colour bound to system adaptive variable to ensure high-contrast light-theme visibility */
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        
-        .thick-content ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        
-        .thick-content li {
-            margin-bottom: 8px;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
 <body data-theme="light">
     <!-- Automated System Navigation Injection Target -->
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
 
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Corporate Engineering Interviews: Strategic Internal Promotion Framework</h1>
-            <p>Vertical progression within premium engineering enterprises requires demonstrating skills beyond daily design tasks or tactical delivery matrices. Transitioning into higher-tier roles—such as Senior Lead Engineer, Principal Consultant, or Engineering Director—involves moving from personal task execution to systemic corporate stewardship, engineering governance, and commercial leadership. Internal technical promotion panels assess candidates' ability to handle increased accountability, minimise corporate risk, manage budgets, and lead multi-disciplinary teams through long-term asset life cycles. They look for professionals who can articulate long-term visions and drive structural alignment across diverse engineering workstreams.</p>
-            <p>This Advanced Internal Promotion Simulation Workspace helps engineers prepare for rigorous technical panel reviews. Unlike external recruitment processes that focus on general experience, internal promotion boards look for specific evidence of your contributions to the company's operational history. They evaluate your familiarity with the company's safety management systems (SMS), your readiness to assume greater legal and regulatory liability under Construction (Design and Management) regulations or specialised industry frameworks, and your ability to mentor early-career staff to build long-term talent benches. They test how your technical decisions have directly protected the business bottom line while preserving engineering integrity.</p>
+            
+            <h2>Understanding the Internal Promotion Process</h2>
+            <p><strong>What is this step?</strong> Preparing for an internal promotion interview means organizing and reviewing your technical achievements within your current company. Moving up into higher-tier roles—such as Senior Lead Engineer, Principal Consultant, or Engineering Director—takes far more than just performing regular design work. This simulation workbench acts as an interactive rehearsal space tailored to test your leadership skills and professional awareness. It structures practice interview sessions around standard corporate expansion targets, helping you refine your spoken arguments cleanly before facing your company's assessment board.</p>
+            
+            <h2>Why Internal Progression Matters to Your Engineering Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Moving up to a senior role within your company shifts your focus from individual task execution to wide corporate stewardship and policy governance. Internal promotion panels assess your ability to manage multi-disciplinary project budgets, handle capital expenditure (CapEx) and operational expenditure (OpEx) layout choices responsibly, and lead teams safely. They judge your commitment to safety management systems (SMS) and your readiness to assume greater statutory liability under Construction (Design and Management) regulations. Success in this interview proves you can protect company profits while preserving engineering integrity, allowing you to advance your career smoothly.</p>
+            <p>When answering questions from directors, you must explicitly highlight your individual accountability and leadership decisions. Review boards want to see how your personal choices directly resolved technical roadblocks or reduced operational expenses. Practizing your project summaries ensures you speak with data-driven confidence, removing long, confusing descriptions from your answers. This training helps you present your experience clearly under pressure, ensuring senior stakeholders respect your professional judgments and support your career goals.</p>
 
-            <h2>Deconstructing the Promotion Review Dimensions</h2>
-            <p>To successfully pass an internal promotion panel, your technical narratives must be organised around key leadership quadrants. This workspace focuses questions around these precise institutional progression boundaries:</p>
-            <ul>
-                <li><strong>Leadership, Mentorship & Team Growth:</strong> Evaluates how effectively you train junior technicians, apprentices, and graduate engineers to scale internal competencies and reduce skill gaps.</li>
-                <li><strong>Operational Strategy & Governance:</strong> Probes your approach to updating company policies, leading engineering change management, and enforcing compliance parameters across high-exposure asset portfolios.</li>
-                <li><strong>Commercial Strategy & Capital Efficiency:</strong> Verifies your readiness to handle profit and loss (P&L) accountability, evaluate value-engineering schemes, and align project capital expenditures (CapEx) with corporate business plans.</li>
-                <li><strong>Change Management & Workplace Culture:</strong> Audits your experience leading change, resolving cross-departmental friction, and building an inclusive safety culture where staff feel empowered to flag hazards.</li>
-            </ul>
-
-            <h2>Maximising Performance in the Technical Stress Simulator</h2>
-            <p>This platform functions as a high-fidelity diagnostic sandbox. To maximise its value, we strongly recommend practicing under real interview constraints. Speaking under timed boundaries forces your verbal reasoning to condense, simulating the pressure of an executive board review. Use your device's built-in dictation tools to feed text directly into the live workspace box. This compiles your question history and responses into an optimised meta-prompt that can be used with artificial intelligence models for targeted feedback.</p>
+            <h2>How to Complete Your Simulation Review Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To pass your internal review successfully, use this simulator to practice framing your career history around key leadership quadrants. Use our drop-down menus to pick your target seniority tier and choose a specific competency stream to start your session. When the tool generates a question, structure your technical answers using the <strong>STAR Methodology</strong>, separating the Situation, Task, Action, and Result cleanly. Make sure you speak directly about your company's specific software tools, asset profiles, and quality frameworks.</p>
+            <p>To record your answers easily, click inside the live workspace notes box and use your computer's built-in voice dictation keys (such as pressing <strong>Windows Key + H</strong> on Windows platforms) to convert your speech to text in real-time. This saves your practice logs securely within your local browser cache memory. Our zero-knowledge local storage architecture ensures that no confidential company data layers or private project summaries are ever sent to our external servers, keeping you completely compliant with your employer's Non-Disclosure Agreements (NDAs). After completing the review, copy your compiled notes and use them with artificial intelligence models to view a detailed feedback matrix.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -522,8 +412,9 @@
             <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
                     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised Promotion AI Prompt Compiler</h4>
-                    <div style="display:flex; gap: 10px;">
-                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
+                    <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Parameters</button>
+                        <button type="button" class="action-btn btn-ai" id="aiCoachBtn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="generateAiCoachPrompt()">✨ AI Coach Prompt</button>
                         <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
                     </div>
                 </div>
@@ -535,7 +426,7 @@
     </main>
 
     <!-- Global Platform Footer Element Injection Target -->
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // Unique Platform Identifier String Token
@@ -1006,6 +897,39 @@ For each individual answer record, you must provide:
                 audioStreamInstance.getTracks().forEach(track => track.stop());
                 audioStreamInstance = null;
             }
+        }
+
+        function generateAiCoachPrompt() {
+            const compilerWindow = document.getElementById('compilerBox');
+            const currentContent = compilerWindow.value;
+            
+            // Isolate current scratchpad input data if present to ensure adaptive coverage
+            const scratchText = document.getElementById('scratchpad').value.trim();
+            let supplementaryString = "";
+            if (scratchText !== "") {
+                supplementaryString = `\n\n[CURRENT UNCOMMITTED TRANSCRIPT LIVE PLUG]\n"${scratchText}"`;
+            }
+
+            const targetRole = document.getElementById('modeSelect').value;
+            const targetFocus = document.getElementById('compSelect').value;
+
+            const basePrompt = `[ROLE] You are acting as a Senior Engineering Mentor, Executive Technical Director, and Chairman of the PEI Professional Review Panel.
+[GOAL] Critically evaluate the engineering candidate's internal promotion verbal answers. Identify if their narratives explicitly prove personal competence, policy-level governance, and commercial leadership mapping to UK-SPEC metrics, or if they rely on ambiguous group summaries ("we did"). Provide a high-stress probing question to test their limits.
+[CONTEXT] Seniority Context: ${targetRole} // Competency Track focus: ${targetFocus}.
+[SOURCE RECORDS]
+"""
+${currentContent}${supplementaryString}
+"""
+[EXPECTATION] Do not write responses for the candidate. Provide constructive, encouraging feedback suitable for an early-career engineer, highlight structural vocabulary gaps, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(basePrompt).then(() => {
+                const btn = document.getElementById('aiCoachBtn');
+                const prevText = btn.innerText;
+                btn.innerText = ">> PROMPT COPIED!";
+                setTimeout(() => { btn.innerText = prevText; }, 2000);
+            }).catch(err => {
+                alert("Clipboard write blocked. Please select and copy the compiled text inside the prompt field manually.");
+            });
         }
     </script>
 </body>

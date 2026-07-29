@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/engtech-e.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -35,6 +35,7 @@
       "publisher": {
         "@type": "Organization",
         "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
@@ -43,64 +44,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -108,74 +114,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -183,29 +121,32 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Engineering Technician (EngTech) Competence E: Personal and Professional Commitment</h1>
-            <p>Earning the title of Engineering Technician (EngTech) with the Engineering Council demonstrates that you are a highly responsible, front-line professional committed to safe, ethical, and sustainable practice. Within the UK Standard for Professional Engineering Competence (UK-SPEC), Competence E measures your personal and professional commitment to society, the environment, and the engineering profession. While higher pathways like Chartered Engineer (CEng) focus on authoring high-level organizational policy, the EngTech tier values direct practical execution: enforcing safety rules on the workshop floor, minimizing waste in production cycles, and logging your daily continuous professional development to maintain technical currency.</p>
+            <p>Earning your Engineering Technician (EngTech) status through the Engineering Council proves you are a highly responsible professional. Technical skills alone are not enough to succeed. Competence E of the UK-SPEC framework tests your personal and professional commitment to safety, ethics, and sustainability. While Chartered Engineers focus on writing high-level corporate policies, Engineering Technicians focus on practical execution. You must show that you follow safety rules on the workshop floor, minimize environmental waste during production, and log your ongoing training to maintain your technical skills.</p>
             
-            <h2>E1 & E2: Professional Conduct and Front-line Safe Systems</h2>
-            <p>Sub-competence E1 evaluates your strict compliance with the professional code of conduct established by your Licensed Professional Engineering Institution (such as the IMechE, IET, or ICE). You must provide explicit evidence of behaving ethically, supporting colleagues, and protecting corporate integrity during daily operational tasks. Sub-competence E2 centers on your personal commitment to safe systems of work. Review boards require concrete proof that you do more than read safety briefs; you must show how you actively implement regulations like the Health and Safety at Work Act 1974, PUWER, or COSHH. Detail your role in completing Risk Assessments and Method Statements (RAMS), leading daily Toolbox Talks, checking equipment safety guards, or logging near-miss events.</p>
+            <h2>E1 & E2: Professional Conduct and Safe Systems of Work</h2>
+            <p><strong>What is this step?</strong> This covers following the ethical rules of your Professional Engineering Institution and ensuring physical safety on site. <strong>Why does it matter to your career?</strong> Engineering projects can be dangerous. Employers need to trust that you will never compromise safety to save time or money. <strong>How do you complete it cleanly?</strong> Document exactly how you completed a Risk Assessment and Method Statement (RAMS) or stopped an unsafe working practice. Show how you follow health and safety laws and adhere to your company's strict code of conduct.</p>
             
-            <h2>E3 & E4: Environmental Stewardship and Continuous Professional Development</h2>
-            <p>Modern field and workshop operations demand active involvement in sustainable development. Sub-competence E3 examines your contribution to environmental sustainability. You must provide data-driven examples of how you personally minimized material scrap, organized recycling loops, reduced local energy consumption, or optimized chemical disposal methods to lower your site's carbon footprint. Simultaneously, sub-competence E4 requires you to track and log your Continuous Professional Development (CPD). Prove your commitment to keeping your technical competence current by describing equipment training courses, safety certifications, or how you actively support the onboarding of new apprentices and team members.</p>
-            
-            <h2>E5: Commercial Integrity, Diversity, and Operational Security</h2>
-            <p>Sub-competence E5 scrutinizes your ethical awareness regarding commercial integrity, diversity, and operational security. This requires you to demonstrate that you treat colleagues and contractors with absolute respect, adhering strictly to equity, diversity, and inclusion (EDI) policies. Furthermore, you must prove your commitment to operational security by showing how you protect technical drawings, log data securely, satisfying strict data protection frameworks (such as GDPR), and comply with organizational cyber-security protocols to safeguard sensitive industrial information networks.</p>
+            <h2>E3: Contribute to Sustainable Development</h2>
+            <p><strong>What is this step?</strong> This focuses on reducing the environmental impact of your daily engineering tasks. <strong>Why does it matter to your career?</strong> The engineering industry is rapidly moving towards Net Zero targets. Companies need technicians who can reduce waste and save energy. <strong>How do you complete it cleanly?</strong> Give clear examples of how you organized a recycling loop, reduced material scrap on the factory floor, or safely disposed of hazardous chemicals according to environmental regulations.</p>
+
+            <h2>E4: Carry Out and Record CPD</h2>
+            <p><strong>What is this step?</strong> Continuous Professional Development (CPD) is the formal record of your learning. <strong>Why does it matter to your career?</strong> Technology changes fast. If you stop learning, your skills become a risk to the business. <strong>How do you complete it cleanly?</strong> Explain how you keep a structured Development Action Plan (DAP). List specific equipment training courses, safety briefings, or new software modules you have completed to keep your technical skills sharp.</p>
+
+            <h2>E5: Exercise Responsibilities in an Ethical Manner</h2>
+            <p><strong>What is this step?</strong> This involves corporate integrity, protecting data, and treating all colleagues with absolute respect. <strong>Why does it matter to your career?</strong> You will handle sensitive company information and work in diverse teams. A lack of integrity destroys professional trust. <strong>How do you complete it cleanly?</strong> Write about a time you protected confidential client drawings, managed a conflict of interest fairly, or supported an inclusive and respectful culture within your engineering team.</p>
             
             <h2>Structuring Your Evidence via the STAR Methodology</h2>
-            <p>To successfully pass institutional review panels, your narrative evidence must follow a flawless structural matrix. This platform enforces the deployment of the STAR methodology (Situation, Task, Action, Result) across all engineering competence modules. This universally recognised framework prevents vague generalisations and team-centric descriptions. When drafting your Section E entries, your 'Action' phase must highlight your specific technical interventions, the safety checklists you completed, and the sustainability loops you personally organized. Using the first-person singular pronoun ("I") ensures that assessors can isolate your personal impact on keeping systems online.</p>
+            <p>To pass your Professional Review Interview (PRI), your written application must be perfectly structured. We strongly advise using the <strong>STAR Methodology</strong> (Situation, Task, Action, Result) for your drafts. This simple layout forces you to write about your personal actions, rather than just praising your wider team. For Competence E, your Action section must focus on the exact safety checks, ethical decisions, and sustainability steps you executed. Your Result section must prove how your actions protected the project. A factual report makes your interview much easier to pass.</p>
             
-            <h2>Secure Zero-Knowledge Client-Side Storage Architecture</h2>
-            <p>Managing site safety records, internal equipment audits, and incident logs involves handling sensitive corporate project details. Empowering Engineers UK safeguards your professional profile through an advanced, zero-knowledge client-side local storage architecture. Your entries, team details, and data logs are processed and cached natively within your browser partition. No technical files or text inputs traverse external computing networks, guaranteeing absolute data sovereignty and complete compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+            <h2>Secure Client-Side Architecture</h2>
+            <p>Writing your project history often means dealing with highly sensitive company safety records and private site data. To keep your intellectual property completely safe, this digital workbench uses zero-knowledge local storage. Everything you type is saved directly onto your own device. Your data is never sent over the internet to our servers. This guarantees your information stays private, ensuring you easily comply with strict corporate Non-Disclosure Agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -263,9 +204,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Engineering Technician (EngTech) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -490,9 +431,9 @@
 
             </div>
 
-            <!-- COACH SIDEBAR -->
+            <!-- MENTOR SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: E1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: E1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
@@ -517,10 +458,9 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
-        // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
         const EE_TOOL_ID = "ee_engtech_e"; 
         let currentMainTab = 'E1';
 
@@ -570,7 +510,7 @@
             const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
             const tools = masterData.ee_tools || {};
 
-            // 1. Evaluate External Hub Tools (Tickmarks vs Empty Checkboxes)
+            // 1. Evaluate External Hub Tools
             const hasCV = tools['ee_career_builder_state'] && Object.keys(tools['ee_career_builder_state']).length > 0;
             document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
 
@@ -723,7 +663,7 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
             loadPlaceholders(tabId);
             populateInputsFromState(tabId, appState[tabId].activeScenario);
@@ -768,7 +708,7 @@
             if (typeof sampleDb !== 'undefined' && sampleDb[subId]) {
                 const s = sampleDb[subId];
                 document.getElementById(`${subId}_S`).placeholder = s.s || "Context of the practical scenario...";
-                document.getElementById(`${subId}_T`).placeholder = s.t || "Your baseline technician responsibility...";
+                document.getElementById(`${subId}_T`).placeholder = s.t || "Your baseline deployment responsibility...";
                 document.getElementById(`${subId}_A`).placeholder = s.a || "What personal compliance or safety actions YOU performed...";
                 document.getElementById(`${subId}_R`).placeholder = s.r || "The outcome and risk mitigation results...";
             }
@@ -933,6 +873,7 @@
             updateNavigationBadges(); 
         }
 
+        // Isolated Extraction backup engine 
         function exportEEData() {
             saveToLocalTemp();
             let masterData = JSON.parse(localStorage.getItem('ee_master_state'));

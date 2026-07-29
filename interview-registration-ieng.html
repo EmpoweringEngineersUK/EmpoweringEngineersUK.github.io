@@ -20,10 +20,10 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/interview-registration-ieng.html" />
     
     <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Central Question Pool Database Asset Linkage -->
-    <script src="questions.js?v=21.7"></script>
+    <script src="questions.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -50,6 +50,7 @@
     
     <style>
         /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
+        /* Local styles strictly reserved for bespoke simulation screens to safeguard global layout cascades */
         .interview-container {
             max-width: 900px;
             width: 100%;
@@ -253,146 +254,34 @@
             color: var(--terminal-green);
         }
 
-        /* --- THEMATIC NARRATIVE LINKAGE COMPLIANCE --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        .btn-ai {
+            border-color: var(--border-color) !important;
         }
-        
-        /* Heading colour bound to system adaptive variable to ensure high-contrast light-theme visibility */
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        
-        .thick-content ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        
-        .thick-content li {
-            margin-bottom: 8px;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
 <body data-theme="light">
     <!-- Automated System Navigation Injection Target -->
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
 
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
             <h1>Incorporated Engineer (IEng) Professional Review Interview Framework</h1>
-            <p>Attaining Incorporated Engineer (IEng) status through a licensed Professional Engineering Institution (PEI) represents a core benchmark of professional capability within the engineering, manufacturing, and operational sectors. Regulated by the Engineering Council under the UK Standard for Professional Engineering Competence (UK-SPEC 4th Edition), the final stage of this process is the Professional Review Interview (PRI). This evaluation is designed to verbally validate your practical competence, engineering knowledge, and long-term professional commitment. Unlike the Chartered pathway—which focuses heavily on pioneering novel first principles—the IEng standard rigorously demands absolute proficiency in managing, optimising, and maintaining established engineering technologies and operational systems.</p>
-            <p>Empowering Engineers UK developed this advanced IEng PRI Virtual Simulator to prepare candidates for the structured focus of an engineering review board. While generic job interviews focus on basic tasks, an IEng panel tracks specific alignment with UK-SPEC Competencies A through E. Candidates must confidently articulate instances where they applied engineering principles to solve practical site problems, supervised technical teams, managed budgets, updated standard operating procedures, and enforced strict health, safety, and environmental compliance parameters.</p>
+            
+            <h2>Understanding the Incorporated Engineer Review Bench</h2>
+            <p><strong>What is this step?</strong> Preparing for your Incorporated Engineer (<strong>IEng</strong>) professional review interview is the final, deciding milestone of your application journey. Attaining Incorporated registration through a licensed <strong>Professional Engineering Institution (PEI)</strong> validates your practical management capability and technical expertise against global industry benchmarks. This digital simulator provides an interactive, client-side practice space designed to test your verbal reasoning before you face the live review board. It structures rehearsal sessions around realistic assessment constraints, helping you refine your spoken arguments cleanly.</p>
+            
+            <h2>Why the IEng Assessment Panel Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Achieving status as an Incorporated Engineer proves your high level of operational authority and professional commitment to clients, colleagues, and senior managers. Passing this panel interview immediately increases your commercial value within the industry, allowing you to advance into senior engineering leadership roles like Project Manager or Operations Director. It confirms your ability to take on supervisory responsibilities under active regulatory environments, direct technical projects, and manage engineering expenditure schemes responsibly without introducing hidden operational risks, securing your long-term career growth completely.</p>
+            <p>During the live 45 to 60-minute discussion, two expert assessors from your chosen institution will examine your application logs in detail. A common failure point for many candidates is writing or speaking broadly about what their project team accomplished using the word "we." The board expects to hear exactly what you did, managed, and optimised. The <strong>Professional Review Interview (PRI)</strong> strictly audits individual accountability. Practising with this simulation bench trains your mind to focus on your individual work choices, helping you explain your technical judgment with data-driven confidence.</p>
 
-            <h2>Deconstructing the Five Core UK-SPEC Competency Strands</h2>
-            <p>To secure a successful panel recommendation for professional registration, your spoken arguments must reflect the specific criteria laid out in the UK-SPEC standard. This active workspace structures its technical questions across these exact validation areas:</p>
-            <ul>
-                <li><strong>Competence A (Knowledge & Understanding):</strong> Probes your capacity to maintain and extend a sound theoretical approach to apply existing and emerging technology effectively.</li>
-                <li><strong>Competence B (Design & Development):</strong> Scrutinises your evidence-based approach to problem-solving, identifying operational defects, and implementing continuous process improvements.</li>
-                <li><strong>Competence C (Responsibility & Management):</strong> Evaluates your operational governance, mapping your team supervision, task planning, and project resource tracking frameworks.</li>
-                <li><strong>Competence D (Communication & Interpersonal):</strong> Validates your interpersonal skills, looking at your ability to manage shift handovers, lead toolbox talks, and communicate technical instructions clearly.</li>
-                <li><strong>Competence E (Ethical & Professional Conduct):</strong> Audits your absolute alignment with safe systems of work (RAMS, LOTO), environmental sustainability practices, and professional codes of conduct.</li>
-            </ul>
-
-            <h2>Optimising Spoken Evidence via the Prompt Compiler</h2>
-            <p>This virtual cockpit acts as an interactive simulator for active interview simulation. Operating under timed countdown constraints helps train your verbal agility, forcing your technical answers to fit within standard two to five-minute assessment limits. We mandate using your operating system's native speech-to-text dictation parameters to stream your spoken narratives directly client-side. The tool compiles your responses alongside the exact question parameters, creating an optimised meta-prompt ready to parse through artificial intelligence engines for advanced peer grading.</p>
+            <h2>How to Complete Your Virtual Interview Practice Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To pass your interview preparation cleanly, select your chosen <strong>UK-SPEC</strong> competency target from our drop-down menu above and click the activation trigger to start your session. When a question displays, structure your technical answers clearly using the standard <strong>STAR Methodology</strong> framework, separating the Situation, Task, Action, and Result cleanly. Make sure you highlight your technology application and focus heavily on process optimisation, asset tracking, and safe systems of work.</p>
+            <p>To record your answers easily, click inside the live workspace notes box and use your computer's built-in voice dictation shortkeys (such as pressing <strong>Windows Key + H</strong> on Windows platforms) to convert your speech to text logs in real-time. This saves your practice logs securely within your local browser cache memory. Our zero-knowledge local storage architecture ensures that no sensitive project data or confidential design files are ever sent to external cloud servers, keeping your employer's Non-Disclosure Agreements (NDAs) completely safe. Copy your compiled logs after your session to obtain targeted feedback from artificial intelligence models.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -499,9 +388,9 @@
 
         <!-- Touch-Target Compliant Primary Execution Controls -->
         <div class="controls">
-            <button class="action-btn" id="startBtn" onclick="startInterview()">Start Incorporated Interview</button>
-            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important;">Halt Simulation</button>
-            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled>Advance Simulation &rarr;</button>
+            <button class="action-btn" id="startBtn" onclick="startInterview()" style="min-height: 48px;">Start Incorporated Interview</button>
+            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important; min-height: 48px;">Halt Simulation</button>
+            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled style="min-height: 48px;">Advance Simulation &rarr;</button>
         </div>
 
         <!-- Data Capture Workspace Areas Layer -->
@@ -521,8 +410,9 @@
             <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
                     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised IEng UK-SPEC AI Prompt Compiler</h4>
-                    <div style="display:flex; gap: 10px;">
-                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
+                    <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Parameters</button>
+                        <button type="button" class="action-btn btn-ai" id="aiCoachBtn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="generateAiCoachPrompt()">✨ AI Coach Prompt</button>
                         <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
                     </div>
                 </div>
@@ -534,7 +424,7 @@
     </main>
 
     <!-- Global Platform Footer Element Injection Target -->
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_registration_interview_simulator_ieng";
@@ -623,7 +513,7 @@
             const internalStatus = checkToolContent(INTERNAL_TOOL_ID);
             const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
             const cengStatus = checkToolContent(CENG_TOOL_ID);
-            const iengStatus = checkToolContent(IENG_TOOL_ID);
+            const iengStatus = checkToolContent(EE_TOOL_ID);
             const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
 
             const hasCareer = internalStatus || externalStatus;
@@ -803,9 +693,9 @@ I am conducting an intensive simulation defence for my Incorporated Engineer (IE
 
 Please execute a rigorous, highly objective cross-examination critique of my responses against the definitive UK-SPEC 4th Edition standards for Incorporated registration.
 For each individual answer record, you must provide:
-1. An analytical evaluation of the operational competence, asset optimisation, continuous improvement actions, and personal accountability demonstrated (ensuring I use "I" instead of "We").
+1. An analytical evaluation of the operational competence, asset optimisation, continuous improvement actions, and personal accountability demonstrated (ensuring I use \"I\" instead of \"We\").
 2. An objective assessment of my narrative communication structure, verifying strict usage of the STAR framework (Situation, Task, Action, Result) and checking for concrete technical data.
-3. A severe, high-stress follow-up "probing question" designed to explicitly test my operational bounds, regulatory framework familiarity, and asset governance boundaries based on my statement.
+3. A severe, high-stress follow-up \"probing question\" designed to explicitly test my operational bounds, regulatory framework familiarity, and asset governance boundaries based on my statement.
 
 =========================================
 [RAW RUNTIME TRANSCRIPT LOGS INITIALISED]`;
@@ -986,6 +876,36 @@ For each individual answer record, you must provide:
                 audioStreamInstance.getTracks().forEach(track => track.stop());
                 audioStreamInstance = null;
             }
+        }
+
+        function generateAiCoachPrompt() {
+            const compilerWindow = document.getElementById('compilerBox');
+            const currentContent = compilerWindow.value;
+            const scratchText = document.getElementById('scratchpad').value.trim();
+            let supplementaryString = "";
+            if (scratchText !== "") {
+                supplementaryString = `\n\n[CURRENT UNCOMMITTED TRANSCRIPT LIVE PLUG]\n"${scratchText}"`;
+            }
+
+            const targetFocus = document.getElementById('compSelect').value;
+
+            const basePrompt = `[ROLE] You are acting as an Expert Peer Reviewer, Technical Board Chairman, and Senior Professional Review Interviewer (PRI) representing the Engineering Council (UK).
+[GOAL] Critically evaluate the candidate's Incorporated Engineer (IEng) verbal answers. Identify if their narratives explicitly prove practical competence, technology application, continuous improvement, asset optimisation, operational responsibility, safety governance, and technical leadership mapping to UK-SPEC metrics, or if they rely on ambiguous group summaries ("we did"). Provide a high-stress probing question to test their limits.
+[CONTEXT] Registration Target: Incorporated Engineer (IEng) // Competency Track focus: ${targetFocus}.
+[SOURCE RECORDS]
+"""
+${currentContent}${supplementaryString}
+"""
+[EXPECTATION] Do not write responses for the candidate. Provide constructive, encouraging feedback suitable for an early-career engineer, highlight structural vocabulary gaps, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(basePrompt).then(() => {
+                const btn = document.getElementById('aiCoachBtn');
+                const prevText = btn.innerText;
+                btn.innerText = ">> PROMPT COPIED!";
+                setTimeout(() => { btn.innerText = prevText; }, 2000);
+            }).catch(err => {
+                alert("Clipboard write blocked. Please select and copy the compiled text inside the prompt field manually.");
+            });
         }
     </script>
 </body>

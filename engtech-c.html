@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/engtech-c.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -43,64 +43,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -108,74 +113,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -183,29 +120,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Engineering Technician (EngTech) Competence C: Responsibility and Supervisory Leadership</h1>
-            <p>Attaining status as an Engineering Technician (EngTech) confirms your position as a trusted, front-line technical leader within the engineering sector. The Engineering Council's UK-SPEC Competence C evaluates your capability to accept personal responsibility for tasks and demonstrate localized supervisory leadership. While higher tiers like Chartered Engineer (CEng) focus on high-level corporate budgets and strategic project execution, EngTech leadership is intensely practical, centered around organizing daily site activities, leading small multi-disciplinary teams safely, and enforcing quality checkpoints to keep critical operations moving smoothly.</p>
+            <p>Reaching Engineering Technician (EngTech) status is a great achievement. Competence C of the UK-SPEC framework tests your ability to take personal responsibility and lead others safely. While Chartered Engineers (CEng) manage massive strategic budgets, Engineering Technicians manage the physical reality of the site or workshop. You must prove that you can organise daily tasks, lead small teams, and enforce quality control checks effectively to ensure successful operations.</p>
             
-            <h2>C1: Plan and Organise Technical Tasks Effectively</h2>
-            <p>Sub-competence C1 centers on your ability to plan and organise tasks effectively, allocating resources to achieve targeted project milestones. Assessors require concrete examples showing how you take a high-level job card or work package and convert it into a structured field layout. You must document how you identify required tooling, arrange replacement parts, schedule daily shift handovers, and stage materials in advance. Highlighting your personal intervention in managing unexpected delivery delays or mechanical bottlenecks proves you can maintain progress under pressure.</p>
+            <h2>C1: Plan and Organise Technical Tasks</h2>
+            <p><strong>What is this step?</strong> This is about taking a task instruction or work package and figuring out exactly how to execute it on the ground. <strong>Why does it matter to your career?</strong> Engineering projects fail if the front-line execution is disorganised. You must prove you can look ahead, gather the right materials, and set up a safe workspace before the job begins. <strong>How do you complete it cleanly?</strong> Describe a specific time you managed a shift handover, ordered replacement parts, or scheduled a maintenance shutdown. Detail how you checked the tooling, reviewed the safety permits, and ensured the team was ready to work without delays.</p>
             
-            <h2>C2: Demonstrate Supervisory Leadership and Influence Teams</h2>
-            <p>Sub-competence C2 evaluates your ability to lead, influence, or supervise small technical teams. Professional engineering institutions look for clear proof of personal authority. Describe how you organize and deliver daily toolbox talks, assign operational tasks based on individual technician competencies, and mentor junior apprentices on-site. Your narratives should highlight how you manage team safety compliance, resolve interpersonal technical conflicts during commissioning, or influence your colleagues to adopt improved, safer workplace methods.</p>
+            <h2>C2: Demonstrate Supervisory Leadership</h2>
+            <p><strong>What is this step?</strong> This focuses on your direct leadership over small teams, apprentices, or subcontractors. <strong>Why does it matter to your career?</strong> Good technicians do the work; great technicians lead the team. Employers need to know you can supervise others and ensure everyone follows the rules. <strong>How do you complete it cleanly?</strong> Document a scenario where you led a morning toolbox talk or directed a team during a complex repair. Explain how you assigned specific jobs based on what each team member was trained to do safely. Show how you mentored a junior colleague to improve their skills.</p>
             
-            <h2>C3: Manage Quality Control, Resources, and Finance</h2>
-            <p>Front-line technical leadership demands careful resource management and strict adherence to process quality. Sub-competence C3 examines your role in executing quality control protocols, monitoring localized stock levels, and flags potential material waste. You must describe how you audit tool calibration records, execute post-maintenance testing loops, or cross-check material delivery notes against original engineering bills of materials (BOM). Demonstrating how you minimize scrap or optimize resource use highlights your commercial maturity.</p>
+            <h2>C3: Manage Quality Control and Resources</h2>
+            <p><strong>What is this step?</strong> This involves checking the quality of the finished work and making sure materials are not wasted. <strong>Why does it matter to your career?</strong> Wasting materials costs the business money, and poor quality control puts lives at risk. You must prove you take ownership of the final technical output. <strong>How do you complete it cleanly?</strong> Write about how you audited calibration records, checked incoming material delivery notes, or signed off on a final inspection loop. Explain exactly how your actions prevented a defective part from being used or reduced material scrap on the factory floor.</p>
             
-            <h2>Evidence Framing via the STAR Methodology</h2>
-            <p>To successfully pass institutional review boards (such as the IMechE, IET, or ICE), your portfolio evidence must be structured with absolute narrative clarity. We mandate the deployment of the STAR methodology (Situation, Task, Action, Result) across all engineering competence modules. This universally accepted framework separates your specific technical contributions from generic team efforts. When drafting your Competence C reports, ensure your 'Action' phase details the specific equipment, technical drawings, and diagnostic methods you personally used. Use the first-person singular pronoun ('I') to show your direct impact on keeping systems online.</p>
+            <h2>Structuring Your Evidence via the STAR Methodology</h2>
+            <p>To pass your Professional Review Interview (PRI), your written application must be perfectly structured. We strongly advise using the <strong>STAR Methodology</strong> (Situation, Task, Action, Result) for your drafts. This simple layout forces you to write about your personal actions, rather than just praising your wider team. For Competence C, your Action section must focus on the exact leadership steps and quality checks you executed. Your Result section must prove how your supervision solved a practical problem. A factual report makes your interview much easier to pass.</p>
             
-            <h2>Secure Zero-Knowledge Local Sandbox Architecture</h2>
-            <p>To protect your corporate intellectual property, site fault records, and sensitive technical schematics, this platform is fortified by a zero-knowledge client-side local storage framework. No text inputs or corporate data payloads are ever transmitted to an external server. Your work remains fully sandbox-isolated within your local browser cache, ensuring total data sovereignty and complete compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+            <h2>Secure Client-Side Architecture</h2>
+            <p>Writing your project history often means dealing with highly sensitive company equipment details, budgets, and private site data. To keep your intellectual property completely safe, this digital workbench uses zero-knowledge local storage. Everything you type is saved directly onto your own device. Your data is never sent over the internet to our servers. This guarantees your information stays private, ensuring you easily comply with strict corporate Non-Disclosure Agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -263,9 +200,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Engineering Technician (EngTech) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -407,9 +344,9 @@
                 </div>
             </div>
 
-            <!-- COACH SIDEBAR -->
+            <!-- MENTOR SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: C1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: C1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
@@ -434,7 +371,7 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_engtech_c"; 
@@ -584,7 +521,7 @@
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Application Draft Preview</h1>
                 <p><em>Candidate: ${masterData.username || "Not Provided"}</em></p>`;
 
@@ -606,7 +543,7 @@
                     Object.keys(compData).forEach(sub => {
                         if (compData[sub] && compData[sub].compiled && compData[sub].compiled.trim() !== "") {
                             hasData = true;
-                            html += `Log: <h3>${sub}</h3>`;
+                            html += `<h3>${sub}</h3>`;
                             html += `<p>${compData[sub].compiled}</p>`;
                         }
                     });
@@ -637,7 +574,7 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
             loadPlaceholders(tabId);
             populateInputsFromState(tabId, appState[tabId].activeScenario);
@@ -845,6 +782,7 @@
             updateNavigationBadges(); 
         }
 
+        // Isolated Extraction backup engine 
         function exportEEData() {
             saveToLocalTemp();
             let masterData = JSON.parse(localStorage.getItem('ee_master_state'));

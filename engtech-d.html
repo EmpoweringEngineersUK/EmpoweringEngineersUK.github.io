@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/engtech-d.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -35,6 +35,7 @@
       "publisher": {
         "@type": "Organization",
         "name": "Empowering Engineers UK",
+        "url": "https://www.empoweringengineers.uk/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp"
@@ -43,64 +44,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -108,74 +114,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -183,26 +121,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Engineering Technician (EngTech) Competence D: Communication and Interpersonal Skills</h1>
-            <p>The role of an Engineering Technician (EngTech) demands exceptional clarity in communication and well-honed interpersonal skills. Within the UK Standard for Professional Engineering Competence (UK-SPEC), Competence D evaluates your capacity to communicate effectively and work constructively with others. Engineering operations are highly collaborative environments where a single miscommunication can lead to catastrophic equipment failure, project delays, or severe health and safety breaches. As an EngTech professional, you must demonstrate that you can seamlessly translate technical data, present clear explanations to non-technical stakeholders, and collaborate across operational boundaries to deliver successful engineering outcomes.</p>
+            <p>Earning your Engineering Technician (EngTech) status through the Engineering Council means proving you are a complete professional. Technical skills alone are not enough to succeed. Under the UK-SPEC framework, Competence D tests your communication and interpersonal skills. As an EngTech professional, you often act as the critical bridge between hands-on technical execution and high-level commercial management. You must show that you can translate complex engineering data into clear, actionable information for different audiences. Good communication keeps projects moving safely and prevents costly mistakes.</p>
             
-            <h2>D1: Use Oral, Written, and Electronic Methods to Communicate Technical Matters</h2>
-            <p>Sub-competence D1 explicitly focuses on your ability to use oral, written, and electronic methods to communicate technical and professional matters. Reviewing panels require empirical evidence that your communication is precise, structured, and tailored to the audience. In your daily operations, this includes leading or actively participating in morning toolbox talks, delivering clear shift handover briefs, and drafting detailed maintenance logs or engineering defect reports. Electronic communication also plays a vital role, such as modifying computerized maintenance management systems (CMMS), updating digital asset schematics, or emailing technical queries to component suppliers. You must show that your communication maintains clear document control and operational traceability.</p>
+            <h2>D1: Communicate in English with Others</h2>
+            <p><strong>What is this step?</strong> This covers your ability to write, speak, and present clearly in English. <strong>Why does it matter to your career?</strong> If you cannot explain a safety risk or a design change clearly, your team cannot execute it properly. <strong>How do you complete it cleanly?</strong> Give strong examples of writing technical reports, operating manuals, or project emails. Show how you change your tone depending on who is reading. For example, explain how you write differently for a senior structural engineer compared to a non-technical financial director.</p>
             
-            <h2>D2: Demonstrate Interpersonal Skills and Work Effectively in Teams</h2>
-            <p>Sub-competence D2 evaluates your interpersonal skills and your capacity to work effectively with colleagues, clients, users, or groups, demonstrating a clear awareness of diversity and inclusion. Engineering tasks are rarely executed in isolation; they depend on the coordinated effort of multi-disciplinary teams. You must show how you support your colleagues, listen actively to alternative engineering perspectives, and resolve front-line operational conflicts constructively. Furthermore, this competence requires you to demonstrate that you treat all team members with absolute respect, fostering an inclusive environment that values diverse backgrounds and skills. Evidence can also include training new apprentices, guiding non-technical operators, or representing your organisation professionally during independent asset inspections.</p>
+            <h2>D2: Present and Discuss Proposals</h2>
+            <p><strong>What is this step?</strong> This is the process of pitching your engineering ideas and defending your choices in a professional setting. <strong>Why does it matter to your career?</strong> Engineering requires constant negotiation. You must be able to convince clients and stakeholders that your design is safe and cost-effective. <strong>How do you complete it cleanly?</strong> Detail a specific time you led a design review or presented at a hazard identification (HAZOP) meeting. Explain how you actively listened to feedback, processed critical questions, and used empirical data to defend your technical proposals.</p>
             
-            <h2>Evidence Framing via the STAR Methodology</h2>
-            <p>To present a compelling application to professional review panels (such as the IMechE, IET, or ICE), your narrative evidence must follow a flawless structural matrix. This platform enforces the deployment of the STAR methodology (Situation, Task, Action, Result) across all sub-competency entry fields. This universally recognised framework prevents vague generalisations and team-centric descriptions. When drafting your Section D entries, your 'Action' phase must highlight your specific verbal or written interventions, the specific document logs you authored, and the communication tools you leveraged. Using the first-person singular pronoun ("I") ensures that assessors can isolate your personal impact on project delivery.</p>
+            <h2>D3: Demonstrate Personal and Social Skills</h2>
+            <p><strong>What is this step?</strong> This focuses on your emotional intelligence, teamwork, and ability to handle workplace conflict. <strong>Why does it matter to your career?</strong> A brilliant engineer who cannot work in a team is a liability. You must build a positive culture. <strong>How do you complete it cleanly?</strong> Document a scenario where you resolved an argument between different engineering disciplines. Show how you promote inclusive workplace practices, support diversity, and build trust with external contractors to keep your project running smoothly.</p>
             
-            <h2>Secure Zero-Knowledge Local Sandbox Architecture</h2>
-            <p>Managing communication histories and operational briefs often involves handling sensitive corporate project details or proprietary operational processes. Empowering Engineers UK safeguards your professional profile through an advanced, zero-knowledge client-side local storage architecture. Your entries, team details, and data logs are processed and cached natively within your browser partition. No technical files or text inputs traverse external computing networks, guaranteeing absolute data sovereignty and complete compliance with corporate Non-Disclosure Agreements (NDAs).</p>
+            <h2>Structuring Your Evidence via the STAR Methodology</h2>
+            <p>To pass your Professional Review Interview (PRI), your written application must be perfectly structured. We strongly advise using the <strong>STAR Methodology</strong> (Situation, Task, Action, Result) for your drafts. This simple layout forces you to write about your personal actions, rather than just praising your wider team. For Competence D, your Action section must focus on the exact words, presentations, and meetings you led. Your Result section must prove how your communication solved a problem. A factual report makes your interview much easier to pass.</p>
+            
+            <h2>Secure Client-Side Architecture</h2>
+            <p>Writing your project history often means dealing with highly sensitive company budgets and private staff details. To keep your intellectual property completely safe, this digital workbench uses zero-knowledge local storage. Everything you type is saved directly onto your own device. Your data is never sent over the internet to our servers. This guarantees your information stays private, ensuring you easily comply with strict corporate Non-Disclosure Agreements (NDAs).</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -260,9 +201,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Engineering Technician (EngTech) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -363,9 +304,9 @@
                 </div>
             </div>
 
-            <!-- COACH SIDEBAR -->
+            <!-- MENTOR SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: D1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: D1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
@@ -390,7 +331,7 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_engtech_d"; 
@@ -592,7 +533,7 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
             loadPlaceholders(tabId);
             populateInputsFromState(tabId, appState[tabId].activeScenario);
@@ -799,6 +740,7 @@
             updateNavigationBadges(); 
         }
 
+        // Isolated Extraction backup engine 
         function exportEEData() {
             saveToLocalTemp();
             let masterData = JSON.parse(localStorage.getItem('ee_master_state'));

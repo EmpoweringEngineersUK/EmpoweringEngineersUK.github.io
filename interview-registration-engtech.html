@@ -20,10 +20,10 @@
     <link rel="canonical" href="https://www.empoweringengineers.uk/interview-registration-engtech.html" />
     
     <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <!-- Central Question Pool Database Asset Linkage -->
-    <script src="questions.js?v=21.7"></script>
+    <script src="questions.js?v=22.0"></script>
     
     <script type="application/ld+json">
     {
@@ -50,6 +50,7 @@
     
     <style>
         /* --- WORKSPACE LAYOUT SPECIFIC OVERRIDES --- */
+        /* Local styles strictly reserved for bespoke simulation screens to safeguard global layout cascades */
         .interview-container {
             max-width: 900px;
             width: 100%;
@@ -253,146 +254,34 @@
             color: var(--terminal-green);
         }
 
-        /* --- THEMATIC NARRATIVE LINKAGE COMPLIANCE --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        .btn-ai {
+            border-color: var(--border-color) !important;
         }
-        
-        /* Heading colour bound to system adaptive variable to ensure high-contrast light-theme visibility */
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        
-        .thick-content ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        
-        .thick-content li {
-            margin-bottom: 8px;
-        }
-
-        /* Standardised Horizontal Navigation with Badge Integration */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 58px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-
-        /* Fixed Square Checkboxes for Verification Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
+        .btn-ai:hover {
+            color: var(--ee-terminal-green) !important;
         }
     </style>
 </head>
 <body data-theme="light">
     <!-- Automated System Navigation Injection Target -->
-    <script defer src="header_nav.js?v=21.7"></script>
+    <script defer src="header_nav.js?v=22.0"></script>
 
     <main class="container">
 
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content" id="aeoThickContentBlock">
             <h1>Engineering Technician (EngTech) Professional Review Interview Framework</h1>
-            <p>Attaining Engineering Technician (EngTech) status through a licensed Professional Engineering Institution (PEI) represents the gold standard of practical capability and technical execution within the mechanical, electrical, and construction infrastructure domains. Regulated by the Engineering Council under the UK Standard for Professional Engineering Competence (UK-SPEC 4th Edition), the final milestone is the Professional Review Interview (PRI). This session is designed to verbally verify your practical trade skills, toolkit literacy, and alignment with safety systems of work. While higher registration tiers focus on abstract management or conceptual designs, the EngTech path evaluates hands-on mastery: proving you can safely, effectively, and independently complete technical assets to exact code requirements.</p>
-            <p>Empowering Engineers UK built this advanced EngTech PRI Virtual Simulator to help technicians prepare for their professional panel review. While generic workplace interviews assess simple work histories, an EngTech panel looks directly for alignment with UK-SPEC Competencies A through E. Candidates must confidently use "I" statements to outline instances where they reviewed technical diagrams, selected the correct components, diagnosed complex machinery faults, supported team apprentices, and maintained an uncompromised commitment to workplace health and safety rules.</p>
+            
+            <h2>Understanding the Technician Review Bench</h2>
+            <p><strong>What is this step?</strong> Preparing for your Engineering Technician (<strong>EngTech</strong>) professional review interview is the final, crucial step to earn your professional registration. Attaining EngTech status through a licensed <strong>Professional Engineering Institution (PEI)</strong> validates your practical skills and toolkit literacy against standard industry benchmarks. This digital simulator provides an interactive, client-side practice space designed to test your verbal reasoning before you face the live review board. It structures rehearsal sessions around realistic assessment constraints, helping you refine your spoken arguments cleanly.</p>
+            
+            <h2>Why the EngTech Assessment Panel Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Earning your EngTech title proves your practical competence and professional commitment to clients, colleagues, and senior managers. Passing this panel interview immediately increases your commercial value within the industry, allowing you to advance into higher-paid roles and secure supervisory responsibilities. It confirms your ability to follow safety regulations, complete installations, and handle equipment maintenance schemes responsibly without introducing operational risks, securing your long-term career growth completely.</p>
+            <p>During the live discussion, two expert assessors from your chosen institution will examine your application logs in detail. A common failure point for many candidates is writing or speaking broadly about what their project team accomplished using the word "we." The board expects to hear exactly what you did, diagnosed, and repaired. The <strong>Professional Review Interview (PRI)</strong> strictly audits individual accountability. Practising with this simulation bench trains your mind to focus on your individual work choices, helping you explain your practical judgment with data-driven confidence.</p>
 
-            <h2>Deconstructing the Five Core UK-SPEC Competency Strands</h2>
-            <p>To secure a successful panel recommendation for professional registration, your spoken arguments must reflect the specific criteria laid out in the UK-SPEC standard. This active workspace structures its technical questions across these exact validation areas:</p>
-            <ul>
-                <li><strong>Competence A (Review & Select):</strong> Probes your capacity to review practical engineering tasks and select the correct procedures, tools, and technical specifications safely.</li>
-                <li><strong>Competence B (Design & Development):</strong> Scrutinises your hands-on contribution to installing, testing, commissioning, or modifying physical parts and technical assets.</li>
-                <li><strong>Competence C (Responsibility & Teams):</strong> Evaluates your individual accountability, exploring how you guide apprentices, organise your workspace, and sign off completed job cards.</li>
-                <li><strong>Competence D (Communication & Interpersonal):</strong> Validates your interpersonal communication, assessing your ability to send technical logs, sketch layout fields, and give verbal shift handovers.</li>
-                <li><strong>Competence E (Ethical & Conduct):</strong> Audits your safety compliance, checking your proper usage of personal protective equipment (PPE), waste segregation habits, and adherence to company codes.</li>
-            </ul>
-
-            <h2>Optimising Spoken Evidence via the Prompt Compiler</h2>
-            <p>This virtual cockpit acts as an interactive simulator for active interview simulation. Operating under timed countdown constraints helps train your verbal agility, forcing your technical answers to fit within standard two to five-minute assessment limits. We mandate using your operating system's native speech-to-text dictation parameters to stream your spoken narratives directly client-side. The tool compiles your responses alongside the exact question parameters, creating an optimised meta-prompt ready to parse through artificial intelligence engines for advanced peer grading.</p>
+            <h2>How to Complete Your Virtual Interview Practice Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To pass your interview preparation cleanly, select your chosen <strong>UK-SPEC</strong> competency target from our drop-down menu above and click the activation trigger to start your session. When a question displays, structure your technical answers clearly using the standard <strong>STAR Methodology</strong> framework, separating the Situation, Task, Action, and Result cleanly. Make sure you highlight your hands-on problem-solving and focus heavily on personal safety equipment, workspace housekeeping, and honest reporting conduct.</p>
+            <p>To record your answers easily, click inside the live workspace notes box and use your computer's built-in voice dictation shortkeys (such as pressing <strong>Windows Key + H</strong> on Windows platforms) to convert your speech to text logs in real-time. This saves your practice logs securely within your local browser cache memory. Our zero-knowledge local storage architecture ensures that no sensitive project data or confidential design files are ever sent to external cloud servers, keeping your employer's Non-Disclosure Agreements (NDAs) completely safe. Copy your compiled logs after your session to obtain targeted feedback from artificial intelligence models.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -433,13 +322,13 @@
             <div class="ee-form-row">
                 <div class="ee-form-group">
                     <label class="ee-label">Target Registration Path:</label>
-                    <select class="ee-select" id="modeSelect" disabled>
+                    <select class="ee-select" id="modeSelect" disabled style="min-height: 48px;">
                         <option value="EngTech" selected>Engineering Technician (EngTech) Locked</option>
                     </select>
                 </div>
                 <div class="ee-form-group">
                     <label class="ee-label">UK-SPEC Competency Target:</label>
-                    <select class="ee-select" id="compSelect">
+                    <select class="ee-select" id="compSelect" style="min-height: 48px;">
                         <option value="All" selected>Full EngTech Mock Panel Simulation (A to E + DAP)</option>
                         <option value="A">Competence A - Method Selection & Practical Science</option>
                         <option value="B">Competence B - Physical Installation & Asset Testing</option>
@@ -452,7 +341,7 @@
             <div class="ee-form-row">
                 <div class="ee-form-group">
                     <label class="ee-label">Simulation Capture Mode:</label>
-                    <select class="ee-select" id="recModeSelect" onchange="evaluateCaptureVisibility()">
+                    <select class="ee-select" id="recModeSelect" onchange="evaluateCaptureVisibility()" style="min-height: 48px;">
                         <option value="browser" selected>Local Browser Microphone Extraction</option>
                         <option value="none">No Native Recording (Dictation Only)</option>
                         <option value="external">Utilising External Capture Systems</option>
@@ -460,7 +349,7 @@
                 </div>
                 <div class="ee-form-group">
                     <label class="ee-label">Countdown Boundary Timer:</label>
-                    <select class="ee-select" id="timeSelect">
+                    <select class="ee-select" id="timeSelect" style="min-height: 48px;">
                         <option value="120" selected>2 Minutes (Standard EngTech Baseline)</option>
                         <option value="300">5 Minutes (Deep Practical Asset Breakdown)</option>
                         <option value="60">1 Minute (Rapid Trade Fire)</option>
@@ -489,8 +378,8 @@
                     <span class="status-text-label" id="recLabel">Microphone Infrastructure Idle</span>
                 </div>
                 <div style="display:flex; gap:10px;">
-                    <button type="button" class="action-btn" id="recPlayBtn" onclick="toggleManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">● Record Answer</button>
-                    <button type="button" class="action-btn action-btn-outline" id="recStopBtn" onclick="stopManualAudioCapture()" disabled style="min-height:40px; height:40px; font-size:0.8rem; padding:0 12px;">■ Stop</button>
+                    <button type="button" class="action-btn" id="recPlayBtn" onclick="toggleManualAudioCapture()" disabled style="min-height:48px; height:48px; font-size:0.8rem; padding:0 12px;">● Record Answer</button>
+                    <button type="button" class="action-btn action-btn-outline" id="recStopBtn" onclick="stopManualAudioCapture()" disabled style="min-height:48px; height:48px; font-size:0.8rem; padding:0 12px;">■ Stop</button>
                 </div>
             </div>
 
@@ -499,9 +388,9 @@
 
         <!-- Touch-Target Compliant Primary Execution Controls -->
         <div class="controls">
-            <button class="action-btn" id="startBtn" onclick="startInterview()">Start Technician Interview</button>
-            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important;">Halt Simulation</button>
-            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled>Advance Simulation &rarr;</button>
+            <button class="action-btn" id="startBtn" onclick="startInterview()" style="min-height: 48px;">Start Technician Interview</button>
+            <button class="action-btn" id="stopBtn" onclick="stopInterview(false)" style="display:none; background-image:none !important; background-color:var(--burnt-orange) !important; box-shadow: 2px 2px 0px var(--cloud-white) !important; min-height: 48px;">Halt Simulation</button>
+            <button class="action-btn action-btn-outline" id="nextBtn" onclick="nextQuestion()" disabled style="min-height: 48px;">Advance Simulation &rarr;</button>
         </div>
 
         <!-- Data Capture Workspace Areas Layer -->
@@ -511,7 +400,7 @@
             <div class="ee-workbench-editor" style="padding: 25px;">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
                     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Live Workspace Notes & Speech Dictation Stream</h4>
-                    <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="document.getElementById('scratchpad').value=''">Purge Current Pad Input</button>
+                    <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px; font-size: 0.8rem; padding: 4px 12px;" onclick="document.getElementById('scratchpad').value=''">Purge Current Pad Input</button>
                 </div>
                 <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Ensure your text cursor is positioned inside the active window below prior to triggering your system's speech-to-text shortkey arrays. Content recorded inside this block will auto-compile upon clicking the advance prompt key.</p>
                 <textarea id="scratchpad" class="ai-text" style="height: 130px;" placeholder="Awaiting verbal input stream data or text entries..."></textarea>
@@ -521,9 +410,10 @@
             <div class="ee-workbench-editor" style="padding: 25px; border-top: 3px solid var(--ee-terminal-green);">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
                     <h4 style="margin:0; color:var(--ee-terminal-green); font-size: 1.1rem; text-transform:uppercase; font-weight:700;">Optimised EngTech UK-SPEC AI Prompt Compiler</h4>
-                    <div style="display:flex; gap: 10px;">
-                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Prompt Parameters</button>
-                        <button type="button" class="action-btn" style="min-height: 36px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()" id="copyCompBtn">Copy Full Meta-Prompt</button>
+                    <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+                        <button type="button" class="action-btn action-btn-ghost" style="min-height: 48px; font-size: 0.8rem; padding: 4px 12px;" onclick="initCompiler()">Reset Parameters</button>
+                        <button type="button" class="action-btn btn-ai" id="aiCoachBtn" style="min-height: 48px; font-size: 0.8rem; padding: 4px 12px;" onclick="generateAiCoachPrompt()">✨ AI Coach Prompt</button>
+                        <button type="button" class="action-btn" id="copyCompBtn" style="min-height: 48px; font-size: 0.8rem; padding: 4px 12px;" onclick="copyCompiler()">Copy Full Meta-Prompt</button>
                     </div>
                 </div>
                 <p style="font-size: 0.85rem; color: var(--slate-grey); margin-top:6px; margin-bottom: 12px;">Your historical query record and matched verbal outputs are being continuously sequenced below. Copy this entire script block into advanced processing tools (ChatGPT, Claude, or internal engineering models) for expert assessment.</p>
@@ -534,7 +424,7 @@
     </main>
 
     <!-- Global Platform Footer Element Injection Target -->
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         const EE_TOOL_ID = "ee_registration_interview_simulator_engtech";
@@ -624,7 +514,7 @@
             const externalStatus = checkToolContent(EXTERNAL_TOOL_ID);
             const cengStatus = checkToolContent(CENG_TOOL_ID);
             const iengStatus = checkToolContent(IENG_TOOL_ID);
-            const engtechStatus = checkToolContent(ENGTECH_TOOL_ID);
+            const engtechStatus = checkToolContent(EE_TOOL_ID);
 
             const hasCareer = internalStatus || externalStatus;
             const hasPRI = cengStatus || iengStatus || engtechStatus;
@@ -677,7 +567,6 @@
             document.getElementById('catBadge').innerText = 'PANEL SETUP INITIALISATION';
             document.getElementById('qText').innerHTML = "Take a deliberate breath. Position your text cursor inside the live notes workspace below and initialise your speech dictation tools.<br><br><strong>Ensure your structural logs utilise 'I' statements and focus on hands-on actions:</strong><br><span style='color:var(--terminal-green); font-weight:bold;'>Situation | Task | Action | Result</span><br><br><span style='font-size:1.1rem; color:var(--burnt-orange); font-weight:bold;'>The Technician Review Board will deploy the first parameter shortly...</span>";
             
-            // UX Engineering Fix: Force immediate activation of the advancement trigger so candidates can manually bypass setup phase blocks
             document.getElementById('nextBtn').disabled = false;
             disableRecorderInterfaceButtons();
             
@@ -923,6 +812,14 @@ For each individual answer record, you must provide:
             updateRecorderUIDeck(false, "Microphone Infrastructure Idle");
         }
 
+        window.evaluateCaptureVisibility = evaluateCaptureVisibility;
+        window.startInterview = startInterview;
+        window.stopInterview = stopInterview;
+        window.nextQuestion = nextQuestion;
+        window.copyCompiler = copyCompiler;
+        window.toggleManualAudioCapture = toggleManualAudioCapture;
+        window.stopManualAudioCapture = stopManualAudioCapture;
+
         function startTimer() {
             clearInterval(timerInterval);
             let operationalSecondsLimit = parseInt(document.getElementById('timeSelect').value);
@@ -981,9 +878,6 @@ For each individual answer record, you must provide:
             
             if (isRecording && mediaRecorder && mediaRecorder.state !== 'inactive') {
                 mediaRecorder.stop(); 
-                if (mediaRecorder.stream) {
-                    mediaRecorder.stream.getTracks().forEach(track => track.stop());
-                }
                 isRecording = false;
             }
             if (audioStreamInstance) {
@@ -991,6 +885,37 @@ For each individual answer record, you must provide:
                 audioStreamInstance = null;
             }
         }
+
+        function generateAiCoachPrompt() {
+            const compilerWindow = document.getElementById('compilerBox');
+            const currentContent = compilerWindow.value;
+            const scratchText = document.getElementById('scratchpad').value.trim();
+            let supplementaryString = "";
+            if (scratchText !== "") {
+                supplementaryString = `\n\n[CURRENT UNCOMMITTED TRANSCRIPT LIVE PLUG]\n"${scratchText}"`;
+            }
+
+            const targetFocus = document.getElementById('compSelect').value;
+
+            const basePrompt = `[ROLE] You are acting as an Expert Peer Reviewer, Technical Board Chairman, and Senior Professional Review Interviewer (PRI) representing the Engineering Council (UK).
+[GOAL] Critically evaluate the candidate's Engineering Technician (EngTech) verbal answers. Identify if their narratives explicitly prove practical competence, method selection, workspace safety, and individual accountability mapping to UK-SPEC metrics, or if they rely on ambiguous group summaries ("we did"). Provide a high-stress probing question to test their limits.
+[CONTEXT] Registration Target: Engineering Technician (EngTech) // Competency Track focus: ${targetFocus}.
+[SOURCE RECORDS]
+"""
+${currentContent}${supplementaryString}
+"""
+[EXPECTATION] Do not write responses for the candidate. Provide constructive, encouraging feedback suitable for an early-career engineer, highlight structural vocabulary gaps, and request confirmation section-by-section.`;
+
+            navigator.clipboard.writeText(basePrompt).then(() => {
+                const btn = document.getElementById('aiCoachBtn');
+                const prevText = btn.innerText;
+                btn.innerText = ">> PROMPT COPIED!";
+                setTimeout(() => { btn.innerText = prevText; }, 2000);
+            }).catch(err => {
+                alert("Clipboard write blocked. Please select and copy the compiled text inside the prompt field manually.");
+            });
+        }
+        window.generateAiCoachPrompt = generateAiCoachPrompt;
     </script>
 </body>
 </html>

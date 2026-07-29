@@ -5,31 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
-    <meta name="description" content="Free engineering Situation-Behaviour-Impact (SBI) feedback tool. Formulate objective, performance-driven feedback entries to satisfy UK-SPEC Competencies C and D. Secure client-side local cache storage.">
-    <meta name="keywords" content="SBI Model, Situation Behaviour Impact, Engineering Feedback, UK-SPEC Competence C, UK-SPEC Competence D, Personnel Management, Performance Interventions, Mentorship Tracking">
-    <meta property="og:title" content="SBI Feedback Model Workspace | Empowering Engineers UK">
-    <meta property="og:description" content="A secure, zero-knowledge client-side workspace engineered for technical leaders, chartered engineering candidates, and line managers.">
+    <meta name="description" content="Free engineering Situation-Behaviour-Impact-Intent (SBI-I) feedback tool. Formulate objective, performance-driven feedback entries to satisfy UK-SPEC Competencies C and D. Secure client-side local cache storage.">
+    <meta name="keywords" content="SBI Model, SBI-I feedback, Situation Behaviour Impact, Engineering Feedback, UK-SPEC Competence C, UK-SPEC Competence D, Personnel Management, Performance Interventions, Mentorship Tracking">
+    <meta property="og:title" content="SBI-I Feedback Model Workspace | Empowering Engineers UK">
+    <meta property="og:description" content="A secure, zero-knowledge client-side workspace engineered for technical leaders, chartered engineering candidates, and line managers to plan feedback using the SBI-I model.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/feedback-sbi.html">
     <meta property="og:type" content="website">
     
-    <title>SBI Feedback Model | Empowering Engineers UK</title>
+    <title>SBI-I Feedback Model | Empowering Engineers UK</title>
     
     <link class="js-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
     
-    <!-- Unified Base Stylesheet Linking Cache-Busted Version 21.7 -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <!-- Unified Base Stylesheet Linking Cache-Busted Version 22.0 -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Engineering SBI Feedback Model Workspace",
+      "name": "Engineering SBI-I Feedback Model Workspace",
       "url": "https://www.empoweringengineers.uk/feedback-sbi.html",
-      "description": "An interactive digital grid enabling engineering candidates to script precise Situation-Behaviour-Impact constructive feedback logs against UK-SPEC criteria.",
+      "description": "An interactive digital grid enabling engineering candidates to script precise Situation-Behaviour-Impact-Intent constructive feedback logs against UK-SPEC criteria.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "All",
       "publisher": {
@@ -41,105 +40,17 @@
     </script>
     
     <style>
-        /* --- GLOBAL OVERRIDES & THEME INTEGRATION --- */
-        h1:not(.header-page-title), h2, h3 { color: var(--terminal-green) !important; }
-
-        /* Thick Content AEO/SEO Information Density Block Styling */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green) !important;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .header-actions { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 25px; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid var(--ee-terminal-green); 
-            padding-bottom: 15px;
-        }
-
-        .workbench-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 340px; 
-            gap: 30px; 
-            align-items: start; 
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 992px) { 
-            .workbench-layout { 
-                grid-template-columns: 1fr; 
-            } 
-            .coach-panel { 
-                position: relative; 
-                top: 0; 
-            } 
-        }
-
-        /* Modifying Standard Horizontal Nav for Top-Mounted Status Checkboxes */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes for Verification Badge Tracking */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        /* --- SBI STACK STYLING --- */
-        .sbi-stack {
-            display: flex;
-            flex-direction: column;
+        /* --- SBI-I ADVANCED GRID MATRIX & COMPONENT OVERLAYS --- */
+        .sbi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .sbi-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .sbi-card {
@@ -153,9 +64,16 @@
             gap: 10px;
             border-left: 6px solid var(--border-color);
         }
+        
+        /* Core SBI Element Indicators */
         .sbi-card.situation-card { border-left-color: var(--burnt-orange); }
-        .sbi-card.behaviour-card { border-left-color: var(--ee-terminal-green); }
+        .sbi-card.behaviour-card { border-left-color: var(--terminal-green); }
         .sbi-card.impact-card { border-left-color: #00b894; }
+        
+        /* Advanced Intent Extension Indicators */
+        .sbi-card.intent-card { border-left-color: var(--burnt-orange); }
+        .sbi-card.bridge-card { border-left-color: var(--terminal-green); }
+        .sbi-card.solutions-card { border-left-color: #00b894; }
 
         .sbi-label {
             display: block;
@@ -164,138 +82,50 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .situation-label { color: var(--burnt-orange) !important; }
-        .behaviour-label { color: var(--terminal-green) !important; }
-        .impact-label { color: #00b894 !important; }
+        .situation-label, .intent-label { color: var(--burnt-orange) !important; }
+        .behaviour-label, .bridge-label { color: var(--terminal-green) !important; }
+        .impact-label, .solutions-label { color: #00b894 !important; }
 
-        .form-hint {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--slate-grey);
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--cloud-white);
-            border-radius: 4px;
-            min-height: 110px;
-            resize: vertical;
-            font-size: 0.95rem;
-            font-family: inherit;
-            line-height: 1.5;
-            transition: border-color 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--terminal-green);
-            box-shadow: 0 0 0 2px rgba(3, 247, 160, 0.2);
-        }
-
-        /* --- COACH/LIVE OUTPUT PANEL --- */
-        .coach-panel {
-            background-color: var(--dark-card);
-            border-radius: 8px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--burnt-orange);
-            position: sticky;
-            top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coach-header {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--burnt-orange);
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .action-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .action-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        /* Bespoke AI Button style properties aligned with layout variables */
         .btn-ai {
-            background-color: var(--ee-dark-blue);
-            background-image: var(--ee-header-gradient);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--terminal-green) !important;
+            box-shadow: 2px 2px 0px var(--terminal-green) !important;
         }
-
-        .preview-box {
-            font-family: 'Courier Prime', monospace;
-            background: #000;
-            color: #03F7A0;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            white-space: pre-wrap;
-            line-height: 1.5;
-            min-height: 250px;
-            font-size: 0.85rem;
-            overflow-y: auto;
-            max-height: 500px;
+        .btn-ai:hover {
+            box-shadow: 0px 0px 8px var(--terminal-green) !important;
+            color: var(--terminal-green) !important;
         }
     </style>
 </head>
 <body onload="initApp()">
+    <!-- Purging cached search structures before dashboard initialization -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
     
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>Constructive Performance Management: Applying the Situation-Behaviour-Impact (SBI) Model</h1>
-            <p>
-                In high-pressure industrial workspaces, engineering leads frequently encounter performance issues, technical errors, and communication failures. Whether addressing a draughtsman's repeated failure to implement Building Information Modeling (BIM) data loops or correcting a junior analyst's spreadsheet checking habits, vague criticism causes defensiveness and obscures solutions. The Center for Creative Leadership developed the **Situation-Behaviour-Impact (SBI) Model** to address this risk. It changes feedback from a subjective debate into an objective, factual alignment tool, making it perfect for demonstrating compliance with **UK-SPEC Competence C (Leadership)** and **Competence D (Communication)**.
-            </p>
-            <p>
-                The fundamental value of the SBI architecture lies in its ability to isolate an individual's personal identity from technical performance gaps. Traditional, unscripted feedback tends to focus on character traits (e.g., "you are being careless with design checks"), which breaks trust and violates the principles of psychological safety. The SBI framework resolves this by forcing the manager to structure the discussion across three distinct, scannable dimensions. First, anchor the feedback to a specific time and location (**Situation**). Second, isolate the precise, observable action or omission without judging personality (**Behaviour**). Third, outline the direct, data-driven cost, safety, or timeline outcomes caused by that action (**Impact**). This methodical layout creates a transparent audit trail for corporate continuous professional development (CPD) logs and review panels.
-            </p>
+            <h1>Constructive Performance Management: Applying the Situation-Behaviour-Impact-Intent (SBI-I) Model</h1>
+            
+            <h2>Introduction to the SBI-I Feedback Framework</h2>
+            <p><strong>What is this step?</strong> The Situation-Behaviour-Impact-Intent (SBI-I) Model is an advanced, six-tier communication framework designed to manage and correct performance gaps objectively. Developed as a professional upgrade to the classic framework from the Center for Creative Leadership, this model helps you deliver clear, factual feedback. The tool divides preparation into six scannable steps: Situation, Behaviour, Impact, Inquire about Intent, Bridge the Gap, and Co-create Solutions. Using this digital canvas allows you to script your development conversations thoroughly before meeting with team members, keeping the discussion professional and focused on growth.</p>
+            
+            <h2>Why Two-Way Feedback Architecture Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Advancing into senior engineering leadership, project management, or principal consultancy requires exceptional communication skills alongside technical expertise. The Engineering Council establishes strict benchmarks for leadership under the UK Standard for Professional Engineering Competence (UK-SPEC). Candidates seeking status as a Chartered Engineer (CEng), Incorporated Engineer (IEng), or Engineering Technician (EngTech) must prove their ability to manage people and communicate effectively. Specifically, Competence C and Competence D require you to demonstrate that you can guide teams and handle professional relationships successfully.</p>
+            <p>During your final Professional Review Interview (PRI), peer assessors look for clear evidence of how you resolve technical variances, handle drawing errors, or guide underperforming staff. Unstructured feedback often focuses on personality traits and character judgements, which can damage morale and cause defensiveness. By using the SBI-I model, you learn to separate a person's identity from workplace errors. Adding an exploration of Intent shows that you approach management with curiosity and fairness. This professional approach protects your project timelines, lowers staff turnover, and proves to directors that you are ready to manage large engineering operations.</p>
+            <p>Documenting these regular development meetings creates a solid record of evidence for your professional registration portfolio. Showing that you systematically used structured frameworks to support graduate engineers, clear up workflow bottlenecks, and manage project risks proves you possess true leadership capabilities. This structural awareness ensures you can defend your management decisions confidently before the institutional review panel.</p>
 
-            <h2>Deconstructing the Three Dimensions of an SBI Record</h2>
-            <p>
-                Constructing an objective personnel evaluation using the interactive SBI workspace requires technical managers to critically parse workplace events step-by-step:
-            </p>
-            <p>
-                <strong>Situation [S]:</strong> Define the exact timeline and spatial parameters of the event. Technical leaders must ground the feedback in a verifiable context to prevent ambiguity. For example, instead of stating "recently at work," write: "During Tuesday morning's hazop review session for the high-pressure pipeline layout module..." This prevents debate about when or where the issue occurred.
-            </p>
-            <p>
-                <strong>Behaviour [B]:</strong> Document the specific, observable actions or words that occurred. Managers must completely remove emotional adjectives and character judgements. Avoid words like "lazy," "unprofessional," or "distracted." Instead, stick to raw facts: e.g., "You did not supply the updated transient flow calculation sheets, and you left the review meeting 15 minutes before formal risk sign-off was completed."
-            </p>
-            <p>
-                <strong>Impact [I]:</strong> Translate the observed behaviour into measurable project, financial, or safety consequences. This step is vital for demonstrating commercial awareness under UK-SPEC guidelines. Clearly document the real-world outcomes: e.g., "This omission halted the hazard review loop, caused a 48-hour delay in our design submittal, and exposed the firm to a £15,000 contractual milestone penalty from the client."
-            </p>
-
-            <h2>Interactive Client-Side SBI Workspace</h2>
-            <p>
-                The interactive workspace below is engineered to help engineering professionals quickly construct, refine, and log objective performance feedback interventions. To preserve absolute data privacy and ensure full compliance with corporate non-disclosure agreements (NDAs), our platform utilizes a zero-knowledge client-side local browser framework. Your text entries are processed and cached exclusively within your device's local memory partition—nothing is ever shared with external networks or servers. Use this system to generate pristine outlines, export secure JSON data arrays, or compile elite AI consultant prompts to practice delivery.
-            </p>
+            <h2>Step-by-Step Guide to Completing the SBI-I Canvas Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To fill out the interactive canvas successfully, move through each card step-by-step. Keep your descriptions clear, short, and focused on verifiable project facts, avoiding vague corporate buzzwords.</p>
+            <p><strong>Define the Situation [S]:</strong> Establish the exact date, time, and location of the event to anchor the discussion in a factual context. For example, specify that the issue occurred during the Wednesday afternoon site clearance review for the railway asset upgrade project.</p>
+            <p><strong>Isolate the Behaviour [B]:</strong> State only the explicit, observable actions or words that occurred. You must remove all emotional adjectives. Avoid character labels like "unreliable" or "unfocused," and instead record raw parameters, such as a team member omitting the safety checklist or missing the asset delivery deadline.</p>
+            <p><strong>Quantify the Impact [I]:</strong> Explain how those specific actions directly affected you, the engineering team, or the wider project. Link this outcome to clear project metrics, such as a 24-hour drawing delay, an increase in project expenditure, or a failure to pass a safety gate.</p>
+            <p><strong>Inquire about Intent [-I]:</strong> Ask the recipient what they were trying to achieve before judging the final outcome. This step encourages open communication and allows the team member to explain their perspective, uncovering potential issues with training or resources.</p>
+            <p><strong>Bridge the Gap:</strong> Compare what the team member intended to achieve with the actual, real-world impact of their actions. This comparison helps them see how their choices affect project timelines and team safety, without creating conflict.</p>
+            <p><strong>Co-create Solutions:</strong> Collaborate to establish clear, measurable action points and future check dates. This changes the conversation into an active Development Action Plan (DAP), which you can log in your continuous professional development (CPD) record to demonstrate long-term leadership growth.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -309,10 +139,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" id="feedbackPathNav" aria-label="Feedback & Coaching Framework Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
-			<a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
-				<div class="tab-badge-container" id="badge_coach"></div>
-				<span class="tab-label">Coach</span>
-			</a>
+            <a href="coach.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container" id="badge_coach"></div>
+                <span class="tab-label">Coach</span>
+            </a>
             <a href="feedback.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_feedback"></div>
                 <span class="tab-label">Feedback</span>
@@ -346,7 +176,7 @@
         <!-- Tool Header Interface Matching Standard Layout Registration -->
         <div class="header-actions">
             <div>
-                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">SBI Feedback Log</h1>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">SBI-I Feedback Log</h1>
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Performance Management Workspace System</p>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -379,8 +209,29 @@
                     <!-- Impact Card -->
                     <div class="sbi-card impact-card">
                         <label class="sbi-label impact-label">Impact [I]</label>
-                        <span class="form-hint">What were the direct, measurable project outcomes, safety risks, or cost liabilities caused by this behavior? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This meant the team could not sign off the structural base plates, introducing a 24-hour drawing delay and risking a milestone penalty.</span></span>
+                        <span class="form-hint">What were the direct, measurable project outcomes, safety risks, or cost liabilities caused by this behaviour? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. This meant the team could not sign off the structural base plates, introducing a 24-hour drawing delay and risking a milestone penalty.</span></span>
                         <textarea id="sbi_Impact" class="form-input" placeholder="State the quantifiable consequences regarding cost, safety, or schedule limits..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Inquire about Intent Card -->
+                    <div class="sbi-card intent-card">
+                        <label class="sbi-label intent-label">Inquire about Intent [-I]</label>
+                        <span class="form-hint">What open question will you ask to understand what the recipient meant to achieve before judging the final outcome? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Could you talk me through your main focus when pulling together the materials for this specific review session?</span></span>
+                        <textarea id="sbi_Intent" class="form-input" placeholder="Script your open questions to clarify their baseline objectives and perspective here..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Bridge the Gap Card -->
+                    <div class="sbi-card bridge-card">
+                        <label class="sbi-label bridge-label">Bridge the Gap</label>
+                        <span class="form-hint">How will you outline the difference between their positive intentions and the actual, real-world project impacts? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. I understand you wanted to save time by skipping the formal template checks, but that meant the cross-team layout parameters failed validation.</span></span>
+                        <textarea id="sbi_Bridge" class="form-input" placeholder="Map out the difference between their original intent and the actual project outcomes..." oninput="updatePreview()"></textarea>
+                    </div>
+
+                    <!-- Co-create Solutions Card -->
+                    <div class="sbi-card solutions-card">
+                        <label class="sbi-label solutions-label">Co-create Solutions</label>
+                        <span class="form-hint">What explicit action points, resource supports, or follow-up review dates will you commit to together? <br><span style="color:var(--terminal-green); opacity:0.8;">e.g. Let us schedule a 30-minute workspace review this Friday to double-check the validation scripts before the next project gateway.</span></span>
+                        <textarea id="sbi_Solutions" class="form-input" placeholder="Document the agreed solution roadmap, check schedules, and performance metrics..." oninput="updatePreview()"></textarea>
                     </div>
 
                 </div>
@@ -391,9 +242,9 @@
                 <div class="coach-header">>> LIVE OUTPUT</div>
                 
                 <div class="action-bar">
-                    <button class="btn-primary" onclick="copyOutline()">📋 COPY OUTLINE</button>
-                    <button class="btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
-                    <button class="action-btn action-btn-ghost" onclick="clearData()" style="min-height: 48px;">🗑️ CLEAR CANVAS</button>
+                    <button class="action-btn" onclick="copyOutline()">📋 COPY OUTLINE</button>
+                    <button class="action-btn btn-ai" id="aiBtn" onclick="generatePrompt()">✨ AI COACH PROMPT</button>
+                    <button class="action-btn action-btn-ghost" onclick="clearData()">🗑️ CLEAR CANVAS</button>
                 </div>
 
                 <div id="previewArea" class="preview-box">Awaiting text inputs to compile feedback tracking log...</div>
@@ -414,11 +265,14 @@
             if (stored) {
                 try {
                     const data = JSON.parse(stored);
-                    document.getElementById('sbi_Situation').value = data.Situation || '';
-                    document.getElementById('sbi_Behaviour').value = data.Behaviour || '';
-                    document.getElementById('sbi_Impact').value = data.Impact || '';
+                    document.getElementById('sbi_Situation').value = data.SITUATION || data.Situation || '';
+                    document.getElementById('sbi_Behaviour').value = data.BEHAVIOUR || data.Behaviour || '';
+                    document.getElementById('sbi_Impact').value = data.IMPACT || data.Impact || '';
+                    document.getElementById('sbi_Intent').value = data.INTENT || data.Intent || '';
+                    document.getElementById('sbi_Bridge').value = data.BRIDGE || data.Bridge || '';
+                    document.getElementById('sbi_Solutions').value = data.SOLUTIONS || data.Solutions || '';
                 } catch (e) {
-                    console.error("Failed to parse stored SBI state:", e);
+                    console.error("Failed to parse stored SBI-I state:", e);
                 }
             }
             updatePreview();
@@ -466,25 +320,38 @@
             const situation = document.getElementById('sbi_Situation').value.trim();
             const behaviour = document.getElementById('sbi_Behaviour').value.trim();
             const impact = document.getElementById('sbi_Impact').value.trim();
+            const intent = document.getElementById('sbi_Intent').value.trim();
+            const bridge = document.getElementById('sbi_Bridge').value.trim();
+            const solutions = document.getElementById('sbi_Solutions').value.trim();
 
-            let output = `=== SBI MODEL: PERFORMANCE INTERVENTION SCRIPT ===\n\n`;
+            let output = `=== SBI-I MODEL: ADVANCED PERFORMANCE INTERVENTION SCRIPT ===\n\n`;
             output += `[SITUATION]:\n${situation ? situation : '...\n'}\n`;
             output += `[BEHAVIOUR]:\n${behaviour ? behaviour : '...\n'}\n`;
             output += `[IMPACT]:\n${impact ? impact : '...\n'}\n`;
+            output += `[INQUIRE ABOUT INTENT]:\n${intent ? intent : '...\n'}\n`;
+            output += `[BRIDGE THE GAP]:\n${bridge ? bridge : '...\n'}\n`;
+            output += `[CO-CREATE SOLUTIONS]:\n${solutions ? solutions : '...\n'}\n`;
 
             document.getElementById('previewArea').innerText = output;
 
             const aiBtn = document.getElementById('aiBtn');
-            const hasData = situation || behaviour || impact;
+            const hasData = situation || behaviour || impact || intent || bridge || solutions;
             aiBtn.innerText = hasData ? "✨ AI COACH PROMPT" : "✨ AI EXAMPLE PROMPT";
 
             // Keystroke Real-Time Auto-Save with delay (3-second debounce logic)
             clearTimeout(autosaveTimer);
             autosaveTimer = setTimeout(() => {
-                const data = { Situation: situation, Behaviour: behaviour, Impact: impact };
+                const data = { 
+                    Situation: situation, 
+                    Behaviour: behaviour, 
+                    Impact: impact,
+                    Intent: intent,
+                    Bridge: bridge,
+                    Solutions: solutions
+                };
                 localStorage.setItem(EE_TOOL_ID, JSON.stringify(data));
                 updateNavigationBadges();
-                console.log("SBI framework configuration state auto-saved.");
+                console.log("SBI-I framework configuration state auto-saved.");
             }, 3000); 
         }
 
@@ -493,29 +360,38 @@
             const situation = document.getElementById('sbi_Situation').value.trim();
             const behaviour = document.getElementById('sbi_Behaviour').value.trim();
             const impact = document.getElementById('sbi_Impact').value.trim();
+            const intent = document.getElementById('sbi_Intent').value.trim();
+            const bridge = document.getElementById('sbi_Bridge').value.trim();
+            const solutions = document.getElementById('sbi_Solutions').value.trim();
 
             let script = "";
             let promptType = "User Draft";
-            const hasUserData = situation || behaviour || impact;
+            const hasUserData = situation || behaviour || impact || intent || bridge || solutions;
 
             if (hasUserData) {
                 script += `[FACTUAL SITUATION CONTEXT]\n${situation ? situation : 'Not defined.'}\n\n`;
                 script += `[OBSERVABLE BEHAVIOUR DETAILS]\n${behaviour ? behaviour : 'Not defined.'}\n\n`;
                 script += `[MEASURABLE SYSTEM IMPACT]\n${impact ? impact : 'Not defined.'}\n\n`;
+                script += `[INQUIRE ABOUT INTENT]\n${intent ? intent : 'Not defined.'}\n\n`;
+                script += `[BRIDGE THE GAP]\n${bridge ? bridge : 'Not defined.'}\n\n`;
+                script += `[CO-CREATE SOLUTIONS]\n${solutions ? solutions : 'Not defined.'}\n\n`;
             } else {
                 promptType = "Hypothetical Example";
                 script += "NOTE: This is a hypothetical example scenario based on standard engineering practices.\n\n";
                 script += `[FACTUAL SITUATION CONTEXT]\ne.g., During the Thursday morning 09:00 system commissioning stand-up session for the offshore telemetry module...\n\n`;
-                script += `[OBSERVABLE BEHAVIOUR DETAILS]\ne.g., You did not provide the updated validation code sheets and you cross-talked twice while the safety auditor was explaining site protocols.\n\n`;
-                script += `[MEASURABLE SYSTEM IMPACT]\ne.g., This meant we could not clear the safety gate checklist, delaying the field installation loop by 24 hours and threatening our production delivery target.\n\n`;
+                script += `[OBSERVABLE BEHAVIOUR DETAILS]\ne.g., You did not provide the updated validation data sheets and you cross-talked twice while the auditor explained site protocols.\n\n`;
+                script += `[MEASURABLE SYSTEM IMPACT]\ne.g., This meant we could not clear the safety gate checklist, delaying the field installation loop by 24 hours.\n\n`;
+                script += `[INQUIRE ABOUT INTENT]\ne.g., What specific roadblocks did you run into when compiling the validation logs before the audit started?\n\n`;
+                script += `[BRIDGE THE GAP]\ne.g., I understand you focused on correcting the script errors directly, but skipping the logging stage left us without the safety data needed for sign-off.\n\n`;
+                script += `[CO-CREATE SOLUTIONS]\ne.g., Let us pair with a senior software technician next Monday to automate the logging script before the next audit loop.\n\n`;
             }
 
             const role = "Expert Leadership Consultant & Senior Engineering Management Coach";
-            const actionText = "Analyse this Situation-Behaviour-Impact (SBI) feedback outline. 1. Identify any subjective language leaks, personality descriptions, or emotional biases within the behaviour section. 2. Critique whether the impact section successfully maps to hard engineering, safety, or financial consequences rather than generic team complaints. 3. Formulate one specific corrective action strategy to close the discussion with clear professional alignment.";
+            const actionText = "Analyse this Situation-Behaviour-Impact-Intent (SBI-I) feedback outline. 1. Identify any subjective language leaks, personality descriptions, or emotional biases within the behaviour section. 2. Critique whether the impact section successfully maps to hard engineering, safety, or financial consequences rather than generic team complaints. 3. Assess if the intent inquiry, bridging summary, and co-created solutions establish the strict accountability structures needed to satisfy UK-SPEC Competency C and D registers.";
 
             const metaPrompt = `[ROLE] You are acting as a ${role}. 
 [GOAL] ${actionText}
-[CONTEXT] The user is a senior engineering leader structuring a performance feedback log to validate leadership capabilities against UK-SPEC Competence C and D registers. The format used is a Situation-Behaviour-Impact Canvas (${promptType}).
+[CONTEXT] The user is a senior engineering leader structuring a performance feedback log to validate leadership capabilities against UK-SPEC Competence C and D registers. The format used is an advanced SBI-I Feedback Canvas (${promptType}).
 [SOURCE]
 """
 ${script}
@@ -533,33 +409,47 @@ ${script}
         function copyOutline() {
             const text = document.getElementById('previewArea').innerText;
             navigator.clipboard.writeText(text).then(() => { 
-                const btn = document.querySelector('.btn-primary');
-                btn.innerText = "✔️ COPIED!";
+                const btn = document.querySelector('.action-bar button');
+                btn.innerText = "Structured Output Copied Successfully";
                 setTimeout(() => { btn.innerText = "📋 COPY OUTLINE"; }, 2000);
             });
         }
 
         // --- 7. DATA TRANSACTION PROCEDURES (CRUD) ---
         function clearData() {
-            if(confirm("Confirm action: permanently purge all text inputs from the SBI feedback canvas?")) {
+            if(confirm("Confirm action: permanently purge all text inputs from the SBI-I feedback canvas?")) {
                 document.getElementById('sbi_Situation').value = '';
                 document.getElementById('sbi_Behaviour').value = '';
                 document.getElementById('sbi_Impact').value = '';
+                document.getElementById('sbi_Intent').value = '';
+                document.getElementById('sbi_Bridge').value = '';
+                document.getElementById('sbi_Solutions').value = '';
                 updatePreview();
             }
         }
 
+        // Full All-Caps UpperCase transformation engine applied globally across JSON outputs
         function exportJSON() {
             const situation = document.getElementById('sbi_Situation').value.trim();
             const behaviour = document.getElementById('sbi_Behaviour').value.trim();
             const impact = document.getElementById('sbi_Impact').value.trim();
+            const intent = document.getElementById('sbi_Intent').value.trim();
+            const bridge = document.getElementById('sbi_Bridge').value.trim();
+            const solutions = document.getElementById('sbi_Solutions').value.trim();
 
-            const state = { Situation: situation, Behaviour: behaviour, Impact: impact };
+            const state = { 
+                SITUATION: situation.toUpperCase(), 
+                BEHAVIOUR: behaviour.toUpperCase(), 
+                IMPACT: impact.toUpperCase(),
+                INTENT: intent.toUpperCase(),
+                BRIDGE: bridge.toUpperCase(),
+                SOLUTIONS: solutions.toUpperCase()
+            };
             const timestamp = new Date().toISOString().slice(0, 10);
             const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `EE_SBI_Feedback_Log_${timestamp}.json`;
+            link.download = `EE_SBI_I_FEEDBACK_LOG_${timestamp}.json`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -573,14 +463,17 @@ ${script}
             reader.onload = function(e) {
                 try {
                     const data = JSON.parse(e.target.result);
-                    if (data.Situation !== undefined || data.Behaviour !== undefined || data.Impact !== undefined) {
-                        document.getElementById('sbi_Situation').value = data.Situation || '';
-                        document.getElementById('sbi_Behaviour').value = data.Behaviour || '';
-                        document.getElementById('sbi_Impact').value = data.Impact || '';
+                    if (data.SITUATION !== undefined || data.BEHAVIOUR !== undefined || data.IMPACT !== undefined || data.Situation !== undefined) {
+                        document.getElementById('sbi_Situation').value = data.SITUATION || data.Situation || '';
+                        document.getElementById('sbi_Behaviour').value = data.BEHAVIOUR || data.Behaviour || '';
+                        document.getElementById('sbi_Impact').value = data.IMPACT || data.Impact || '';
+                        document.getElementById('sbi_Intent').value = data.INTENT || data.Intent || '';
+                        document.getElementById('sbi_Bridge').value = data.BRIDGE || data.Bridge || '';
+                        document.getElementById('sbi_Solutions').value = data.SOLUTIONS || data.Solutions || '';
                         updatePreview();
-                        alert("SBI feedback log metrics imported successfully!");
+                        alert("SBI-I feedback log metrics imported successfully!");
                     } else {
-                        alert("Invalid JSON format. Expected Situation, Behaviour, and Impact parameters.");
+                        alert("Invalid JSON format. Expected Situation, Behaviour, Impact, and Intent parameters.");
                     }
                 } catch (err) {
                     alert("Failed to parse file as valid JSON.");
@@ -595,12 +488,15 @@ ${script}
             const situation = document.getElementById('sbi_Situation').value.trim();
             const behaviour = document.getElementById('sbi_Behaviour').value.trim();
             const impact = document.getElementById('sbi_Impact').value.trim();
+            const intent = document.getElementById('sbi_Intent').value.trim();
+            const bridge = document.getElementById('sbi_Bridge').value.trim();
+            const solutions = document.getElementById('sbi_Solutions').value.trim();
             
             let html = `<!DOCTYPE html>
             <html lang="en-GB">
             <head>
                 <meta charset="UTF-8">
-                <title>EE SBI Performance Feedback Summary Briefing</title>
+                <title>EE SBI-I Performance Feedback Summary Briefing</title>
                 <style>
                     body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 40px auto; padding: 20px; }
                     h1 { color: #0D1B2A; border-bottom: 3px solid #03F7A0; padding-bottom: 10px; text-transform: uppercase; font-size: 24px;}
@@ -613,7 +509,7 @@ ${script}
             </head>
             <body>
                 <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
-                <h1>SBI Performance Intervention Record</h1>
+                <h1>SBI-I Performance Intervention Record</h1>
                 <p><em>Framework Branch: Feedback & Management Coaching // Date: ${new Date().toLocaleDateString('en-GB')}</em></p>
                 
                 <h2>Situation Context</h2>
@@ -624,6 +520,15 @@ ${script}
                 
                 <h2>Measurable Systemic Impact</h2>
                 <p>${impact ? impact : 'Not defined.'}</p>
+
+                <h2>Inquiry into Intent</h2>
+                <p>${intent ? intent : 'Not defined.'}</p>
+
+                <h2>Bridging Summary Map</h2>
+                <p>${bridge ? bridge : 'Not defined.'}</p>
+
+                <h2>Co-created Solution Roadmap</h2>
+                <p>${solutions ? solutions : 'Not defined.'}</p>
 
                 <div class="footer">
                     Generated via Empowering Engineers UK - Management & Leadership Subsystem
@@ -637,6 +542,6 @@ ${script}
         }
     </script>
     
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

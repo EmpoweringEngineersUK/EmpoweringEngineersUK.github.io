@@ -7,9 +7,9 @@
     
     <!-- Advanced AEO/GEO & SEO Meta Data -->
     <meta name="description" content="The Incorporated Engineer (IEng) Application Hub. Centralise your CV, UK-SPEC competencies, DAP, and Sponsor data into a single master application report.">
-    <meta name="keywords" content="Incorporated Engineer, IEng, UK-SPEC, Engineering Council, Professional Engineering Institutions, PRI, Master Application">
+    <meta name="keywords" content="Incorporated Engineer, IEng, UK-SPEC, Engineering Council, Professional Engineering Institutions, PRI, Master Application, Competency Tracking">
     <meta property="og:title" content="Incorporated Engineer (IEng) Master Hub | Empowering Engineers UK">
-    <meta property="og:description" content="The central command hub for compiling your Incorporated Engineer (IEng) professional registration portfolio.">
+    <meta property="og:description" content="The central command hub for compiling and validating your Incorporated Engineer (IEng) professional registration portfolio.">
     <meta property="og:image" content="https://www.empoweringengineers.uk/assets/EE_Logo_rect_Solid.webp">
     <meta property="og:url" content="https://www.empoweringengineers.uk/ieng.html">
     <meta property="og:type" content="website">
@@ -20,225 +20,37 @@
     <link rel="manifest" href="site.webmanifest">
     
     <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
-    
     <link rel="canonical" href="https://www.empoweringengineers.uk/ieng.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "IEng Application Hub",
-      "url": "https://www.empoweringengineers.uk/ieng.html",
-      "description": "The central command hub for compiling and exporting a full UK-SPEC Incorporated Engineer application.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "All",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Empowering Engineers UK",
-        "url": "https://www.empoweringengineers.uk/"
-      }
-    }
-    </script>
-
-    <!-- Import verbDb for Badge Evaluation Engine -->
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-
-    <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .thick-content a {
-            color: var(--burnt-orange);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-        .thick-content a:hover {
-            color: var(--terminal-green);
-            text-decoration: underline;
-        }
-
-        /* Standardised Horizontal Tabs with Badge Support */
-        .ee-horizontal-nav {
-            display: flex;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 2px;
-        }
-        .ee-horizontal-tab {
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-bottom: 3px solid transparent !important;
-            color: var(--slate-grey) !important;
-            padding: 10px 12px 10px 12px !important;
-            min-height: 48px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            border-radius: 4px 4px 0 0;
-            margin-bottom: -2px;
-            gap: 8px;
-        }
-        .ee-horizontal-tab:hover, .ee-horizontal-tab:focus {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: rgba(3, 247, 160, 0.5) !important;
-            outline: none;
-        }
-        .ee-horizontal-tab.active {
-            background-color: var(--hover-green) !important;
-            color: var(--terminal-green) !important;
-            border-bottom-color: var(--terminal-green) !important;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
-
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Hub Dashboard Grid */
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .hub-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hub-card-title {
-            color: var(--terminal-green);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        .hub-card-desc {
-            color: var(--cloud-white);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-
-        .master-cta-box {
-            background: rgba(3, 247, 160, 0.05);
-            border: 2px solid var(--ee-terminal-green);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="layout.css?v=22.0">
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 </head>
 <body onload="initApp()">
+    <!-- Forcing execution purge of potentially corrupted sitemap cache before script load -->
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
-            <h1>The Incorporated Engineer (IEng) Master Hub</h1>
-            <p>Welcome to the central operational command for your professional engineering accreditation. Earning <a href="https://www.engc.org.uk/professional-registration/our-professional-titles/incorporated-engineer-ieng/" target="_blank" rel="noopener">Incorporated Engineer (IEng) status as defined by the Engineering Council</a> is a defining hallmark of commercial and operational engineering excellence. It signifies to the industry that you maintain and manage applications of current and developing technology, and may undertake engineering design, development, manufacture, construction, and operation. However, proving these capabilities against the strict framework of the UK Standard for Professional Engineering Competence (UK-SPEC) requires highly coordinated evidence management.</p>
+            <h1>The Incorporated Engineer (IEng) Master Application Command Hub</h1>
+            <p>Welcome to the main control centre for your professional engineering accreditation. Earning your <a href="https://www.engc.org.uk/professional-registration/our-professional-titles/incorporated-engineer-ieng/" target="_blank" rel="noopener">Incorporated Engineer (IEng) status through the Engineering Council</a> is a major milestone in your career. It proves to the engineering industry that you can maintain and manage the applications of current and developing technology. It shows you can take charge of engineering design, development, manufacture, construction, and operation safely. However, proving your skills against the strict rules of the UK Standard for Professional Engineering Competence (UK-SPEC) requires highly organised data management and clear, precise writing.</p>
             
             <h2>Navigating Professional Engineering Institutions (PEIs)</h2>
-            <p>The Engineering Council does not directly process applications. Instead, they license independent <a href="https://www.engc.org.uk/our-role-as-regulator/licensing-professional-engineering-institutions" target="_blank" rel="noopener">Professional Engineering Institutions (PEIs)</a>—such as the IET, IMechE, and ICE—to assess candidates and formally award the IEng title. While the baseline UK-SPEC criteria (Competencies A through E) are universal, each PEI may deploy slightly different submission templates. This platform is meticulously engineered to ensure your baseline narrative is robust, quantitative, and universally applicable, ready to be transposed directly into any specific institutional portal.</p>
+            <p>The Engineering Council sets the rules, but they do not directly assess your final application portfolio. Instead, they give this job to licensed <a href="https://www.engc.org.uk/our-role-as-regulator/licensing-professional-engineering-institutions" target="_blank" rel="noopener">Professional Engineering Institutions (PEIs)</a>. These include the Institution of Mechanical Engineers (IMechE), the Institution of Engineering and Technology (IET), the Institution of Civil Engineers (ICE), and the Institution of Chemical Engineers (IChemE). The core UK-SPEC rules for Competencies A to E are exactly the same across all these institutions. However, each PEI uses slightly different online submission portals and word counts. This master tracking platform is built to keep all your core engineering evidence completely secure and perfectly formatted. This means you can easily copy your finished text directly into any PEI portal without losing your hard work.</p>
             
-            <h2>Executing the Empowering Engineers UK Workflow</h2>
-            <p>To successfully pass your Professional Review Interview (PRI), you must compile a cohesive, interconnected portfolio. We recommend following this sequential digital workflow across our platform:</p>
-            <ol>
-                <li><strong>CV Builder:</strong> Synthesise your professional history into a strict 600-word career summary, isolating your specific roles, authorities, and operational achievements.</li>
-                <li><strong>Competency Mapping (A-E):</strong> Progress systematically through Competencies A to E using our IEng-specific AI Coach. Utilise the embedded STAR methodology prompts to guarantee your narrative clearly defines your personal engineering actions, distinct from generic team outputs.</li>
-                <li><strong>Development Action Plan (DAP):</strong> Chart your short, medium, and long-term career trajectory to prove your forward-looking commitment to the engineering profession.</li>
-                <li><strong>Sponsors Configuration:</strong> Organise the vital registration details of your Lead Sponsor and Secondary Sponsor (Line Manager) who will formally endorse your submission.</li>
-            </ol>
+            <h2>Using the Digital Workflow for Success</h2>
+            <p>To pass your Professional Review Interview (PRI), your application must read like a clear, factual engineering report. Assessing panels hate vague statements and general team descriptions. They want to see exactly what you did, what you decided, and what you delivered. To do this, you must follow our step-by-step digital workflow. First, use the CV Builder to write your mandatory 600-word career summary. Second, work through Competency Trackers A to E. You must use the <strong>STAR Methodology</strong> (Situation, Task, Action, Result) to format your answers perfectly. Third, map out your future career goals using the Development Action Plan (DAP) Architect. Finally, add your endorsing Professional Sponsors to complete the application loop.</p>
             
-            <h2>Mentorship and Sponsor Validation</h2>
-            <p>An application drafted in isolation often succumbs to the "echo chamber" effect, where critical details are assumed rather than explicitly stated. It is vital that your portfolio is scrutinised by a registered mentor before formal submission. If you require strategic guidance on aligning your evidence, or if you need assistance sourcing a registered Lead Sponsor within your discipline, Empowering Engineers UK provides direct, one-to-one architectural reviews. <a href="https://calendar.app.google/2BekKkdPNtHXCA3c7" target="_blank" rel="noopener">Book a Sponsor Alignment and Application Review Call here</a> to have your drafted portfolio rigorously audited against institutional standards.</p>
-
-            <h2>Secure Client-Side Report Generation</h2>
-            <p>When you are ready to review your entire portfolio, utilise the <strong>Master Application Preview</strong> engine below. This script will query your local browser cache, extract the disparate JSON data payloads from the CV Builder, the five IEng Competence Trackers, the DAP, and the Sponsors module, and seamlessly stitch them into a single, comprehensive HTML report. Because Empowering Engineers UK operates entirely on zero-knowledge client-side architecture, your highly confidential project data remains absolutely secure on your local device.</p>
+            <h2>Data Security and Mentor Alignment</h2>
+            <p>Writing a high-level professional registration application alone can be incredibly difficult. It is an absolute operational necessity to have your complete compilation evaluated by an experienced mentor or a currently registered professional before submitting. If you require advanced assistance aligning your engineering evidence, Empowering Engineers UK hosts direct one-to-one engineering review panels. <a href="https://calendar.app.google/2BekKkdPNtHXCA3c7" target="_blank" rel="noopener">You can book an Application Review Call</a> to get a comprehensive audit against strict UK-SPEC thresholds. Furthermore, we know that your application contains highly confidential corporate data, safety calculations, and sensitive project histories. Therefore, this hub is secured by a zero-knowledge local storage infrastructure. All your records are processed natively within your local browser cache to preserve total data sovereignty.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -252,6 +64,10 @@
 
         <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
         <nav class="ee-horizontal-nav" aria-label="IEng Application Pathway" style="margin-bottom: 30px; border-bottom: 1px dashed var(--border-color);">
+            <a href="mentor.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Mentor Gateway</span>
+            </a>
             <a href="ieng.html" class="ee-horizontal-tab active" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">IEng Hub</span>
@@ -290,14 +106,30 @@
             </a>
         </nav>
 
+        <!-- Global Master Dashboard Actions -->
+        <div class="header-actions">
+            <div>
+                <h1 style="font-size: 1.8rem; text-transform: uppercase; color: var(--cloud-white); margin: 0;">Registration Gatekeeper</h1>
+                <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Incorporated Engineer Dashboard Engine</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items: center; flex-wrap: wrap;">
+                <label class="ee-label" style="margin: 0; color: var(--cloud-white); font-weight: bold;">Active Pathway:</label>
+                <select class="ee-select" id="pathwayContextSelect" style="min-width: 180px; min-height: 48px; background: var(--input-bg);" onchange="switchPathwayContext()">
+                    <option value="CEng">Chartered (CEng)</option>
+                    <option value="IEng">Incorporated (IEng)</option>
+                    <option value="EngTech">Technician (EngTech)</option>
+                </select>
+            </div>
+        </div>
+
         <div class="master-cta-box">
             <h2 style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px;">Compile Master Portfolio</h2>
             <p style="color: var(--cloud-white); font-size: 1rem; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 This engine will scan your local browser cache and stitch together your CV, Competencies A-E, DAP, and Sponsors into a single, continuous review document.
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <button type="button" class="action-btn" style="min-height: 54px; font-size: 1.1rem; padding: 0 30px;" onclick="generateMasterPreview()">&#128196; Generate Application Preview</button>
-                <a href="https://calendar.app.google/2BekKkdPNtHXCA3c7" target="_blank" rel="noopener" class="action-btn action-btn-outline" style="min-height: 54px; font-size: 1rem; padding: 0 25px; text-decoration: none; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">&#128197; Book Mentor Review</a>
+                <button type="button" class="action-btn" style="min-height: 54px; font-size: 1.1rem; padding: 0 30px;" onclick="generateMasterPreview()">📸 Generate Application Preview</button>
+                <a href="https://calendar.app.google/2BekKkdPNtHXCA3c7" target="_blank" rel="noopener" class="action-btn action-btn-outline" style="min-height: 54px; font-size: 1rem; padding: 0 25px; text-decoration: none; border-color: var(--burnt-orange) !important; color: var(--burnt-orange) !important;">🗓️ Book Mentor Review</a>
             </div>
         </div>
 
@@ -339,9 +171,36 @@
 
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
+        // --- PATHWAY PERSISTENCE DETECTION ---
+        // LocalStorage context switching handles cross-page progression metrics safely
+        function loadTierContext() {
+            const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || {};
+            let targetTier = "IEng";
+            if (masterData.ee_tools && masterData.ee_tools['ee_dap'] && masterData.ee_tools['ee_dap'].level) {
+                targetTier = masterData.ee_tools['ee_dap'].level;
+            }
+            const selectEl = document.getElementById('pathwayContextSelect');
+            if(selectEl) selectEl.value = targetTier;
+        }
+
+        function switchPathwayContext() {
+            const newTier = document.getElementById('pathwayContextSelect').value;
+            
+            // Sync choices down into the central memory structure to synchronize global layouts instantly
+            let masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { username: "EE_User", ee_tools: {} };
+            if (!masterData.ee_tools['ee_dap']) masterData.ee_tools['ee_dap'] = { level: newTier, disc: 'Mech', weakness: 'Commercial', goal: '', compiled: '' };
+            else masterData.ee_tools['ee_dap'].level = newTier;
+            
+            localStorage.setItem('ee_master_state', JSON.stringify(masterData));
+            
+            // Trigger automatic redirect to matching hub
+            const prefix = newTier.toLowerCase();
+            window.location.href = `${prefix}.html`;
+        }
+
         // --- NAVIGATION BADGE DASHBOARD ENGINE (HUB SPECIFIC) ---
         function calculateScoreForBadge(text, subId) {
             if (!text || text.trim() === "") return 1; 
@@ -372,18 +231,14 @@
         }
 
         function getTickHTML(isComplete) {
-            if (isComplete) {
-                return '<span class="status-tick">&#10004;</span>';
-            } else {
-                return '<span class="status-tick empty"></span>';
-            }
+            return isComplete ? '<span class="status-tick">&#10004;</span>' : '<span class="status-tick empty"></span>';
         }
 
         function updateNavigationBadges() {
             const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
             const tools = masterData.ee_tools || {};
 
-            // 1. Evaluate External Hub Tools
+            // 1. Evaluate External Hub Tools via clear data entry state configurations
             const hasCV = tools['ee_career_builder_state'] && Object.keys(tools['ee_career_builder_state']).length > 0;
             document.getElementById('badge_cv').innerHTML = getTickHTML(hasCV);
 
@@ -446,7 +301,7 @@
 
         // --- MASTER APPLICATION COMPILER ENGINE ---
         function generateMasterPreview() {
-            // Retrieve root data architectures
+            // Retrieve root data architectures securely from client storage
             const careerDataRaw = localStorage.getItem('ee_career_builder_state');
             const careerData = careerDataRaw ? JSON.parse(careerDataRaw) : null;
             const masterData = JSON.parse(localStorage.getItem('ee_master_state')) || { ee_tools: {} };
@@ -562,8 +417,9 @@
         }
 
         function initApp() {
-            console.log("System Status: IEng Master Hub Initialised. Core systems online.");
+            loadTierContext();
             updateNavigationBadges(); // Execute initial render of global badges upon loading the hub
+            console.log("System Status: IEng Master Hub Initialised. Core systems online.");
         }
     </script>
 </body>

@@ -23,7 +23,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <link rel="canonical" href="https://www.empoweringengineers.uk/guide.html" />
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    
+    <!-- Central Theme Stylesheet with Active Cache-Busting Baseline Configuration -->
+    <link rel="stylesheet" href="layout.css?v=22.0">
 
     <script type="application/ld+json">
     {
@@ -52,49 +54,21 @@
     </script>
 
     <style>
-        /* INHERITED AESTHETIC - STRICTLY ARIAL/SANS-SERIF */
-        body, button, input, select, textarea, h1, h2, h3, p, a {
-            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif !important;
-        }
-
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .thick-content p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        /* SOP HEADER */
+        /* --- TOOL SPECIFIC BESPOKE MANIPULATION COMPONENTS --- */
+        /* SOP HEADER BLOCK PANEL */
         .sop-header {
             background: var(--dark-card);
             border-left: 5px solid var(--terminal-green);
             padding: 25px;
             margin-bottom: 30px;
             border-radius: 4px;
-            border-top: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--terminal-green);
         }
         .sop-title { color: var(--terminal-green); font-size: 1.8rem; margin: 0 0 10px 0; text-transform: uppercase; font-weight: bold; }
-        .sop-desc { color: var(--cloud-white); font-size: 1rem; line-height: 1.5; margin: 0; }
+        .sop-desc { font-size: 1rem; line-height: 1.5; margin: 0; }
 
-        /* PHASE SECTION */
+        /* PHASE TRACK SECTION HEADERS */
         .phase-block { margin-bottom: 40px; }
         .phase-header { 
             display: flex; 
@@ -113,16 +87,9 @@
             font-size: 0.9rem; 
             text-transform: uppercase;
         }
-        .phase-title { font-size: 1.4rem; color: var(--cloud-white); margin: 0; font-weight: bold; text-transform: uppercase; }
+        .phase-title { font-size: 1.4rem; margin: 0; font-weight: bold; text-transform: uppercase; }
 
-        /* TOOL GRID INHERITANCE */
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            align-items: stretch;
-        }
-
+        /* TOOL REPOSITORY BLOCK OVERRIDES */
         .tool-entry {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
@@ -145,7 +112,7 @@
         .te-desc { color: var(--slate-grey); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; margin-bottom: 15px; white-space: normal; }
         .te-link { color: var(--burnt-orange); font-size: 0.85rem; font-weight: bold; text-align: right; margin-top: auto; }
 
-        /* INFO BOXES */
+        /* PLATFORM INTEGRITY CALLOUT BOX */
         .ethics-box {
             background: var(--dark-card);
             border: 1px solid var(--border-color);
@@ -155,32 +122,7 @@
         }
         .ethics-title { color: var(--burnt-orange); font-weight: bold; display: block; margin-bottom: 10px; font-size: 1.1rem; text-transform: uppercase; }
 
-        /* STANDARD ACTION BUTTON */
-        .action-btn-return {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 48px;
-            min-height: 48px;
-            padding: 12px 30px;
-            background-color: transparent;
-            border: 1px solid var(--cloud-white);
-            color: var(--cloud-white);
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all 0.2s;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-        .action-btn-return:hover {
-            background-color: var(--terminal-green);
-            color: #ffffff;
-            border-color: var(--terminal-green);
-        }
-
-        /* GAMIFIED TUTORIAL LAYOUT */
+        /* GAMIFIED MANUAL INTERFACE LAYOUTS */
         .tutorial-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -210,18 +152,65 @@
         // Unique namespacing token initialised to guarantee compliance with platform tracking
         const EE_TOOL_ID = "ee_guide_sop";
     </script>
-    <script src="header_nav.js?v=21.7" defer></script>
-    <script src="tools_data.js?v=21.7" defer></script>
+    <script src="header_nav.js?v=22.0" defer></script>
+    <script src="tools_data.js?v=22.0" defer></script>
 
     <main class="container">
+
+        <!-- Context-Aware Pathway Breadcrumb Bar with Top-Mounted Diagnostic Badges -->
+        <nav class="ee-horizontal-nav" aria-label="System Hub Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+            <a href="index.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Home</span>
+            </a>
+            <a href="about.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">About Us</span>
+            </a>
+            <a href="contact.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Contact Us</span>
+            </a>
+            <a href="social.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Social Media</span>
+            </a>
+            <a href="FAQ.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">FAQ</span>
+            </a>
+            <a href="guide.html" class="ee-horizontal-tab active" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">User Guide</span>
+            </a>
+            <a href="privacy.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Privacy</span>
+            </a>
+            <a href="terms.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Terms</span>
+            </a>
+            <a href="sitemap.html" class="ee-horizontal-tab" style="text-decoration: none;">
+                <div class="tab-badge-container"></div>
+                <span class="tab-label">Sitemap</span>
+            </a>
+        </nav>
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Standard Operating Procedure Framework for Systemic Competence Mapping</h1>
-            <p>The execution of a successful professional registration application requires a rigorous, methodical approach to personal competency auditing and evidence collection. The UK Standard for Professional Engineering Competence (UK-SPEC) serves as the primary standard against which all assessment panels evaluate candidates. To navigate this benchmark successfully, professionals must treat their career development as a formal engineering project, deploying structured workflows, distinct verification phases, and continuous quality control adjustments. The Empowering Engineers UK Standard Operating Procedure (SOP) provides this exact operational framework, enabling engineers to transition systematically from initial self-assessment to successful professional review.</p>
-            <p>The primary phase of this framework focuses on the execution of a definitive skill gap analysis. Candidates must systematically interrogate their active professional history against the comprehensive A through E criteria specified for their chosen registration tier. By utilising high-density diagnostic matrices like our CPD Smart-Planner, engineers can accurately isolate deficiencies in their theoretical understanding or practical leadership exposure before initiating the formal drafting phase. This proactive audit ensures that subsequent professional development actions are specifically targeted toward acquiring the precise levels of commercial accountability, budgetary control, and environmental sustainability evidence demanded by licensed professional engineering institutions.</p>
-            <p>Once a robust evidence baseline is established, the focus transitions to strategic narrative engineering and architectural structuring. The Engineering Council expects clear, data-driven action statements that explicitly isolate an individual's personal contributions from broader corporate team achievements. To satisfy this requirement, our toolkit mandates the universal application of the STAR methodology across all written submissions. By framing complex project problem-solving through the clean boundaries of Situation, Task, Action, and Result, candidates ensure their technical judgements remain clear, scannable, and transparently auditable. Furthermore, utilising active management tools like our digital RACI builder allows candidates to explicitly demonstrate their project governance, risk mitigation strategies, and communication protocols across complex corporate organisational structures.</p>
-            <p>The final phase of the onboarding workflow ensures that candidates are thoroughly prepared for the acute psychological and technical challenges of the Professional Review Interview (PRI). Professional review panels are composed of experienced peer assessors who evaluate not only a candidate's historical experience but also their live problem-solving agility and deep commitment to professional ethics. By engaging with our Virtual Interview Simulator, candidates can expose themselves to rigorous, timed practice panels mapped explicitly to safety-critical UK-SPEC questions. This comprehensive preparation helps engineers refine their verbal delivery, manage interview fatigue, and confidently project the leadership authority and professional integrity required to secure their Chartered, Incorporated, or Technician status successfully.</p>
+            
+            <h2>Introduction to the Platform User Manual</h2>
+            <p><strong>What is this step?</strong> This User Manual and Standard Operating Procedure (SOP) functions as a comprehensive road map built to guide your personal career development goals. It provides early-career technicians and graduate engineers with a highly structured workflow to map, track, and score their engineering evidence sets. Instead of working through vague instructions or scattered templates, this onboarding page breaks your preparation process down into clear, manageable steps. Following this blueprint keeps your focus sharp as you explore the platform's features, ensuring your records remain perfectly organised from day one.</p>
+            
+            <h2>Why Following a Structured Operating Procedure Matters to Your Career</h2>
+            <p><strong>Why does it matter to your career?</strong> Achieving professional registration with the <strong>Engineering Council</strong> as a Chartered Engineer (<strong>CEng</strong>), Incorporated Engineer (<strong>IEng</strong>), or Engineering Technician (<strong>EngTech</strong>) significantly alters your commercial value. It tells employers and clients that your technical judgements are sound and your leadership choices are safe. However, review panels are incredibly thorough. If your report sounds like a collective team overview rather than an individual summary, your application will face setbacks. Using our structured system teaches you to write clear evidence tracks, preventing common progression delays and helping you secure senior engineering roles quickly.</p>
+            <p>Every workspace across our repository matches the precise terminology and assessment boundaries used by licensed institutions. By organizing your learning history, engineering drawings, and project notes inside these dedicated workbenches, you build a robust professional track record. This process transforms abstract project actions into solid, data-driven proof lines. This structured approach ensures that when you step into your interview, you can defend your technical choices with complete confidence, proving you have the competence needed to lead high-exposure industrial programs successfully.</p>
+
+            <h2>How to Navigate and Complete the Training Phases Cleanly</h2>
+            <p><strong>How do you complete it cleanly?</strong> To pass through this onboarding manual cleanly, read through the three unique operational development phases outlined below. Start by auditing your current technical capabilities against the required <strong>UK-SPEC</strong> criteria to discover where your application lacks support. Next, use our active process matrices and leadership tools to collect clear evidence of your workplace choices. Make sure you use active verbs and follow the <strong>STAR Methodology</strong> to highlight your personal actions cleanly, separating the Situation, Task, Action, and Result in every project record.</p>
+            <p>Your commercial privacy is fully protected because our entire application suite runs on a zero-knowledge local browser architecture. Everything you save is sandboxed securely within your device's browser memory cache and is never sent to external networks. You maintain absolute sovereignty over your drafts. Remember to use our footer controls to save master JSON data packages regularly, protecting your entries from accidental browser cache clearances completely. Once you have built your written evidence, use our virtual interview tools to rehearse your oral arguments under timed conditions, ensuring a pristine institutional defense.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -234,7 +223,7 @@
         </div>
         
         <section class="sop-header">
-            <h1 class="sop-title">Standard Operating Procedure (SOP)</h1>
+            <h2 class="sop-title">Standard Operating Procedure (SOP)</h2>
             <p class="sop-desc">
                 This platform is not just a collection of calculators; it is a structured workflow designed to take you from "Early Career Engineer" to "Chartered Professional". Follow the phases below to maximise your results.
             </p>
@@ -304,36 +293,60 @@
 
         <section class="phase-block">
             <div class="phase-header">
+                <span class="phase-num">EXTRACURRICULAR</span>
+                <h2 class="phase-title">Personal Development Modules</h2>
+            </div>
+            <nav class="tool-grid" aria-label="Extracurricular and Hobbies Tools">
+                <a href="stem.html" class="tool-entry">
+                    <span class="te-title">STEM Volunteering Log</span>
+                    <span class="te-desc">Record your community outreach hours, organize local school workshops, and compile clear evidence blocks for UK-SPEC Competence E criteria.</span>
+                    <span class="te-link">&rarr;</span>
+                </a>
+                <a href="chess.html" class="tool-entry">
+                    <span class="te-title">Strategic Chess Log</span>
+                    <span class="te-desc">Track and review your analytical gameplay choices to systematically sharpen your cognitive foresight and system risk-mitigation capabilities.</span>
+                    <span class="te-link">&rarr;</span>
+                </a>
+                <a href="performing.html" class="tool-entry">
+                    <span class="te-title">Performance Studio</span>
+                    <span class="te-desc">Practice technical storytelling and public speaking to optimize your presentation cadence and vocal delivery under real-world pressure.</span>
+                    <span class="te-link">&rarr;</span>
+                </a>
+            </nav>
+        </section>
+
+        <section class="phase-block">
+            <div class="phase-header">
                 <span class="phase-num">TUTORIAL</span>
                 <h2 class="phase-title">Gamified Interface Manual</h2>
             </div>
-            <p style="color:var(--cloud-white); margin-bottom:15px;">Think of this platform as a developmental flight simulator. Master the mechanics outlined below to unlock optimal operational capabilities:</p>
+            <p style="margin-bottom:15px;">Think of this platform as a developmental flight simulator. Master the mechanics outlined below to unlock optimal operational capabilities:</p>
             
             <div class="tutorial-grid">
                 <div class="tut-card">
                     <span class="tut-badge" style="background:var(--terminal-green); color:#0D1B2A;">Interface Controls</span>
-                    <p style="font-size:0.95rem; color:var(--cloud-white);">
+                    <p style="font-size:0.95rem;">
                         <strong>Primary Buttons:</strong> The dark navy structural buttons with glowing green shadows act as execution keys. Clicking commits matrices or saves text steps.<br><br>
                         <strong>Ghost Buttons:</strong> Secondary translucent actions (e.g., "Upload Files") allow you to handle system inputs without breaking active diagnostic workbenches.
                     </p>
                 </div>
                 <div class="tut-card">
                     <span class="tut-badge" style="background:var(--burnt-orange); color:#ffffff;">Data Inventory</span>
-                    <p style="font-size:0.95rem; color:var(--cloud-white);">
-                        <strong>Backup System:</strong> Located in the inflow footer panel. Use <em>Backup Files</em> to generate a encrypted local master JSON payload. To migrate machines, use <em>Upload Files</em> to execute an additive data merge layer.<br><br>
+                    <p style="font-size:0.95rem;">
+                        <strong>Backup System:</strong> Located in the inflow footer panel. Use <em>Backup Files</em> to generate an encrypted local master JSON payload. To migrate machines, use <em>Upload Files</em> to execute an additive data merge layer.<br><br>
                         <strong>Real-time Saving:</strong> Workspaces feature an active 3-second delay listener tracking text changes, auto-committing text fields safely.
                     </p>
                 </div>
                 <div class="tut-card">
                     <span class="tut-badge" style="background:var(--slate-grey); color:#ffffff;">Theme Configurations</span>
-                    <p style="font-size:0.95rem; color:var(--cloud-white);">
-                        <strong>Layout Shifting:</strong> Locate the 👁️ visibility icon overlay on menu strips to instantly cycle system presets between light contrast tracking mode, midnight slate mode, or stark tactical dark mode.
+                    <p style="font-size:0.95rem;">
+                        <strong>Layout Shifting:</strong> Locate the visibility icon overlay on menu strips to instantly cycle system presets between light contrast tracking mode, midnight slate mode, or stark tactical dark mode.
                     </p>
                 </div>
                 <div class="tut-card">
                     <span class="tut-badge" style="background:#ffd700; color:#000000;">Fuzzy Mapping</span>
-                    <p style="font-size:0.95rem; color:var(--cloud-white);">
-                        <strong>Instant Navigation:</strong> Click the 🔍 search vector anywhere across top menus. The fuzzy parsing engine parses indices instantly, evaluating queries and mapping paths in absolute capitalisation style.
+                    <p style="font-size:0.95rem;">
+                        <strong>Instant Navigation:</strong> Click the search vector anywhere across top menus. The fuzzy parsing engine parses indices instantly, evaluating queries and mapping paths in absolute capitalisation style.
                     </p>
                 </div>
             </div>
@@ -341,22 +354,22 @@
 
         <aside class="ethics-box">
             <span class="ethics-title">🔒 DATA PRIVACY & INTEGRITY (GA4 & SECURITY NOTICE)</span>
-            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6; margin-bottom:15px;">
+            <p style="font-size:1rem; line-height:1.6; margin-bottom:15px;">
                 <strong>Your data never leaves your device.</strong> <br>
-                We use <em>Local Storage</em> technology, meaning your sensitive project details, STAR drafts, and matrix data are saved only in your browser's cache. We do not host a database. You can wipe your data instantly using the "Reset" buttons found in every tool.
+                We use <em>Local Storage</em> technology, meaning your sensitive project details, STAR drafts, and matrix data are saved only in your browser's cache. We do not host a database. You can wipe your data instantly using the "Reset" or "Clear Canvas" buttons found in every tool.
             </p>
-            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6; margin-bottom:15px;">
+            <p style="font-size:1rem; line-height:1.6; margin-bottom:15px;">
                 <strong>Google Analytics 4 Tracking Rules:</strong><br>
                 To monitor platform usage and meet optimization parameters safely, we deploy basic GA4 anonymised events tracking. This system only monitors structural navigation benchmarks (e.g. clicking export buttons, opening workbenches). Your text files, CV entries, and corporate technical histories remain entirely protected inside your device's sandboxed storage boundary.
             </p>
-            <p style="font-size:1rem; color:var(--cloud-white); line-height:1.6;">
+            <p style="font-size:1rem; line-height:1.6;">
                 <strong>Ethical AI Use:</strong><br>
                 Use these tools to <em>structure</em> and <em>polish</em> your genuine experience, not to fabricate it. The Engineering Council requires all evidence to be truthful. Using AI to invent scenarios is a direct breach of the professional Code of Conduct.
             </p>
         </aside>
 
         <div style="text-align:center; margin-top:50px; margin-bottom: 20px;">
-            <a href="index.html" class="action-btn-return">RETURN TO HOME</a>
+            <a href="index.html" class="action-btn" style="min-height: 48px; text-decoration: none;">RETURN TO HOME</a>
         </div>
 
     </main>
@@ -367,6 +380,6 @@
             console.log("System Status: SOP Guide Initialised. Grid overflow fixed.");
         }
     </script>
-    <script src="footer.js?v=21.7" defer></script>
+    <script src="footer.js?v=22.0" defer></script>
 </body>
 </html>

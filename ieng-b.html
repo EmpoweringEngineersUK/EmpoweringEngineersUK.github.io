@@ -20,11 +20,10 @@
     <link rel="manifest" href="site.webmanifest">
     
     <link rel="preload" as="image" href="assets/EE_Logo_rect_Solid.webp">
-    
     <link rel="canonical" href="https://www.empoweringengineers.uk/ieng-b.html" />
     
     <!-- Active Cache-Busting applied to layout to ensure strict fluid constraints -->
-    <link rel="stylesheet" href="layout.css?v=21.7">
+    <link rel="stylesheet" href="layout.css?v=22.0">
     
     <script type="application/ld+json">
     {
@@ -44,64 +43,69 @@
     }
     </script>
 
-    <script src="https://empoweringengineersuk.github.io/UK-SPEC.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/verb.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/acronyms.js?v=21.7"></script>
-    <script src="https://empoweringengineersuk.github.io/samples.js?v=21.7"></script>
+    <!-- Strict relative paths enforced -->
+    <script src="UK-SPEC.js?v=22.0"></script>
+    <script src="verb.js?v=22.0"></script>
+    <script src="acronyms.js?v=22.0"></script>
+    <script src="samples.js?v=22.0"></script>
 
     <style>
-        /* --- TOOL-SPECIFIC OVERRIDES --- */
-        
-        .thick-content {
-            padding: 20px 5% 40px 5%;
-            color: var(--cloud-white);
-            line-height: 1.7;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            background: var(--dark-card);
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .thick-content h1, .thick-content h2, .thick-content h3 {
-            color: var(--terminal-green);
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .workbench-layout { display: grid; grid-template-columns: 1fr 340px; gap: 30px; align-items: start; }
+        /* --- TOOL-SPECIFIC BESPOKE INTERACTION COMPONENTS --- */
         
         .sub-container { display: none; animation: fadeIn 0.3s ease; }
         .sub-container.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* THE COACH PANEL */
-        .coach-panel {
-            background-color: var(--ee-dark-blue); color: var(--ee-white);
-            border-radius: 8px; padding: 25px; border: 1px solid var(--border-color);
-            position: sticky; top: 85px;
-            box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+        /* Bespoke Sub-Scenario Navigation Tabs with Active Underline Rules */
+        .ee-sub-tab {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--slate-grey);
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 48px;
         }
-        .coach-header { font-size: 1.1rem; font-weight: 700; color: var(--ee-terminal-green); margin-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; text-transform: uppercase;}
-        .coach-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .coach-title { color: var(--ee-terminal-green); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .coach-text { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
-        
-        /* Strict Levelling Badges */
-        .level-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: #000; text-transform: uppercase; border: 2px solid transparent; line-height: 1;}
-        .nb-l1 { background: var(--burnt-orange); color: #fff; border-color: #A04015; }
-        .nb-l2 { background: #fdcb6e; border-color: #E0B050; }
-        .nb-l3 { background: var(--ee-terminal-green); color: #fff; border-color: #02C980; }
-        .nb-l4 { background: #00b894; color: #fff; border-color: #009070;}
+        .ee-sub-tab:hover {
+            color: var(--terminal-green);
+        }
+        .ee-sub-tab.active {
+            color: var(--terminal-green);
+            border-bottom: 3px solid var(--terminal-green);
+        }
 
+        /* Bespoke Verb Chip Unification matching high-contrast menu button metrics */
         .verb-chip {
-            display: inline-block; font-size: 0.8rem; background: rgba(255,255,255,0.05);
-            padding: 4px 10px; border-radius: 4px; margin: 3px; border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer; transition: all 0.2s; font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF !important;
+            background-image: none !important;
+            border: 2px solid var(--ee-terminal-green, #03F7A0) !important;
+            color: #0D1B2A !important;
+            box-shadow: 2px 2px 0px var(--ee-terminal-green, #03F7A0) !important;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .verb-chip:hover { background: var(--ee-terminal-green); color: var(--ee-dark-blue); border-color: var(--ee-terminal-green);}
+        .verb-chip:hover {
+            background-color: var(--ee-terminal-green, #03F7A0) !important;
+            border-color: #0D1B2A !important;
+            color: #0D1B2A !important;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #0D1B2A !important;
+        }
         .detected-verb { color: var(--ee-terminal-green); font-weight: bold; }
         
         .guidance-box {
@@ -109,51 +113,6 @@
             padding: 20px; border-radius: 6px; margin-bottom: 25px; font-size: 0.95rem;
             color: var(--cloud-white); border-left: 4px solid var(--ee-terminal-green);
         }
-
-        .header-actions { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ee-terminal-green); padding-bottom: 10px;}
-        
-        /* Modifying Standard Horizontal Nav for Top-Mounted Score Badges */
-        .ee-horizontal-tab {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px 12px 10px 12px !important;
-            gap: 8px;
-        }
-        .ee-horizontal-tab span.tab-label {
-            display: block;
-            margin-top: auto;
-        }
-        .tab-badge-container {
-            min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        /* Fixed Square Checkboxes */
-        .status-tick {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--terminal-green);
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 900;
-            border: 2px solid var(--terminal-green);
-            line-height: 1;
-            width: 24px;
-            height: 24px;
-        }
-        .status-tick.empty {
-            background: transparent;
-            color: transparent;
-            border: 2px solid var(--slate-grey);
-        }
-
-        @media (max-width: 992px) { .workbench-layout { grid-template-columns: 1fr; } .coach-panel { position: relative; top: 0; } }
     </style>
 </head>
 <body onload="initApp()">
@@ -161,29 +120,29 @@
     <script>
         localStorage.removeItem('ee_cached_sitemap_tree');
     </script>
-	<script src="header_nav.js?v=21.7" defer></script>
+	<script src="header_nav.js?v=22.0" defer></script>
 
     <main class="container">
         
         <!-- SEO/AEO "Thick Content" Anti-Penalty Block -->
         <article class="thick-content">
             <h1>Incorporated Engineer (IEng) Competence B: Design and Development</h1>
-            <p>The hallmark of a registered Incorporated Engineer (IEng) is the ability to expertly manage, apply, and evaluate engineering processes, systems, services, and products. Competence B of the UK Standard for Professional Engineering Competence (UK-SPEC) centres directly on the Design and Development lifecycle. Assessors from bodies such as the IMechE, IET, and ICE will interrogate your capacity to identify operational problems, rigorously evaluate potential solutions using established principles, and guide those solutions through to successful implementation. This competence proves you are not merely executing tasks, but actively shaping the engineering outcomes of your organisation.</p>
+            <p>Reaching Incorporated Engineer (IEng) status is a massive step in your engineering career. Competence B of the UK Standard for Professional Engineering Competence (UK-SPEC) tests how well you manage, apply, and evaluate engineering designs. While Chartered Engineers focus heavily on inventing entirely new concepts from scratch, Incorporated Engineers focus on making practical, reliable solutions work in the real world. You need to show that you can take an engineering problem, choose the right established methods to fix it, and lead the design process through to a safe and successful finish.</p>
             
-            <h2>B1: Identify, Review and Select Techniques, Procedures and Methods</h2>
-            <p>Sub-competence B1 mandates that candidates must identify, review and select techniques, procedures and methods to undertake engineering tasks. Your evidence here must highlight the investigative phase of an engineering project. How do you establish the scope of a technical challenge? Assessing panels want to see a methodical approach: conducting feasibility studies, reviewing current industry codes of practice, evaluating existing technical literature, and ultimately selecting the most appropriate, safe, and commercially viable methodology to resolve the identified issue.</p>
+            <h2>B1: Identify, Review and Select Techniques</h2>
+            <p><strong>What is this step?</strong> This is the initial phase where you figure out the best way to tackle an engineering task. <strong>Why does it matter to your career?</strong> You cannot just guess how to build or fix something in a professional setting. You must review technical manuals, safety codes, and industry best practices. <strong>How do you complete it cleanly?</strong> Write clearly about how you ran a feasibility study or checked different procedures before choosing the safest and most cost-effective method for your specific project.</p>
             
-            <h2>B2: Contribute to the Design and Development of Engineering Solutions</h2>
-            <p>Once a methodology is selected, B2 requires you to actively contribute to the design and development of engineering solutions. This is where theoretical application translates into tangible outputs. You must document your specific involvement in drafting technical specifications, developing operational models (such as CAD, system architectures, or process flow diagrams), and refining the design to meet rigid commercial and safety tolerances. Evidence should clearly articulate how you collaborated with stakeholders and applied your specialist knowledge to overcome design constraints.</p>
+            <h2>B2: Contribute to Design and Development</h2>
+            <p><strong>What is this step?</strong> This is the core design phase where you actively create your technical solution. <strong>Why does it matter to your career?</strong> You must prove you can turn a theoretical idea into a working, tangible plan. <strong>How do you complete it cleanly?</strong> Detail the exact CAD models, structural calculations, or electrical schematics you produced. Show how you worked with other disciplines to solve design clashes, optimized the materials used, and kept the project within its strict commercial budget.</p>
             
-            <h2>B3: Implement Design Solutions and Contribute to their Evaluation</h2>
-            <p>Competence B3 closes the engineering lifecycle, requiring candidates to implement design solutions and contribute to their evaluation. An Incorporated Engineer must demonstrate capability beyond the drawing board. You need to outline your role during the construction, manufacturing, or integration phases. Furthermore, you must provide empirical evidence detailing how you evaluated the final output against the original technical brief, deploying testing protocols and quality assurance checks to validate operational effectiveness.</p>
+            <h2>B3: Implement Solutions and Evaluate Effectiveness</h2>
+            <p><strong>What is this step?</strong> This final phase covers the physical building, testing, and handover of your engineering design. <strong>Why does it matter to your career?</strong> A beautiful design is completely useless if it does not work in reality. You must show you can bring your ideas to life safely. <strong>How do you complete it cleanly?</strong> Describe your direct role in managing the installation or manufacturing process. Explain exactly how you tested the final product against the original brief to ensure it met all quality, performance, and safety targets.</p>
             
             <h2>Structuring Your Evidence via the STAR Methodology</h2>
-            <p>To satisfy the demands of the Professional Review Interview (PRI), narrative precision is non-negotiable. Empowering Engineers UK integrates the STAR methodology (Situation, Task, Action, Result) natively into this tracker. By structuring your project histories using STAR, you ensure that assessing panels can easily identify your specific individual contributions, distinguishing your authoritative technical actions from the general efforts of your wider engineering team.</p>
-
+            <p>To impress institutional reviewing panels, your engineering reports must be highly structured. We mandate using the <strong>STAR Methodology</strong> (Situation, Task, Action, Result) for your text drafts. This framework isolates your personal actions from the wider team. When writing about Competence B, emphasize the specific design choices you made yourself. The Result section must include quantified data to prove your success. Your written report forms the base for your Professional Review Interview (PRI), so make sure it is factually solid.</p>
+            
             <h2>Secure Client-Side Architecture</h2>
-            <p>We recognise that detailing the design and implementation of engineering solutions involves processing highly sensitive commercial data. This platform operates on a rigid zero-knowledge local storage architecture. All text inputs, technical matrices, and project narratives remain strictly confined within your local browser cache. Your proprietary data never traverses our external servers, guaranteeing total data sovereignty and protecting you against non-disclosure agreement (NDA) breaches.</p>
+            <p>Using this digital workbench is entirely safe for your intellectual property. We know that engineering designs contain highly confidential client data. Therefore, Empowering Engineers UK uses a zero-knowledge local browser cache system. Your proprietary project narratives are never uploaded to our servers. All text remains secured directly on your own device. This setup guarantees perfect compliance with strict company Non-Disclosure Agreements (NDAs). You can draft your career portfolio with total peace of mind.</p>
         </article>
 
         <!-- Core Monetisation Integration: AdSense Backfill for B2B MPU Slot -->
@@ -196,7 +155,7 @@
         </div>
 
         <!-- Context-Aware Pathway Breadcrumb with Top-Mounted Diagnostic Badges -->
-        <nav class="ee-horizontal-nav" aria-label="IEng Application Pathway" style="margin-bottom: 25px; border-bottom: 1px dashed var(--border-color);">
+        <nav class="ee-horizontal-nav" aria-label="IEng Application Pathway">
             <a href="ieng.html" class="ee-horizontal-tab" style="text-decoration: none;">
                 <div class="tab-badge-container" id="badge_hub"></div>
                 <span class="tab-label">IEng Hub</span>
@@ -241,9 +200,9 @@
                 <p style="color: var(--slate-grey); font-size: 0.95rem; font-weight: 700; margin-top: 5px;">Incorporated Engineer (IEng) UK-SPEC Tracker</p>
             </div>
             <div style="display:flex; gap:10px;">
-                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">&#128196; Preview Draft</button>
-                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">&#128229; Import</button>
-                <button type="button" class="action-btn" onclick="exportEEData()">&#128190; Export JSON</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="generateReport()">📑 Preview Draft</button>
+                <button type="button" class="action-btn action-btn-ghost" onclick="document.getElementById('ee_import_file').click()">📥 Import</button>
+                <button type="button" class="action-btn" onclick="exportEEData()">💾 Export JSON</button>
                 <input type="file" id="ee_import_file" accept=".json" style="display:none" onchange="importEEData(event)">
             </div>
         </div>
@@ -385,13 +344,13 @@
                 </div>
             </div>
 
-            <!-- COACH SIDEBAR -->
+            <!-- MENTOR SIDEBAR -->
             <div class="coach-panel">
-                <div class="coach-header" id="coach_title">>> THE COACH: B1</div>
+                <div class="coach-header" id="coach_title">>> THE MENTOR: B1</div>
                 
                 <div class="coach-card">
                     <span class="coach-title">COMPETENCE CHECK</span>
-                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - AWARE</span></div>
+                    <div id="coach_score" class="coach-text"><span class="level-badge nb-l1">L1 - Aware</span></div>
                 </div>
                 
                 <div class="coach-card">
@@ -412,7 +371,7 @@
         </div>
     </main>
 
-    <script defer src="footer.js?v=21.7"></script>
+    <script defer src="footer.js?v=22.0"></script>
 
     <script>
         // LocalStorage cache layer deployed here to shield the engineering candidate's portfolio draft from connection dropouts.
@@ -428,9 +387,9 @@
 
         // --- NAVIGATION BADGE ENGINE ---
         function calculateScoreForBadge(text, subId) {
-            if (!text || text.trim() === "") return 1; // Explicit default for empty strings
+            if (!text || text.trim() === "") return 1;
             const wordCount = text.trim().split(/\s+/).length;
-            if (wordCount < 50) return 1; // Default L1 if sparse data
+            if (wordCount < 50) return 1; 
 
             let score = 1;
             if (typeof verbDb !== 'undefined' && verbDb.strongVerbMap && verbDb.strongVerbMap['IEng']) {
@@ -497,9 +456,9 @@
                 let subScores = [];
 
                 expectedSubs.forEach(sub => {
-                    let score = 1; // Default to L1 - AWARE explicitly for blanks
+                    let score = 1;
                     // Read active text locally if on current page, else read from memory cache
-                    if (comp === 'b' && appState[sub]) { // Local tracking for Comp B
+                    if (comp === 'b' && appState[sub]) {
                         score = calculateScoreForBadge(appState[sub].compiled || '', sub);
                     } else if (tools[toolId] && tools[toolId][sub]) {
                         score = calculateScoreForBadge(tools[toolId][sub].compiled || '', sub);
@@ -569,7 +528,7 @@
                 </style>
             </head>
             <body>
-                <img src="https://empoweringengineersuk.github.io/assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
+                <img src="assets/EE_Logo_rect_Solid.webp" class="logo" alt="Empowering Engineers UK">
                 <h1>Application Draft Preview</h1>
                 <p><em>Candidate: ${masterData.username || "Not Provided"}</em></p>`;
 
@@ -625,7 +584,7 @@
             document.getElementById(`tab_${tabId}`).classList.add('active');
             document.getElementById(`container_${tabId}`).classList.add('active');
             
-            document.getElementById('coach_title').innerText = `>> THE COACH: ${tabId}`;
+            document.getElementById('coach_title').innerText = `>> THE MENTOR: ${tabId}`;
             
             // Reload the placeholders & inputs for the active scenario of this tab
             loadPlaceholders(tabId);
