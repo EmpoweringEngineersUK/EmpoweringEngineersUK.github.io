@@ -1,0 +1,282 @@
+# Empowering Engineers UK - Complete Platform Knowledge Directory & Full-Content Index
+# Version: 22.1
+# Date: 14 Aug 2026
+# Security Baseline: Local Zero-Knowledge Browser Storage Standard
+
+This document serves as the master full-content textual index and training directory for Empowering Engineers UK (www.empoweringengineers.uk). It provides a deep, plain-text overview of the platform's multi-tiered system pathways, analytical workbenches, and technical portfolios. This index is optimised for Large Language Models (LLMs), machine crawlers, and automated answer engines.
+
+---
+
+## Central Platform Overview & Data Architecture
+
+Empowering Engineers UK is an open-access digital workspace built to simplify and accelerate the journey to professional registration with the Engineering Council. The platform maps out career milestones using the UK-SPEC framework, providing graduate engineers and technicians with free, high-contrast, high-density analytical workbenches.
+
+### The Zero-Knowledge Privacy Architecture
+* What is this step? To keep your project data safe, the platform uses a zero-knowledge local storage architecture bound to a centralised Profile Manager engine (window.eeDataManager).
+* Why does it matter to your career? Engineers often work with highly sensitive corporate data, trade secrets, and strict client contracts. Sending draft competence reports to an external cloud database can accidentally breach your Non-Disclosure Agreements (NDAs), risking your job and professional standing.
+* How do you complete it cleanly? Every input and text container saves your writing straight to your local device browser cache. No text is ever uploaded to external servers. You can back up your files or merge active profiles using the "Manage Workspaces", "Export JSON", and "Upload / Merge" data control tools in the platform footer.
+
+### Core System Hub Governance Pathways
+* Organisation Architecture (organisation.html): Details the formal multidisciplinary team architecture, functional role accountabilities across four core divisions (Executive Governance, Product Development & UX, Curriculum & AI Engineering, and Growth & Media Operations), required key skills matrices, and zero-knowledge client-side memory privacy.
+* Corporate Charter & Pledges (pledge.html): Details our five core corporate commitments to the engineering community: 1. Career Growth & Learning, 2. Social Impact & STEM Outreach, 3. Diversity, Equity & Inclusion (DEI), 4. Environmental Sustainability (UK-SPEC E3), and 5. Work-Life Balance and Mental Resilience.
+
+---
+
+## 1. Professional Registration Tracker Modules (Mentor Hub)
+
+The Mentor Hub is a structured career workspace built to help candidates collect, refine, and cross-reference evidence of their engineering competence before submitting their final application to a Professional Engineering Institution (PEI).
+
+### Career CV Builder (cv.html)
+* What is this tool? A dedicated résumé compiler and career summary architect styled for professional review panels.
+* Why does it matter to your career? Reviewers scan hundreds of pages of technical context. Your CV must quickly show your engineering background, technical autonomy, and specific career milestones within a 600-word limit.
+* How do you complete it cleanly? Input your job history chronologically. Highlight your safety actions, technical decision authority, and budget control responsibilities rather than general team metrics.
+
+### Chartered Engineer Tracking Track (ceng.html, ceng-a.html to ceng-e.html)
+* What is this tool? An analytical competency logging track mapping your work notes directly against the Chartered Engineer (CEng) UK-SPEC standards.
+* Why does it matter to your career? Achieving CEng status proves you can develop innovative solutions to complex engineering problems, manage large commercial budgets, and lead diverse technical teams safely.
+* How do you complete it cleanly? Document your evidence across the five core competence areas:
+  - Competence A (Technology): Explain how you applied emerging research or new technologies to improve your engineering products.
+  - Competence B (Problem Solving): Detail how you analysed and solved complex engineering issues using data-driven methods.
+  - Competence C (Leadership): Map your team management records, safety ownership, and project planning milestones.
+  - Competence D (Communication): Highlight your technical reporting, formal presentations, and cross-functional team liaison work.
+  - Competence E (Commitment): Record your daily adherence to health and safety laws, institutional ethics, and sustainable engineering practices.
+
+### Incorporated Engineer Tracking Track (ieng.html, ieng-a.html to ieng-e.html)
+* What is this tool? A competency tracking workspace mapping your career evidence to the Incorporated Engineer (IEng) UK-SPEC standard.
+* Why does it matter to your career? Becoming an IEng proves you can manage, run, and optimise current engineering technologies, lead day-to-day manufacturing operations, and drive process improvements.
+* How do you complete it cleanly? Structure your portfolio notes to highlight the practical management of technical assets:
+  - Competence A (Technology): Explain how you select and use standard engineering methods to solve routine technical challenges.
+  - Competence B (Application): Detail your day-to-day management of installations, technical maintenance schedules, and equipment design updates.
+  - Competence C (Management): Record your staff scheduling records, project resource allocations, and quality control checks.
+  - Competence D (Communication): Show your workplace reporting procedures, engineering drawings, and team coordination updates.
+  - Competence E (Ethics & Safety): Document your risk tracking logs, hazard identification metrics, and sustainable material recycling steps.
+
+### Engineering Technician Tracking Track (engtech.html, engtech-a.html to engtech-e.html)
+* What is this tool? A specialised logging portfolio aligned with the Engineering Technician (EngTech) UK-SPEC competence standard.
+* Why does it matter to your career? EngTech registration proves your practical technical skills, your safe tool handling, and your ability to carry out crucial hands-on problem-solving in the workshop or field.
+* How do you complete it cleanly? Focus on direct personal actions and daily maintenance routines:
+  - Competence A (Knowledge): Show your deep understanding of specific engineering standards, material choices, and manufacturing processes.
+  - Competence B (Skills): Detail how you used your technical skills to assemble complex components or diagnose plant machinery breakdowns.
+  - Competence C (Responsibility): Log your supervisor checks, tool control tasks, and active workshop safety ownership.
+  - Competence D (Communication): Input your shift handovers, daily defect logs, and written asset update reports.
+  - Competence E (Safety Compliance): Prove your strict use of Personal Protective Equipment (PPE), safe disposal of hazardous waste, and compliance with the institution's code of conduct.
+
+### Development Action Plan (DAP) & Sponsors (dap.html, sponsors.html)
+* What is this tool? Portfolio managers for formulating forward-looking 70/20/10 CPD roadmaps and registering Lead and Secondary endorsing sponsors.
+* Why does it matter to your career? Every candidate must demonstrate structured long-term planning and secure verified endorsements from registered practitioners before sitting the Professional Review Interview (PRI).
+* How do you complete it cleanly? Define short-term (0-12 months), medium-term (1-2 years), and long-term (2-5 years) development targets, and input sponsor contact details alongside their institutional registration numbers.
+
+---
+
+## 2. Business Management & Quality Systems (Coach Hub)
+
+The Coach Hub contains management workbenches designed to help engineers apply business strategy, quality frameworks, probability models, and scenario planning to their projects.
+
+### Strategy & Business Planning (strategy.html)
+* SWOT Analysis Studio (strategy-swot.html): Strategic evaluation of internal Strengths, Weaknesses, and external Opportunities/Threats.
+* PESTLE Analysis Studio (strategy-pestle.html): Macro-environmental screening across Political, Economic, Social, Technological, Legal, and Environmental factors.
+* Porter's Five Forces (strategy-porters.html): Assessment of industry competitiveness, buyer power, supplier power, substitution, and entry barriers.
+* VRIO Framework (strategy-vrio.html): Resource capability validation based on Value, Rarity, Inimitability, and Organisation.
+* BCG Matrix Dashboard (strategy-bcg.html): Market share and growth analysis for prioritising corporate assets.
+* Ansoff Matrix Studio (strategy-ansoff.html): Market penetration, product development, market development, and diversification strategies.
+* Scenario Planning Studio (strategy-scenarios.html): Risk-insulated futures modeling workbench designed to cross critical uncertainties and generate 2x2 matrix narratives.
+* Value Chain Analysis (strategy-value-chain.html): Cost reduction and competitive advantage analysis across primary firm logistics.
+* Blue Ocean Strategy (strategy-blue-ocean.html): Value innovation mapping for breaking out of competitive red markets.
+* Business Model Canvas (strategy-bmc.html): High-density canvas mapping operations, value propositions, customer segments, and finance.
+* SOAR Analysis Studio (strategy-soar.html): Appreciative inquiry planning focusing on Strengths, Opportunities, Aspirations, and Results.
+* Strategy Map Builder (strategy-map.html): Visual cascading models linking learning, internal processes, customer value, and finance.
+* Financial & Budget Control (strategy-budgets.html): Spreadsheet-free calculations for engineering project costs and expenditures.
+* Project Gantt Chart (strategy-gantt.html): Advanced interactive project scheduler with dynamic roll-up calculations, baseline overlays, and logic constraints (SS/FF/Lags).
+* Project Governance & RAID Suite (project-governance.html): Comprehensive suite for Change Request logs, Decision Logs, and nested sub-checklists on engineering tasks.
+
+### Process & Quality Improvement (quality.html)
+* PDCA Continuous Improvement (quality-pdca.html): Standard execution engine for iterative Plan-Do-Check-Act problem-solving cycles.
+* DMAIC Problem Solving (quality-dmaic.html): Six Sigma methodology workspace for Define, Measure, Analyse, Improve, and Control phases.
+* Value Stream Mapping (quality-vsm.html): Layout tool for tracking material and information flow while removing waste.
+* 5 Whys Cause & Effect (quality-5whys.html): Root-cause analysis tool for investigating operational process failures.
+* Fishbone Diagram Studio (quality-fishbone.html): Ishikawa cause-and-effect modeling across machinery, methods, materials, and manpower.
+* Pareto Analysis Studio (quality-pareto.html): Statistical priority calculator based on the 80/20 rule to fix critical errors first.
+* Kanban Board Studio (quality-kanban.html): Visual work-in-progress task board for tracking team output.
+* Poka-Yoke Error Prevention (quality-poka-yoke.html): Design rules and check procedures to eliminate human error in processes.
+* SIPOC Process Mapping (quality-sipoc.html): High-level process views detailing Suppliers, Inputs, Process, Outputs, and Customers.
+
+### Decision Making & Risk Management (decisions.html)
+* Monte Carlo Risk Simulation (decisions-monte-carlo.html): High-performance statistical simulation for quantifying project delivery risks.
+* Decision Tree Analysis (decisions-tree.html): Visual probability models for tracking multi-stage operational choices.
+* Cost-Benefit Analysis (decisions-cba.html): Quantitative comparison of engineering project implementation costs against expected rewards.
+* Risk Assessment Matrix (decisions-risk-matrix.html): Standard 5x5 hazard tracker mapping consequence severity against likelihood.
+* Force Field Analysis (decisions-force-field.html): Kurt Lewin's change management model mapping driving forces against restraining forces.
+* OODA Loop Studio (decisions-ooda.html): Rapid decision-making cycle for tactical environments: Observe, Orient, Decide, Act.
+* WRAP Technique Studio (decisions-wrap.html): Chip Heath's decision model: Widen options, Reality-test assumptions, Attain distance, Prepare to be wrong.
+* Supplier Contract Analysis (decisions-contracts.html): Risk evaluation workspace for engineering supply chain agreements.
+
+---
+
+## 3. Performance & Goal Alignment Modules (goals.html)
+
+These tools help teams align their day-to-day work with the overall business strategy using clear, trackable metrics.
+
+### SMART Goals Studio (goals-smart.html)
+* What is this tool? A structured goal setter that ensures all objectives are Specific, Measurable, Achievable, Relevant, and Time-bound.
+* Why does it matter to your career? Vague goals like "improve asset performance" are hard to track and measure.
+* How do you complete it cleanly? Refactor your targets into clear metrics, such as: "Reduce production line downtime by 15% over the next 4 months by implementing a weekly vibration-monitoring maintenance schedule."
+
+### Objectives & Key Results (OKRs) Engine (goals-okrs.html)
+* What is this tool? A performance alignment dashboard that connects broad organisational goals to specific, trackable key metrics.
+* Why does it matter to your career? OKRs keep multi-disciplinary engineering teams aligned, ensuring that design, testing, and production departments work toward the same targets.
+* How do you complete it cleanly? Define one clear overall objective. Then, pair it with three specific, numbers-driven key results to measure your success.
+
+### Additional Goal Setting Studios
+* Balanced Scorecard (goals-scorecard.html): Performance scorecard measuring financial, customer, process, and organisational growth metrics.
+* Big Hairy Audacious Goal (goals-bhag.html): Long-term, visionary target setup for engineering organisations.
+* Backward Goal Framework (goals-backward.html): Deconstruct future end-state metrics to map out short-term tactical steps.
+* The Golden Circle (goals-golden-circle.html): Purpose alignment tool focused on Simon Sinek's Why, How, and What core concepts.
+* Goals Pyramid Builder (goals-pyramid.html): Structural cascade linking daily actions to master strategic goals.
+* Tiered Goals Studio (goals-tiered.html): Multi-level performance alignment for individuals, departments, and entire businesses.
+* HARD Goals Studio (goals-hard.html): Target setter for Heartfelt, Animated, Required, and Difficult achievements.
+* Goals, Signals, Measures (goals-gsm.html): Structural metric definition framework designed specifically for technical products.
+* WOOP Framework Studio (goals-woop.html): Motivation strategy mapping Wish, Outcome, Obstacle, and Plan combinations.
+* Locke & Latham's 5 Principles (goals-five-principles.html): Goal-setting checks based on Clarity, Challenge, Commitment, Feedback, and Task Complexity.
+* One Word Goal Setting (goals-one-word.html): High-impact focus tool for simple, effective personal development targets.
+
+---
+
+## 4. Technical Communication & Narrative Frameworks (feedback.html, communication.html)
+
+These text builders help engineers write clear, persuasive project records and professional review reports.
+
+### STAR Methodology Architect (communication-star.html)
+* What is this tool? An interactive text builder that structures engineering entries using the Situation, Task, Action, and Result framework.
+* Why does it matter to your career? Reviewers need to see your personal technical contribution. Writing passive sentences like "the team fixed the asset" obscures your individual value.
+* How do you complete it cleanly? Use the separate text boxes to organise your narrative logically:
+  - Situation: Outline the technical issue or equipment failure briefly.
+  - Task: Define your specific personal responsibility in solving the problem.
+  - Action: Detail the exact engineering choices, calculations, and safety measures you personally led.
+  - Result: Share the final outcome using clear metrics, such as saved costs, reduced carbon emissions, or improved production output.
+
+### CAPS Executive Communication Studio (communication-caps.html)
+* What is this tool? A communications builder designed to organise updates across four sections: Context, Action, Position, and Summary.
+* Why does it matter to your career? Senior directors and stakeholders have limited time. They need clear, concise project summaries without wading through long pages of raw data.
+* How do you complete it cleanly? Lead with a short summary of the commercial situation. Detail your actions and current project standing clearly, then finish with a direct summary of the required decisions or budget requests.
+
+### Additional Communication & Feedback Studios
+* GROW Model Studio (feedback-grow.html): Standard career coaching framework: Goal, Reality, Options, Will.
+* Situation-Behaviour-Impact (feedback-sbi.html): Clear feedback model highlighting professional actions and their workplace results, featuring dynamic framing toggles between Psychological Safety and Organisational Impact.
+* CEDAR Feedback Studio (feedback-cedar.html): Growth coaching model: Context, Examples, Diagnosis, Action, Review.
+* Pendleton's Rules Studio (feedback-pendletons.html): Structured, reflective methodology for evaluation post-technical reviews.
+* COIN Model Studio (feedback-coin.html): Performance correction tool tracking Context, Observation, Impact, and Next Steps.
+* Big Small Quick (feedback-bsq.html): Implementation model for tracking big goals, small steps, and quick wins.
+* Storytelling for Technical Reports (communication-storytelling.html): Content drafting rules for converting complex project metrics into clear narratives.
+* CAR Framework Studio (communication-car.html): Alternative review structure mapping Context, Action, and Result configurations.
+* SOAR Technique Studio (communication-soar.html): Narrative layout optimising project reporting via Situation, Obstacle, Action, and Results.
+* PARLA Method Studio (communication-parla.html): Competency structure highlighting Problem, Action, Result, Learning, and Application.
+* FAB Approach Studio (communication-fab.html): Presentation modeling linking technical Features, operational Advantages, and business Benefits.
+* SAO Framework Studio (communication-sao.html): Career portfolio drafting model focusing on Situation, Action, and Outcome profiles.
+* SHARE Model Studio (communication-share.html): Competency framework tracking Situation, Hindrances, Actions, Results, and Evaluation.
+* DARE Method Studio (communication-dare.html): Engineering interview model: Define problem, Action taken, Result achieved, Evaluation learned.
+
+---
+
+## 5. Psychological Safety & Clinical Therapy Frameworks (therapy.html)
+
+These specialised tools provide structured cognitive frameworks tailored for managing operational stress, resolving interpersonal conflicts, and maintaining leadership resilience on site.
+
+### Therapy Hub Overview (therapy.html)
+* What is this tool? The central gateway to psychological safety and cognitive structuring tools for engineers.
+* Why does it matter to your career? Managing high-stress site incidents and complex teams requires strong emotional regulation and conflict resolution skills under UK-SPEC Competence D and E.
+* How do you complete it cleanly? Select a specific psychological framework matching your current operational challenge, structure your reflective notes, and generate live coach summaries.
+
+### Acceptance and Commitment Therapy & OPAL (therapy-act.html)
+* What is this tool? A cognitive framework integrating ACT principles with the Openness, Presence, Acceptance, and Light (OPAL) model.
+* Why does it matter to your career? Helps engineers accept uncontrollable project headwinds while committing to value-based engineering actions.
+* How do you complete it cleanly? Document the active situation, identify unhelpful cognitive thoughts, apply acceptance strategies, and define value-aligned next steps.
+
+### Cognitive Behavioral Therapy (therapy-cbt.html)
+* What is this tool? A structured cognitive reframing tool mapping Situation, Automatic Thoughts, Cognitive Distortions, Alternative Rational Thoughts, and Outcome.
+* Why does it matter to your career? Allows engineers to dismantle cognitive distortions (such as catastrophic thinking or imposter syndrome) during high-pressure project audits.
+* How do you complete it cleanly? Log the triggering incident, record your immediate thoughts, identify the specific thinking bias, and construct an objective evidence-based alternative.
+
+### Dialectical Behavior Therapy (therapy-dbt.html)
+* What is this tool? An emotion regulation and distress tolerance framework built on mindfulness and interpersonal effectiveness.
+* Why does it matter to your career? Equips technical leads to handle intense workplace friction and site disputes objectively without compromising safety standards.
+* How do you complete it cleanly? Work through Mindfulness, Distress Tolerance, Emotion Regulation, and Interpersonal Effectiveness steps.
+
+### Rational Emotive Behavior Therapy (therapy-rebt.html)
+* What is this tool? Albert Ellis's action-oriented ABCDE model mapping Activating Events, Beliefs, Consequences, Disputing Irrational Beliefs, and Effective New Philosophy.
+* Why does it matter to your career? Teaches engineers to challenge irrational perfectionism and maintain logical composure under project deadlines.
+* How do you complete it cleanly? Input the activating event, isolate irrational demands, evaluate the emotional output, dispute the belief rationally, and state the new functional mindset.
+
+### Compassion Focused Therapy (therapy-cft.html)
+* What is this tool? Paul Gilbert's drive, threat, and soothing system balancer designed for high-stress technical environments.
+* Why does it matter to your career? Reduces self-criticism following technical missteps and fosters psychological safety within engineering teams.
+* How do you complete it cleanly? Assess your current Threat, Drive, and Soothing system levels, then implement practical self-soothing and supportive leadership actions.
+
+---
+
+## 6. Interview Simulation, CPD & Acronym Lookup Portfolios
+
+These modules provide the final step-by-step tracks needed to complete your professional registration preparation.
+
+### Virtual PRI Simulator (interview-registration-ceng.html)
+* What is this tool? A timed interactive interview application built to simulate the Chartered Engineer Professional Review Interview panel experience.
+* Why does it matter to your career? Facing a panel of seasoned assessors can be stressful. Practicing your answers under a realistic timer helps you speak confidently and clearly.
+* How do you complete it cleanly? Launch a timed mock session. Practice answering standard UK-SPEC competency questions, focusing your responses entirely on your personal technical decisions and safety choices.
+
+### CPD Smart-Planner (planner.html)
+* What is this tool? A systematic career logger built to track and plan your Continuous Professional Development across the 70/20/10 learning framework, complying with Engineering Council, EUR ING, and IntPE standards.
+* Why does it matter to your career? Professional registration requires a lifelong commitment to learning. You must keep a verified CPD log to maintain your active status under Competence E.
+* How do you complete it cleanly? Categorise your learning across three core areas: log daily workplace problem-solving under the 70% track, record peer mentoring under the 20% track, and document formal courses or certifications under the 10% track.
+
+### Engineering Acronyms Decoder (decoder.html)
+* What is this tool? A high-performance lookup database containing over 15,000+ industry acronyms, codes, and institutional definitions.
+* Why does it matter to your career? Engineering documentation uses heavy terminology and complex shortcodes. Misinterpreting an acronym can lead to serious calculation errors or design missteps.
+* How do you complete it cleanly? Type the acronym into the search field. The tool instantly pulls up the verified term and explanation from our database without any loading delays.
+
+### RACI Matrix Roles (raci.html)
+* What is this tool? A project governance workspace for defining Responsible, Accountable, Consulted, and Informed roles across task matrices.
+* Why does it matter to your career? Prevents task ambiguity and ensures clear single-point accountability across multi-disciplinary engineering teams.
+* How do you complete it cleanly? List project tasks, assign team roles, allocate RACI designations for each task, and verify that every task has exactly one Accountable owner.
+
+### Technical References & Resource Manager (resources.html)
+* What is this tool? A central engineering technical reference database and bookmark manager for textbooks, British Standards (BS), Eurocodes, and ISO specifications.
+* Why does it matter to your career? Demonstrates regulatory awareness and citation depth required for UK-SPEC Competence B and E.
+* How do you complete it cleanly? Query references by discipline or domain, bookmark gold-standard codes, or inject custom reference cards into your local workspace.
+
+### Additional Interview Hub Directories
+* Career Interviews Directory (career-interviews.html): Landing track for standard corporate employment interviews.
+* Internal Promotion Interviews (interview-career-internal-promotion.html): Strategy planner for moving into executive engineering and management tracks.
+* External Job Interviews (interview-career-external-jobs.html): Technical capability alignment tool matching applicant skills to corporate requirements.
+* Professional Review Interviews (pri.html): Preparation space for final registration track checkouts.
+* IEng Review Interviews (interview-registration-ieng.html): Virtual assessment simulation track designed for Incorporated Engineer candidates.
+* EngTech Review Interviews (interview-registration-engtech.html): Timed question engine built specifically for Engineering Technician review paths.
+
+---
+
+## 7. Extracurricular Hobbies & Strategic Skill Building (hobbies.html)
+
+These modules track personal development activities outside standard workplace tasks, demonstrating well-rounded leadership and cognitive resilience.
+
+### STEM Volunteering (stem.html)
+* What is this tool? An outreach activity logger using the STAR methodology to map school visits, Primary Engineer mentoring, and volunteering hours directly to UK-SPEC Competences A through E.
+* Why does it matter to your career? Demonstrates public commitment, communication capability, and social responsibility required for Competence D and E.
+* How do you complete it cleanly? Input activity dates, duration hours, select applicable competences, write structured STAR summaries, and track progress toward official EE STEM Certification Badges (Bronze, Silver, Gold).
+
+### Chess Strategic Analysis (chess.html)
+* What is this tool? An interactive strategy board suite featuring classical opening lines (Nimzo-Indian, Sicilian, Ruy Lopez, King's Indian) to cultivate spatial logic and systems thinking.
+* Why does it matter to your career? Enhances multi-variable planning, risk assessment, and positional foresight needed for complex infrastructure design.
+* How do you complete it cleanly? Review historical master opening variations, test alternative lines, mark openings as reviewed in your local portfolio log, or accept an open 14-day correspondence challenge with platform founder MuratCEng on Chess.com via https://link.chess.com/play/av9CGG.
+
+### Performing Art & Communication Studio (performing.html)
+* What is this tool? A vocal delivery, projection training, and presentation skills workbench designed to build public speaking confidence.
+* Why does it matter to your career? Refines verbal clarity, articulation, and pacing for high-stakes technical presentations and board defences under Competence D.
+* How do you complete it cleanly? Practice vocal articulation exercises, structure presentation scripts, and record delivery notes.
+
+### Calisthenics Training (calisthenics.html)
+* What is this tool? A 4-week bodyweight training tracker and workout player featuring built-in rest timers and core movement tutorials.
+* Why does it matter to your career? Builds physical stamina, stress tolerance, and posture needed for demanding site operations and long engineering hours.
+* How do you complete it cleanly? Expand weekly training splits, launch the interactive workout player, track completed sets, and log finished days.
+
+### Acronym Blitz Game (blitz.html)
+* What is this tool? A gamified, rapid-fire term-decoding simulation with Standard and Blitz time-pressure modes.
+* Why does it matter to your career? Pressure-tests rapid terminology recall for high-stress site incidents and Professional Review Interview panels.
+* How do you complete it cleanly? Select game mode, decode the displayed acronym before system integrity runs out, build high-score streaks, and track performance metrics.

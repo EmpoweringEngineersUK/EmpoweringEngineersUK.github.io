@@ -1,0 +1,164 @@
+# Empowering Engineers UK - LLMs Discovery Index & Navigation Map
+# Date: 14 Aug 2026
+
+The primary resource hub for early-career technicians, graduate engineers, and industry professionals aiming to achieve professional registration with the Engineering Council via UK-SPEC criteria. This directory map provides a clean, machine-readable index of all interactive workbenches, business strategy coaching tools, and competency portfolios hosted natively on the platform.
+
+## Core System Hub
+* [System Hub Home](index.html) - The master landing page and central interface routing to all development workbenches.
+* [About Framework](about.html) - Background documentation detailing the platform's mission to democratise engineering registration.
+* [Organisation Architecture](organisation.html) - Formal organisational chart, multidisciplinary capability matrix, and operational team structure.
+* [Corporate Charter & Pledges](pledge.html) - Official commitments to career growth, social impact, DEI, environmental sustainability, and work-life balance.
+* [Contact & Enquiries](contact.html) - Structural pathways for system support, company verification, and partner networking.
+* [Our Social Media Map](social.html) - Official broadcast channels and community groups for peer-to-peer mentoring.
+* [User Onboarding Guide](guide.html) - Standard Operating Procedures (SOP) explaining localised sandbox workspace configurations.
+* [User Journey & FAQ](FAQ.html) - Comprehensive answers to frequent application queries and platform security processes.
+* [Privacy Protection Document](privacy.html) - Complete breakdown of the Zero-Knowledge localised data protection architecture.
+* [Terms of Service](terms.html) - Regulatory guidelines governing the open-access use of our analytical engines.
+* [Platform Sitemap](sitemap.html) - Human-readable hierarchical index of all deployment pathways.
+
+## Mentor Hub (Professional Engineering Registration Tracks)
+* [Mentor Hub Overview](mentor.html) - Central workspace detailing standard qualifications and assessment options.
+* [Career CV Builder](career.html) - High-density resume layout component designed for engineering review panels.
+* [CPD Action Plans (DAP)](dap.html) - Portfolio manager for building compliant Development Action Plans.
+* [Application Sponsors](sponsors.html) - Directory of authorised B2B industry sponsors and verified corporate advisors.
+
+### Chartered Engineer (CEng) UK-SPEC Portfolios
+* [CEng Track Dashboard](ceng.html) - Central submission track for Chartered Engineer evidence compilation.
+* [CEng Competence A](ceng-a.html) - Optimise the use of existing and emerging technologies through technical evaluation.
+* [CEng Competence B](ceng-b.html) - Analyse and solve complex engineering problems using innovative methodologies.
+* [CEng Competence C](ceng-c.html) - Technical leadership, project execution, and commercial budget management frameworks.
+* [CEng Competence D](ceng-d.html) - Professional communication, presentation standards, and team collaboration records.
+* [CEng Competence E](ceng-e.html) - Professional commitment, health and safety laws, ethics, and sustainability compliance.
+
+### Incorporated Engineer (IEng) UK-SPEC Portfolios
+* [IEng Track Dashboard](ieng.html) - Central track for Incorporated Engineer candidate evaluations.
+* [IEng Competence A](ieng-a.html) - Apply appropriate theoretical and practical methods to existing technologies.
+* [IEng Competence B](ieng-b.html) - Operational management of engineering applications, maintenance, and process adjustments.
+* [IEng Competence C](ieng-c.html) - Allocation of project resources, staff leadership, and quality management operations.
+* [IEng Competence D](ieng-d.html) - Productive workplace communication and cross-functional team liaison interfaces.
+* [IEng Competence E](ieng-e.html) - Safety compliance, institutional ethics, and environmental impact controls.
+
+### Engineering Technician (EngTech) UK-SPEC Portfolios
+* [EngTech Track Dashboard](engtech.html) - Central track for Engineering Technician validation entries.
+* [EngTech Competence A](engtech-a.html) - Technical knowledge and understanding of specified engineering practices.
+* [EngTech Competence B](engtech-b.html) - Practical application of technical skills to solve real-world problems.
+* [EngTech Competence C](engtech-c.html) - Supervisory responsibilities, safety ownership, and tool control tasks.
+* [EngTech Competence D](engtech-d.html) - Industrial communication, reporting procedures, and technical documentation.
+* [EngTech Competence E](engtech-e.html) - Safety regulations, professional ethics, and code of conduct compliance.
+
+## Coach Hub (Management, Quality & Strategy Workbenches)
+* [Coach Hub Overview](coach.html) - Core dashboard containing corporate management tools and executive programmes.
+
+### Strategy & Business Planning
+* [Strategy Index](strategy.html) - Core hub page for corporate business planning models, including Global Manufacturing Models, Product Life Cycle (PLC) engagement (Agreement Mfg, JDM, ODM), and 3D CAD mechanical tolerance stack-up frameworks.
+* [SWOT Analysis Studio](strategy-swot.html) - Strategic evaluation of internal Strengths, Weaknesses, and external Opportunities/Threats.
+* [PESTLE Analysis Studio](strategy-pestle.html) - Macro-environmental screening across Political, Economic, Social, Technological, Legal, and Environmental factors.
+* [Porter's Five Forces](strategy-porters.html) - Assessment of industry competitiveness, buyer power, supplier power, substitution, and entry barriers.
+* [VRIO Framework](strategy-vrio.html) - Resource capability validation based on Value, Rarity, Inimitability, and Organisation.
+* [BCG Matrix Dashboard](strategy-bcg.html) - Market share and growth analysis for prioritising corporate assets.
+* [Ansoff Matrix Studio](strategy-ansoff.html) - Market penetration, product development, market development, and diversification strategies.
+* [Scenario Planning Engine](strategy-scenarios.html) - Risk-insulated modeling of future commercial and technical environments.
+* [Value Chain Analysis (VCA)](strategy-value-chain.html) - Cost reduction and competitive advantage analysis across primary firm logistics.
+* [Blue Ocean Strategy (BOS)](strategy-blue-ocean.html) - Value innovation mapping for breaking out of competitive red markets.
+* [Business Model Canvas (BMC)](strategy-bmc.html) - High-density canvas mapping operations, value propositions, customer segments, and finance.
+* [SOAR Analysis Studio](strategy-soar.html) - Appreciative inquiry planning focusing on Strengths, Opportunities, Aspirations, and Results.
+* [Strategy Map Builder](strategy-map.html) - Visual cascading models linking learning, internal processes, customer value, and finance.
+* [Financial & Budget Control](strategy-budgets.html) - Spreadsheet-free calculations for engineering project costs and expenditures.
+* [Project Gantt Chart](strategy-gantt.html) - Advanced interactive project scheduler with dynamic roll-up calculations, baseline overlays, and logic constraints (SS/FF/Lags).
+* [Project Governance & RAID Suite](project-governance.html) - Comprehensive suite for Change Request logs, Decision Logs, and nested sub-checklists on engineering tasks.
+
+### Process & Quality Improvement
+* [Quality Index](quality.html) - Core hub page for Lean and Six Sigma engineering systems, including global manufacturing and tolerance stacking frameworks.
+* [PDCA Continuous Improvement](quality-pdca.html) - Standard execution engine for iterative Plan-Do-Check-Act problem-solving cycles.
+* [DMAIC Problem Solving](quality-dmaic.html) - Six Sigma methodology workspace for Define, Measure, Analyse, Improve, and Control phases.
+* [Value Stream Mapping](quality-vsm.html) - Layout tool for tracking material and information flow while removing waste.
+* [5 Whys Cause & Effect](quality-5whys.html) - Root-cause analysis tool for investigating operational process failures.
+* [Fishbone Diagram Studio](quality-fishbone.html) - Ishikawa cause-and-effect modeling across machinery, methods, materials, and manpower.
+* [Pareto Analysis Studio](quality-pareto.html) - Statistical priority calculator based on the 80/20 rule to fix critical errors first.
+* [Kanban Board Studio](quality-kanban.html) - Visual work-in-progress task board for tracking team output.
+* [Poka-Yoke Error Prevention](quality-poka-yoke.html) - Design rules and check procedures to eliminate human error in processes.
+* [SIPOC Process Mapping](quality-sipoc.html) - High-level process views detailing Suppliers, Inputs, Process, Outputs, and Customers.
+
+### Decision Making & Risk Management
+* [Decisions Index](decisions.html) - Core hub page for probability models and analytical decision matrices.
+* [Monte Carlo Simulation](decisions-monte-carlo.html) - High-performance statistical simulation for quantifying project delivery risks.
+* [Decision Tree Analysis](decisions-tree.html) - Visual probability models for tracking multi-stage operational choices.
+* [Cost-Benefit Analysis (CBA)](decisions-cba.html) - Quantitative comparison of engineering project implementation costs against expected rewards.
+* [Risk Assessment Matrix](decisions-risk-matrix.html) - Standard 5x5 hazard tracker mapping consequence severity against likelihood.
+* [Force Field Analysis](decisions-force-field.html) - Kurt Lewin's change management model mapping driving forces against restraining forces.
+* [OODA Loop Studio](decisions-ooda.html) - Rapid decision-making cycle for tactical environments: Observe, Orient, Decide, Act.
+* [WRAP Technique Studio](decisions-wrap.html) - Chip Heath's decision model: Widen options, Reality-test assumptions, Attain distance, Prepare to be wrong.
+* [Supplier Contract Analysis](decisions-contracts.html) - Risk evaluation workspace for engineering supply chain agreements.
+
+### Goal Setting & Performance Management
+* [Goals Index](goals.html) - Core hub page for team performance alignment frameworks.
+* [SMART Goals Studio](goals-smart.html) - Objective setter for Specific, Measurable, Achievable, Relevant, and Time-bound targets.
+* [Objectives & Key Results (OKRs)](goals-okrs.html) - High-performance framework linking broad objectives to measurable key metrics.
+* [Balanced Scorecard](goals-scorecard.html) - Performance scorecard measuring financial, customer, process, and organisational growth metrics.
+* [Big Hairy Audacious Goal (BHAG)](goals-bhag.html) - Long-term, visionary target setup for engineering organisations.
+* [Backward Goal Framework](goals-backward.html) - Deconstruct future end-state metrics to map out short-term tactical steps.
+* [The Golden Circle](goals-golden-circle.html) - Purpose alignment tool focused on Simon Sinek's Why, How, and What core concepts.
+* [Goals Pyramid Builder](goals-pyramid.html) - Structural cascade linking daily actions to master strategic goals.
+* [Tiered Goals Studio](goals-tiered.html) - Multi-level performance alignment for individuals, departments, and entire businesses.
+* [HARD Goals Studio](goals-hard.html) - Target setter for Heartfelt, Animated, Required, and Difficult achievements.
+* [Goals, Signals, Measures (GSM)](goals-gsm.html) - Structural metric definition framework designed specifically for technical products.
+* [WOOP Framework Studio](goals-woop.html) - Motivation strategy mapping Wish, Outcome, Obstacle, and Plan combinations.
+* [Locke & Latham's 5 Principles](goals-five-principles.html) - Goal-setting checks based on Clarity, Challenge, Commitment, Feedback, and Task Complexity.
+* [One Word Goal Setting](goals-one-word.html) - High-impact focus tool for simple, effective personal development targets.
+
+### Feedback & Coaching
+* [Feedback Index](feedback.html) - Core hub page for communication and team leadership models.
+* [GROW Model Studio](feedback-grow.html) - Standard career coaching framework: Goal, Reality, Options, Will.
+* [Situation-Behaviour-Impact (SBI)](feedback-sbi.html) - Clear feedback model highlighting professional actions and their workplace results, featuring dynamic framing toggles between Psychological Safety and Organisational Impact.
+* [CEDAR Feedback Studio](feedback-cedar.html) - Growth coaching model: Context, Examples, Diagnosis, Action, Review.
+* [Pendleton's Rules Studio](feedback-pendletons.html) - Structured, reflective methodology for evaluation post-technical reviews.
+* [COIN Model Studio](feedback-coin.html) - Performance correction tool tracking Context, Observation, Impact, and Next Steps.
+* [Big Small Quick (BSQ)](feedback-bsq.html) - Implementation model for tracking big goals, small steps, and quick wins.
+
+### Psychological Safety & Therapy
+* [Therapy Hub Overview](therapy.html) - Core hub page for Engineer's Psychological Safety & Therapy.
+* [Acceptance and Commitment Therapy (ACT) & OPAL Framework](therapy-act.html) - Acceptance and Commitment Therapy and Openness, Presence, Acceptance, and Light framework.
+* [Cognitive Behavioral Therapy (CBT)](therapy-cbt.html) - A structured, short-term talk therapy that teaches you how your thoughts, feelings, and behaviours affect each other.
+* [Dialectical Behavior Therapy (DBT)](therapy-dbt.html) - An evidence-based talking therapy built on cognitive behavioural therapy (CBT), focusing on mindfulness, distress tolerance, and emotion regulation.
+* [Rational Emotive Behavior Therapy (REBT)](therapy-rebt.html) - An action-oriented form of cognitive-behavioural therapy developed by Albert Ellis in 1955.
+* [Compassion Focused Therapy (CFT)](therapy-cft.html) - A form of psychotherapy developed by British psychologist Paul Gilbert that helps people with high levels of shame and self-criticism.
+
+### Interview & Professional Communication
+* [Communication Index](communication.html) - Core hub page for technical report drafting and narrative modeling.
+* [Storytelling for Technical Reports](communication-storytelling.html) - Content drafting rules for converting complex project metrics into clear narratives.
+* [STAR Method Studio](communication-star.html) - Interactive framework for structuring engineering entries: Situation, Task, Action, Result.
+* [CAR Framework Studio](communication-car.html) - Alternative review structure mapping Context, Action, and Result configurations.
+* [SOAR Technique Studio](communication-soar.html) - Narrative layout optimizing project reporting via Situation, Obstacle, Action, and Results.
+* [PARLA Method Studio](communication-parla.html) - Competency structure highlighting Problem, Action, Result, Learning, and Application.
+* [FAB Approach Studio](communication-fab.html) - Presentation modeling linking technical Features, operational Advantages, and business Benefits.
+* [SAO Framework Studio](communication-sao.html) - Career portfolio drafting model focusing on Situation, Action, and Outcome profiles.
+* [SHARE Model Studio](communication-share.html) - Competency framework tracking Situation, Hindrances, Actions, Results, and Evaluation.
+* [DARE Method Studio](communication-dare.html) - Engineering interview model: Define problem, Action taken, Result achieved, Evaluation learned.
+* [CAPS Technique Studio](communication-caps.html) - High-impact executive communications framework mapping Context, Action, Position, and Summary.
+
+## Interview, CPD & Hobbies Hubs
+
+### Interview Preparation Hub
+* [Interview Hub Overview](interview.html) - Central dashboard for Professional Review Interviews (PRI) and job search preparations.
+* [Career Interviews Directory](career-interviews.html) - Landing track for standard corporate employment interviews.
+* [Internal Promotion Interviews](interview-career-internal-promotion.html) - Strategy planner for moving into executive engineering and management tracks.
+* [External Job Interviews](interview-career-external-jobs.html) - Technical capability alignment tool matching applicant skills to corporate requirements.
+* [Professional Review Interviews (PRI)](pri.html) - Preparation space for final registration track checkouts.
+* [CEng Review Interviews](interview-registration-ceng.html) - Virtual simulation engine for Chartered Engineer review questions with AI-guided critiques.
+* [IEng Review Interviews](interview-registration-ieng.html) - Virtual assessment simulation track designed for Incorporated Engineer candidates.
+* [EngTech Review Interviews](interview-registration-engtech.html) - Timed question engine built specifically for Engineering Technician review paths.
+
+### CPD Workbenches
+* [CPD Hub Overview](cpd.html) - Core dashboard for logging learning records and technical competency portfolios.
+* [CPD Planner](planner.html) - Technical capability audit mapping tracking metrics against the 70/20/10 learning model, and international CPD logger complying with Engineering Council, EUR ING (FEANI), and IntPE standards.
+* [Engineering Acronyms Decoder](decoder.html) - Fully indexed, high-density acronym lookup engine containing over 15,000+ industry tokens.
+* [RACI Matrix Roles](raci.html) - Process mapping studio for defining Responsible, Accountable, Consulted, and Informed paths.
+* [Engineering Resources](resources.html) - Curated database tracking textbooks, registration guidance documents, and PEI portals.
+
+### Hobbies Hub
+* [Hobbies Hub Overview](hobbies.html) - Track for managing personal development outside of standard technical workspaces.
+* [STEM Volunteering](stem.html) - Resource planner for schools outreach and early-career engineering promotion activities.
+* [Playing Chess](chess.html) - Spatial logic and tactical reasoning studio using deep board theory configurations.
+* [Performing Poetry](performing.html) - Vocal delivery, projection training, and presentation skills workbench.
+* [Calisthenics Training](calisthenics.html) - Physical performance logging tracking relative strength and structural endurance metrics.
+* [Acronym Blitz Game](blitz.html) - High-density recall engine for practicing complex industry codes against a timer.
